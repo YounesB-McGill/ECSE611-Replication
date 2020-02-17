@@ -6,20 +6,37 @@ from numpy import array
 import random
 from sklearn.metrics import roc_curve
 from sklearn.metrics import roc_auc_score
+from sklearn.model_selection import train_test_split
+import classifiers
+import numpy as np
+from sklearn.metrics import mean_absolute_error
 
-#only here so that I can call it to test if the 
-def run_model_standin(train_data, test_data):
-	results = []
-	for i in range(0, len(train_data)):
-		result = random.random()
-		if result > .5:
-			results.append(1)
-		else:
-			results.append(0)
-	return results
-	
+precision_results_cart = []
+recall_results_cart = []
+f_score_results_cart = []
+auc_results_cart = []
 
-#performs precision on input data. should intake list of choices made by the model as well as the correct result
+precision_results_knn = []
+recall_results_knn = []
+f_score_results_knn = []
+auc_results_knn = []
+
+precision_results_lr = []
+recall_results_lr = []
+f_score_results_lr = []
+auc_results_lr = []
+
+precision_results_nb = []
+recall_results_nb = []
+f_score_results_nb = []
+auc_results_nb = []
+
+precision_results_rf = []
+recall_results_rf = []
+f_score_results_rf = []
+auc_results_rf = []
+
+# performs precision on input data. should intake list of choices made by the model as well as the correct result
 def perform_precision(model_choice, actual_result):
 	true_positives = 0
 	false_positives = 0
@@ -29,10 +46,13 @@ def perform_precision(model_choice, actual_result):
 				true_positives+=1
 			else:
 				false_positives+=1
-	precision = true_positives/(false_positives+true_positives)
+	if (false_positives+true_positives == 0):
+		precision = 0
+	else:
+		precision = true_positives/(false_positives+true_positives)
 	return precision
 
-#performs recall on input data. should intake list of choices made by the model as well as the correct result
+# performs recall on input data. should intake list of choices made by the model as well as the correct result
 def perform_recall(model_choice, actual_result):
 	true_positives = 0
 	false_negatives = 0
@@ -43,57 +63,167 @@ def perform_recall(model_choice, actual_result):
 		else:
 			if actual_result[i] == 1:
 				false_negatives+=1
-	recall = true_positives/(true_positives+false_negatives)
+	if (true_positives+false_negatives == 0):
+		recall = 0
+	else:
+		recall = true_positives/(true_positives+false_negatives)
 	return recall
 
-#f-score of the model, should take in the precision and recall values found prior
+# f-score of the model, should take in the precision and recall values found prior
 def perform_f_score(precision_value, recall_value):
-	f_score = 2*((precision_value*recall_value)/(precision_value+recall_value))
+	if (precision_value+recall_value == 0):
+		f_score = 0
+	else:
+		f_score = 2*((precision_value*recall_value)/(precision_value+recall_value))
 	return f_score
 
-#performs auc on input data. should intake list of choices made by the model as well as the correct result
+# performs auc on input data. should intake list of choices made by the model as well as the correct result
 def perform_AUC(model_choice, actual_result):
-	auc_result = roc_auc_score(actual_result, model_choice)
+	try:
+		auc_result = roc_auc_score(actual_result, model_choice)
+	except ValueError:
+		auc_result = 0
 	return auc_result
 
-#should split the data into ten folds and then call all of the tests to rate the performance of the model in several different ways
-#currently does not return the results but that can be added easily
-def perform_cross_validation_split(data, num_splits):
-	kf = KFold(n_splits = num_splits)
+def calculate_metrics(prediction, actual, classifier):
+	pres_value = perform_precision(prediction, actual)
+	rec_value = perform_recall(prediction, actual)
+	f_score_value = perform_f_score(pres_value, rec_value)
+	auc_value = perform_AUC(prediction, actual)
+
+	if classifier == "cart":
+		precision_results_cart.append(pres_value)
+		recall_results_cart.append(rec_value)
+		f_score_results_cart.append(f_score_value)
+		auc_results_cart.append(auc_value)
+
+	if classifier == "knn":
+		precision_results_knn.append(pres_value)
+		recall_results_knn.append(rec_value)
+		f_score_results_knn.append(f_score_value)
+		auc_results_knn.append(auc_value)
+
+	if classifier == "lr":
+		precision_results_lr.append(pres_value)
+		recall_results_lr.append(rec_value)
+		f_score_results_lr.append(f_score_value)
+		auc_results_lr.append(auc_value)
+
+	if classifier == "nb":
+		precision_results_nb.append(pres_value)
+		recall_results_nb.append(rec_value)
+		f_score_results_nb.append(f_score_value)
+		auc_results_nb.append(auc_value)
+
+	if classifier == "rf":
+		precision_results_rf.append(pres_value)
+		recall_results_rf.append(rec_value)
+		f_score_results_rf.append(f_score_value)
+		auc_results_rf.append(auc_value)
+
+def calculate_mean_metrics(precision_results, recall_results, f_score_results, auc_results):
+	precision = statistics.median(precision_results)
+	recall = statistics.median(recall_results)
+	f_score = statistics.median(f_score_results)
+	auc = statistics.median(auc_results)
+	return precision, recall, f_score, auc
+
+def save_results(precision, recall, f_score, auc, system, classifier):
+	output = "results.csv"
+	with open(output, "a+") as f:
+		f.write("%s;%s;%s;%s;%s;%s\n" % (system, classifier, "{0:.2f}".format(precision), r"{0:.2f}".format(recall), "{0:.2f}".format(f_score), round(auc,2)))
+
+# should split the data into ten folds and then call all of the tests to rate the performance of the model in several different ways
+# currently does not return the results but that can be added easily
+def perform_cross_validation_split(data, num_splits, filename):
+	y = data['defect_status']
+	del data["defect_status"]		# removing defect answer for training
+	X = data.to_numpy() 	 		# remove defects
 	
+	# performing cross-validation
+	kf = KFold(n_splits = num_splits)
 
-	precision_results = []
-	recall_results = []
-	f_score_results = []
-	auc_results = []
+	for train, test in kf.split(X):
+		X_train, X_test = X[train], X[test]
+		y_train, y_test = y[train], y[test]
+		actual = y_test.tolist()
 
-	for train, test in kf.split(data):
-		test_data = data.loc[test]
-		train_data = data.loc[train]
-		test_res = run_model_standin(train_data,test_data)
+		# Classification and Regression Tree (CART) 
+		prediction = classifiers.cart(X_train, y_train, X_test)
+		calculate_metrics(prediction, actual, "cart")
 
-		actual = train_data['defect_status'].tolist()
+		# KNearestNeighbor(KNN)
+		prediction = classifiers.knn(X_train, y_train, X_test)
+		calculate_metrics(prediction, actual, "knn")
 
-		pres_value = perform_precision(test_res, actual)
-		precision_results.append(pres_value)
+		# Logistic Regression (LR)
+		prediction = classifiers.logistic_regression(X_train, y_train, X_test)
+		calculate_metrics(prediction, actual, "lr")
 
-		rec_value = perform_recall(test_res, actual)
-		recall_results.append(rec_value)
+		# Naive Bayes (NB)
+		prediction = classifiers.naive_bayes(X_train, y_train, X_test)
+		calculate_metrics(prediction, actual, "nb")
 
-		f_score_value = perform_f_score(pres_value, rec_value)
-		f_score_results.append(f_score_value)
+		# Random Forest (RF)
+		prediction = classifiers.random_forest(X_train, y_train, X_test)
+		calculate_metrics(prediction, actual, "rf")
+	
+	print("\nCalculate mean metrics...")
+	filename = filename.split("IST_")[1].split(".csv")[0]
 
-		auc_value = perform_AUC(test_res, actual)
-		auc_results.append(auc_value)
+	precision, recall, f_score, auc = calculate_mean_metrics(precision_results_cart, recall_results_cart, f_score_results_cart, auc_results_cart)
+	save_results(precision, recall, f_score, auc, filename, "CART")
 
-	print(auc_results)
-	print(statistics.median(auc_results))
+	precision, recall, f_score, auc = calculate_mean_metrics(precision_results_knn, recall_results_knn, f_score_results_knn, auc_results_knn)
+	save_results(precision, recall, f_score, auc, filename, "KNN")
 
-#intakes the file of the given name and returns it as a data frame
+	precision, recall, f_score, auc = calculate_mean_metrics(precision_results_lr, recall_results_lr, f_score_results_lr, auc_results_lr)
+	save_results(precision, recall, f_score, auc, filename, "LR")
+
+	precision, recall, f_score, auc = calculate_mean_metrics(precision_results_nb, recall_results_nb, f_score_results_nb, auc_results_nb)
+	save_results(precision, recall, f_score, auc, filename, "NB")
+
+	precision, recall, f_score, auc = calculate_mean_metrics(precision_results_rf, recall_results_rf, f_score_results_rf, auc_results_rf)
+	save_results(precision, recall, f_score, auc, filename, "RF")
+
+# intakes the file of the given name and returns it as a data frame
 def intake_file(filename):
 	df = pd.read_csv(filename, encoding='utf-8', sep=',')
+	# Deleting columns not useful for the model
+	del df["org"]
+	del df["file_"]
 	return df
 
-df = intake_file("IST_MIR.csv")
+if __name__ == '__main__':
+	INPUT_FILES = ["data/IST_MIR.csv", "data/IST_MOZ.csv", "data/IST_OST.csv", "data/IST_WIK.csv"]
 
-perform_cross_validation_split(df, 10)
+	for file in INPUT_FILES:
+		print("file: ", file)
+		df = intake_file(file)
+		precision_results_cart = []
+
+		recall_results_cart = []
+		f_score_results_cart = []
+		auc_results_cart = []
+
+		precision_results_knn = []
+		recall_results_knn = []
+		f_score_results_knn = []
+		auc_results_knn = []
+
+		precision_results_lr = []
+		recall_results_lr = []
+		f_score_results_lr = []
+		auc_results_lr = []
+
+		precision_results_nb = []
+		recall_results_nb = []
+		f_score_results_nb = []
+		auc_results_nb = []
+
+		precision_results_rf = []
+		recall_results_rf = []
+		f_score_results_rf = []
+		auc_results_rf = []
+
+		perform_cross_validation_split(df, 10, file)
