@@ -22,7 +22,9 @@ REPO_URLS_LOC = "data/repo_urls.txt"
 def get_repo_urls() -> List[str]:
     """
     Returns a list of valid URLs which were precomputed using get_repo_urls_from_raw_data().
-    This function is much faster.
+    This function is much faster. Because all repos here are mentioned in Sec. 3.4 (surveys were
+    sent only to developers of valid repos), they must have passed the criteria mentioned in
+    Sec. 3.1.1.
     """
     urls = []
 
@@ -76,18 +78,32 @@ def url_exists(url: str) -> bool:
     return requests.head(url).status_code == 200
 
 
-# TODO Use RepositoryMining to get information about each repo
+def mine_repos(repos: List[str]):
+    """
+    Mines repos for information about commits using pydriller. This function is very slow when run
+    on lots of data!
 
-# i = 0
-# for commit in RepositoryMining(path_to_repo=REPO_URLS).traverse_commits():
-#     print(commit)
-#     i += 1
-#     print(f"commit {commit.hash}, date {commit.author_date}")
+    Sample output:
 
-# print(f"Total commits: {i}")
+        32cda6f8735817ed08df40f6154725c7ad956559,change message,Dustin J. Mitchell,2011-08-24 18:05:14-05:00
+        e48046ad0a27aa855c32142c8ad71317c540f7e6,initial base-image.sh,Dustin J. Mitchell,2011-08-30 14:21:46-05:00
+        cfc25c2cbc4fbdaf6b1563ac7f2942d2568eaf65,update base-image.sh,Dustin J. Mitchell,2011-08-30 14:23:53-05:00
+    """
+
+    i = 0
+    for commit in RepositoryMining(path_to_repo=repos).traverse_commits():
+        
+        # TODO We can filter files by type (.pp) using commit.modifications
+        print(f"{commit.hash},{commit.msg},{commit.committer.name},{commit.author_date}")
+
+        i += 1
+        if i == 5:
+            break
+
+    print(f"Total commits: {i}")
+
 
 if __name__ == "__main__":
     urls = get_repo_urls()
-    for url in urls:
-        print(url)
+    mine_repos(urls[0:1])
 
