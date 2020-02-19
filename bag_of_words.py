@@ -1,3 +1,4 @@
+import os
 from string import ascii_lowercase
 from string import ascii_uppercase
 from nltk.stem import PorterStemmer
@@ -103,4 +104,15 @@ def run_all_bag_of_words(filename):
 	bag_of_words = create_bag_of_words(final_words)
 	return bag_of_words
 
-print(run_all_bag_of_words('git-repo/site.pp'))
+def run_through_directory(directory_name):
+	directory = os.fsencode(directory_name)
+
+	for file in os.listdir(directory):
+		filename = os.fsencode(file).decode("utf-8")
+		if filename.endswith(".pp"):
+			print(filename)
+		else:
+			continue
+
+# print(run_all_bag_of_words('git-repo/site.pp'))
+run_through_directory('git-repo')
