@@ -1,6 +1,8 @@
 from git import Repo
 import os
 
+
+
 def clone_repo(repo_name):
 	dirName = repo_name.replace('https://github.com/','')
 	dirName = dirName.replace('/','-')
@@ -15,12 +17,20 @@ def clone_repo(repo_name):
 		print(os.getcwd())
 		os.system(checkout_command)
 		os.system('git fetch')
+		os.chdir('../')
+		print(os.getcwd())
 	except OSError:
 		("problem creating directory")
 
 
-os.chdir("../source-code-repos")
+file = open('data/repo_urls.txt', 'r')
 
+lines = file.readlines()
+
+os.chdir("../source-code-repos")
 print(os.getcwd())
 
-clone_repo('https://github.com/openstack/puppet-octavia')
+for line in lines:
+	strip_line = line.strip()
+	print(strip_line)
+	clone_repo(strip_line)
