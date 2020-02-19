@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 
 import requests
+import os
 
 from pydriller import RepositoryMining
+from pydriller.domain.commit import Commit
 from typing import List
 
 RAW_IST_LOC = "data"
@@ -90,17 +92,60 @@ def mine_repos(repos: List[str]):
         cfc25c2cbc4fbdaf6b1563ac7f2942d2568eaf65,update base-image.sh,Dustin J. Mitchell,2011-08-30 14:23:53-05:00
     """
 
-    i = 0
-    for commit in RepositoryMining(path_to_repo=repos).traverse_commits():
+    for repo in repos:
+        names = repo.split("/")
+        with open(f"data/repo_commits/{names[-2]}_{names[-1]}.json", "w+") as f:
+            #f.write('{\n  "repos": [\n')
+            f.write(f'    {{\n      "url": "{repo}",\n      "commits": [')
+
+            depth = 0
+            for commit in RepositoryMining(path_to_repo=repo).traverse_commits():
+                if commit_includes_pp_file(commit):
+                    f.write(make_commit_json(commit))
+
+                    #print(f"{commit.hash},{commit.msg},{commit.committer.name},{commit.committer_date}")
+
+                    depth += 1
+                    if depth == 2:
+                        break
+
+            # TODO Remove trailing comma from last commit
+
+            f.write("      ]\n")
         
-        # TODO We can filter files by type (.pp) using commit.modifications
-        print(f"{commit.hash},{commit.msg},{commit.committer.name},{commit.author_date}")
+            #f.write('  ]\n}\n')
 
-        i += 1
-        if i == 5:
-            break
+        print(f"Total commits: {depth}")
 
-    print(f"Total commits: {i}")
+
+def commit_includes_pp_file(commit: Commit) -> bool:
+    for modification in commit.modifications:
+        if modification.filename[-3:] == ".pp":
+            return True
+    return False
+
+
+def make_modified_files_list(commit: Commit) -> str:
+    """
+    Return a string of files which is compatible with JSON arrays ["a", "b", "c"].
+    """
+    result = "["
+    for modification in commit.modifications:
+        result += f'"{modification.filename}", '
+    result += "]"
+    result = "".join(result.rsplit(", ", 1))
+    return result
+
+
+def make_commit_json(commit: Commit) -> str:
+    msg = commit.msg.replace("\n", "\\n")
+    return f"""{{
+        "hash": "{commit.hash}",
+        "msg": "{msg}",
+        "cmtr": "{commit.committer}",
+        "date": "{commit.committer_date}",
+        "files": {make_modified_files_list(commit)}
+    }},\n"""
 
 
 if __name__ == "__main__":
