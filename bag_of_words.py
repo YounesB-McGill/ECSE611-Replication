@@ -1,3 +1,4 @@
+import csv
 import os
 from pathlib import Path
 from string import ascii_lowercase
@@ -107,17 +108,27 @@ def run_all_bag_of_words(filename):
 
 def run_through_directory(directory_name):
 	pathlist = Path(directory_name).glob('**/*.pp')
+
+	bow_list = []
+
 	for path in pathlist:
+		output_list = []
 		filename = str(path)
-		print(filename)
-	# directory = os.fsencode(directory_name)
+		full_dir_name = directory_name+"/"
+		new_filename = filename.replace(full_dir_name, "")
+		output_list.append(new_filename)
+		b_o_w = run_all_bag_of_words(filename)
+		output_list.append(b_o_w)
+		bow_list.append(output_list)
+	return bow_list
 
-	# for file in os.listdir(directory):
-	# 	filename = os.fsencode(file).decode("utf-8")
-	# 	if filename.endswith(".pp"):
-	# 		print(filename)
-	# 	else:
-	# 		continue
+dir_name = "git-repo"
+final_list = run_through_directory(dir_name)
 
-# print(run_all_bag_of_words('git-repo/site.pp'))
-run_through_directory('git-repo')
+out_name = dir_name + "-bag_of_words.csv"
+os.chdir(dir_name)
+out = open(out_name, 'w')
+csv_writer = csv.writer(out)
+
+for line in final_list:
+	csv_writer.writerow(line)
