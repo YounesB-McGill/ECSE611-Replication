@@ -1,5 +1,6 @@
 import csv
 import os
+import pandas as pd
 from pathlib import Path
 from string import ascii_lowercase
 from string import ascii_uppercase
@@ -122,13 +123,63 @@ def run_through_directory(directory_name):
 		bow_list.append(output_list)
 	return bow_list
 
-dir_name = "git-repo"
-final_list = run_through_directory(dir_name)
+def perform_line_cleanup(line, folder):
+	if folder == "Mirantis":
+		line = line.replace('/Users/akond/PUPP_REPOS/mirantis-downloads/','Mirantis-')
+	elif folder == "Mozilla":
+		line = line.replace('/Users/akond/PUPP_REPOS/mozilla-releng-downloads/puppet','mozilla-releng-build-puppet/')
+		line = line.replace('/Users/akond/PUPP_REPOS/mozilla-releng-downloads/', 'mozilla-releng-build-puppet/')
+		line = line.replace('relabs-puppet/','')
+	elif folder == "openstack":
+		line = line.replace('/Users/akond/PUPP_REPOS/openstack-downloads/', 'openstack-')
+		line = line.replace('volume','backend')
+		
+	return line
 
-out_name = dir_name + "-bag_of_words.csv"
-os.chdir(dir_name)
-out = open(out_name, 'w')
-csv_writer = csv.writer(out)
+def find_file(filename):
+	os.chdir("../source-code-repos")
 
-for line in final_list:
-	csv_writer.writerow(line)
+	try:
+		file = open(filename, 'r')
+		# b_o_w = run_all_bag_of_words(filename)
+		# return b_o_w
+		return 1
+
+	except FileNotFoundError:
+		print(filename)
+		return None
+
+
+filename = "data/IST_OST.csv"
+df = pd.read_csv(filename, encoding='utf-8', sep=',')
+
+b_o_w_list = []
+
+counter = 0
+
+for line in df['file_']:
+	cleaned_line = perform_line_cleanup(line, 'openstack')
+	x = find_file(cleaned_line)
+	if x == 1:
+		counter+=1
+print(counter)
+	# output = find_file(cleaned_line)
+	# b_o_w_list.append(output)
+
+# df['bag_of_words'] = b_o_w_list
+
+os.chdir("../ECSE611-Replication/data")
+# df.to_csv('MIR_Bag_Of_Words.csv')
+
+
+
+# dir_name = "git-repo"
+# final_list = run_through_directory(dir_name)
+
+# out_name = dir_name + "-bag_of_words.csv"
+# os.chdir(dir_name)
+# out = open(out_name, 'w')
+# csv_writer = csv.writer(out)
+
+# for line in final_list:
+# 	csv_writer.writerow(line)
