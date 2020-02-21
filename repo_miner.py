@@ -116,24 +116,33 @@ def mine_repos(repos: List[str]):
     for repo in repos:
         names = repo.split("/")
 
+        # To facilitate repository analysis, certain global properties should be computed from the
+        # commits, eg the list of Puppet files in the entire project.
+        pp_files = []
+        pp_committers = []
+        num_pp_commits = 0
+        num_tot_commits = 0
+
         # '{\n  "repos": [\n'  # TODO Use this when merging files
-        output_json: str = make_output_json_header(repo)
+        output_json: str = ""
         
-        depth = 0
         for commit in RepositoryMining(path_to_repo=repo, to=DATE_LIMIT).traverse_commits():
             if commit_includes_pp_file(commit):
                 output_json += make_commit_json(commit)
+                num_pp_commits += 1
 
-            depth += 1
-            # if depth == 2: break  # use this to limit the depth if it gets too large
+            num_tot_commits += 1
+            # if num_tot_commits == 10: break  # use this to limit the depth if it gets too large
 
-        # Remove trailing comma from last commit
-        output_json = output_json[:-8] + "]\n    }\n"
-        
+        # [:-8] to remove trailing comma from last commit
+        output_json = make_output_json_header(repo, pp_files, pp_committers
+            ) + output_json[:-8] + "]\n    }\n"
+
         with open(f"data/repo_commits/{names[-2]}_{names[-1]}.json", "w+") as f:
             f.write(output_json)
 
-        print(f"Processed {depth} commits in the {repo} repo.")
+        print(f"Processed {num_pp_commits} Puppet commits out of {num_tot_commits} in total in "
+              f"the {repo} repo.")
 
 
 def commit_includes_pp_file(commit: Commit) -> bool:
@@ -159,18 +168,15 @@ def make_template(name: str) -> str:
     """
     Create a temporary sequence of characters (the template) to stand in place of data which has
     not been collected yet.
-
-    To facilitate repository analysis, certain global properties should be computed from the
-    commits, eg the list of Puppet files in the entire project. 
     """
     return f"@@{UNIQUE_TEMPLATE_PREFIX}__{name}@@"
 
 
-def make_output_json_header(repo_url: str) -> str:
+def make_output_json_header(repo_url: str, pp_files: List[str], pp_committers: List[str]) -> str:
     return f'''    {{
       "url": "{repo_url}",
-      "pp_files": "{make_template("PP_FILES")}",
-      "pp_cmtrs": "{make_template("PP_CMTRS")}",
+      "pp_files": {pp_files},
+      "pp_cmtrs": {pp_committers},
       "num_pp_commits": "{make_template("NUM_PP_COMMITS")}",
       "num_tot_commits": "{make_template("NUM_TOT_COMMITS")}",
       "commits": ['''
