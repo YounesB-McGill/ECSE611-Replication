@@ -115,14 +115,12 @@ def mine_repos(repos: List[str]):
         names = repo.split("/")
 
         # '{\n  "repos": [\n'  # TODO Use this when merging files
-        output_json: str = f'    {{\n      "url": "{repo}",\n      "commits": ['
-        #print(output_json)
+        output_json: str = make_output_json_header(repo)
         
         depth = 0
         for commit in RepositoryMining(path_to_repo=repo, to=DATE_LIMIT).traverse_commits():
             if commit_includes_pp_file(commit):
                 output_json += make_commit_json(commit)
-                #print(output_json)
 
             depth += 1
             # if depth == 2: break  # use this to limit the depth if it gets too large
@@ -153,6 +151,12 @@ def make_modified_files_list(commit: Commit) -> str:
     result += "]"
     result = "".join(result.rsplit(", ", 1))  # remove trailing comma
     return result
+
+
+def make_output_json_header(repo_url: str) -> str:
+    return f'''    {{
+      "url": "{repo_url}",
+      "commits": ['''
 
 
 def make_commit_json(commit: Commit) -> str:
