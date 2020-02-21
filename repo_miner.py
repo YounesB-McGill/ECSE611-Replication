@@ -21,6 +21,8 @@ GITHUB_USERNAMES = ["Mirantis", "openstack", "wikimedia"]
 
 REPO_URLS_LOC = "data/repo_urls.txt"
 
+UNIQUE_TEMPLATE_PREFIX = "ECSE611"  # very unlikely to appear in a commit message
+
 class UtcTzinfo(datetime.tzinfo):
     """Helper class to compare dates in different timezones."""
     def __init__(self): pass
@@ -153,9 +155,24 @@ def make_modified_files_list(commit: Commit) -> str:
     return result
 
 
+def make_template(name: str) -> str:
+    """
+    Create a temporary sequence of characters (the template) to stand in place of data which has
+    not been collected yet.
+
+    To facilitate repository analysis, certain global properties should be computed from the
+    commits, eg the list of Puppet files in the entire project. 
+    """
+    return f"@@{UNIQUE_TEMPLATE_PREFIX}__{name}@@"
+
+
 def make_output_json_header(repo_url: str) -> str:
     return f'''    {{
       "url": "{repo_url}",
+      "pp_files": "{make_template("PP_FILES")}",
+      "pp_cmtrs": "{make_template("PP_CMTRS")}",
+      "num_pp_commits": "{make_template("NUM_PP_COMMITS")}",
+      "num_tot_commits": "{make_template("NUM_TOT_COMMITS")}",
       "commits": ['''
 
 
