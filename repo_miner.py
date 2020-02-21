@@ -22,8 +22,6 @@ GITHUB_USERNAMES = ["Mirantis", "openstack", "wikimedia"]
 
 REPO_URLS_LOC = "data/repo_urls.txt"
 
-UNIQUE_TEMPLATE_PREFIX = "ECSE611"  # very unlikely to appear in a commit message
-
 class UtcTzinfo(datetime.tzinfo):
     """Helper class to compare dates in different timezones."""
     def __init__(self): pass
@@ -60,8 +58,7 @@ def get_repo_urls_from_raw_data() -> List[str]:
     urls = ["https://github.com/mozilla-releng/build-puppet"]
 
     for u, f in zip(GITHUB_USERNAMES, RAW_IST_FILES):
-        project_names = get_project_names_from_csv(f)
-        for p in project_names:
+        for p in get_project_names_from_csv(f):
             url = make_repo_url(u, p)
             if url_exists(url):
                 urls.append(url)
@@ -207,6 +204,6 @@ def make_commit_json(commit: Commit) -> str:
 
 if __name__ == "__main__":
     urls = get_repo_urls()
-    mine_repos(urls[1:6])
+    mine_repos(urls)
     #mine_repos(urls[0:1])  # was 6
 
