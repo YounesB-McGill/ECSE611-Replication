@@ -135,8 +135,9 @@ def mine_repos(repos: List[str]):
             # if num_tot_commits == 10: break  # use this to limit the depth if it gets too large
 
         # [:-8] to remove trailing comma from last commit
-        output_json = make_output_json_header(repo, pp_files, pp_committers
-            ) + output_json[:-8] + "]\n    }\n"
+        output_json = make_output_json_header(
+            repo, pp_files, pp_committers, num_pp_commits, num_tot_commits
+        ) + output_json[:-8] + "]\n    }\n"
 
         with open(f"data/repo_commits/{names[-2]}_{names[-1]}.json", "w+") as f:
             f.write(output_json)
@@ -164,21 +165,14 @@ def make_modified_files_list(commit: Commit) -> str:
     return result
 
 
-def make_template(name: str) -> str:
-    """
-    Create a temporary sequence of characters (the template) to stand in place of data which has
-    not been collected yet.
-    """
-    return f"@@{UNIQUE_TEMPLATE_PREFIX}__{name}@@"
-
-
-def make_output_json_header(repo_url: str, pp_files: Iterable[str], pp_committers: Iterable[str]) -> str:
+def make_output_json_header(repo_url: str, pp_files: Iterable[str], pp_committers: Iterable[str],
+                            num_pp_commits: int, num_tot_commits: int) -> str:
     return f'''    {{
       "url": "{repo_url}",
       "pp_files": {list(pp_files)},
       "pp_cmtrs": {list(pp_committers)},
-      "num_pp_commits": "{make_template("NUM_PP_COMMITS")}",
-      "num_tot_commits": "{make_template("NUM_TOT_COMMITS")}",
+      "num_pp_commits": {num_pp_commits},
+      "num_tot_commits": {num_tot_commits},
       "commits": ['''
 
 
