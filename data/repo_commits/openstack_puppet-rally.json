@@ -1,0 +1,210 @@
+    {
+      "url": "https://github.com/openstack/puppet-rally",
+      "pp_files": ["watcher.pp", "logging.pp", "db.pp", "init.pp", "sync.pp", "postgresql.pp", "heat.pp", "cinder.pp", "params.pp", "config.pp", "settings.pp", "deps.pp", "glance.pp", "magnum.pp", "mistral.pp", "ec2.pp", "manila.pp", "mysql.pp", "murano.pp", "swift.pp", "tempest.pp", "monasca.pp", "sahara.pp", "nova.pp", "rally.pp", "ironic.pp"],
+      "pp_cmtrs": ["Emilien Macchi", "ZhongShengping", "iberezovskiy", "Sharat Sharma", "Xingchao Yu", "Andy Botting", "zhubingbing"],
+      "num_pp_commits": 29,
+      "num_tot_commits": 113,
+      "commits": [{
+        "hash": "ad06e15831ee60113c3f143cdff58f9485ed5c1a",
+        "msg": "puppet-rally: Initial commit\n\nThis is the initial commit for puppet-rally.\nIt has been automatically generated using cookiecutter[1] and msync[2]\n\n[1] https://github.com/openstack/puppet-openstack-cookiecutter\n[2] https://github.com/openstack/puppet-modulesync-configs\n\nChange-Id: Id91076034a4a0ba17e454fa16473b050e167dcac",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-01-02 17:08:09-05:00",
+        "files": [".gitignore", "Gemfile", "LICENSE", "README.md", "Rakefile", "ini_setting.rb", "rally_config.rb", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "init.pp", "logging.pp", "params.pp", "metadata.json", "centos-70-x64.yml", "default.yml", "nodepool-centos7.yml", "nodepool-trusty.yml", "ubuntu-server-1404-x64.yml", "rally_db_mysql_spec.rb", "rally_db_postgresql_spec.rb", "rally_db_spec.rb", "rally_logging_spec.rb", "shared_examples.rb", "spec_helper.rb", "spec_helper_acceptance.rb", "ini_setting_spec.rb", "rally_config_spec.rb", "init.pp"]
+      },
+      {
+        "hash": "f1309134747a20850ef3fc639fcf73fdd9fb3f8f",
+        "msg": "Add config file settings and tests for benchmarking\n\nDue to the large number of config options, the settings have been\nsplit up into their respective services\n\nThis will require a\n  include ::rally::settings\nline in the init.pp in a future commit.\n\nChange-Id: Ia59dadbcaa5c27aa371bd17cc20574f32021b7d2",
+        "cmtr": "Andy Botting",
+        "date": "2016-02-13 14:54:59+11:00",
+        "files": ["settings.pp", "cinder.pp", "ec2.pp", "glance.pp", "heat.pp", "ironic.pp", "manila.pp", "murano.pp", "nova.pp", "sahara.pp", "swift.pp", "rally_settings.rb", "rally_settings_cinder_spec.rb", "rally_settings_ec2_spec.rb", "rally_settings_glance_spec.rb", "rally_settings_heat_spec.rb", "rally_settings_ironic_spec.rb", "rally_settings_manila_spec.rb", "rally_settings_murano_spec.rb", "rally_settings_nova_spec.rb", "rally_settings_sahara_spec.rb", "rally_settings_swift_spec.rb"]
+      },
+      {
+        "hash": "3933c061ce42bcf1f8d83db8b14df05a056ec7b7",
+        "msg": "Use oslo module to configure oslo related parameters\n\nConfigure database, logging and policy options using\npuppet-oslo module\n\nChange-Id: Ic00ffa89c8701eb58afbae315a7120aa280e0a05",
+        "cmtr": "ZhongShengping",
+        "date": "2016-05-12 06:49:20+08:00",
+        "files": ["db.pp", "logging.pp"]
+      },
+      {
+        "hash": "cd70ae2d69c08c97da03ca2596d6525cbebe5d62",
+        "msg": "Remove deprecated 'verbose' parameter\n\nPuppet-rally has never been released, so we can\nsafely remove its deprecated 'verbose' parameter.\n\nChange-Id: I900f18ffafccec36bf2d4514e78fa098adfc67c2",
+        "cmtr": "iberezovskiy",
+        "date": "2016-05-18 16:03:47+03:00",
+        "files": ["logging.pp", "rally_logging_spec.rb"]
+      },
+      {
+        "hash": "52b1e4436aaba638f691b82bad9b118efdc4a61e",
+        "msg": "Add support for the oslo db_max_retries parameter\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: Ia02d5e1a60d42b7dcca3676253a76e8d1a852894\nCloses-Bug: 1579718",
+        "cmtr": "ZhongShengping",
+        "date": "2016-05-20 21:34:20+08:00",
+        "files": ["db.pp", "rally_db_spec.rb"]
+      },
+      {
+        "hash": "72f1118e95fb26eeb95abddd5360a8f443329c05",
+        "msg": "Make class rally work\n\nClass rally is created initially by tool, this patch aims to\nupdate related class, packages and configs:\n\n - Use package to install rally\n - Add rally_init_spec\n - include releated classes\n - move openstack_client_http_timeout from rally::settings to rally.\n\nCloses-Bug: #1582961\nChange-Id: Ibc0b981f7114f0bb49a56f65ffdc1ce3283e63dc",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-05-22 10:25:22+08:00",
+        "files": ["init.pp", "params.pp", "settings.pp", "rally_init_spec.rb", "rally_settings_spec.rb"]
+      },
+      {
+        "hash": "17a906c2ad2776d23a52fad5226813f32e6f091d",
+        "msg": "Add purge_config option\n\nAdd the option in order to facilitate management.\nUser can ensure that only the options they hoped\nare configured.\n\nChange-Id: Ib886b2f41d5ecb048c22e8663a2bf7ba39019e27",
+        "cmtr": "ZhongShengping",
+        "date": "2016-06-08 12:10:53+08:00",
+        "files": ["init.pp", "rally_init_spec.rb"]
+      },
+      {
+        "hash": "ede21ad8d102116798043ae5a4b5a7fb184d67e7",
+        "msg": "Manage SQLite database directory\n\nrally::db use sqlite as the default for $database_connection,\nif user execute \"rally-manage db create\" command, then it will\nfail b/c the database directory is not created.\n\nThis patch aims to fix this issue and add related rspec test.\n\nChange-Id: I243efccc55c09fab4d5532aa0b578f94583dfc0d\nCloses-Bug: #1583062",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-06-13 16:29:08+08:00",
+        "files": ["db.pp", "rally_db_spec.rb"]
+      },
+      {
+        "hash": "dee1fe635639ac5e612c7b542d7c632b8af48762",
+        "msg": "Add rally::db::sync\n\nThis patch aims to add class rally::db::sync to manage\ncreation of rally database.\n\nChange-Id: Ibbf13ba335f7f0f70e4be6a2c037f924595eb082",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-06-14 19:55:20+08:00",
+        "files": ["sync.pp", "init.pp", "rally_db_sync_spec.rb"]
+      },
+      {
+        "hash": "eca9a13346b77271e40c573646537e7737f0efbf",
+        "msg": "Add example manifest\n\nChange-Id: I53f539835b6f9b9240a820148b8a33f41c448f22",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-06-25 22:45:25+08:00",
+        "files": ["rally.pp"]
+      },
+      {
+        "hash": "74712dad9b027eb6af9b031e1d14d1f35e509ddf",
+        "msg": "Add rally::settings::tempest\n\nAccording to master branch of rally, parameters in [image] has\nbeen moved into [tempest] section, some has been renamed.\n\nThis patch aims to add a new class to manage parameters in [tempest].\n\nChange-Id: I5fd3f1ad294789cfab5612be47d741138b2a8102",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-07-07 09:32:48+08:00",
+        "files": ["settings.pp", "tempest.pp", "rally_settings_spec.rb", "rally_settings_tempest_spec.rb"]
+      },
+      {
+        "hash": "42033fef85346da279682d26e38bc191f6f1198f",
+        "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: Ife3a9bb2851fd730dbd693bda18733ffdec1286e\nCloses-Bug: #1628580",
+        "cmtr": "Sharat Sharma",
+        "date": "2016-09-29 12:40:53+05:18",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "1d94e03e8da6103c913b4e9f255626de8e4e2b9f",
+        "msg": "Remove unused parameters\n\nThe sqlite_package_name option has been useless,\nso delete it.\n\nChange-Id: Ibf1adc67235ddb5774eda5996408813b9df5c11d",
+        "cmtr": "ZhongShengping",
+        "date": "2016-10-27 23:58:53+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "b5a94cdae8c887b8e6a6a149fc3b4d448e7cb7f5",
+        "msg": "include ::openstacklib::defaults in params.pp\n\nThe ::openstacklib::defaults is default configuration for all\nopenstack-puppet module. This file is loaded in the params.pp\nof each class.\n\nChange-Id: I72b860ae111a23da789c4e4916f597f31dc51f11",
+        "cmtr": "ZhongShengping",
+        "date": "2016-11-08 11:28:28+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "d2888bfd646792fdaf47c1aabed42b4eed52c6af",
+        "msg": "Add rally::settings::magnum\n\nThis patch aims to add a new class to manage magnum.\n\nChange-Id: I3d78a99e9c4dae4a8198da933844d658eade93e5\nCloses-Bug: #1645919",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-11-30 13:25:40+08:00",
+        "files": ["settings.pp", "magnum.pp", "rally_settings_magnum_spec.rb"]
+      },
+      {
+        "hash": "6935be63450f9ef7b1452ed0256bfa8088210a5a",
+        "msg": "Add rally::settings::mistral\n\nThis patch aims to add a new class to manage mistral.\n\nChange-Id: I3ef9ce12b575c7b6e59ec06071ff9ce017be7aad\nCloses-Bug: #1645919",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-11-30 13:42:28+08:00",
+        "files": ["settings.pp", "mistral.pp", "rally_settings_mistral_spec.rb"]
+      },
+      {
+        "hash": "b6e0c511b9f1c22513c5ab4d32a7f7a18b8fe94e",
+        "msg": "Add rally::settings::monasca\n\nThis patch aims to add a new class to manage monasca.\n\nChange-Id: I2708bb32bc5007f5abe08f65779f2a90cfee697d\nCloses-Bug: #1645919",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-11-30 14:10:32+08:00",
+        "files": ["settings.pp", "monasca.pp", "rally_settings_monasca_spec.rb"]
+      },
+      {
+        "hash": "5a83e11c078ca9d5ab14a84d589947f4da5e663d",
+        "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nChange-Id: If6423151f75e384ac5539a848942e82fc4c8e95c",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-07 14:09:58+08:00",
+        "files": ["config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "init.pp", "logging.pp", "settings.pp", "cinder.pp", "ec2.pp", "glance.pp", "heat.pp", "ironic.pp", "magnum.pp", "manila.pp", "mistral.pp", "monasca.pp", "murano.pp", "nova.pp", "sahara.pp", "swift.pp", "tempest.pp", "rally_db_sync_spec.rb"]
+      },
+      {
+        "hash": "9d9b7c020e8dc2e40083db69dafeba802cfa81c4",
+        "msg": "Add watcher parameters settings\n\nChange-Id: Idbc4250d69b6e171970594fa55af7d00b6717e64",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-12 14:19:14+08:00",
+        "files": ["settings.pp", "watcher.pp", "rally_settings_watcher_spec.rb"]
+      },
+      {
+        "hash": "b4d1aacdfba7d6f76de5c65b512ed5a2a1cfeb09",
+        "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should be\ninstalled before dbsync starts.\n\nChange-Id: Ic5b27b858af41c51e83b09ccb0fe43d74b30ac4c",
+        "cmtr": "ZhongShengping",
+        "date": "2017-01-22 22:01:58+08:00",
+        "files": ["deps.pp"]
+      },
+      {
+        "hash": "bbb132280939c5bdecf34e9661ae65d8e39c5acc",
+        "msg": "Inconsistent package_ensure parameter name\n\nThe parameter name used to enforce package state is inconsistent across\nmanifests and modules. I settle on package_ensure since it's already\nwidely used.\n\nChange-Id: Id0e5a1864ed18a63bd1fb392b03eb8c22ae39acc\nCloses-Bug: #1668732",
+        "cmtr": "ZhongShengping",
+        "date": "2017-03-08 17:53:24+08:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "acddb86b5e899f45bcbf3e3a04e4ed6d2b632c1d",
+        "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: Ie72a2b7af89bb6b5d2dd97e608288e1e90577024",
+        "cmtr": "ZhongShengping",
+        "date": "2017-11-28 09:39:52+08:00",
+        "files": ["logging.pp", "rally_logging_spec.rb"]
+      },
+      {
+        "hash": "54bbbd5efd5b06215fca5bcfbbe97cc3acce439d",
+        "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: Iece77902f52cdfda3ae9b3bbf503d36ac4183aa7",
+        "cmtr": "ZhongShengping",
+        "date": "2018-01-15 16:20:44+08:00",
+        "files": ["logging.pp", "rally_logging_spec.rb"]
+      },
+      {
+        "hash": "3c55fac5c9ecb385024f5ca0ff8f2454197839b0",
+        "msg": "Drop all qpid related explanations\n\nQpid was removed in Mitaka from Oslo Messaging, so we\ncan remove all qpid related explanations.\n\nChange-Id: If26df271959c5aa240632f671eb8b611bc3304c7",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-09 15:04:25+08:00",
+        "files": ["logging.pp"]
+      },
+      {
+        "hash": "bf2fb7dbe2072f40d4e58e3114dfd89a740eba1b",
+        "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: I1eac69a6d62e38efe7705e637a54095c0a120ebb\nCloses-Bug: #1755102",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-12 16:33:10+08:00",
+        "files": ["sync.pp", "openstack_db_tag-980b47ebd9030c8b.yaml", "rally_db_sync_spec.rb"]
+      },
+      {
+        "hash": "9cc371cb4d05c65d26b545bd2bad6abe61c7cec9",
+        "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: I84f37d54f4064f2ca0a780548b6db6ebe6786e43\nCloses-Bug: #1757581",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-22 11:09:50+08:00",
+        "files": ["db.pp", "add-pool_timeout-option-for-db-8da64ea1b12458da.yaml", "rally_db_spec.rb"]
+      },
+      {
+        "hash": "d6636b66668843d7674fb9434c19cec5232e12eb",
+        "msg": "Remove deprecated ensure_package option\n\nChange-Id: Ic750e3905871bd7faad19ab764e7b762441a6304",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-29 12:01:15+08:00",
+        "files": ["init.pp", "remove_deprecated_ensure_package_option-a07df1c72c1926a6.yaml"]
+      },
+      {
+        "hash": "c385ddd99478b28773b630ea2430c96b31db6cbc",
+        "msg": "Remove useless code for sync.pp\n\nIn order to improve efficiency, remove useless code.\n\nChange-Id: I90226d9800e044986ceee226652f5cc2a506c8a8",
+        "cmtr": "ZhongShengping",
+        "date": "2018-04-08 09:09:06+08:00",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "dda51318b6eb2c27cfe0abf9b1d563f2f84c5ba5",
+        "msg": "Fix annotations\n\nChange-Id: I0847166fffe8d84a3412cb0d2ae5f5ecffc02890",
+        "cmtr": "zhubingbing",
+        "date": "2018-06-15 15:07:38+08:00",
+        "files": ["mysql.pp"]
+      }]
+    }

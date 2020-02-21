@@ -1,0 +1,1106 @@
+    {
+      "url": "https://github.com/openstack/puppet-designate",
+      "pp_files": ["producer.pp", "logging.pp", "db.pp", "dns.pp", "init.pp", "sync.pp", "worker.pp", "central.pp", "params.pp", "sink.pp", "all-in-one-keystone.pp", "authtoken.pp", "config.pp", "host_access.pp", "policy.pp", "mdns.pp", "deps.pp", "pool_manager.pp", "client.pp", "api.pp", "pool_target.pp", "agent.pp", "zone_manager.pp", "pool_nameserver.pp", "sqlalchemy.pp", "pool.pp", "mysql.pp", "quota.pp", "generic_service.pp", "all.pp", "powerdns.pp", "auth.pp", "all-in-one-noauth.pp", "bind9.pp", "memcache.pp"],
+      "pp_cmtrs": ["Yanis Guenane", "Emilien Macchi", "Andrew Spiers", "Arnoud de Jonge", "Mykyta Karpin", "Enrique Garcia Pablos", "Matthew J. Black", "zhongshengping", "David Moreau Simard", "Sebastien Badia", "Sam Morrison", "Cody Herriges", "Andy Botting", "Athlan-Guyot sofer", "Tobias Urdin", "ZhongShengping", "Nate Potter", "Gael Chamoulaud", "Xingchao Yu", "zhubingbing", "Carlos Camacho", "karimb", "ZhijunWei", "Mathieu Gagne\u0301", "Xingchao", "Clayton O'Neill", "Sharat Sharma", "Alex Schultz", "Venkata Mahesh Jonnalagadda", "Rico Lin", "Rocky", "Denis Egorenko", "David Moreau-Simard", "Ben Nemec", "Iury Gregory Melo Ferreira", "Thomas Herve", "Xiaohua Yuan"],
+      "num_pp_commits": 157,
+      "num_tot_commits": 434,
+      "commits": [{
+        "hash": "bbdbc64bb41f0db15b9892465a678092983890bc",
+        "msg": "Init commit to do basic setting",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-09-25 22:22:17+08:00",
+        "files": ["ini_setting.rb", "designate_config.rb", "api.pp", "central.pp", "db.pp", "mysql.pp", "host_access.pp", "init.pp", "params.pp"]
+      },
+      {
+        "hash": "ae8ac0b7bd5a7c5447adffb969917ecd185f0cea",
+        "msg": "Fix bugs in setting basic info",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-09-26 09:39:03+08:00",
+        "files": ["api.pp", "init.pp"]
+      },
+      {
+        "hash": "82fc88075752678730638f0638eba96dd1f6fa66",
+        "msg": "Add keystone::auth",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-09-26 09:39:20+08:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "b4814ca4f6c0aa1e9ee1441d99922d4e171ea1e4",
+        "msg": "Add dbinit_command",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-09-26 10:09:33+08:00",
+        "files": ["db.pp", "params.pp"]
+      },
+      {
+        "hash": "55ac29b923652e1933df796607218b655fa5ee33",
+        "msg": "Fix central package error",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-09-26 10:32:15+08:00",
+        "files": ["central.pp"]
+      },
+      {
+        "hash": "e18d1842bd6bee8a09ff4f3a5ecb5116d9dcd94c",
+        "msg": "Fix warning info",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-09-26 10:57:57+08:00",
+        "files": ["db.pp", "init.pp"]
+      },
+      {
+        "hash": "edff58e7e512ae19d0eb9f0a1963d04ea4bce268",
+        "msg": "Change notify Exec['designate-dbinit']",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-09-26 11:38:43+08:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "ad760fac29b55302d23bc6543f0173c7eb92de0e",
+        "msg": "Add state_path default value",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-09-26 14:15:29+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "07187bbe1835ae754ab32292504cfa4eb12856f5",
+        "msg": "try to fix file mode setting",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-09-26 15:48:50+08:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "9a654a36cf505d60d4e133c12affa7983b6f699c",
+        "msg": "Fix logdir option",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-09-26 21:21:17+08:00",
+        "files": ["db.pp", "init.pp"]
+      },
+      {
+        "hash": "9f9bd60b71bad2eef6a833f0325660030841774e",
+        "msg": "add servce_ensure option",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-09-26 23:37:12+08:00",
+        "files": ["api.pp", "central.pp"]
+      },
+      {
+        "hash": "3734c69ecc5f7cd7ab95d4503a9d187335d36de5",
+        "msg": "Fix data-init run twice will fail",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-09-27 10:45:34+08:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "7da0e4bbe09d4472e772a1a0978b9516912c34bf",
+        "msg": "Fix database-init always run before mysql::db",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-09-27 11:22:34+08:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "bdc88647b312b1983bc3a5f06e66137b0d5d9229",
+        "msg": "sudo_help set none",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-09-27 16:10:29+08:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "3efd9fd50e4800d02c7f95f17781f01135e0f034",
+        "msg": "Add designate agent",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-10-15 11:23:25+08:00",
+        "files": ["agent.pp"]
+      },
+      {
+        "hash": "31302f57770577ff725185627e967ccd93fa6865",
+        "msg": "Add designate sink",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-10-15 11:25:56+08:00",
+        "files": ["sink.pp"]
+      },
+      {
+        "hash": "8fe98c6f44c499f7cc28991bc61bb628f8096e15",
+        "msg": "Add designate::client",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-10-15 11:40:40+08:00",
+        "files": ["client.pp"]
+      },
+      {
+        "hash": "d16e9090c78659cf8b432d98a9bc4ccf02cdebf6",
+        "msg": "update params and readme info",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-10-15 11:41:04+08:00",
+        "files": ["README", "params.pp"]
+      },
+      {
+        "hash": "23f5954f97b3b5822f9b4131caf8e1cd3b5c7e49",
+        "msg": "Add designate::dns class\n\nThis class is aim to configure designate settings in dns service.\nCurrently has been tested in bind.",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-10-16 11:43:24+08:00",
+        "files": ["dns.pp", "params.pp"]
+      },
+      {
+        "hash": "a9f740a70c040887200f4f0c1adc460e237512e4",
+        "msg": "update options in designate::api",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-10-18 15:04:04+08:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "9aa3c41db7f4691f15c8696a5537a24f0b817001",
+        "msg": "Update options in designate::agent",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-10-18 15:04:18+08:00",
+        "files": ["agent.pp"]
+      },
+      {
+        "hash": "6457c536911d3697210f61b9fd8bfc39c27e3911",
+        "msg": "Add designate::backend::bind9",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-10-18 15:29:37+08:00",
+        "files": ["bind9.pp"]
+      },
+      {
+        "hash": "2641c2911843c2d983d871dc1846896c4cffc2c6",
+        "msg": "Add example file",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-10-18 15:50:11+08:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "77f6823b31484f454bc811db29c08d66fcca97c1",
+        "msg": "Fix lint error and warnings\n\nuse rake lint fix existing errors and warnings",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-10-18 16:18:57+08:00",
+        "files": ["Modulefile", "bind9.pp", "central.pp", "dns.pp", "params.pp"]
+      },
+      {
+        "hash": "917198634701e5b7048dcb70b364a67ecefe3688",
+        "msg": "Fix dns class namespace problem",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-10-21 22:13:44+08:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "2cdde3f5dabfffe206572ccda08bb22a5131742b",
+        "msg": "Modify dns config",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-10-22 11:42:14+08:00",
+        "files": ["dns.pp"]
+      },
+      {
+        "hash": "733ece3c912df5cd75575b5b592fe518591ba4f5",
+        "msg": "Fix designate db init runs every time",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-10-24 11:49:03+08:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "9c0751ec7be63e0cf0cdb900ad10f8371eb12c74",
+        "msg": "Fix Bind failed when bind config changed everytime\n\nThe current file_file to configure dns config file exist a bug:\nit will change the dns confif file every time when run puppet, then\nbind will fail to resolve any records.",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-10-28 16:32:06+08:00",
+        "files": ["dns.pp"]
+      },
+      {
+        "hash": "1f017351d90ecb839dcd04e5c9e8ee07ff1cca88",
+        "msg": "Add .gitreview config\n\nChange-Id: I012a0b214c5c05491d5cabf8a6725ca738f98586",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-10-29 22:25:02+08:00",
+        "files": [".gitreview", "README.md", "db.pp"]
+      },
+      {
+        "hash": "3caedea97a5eb39e3fc9e50b54cfa5eaa1e222e5",
+        "msg": "Hide secrets from puppet logs\n\nCurrently secrets like rabbit_password or admin_password are laked\n\npuppet logs when changed. This commit changes designate_*_config and\ndesignate_*_ini types adding a new parameter that triggers obfuscation\nthe values in puppet logs.\n\nChange-Id: I54e7c0bb27e46928db1a7f0125783c02d00d0e69\nCloses-Bug: #1328448",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-22 13:22:01+00:00",
+        "files": ["designate_config.rb", "api.pp", "db.pp", "init.pp"]
+      },
+      {
+        "hash": "c2f248b30b82636347498d11469dd704b793cf92",
+        "msg": "Update designate::db::mysql backend\n\nUse openstacklib::db::mysql to replace mysql module related classes.\nb/c designate::db::mysql didn't use mysql_module option, so it's not\nnecessary to add warning info.\n\nChange-Id: I250dde270b2563a537833f062028d5e68222b732",
+        "cmtr": "Xingchao Yu",
+        "date": "2014-09-24 04:32:37+00:00",
+        "files": [".fixtures.yml", "Modulefile", "mysql.pp", "host_access.pp", "designate_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "c444ca09897c6dced0eaf3d6212902dfdee548f4",
+        "msg": "Introduce designate:config to manage custom options\n\nThis designate::config is aim to use designate config resources\nto manage custom configurations in designate config files.\n\nThis will make end user easy to add their own custom options\nin Hiera data.\n\nFully implements blueprint designate-custom-config\n\nChange-Id: I11a4cd53ae68113341e8b0851c68c9d09c362e86",
+        "cmtr": "Xingchao Yu",
+        "date": "2014-09-24 04:18:25+00:00",
+        "files": ["config.pp", "designate_config_spec.rb"]
+      },
+      {
+        "hash": "04dcdd4c45133d6b73cd619e5984c28e0f07aae0",
+        "msg": "Added missing dns and concat_base dependency\n\nThe module has a strong dependency on theforeman/dns, but this module\nisn't listed nor in fixtures and metadata. This commit also remove\nhardcoding of named user (named on RH and bind on Debian OS).\n\nChange-Id: I60c695aff85ba1cad4b0d4a5f14e9c42e95569d7",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-11-02 17:24:41+01:00",
+        "files": [".fixtures.yml", "dns.pp", "init.pp", "metadata.json"]
+      },
+      {
+        "hash": "04b3b1ee789a7091eb00239d8e6af11d1dba5b0f",
+        "msg": "Fix issue with MySQL module upgrade\n\nSince commit c2f248b puppet-designate use openstacklib for db params and\ntherefore puppetlabs/mysql module > 2.2 wich doesn't include anymore the\nclass 'mysql::python'.\n\nChange-Id: Ia513a31b1a5ddda3cea2c6761e7b6cb8cd7c3729",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-11-02 17:27:16+01:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "d229b0f2bdd92bec07b22afe9af6b4299c3fd645",
+        "msg": "Introduce Debian OS support, various fixes\n\n* Fix designate package name require, openstack-designate is the final\n  package name, designate-common name is override by params class.\n* Remove designate-common dependency on central/sink/api services.\n* Fix designate::api/keystone_user default user.\n\nChange-Id: I441565d39ba5d425c6b93db071237a85f1eb4b1f",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-11-02 17:42:04+01:00",
+        "files": ["agent.pp", "api.pp", "central.pp", "dns.pp", "init.pp", "auth.pp", "params.pp", "sink.pp", "metadata.json"]
+      },
+      {
+        "hash": "cd3a726b9fb67d27a8f7c488229d808334e7ca46",
+        "msg": "Reconfigure dnspath to a standard directory\n\nnamed/data is not strandard, let's switch to the application directory,\n(bind9 for the backend used) (designate also support pdns).\n\nhttps://github.com/openstack/designate/blob/master/etc/designate/designate.conf.sample#L12\n\nChange-Id: I7229295c8282cf6b03e18cdebafa3de83b61b784",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-11-02 17:43:40+01:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "b0c7643587f9df937c4b497693cd6e6a492a2b99",
+        "msg": "Re-introduce default designate/root_helper parameter\n\nThis commit configure designate default root_helper using\ndesignate-rootwrap.\n\nChange-Id: I436eb4b42720e9009e3def911b379453c099ded0",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-11-02 17:48:09+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "e0f6a66caabd7bd636ff3aa736d0f7e984e1a974",
+        "msg": "backend/bind9 Added allow-new-zones configuration option.\n\nTo ensure rndc addzone/delzone functionality, allow-new-zones\nmust be setup to true, as explain in upstream documentation.\nhttps://designate.readthedocs.org/en/latest/backends/bind9.html#bind9-configuration\n\nChange-Id: Ifc552a272e84ad83f1ec1dc279bc54c2b44e826a",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-11-24 19:21:22+01:00",
+        "files": ["bind9.pp"]
+      },
+      {
+        "hash": "63fd5ad01ebf87d8027a8d893c7895446c5450cc",
+        "msg": "Re-factorise Keystone resources management\n\nRe-factorise the code of Keystone resources management with backward\ncompatibility since we don't modify the unit tests.\n\nChange-Id: I83e858765c35c81a381ec6ad407b9ce55305ddcb\nImplements: blueprint common-openstack-identity-resource",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-11-27 01:06:55+01:00",
+        "files": ["auth.pp", "metadata.json"]
+      },
+      {
+        "hash": "1ecba59a87b5adf88c6b8daace031c3d7b17f482",
+        "msg": "documentation: Update readme and puppetdoc documentation\n\nChange-Id: I97ea6e3b4e7c4ac8b407dd3b6d39fd54ffae70fe",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-01-12 11:07:01+00:00",
+        "files": ["README.md", "agent.pp", "api.pp", "bind9.pp", "central.pp", "client.pp", "db.pp", "dns.pp", "init.pp", "sink.pp"]
+      },
+      {
+        "hash": "adfa097586a9069512182d02b56a61742b28086e",
+        "msg": "example: Update shipped examples\n\nrename all.pp example to all-in-one-nouth.pp and introduce\nall-in-one-keystone example.\n\nChange-Id: I1ac088edd9a471773d9936a18c625abb7e5cfe76",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-01-12 20:30:48+01:00",
+        "files": ["all-in-one-keystone.pp", "all-in-one-noauth.pp", "all.pp"]
+      },
+      {
+        "hash": "52be2d38086fa8e532078a69020651e0c1a78eb5",
+        "msg": "Move BIND backend deps into backend\n\nThis moves the BIND backend deps that were previously directly in\ninit.pp into the BIND9 backend.  This includes moving the configuration\nfor the /var/lib/designate state directory into the backend, since it\nneeds to be owned by the DNS group.\n\nChange-Id: Ifc4b7d3240258331a6ad3ebc6b4064aa7d7eceed",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-02-12 18:48:14+00:00",
+        "files": ["bind9.pp", "init.pp"]
+      },
+      {
+        "hash": "23b2c0aa9e9d78966deab9f64cd46ca1f7f11c55",
+        "msg": "Ensure designate user/group exist\n\nWithout the ensure line, Puppet will only try to manage the attributes\non these resources.  This issue only occurs if the system packages don't\ncreate the users.\n\nChange-Id: Id46f06a03c31c1dd29971fec21703715744ab8d5",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-02-13 05:53:51+00:00",
+        "files": ["init.pp", "designate_init_spec.rb"]
+      },
+      {
+        "hash": "e1cfb0536da16958d0f55bf10f3df0370b835cb3",
+        "msg": "Fixup Juno mysql configuration\n\nThe config parameter has changed from storage:sqlalchemy/database_conection to just\nstorage:sqlalchemy/connection.\n\nThe dbinit command no longer exists, and the db sync command has been\nrenamed.\n\nChange-Id: I69f529717de04ee0084188a7f94dab26bc120e2f",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-02-15 15:12:28+00:00",
+        "files": ["db.pp", "mysql.pp", "params.pp", "designate_db_spec.rb"]
+      },
+      {
+        "hash": "2861be7d216bb7083211cfb01e3c996ab33936e3",
+        "msg": "Make all package name and ensure customizable\n\nThis makes all package names and package ensure values customizable as\nparameters.  This is helpful for people who are not using vendor\nprovided packaging.  This also normalizes the package ensure value to be\n'present' in all case.\n\nChange-Id: Iee186f753b2800e59addd3f38591675fd5af35ad",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-02-15 16:07:53+00:00",
+        "files": ["agent.pp", "api.pp", "central.pp", "client.pp", "init.pp", "sink.pp", "designate_agent_spec.rb", "designate_api_spec.rb", "designate_central_spec.rb", "designate_client_spec.rb", "designate_init_spec.rb", "designate_sink_spec.rb"]
+      },
+      {
+        "hash": "4ce3c0558beb3257aea08d0e5e1c0ac427a63ab0",
+        "msg": "Add Puppet 4.x lint checks\n\nThis changes the puppet-lint requirement to 1.1.x, so that we can use\npuppet-lint plugins.  Most of these plugins are for 4.x compat, but some\njust catch common errors.\n\nChange-Id: I3b16baf063746024cb8dc89a931dae2f604258f6",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-02-17 14:53:22+00:00",
+        "files": ["Gemfile", "all-in-one-keystone.pp", "all-in-one-noauth.pp", "agent.pp", "api.pp", "central.pp", "client.pp", "db.pp", "dns.pp", "init.pp", "sink.pp"]
+      },
+      {
+        "hash": "b8645dc68cc3aead919eda0e50a4e7c1972d4fcb",
+        "msg": "Fix spelling mistake\n\nChange-Id: Id8a0159807aadcdfb3245dfac42c2ca282ba52f1",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-02-17 15:18:17+00:00",
+        "files": ["dns.pp"]
+      },
+      {
+        "hash": "c268c3b3c19480c9498aed7aedc306db39ced55f",
+        "msg": "Fix enabled parameter ordering\n\nThe $service_ensure and $enabled parameter ordering is inconsistent\nacross classes and doesn't match the order of the documentation (which\nis consistent).\n\nChange-Id: Ib221c0042f5d50b10e339c53265d2a188308f11b",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-02-17 15:28:06+00:00",
+        "files": ["agent.pp", "central.pp", "sink.pp"]
+      },
+      {
+        "hash": "c0650b1d7b81714ed1f1a8b639a7651ad235212e",
+        "msg": "Add puppet-lint param docs check\n\nThis ensures that all parameters are documented and includes fixes to\nexisting undocumented parameters or incorrectly formatted docs.\n\nChange-Id: I14c093214e45ad3b14123e16ee8ccf309ba45978",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-02-17 16:03:46+00:00",
+        "files": ["Gemfile", "config.pp", "auth.pp"]
+      },
+      {
+        "hash": "e9fe26e5a6f54cdef4c56ebb20eaa7c9bdd465ba",
+        "msg": "Fix misc cut-and-paste mistakes\n\nChange-Id: Icdae5342fbb75a0900b6ae3669bbd1f5cd190781",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-02-17 16:18:56+00:00",
+        "files": ["agent.pp", "central.pp", "sink.pp"]
+      },
+      {
+        "hash": "2dfe3c7fecc8cd80ea5ea30cb3be419903184bd7",
+        "msg": "Qualify designate Class requires\n\nChange-Id: I2f07f24fff2b895077dc2200c675ed1546b5a8ba",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-02-26 18:33:14+00:00",
+        "files": ["api.pp", "bind9.pp", "central.pp", "db.pp", "dns.pp"]
+      },
+      {
+        "hash": "e204988f81cbdb229ff5c61cd0595501e0649739",
+        "msg": "Require config before running dbsync\n\nNeed to have a backend set in the config file before we can run the db\nsync.  Better to just wait for all config options to be in place before\nrunning db sync to be safe.\n\nChange-Id: Ibff46f878eed58cad6a9b2c04334203dc4604e4a",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-02-26 18:33:40+00:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "3aba7229b2400f8495534684787dd7916d60677e",
+        "msg": "Adds ability to override service name for service catalog\n\nInstead of forcing the name of the service in the service catalog to\nmatch auth_name, this allows the ability to explicitly set the service\nname, spearately from auth_name.\nIf service_name is not specified, it's value defaults to the value\nof auth_name (which maintains the current behavior.)\n\nChange-Id: Ibd44ddf46478a19f92c98e721a3fa04804d0d40d\nCloses-bug: #1359755",
+        "cmtr": "Rico Lin",
+        "date": "2015-03-23 10:16:29+08:00",
+        "files": ["auth.pp", "designate_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "94107a2d67af71fa9094d1a0d0dddf27c3523bc3",
+        "msg": "Add PowerDNS backend\n\nThis adds configuration for configuring Designate to use the PowerDNS\nbackend, creating the database PowerDNS and Designate share and also\ninstalling PowerDNS.  This does not configure PowerDNS itself, aside\nfrom installing it.\n\nChange-Id: I0607bc24023bdfefa7fd40b8d25a4f3bdc468c9b",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-03-23 14:02:46+00:00",
+        "files": [".fixtures.yml", "powerdns.pp", "mysql.pp", "params.pp", "designate_backend_powerdns_spec.rb", "designate_db_powerdns_mysql_spec.rb"]
+      },
+      {
+        "hash": "2910f825ef04ca9aa346e4f9b1ef7c3b99783473",
+        "msg": "Add policy.json management\n\nThis is mostly a copy of the existing neutron policy.json management and\nleverages the resources in openstacklib for managing designate's\npolicy.json\n\nChange-Id: I1fbf35b3dfa2e3a9b5f3ec351f8776951dfb41cf",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-03-23 14:04:26+00:00",
+        "files": ["policy.pp", "designate_policy_spec.rb"]
+      },
+      {
+        "hash": "572482ab240b13a2fa270561dd098ffe303a5e67",
+        "msg": "Tag all Designate packages\n\nSome users wish to override the default package provider by their own.\n\nTag all packages with the 'openstack' to allow mass resource attributes\noverride using resource collectors.\n\nCloses-bug: #1391209\n\nChange-Id: Idcd296c754c4c66efcbdd1672c8367ce3539b268\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-03-31 10:32:19+02:00",
+        "files": ["agent.pp", "api.pp", "central.pp", "client.pp", "init.pp", "sink.pp", "designate_agent_spec.rb", "designate_api_spec.rb", "designate_central_spec.rb", "designate_client_spec.rb", "designate_init_spec.rb", "designate_sink_spec.rb"]
+      },
+      {
+        "hash": "9f7fa6175fa455ab3f7ff69873b33c4ac3a12d6b",
+        "msg": "MySQL: change default MySQL collate to utf8_general_ci\n\nInstall & configure MySQL database by using utf8_general_ci collation\nwhich is the way documented in OpenStack [1] and already the default\nin puppetlabs-mysql [2].\n\n[1] http://goo.gl/GA5gyZ\n[2] https://github.com/puppetlabs/puppetlabs-mysql/blob/master/manifests/db.pp#L7\n\nChange-Id: Iecd7c65aadaba15d2ed078b580cfa044f98919c5\nCloses-bug: #1446375",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-06-19 14:41:20+00:00",
+        "files": ["mysql.pp", "mysql.pp"]
+      },
+      {
+        "hash": "93b35a93c1cab2b0f2608049c36926bbf0f64140",
+        "msg": "Add support for RabbitMQ clustering\n\nThis adds support for the rabbitmq_hosts configuration option, which if\nspecified will also turn on rabbit_ha_queues.  This is needed if using\nRabbitMQ in clustered mode.\n\nChange-Id: I16001fba7198f0378c31310389b407b832ad6328",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-06-19 14:41:28+00:00",
+        "files": ["init.pp", "designate_init_spec.rb"]
+      },
+      {
+        "hash": "7f053f0846c9421cebe50e9f72b1042cb8f42d04",
+        "msg": "Introduce public_url, internal_url and admin_url\n\nThis change deprecates the following parameters:\n- version (replaced by public/internal/admin_url)\n- port (replaced by public/internal/admin_url)\n- public_protocol (replaced by public_url)\n- public_address (replaced by public_url)\n- internal_protocol (replaced by internal_url)\n- internal_address (replaced by internal_url)\n- admin_protocol (replaced by admin_url)\n- admin_address (replaced by admin_url)\n\nAdd deprecation warnings if any of those values are provided\nwhile maintaining full backward compatibility.\n\nChange-Id: Iae590b71d5447d19e5e2e64daed49237156e0991\nCloses-bug: #1274979",
+        "cmtr": "Mathieu Gagné",
+        "date": "2015-06-26 14:28:02-04:00",
+        "files": ["auth.pp", "designate_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "3f4a5903f41775b628c3864a4e7227c6a3cd9269",
+        "msg": "keystone/auth: make service description configurable\n\nThis commit adds the service description as a class parameter in order to allow\nusers to update from a previous version if the service description is changed\n(incorrectly spelled or wrong description)\n\nCloses-Bug: #1468407\nChange-Id: Id7bb7c9a26c8e4938ede0f3963303a50668b6e99",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-06-30 00:01:26+02:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "5a37cc81276cb8f8ee6dca9b9b532930e6ac86de",
+        "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nChange-Id: I2b5707a0fe3dd72a56bbf1d840b4197bfa3012db",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-07-17 14:25:04-04:00",
+        "files": ["agent.pp", "api.pp", "central.pp", "db.pp", "init.pp", "sink.pp", "designate_agent_spec.rb", "designate_api_spec.rb", "designate_central_spec.rb", "designate_db_spec.rb", "designate_init_spec.rb", "designate_sink_spec.rb"]
+      },
+      {
+        "hash": "cecf22418485dc84c395dbd84937fd7016030e76",
+        "msg": "Add notification related parameters to designate\n\nThis patch is aim to following params in designate::init\n\n - notification_driver\n - notification_topics\n\nChange-Id: I92bea9449fbeee4f0cee53665a4037c2861d276f\nCloses-Bug: #1481552",
+        "cmtr": "Xiaohua Yuan",
+        "date": "2015-08-04 19:13:12-07:00",
+        "files": ["init.pp", "params.pp", "designate_init_spec.rb"]
+      },
+      {
+        "hash": "7bf0e240074b71eac91931bf898fb54819c93921",
+        "msg": "add designate_rootwrap_config in designate::config\n\nthis path aims to add designate_rootwrap_config\nin designate::config.\n\nuse designate config resources to manage\ncustom configurations in rootwrap config files.\n\nChange-Id: Iee8aa66ff6464f387664d2a0571f6e6ad685dc2b",
+        "cmtr": "Xiaohua Yuan",
+        "date": "2015-08-07 20:12:25-07:00",
+        "files": ["ini_setting.rb", "designate_rootwrap_config.rb", "config.pp", "designate_config_spec.rb"]
+      },
+      {
+        "hash": "b0bf5c0e308c4d01a3ae609961c2bfb7a94acafd",
+        "msg": "Add related parameters to service::central section\n\nThis patch aims to add the following params to\nservice::central section.\n  - managed_resource_email\n  - managed_resource_tenant_id\n\nChange-Id: I341d0d99fb843f2053b07ef189b93cbf75303649\ncloses-Bug: #1482204",
+        "cmtr": "Xiaohua Yuan",
+        "date": "2015-08-09 06:01:32-07:00",
+        "files": ["central.pp", "designate_central_spec.rb"]
+      },
+      {
+        "hash": "84db12e9d892bfef1ddaae94b402120fe3413e90",
+        "msg": "Add enabled_notification_handlers option\n\nThis patch is aim to add enabled_notification_handlers option in\ndesignate::sink, which is the only option exist in sink service.\n\nChange-Id: Idb724f7564ff55c80964b5c2beae26f77e1e3bad\nClose-Bug: #1486305",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-08-20 20:22:10+08:00",
+        "files": ["sink.pp", "designate_sink_spec.rb"]
+      },
+      {
+        "hash": "2dd7a9a0ee39c874fe33f0f58d673c0ebee89da5",
+        "msg": "Use generic_service to manage services\n\nThis patch introduces designate::generic_service which is already\nexists in other modules to manage designate packages and services.\n\nChange-Id: Ic05539fbbcfb88ed95f35d5eb5ca95b7f7141ed1\nClose-Bug: #1486860",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-08-21 18:19:04+08:00",
+        "files": ["agent.pp", "api.pp", "central.pp", "generic_service.pp", "init.pp", "sink.pp", "designate_api_spec.rb", "designate_generic_service_spec.rb"]
+      },
+      {
+        "hash": "3d4879dc4ddb2bc3eef93c93a0fac35f0ac8671e",
+        "msg": "Creation of designate::db::sync\n\nIn order to standardize the way dbsync are run across our modules,\nwe create a new class designate::db::sync and\ndesignate::db::powerdns::sync.\nThose classes will be included if sync_db is enabled.\n\nBy making this transition the designate::db::sync class and the powerdns\nrelated one can be returned by the ENC.\n\nA use case would be in an highly available environment, with 3 galera\nnodes, include designate::db on every node with sync_db set to false\nand have the ENC return designate::db::sync just for one node.\n\nChange-Id: I3e14b82055cfadf3274d6657413668b11f28ec49",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-09-08 11:26:12+02:00",
+        "files": ["powerdns.pp", "db.pp", "sync.pp", "sync.pp", "designate_backend_powerdns_spec.rb", "designate_db_powerdns_sync_spec.rb", "designate_db_spec.rb", "designate_db_sync_spec.rb"]
+      },
+      {
+        "hash": "0c9951934b895e56c0c438dd6914131f2b3f6e51",
+        "msg": "Put all the logging related parameters to the logging class\n\nCurrently logging configuration is splitted in two distinct classes,\nthe init.pp and the logging.pp classes. This review aims to centralize\nall logging related parameters in a single class, the logging.pp one.\n\nThe impacted parameters are :\n\n  * use_syslog\n  * use_stderr\n  * log_facility\n  * verbose\n  * debug\n  * log_dir\n\nThis change remains backward compatible with what is currently in place.\n\nChange-Id: I654f77d9c18401537f738d054d8e6be529d25fa2",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-10-01 08:59:55+02:00",
+        "files": ["init.pp", "logging.pp", "designate_init_spec.rb", "designate_logging_spec.rb"]
+      },
+      {
+        "hash": "5f8209f4ec1d76d68d0a20f91c76686b3ee3c7ef",
+        "msg": "Change section name for AMQP rabbit parameters\n\nAccording to docs for liberty and kilo [1,2] should be\nsection 'oslo_messaging_rabbit' instead of 'DEFAULT'.\n\n[1] http://docs.openstack.org/liberty/config-reference/content/configuring-rpc.html\n[2] http://docs.openstack.org/kilo/config-reference/content/configuring-rpc.html\n\nChange-Id: I6aa2b58d39d5089f97c4ab5dc7a03c2222b12640",
+        "cmtr": "Denis Egorenko",
+        "date": "2015-10-21 16:18:22+03:00",
+        "files": ["init.pp", "designate_init_spec.rb"]
+      },
+      {
+        "hash": "f5c5f88eed4706922b49da7c1b2b4fd33e3176c5",
+        "msg": "Allow customization of db sync command line\n\nAdd parameter to designate::db::sync class to allow end\nusers to add command line parameters to the db sync command.\n\nChange-Id: Iae224e97d91ee24e0aae1b79330f0906ff516508\nPartial-bug: #1472740",
+        "cmtr": "Nate Potter",
+        "date": "2015-11-14 14:43:35+00:00",
+        "files": ["sync.pp", "sync.pp", "params.pp", "designate_db_powerdns_sync_spec.rb", "designate_db_sync_spec.rb"]
+      },
+      {
+        "hash": "254942c69c5919df62dc58ac44c2b1e89633ecb1",
+        "msg": "Add related parameters to designate::central\n\nThis patch is aim to add the following params in to designate::central\n  - max_domain_name_len\n  - max_recordset_name_len\n  - min_ttl\n\nChange-Id: I66b40c244addc849d87fabf87d4d394cba012e86\ncloses-Bug: #1482004",
+        "cmtr": "Xiaohua Yuan",
+        "date": "2015-11-25 03:01:14-08:00",
+        "files": ["central.pp", "designate_central_spec.rb"]
+      },
+      {
+        "hash": "135a1aca3bcd90a4dc4857cdfe8402bbd88abf15",
+        "msg": "Update designate::db class to match other module pattern\n\nThis review aims to update the designate::db class to standardize it with the\nother modules db classes[1][2]. It now offers the same parameters to customize\ndatabase connection behavior.  Some internal variable naming remains\ndifferent then other modules.  This is because designate simply uses\ndifferen config file sections[3] then other OpenStack projects.\n\n[1] https://github.com/openstack/puppet-neutron/blob/master/manifests/db.pp\n[2] https://github.com/openstack/puppet-sahara/blob/master/manifests/db.pp\n[3] http://docs.openstack.org/developer/designate/install/ubuntu-kilo.html#installing-designate\n\nCo-Authored-By: Cody Herriges <cody@puppetlabs.com>\nChange-Id: Ieb841a58429564e5f13d9f683a3a9ef875f1324a",
+        "cmtr": "Cody Herriges",
+        "date": "2015-12-11 14:18:24-08:00",
+        "files": ["db.pp", "designate_db_spec.rb"]
+      },
+      {
+        "hash": "0e9af4aee376b019f7c6b75fd6f93194c09a567f",
+        "msg": "Configure rabbit_virtual_host\n\nDesignate uses oslo messaging, which looks for a value for\nrabbit_virtual_host. This changes the module to configure this\nsetting instead of the unused\nrabbit_virtualhost setting.\n\nParameter changes:\n    rabbit_virtualhost:  Previously wrote a config setting of the\n                         same name, which did nothing. Now emits a\n                         warning and sets rabbit_virtual_host.\n\n    rabbit_virtual_host: New parameter which sets\n                         rabbit_virtual_host.\n\nChange-Id: I8eb9b72812c00721886246406d668bbb2e6c1a93\nCloses-Bug: 1515495",
+        "cmtr": "Andrew Spiers",
+        "date": "2016-01-06 15:17:44+11:00",
+        "files": ["init.pp", "designate_init_spec.rb"]
+      },
+      {
+        "hash": "af9f5be5e68cce3b7efce101aa2fbdc6677f70fc",
+        "msg": "Support of PyMySQL driver for MySQL backend\n\nThis change adds the ability to use the python-pymysql library as a\nbackend for MySQL connections. This change also updates the acceptance\ntest to leverage the pymysql driver.\n\nChange-Id: I9730266163166a9f75f68e25a26c6dcbf38fcea8",
+        "cmtr": "Alex Schultz",
+        "date": "2016-01-06 23:08:57-07:00",
+        "files": ["db.pp", "params.pp", "basic_designate_spec.rb", "designate_db_spec.rb"]
+      },
+      {
+        "hash": "24bf0619b5ea462c6848cf035904efea1cee424e",
+        "msg": "Add related parameters to designate::api\n\nThis patch is aim to add the following params in to designate::api\n    - api_host\n    - api_port\n\nChange-Id: I876e153aadecc44b82d3ed003212a7a23256a4ab\ncloses-Bug: #1523746",
+        "cmtr": "Xiaohua Yuan",
+        "date": "2016-01-11 16:51:48-08:00",
+        "files": ["api.pp", "designate_api_spec.rb"]
+      },
+      {
+        "hash": "681250724c2dfb5a40d8cfce4b655d1ab62511ba",
+        "msg": "Remove pick for managing package name.\n\nChange-Id: I861b7bfab076def6106df1a64e6479684f96a448",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-01-14 04:10:23+08:00",
+        "files": ["agent.pp", "api.pp", "central.pp", "client.pp", "init.pp", "sink.pp"]
+      },
+      {
+        "hash": "37097b2328e4a54006778f66cad5ddc2a2050650",
+        "msg": "Make keystone memcached servers configurable\n\nLike other openstack services, designate can use memcached to cache keystone\ntokens.\n\nChange-Id: I0b21ae47aee0b94ab672610be23d4bafde3c1d68",
+        "cmtr": "Andrew Spiers",
+        "date": "2016-01-22 06:52:14+00:00",
+        "files": ["api.pp", "designate_api_spec.rb"]
+      },
+      {
+        "hash": "c3d6ea6451a7072851862e8934499e3ea2c7db68",
+        "msg": "Add designate::mdns class\n\nThis patch is aim to add a new class designate::mdns for managing\ndesignate Mini Dns service.\n\nChange-Id: Iafd145b41c3e2202f3656084d365f98e6daee585\nCloses-Bug: #1486301",
+        "cmtr": "Xingchao",
+        "date": "2016-02-01 10:14:47+08:00",
+        "files": ["mdns.pp", "params.pp", "designate_mdns_spec.rb"]
+      },
+      {
+        "hash": "3d6363085b191da7fb452a58aba7176f94497718",
+        "msg": "Added parameters api_base_uri and enable_api_admin\n\nAdded enable_api_admin to enable the (experimental) Admin API.\nAdded api_base_uri to set the base uri used in responses\n\nChange-Id: I8f385fc3f97ba818954a614f9e8d767099f19057",
+        "cmtr": "Arnoud de Jonge",
+        "date": "2016-02-02 10:07:23+00:00",
+        "files": ["api.pp", "designate_api_spec.rb"]
+      },
+      {
+        "hash": "779a18f23c6731fbe6ca71eff9607825de0e08a4",
+        "msg": "Added SSL parameters for Rabbit\n\nAdded rabbit_use_ssl and kombu_* parameters to configure Rabbit over\nSSL.\n\nChange-Id: I198a099b33393fa72288510a8d9e8723dea6d105",
+        "cmtr": "Arnoud de Jonge",
+        "date": "2016-02-05 14:24:54+00:00",
+        "files": ["init.pp", "designate_init_spec.rb", "designate_generic_service_spec.rb"]
+      },
+      {
+        "hash": "d3df6fdfd9ac8f1f04b18564e7e934a0dffd1a62",
+        "msg": "Added Designate Pool Manager\n\nAdded classes and defines to manage the Designate Pool Manager.\n\nChange-Id: I52c3789394bc8719c4251abd13e489b47111f0f4",
+        "cmtr": "Arnoud de Jonge",
+        "date": "2016-02-09 16:45:25+00:00",
+        "files": ["params.pp", "pool.pp", "pool_manager.pp", "memcache.pp", "sqlalchemy.pp", "pool_nameserver.pp", "pool_target.pp", "designate_pool_manager_cache_memcache_spec.rb", "designate_pool_manager_cache_sqlalchemy_spec.rb", "designate_pool_manager_spec.rb", "designate_pool_nameserver_spec.rb", "designate_pool_spec.rb", "designate_pool_target_spec.rb"]
+      },
+      {
+        "hash": "3595c4eff4dfd46d06072fa0d4741593d2fafede",
+        "msg": "Set correct options path for bind9 agent\n\nWhen using Red Hat systems and bind9 backend,\n/etc/named/options.conf should be used so\nthis patch implements this change  to accomodate\nthe parameters used in the dns module.\n\nCloses-Bug: #1534309\nChange-Id: I546aceeb257954afe768bb1ee702a277ed0a2a5a",
+        "cmtr": "karimb",
+        "date": "2016-02-24 11:05:52+01:00",
+        "files": ["bind9.pp", "designate_backend_bind9_spec.rb"]
+      },
+      {
+        "hash": "4d073f8b8bf625b74fb042189614ee288051f0a6",
+        "msg": "Totally drop Qpid support\n\nQpid was removed in Mitaka from Oslo Messaging, so now we can\ndrop it in manifests.\n\nChange-Id: Ie9cc37d3f3693cac388ecbd905bbb4cb2fc02a9a",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-04-18 13:49:43+03:00",
+        "files": ["logging.pp", "drop_qpid-c8b64c8e677c2e1d.yaml", "designate_logging_spec.rb"]
+      },
+      {
+        "hash": "15eeb0faa6b18156cfb043d408cede112fa46436",
+        "msg": "Package \"openstack-designate-common\" for RedHat\n\nCloses-Bug: #1579941\nChange-Id: Ic9e50ae2aaf4491a3c36b1e467af4cdd281f12ec",
+        "cmtr": "Enrique Garcia Pablos",
+        "date": "2016-05-10 06:25:35+00:00",
+        "files": ["params.pp", "designate_init_spec.rb"]
+      },
+      {
+        "hash": "7f70b7f548add3c85ace9a882b48d30549b29db8",
+        "msg": "Deprecate verbose option in logging\n\nOption \"verbose\" from group \"DEFAULT\" is deprecated for removal.\nThe parameter has no effect.\n-Deprecated verbose for logging and init\n-Remove verbose in README\n-Remove verbose from tests.\nIf this option is not set explicitly, there is no such warning\n\nChange-Id: I4b148ae18f5196951f7de2afdff2fe815becfdb6",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-05-18 23:21:05-03:00",
+        "files": ["README.md", "all-in-one-keystone.pp", "init.pp", "logging.pp", "verbose-deprecation-3db541c8862a6009.yaml", "basic_designate_spec.rb", "designate_init_spec.rb", "designate_logging_spec.rb"]
+      },
+      {
+        "hash": "2dacd96def3b6ce182b88fe719739c2522d36bc5",
+        "msg": "Remove deprecated keystone::auth options\n\nChange-Id: I6737d69bb886d6a27ecb91b8b2ef7e09dddfd49f",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-06-03 01:49:42-03:00",
+        "files": ["auth.pp", "remove_deprecated_keystone_auth_options-e53e50874281e009.yaml", "designate_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "d645b1ed880bef8d9bbe9837148e9345bb85682a",
+        "msg": "Provide default service_name for keystone endpoint\n\nThis change updates the designate::keystone::auth class to include a default\nservice_name of 'designate' so that if a user changes the auth_name, the\nservice is still created as being related to 'designate'. This improves the\nuser experiance when they want to customize the usernames for services.\n\nCloses-bug: #1590040\n\nChange-Id: I58658de33ba90d2f8d6fbc1aaa0099f1ad024aa6",
+        "cmtr": "Venkata Mahesh Jonnalagadda",
+        "date": "2016-06-10 07:20:54-04:00",
+        "files": ["auth.pp", "keystone-auth-name-a6a3f49551110671.yaml", "designate_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "74037d729f9ccfae524dd6f8c807b812e707f088",
+        "msg": "Add purge_config option\n\nAdd the option in order to facilitate management.\nUser can ensure that only the options they hoped\nare configured.\n\nChange-Id: I4722fc674fe04127d825724f95b1d7be9576c4f0",
+        "cmtr": "ZhongShengping",
+        "date": "2016-06-12 09:45:23+08:00",
+        "files": ["init.pp", "designate_init_spec.rb"]
+      },
+      {
+        "hash": "656e08cb98303aa157c877a3532de4785db5e847",
+        "msg": "Add user & user_role parameters in auth manifest and related tests\n\nAdd configure_user & configure_user_role parameters in auth manifest\nand so that users can disable if required. By default, these are\nset to true.\n\nAnd add related tests for disable user & user_role params.\n\nChange-Id: Ic45e636d2b8e6b8c2684389d1d4836900d7e8911\nCloses-Bug: #1587859",
+        "cmtr": "Venkata Mahesh Jonnalagadda",
+        "date": "2016-06-16 09:49:52-04:00",
+        "files": ["auth.pp", "designate_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "a0cd7a8a63db4468344867a7f7f466c7a3c75b1e",
+        "msg": "Lint fixes for absolute class name\n\nThis change updates the mysql require lines to resolve lint errors.\n\nChange-Id: I8a64be7d92793c62aef35fc9ba72ac60838db5be",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-06-28 15:46:21-04:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "5dcd51eca2c5b14aa4bbb775ccdb2a8581389f94",
+        "msg": "Fix typo that would make the package name the service name\n\nSince the service and the package name can differ, it is important\nto really choose the PACKAGE name and not the SERVICE name.\nFor example, in RDO, the package is\n\"openstack-designate-pool-manager\" but the service is\n\"designate-pool-manager\".\n\nAdditionally, the package name for \"designate-pool-manager\" is\n\"designate-pool-manager\" in Ubuntu Cloud Archive [1]. Not\n\"openstack-designate-pool-manager\".\n\n[1]: http://ubuntu-cloud.archive.canonical.com/ubuntu/dists/xenial-updates/newton/main/binary-amd64/Packages\n\nChange-Id: I1d0b9b66b7fb5ec97d0992c2efd58b63359d364d",
+        "cmtr": "David Moreau-Simard",
+        "date": "2016-07-04 22:41:23-04:00",
+        "files": ["params.pp", "pool_manager.pp"]
+      },
+      {
+        "hash": "c4a990e817d79bfaf6a3c138383fc931bd7ebdb3",
+        "msg": "Leave the default value of min_ttl up to the service\n\nThe previous default, 'None', would error out with oslo_config\nexpecting an integer value.\n\nERROR designate ConfigFileValueError:\n Value for option min_ttl is not valid:\n invalid literal for int() with base 10: 'None'\n\nChange-Id: I056c7fff1607b6e7b9153ed7df4868900dc5ae44",
+        "cmtr": "David Moreau-Simard",
+        "date": "2016-07-04 22:46:46-04:00",
+        "files": ["central.pp", "designate_central_spec.rb"]
+      },
+      {
+        "hash": "a86dc49adde2678a719f300251f686c1a3312543",
+        "msg": "RDO service names are not prefixed by \"openstack-\" for designate\n\nReference: https://github.com/rdo-packages/designate-distgit\n\nChange-Id: I86d875a2e9cab8d929bd644943ad516dbc653188\nCloses-Bug #1523781\nCo-Authored-By: Andrew Spiers <andrew@andrewspiers.net>\nCo-Authored-By: Karim Boumedhel <karimboumedhel@gmail.com>",
+        "cmtr": "David Moreau Simard",
+        "date": "2016-07-05 02:47:15+00:00",
+        "files": ["params.pp", "designate_agent_spec.rb", "designate_api_spec.rb", "designate_central_spec.rb", "designate_mdns_spec.rb", "designate_pool_manager_cache_memcache_spec.rb", "designate_pool_manager_spec.rb", "designate_sink_spec.rb"]
+      },
+      {
+        "hash": "50c12167f67c42fc9a734ac10b1633d071e5d159",
+        "msg": "Remove POSIX users, groups and files managed by packaging\n\nBoth RDO and UCA provide packaging for designate and this packaging\ntakes care of creating the necessary user/group/directories.\n\nChange-Id: Ic6af7dadb94a9ce22ad924184715b729b36ed16b\nRelated-Bug: #1458915",
+        "cmtr": "David Moreau-Simard",
+        "date": "2016-07-05 21:30:21-04:00",
+        "files": ["bind9.pp", "powerdns.pp", "init.pp", "designate_backend_powerdns_spec.rb", "designate_init_spec.rb"]
+      },
+      {
+        "hash": "350b4938a3c8332089d214ac527c3c432272e6a7",
+        "msg": "Deprecate designate::dns, stop managing config files in lib\n\nThe designate::dns class was really just configuring things\naccording to a bind9 backend. As such, move it's resources to\nthe bind9 backend manifest and deprecate this class.\n\nAdditionnally, we stop managing configuration files resources\ninside /var/lib/designate. According to upstream documentation\n[1] and from discussing this with upstream developers, this is\nnot an intended way of configuring designate.\nThis also avoids having to manage permissions (and selinux)\nbetween designate and bind.\n\n[1]: http://docs.openstack.org/developer/designate/getting-started.html\n\nChange-Id: Ia62a3d1a72622f3eb1ceeabaf4cef36090a7a8d3",
+        "cmtr": "David Moreau-Simard",
+        "date": "2016-07-06 12:12:51-04:00",
+        "files": ["bind9.pp", "dns.pp", "params.pp", "basic_designate_spec.rb", "designate_dns_spec.rb"]
+      },
+      {
+        "hash": "63cdcd713a152c64bf491dbe9d52c74942e3e936",
+        "msg": "Fix idempotency and re-enable idempotency check in beaker tests\n\n- Change file_line resources to concat resources instead to\n  concat a fragment within the puppet-dns concat templates\n  resources.\n\nThis change depends on an upstream change to puppet-dns which\nhas not yet merged.\nhttps://github.com/theforeman/puppet-dns/pull/64\n\nChange-Id: I499f2c7bfe8330ddb3c3d91d5eadcdad9e64e614\nDepends-On: I73145a8992292038ab22824d3a858dcc7193fd35",
+        "cmtr": "David Moreau-Simard",
+        "date": "2016-07-06 12:21:30-04:00",
+        "files": ["bind9.pp", "basic_designate_spec.rb", "designate_backend_bind9_spec.rb"]
+      },
+      {
+        "hash": "825e63f4cc51b1d34c70f1736bee0c5dec860db8",
+        "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: I3e30575de6862e2a45825f7223fee046c2de7333\nRelated-Bug: 1599113",
+        "cmtr": "Athlan-Guyot sofer",
+        "date": "2016-07-08 08:55:43+00:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "e18e6eb3559363b127b285d6f38c1e2f00afc1cc",
+        "msg": "Configure keystone authtoken options\n\nUpdate designate::api to leverage keystone::resource::authtoken to\nconfigure the keystone middleware. This patch also allows designate to\nbe able to leverage Keystone v3.\n\nSome deprecations:\n- designate::api::keystone_tenant is deprecated in favor of\n  designate::api::project_name.\n- designate::api::keystone_user is deprecated in favor of\n  designate::api::username.\n- designate::api::keystone_password is deprecated in favor of\n  designate::api::password.\n- designate::api::keystone_host, designate::api::keystone_port,\n  designate::api::keystone_protocol are deprecated in favor of\n  designate::api::auth_uri and designate::api_auth_url.\n- designate::api::keystone_memcached_servers is deprecated in favor of\n  designate::api::memcached_servers.\n\nThe patch is backward compatible.\n\nChange-Id: I2cb4076b3e8679adac2722871f8391e750e8b4b0\nCloses-Bug: #1604463",
+        "cmtr": "Alex Schultz",
+        "date": "2016-07-21 14:12:47-06:00",
+        "files": ["api.pp", "authtoken-e83781cebdc8ea4c.yaml", "basic_designate_spec.rb", "designate_api_spec.rb"]
+      },
+      {
+        "hash": "d9b808092501cf5c6b0bb3291a1fef2e5a3278d9",
+        "msg": "Update keystone authtoken configuration pattern\n\nThis change updates our previous implementation of the keystone\nauthtoken setting to use the new designate::keystone::authtoken class to\ndo the configuration for the api.\n\nChange-Id: Ib2a1d20d4e29353fc139835ce1c010a801506b9c\nCloses-Bug: #1604463",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-08-10 00:04:15-03:00",
+        "files": ["api.pp", "authtoken.pp", "authtoken-e83781cebdc8ea4c.yaml", "basic_designate_spec.rb", "designate_api_spec.rb", "designate_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "bd2f0d3fbc09b2a6186b0effb46a6c5e0bdbaa41",
+        "msg": "Use native hash for pool_target options\n\nThis commit allows the options parameter type from one long formatted\nstring to a native hash, which is rendered into the right format.\n\nThe change is backwards compatible with a deprecation notice.\n\nIt uses the join and join_keys_to_values functions provided by\npuppetlabs' stdlib module.\n\nChange-Id: Ia436aabf9d346424cb68136c0b47cdda46e762e8",
+        "cmtr": "Andy Botting",
+        "date": "2016-08-24 19:47:04+10:00",
+        "files": ["pool_target.pp", "pool-target-options-string-deprecated-8de8d2c641c04a7a.yaml", "designate_pool_target_spec.rb"]
+      },
+      {
+        "hash": "c01907f5d746e438a8179d73aeb8f89179c5876c",
+        "msg": "Fix puppet-lint before upgrading gem\n\nRemoving puppet-lint warnings\nin favor of upgrading to latest gem\n\n2016-09-13 21:14:07.580653 | manifests/init.pp:168:WARNING: line has more than 140 characters\n\nChange-Id: I3ebac947a33c42299aa48e02b7a80b19fdec1d03",
+        "cmtr": "Carlos Camacho",
+        "date": "2016-09-14 14:18:23+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "d01eba77e6fca213075a7718edf6b4c55a235353",
+        "msg": "Remove verbose\n\nSince we are in Ocata we should remove the\nverbose option that was deprecated\n\nChange-Id: Ib9497ddfeafafb58da0fb9bda07bd974e3d90ced",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-09-27 20:36:07-03:00",
+        "files": ["init.pp", "logging.pp", "remove_verbose-901d2a550777616b.yaml"]
+      },
+      {
+        "hash": "0ffa512cb2fd98c8a27d80a9858177fa3a82dd6c",
+        "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: I0250c4f5c6b9d2d8a5487bf6d01c79c69b0770b6\nCloses-Bug: #1628580",
+        "cmtr": "Sharat Sharma",
+        "date": "2016-09-29 06:51:33+00:00",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "b49fb7856335a268860f143b671ec9ded0fd2753",
+        "msg": "Fix documentation for log_dir parameter\n\nChange-Id: I57127a32c40c4c47c40a71891b8ea10c2a71d838\nPartial-Bug: #1600294",
+        "cmtr": "Mykyta Karpin",
+        "date": "2016-10-10 17:47:40+03:00",
+        "files": ["init.pp", "logging.pp", "fix_log_dir_documentation-166697be95de0c72.yaml"]
+      },
+      {
+        "hash": "172441409ba3ef55eddb183248a5591248271f77",
+        "msg": "Align equals in designate::params\n\nChange-Id: Ie7c322dc35dd6cefda9681da1336633315964586",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-11-04 12:37:50+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "05d0fc5ce42bf39342ce2e911d24b1be2746caa6",
+        "msg": "Remove old authtoken options\n\nSince we are in ocata lets remove all old parameters in api\nto configure the keystone_authtoken section\n\nChange-Id: Idd1bc92b6a68e93911042784d9edb366f85547a6",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-11-05 16:20:37-03:00",
+        "files": ["api.pp", "authtoken.pp", "remove_old_authtoken_options-cbc07a893270043f.yaml", "designate_api_spec.rb"]
+      },
+      {
+        "hash": "609859b30760f62ba47357f5e2289817a229e90e",
+        "msg": "Deprecate rabbitmq connection parameters\n\nThe rabbitmq connection parameters have been deprecated in favor of the\ntransport_url setting. Additionally, the configuration has been switched\nover to use the oslo::messaging::rabbit resource.\n\nChange-Id: I43500ac7be4296ea534266fa14ca37fc700b0092\nRelated-Bug: #1625198",
+        "cmtr": "Alex Schultz",
+        "date": "2016-11-09 07:43:54-07:00",
+        "files": ["init.pp", "rabbit-connection-params-deprecation-40bf3559eb8145af.yaml", "basic_designate_spec.rb", "designate_init_spec.rb"]
+      },
+      {
+        "hash": "8a6190a30d77c169087190cde09a7faec96eaff8",
+        "msg": "Deprecate host and port options\n\nThe \"host\" and \"port\" options from group \"service:mdns\" have been deprecated\nin favor of the listen option setting.\n\nChange-Id: Idedd1d7c6cf0f7d353181f7e24a651f6244d3275\nCloses-Bug: #1643272",
+        "cmtr": "ZhongShengping",
+        "date": "2016-11-22 17:55:19+08:00",
+        "files": ["mdns.pp", "deprecate_host_port_mdns_option-fd14c85481b941a9.yaml", "designate_mdns_spec.rb"]
+      },
+      {
+        "hash": "9da7cb373dbef3c81ac5a1d75433e5eb1efceec5",
+        "msg": "Deprecate host and port options\n\nThe \"api_host\" and \"api_port\" options from group \"service:api\" have been deprecated\nin favor of the listen option setting.\n\nChange-Id: I1011e890adeb36e6908af7c183f74161d442a777",
+        "cmtr": "ZhongShengping",
+        "date": "2016-11-29 09:41:54+08:00",
+        "files": ["api.pp", "deprecate_host_port_api_option-981d1234e56f2d98.yaml", "designate_api_spec.rb"]
+      },
+      {
+        "hash": "1e95f32a6fd417f8d62123067acefcb2e5447492",
+        "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nChange-Id: If9fa188b7dca47e6724a737d66e34c0c85668c36",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-01 08:44:02+08:00",
+        "files": ["agent.pp", "api.pp", "bind9.pp", "powerdns.pp", "central.pp", "client.pp", "config.pp", "db.pp", "mysql.pp", "mysql.pp", "sync.pp", "sync.pp", "deps.pp", "generic_service.pp", "init.pp", "auth.pp", "authtoken.pp", "logging.pp", "mdns.pp", "policy.pp", "pool.pp", "pool_manager.pp", "memcache.pp", "sqlalchemy.pp", "pool_nameserver.pp", "pool_target.pp", "sink.pp", "external_install_mgmt_hook-87123a23e235e9d6.yaml", "designate_client_spec.rb", "designate_db_powerdns_sync_spec.rb", "designate_db_sync_spec.rb", "designate_init_spec.rb"]
+      },
+      {
+        "hash": "b04ed97b9a22282b133764eddd5e93ca8527f8e1",
+        "msg": "Add \"listen\" option from group \"service:agent\"\n\nChange-Id: I4bc6af4e88328c305feb52f1c4a3ffa1f3db0684",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-06 10:13:44+08:00",
+        "files": ["agent.pp", "add_agent_listen_option-2396135a25d97f13.yaml", "designate_agent_spec.rb"]
+      },
+      {
+        "hash": "0d178f521b12d66dd48e0dc4573140f6e8b32197",
+        "msg": "Add manifest for designate-zone-manager\n\nChange-Id: I7233d129c6340100ebe310d05b9d934b12c51ed1",
+        "cmtr": "Sam Morrison",
+        "date": "2016-12-07 09:57:47+11:00",
+        "files": ["params.pp", "zone_manager.pp", "zone-manager-class-43a0aa0139e036f2.yaml", "designate_zone_manager_spec.rb"]
+      },
+      {
+        "hash": "b4ede1207d1ade0d6bb7fdb7a1d663a20f629e54",
+        "msg": "Add designate::quota class to manage quota options\n\nChange-Id: I8dbab6049e61888ed4c133263a37fa288f569eec",
+        "cmtr": "Sam Morrison",
+        "date": "2016-12-08 22:07:05+00:00",
+        "files": ["quota.pp", "quota-class-980c090143852e53.yaml", "designate_quota_spec.rb"]
+      },
+      {
+        "hash": "ae4b864bbce6545679969a8bb086c4ab972dab18",
+        "msg": "Remove service:central/backend_driver option, no longer exists\n\nChange-Id: Ide49b872e0bbea640d9948c6d3d6809b70e5d767",
+        "cmtr": "Sam Morrison",
+        "date": "2016-12-09 10:45:40+11:00",
+        "files": ["all-in-one-keystone.pp", "all-in-one-noauth.pp", "central.pp", "deprecate-central-backend_driver-option-cfd8f6a4d3732a7f.yaml", "basic_designate_spec.rb", "designate_central_spec.rb"]
+      },
+      {
+        "hash": "a7695e4a3417d6fcd76698b0daef1afe65e0288e",
+        "msg": "Add oslo_messaging_notifications transport_url\n\nAdding the ability to configure the oslo_messaging_notifications\ntransport_url.\n\nChange-Id: Ia94e8df7fdc8bf0450c6038e46369d88adb6c608",
+        "cmtr": "Alex Schultz",
+        "date": "2016-12-14 13:32:09-07:00",
+        "files": ["init.pp", "notification_transport_url-047328f26bfcaf7b.yaml", "designate_init_spec.rb"]
+      },
+      {
+        "hash": "a72acd22de2556fc3148b932ea63949b7fcca3f6",
+        "msg": "Deprecate signing_dir option\n\nThe signing_dir is deprecated for removel because of PKI token format\nis no longer supported.\nUpdate warning message and release note.\n\nChange-Id: I902f75a284a571360aa859f76d8602cd8a177720\nCloses-Bug: #1652700",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-27 17:07:29+08:00",
+        "files": ["authtoken.pp", "deprecate_signing_dir_parameter-8715271a33455af7.yaml", "designate_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "116c3c319b0e2e4856c68be1dd5fc7f74e80c28d",
+        "msg": "Add parameters: workers,threads,enable_host_header and max_header_line into designate::api class\n\nChange-Id: Ief499951902ddc699a2053858f60bea3543989ec\nCloses-Bug: 1523746",
+        "cmtr": "Enrique Garcia Pablos",
+        "date": "2017-01-05 18:00:30+01:00",
+        "files": ["api.pp", "designate_api_spec.rb"]
+      },
+      {
+        "hash": "cd30cfaf014fdb5bca8b1ef607fde38b1c5c699b",
+        "msg": "Set default values for parameters in designate::api class\n\nChange-Id: Ie8bf890f5914d418bfbee4a58aaf1d831de15507\nCloses-Bug: 1654388",
+        "cmtr": "Enrique Garcia Pablos",
+        "date": "2017-01-06 18:22:25+01:00",
+        "files": ["api.pp", "designate_api_spec.rb"]
+      },
+      {
+        "hash": "39603d4a2f145b82fa76ae62439f5c9f57df3991",
+        "msg": "Allow python-memcache install from authtoken class\n\nThe python-memcache package is required if using memcached. By\ndefault the package is not installed and the define has it set to\nfalse. This change allows managing the python-memcache package\ninstall from the authtoken class.\n\nChange-Id: I644d57b938497c374cb6f08a894fe21fab10eb41",
+        "cmtr": "Matthew J. Black",
+        "date": "2017-01-11 17:45:01-05:00",
+        "files": ["authtoken.pp", "authtoken_manage_memcache_package-c517a942d051b4b2.yaml", "designate_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "b1d6d9e1eff555b4cfbb5bb6ca4119fe5ad9fef0",
+        "msg": "New parameters for service::api section\n\nChange-Id: I18bde9968517c1f35af26a930e6e14a2dd98dd22\nCloses-Bug: 1654208",
+        "cmtr": "Enrique Garcia Pablos",
+        "date": "2017-01-13 12:21:25+01:00",
+        "files": ["api.pp", "update_service_api_parameters-e752b0794d7c5dbc.yaml", "designate_api_spec.rb"]
+      },
+      {
+        "hash": "821ef348df8f7871e937c71d6cda7beabdad1e42",
+        "msg": "Add control_exchange and rpc_response_timeout options\n\nAdd control_exchange to configure an exchange name for message.\nAdd rpc_response_timeout to configure seconds time for waiting\nfor a response from a call.\n\nChange-Id: I27b7d30bf422cd07b27ff248c7decd744c35427e",
+        "cmtr": "ZhongShengping",
+        "date": "2017-01-28 13:42:16+08:00",
+        "files": ["init.pp", "add_messaging_default_parameters-71a3ef1234d98156.yaml", "designate_init_spec.rb"]
+      },
+      {
+        "hash": "6d0d2f2cd67b4507ab25bc6793cbd11d904cc439",
+        "msg": "Switch to puppet-oslo configuring logging\n\n1) Switch to puppet-oslo configuring logging.\n2) switch messaging related parameters default value to\n   $::os_service_default.\n3) Update releated unit test.\n\nChange-Id: I60e38b8fe26fede0829b24ccc9cffd1a05bc4ed7",
+        "cmtr": "ZhongShengping",
+        "date": "2017-02-06 08:46:05+08:00",
+        "files": ["logging.pp", "switch_to_oslo_logging-a34913d9e5fd6284.yaml", "designate_logging_spec.rb"]
+      },
+      {
+        "hash": "c0835195c02c803e1521ed04cd31a5d5031cbc83",
+        "msg": "Switch to puppet-oslo configuring policy\n\nChange-Id: Id6a805508153f03b83967783caf22db72afc8e79",
+        "cmtr": "ZhongShengping",
+        "date": "2017-02-13 14:32:38+08:00",
+        "files": ["policy.pp", "designate_policy_spec.rb"]
+      },
+      {
+        "hash": "e837bed3ff294879b2da19156e5f8cbfc40631bf",
+        "msg": "Inconsistent package_ensure parameter name\n\nThe parameter name used to enforce package state is inconsistent across\nmanifests and modules. I settle on package_ensure since it's already\nwidely used.\n\nChange-Id: I9868f954a032a0014b9304526daf5476b0922c5d\nCloses-Bug: #1668732",
+        "cmtr": "ZhongShengping",
+        "date": "2017-03-08 17:54:18+08:00",
+        "files": ["agent.pp", "api.pp", "central.pp", "generic_service.pp", "mdns.pp", "sink.pp", "zone_manager.pp", "deprecate_ensure_package_parameter-8a34ef9781df9735.yaml", "designate_generic_service_spec.rb", "shared_examples.rb"]
+      },
+      {
+        "hash": "b103dd458e324a60341337325ef255bb1781aaef",
+        "msg": "Remove deprecated keystone authtoken signing_dir option\n\nChange-Id: Ia76c4500e324b3c59e732e922e2532f32d0df1d0",
+        "cmtr": "ZhongShengping",
+        "date": "2017-07-07 09:58:40+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_signing_dir_option-83be1483cf992d6c.yaml"]
+      },
+      {
+        "hash": "4ab3a326e9bf82a56caa0ef66ac259d4da1236fe",
+        "msg": "Fix dependency references\n\nThe latest version of puppet now reports these as catalog failures so\nthis change removes the unnecessary Package and Service references\nsince those are already handled by designate::deps.\n\nChange-Id: I3e4d1ab3d8efe3bfd0755c4f2524a2fe193a0896\nCloses-Bug: #1702964",
+        "cmtr": "ZhongShengping",
+        "date": "2017-07-11 08:24:14+08:00",
+        "files": ["generic_service.pp"]
+      },
+      {
+        "hash": "fa624899437d73e6c8cd1a97fb0f044bf2087186",
+        "msg": "Deprecate oslo.messaging rpc_backend option parameter\n\nOslo.messaging uses the transport_url to represent the rpc and\nnotification messaging driver to use and its full configuration. The\nrpc_backend configuration option is deprecated for removal and\nshould not gate oslo.messaging driver configuration options.\n\nThis patch:\n* deprecate rpc_backend\n* remove conditional check\n* add release note\n\nChange-Id: I8d838a123f4c5147bdbebfcc852da51080ed7982",
+        "cmtr": "ZhongShengping",
+        "date": "2017-08-07 13:56:51+08:00",
+        "files": ["init.pp", "deprecate_rpc_backend_parameter-d1997bdbdedd9818.yaml"]
+      },
+      {
+        "hash": "3f069cd0f47c1d7e9d717721ea958cdb9937d080",
+        "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: I899960c95b068858568155539aa0fa48bed99200\nCloses-Bug: #1717144",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-14 11:10:02+08:00",
+        "files": ["authtoken.pp", "deprecate_revocation_cache_time_parameter-a3c674c05a694a69.yaml", "designate_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "36a58315b1ce50eee802ac8dd2c5745c79f6c8f2",
+        "msg": "Add amqp_durable_queues parameter\n\nChange-Id: I3a32fb79030c61b271623f334f26fda85ad8e3fb",
+        "cmtr": "Rocky",
+        "date": "2017-09-15 18:23:28+10:00",
+        "files": ["init.pp", "add_amqp_durable_queues-bc6e32cab4574428.yaml", "designate_init_spec.rb"]
+      },
+      {
+        "hash": "4bed705d0a5b41307bf860c3e492dcb8abe6517d",
+        "msg": "Accept empty strings for log_dir\n\nAn empty string is an acceptable value of this entry, and it forces\nlogging to stdout/stderr, which is useful when running on containers.\n\nChange-Id: I66b7d6d676686a0b8cf81e3371852a1423fe7921",
+        "cmtr": "ZhongShengping",
+        "date": "2017-10-12 08:56:22+08:00",
+        "files": ["logging.pp"]
+      },
+      {
+        "hash": "d18f3f815008e97578fcb214a90a3c7295678e3a",
+        "msg": "Set *_domain_name vars to 'Default' by default\n\nKeystone v2 api's are removed in [1], so it's required\nto set user_domain_name and project_domain_name otherwise\nall requests fallbacks to keystone v2.0 and fails.\n\n[1] https://review.openstack.org/#/c/499783/\n\nChange-Id: If52cd4cea4d3fceb7e272366d20276a209b4dc5b\nCloses-Bug: #1723838",
+        "cmtr": "zhongshengping",
+        "date": "2017-10-23 09:21:01+00:00",
+        "files": ["authtoken.pp", "default_domain-a85852fdf2a9df3d.yaml", "designate_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "74aee65cdfeae494c12e88bce5da4491a17fe2be",
+        "msg": "Added options central service\n\nThis patch adds workers, threads, default-pool-id options to the\ncentral.pp as these options can be configured for designate-central.\n\nChange-Id: I0635d5fd2ece7bca85fab772a055c999d6721c1a\nCloses-Bug: #1539327\nCo-Authored-By: Sharat Sharma <sharat.sharma@nectechnologies.in>",
+        "cmtr": "Thomas Herve",
+        "date": "2017-11-08 13:56:29+01:00",
+        "files": ["central.pp", "designate_central_spec.rb"]
+      },
+      {
+        "hash": "8fad53f97408fb39081755729b5d4390fc284b9f",
+        "msg": "Add support for producer service\n\nDesignate now uses a service called producer in the more recent\narchitecture.\n\nChange-Id: I1c9ed575b70611209299ed50c6ec80ed6d11da7e",
+        "cmtr": "Thomas Herve",
+        "date": "2017-11-08 15:01:57+01:00",
+        "files": ["params.pp", "producer.pp", "designate_producer_spec.rb"]
+      },
+      {
+        "hash": "8120a19e9d15516f0cd23d1e77b19a7053733f67",
+        "msg": "Add support for worker service\n\nThis enables the worker service to be running.\n\nChange-Id: I492b61f5eb07d2c3039c8bb0f3e99626399bba62",
+        "cmtr": "Thomas Herve",
+        "date": "2017-11-16 08:44:25+01:00",
+        "files": ["params.pp", "worker.pp", "designate_worker_spec.rb"]
+      },
+      {
+        "hash": "b0818626dc58d249f87f330dc6df0cb45bf69b44",
+        "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: If8c4b6f19b35c282ff2ae9aeaed30896ea5886b0",
+        "cmtr": "ZhongShengping",
+        "date": "2017-11-28 09:06:57+08:00",
+        "files": ["logging.pp", "log-json-713a4569878135f4.yaml", "designate_logging_spec.rb"]
+      },
+      {
+        "hash": "34e606c79542555e8f4ec3fb45034b66806e212f",
+        "msg": "Use os_workers when applicable\n\nThis uses os_workers as default for every workers config setting of the\nvarious services.\n\nChange-Id: I828f7fd8000d8e386b4d794ba8bf308599aa5491",
+        "cmtr": "Thomas Herve",
+        "date": "2017-11-28 09:39:26+01:00",
+        "files": ["api.pp", "central.pp", "mdns.pp", "pool_manager.pp", "worker.pp", "os-workers-48f08c28765c9c77.yaml", "designate_api_spec.rb", "designate_central_spec.rb", "designate_mdns_spec.rb", "designate_pool_manager_spec.rb", "designate_worker_spec.rb"]
+      },
+      {
+        "hash": "dca15cf79a529c55db08303f0a6ee01479107781",
+        "msg": "Enable worker service when deploying it\n\nCurrently when deploying the worker service, you get a message like\n\nYou do not have designate-worker enabled, starting designate-worker\nis not allowed.\n\nin the log when the service attempts to start.  This is because the\nservice:worker/enabled setting is not set to true.  When the worker\nservice is enabled that setting should be as well.\n\nChange-Id: I150157162d7dce536606778d5dda5bd8356cb799",
+        "cmtr": "Ben Nemec",
+        "date": "2017-12-14 18:28:30+00:00",
+        "files": ["worker.pp", "designate_worker_spec.rb"]
+      },
+      {
+        "hash": "970212fc1c6451496c52bdc1b56764fcad3eacf2",
+        "msg": "Allow necessary write permissions for BIND zone creation\n\nBy default on both Red Hat and Ubuntu BIND does not have the\nnecessary file permissions to create new zones.  Since we need to\nbe able to do that for Designate to function, we need to tweak the\npermissions at deployment time.\n\nPreviously this was done in puppet-openstack-integration, but for\nTripleO to deploy Designate we need it done in this module as\nTripleO doesn't use p-o-i.\n\nChange-Id: I09e8799f0b2a4113833983d67b3c4d40a0355933\nbp designate-support",
+        "cmtr": "Ben Nemec",
+        "date": "2018-01-09 23:25:29+00:00",
+        "files": ["bind9.pp"]
+      },
+      {
+        "hash": "4c6482c4191286917540bb2cca43d04cd328c939",
+        "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nChange-Id: I31bec4b9509e27affd60136537a2a9d6168a62e1\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2018-01-11 15:54:41+00:00",
+        "files": ["params.pp", "policy.pp", "designate_policy_spec.rb"]
+      },
+      {
+        "hash": "57002e64adfe2ed04562c48f01ed24358f19c6af",
+        "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: I4732ae45976cb88fd69f02c9e9bc3cf8febc212d",
+        "cmtr": "ZhongShengping",
+        "date": "2018-01-15 15:38:47+08:00",
+        "files": ["logging.pp", "add-use_journal-option-for-logging-8e4ab44b434c3f5a.yaml", "designate_logging_spec.rb"]
+      },
+      {
+        "hash": "41b572b122ca63b1dff1411db62fb4ddcf48c1a9",
+        "msg": "Remove deprecated backend_driver options\n\nThe backend_driver option has been deprecated in Ocata.\nwe can remove it.\n\nChange-Id: If24fb1b814c255d90391a6ee42167b36f5f156bf\nDepends-On: I90b7fdb454249c9e0777371a357c545aac6f46fc",
+        "cmtr": "ZhongShengping",
+        "date": "2018-02-08 17:18:56+08:00",
+        "files": ["central.pp", "remove_deprecated_backend_driver_option-1835a345df87e013.yaml"]
+      },
+      {
+        "hash": "15265bd46f6db2816bc99ec29275e7345644484e",
+        "msg": "Add kombu_failover_strategy option\n\nAdds the kombu_failover_strategy option for configuring\noslo.messaging.rabbit. This will determines how the next RabbitMQ node\nis chosen in case the one we are currently connected to becomes\nunavailable.\n\nChange-Id: Ia08af6da0976697d65bcc1b55b857b0f4a5742bc\nCloses-Bug: #1748353",
+        "cmtr": "ZhongShengping",
+        "date": "2018-02-09 14:21:53+08:00",
+        "files": ["init.pp", "add_rabbit_kombu_options-8d187aa78e4dfd62.yaml", "designate_init_spec.rb"]
+      },
+      {
+        "hash": "bae7521e56aa32404e66b61a5b00b4bb3724ae79",
+        "msg": "Designate/Neutron communicaton failure\n\nDesignate communicate on publicURL (Default) endpoint with Neutron.\nWhen TLS is enabled it generates errors (Missing certificate). We\nneed to ensure designate communicate with neutron on internalURL.\n\nChange-Id: I1474cd23affc6d019d9aa9e847e373fefc431e82\nCloses-Bug: #1743509",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-08 09:12:04+08:00",
+        "files": ["init.pp", "add_network_endpoint_type-1981354ab7345fed.yaml", "designate_init_spec.rb"]
+      },
+      {
+        "hash": "2f21d410d9a00e1e38843062777f78bb95a0f0e0",
+        "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: I1108bfeb4a82fb1b41e3eb135088940c052ce016\nCloses-Bug: #1755102",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-12 16:33:06+08:00",
+        "files": ["sync.pp", "openstack_db_tag-a1c65d120dfb5f01.yaml", "designate_db_sync_spec.rb"]
+      },
+      {
+        "hash": "32eac5b22ed8200cb88c03d170053923bc4a8f66",
+        "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: I47ec15a2331a540badfa2c27ebc9d409867e498c",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-27 10:33:21+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-868bf45fbea6b16e.yaml"]
+      },
+      {
+        "hash": "8c891f34a95f2a27251ddc60875c816b3f4ba822",
+        "msg": "Remove deprecated ensure_package option\n\nChange-Id: I4c5efcd60ef2582a47861c0ad0f96079837bb7a5",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-29 12:01:15+08:00",
+        "files": ["generic_service.pp", "remove_deprecated_ensure_package_option-b1a7d2a9e67af4c0.yaml"]
+      },
+      {
+        "hash": "550af1d28201f6673645dc9d4414ceb30010c71c",
+        "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: Ie9c4c339374af50f5d1a8b3dbf6bf632c5bf06ef\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
+        "cmtr": "ZhongShengping",
+        "date": "2018-04-03 16:54:59+08:00",
+        "files": ["authtoken.pp", "deprecate_auth_uri_parameter-9536eda67c767f59.yaml", "designate_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "1f89623c2aebe52a3cfdec3b930e9c67f7be437f",
+        "msg": "Remove useless code for sync.pp\n\nIn order to improve efficiency, remove useless code.\n\nChange-Id: Iac4f29ac0bb906c7c428e298c5b717c7d0b86296",
+        "cmtr": "ZhongShengping",
+        "date": "2018-04-08 09:05:38+08:00",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "96a48ab04b6d28908dd3a0c5b64138359b9e1a23",
+        "msg": "Debian is using python3-designateclient\n\nChange-Id: I55b1d17a2bee2ba4f4b2195c9f58a64c9cad9a77",
+        "cmtr": "zhubingbing",
+        "date": "2018-04-12 11:14:53+08:00",
+        "files": ["params.pp", "designate_client_spec.rb"]
+      },
+      {
+        "hash": "fc0e0556508db430b23d6eed31fb3bd35549af52",
+        "msg": "Fix lint sytle\n\nChange-Id: I9d1b1c98ea8f601d7ed5eec06883743d495993ef",
+        "cmtr": "zhubingbing",
+        "date": "2018-04-13 16:25:45+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "732a2221037fadf97d1164a54dd0e2f55aeb9e31",
+        "msg": "neat: missing : in $::os_service_default\n\nChange-Id: I63433bd62a7d0e50f80f5e89795f2fcad1033305",
+        "cmtr": "zhubingbing",
+        "date": "2018-05-11 14:02:39+08:00",
+        "files": ["authtoken.pp"]
+      },
+      {
+        "hash": "1823d64da90e0f5b550050e1300abba907069b8b",
+        "msg": "Replace port 35357 with 5000\n\nNow that the v2.0 API has been removed, we don't have a reason to\ninclude deployment instructions for two separate applications on\ndifferent ports.\n\nChange-Id: I3546eb7cd596ae7a0894d42961d183ef842f7cb4",
+        "cmtr": "ZhijunWei",
+        "date": "2018-05-13 15:08:52+08:00",
+        "files": ["authtoken.pp", "designate_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "25f07ee1e1f440e90f550acbc129ef0f0d6f2263",
+        "msg": "Remove deprecated parameters\n\nRemoves deprecated parameters that has been\ndeprecated for one cycle or more.\n\nChange-Id: I01e33221ef4f2c3afd5277dbc3f1787feee31f37",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-05-22 12:18:55+02:00",
+        "files": ["api.pp", "dns.pp", "init.pp", "mdns.pp", "remove-deprecated-params-6ad767ccb47df2e9.yaml", "designate_init_spec.rb"]
+      },
+      {
+        "hash": "394ae36b81ef6afec5d581dc64ff04d667528115",
+        "msg": "Fix annotations\n\nChange-Id: I08897a44f4debec313378b7a88190390f3d6efa1",
+        "cmtr": "zhubingbing",
+        "date": "2018-06-15 15:07:37+08:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "d7aa75209dda69f56287f2c9436d6ac9605d70d9",
+        "msg": "Set minimal-responses in BIND backend configuration\n\nThis is recommended as a mitigation for a potential cache poisoning\nattack when using BIND with Designate.\n\nhttps://docs.openstack.org/designate/queens/admin/production-guidelines.html#bind9-mitigation\n\nChange-Id: I89f5b4b24558a4d8b66b2a9082fec152694e6b6a",
+        "cmtr": "Ben Nemec",
+        "date": "2018-06-28 16:32:40+00:00",
+        "files": ["bind9.pp"]
+      },
+      {
+        "hash": "df4991fbe2c9f7e5b457ae8ed0f6e401fc4e9c1d",
+        "msg": "Add ability to configure rndc controls\n\nTripleO can't do this through hieradata because this is a hash with\na dynamic value as a key.  This just exposes the parameter so it\ncan be set from a manifest.\n\nChange-Id: Ib3d4f024e409e5d2aad9117b1418ccd0050b964d",
+        "cmtr": "Ben Nemec",
+        "date": "2018-07-11 22:22:58+00:00",
+        "files": ["bind9.pp"]
+      },
+      {
+        "hash": "a04816fa3298512ba7e67b4fa04378174d57fe5b",
+        "msg": "Add the default value of $::os_service_default\n\nChange-Id: I6b80d80698267565d86398a0f253383e8fa24dda",
+        "cmtr": "ZhongShengping",
+        "date": "2018-10-16 11:01:35+08:00",
+        "files": ["init.pp"]
+      }]
+    }

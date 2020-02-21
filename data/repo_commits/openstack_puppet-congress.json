@@ -1,0 +1,322 @@
+    {
+      "url": "https://github.com/openstack/puppet-congress",
+      "pp_files": ["service.pp", "logging.pp", "authtoken.pp", "config.pp", "db.pp", "policy.pp", "init.pp", "sync.pp", "auth.pp", "postgresql.pp", "deps.pp", "mysql.pp", "client.pp", "server.pp", "params.pp"],
+      "pp_cmtrs": ["Emilien Macchi", "Mykyta Karpin", "ZhongShengping", "Tobias Urdin", "Iury Gregory Melo Ferreira", "jacky06", "Dan Radez", "Sharat Sharma", "Alex Schultz", "Matthew J Black", "qiaomin", "Sofer Athlan-Guyot", "zhubingbing"],
+      "num_pp_commits": 45,
+      "num_tot_commits": 169,
+      "commits": [{
+        "hash": "7ec60eb0cec991cae1a04f6fba78b5b03db87001",
+        "msg": "Initial Commit\n\nSigned-off-by: Dan Radez <dradez@redhat.com>",
+        "cmtr": "Dan Radez",
+        "date": "2016-03-13 11:48:15-04:00",
+        "files": [".gitignore", "LICENSE", "README.md", "ini_setting.rb", "congress_config.rb", "client.pp", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "init.pp", "auth.pp", "logging.pp", "params.pp", "policy.pp", "service.pp", "metadata.json", "congress_db_mysql_spec.rb", "congress_db_postgresql_spec.rb", "congress_db_spec.rb", "congress_keystone_auth_spec.rb", "congress_logging_spec.rb", "congress_policy_spec.rb", "shared_examples.rb", "ini_setting_spec.rb", "congress_config_spec.rb", "init.pp"]
+      },
+      {
+        "hash": "ffcf16f51cc141c4a49e71da2f335f61413df0ce",
+        "msg": "Syntax fixes to get the initial service start up to succeed",
+        "cmtr": "Dan Radez",
+        "date": "2016-05-24 21:20:34-04:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "a2ca3cd95e9e20f8ab382ff8f778e7e0ba02c0ab",
+        "msg": "updating configuration options",
+        "cmtr": "Dan Radez",
+        "date": "2016-05-31 08:00:36-04:00",
+        "files": ["init.pp", "auth.pp"]
+      },
+      {
+        "hash": "84c317fcbbfc8e46d4176279a4d771c93733385d",
+        "msg": "Commiting a cookie cutter module sync set of files\n\nThis module had pre-existing content which is not the\nmethodology puppet-openstack community advises.\n\nThis commit takes the content from their new-module\ndocumentation and commits it to this repo as a marker\nto where the module should have started.\n\nThe previous history is being kept for preservation\nand will be migrated into upcoming commits to establish\na developmental history based on the cookiecutter and\nmsync foundation as documented by the puppet openstack\ncommunity.\n\nChange-Id: I91def5bf63b88b22153ebefd4018f1252f4b5d2b\nSigned-off-by: Dan Radez <dradez@redhat.com>",
+        "cmtr": "Dan Radez",
+        "date": "2016-06-14 11:47:20-04:00",
+        "files": [".gitignore", ".gitreview", "Gemfile", "LICENSE", "README.md", "Rakefile", "ini_setting.rb", "congress_config.rb", "client.pp", "db.pp", "mysql.pp", "sync.pp", "init.pp", "auth.pp", "logging.pp", "params.pp", "policy.pp", "service.pp", "metadata.json", "centos-70-x64.yml", "default.yml", "nodepool-centos7.yml", "nodepool-trusty.yml", "nodepool-xenial.yml", "ubuntu-server-1404-x64.yml", "congress_db_mysql_spec.rb", "congress_db_postgresql_spec.rb", "congress_db_spec.rb", "congress_keystone_auth_spec.rb", "congress_logging_spec.rb", "congress_policy_spec.rb", "spec_helper.rb", "spec_helper_acceptance.rb", "ini_setting_spec.rb", "congress_config_spec.rb"]
+      },
+      {
+        "hash": "52b1561f35b0a1a5e588dc4b01fa42c2267bb813",
+        "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: I120d128699f9b60f3e02bb86f91d82efd18fa8eb\nRelated-Bug: 1599113",
+        "cmtr": "Sofer Athlan-Guyot",
+        "date": "2016-07-07 12:03:54+02:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "2af6aad990c2889f9de01a522809713580f8b742",
+        "msg": "Add authtoken class\n\nAdd authtoken class like we do in all other modules,\nto configure [keystone_authtoken] section.\n\nChange-Id: If9f31c67d8bae6f5143bab4a0e9fa68c086cb11b",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-08-05 11:44:24-03:00",
+        "files": ["authtoken.pp", "metadata.json", "congress_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "c54f274d62e4b1afd609ad2a47ab3b0b15d27926",
+        "msg": "Fix authtoken\n\n- Fix doc in authtoken class\n- Fix metadata dependencies\n\nChange-Id: Ie30393e00dc37fddfaffad1159e6789c87b019ac",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-08-27 00:50:44-03:00",
+        "files": ["authtoken.pp", "metadata.json"]
+      },
+      {
+        "hash": "e531fa487db83ea9adebec7130d0df56ac2d738d",
+        "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: I254ed65b1767c55d0bfad6cfc9692c1ac6dfdca8\nCloses-Bug: #1628580",
+        "cmtr": "Sharat Sharma",
+        "date": "2016-09-29 14:19:55+05:18",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "b1dec23824d446e483bbb6b729cab6dd69a9e76c",
+        "msg": "Populating init.pp and parameters\n\n- skipping accepence test for now, packages aren't quite ready\n\nChange-Id: Ieefebfcb9529065a520b95f06e4524d7784fe109\nSigned-off-by: Dan Radez <dradez@redhat.com>",
+        "cmtr": "Dan Radez",
+        "date": "2016-09-30 09:57:09-04:00",
+        "files": ["init.pp", "params.pp", "congress_init_spec.rb"]
+      },
+      {
+        "hash": "1d732c2c9fced1b2fd64dca8df60dc7d6973e9ef",
+        "msg": "Fix documentation for log_dir parameter\n\nChange-Id: I9135e6051488049a31d9fd83ec6decaf7ba7e5c2\nPartial-Bug: #1600294",
+        "cmtr": "Mykyta Karpin",
+        "date": "2016-10-10 14:55:52+03:00",
+        "files": ["logging.pp"]
+      },
+      {
+        "hash": "88236c80416e9800d07a64104f431896f72ca644",
+        "msg": "Add support for db_max_retries param\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: Ib1e46dd29031a3064ff927d2a35b511ab611e024\nCloses-Bug: 1579718",
+        "cmtr": "ZhongShengping",
+        "date": "2016-10-27 22:35:14+08:00",
+        "files": ["db.pp", "congress_db_spec.rb"]
+      },
+      {
+        "hash": "e4aa1db6dc69330e2d5bb2b36fd3b2a7972f5be4",
+        "msg": "Deprecate rabbitmq connection parameters\n\nThe rabbitmq connection parameters have been deprecated in favor of the\ntransport_url setting.\n\nChange-Id: I7d9291516290ea60e090221cfe3c2e8543c96d6d\nRelated-Bug: #1625198",
+        "cmtr": "Alex Schultz",
+        "date": "2016-10-31 14:38:58-06:00",
+        "files": ["init.pp", "congress_init_spec.rb"]
+      },
+      {
+        "hash": "11f9a3489bc800c023f64f48d4a0c7a144d84667",
+        "msg": "Remove unused parameters in params\n\nThe service_provider parameter has not been used, so remove it.\n\nChange-Id: I9e729bc42ca158e9f7ffd8b0113fbfed477b92c1",
+        "cmtr": "ZhongShengping",
+        "date": "2016-11-10 17:55:51+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "7a0046328a4a443e551006caf96b83e41affd9f5",
+        "msg": "Congress uses congress-db-manage instead of congress-manage\n\nChange-Id: I6fdc3a7cdc988419b24a2ed3084bc88382d4b6a6\nSigned-off-by: Dan Radez <dradez@redhat.com>",
+        "cmtr": "Dan Radez",
+        "date": "2016-11-14 14:40:19-05:00",
+        "files": ["mysql.pp", "postgresql.pp", "sync.pp", "congress_db_sync_spec.rb"]
+      },
+      {
+        "hash": "cada0ea7d9029498f6e812c397141d1c5addc060",
+        "msg": "Adding a client.pp file\n\nAdding a class that will handle installing the congress python client pkg\n\nChange-Id: I93263c124a37452612cccf7c397e590d3cbc9a3a\nSigned-off-by: Dan Radez <dradez@redhat.com>",
+        "cmtr": "Dan Radez",
+        "date": "2016-11-23 09:54:22-05:00",
+        "files": ["client.pp", "params.pp", "congress_client_spec.rb"]
+      },
+      {
+        "hash": "74b7d7edfc7eee5bcb7ff5f1b6955c999aed279e",
+        "msg": "Add support for Debian system\n\n1) Add server.pp for congress\n2) Add hooks for external install & svc management\n3) Add the acceptance test to deploy the service now\n\nChange-Id: I0c3adac2a35a729c15a8abfbc000b40063ff34c7",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-01 16:13:57+08:00",
+        "files": ["client.pp", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "init.pp", "auth.pp", "authtoken.pp", "logging.pp", "params.pp", "policy.pp", "server.pp", "basic_congress_spec.rb", "congress_client_spec.rb", "congress_db_sync_spec.rb", "congress_init_spec.rb", "congress_server_spec.rb"]
+      },
+      {
+        "hash": "f9b1e594a3d0e532906e58ca49d9227e142a314e",
+        "msg": "Remove policy_path option\n\nThe policy_path parameter has been deprecated, has no effect.\nSo we can remove it.\n\nChange-Id: I9cd2ba0392b016f2f437289769759dd1f715ec9d\nCloses-Bug: #1646717",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-06 10:04:09+08:00",
+        "files": ["init.pp", "params.pp"]
+      },
+      {
+        "hash": "d6ff0c15c43b84ebff8d0ae43a07a41330d4983d",
+        "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: Ieb5f39dbc53bb7a1a2031eb139bb3d8cda579cb4\nCloses-Bug: #1628580",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-06 14:34:10+08:00",
+        "files": ["sync.pp", "congress_db_sync_spec.rb"]
+      },
+      {
+        "hash": "026efc898a8815123642b2e465ad38e99b3e59fd",
+        "msg": "Add oslo_messaging_notifications transport_url\n\nAdd the ability to configure the oslo_messaging_notifications\ntransport_url.\n\nChange-Id: Ied553643acdb180f3c5f742e630256463cd7134d",
+        "cmtr": "Alex Schultz",
+        "date": "2016-12-14 09:16:21-07:00",
+        "files": ["init.pp", "congress_init_spec.rb"]
+      },
+      {
+        "hash": "90cf1892e9b6ba27a4894c376ef45498041f095e",
+        "msg": "updating service name\n\nred hat systems refer to the congress service as openstack-congress\nupdating the params to reflect this.\n\nChange-Id: I300be98d6c6782d882018827aed7aeebc142e617\nSigned-off-by: Dan Radez <dradez@redhat.com>",
+        "cmtr": "Dan Radez",
+        "date": "2016-12-22 09:32:28-05:00",
+        "files": ["params.pp", "congress_server_spec.rb"]
+      },
+      {
+        "hash": "c1554959e68d4dd468a24c24e10bbd0dfade0794",
+        "msg": "Remove signing_dir option\n\nThe signing_dir is deprecated for removel because PKI token format\nis no longer supported.\n\nChange-Id: Iee207a7a7f16ce7eac8b8778621bc9e69acd6b4d\nCloses-Bug: #1652700",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-28 08:49:20+08:00",
+        "files": ["authtoken.pp", "congress_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "32960680f2972fe1741036b2807556307cbf687d",
+        "msg": "Allow python-memcache install from authtoken class\n\nThe python-memcache package is required if using memcached. By\ndefault the package is not installed and the define has it set to\nfalse. This change allows managing the python-memcache package\ninstall from the authtoken class.\n\nChange-Id: I84d4edc2ebcee9f10e2248fa9961a5af4e0572a4",
+        "cmtr": "Matthew J Black",
+        "date": "2017-01-12 23:10:05+00:00",
+        "files": ["authtoken.pp", "congress_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "8f860c56e0e96d7ffa85d3a515783101e208c755",
+        "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should be\ninstalled before dbsync starts.\n\nChange-Id: Iecbef43471b8ff18858434dbd9dc8b7a8673ec28",
+        "cmtr": "ZhongShengping",
+        "date": "2017-01-22 21:35:08+08:00",
+        "files": ["deps.pp"]
+      },
+      {
+        "hash": "72d8ea5ec3acb3b10f82440f3f79b4edeb2237f5",
+        "msg": "Add control_exchange and rpc_response_timeout options\n\nAdd control_exchange to configure an exchange name for message.\nAdd rpc_response_timeout to configure seconds time for waiting\nfor a response from a call.\n\nChange-Id: If742135eca611bf46b7838a72c20ff1c72b61f00",
+        "cmtr": "ZhongShengping",
+        "date": "2017-01-28 13:31:38+08:00",
+        "files": ["init.pp", "congress_init_spec.rb"]
+      },
+      {
+        "hash": "7fd796110ca4f9a2db7cc562dcfd84e091a6e50d",
+        "msg": "Updating service name for Red Hat platform\n\nChange-Id: Ie7952e8963e5fcd897900808da8d842c273b6fa5",
+        "cmtr": "Dan Radez",
+        "date": "2017-02-09 15:33:18-05:00",
+        "files": ["params.pp", "congress_server_spec.rb"]
+      },
+      {
+        "hash": "70101e913fe6dbc6d8b915de5d11b66988bb2c20",
+        "msg": "Add notification_driver and notification_topics option\n\nAdd notification_driver to configure driver or drivers for handling\nsending notifications.\nAdd notification_topics to configure AMQP topic used for OpenStack\nnotifications.\n\nChange-Id: If950332037daddba378fc1269ac74e4495c8c383",
+        "cmtr": "ZhongShengping",
+        "date": "2017-02-20 20:36:35+08:00",
+        "files": ["init.pp", "add_messaging_notification_parameters-71a194ef982371d6.yaml", "congress_init_spec.rb"]
+      },
+      {
+        "hash": "0e5b333b880e2235865390a10a00f3837911dd3e",
+        "msg": "Add api_paste type/provider for congress\n\nAdd congress_api_paste_ini type/provider for congress.\nAlso add the capability to configure api-paste.ini with config.pp.\n\nChange-Id: Ifb7150fb383636efa0dc76a68bafdfd70ee623cb\nCloses-Bug: #1483371",
+        "cmtr": "ZhongShengping",
+        "date": "2017-07-26 11:31:56+08:00",
+        "files": ["ini_setting.rb", "congress_api_paste_ini.rb", "config.pp", "congress_config_spec.rb", "ini_setting_spec.rb", "congress_api_paste_ini_spec.rb"]
+      },
+      {
+        "hash": "714978792e1d4fe8de0ddab44a2156dc799196d5",
+        "msg": "Deprecate oslo.messaging rpc_backend option parameter\n\nOslo.messaging uses the transport_url to represent the rpc and\nnotification messaging driver to use and its full configuration. The\nrpc_backend configuration option is deprecated for removal and\nshould not gate oslo.messaging driver configuration options.\n\nThis patch:\n* deprecate rpc_backend\n* remove conditional check\n* update spec tests\n* add release note\n\nChange-Id: I0ba609ca5c311b52635efd3c3364a258fd197d5f\nCloses-Bug: #1708976",
+        "cmtr": "ZhongShengping",
+        "date": "2017-08-07 13:49:33+08:00",
+        "files": ["init.pp", "deprecate_rpc_backend_parameter-a671397f2235d98e.yaml", "congress_init_spec.rb"]
+      },
+      {
+        "hash": "4dbb68ee0055293cddd59d8dd97aff5f04522213",
+        "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: Ic08c00b15b1fd3d50f88711a7d4057dd13d1d850\nCloses-Bug: #1717144",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-14 11:08:17+08:00",
+        "files": ["authtoken.pp", "deprecate_revocation_cache_time_parameter-6eafa1067032f8be.yaml", "congress_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "e5499039ce5c0604a90f9d8176e2ce111cf1ca78",
+        "msg": "Configure *_domain_name to Default by default\n\nKeystone v2.0 API was removed so we have no choice but configuring\nuser_domain_name and project_domain_name otherwise it fallbacks to\nKeystone v2.0 and it fails. This patch sets the default value so we make\nsure Keystone v3 will be used out of the box for our users.\n\nChange-Id: Id9af211a39a59ee1dab34a800c5be2a7f50d7649",
+        "cmtr": "ZhongShengping",
+        "date": "2017-10-13 14:28:52+08:00",
+        "files": ["authtoken.pp", "default_domain-a873f234d8791ed7.yaml", "congress_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "9a1b00ce0b45635c20932a0b0563fe12a9f3bf14",
+        "msg": "Remove ceilometer_driver datasource\n\nIt was removed upstream and causes service start failures if included.\n\nChange-Id: Iec384137bc05669938041f3aed26fdf3ef02f5f7\nRelated-Bug: #1729761",
+        "cmtr": "Alex Schultz",
+        "date": "2017-12-01 14:52:56-07:00",
+        "files": ["params.pp", "remove-ceilometer-driver-c68eee76e6814632.yaml"]
+      },
+      {
+        "hash": "460dadee73d8d0b5a8684d6468670e734d71cd38",
+        "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: Idb8b76b343c604502fd5b151d92e502bbfad108b",
+        "cmtr": "Alex Schultz",
+        "date": "2017-12-01 21:54:10+00:00",
+        "files": ["logging.pp", "log-json-87135a773f9813d6.yaml", "congress_logging_spec.rb"]
+      },
+      {
+        "hash": "83fcf0a23dbdb130914f1d95d810cb471f5aca36",
+        "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nChange-Id: Ic0b3bfee864ad58c7469e9eff2265b700ada9a50\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2018-01-10 14:22:34-08:00",
+        "files": ["params.pp", "policy.pp", "congress_policy_spec.rb"]
+      },
+      {
+        "hash": "2d54e73e665785921c0d91f0ef435d3626d428ae",
+        "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: Ib746f31438dc80f0ae519ee738d54b09d0153e6d",
+        "cmtr": "ZhongShengping",
+        "date": "2018-01-15 15:37:11+08:00",
+        "files": ["logging.pp", "add-use_journal-option-for-logging-8d3f1dcc7aa1da03.yaml", "congress_logging_spec.rb"]
+      },
+      {
+        "hash": "12815da5bd3cec1e950312acb8de8e2f6582f5bf",
+        "msg": "Add some kombu options\n\nAdds the kombu_failover_strategy option for configuring\noslo.messaging.rabbit. This will determines how the next RabbitMQ node\nis chosen in case the one we are currently connected to becomes\nunavailable.\n\nChange-Id: I6362858759b3af0e350ac52ffe4f89bba59526fb\nCloses-Bug: #1748353",
+        "cmtr": "ZhongShengping",
+        "date": "2018-02-09 14:17:17+08:00",
+        "files": ["init.pp", "add_rabbit_kombu_options-93fa34586e34eb65.yaml", "congress_init_spec.rb"]
+      },
+      {
+        "hash": "af668a93135623515a2758f1e0a4ac9d69b19067",
+        "msg": "Drop all qpid related explanations\n\nQpid was removed in Mitaka from Oslo Messaging, so we\ncan remove all qpid related explanations.\n\nChange-Id: I55064d134dee5faaeddfd0511e257ad3a3f11a94",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-09 15:04:23+08:00",
+        "files": ["logging.pp"]
+      },
+      {
+        "hash": "be770957adfb16835a76651cd0fa6a4c187003d7",
+        "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: I901de48e1a8644499a7ab60c7d632cf17eee7e20\nCloses-Bug: #1755102",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-12 16:33:06+08:00",
+        "files": ["sync.pp", "openstack_db_tag-88dbf004beb21248.yaml", "congress_db_sync_spec.rb"]
+      },
+      {
+        "hash": "7f6e61f534de20e3139c1f07d2c4b509c099925e",
+        "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: I3c068e51ebc4a6dd71a53adef63f52676a0cc5ee\nCloses-Bug: #1757581",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-22 11:09:50+08:00",
+        "files": ["db.pp", "add-pool_timeout-option-for-db-b4cac6e4f26fcf7d.yaml", "congress_db_spec.rb"]
+      },
+      {
+        "hash": "8174fd96e3a13f067ed04531806c820a669d7e72",
+        "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: I5c09aaa8e0d8caf0fd646fbf37420f49ccbd98c0",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-27 10:33:20+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-ab97e2d4917acf5b.yaml"]
+      },
+      {
+        "hash": "fc67380b905ed0d4dce5d95de916fda6748d03bf",
+        "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: I4c80914e75e341c939bd765d94eb233441cf0d61\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
+        "cmtr": "ZhongShengping",
+        "date": "2018-04-03 16:54:59+08:00",
+        "files": ["authtoken.pp", "deprecate_auth_uri_parameter-ae55aa799c7bf6f5.yaml", "congress_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "937174c8e4567ce5abd8768af3c524c9cf99005d",
+        "msg": "Debian is using python3-congressclient\n\nChange-Id: I314960ec65ab05f08ec54493178603a1977af48b",
+        "cmtr": "zhubingbing",
+        "date": "2018-04-12 13:35:33+08:00",
+        "files": ["params.pp", "congress_client_spec.rb"]
+      },
+      {
+        "hash": "449593df6a95f61d74e2eb6359775998ffb063dc",
+        "msg": "Replace port 35357 with 5000\n\nNow that the v2.0 API has been removed, we don't have a reason to\ninclude deployment instructions for two separate applications on\ndifferent ports.\n\nChange-Id: Ic1d30e49dc878f997c4d8e0eb228b2e80da578c1",
+        "cmtr": "qiaomin",
+        "date": "2018-05-13 01:01:22+08:00",
+        "files": ["authtoken.pp", "congress_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "aef7941268ed55112759859a39739d812d399052",
+        "msg": "Remove deprecated parameters\n\nRemoves deprecated parameters that has been\ndeprecated for one cycle or more.\n\nChange-Id: Ic8a697525dd659dff13e91a00b573890e61a30ff",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-05-21 23:04:13+02:00",
+        "files": ["init.pp", "remove-deprecated-params-bf2f9e3894c14d76.yaml", "congress_init_spec.rb"]
+      },
+      {
+        "hash": "ad8262be3405288b152e1e3a41dcbcac41e4ded0",
+        "msg": "Fix annotations\n\nChange-Id: I0e2b700125412cd40ee243e50b9887405c9af94c",
+        "cmtr": "zhubingbing",
+        "date": "2018-06-15 15:07:37+08:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "3c22c08cc00ffce86196ac1027f76efa4cc8c827",
+        "msg": "Fix the smoke testing link\n\nChange-Id: I1e6b9614bbf29325a0e35bc25afb21d74d68839f",
+        "cmtr": "jacky06",
+        "date": "2018-07-30 12:31:32-04:00",
+        "files": ["init.pp"]
+      }]
+    }

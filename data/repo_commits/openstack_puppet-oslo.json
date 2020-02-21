@@ -1,0 +1,504 @@
+    {
+      "url": "https://github.com/openstack/puppet-oslo",
+      "pp_files": ["service.pp", "rabbit.pp", "privsep.pp", "logging.pp", "amqp.pp", "db.pp", "init.pp", "sync.pp", "postgresql.pp", "cache.pp", "params.pp", "cors.pp", "default.pp", "config.pp", "policy.pp", "concurrency.pp", "middleware.pp", "notifications.pp", "mysql.pp", "log.pp", "zmq.pp", "auth.pp", "messaging_rabbit.pp", "versionedobjects.pp"],
+      "pp_cmtrs": ["Lukas Bezdicka", "Emilien Macchi", "Mykyta Karpin", "John Eckersberg", "Benedikt Trefzer", "zhongshengping", "Juan Antonio Osorio Robles", "jacky06", "Athlan-Guyot sofer", "ZhongShengping", "Thomas Goirand", "Andrew Smith", "Xingchao Yu", "zhubingbing", "Mathieu Gagne\u0301", "Xingchao", "Jake Yip", "iberezovskiy", "Alex Schultz", "zhulingjie", "Matt Fischer", "Denis Egorenko", "dmburmistrov", "Iury Gregory Melo Ferreira", "Liao Penghui", "Tom Verdaat"],
+      "num_pp_commits": 71,
+      "num_tot_commits": 228,
+      "commits": [{
+        "hash": "37042fd4884cce2af4bab06e4336f2bf45b23698",
+        "msg": "Initial commit",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-01-18 12:09:44+08:00",
+        "files": [".gitignore", ".gitreview", "LICENSE", "README.md", "ini_setting.rb", "oslo_config.rb", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "init.pp", "auth.pp", "logging.pp", "params.pp", "policy.pp", "metadata.json", "oslo_db_mysql_spec.rb", "oslo_db_postgresql_spec.rb", "oslo_db_spec.rb", "oslo_keystone_auth_spec.rb", "oslo_logging_spec.rb", "oslo_policy_spec.rb", "shared_examples.rb", "ini_setting_spec.rb", "oslo_config_spec.rb", "init.pp"]
+      },
+      {
+        "hash": "59387cc544889cbfb236359d670def4eae43fdce",
+        "msg": "Add define oslo::cache\n\nThis define aims to manage all parameters in [cache] section\nwhich belongs to oslo.cache.\n\nWe would use this define to take management of [cache] parameters\nin other modules.",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-01-18 12:27:43+08:00",
+        "files": ["Gemfile", "Rakefile", "cache.pp", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "auth.pp", "logging.pp", "policy.pp"]
+      },
+      {
+        "hash": "b86091eb6fa5bbca7931d6407cf3e2b1c0cf3f3d",
+        "msg": "Add define oslo::messaging_rabbit\n\nThis patch aims to add a new define to manage parameters in\n[oslo_messaging_rabbit] which belongs to oslo.messaging.",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-01-22 01:21:01+08:00",
+        "files": ["messaging_rabbit.pp"]
+      },
+      {
+        "hash": "feb5132312ea7b015160c090aeaaaf0768560877",
+        "msg": "Add define oslo::concurrency\n\nThis patch aims to add a new define to manage parameters in\n[oslo_concurrency] which belongs to oslo.concurrency.",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-01-22 14:27:39+08:00",
+        "files": ["concurrency.pp"]
+      },
+      {
+        "hash": "2ae2cc233f78b7300880d5e1d37a73ffe467efc6",
+        "msg": "Change defualt value and fix some mistakes\n\n- Use os_service_default as the default value in oslo_messaging_rabbit.\n- Fix some mistakes in the specification.",
+        "cmtr": "Liao Penghui",
+        "date": "2016-01-22 15:09:09+08:00",
+        "files": ["cache.pp", "messaging_rabbit.pp"]
+      },
+      {
+        "hash": "27e7f82841b381ad588f9f87c5018afd33dc5d36",
+        "msg": "Add define oslo::versionedobjects\n\nThis patch aims to add a new define to manage parameters in\n[oslo_versionedobjects] which belongs to oslo.versionedobjects.",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-01-22 15:18:28+08:00",
+        "files": ["versionedobjects.pp"]
+      },
+      {
+        "hash": "1e441e4fcdd661fa25a6e96ba5c11eed47677bb8",
+        "msg": "Add define oslo::log\n\nThis patch aims to add a new define to manage parameters of\nlogging facility in the [DEFAULT] section which belongs to oslo.log.",
+        "cmtr": "Liao Penghui",
+        "date": "2016-01-22 16:58:51+08:00",
+        "files": ["log.pp"]
+      },
+      {
+        "hash": "8d5ce993d3cf57708308826640130c2cbcf839bb",
+        "msg": "Collect versions of oslo libraries in Tempest\n\nThis patch aims to collect version info of oslo.* projects\nfrom tempest master branch (Mitaka release).",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-01-22 18:09:21+08:00",
+        "files": ["README.md", "messaging_rabbit.pp"]
+      },
+      {
+        "hash": "c9324e18532a9504cc1e6efc6b794651fc9d6183",
+        "msg": "Add some logging related parameters.\n\nAdd some logging related parameters. And change the parameter\nspecification to be consistent with the paramter list.",
+        "cmtr": "Liao Penghui",
+        "date": "2016-01-22 18:31:35+08:00",
+        "files": ["log.pp"]
+      },
+      {
+        "hash": "338d7664c5d9f7f49fd786ddfb14f3ceecee7dfb",
+        "msg": "Use is_service_default for the warning message.\n\nUse is_service_default function instead of regular true/false\nconditional statement. Because $::os_service_default is a string.",
+        "cmtr": "Liao Penghui",
+        "date": "2016-01-22 18:32:26+08:00",
+        "files": ["messaging_rabbit.pp"]
+      },
+      {
+        "hash": "6ad427bcdf139e70b2d637315b18921f5c03fbb7",
+        "msg": "Add define oslo::policy\n\nThis patch aims to add a new define to manage parameters\nin [oslo_policy] which belongs to oslo.messaging.",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-01-22 19:25:30+08:00",
+        "files": ["policy.pp"]
+      },
+      {
+        "hash": "c961197d3428eb20f348f1bde18be16b7008e4ac",
+        "msg": "Change default value to $::os_service_default\n\nThe following define has been changed:\n   - oslo::concurrency\n   - oslo::versionedobjects",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-01-22 19:34:25+08:00",
+        "files": ["concurrency.pp", "versionedobjects.pp"]
+      },
+      {
+        "hash": "4f93244031db724b094bff15fe7c362fb59ed8fa",
+        "msg": "Add define oslo::db.\n\nAdd oslo::db for database connection configs for OpenStack services.",
+        "cmtr": "Liao Penghui",
+        "date": "2016-01-22 19:38:30+08:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "83062c3624af28faabbec1cb175dea46b6361d18",
+        "msg": "Fix multiple bugs in puppet-oslo\n\nThis patch aims to make puppet-oslo work:\n  - fix oslo::versionedobjects spec\n  - fix oslo::policy\n  - drop mock dependency\n  - add acceptance by msync\n\nCo-Authored-By: Emilien Macchi <emilien@redhat.com>\n\nCloses-Bug: #1492636\nChange-Id: Icbb1df3498432d2a95342a14ce57b45b65a132c9",
+        "cmtr": "Xingchao",
+        "date": "2016-01-26 01:34:40+08:00",
+        "files": [".gitignore", "Gemfile", "Rakefile", "policy.pp", "centos-70-x64.yml", "default.yml", "nodepool-centos7.yml", "nodepool-trusty.yml", "ubuntu-server-1404-x64.yml", "oslo_versionedobjects_spec.rb", "spec_helper.rb"]
+      },
+      {
+        "hash": "e913e8e601fe08ed51cbe7ee018a230a5df2b894",
+        "msg": "Add define oslo::messaging::amqp\n\nThis patch aims to add a new define to manage parameters\nin [oslo_messaging_amqp] which belongs to oslo.messaging.\n\nChange-Id: If295b4375900f7f98d78deb7943d58f49fce811f",
+        "cmtr": "Xingchao",
+        "date": "2016-02-19 10:53:50+08:00",
+        "files": ["amqp.pp", "oslo_messaging_amqp_spec.rb"]
+      },
+      {
+        "hash": "14b9a2d9f6cf16d5cff5f31bbf7b56052b33c498",
+        "msg": "Rework oslo-messaging-rabbit class\n\nImplement the same logic for rabbitmq parameters\nas it's already used in all puppet modules.\nFix 'if' logic according to $::os_service_default.\n\nAdditional changes:\n\n* add amqp_durable_queues parameter\n\n* add kombu_compression parameter - new for Mitaka\n  https://review.openstack.org/#/c/249215\n\n* add 'secret => true' to rabbit password\n\n* fix doc strings (make them < 80 characters)\n\n* specify types for each parameter\n\nChange-Id: Id41a07ad6a77e956493aca34fc892a51221d0aa2",
+        "cmtr": "iberezovskiy",
+        "date": "2016-03-16 20:45:32+03:00",
+        "files": ["messaging_rabbit.pp", "oslo_messaging_rabbit_spec.rb"]
+      },
+      {
+        "hash": "5b4a439df15b48096d8389dbb22c1b71f642ccfa",
+        "msg": "Fix values for rabbit_hosts\n\nWhen rabbit_hosts parameter isn't set (service_default is used)\nwe are forming its value in that way: \"$rabbit_host:$rabbit_port\".\nBut when host or port or both aren't set (they are also service_default)\nwe can get rabbit_hosts set to \"$rabbit_host:<SERVICE DEFAULT>\"\nor \"<SERVICE DEFAULT>:$rabbit_port\" or \"<SERVICE DEFAULT>:<SERVICE DEFAULT>\".\nThis patch fixes the issue. rabbit_hosts parameter will be set only if it's passed.\n\nChange-Id: I9aed2b8a8718e0b0cfca3e25ef93fcff2ad8444a",
+        "cmtr": "iberezovskiy",
+        "date": "2016-03-24 14:54:04+03:00",
+        "files": ["messaging_rabbit.pp", "oslo_messaging_rabbit_spec.rb"]
+      },
+      {
+        "hash": "151b16141a8c54e93bef06688de76bd1f664a4b2",
+        "msg": "Fix define name to oslo::messaging::rabbit\n\nMake define name more clear for users\n(similar to oslo::messaging::amqp).\n\nChange-Id: I675b4156e51a89c6a6f75e6a986dd45f51da7189",
+        "cmtr": "iberezovskiy",
+        "date": "2016-03-29 21:20:20+03:00",
+        "files": ["rabbit.pp", "oslo_messaging_rabbit_spec.rb"]
+      },
+      {
+        "hash": "887def4a6525e05668720528242b523ed4d4412e",
+        "msg": "Add ability to configure oslo_messaging_notifications\n\nThis patch adds a new class for managing oslo notifications\nparameters.\n\n[1] Ib51e2839f9035d0cc0e3f459939d9f9003a8c810\n\nChange-Id: If2bf35c025c6c9a2a69a3f2381f0afd0dc93a2ec",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-03-30 12:47:52+03:00",
+        "files": ["notifications.pp", "oslo_messaging_notifications_spec.rb"]
+      },
+      {
+        "hash": "8ae52af64af2e488ae6f96c32b1078c3889fb20d",
+        "msg": "Improvements for oslo::log define\n\n* Deprecated options 'use_syslog_rfc_format' and\n  'log_format' were removed. It can be done because\n  this module wasn't released;\n* Call of create_resources was reworked (one common call was left\n  with hash of parameters);\n* Create unit tests for this define.\n\nChange-Id: Idfd98545e3a1341cf0fd46f7ddad65c11069ff68",
+        "cmtr": "iberezovskiy",
+        "date": "2016-03-30 18:16:16+03:00",
+        "files": ["log.pp", "oslo_log_spec.rb"]
+      },
+      {
+        "hash": "a06fbf07843354c9fd2b1edaeed13535a91ec03c",
+        "msg": "Improvements for oslo::db define\n\n* Add support for mongodb backend\n* Add tag for db_backend_package resource\n* Add unit tests\n* Fix create_resources\n\nChange-Id: I4f59dff23e7736f8632f7fc6f3967ac5eb3fc3dc",
+        "cmtr": "iberezovskiy",
+        "date": "2016-03-31 15:30:38+03:00",
+        "files": ["db.pp", "params.pp", "oslo_db_spec.rb"]
+      },
+      {
+        "hash": "bf40ad3dc662d8a007a88b11c8241891116603e2",
+        "msg": "Update oslo::cache define\n\n* Fix docs for parameter\n* Use only one call of create_resources\n* 'memcache_servers' and 'proxies' parameter should be\n  arrays (list value). So, need to convert them to\n  string joined with ','.\n* Prepare unit tests\n\nChange-Id: I1a36d39bb40574e1abfb6bad3daf11a043dd0f78",
+        "cmtr": "iberezovskiy",
+        "date": "2016-03-31 18:47:43+03:00",
+        "files": ["cache.pp", "oslo_cache_spec.rb"]
+      },
+      {
+        "hash": "5321163380bf3087bd8ad058860f56236439295d",
+        "msg": "Update oslo::concurrency define\n\n* Fix docs for parameters\n* Use only one call of \"create_resources\"\n* Prepare unit tests\n\nChange-Id: I6d57d0ddc18dc92caad6fe311617a71a7faa13dd",
+        "cmtr": "dmburmistrov",
+        "date": "2016-04-05 12:57:14+03:00",
+        "files": ["concurrency.pp", "oslo_concurrency_spec.rb"]
+      },
+      {
+        "hash": "f019bba460112c24ff145c1ad982340558160eef",
+        "msg": "Add oslo::messaging::default define\n\n* Add top-file docs\n* Prepare/update unit tests\n* Set \"rpc_backend\" in specialized resource (amqp/rabbit)\n\nChange-Id: I87b815253b0a919e86d41434d09655930eb5aaf0",
+        "cmtr": "dmburmistrov",
+        "date": "2016-04-07 14:04:01+03:00",
+        "files": ["amqp.pp", "default.pp", "oslo_messaging_amqp_spec.rb", "oslo_messaging_default_spec.rb"]
+      },
+      {
+        "hash": "b4c9d6a9724041220f44a1fbd157f7eebde2f1d0",
+        "msg": "Update oslo::policy define\n\n* Fix docs for parameters\n* Use only one call of create_resources\n* Prepare unit tests\n\nChange-Id: I7310371b5c7e62e5038f5c172b6cbca44e4b2590",
+        "cmtr": "dmburmistrov",
+        "date": "2016-04-07 19:20:32+03:00",
+        "files": ["policy.pp", "oslo_policy_spec.rb"]
+      },
+      {
+        "hash": "a3853cf50b04f9b79299d6b83acfc09250da7960",
+        "msg": "Add \"rpc_response_timeout\" to oslo::messaging::default define\n\n* Update docs\n* Update unit tests\n\nChange-Id: I0392eb323b03d07f3e2204ff17ae7c4d02245145",
+        "cmtr": "dmburmistrov",
+        "date": "2016-04-07 20:29:42+03:00",
+        "files": ["default.pp", "oslo_messaging_default_spec.rb"]
+      },
+      {
+        "hash": "004b813cdbc5fac702c5479c824152fc6732e4d6",
+        "msg": "Refactor array values processing\n\nWe have different strategies in handling list\nvalues. This patch is bringing the situation\nto the consistent state in this question.\nArrays and csv-strings are allowed.\nThis allows to put this logic inside oslo module\nand clean up code duplication in exterior modules\n(which can just pass parameters to oslo).\nAlso patch bring a few updates to top-file docs\nand tests.\n\nChange-Id: I37a37d236e643d3cf39b46243119b8393a3feea7",
+        "cmtr": "dmburmistrov",
+        "date": "2016-04-08 13:38:30+03:00",
+        "files": ["cache.pp", "notifications.pp", "rabbit.pp", "versionedobjects.pp", "oslo_cache_spec.rb", "oslo_messaging_notifications_spec.rb", "oslo_messaging_rabbit_spec.rb", "oslo_policy_spec.rb"]
+      },
+      {
+        "hash": "678fd92d8fc37fc42ebfc4d351c5259dd4c8f912",
+        "msg": "Implement oslo::service define\n\nImplement service define to configure oslo.service\nparameters from DEFAULT and ssl sections.\nSimple unit tests are added as well.\n\nChange-Id: I6259150c78432d31ffad5999693744e790f947c4",
+        "cmtr": "iberezovskiy",
+        "date": "2016-04-13 18:19:20+03:00",
+        "files": ["service.pp", "oslo_service_spec.rb"]
+      },
+      {
+        "hash": "b79dda880a5f71254d42872029500487f47037f8",
+        "msg": "Totally drop Qpid support\n\nQpid was removed in Mitaka from Oslo Messaging, so now we can\ndrop it in manifests.\n\nChange-Id: I4c97e3dbf99465202870f9a6bbaa2daa415da6bf",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-04-19 17:31:00+03:00",
+        "files": ["log.pp", "oslo_log_spec.rb"]
+      },
+      {
+        "hash": "b3d13ee3e3386fdd257d5bbaf221d527f5d69221",
+        "msg": "Deprecate verbose option in logging\n\nOption \"verbose\" from group \"DEFAULT\" is deprecated for removal.\nThe parameter has no effect.\n\nIf this option is not set explicitly, there is no such warning.\n\nChange-Id: Ic05e3744046be622314f7f16c839d2323818b353",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-05-15 23:25:08+02:00",
+        "files": ["log.pp", "oslo_log_spec.rb"]
+      },
+      {
+        "hash": "cafe848a0a8c71ceefb760eb8feab75fefd6ee1d",
+        "msg": "Add oslo.middleware defines\n\nThis patch aims to add defines related to oslo.middleware.\noslo.middleware has three sections by now:\n  - oslo_middleware\n  - cors\n\nCo-Authored-By: Alex Schultz <aschultz@mirantis.com>\nChange-Id: Ib9e2936c589ed6d35fe93f962c6e154b56fa2122",
+        "cmtr": "Xingchao",
+        "date": "2016-05-17 23:38:21+08:00",
+        "files": ["cors.pp", "middleware.pp", "oslo_cors_spec.rb", "oslo_middleware_spec.rb"]
+      },
+      {
+        "hash": "a868b0b5780d270fed65bc581d2d0e483d06aa47",
+        "msg": "Enable SSL proxy middleware configuration\n\nHTTPProxyToWSGI, from oslo.middleware requires a configuration\nparameter to be enabled/disabled. This adds it.\n\nChange-Id: I35256153b2f005e729be9d242f63ff14f393b54a",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2016-05-19 11:52:33+03:00",
+        "files": ["middleware.pp", "oslo_middleware_spec.rb"]
+      },
+      {
+        "hash": "0667a56a9a3600fc26f56548e13a7c6ee5cfa510",
+        "msg": "Added transport URL example from oslo.messaging docs\n\nIt is worth noting that one can specify several hosts on the\ntransport_url configuration options from oslo.messaging both for RPCs\nand for notifications. So it will be useful for users of the module\nto see the format.\n\nChange-Id: Ia39f2e4e1ff3f02f1b14b56f985fae98446c6c10",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2016-05-24 08:11:46+03:00",
+        "files": ["default.pp", "notifications.pp"]
+      },
+      {
+        "hash": "79405c9a3750ad3fe76630bdcb30793d8b769029",
+        "msg": "Support pylibmc and memcache cache backend\n\nInstall relevant package for pylibmc and\nmemcache backend.\n\nDepends-on: I4e965b6f5449a7104677f93b00af77ae21cba94b\n\nChange-Id: I2e6a705971761754c59b4069b5dfdfd1dfd7f00f",
+        "cmtr": "dmburmistrov",
+        "date": "2016-05-31 15:35:02+03:00",
+        "files": ["cache.pp", "params.pp", "oslo_cache_spec.rb"]
+      },
+      {
+        "hash": "a6aff52bc84174a570d8e442bd5e157bb61b2a94",
+        "msg": "Add support for ZeroMQ messaging system\n\nThis change adds possibility to configure ZeroMQ messaging system\nfor openstack services.\n\nChange-Id: Ic6a81926545fccb0945ee939c1ba69a62d6fdf5c",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-06-08 17:22:06-03:00",
+        "files": ["zmq.pp", "add_zmq_messaging-7ea20df747c78035.yaml", "oslo_messaging_zmq_spec.rb"]
+      },
+      {
+        "hash": "ae58900381046780e08e283ddc4d71860ce8e0e8",
+        "msg": "Lint fixes for absolute class name\n\nThis change updates the mysql require lines to resolve lint errors\n\nChange-Id: I50d63802e3be4504c9cca2f0e609a44ae1100e31",
+        "cmtr": "ZhongShengping",
+        "date": "2016-06-29 17:29:59+08:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "ebce86049be63962bd327374b3f09352147bd4bd",
+        "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: I49ac85780eda4e697f7e246a1f400ffb433fa780\nRelated-Bug: 1599113",
+        "cmtr": "Athlan-Guyot sofer",
+        "date": "2016-07-08 09:02:58+00:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "d028124277ce681990cd764a7e544f840868ad39",
+        "msg": "cache: don't hardcode keystone-package tag to memcached package\n\nDo not hardcode keystone-package tag to memcached package because the\nresource can already be in catalog with another tag. Keep standard\n'openstack' tag.\n\nChange-Id: I3e400a5f64b85f0d374fc02cc5e4080d19d0f2e4",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-07-27 14:13:48-04:00",
+        "files": ["cache.pp", "oslo_cache_spec.rb"]
+      },
+      {
+        "hash": "f808902b73c44dc8322c9e87c7c959851d842550",
+        "msg": "Add support for oslo privilege separator management\n\nAdd oslo::privsep define to configure privsep_${entrypoint}\nsection of given config resource.\n\nChange-Id: If4d52487f2a97fd6e26edf9c0d5dbc2300c09482",
+        "cmtr": "iberezovskiy",
+        "date": "2016-08-19 12:31:12+03:00",
+        "files": ["privsep.pp", "add_oslo_privsep-3f125445bce8b431.yaml", "oslo_privsep_spec.rb"]
+      },
+      {
+        "hash": "a73e75bf92d458ad812a230a8ec987c1430aa578",
+        "msg": "Remove verbose\n\nSince we are in Ocata we should remove the\nverbose option that was deprecated\n\nChange-Id: Ibbc604ac80ddb0e9ca15da3a32abd5cb21eb5b9b",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-09-27 20:00:09-03:00",
+        "files": ["log.pp", "remove_verbose-0b599cd4810a8c51.yaml"]
+      },
+      {
+        "hash": "1ddc04fc556d7c8f9fcb40b2d80d7a0ae6c05680",
+        "msg": "Fix documentation for log_dir parameter\n\nChange-Id: I4e9e5b5526aff37f8912bc96ec537f8d2c9ee519\nPartial-Bug: #1600294",
+        "cmtr": "Mykyta Karpin",
+        "date": "2016-10-10 15:06:07+03:00",
+        "files": ["log.pp", "fix_log_dir_documentation-050052366584e83e.yaml"]
+      },
+      {
+        "hash": "712515a982626777a46d4430a6d1610b01afe554",
+        "msg": "Allow setting state for backend packages\n\nA user might want the latest copy or the backend DB packages not\ninstalled at all if installing in a venv.\n\nChange-Id: I811bc71c604c37b3be3ca2ef7c71d54ef40a1830",
+        "cmtr": "Matt Fischer",
+        "date": "2016-10-17 08:45:16-06:00",
+        "files": ["db.pp", "backend_package_ensure-54b4525895ce9acd.yaml"]
+      },
+      {
+        "hash": "0f617ce27a99260ee03627b1fbde461a687718dc",
+        "msg": "Deprecate rabbit connection params\n\nThe rabbit connection parameters have been deprecated in oslo[0] in favor\nof transport_url which is provided by oslo::messaging::default.\n\n[0] https://review.openstack.org/#/c/317285/\n\nChange-Id: Ia78fcca898aea28bfe436faa259544f5594a5af6",
+        "cmtr": "Alex Schultz",
+        "date": "2016-10-28 17:50:44-06:00",
+        "files": ["rabbit.pp", "rabbitmq-connection-params-1a8ace0c23e7249e.yaml"]
+      },
+      {
+        "hash": "f8c4eee0daf8c0df2133fdcbfb44bbaf760a8060",
+        "msg": "Escape backslash so it is not interpreted as a tab escape\n\nChange-Id: Ib880afb93a30245940f70d51e2e4d6761ae69ecf",
+        "cmtr": "John Eckersberg",
+        "date": "2016-11-03 11:10:16-04:00",
+        "files": ["rabbit.pp"]
+      },
+      {
+        "hash": "6ec80a2331414540cc5a9cbacd8d6d2c81171c85",
+        "msg": "Fix common options position in params.pp\n\nThese parameters are common for both systems,\nthey could be moved out from 'case'.\n\nChange-Id: I71bdccfec45ecacc28491309be5d3ecd628d9278",
+        "cmtr": "ZhongShengping",
+        "date": "2016-11-08 11:23:26+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "782e94e82e283cef8ba58aef47f99fd7be4c8893",
+        "msg": "Secure transport_url option in log\n\nAs transport_url option contains rabbit_password,\nit should not keep plaintext in logs.\n\nCloses-Bug: #1640809\nChange-Id: I958c51050ee48db1ee359ff75dc20ad13e14a672",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-11-10 22:39:26+08:00",
+        "files": ["default.pp", "notifications.pp", "secure-transport-url-d67d307cf85a16b1.yaml", "oslo_messaging_default_spec.rb", "oslo_messaging_notifications_spec.rb"]
+      },
+      {
+        "hash": "e0b9dd93e21803eae8e9b52f458c563fe028b58f",
+        "msg": "Switch ensure_packages to ensure_resources for python-memcache\n\nThe ensure_packages resource forces ensure to present yielding\nduplicate definition errors if we override default Package ensure\nto latest. We should solve this by using ensure_resources which\ndoes not enforce this.\n\nChange-Id: I1e2ba2b4a8ab31c925bf31ac1838999fc37b268f\nCloses-Bug: #1644906\nResolves: rhbz#1392583",
+        "cmtr": "Lukas Bezdicka",
+        "date": "2016-11-28 16:45:58+01:00",
+        "files": ["cache.pp", "oslo_cache_spec.rb"]
+      },
+      {
+        "hash": "4740c29000aa537a91e556cc76081910a59fb31b",
+        "msg": "Update oslo.messaging amqp 1.0 parameters\n\nChange-Id: I92e6bd6ec17792ba3b2e228f024fa49ac748e4d8",
+        "cmtr": "Andrew Smith",
+        "date": "2017-02-10 15:33:13-05:00",
+        "files": ["amqp.pp", "update-amqp-opts-1f14b8d3648b2b30.yaml", "oslo_messaging_amqp_spec.rb"]
+      },
+      {
+        "hash": "12d80eb63e133337db14f7bef0a870902e0733ab",
+        "msg": "Remove rpc_backend due to duplicate declaration when dual backends\n\nThis patch:\n* Removes the [DEFAULT] rpc_backend as it lead to a duplicate\n  declaration when dual oslo.messaging backends were used\n* Removes the conversion of pre_settled as it was incorrect\n  for the multiple line MultStrOpt value\n\nChange-Id: I7ccd995ef01c2d54427684718adba054260fdd52",
+        "cmtr": "Andrew Smith",
+        "date": "2017-02-27 14:40:37-05:00",
+        "files": ["amqp.pp", "oslo_messaging_amqp_spec.rb"]
+      },
+      {
+        "hash": "050c202eb818e6570eb7103cd4e086150498cab5",
+        "msg": "rabbitmq/messaging: Use new standard TLS params\n\nThe parameters for drivers in oslo.messaging are being standardized [1].\nAnd part of this is also the sandarization of the TLS-related\nparameters. As per a recent commit [2], the rabbitmq configuration\nparameters have changed and the old names are being deprecated (although\nthey still work). This patch reflects that.\n\n[1] https://etherpad.openstack.org/p/common_driver_config\n[2] Ic32b2cb253fa0dc43aad7226b24919b7e588faa9\n\nChange-Id: I8d41ec4e1a7bca3d114286a034f663c2a2c9b8d7\nDepends-On: Iac788319caac7bb20b24ee1696d13b9ab15ca1c4\nDepends-On: I7d69466479cc689d251665ff4a9affcd6503379a\nDepends-On: I7d24d4bd2b77ef3dff8bb8ad703938399681573a\nDepends-On: Ic078c7f036ce93fc91bd496884e4423b9653b1c8\nDepends-On: I3472959e0be1e817caaecd36cf4c6c54485c6063\nDepends-On: Ibb82146271482f6ae2db03e0e541cce8abe59409\nDepends-On: I17b78a8f96b83bf647321d7096322d6e16a483c9\nDepends-On: I60cc9bbe655d8dc7d08dd7a0d6466c7774b8f5a8\nDepends-On: I3d56406f122299f16269cd910339ad09092bd3ab\nDepends-On: Ibc69ae286d723ebecf8a86c247cf807ccf0604b4\nDepends-On: I9296155ee865b35f67978fe1fc002a7feb5ab454\nDepends-On: I2f0a392e4b0a7a7ab61cc1e853fca44c3b9cbe97\nDepends-On: Iaa1aa2b14aa978d56a54695ddb8bbd0238ba1882\nDepends-On: I26dae32b3093d25544542243697273238a18b078",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-03-10 13:52:18+02:00",
+        "files": ["rabbit.pp", "oslo_messaging_rabbit_spec.rb"]
+      },
+      {
+        "hash": "a29a62a10eef22d33ae3df7ac099886ac02b4efa",
+        "msg": "Deprecate sqlite_db option\n\nThe configuration option ``sqlite_db`` is now deprecated and will be\nremoved in the future. Please use configuration option ``connection``\nor ``slave_connection`` to connect to the database.\n\nChange-Id: I637fff0deea04a1631f7c1eaa590999efa63a4c2\nCloses-Bug: #1675252",
+        "cmtr": "ZhongShengping",
+        "date": "2017-03-23 14:23:40+08:00",
+        "files": ["db.pp", "deprecate_config_sqlite_db-1a239175d42378e3.yaml", "oslo_db_spec.rb"]
+      },
+      {
+        "hash": "a12c6a8d77d2109b18a14af05c005f59958c71e8",
+        "msg": "Password should be secured\n\nChange-Id: Ida7de5b611ee74ebb86efe9c26a7e32db247dce8\nCloses-Bug: #1676708",
+        "cmtr": "ZhongShengping",
+        "date": "2017-03-28 11:48:52+08:00",
+        "files": ["amqp.pp", "oslo_messaging_amqp_spec.rb", "oslo_messaging_default_spec.rb", "oslo_messaging_notifications_spec.rb", "oslo_messaging_rabbit_spec.rb"]
+      },
+      {
+        "hash": "e05dd0e477035f32edfe240e132b3ef68e6a93a8",
+        "msg": "Add ssl to oslo_messaging_amqp options\n\nChange-Id: I14251f9ebeae55c4b696162d8241c4e56ea125ca",
+        "cmtr": "Andrew Smith",
+        "date": "2017-04-10 09:45:13-04:00",
+        "files": ["amqp.pp", "oslo_messaging_amqp_spec.rb"]
+      },
+      {
+        "hash": "df41e1e1afa66c31d5ecd389425d492520a29f1a",
+        "msg": "Add sasl_default_realm to oslo_messaging_amqp options\n\nChange-Id: I4225c65f51ce8ab6c479c6fcb7362cb7f3c71370",
+        "cmtr": "Andrew Smith",
+        "date": "2017-04-25 16:33:56-04:00",
+        "files": ["amqp.pp", "oslo_messaging_amqp_spec.rb"]
+      },
+      {
+        "hash": "d46d726ae2ec0f0c8ffbac46a3b3943b1c5feba0",
+        "msg": "Add rabbit_qos_prefetch_count to oslo_messaging_rabbit\n\nChange-Id: Ib301df384d271da27094376389e981fe51e39e5f",
+        "cmtr": "Jake Yip",
+        "date": "2017-05-16 19:19:30+10:00",
+        "files": ["rabbit.pp", "oslo_messaging_rabbit_spec.rb"]
+      },
+      {
+        "hash": "462f0ee137a5fc9a9b1b63598add5ce42bcdc90b",
+        "msg": "Fix duplicate declarations for db_backend_package\n\nThe package resource in the oslo::db define uses the fixed name\ndb_backend_package. This is a bad idea because it causes\n'duplicate definition' errors on deployments using multiple database\nbackends that require a package install (like mysql and mongodb).\n\nIn stead, just use the actual package name. This prevents duplicate\ndefinitions.\n\nChange-Id: I03a5741865a7519506cbd9f567a24ff42e27f39a\nSigned-off-by: Tom Verdaat <tom@server.biz>",
+        "cmtr": "Tom Verdaat",
+        "date": "2017-05-24 12:58:06+02:00",
+        "files": ["db.pp", "oslo_db_spec.rb"]
+      },
+      {
+        "hash": "63caaf1f4d4f9c3ca331c028bad3c3bf4a3bbf73",
+        "msg": "Deprecate rabbit_max_retries option\n\nOption \"rabbit_max_retries\" from group \"oslo_messaging_rabbit\" is\ndeprecated for removal. Its value may be silently ignored in the future.\n\nChange-Id: I5071fdfc7ee109dfc34de7cd279e039c11cd2300\nCloses-Bug: #1697350",
+        "cmtr": "ZhongShengping",
+        "date": "2017-06-12 13:45:22+08:00",
+        "files": ["rabbit.pp", "deprecate_rabbit_max_retries-813a568923f2335d.yaml", "oslo_messaging_rabbit_spec.rb"]
+      },
+      {
+        "hash": "19646976237465e118480b738867ae161a9baea6",
+        "msg": "Remove use of oslo.messaging rpc_backend\n\nThe rpc_backend configuration option has been deprecated in\noslo.messaging. The default and notitification transport_url\noption defines the messaging backend and communication\nparameters. Inclusion on zmq/rabbit options caused duplicate\ndeclaration following deprecation of rpc_backend in service\nmodules.\n\nThis patch:\n* remove parameter from zmq options\n* remove parameter from rabbitmq option\n* update spec test\n\nChange-Id: Ia981f1a847a428e0f07656d0922e195982e4e2f9",
+        "cmtr": "Andrew Smith",
+        "date": "2017-08-02 09:50:16-04:00",
+        "files": ["rabbit.pp", "zmq.pp", "oslo_messaging_rabbit_spec.rb"]
+      },
+      {
+        "hash": "5911b080b3c6e7f86bdb89f25404e4dd23673758",
+        "msg": "Add ability to disable backend packages management\n\nThere are use cases where an user wants to not have backend packages\nautomatically installed. One use case would be the user having an alternative\nset of packages already providing backend packages as built-in dependencies.\nInstalling system packages is redundant, useless and causing confusion.\n\nThis change adds the ability to disable backend packages management\nwhile preserving previous behavior which consists of installing them\nautomatically.\n\nCloses-bug: #1715204\nChange-Id: Ief676d4c5aaa81f4547dd2e090dfcc8c62855148",
+        "cmtr": "Mathieu Gagné",
+        "date": "2017-09-05 19:29:05-04:00",
+        "files": ["cache.pp", "db.pp", "oslo_cache_spec.rb", "oslo_db_spec.rb"]
+      },
+      {
+        "hash": "70816f417a324596961fee087a71b562f3c13001",
+        "msg": "Ensure debug is a boolean\n\nUse any2bool when the debug value for logging is not the class defaults\nto ensure that we pass a true boolean to the configuration file.\n\nChange-Id: Ica3cbb2ca6b1168a49448ace1a38c96d95cdcd88\nCloses-Bug: #1719929",
+        "cmtr": "Alex Schultz",
+        "date": "2017-09-27 22:00:13+00:00",
+        "files": ["log.pp", "metadata.json", "ensure-log-debug-is-boolean-ca20c1b14f5774e7.yaml", "oslo_log_spec.rb"]
+      },
+      {
+        "hash": "f32c680d5e9cc23ac8664d4e4930548ab7a7391b",
+        "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: I2f2977d88607939c278815cc449a129e8c04379d",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-09-29 14:43:13+03:00",
+        "files": ["log.pp", "Add-use_journal-option-for-logging-e8182a1cd944ef59.yaml", "oslo_log_spec.rb"]
+      },
+      {
+        "hash": "06c9e771396510cf34e94189404e95430757fe55",
+        "msg": "allow to specify drivername for postgresql db\n\nChange-Id: Idbac640aba8f4c87ae43df3a7019bf465895ca43",
+        "cmtr": "Benedikt Trefzer",
+        "date": "2017-10-22 16:10:41+02:00",
+        "files": ["db.pp", "postgresql-590a36045748761a.yaml", "oslo_db_spec.rb"]
+      },
+      {
+        "hash": "439fbdb76ab38f93ef8df8b88c207da1188936de",
+        "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: If00976cbea705fb67be3abb12aa70d4a41ea83c3",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-11-24 16:01:10+02:00",
+        "files": ["log.pp", "log-json-70816c646023e567.yaml", "oslo_log_spec.rb"]
+      },
+      {
+        "hash": "2c50339a0bc66ec90ea0918e8d924102ba8e9685",
+        "msg": "Update olso.log parameters\n\nUpdate oslo.log parameters so we don't have warnings in syslog.\n\nCo-Authored-By: Mykyta Karpin <mkarpin@mirantis.com>\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>\nChange-Id: Ifddb5f6eb964e51e01430a3e915495dd20d0a641",
+        "cmtr": "Alex Schultz",
+        "date": "2017-12-18 15:32:26-07:00",
+        "files": ["log.pp", "oslo_log_spec.rb"]
+      },
+      {
+        "hash": "3d818422ff1e0bd596e5ac7357a5cf82d32db1fc",
+        "msg": "Revert \"Update olso.log parameters\"\n\nThe log result is [1] when the option is log-file.\nThe log result is [2] when the option is log_file.\n\n[1]http://logs.openstack.org/45/444345/6/check/puppet-openstack-integration-4-scenario003-tempest-centos-7/ed001dd/logs/trove/\n[2]http://logs.openstack.org/37/534537/1/check/puppet-openstack-integration-4-scenario003-tempest-centos-7/8fbeae3/logs/trove/\n\nThis reverts commit 2c50339a0bc66ec90ea0918e8d924102ba8e9685.\n\nChange-Id: Ib63ea1783c2f85223b703166013cb817c799fc5a",
+        "cmtr": "zhongshengping",
+        "date": "2018-01-17 05:47:27+00:00",
+        "files": ["log.pp", "oslo_log_spec.rb"]
+      },
+      {
+        "hash": "fd58ca57ed6a617abad8ef38752758863a8195ce",
+        "msg": "Debian is using Python 3\n\nChange-Id: I50b2928ffc1bc1af8a877d37f14d1cef7d9b3c37",
+        "cmtr": "Thomas Goirand",
+        "date": "2018-04-10 11:57:55+02:00",
+        "files": ["params.pp", "oslo_cache_spec.rb"]
+      },
+      {
+        "hash": "7f0e5e121677f5ab1c26092621167a88d3508016",
+        "msg": "neat: missing : in $::os_service_default\n\nChange-Id: Ife3aec1bebe19cb1df26cb43baa55d9a07c96421",
+        "cmtr": "zhubingbing",
+        "date": "2018-05-11 14:02:40+08:00",
+        "files": ["amqp.pp"]
+      },
+      {
+        "hash": "e996ecf807ebc4bd3c9ef037bd3722b551ade1bd",
+        "msg": "Remove rabbit_max_retries option\n\nThe rabbit_max_retries parameter has been deprecated for one year.\nWe can remove it.\n\nChange-Id: Ic6c3ae68ba30054644fde79b60b205546a3013d3",
+        "cmtr": "ZhongShengping",
+        "date": "2018-06-01 15:03:02+08:00",
+        "files": ["rabbit.pp", "remove_deprecated_rabbit_max_retries_option-86f90600cb43f6c1.yaml"]
+      },
+      {
+        "hash": "d42058d77afba7991a60358354f2b0061dba955e",
+        "msg": "Remove sqlite_db option\n\nThe sqlite_db parameter has been deprecated for one year.\nWe can remove it.\n\nChange-Id: I5fbb62f517d2b3ad983d66f28d9d0a2573c0413b",
+        "cmtr": "zhubingbing",
+        "date": "2018-06-15 15:23:10+08:00",
+        "files": ["db.pp", "remove_sqlite_db-8703ae2068157637.yaml"]
+      },
+      {
+        "hash": "d2987a84319fecc99e79340adb3dc6948320ea68",
+        "msg": "Fix the smoke testing link\n\nChange-Id: I5d9b537ba1371e62b75020e13b969c823930e968",
+        "cmtr": "jacky06",
+        "date": "2018-07-30 12:31:36-04:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "83ea4f1f4534a18e115153c48c903c51876f1fa7",
+        "msg": "Provide more useful fail message\n\nChange-Id: Iced735d76b3bdaef795faf9599da453a20b091f1\nCloses-Bug: #1792719",
+        "cmtr": "zhulingjie",
+        "date": "2018-09-13 20:42:23-04:00",
+        "files": ["params.pp"]
+      }]
+    }

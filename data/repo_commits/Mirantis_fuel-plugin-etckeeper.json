@@ -1,0 +1,21 @@
+    {
+      "url": "https://github.com/Mirantis/fuel-plugin-etckeeper",
+      "pp_files": ["etckeeper_commit.pp", "etckeeper_configure.pp", "etckeeper_install.pp"],
+      "pp_cmtrs": ["Alex Schultz"],
+      "num_pp_commits": 2,
+      "num_tot_commits": 9,
+      "commits": [{
+        "hash": "d0f70097fcb56a268de60cefeec8273d639b2fa9",
+        "msg": "Create etckeeper plugin\n\nThis plugin can be used to add etckeeper to a Fuel deployment.  When\nenabled, etckeeper will be installed, configured and set to track\nchanges in the /etc folder on a given deployed node.",
+        "cmtr": "Alex Schultz",
+        "date": "2016-02-04 08:25:27-07:00",
+        "files": [".gitignore", "LICENSE", "README.md", "etckeeper_commit.pp", "etckeeper_configure.pp", "etckeeper_install.pp", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "network_roles.yaml", "pre_build_hook", ".gitkeep", ".gitkeep", "tasks.yaml", "volumes.yaml"]
+      },
+      {
+        "hash": "98936c686c3b906ff3a72bd2d9c50416c24627de",
+        "msg": "Add userguide and fix commit task\n\nThis change adds the userguide to the plugin. Additionally this change\nfixes deployment failures due to no pendinding changes when the commit\ntask is run.",
+        "cmtr": "Alex Schultz",
+        "date": "2016-02-24 11:14:25-07:00",
+        "files": [".gitignore", "README.md", "etckeeper_commit.pp", "Makefile", "7.0-settings.png", "8.0-settings.png", "deployment-success.png", "conf.py", "guide.rst", "index.rst", "installation.rst", "overview.rst"]
+      }]
+    }

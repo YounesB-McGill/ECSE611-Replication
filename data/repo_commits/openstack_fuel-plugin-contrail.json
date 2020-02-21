@@ -1,0 +1,2002 @@
+    {
+      "url": "https://github.com/openstack/fuel-plugin-contrail",
+      "pp_files": ["contrail-analytics-provision.pp", "create_network.pp", "compute-config.pp", "site-contrail-post5.pp", "contrail-db-provision.pp", "package.pp", "compute_netconfig_override.pp", "vip.pp", "contrail-provision.pp", "run_fabric.pp", "controller-config.pp", "upgrade-contrail-controller.pp", "site-controller-post.pp", "controller-scheduler.pp", "site-compute-pre.pp", "analytics.pp", "contrail_vmware.pp", "upgrade-contrail-stop-analytics.pp", "upgrade-contrail-post.pp", "contrail-compute-override.pp", "contrail-config-provision.pp", "database.pp", "contrail-control.pp", "contrail-compute-dpdkonvf.pp", "vmware_repo.pp", "override.pp", "ssh.pp", "contrail-config.pp", "vmware.pp", "controller-hiera.pp", "service.pp", "contrail-compute-vmware.pp", "contrail-compute-nova.pp", "upgrade-contrail-stop.pp", "webui.pp", "control.pp", "contrail-analytics.pp", "contrail-control-provision.pp", "dpdk.pp", "upgrade-contrail-control.pp", "vrouter_module.pp", "site-common-pre.pp", "provision.pp", "utils.pp", "tor_agent.pp", "analytics_db_wait.pp", "contrail-compute-hugepages.pp", "packages.pp", "create_vfs.pp", "pcs_delete_resource.pp", "contrail-compute-repo.pp", "site-controller-pre.pp", "upgrade-contrail-config.pp", "controller-provision.pp", "upgrade-contrail-pre.pp", "tsn.pp", "provision_controller.pp", "contrail-compute-network.pp", "contrail-compute-vrouter.pp", "contrail_webui.pp", "rclocal_vfs.pp", "contrail-controller-aggregate.pp", "compute.pp", "vrouter.pp", "cfgm.pp", "db.pp", "init.pp", "contrail-compute-vmware-repo.pp", "reconfigure-contrail-tsn-vrouter.pp", "controller.pp", "setup.pp", "sriov.pp", "neutron.pp", "compute-repo.pp", "hugepages.pp", "site-contrail-post3.pp", "contrail-compute-vmware-pkg.pp", "contrail-repo.pp", "common-repo.pp", "exec_pip.pp", "firewall.pp", "contrail-tsn-provision.pp", "network.pp", "aggregate.pp", "contrail-compute-netconfig-override.pp", "site-contrail-post2.pp", "contrail-utils.pp", "controller-dpdk.pp", "site-controller-post2.pp", "contrail-webui.pp", "scheduler.pp", "provision_contrail.pp", "dpdk_on_vf.pp", "site-contrail-pre.pp", "contrail-db.pp", "site-compute-post.pp", "site-contrail-post4.pp", "controller-hiera-pre.pp", "controller-hiera-post.pp", "testbed.pp", "upgrade-contrail-analytics.pp", "contrail-vmware.pp", "upgrade-contrail-compute.pp", "contrail-compute-dpdk-on-vf.pp", "site-contrail-post1.pp", "config.pp", "configure_vfs.pp", "contrail-compute-firewall.pp", "contrail-compute-sriov.pp", "vmware_pkg.pp", "site.pp", "controller-vip.pp", "contrail-compute-aggregate.pp", "contrail-compute-provision.pp", "upgrade-contrail-stop-config.pp", "upgrade-contrail-db.pp", "contrail-analytics-db-wait.pp", "provision_compute.pp", "nova.pp", "site-controller-post1.pp", "compute-hiera.pp"],
+      "pp_cmtrs": ["Przemys\u0142aw", "Illia Polliul", "Oleksandr Martsyniuk", "Mykola Yakovliev", "Sergey Vasilenko", "Vyacheslav Struk", "Przemys\u0142aw Szypowicz", "Vitalii Kovalchuk", "Andrey Bubyr"],
+      "num_pp_commits": 285,
+      "num_tot_commits": 1069,
+      "commits": [{
+        "hash": "9ce02bc723e2b73babbc5cb2b0b4a851bd0b6d1a",
+        "msg": "Contrail plugin puppet manifests added\n\nThis commit contains the puppet code, files and templates\ninvolved in plugin tasks.\n\nChange-Id: Ib0569d8d99debdf0d3eaf37ae056a82fd1c07b41",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-02-24 20:18:17+02:00",
+        "files": ["deploy.sh", "site-compute-post.pp", "site-contrail-post1.pp", "site-contrail-post2.pp", "site-contrail-post3.pp", "site-contrail-post4.pp", "site-contrail-post5.pp", "site-contrail-pre.pp", "site-controller-post.pp", "site.pp", "contrail.preseed", "init.pp", "packages.pp", "pre_build_hook", "tasks.yaml"]
+      },
+      {
+        "hash": "d488a9d29559f28108f3ae6406f2b58c20982891",
+        "msg": "Base network configuration and package installation\n\nBase network configuration for compute and contrail controller and\npackage installation was implemented\n\nCo-Authored-By: Oleksandr Martsyniuk (omartsyniuk@mirantis.com)\nChange-Id: I417a0e3edd35ed6e2273fa558fd94a68c9f17a3f",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-03-03 18:38:14+03:00",
+        "files": [".gitignore", "site-compute-post.pp", "site-contrail-pre.pp", "site-controller-post.pp", "site-controller-pre.pp", "contrail-pin-100", "get_first_ip.rb", "get_ip_from_range.rb", "get_last_ip.rb", "get_private_ifname.rb", "init.pp", "network.pp", "packages.pp", "ssh.pp", "ifcfg-vhost0.erb", "environment_config.yaml", "metadata.yaml", "pre_build_hook", "tasks.yaml"]
+      },
+      {
+        "hash": "9df2eb3d486124929c030428c4c802cf4dd1ff00",
+        "msg": "Contrail controller nodes deployment stage 1\n\nThis commit contains puppet classes which create testbed file\nfor fabric tool and execute fab tasks on controller nodes.\n\nChange-Id: Ie434d327ee53a5564adde001785b54a50eb30ebc\nCo-Authored-By: Vyacheslav Struk (vstruk@mirantis.com)",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-03-10 13:55:04+02:00",
+        "files": ["site-compute-post.pp", "site-compute-pre.pp", "site-contrail-post1.pp", "site-contrail-post2.pp", "site-contrail-post3.pp", "site-contrail-post4.pp", "site-contrail-post5.pp", "site-contrail-pre.pp", "exec_pip.pp", "init.pp", "network.pp", "packages.pp", "run_fabric.pp", "setup.pp", "ssh.pp", "testbed.pp", "testbed.py.erb", "environment_config.yaml", "pre_build_hook", "tasks.yaml"]
+      },
+      {
+        "hash": "d194f6a8a2510874d04d8b2b50bf5e6e93703d8f",
+        "msg": "Various small fixes\n\nChange-Id: I05584c89b7bcdce8804366568ee4b93ad48049c4",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-03-10 17:26:25+03:00",
+        "files": ["init.pp", "testbed.py.erb"]
+      },
+      {
+        "hash": "1c2e28ff4c009e396632a46b54d05b012688390c",
+        "msg": "Contrail controller nodes deployment stage 2\n\nThis commit contains puppet code which manages configuration files,\ninstalls the opencontrail neutron plugin and restarts services.\nPart of MOS controller configuration also implemented here.\n\nChange-Id: Ibb9126d0e1493ae3c6d22bf7315c27656d1d8c43",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-03-12 12:51:17+02:00",
+        "files": [".gitignore", "site-compute-post.pp", "site-contrail-post2.pp", "site-contrail-post5.pp", "site-contrail-pre.pp", "site-controller-post.pp", "site-controller-pre.pp", "ha.py.patch", "keepalived_conf_template.py.patch", "provision.py.patch", "config.pp", "init.pp", "neutron.pp", "package.pp", "service.pp", "setup.pp", "testbed.py.erb", "pre_build_hook", "tasks.yaml"]
+      },
+      {
+        "hash": "a853abdbb58c155141228cb89ccb9fe2b69a5ac9",
+        "msg": "Compute node configuration\n\nImplements firewall, nova and contrail client configuration\n\nChange-Id: Id71fe792b33808d1060a06f440941105bbc0dda8",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-03-13 00:56:35+03:00",
+        "files": ["site-compute-post.pp", "config.pp", "agent_param.erb", "contrail-vrouter-agent.conf.erb", "ifcfg-vhost0.erb"]
+      },
+      {
+        "hash": "cf086108cfae6e989959ed073993c2aab737ec12",
+        "msg": "Contrail provisioning\n\nImplements contrail controller provisioning\n\nChange-Id: I4d7c7cbf076f135948045f975b2aab7600c0a70d",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-03-13 19:51:22+02:00",
+        "files": ["site-contrail-post3.pp", "init.pp", "network.pp", "provision.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "4e282ba4727f7027142ddc52b577e01a301dbfa9",
+        "msg": "Contrail vRouter provision\n\nThis commit contains puppet code which performs provisioning of\nContrail vRouter software running on openstack compute nodes.\n\nChange-Id: I412515cff439100cb4bcf46b45b189623d87e16d",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-03-14 21:32:30+02:00",
+        "files": ["site-compute-post.pp", "site-contrail-post3.pp", "site-contrail-post4.pp", "site-controller-post.pp", "network.pp", "provision.pp", "service.pp", "contrail-vrouter-agent.conf.erb"]
+      },
+      {
+        "hash": "b494a183eee6a7b09886e8f81b012fa922927ced",
+        "msg": "Installation script added\n\nInstallation script used to extract deb and rpm packages shipped\nby Juniper as a  single package, place them to the plugin repository\nand generate metadata files.\n\n+Small fix of multi-controller deployment.\n+LBaaS-related changes\n\nChange-Id: I0fcc2e95bd344848094409d1caa2a9fc9b155a9c",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-03-17 11:03:49+02:00",
+        "files": ["site-compute-post.pp", "environment_config.yaml", "install.sh", "tasks.yaml"]
+      },
+      {
+        "hash": "dddc1656f0e9334652e75bafa91f5f9f2d4ce373",
+        "msg": "Neutron URL fixed\n\nA small fix for config puppet class, which resolves the neutron url issue.\n\nChange-Id: I2a391f258825cd449f25cfe9a14031e399979b6d",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-03-18 19:04:30+02:00",
+        "files": ["config.pp"]
+      },
+      {
+        "hash": "744a34222a32e7ac633ec452f6d346c48c5bacf0",
+        "msg": "Codestyle fixes, Ubuntu 14.04 and Contrail 2.01 adaptation,\nvarious fixes\n\n- Ruby functions returns string type now\n- Codestyle fixes (puppet-lint)\n- Fixes to work on Ubuntu 14.04\n- Now plugin uses MOS controller's RabbitMQ instance\n- Contrail 2.01 adaptation\n\nChange-Id: I14005af2c4a2eca3a89b6e55d5b92c47f7b8d36c",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-03-24 17:17:11+03:00",
+        "files": ["site-compute-pre.pp", "site-contrail-post2.pp", "site-contrail-post4.pp", "site-contrail-pre.pp", "site-controller-pre.pp", "contrail-pin-100", "ha.py.patch", "get_first_ip.rb", "get_ip_from_range.rb", "get_last_ip.rb", "get_private_ifname.rb", "config.pp", "init.pp", "network.pp", "neutron.pp", "service.pp", "setup.pp", "ssh.pp", "pre_build_hook"]
+      },
+      {
+        "hash": "f617c4a9651a22a77b692f722128e44689e14a4d",
+        "msg": "Centos support implemented\n\nAllows to use Contrail plugin in Centos-based environments\n\nChange-Id: I07228bf1abcb7990943905b556fa06b02d72f85a",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-03-26 16:45:17+03:00",
+        "files": ["README.md", "site-compute-post.pp", "site-contrail-pre.pp", "install.py.patch", "network.pp", "package.pp", "service.pp", "setup.pp", "ssh.pp", "centos-ifcfg-vhost0.erb", "ubuntu-ifcfg-vhost0.erb", "install.sh", "tasks.yaml"]
+      },
+      {
+        "hash": "f4ca91d78b1247d174a03d0c0c095239441ea15f",
+        "msg": "Adaptation to the latest fuel version\n\nAdaptation to the latest fuel changes\nRefactoring\n\nChange-Id: I2579a9bc001bbe62e5c74a6537b1fb830e4d2f1d",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-03-30 15:39:58+03:00",
+        "files": ["site-contrail-pre.pp", "site-controller-pre.pp", "contrail-pin-100", "pre_build_hook", "tasks.yaml"]
+      },
+      {
+        "hash": "fa4915f680021ddeca751d670dfb7dd0ca960cdc",
+        "msg": "Fuel plugin SDK v2 support\n\nPlugin moved to fuel plugin SDK v2 which is only version supported\nin fuel 6.1\n\nChange-Id: I19563def65a313eeabca87b5e74842da79c54596",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-04-01 17:27:10+03:00",
+        "files": [".gitignore", "init.pp", "install.sh", "metadata.yaml"]
+      },
+      {
+        "hash": "d6ee6642d806d769c5a71d4eba7a8f0a80965d4a",
+        "msg": "Typo fixes\n\nActual role is 'primary-controller' not 'primary_controller'.\nActual default AS number for contrail is 64512.\nThe default range for contrail private network changed.\nServices list for Centos OpenStack controller clarified.\n\nChange-Id: I63312afee18b7de19cab8e2ffada48ad3d1cd0f8",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-04-02 15:47:12+03:00",
+        "files": ["service.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "9130fa41e02ffe0c0e0e2ce724c0a08e24a029d3",
+        "msg": "Support for Ubuntu 14.04 kernel 48-generic\n\nContrail-vrouter-dkms package added to support new Ubuntu kernels,\nmore recent than 35-generic.\nBugfix: contrail vrouter provision script arguments fixed.\n\nChange-Id: I36efab2c04978cf22c9ea0ed0920cdb061e8613d",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-04-02 18:44:32+03:00",
+        "files": ["site-compute-post.pp", "provision.pp", "tasks.yaml"]
+      },
+      {
+        "hash": "1c29443cd47778571199bd7d1af846c33faa050e",
+        "msg": "Deprecated code removed\n\nAccording to the latest changes in fuel 6.1 we don't need this code\nanymore. It was a part of our backlog.\nMinor refactoring.\n\nCloses-bug: 1440124\n\nChange-Id: Ifa6180005b1aa58de1625a0b29238f6ceabd552e",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-04-03 16:45:15+00:00",
+        "files": [".gitignore", "site-compute-post.pp", "site-compute-pre.pp", "site-contrail-pre.pp", "ubuntu-ifcfg-vhost0.erb", "tasks.yaml"]
+      },
+      {
+        "hash": "225db4d574d2fd22654a25cf4f46eb60f2c4fa05",
+        "msg": "Network-related changes\n\nNetwork settings for contrail controllers updated.\nContrail controllers default route changed to public network gateway.\nMetadata shared secret support added to contrail vrouter config.\n\nChange-Id: I2311509f051b95bdfb657d27fd53261e625c4810",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-04-09 11:53:44+03:00",
+        "files": ["README.md", "site-contrail-pre.pp", "init.pp", "network.pp", "contrail-vrouter-agent.conf.erb", "testbed.py.erb"]
+      },
+      {
+        "hash": "440c057521eb010505c08ae87e1805957e23a084",
+        "msg": "Firewall rule src-addr fix\n\nThere was a wrong src ip at firewall rule which allows metadata traffic\n\nChange-Id: I94a0dec604d52dfc5f2c73223f30154812d22413",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-04-09 16:21:17+03:00",
+        "files": ["config.pp"]
+      },
+      {
+        "hash": "2a59913025dedd95ce3edd5a9191b84a4b18a3dc",
+        "msg": "Plugin compartibility fixes\n\nManifests and templates updated to ensure plugin tasks\nare run only on nodes named 'contrail-%'\n\nChange-Id: I67a6c3668b5bec0c8efbe430828aec2ed8d5cf18",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-04-13 16:37:27+00:00",
+        "files": ["site-contrail-pre.pp", "testbed.py.erb"]
+      },
+      {
+        "hash": "6ee4366842110d122147b7fd084fb906b7150694",
+        "msg": "CentOS-related fixed\n\nSeveral fixes to correct CentOS deployment process.\n\nChange-Id: Ib2430c254b0fd5bff0ffe694f627fcea2d1f8173",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-04-13 19:47:23+03:00",
+        "files": ["site-compute-post.pp", "site-controller-pre.pp", "tasks.yaml"]
+      },
+      {
+        "hash": "ab09fdf56da18eff244e262f5a34432e7985daa8",
+        "msg": "Switch contrail to HA rabbitmq IP\n\nRabbitmq is using high availability virtual ip address now\n\nChange-Id: I8056cef213e4352e04f85c6b3733413916379fed",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-04-15 17:45:19+03:00",
+        "files": ["config.pp", "service.pp", "095-rabbit_for_contrail.cfg.erb", "tasks.yaml"]
+      },
+      {
+        "hash": "92190622bc1300fd692617f520bda5b1f31a8521",
+        "msg": "Graceful reload for haproxy added.\n\nIn some cases trivial restart of haproxy service on controller nodes\nreturns an error. Puppet behaviour for service haproxy\nchanged from restart to reload.\n\nChange-Id: I35091b8a46ebea293060bc11243028ca5bde4ce5",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-05-05 20:52:51+03:00",
+        "files": ["config.pp", "service.pp"]
+      },
+      {
+        "hash": "0e96c3cfb91a8d0df0aba3268413b78609f34ce6",
+        "msg": "Centos-related bugfixes\n\n- Patching and building vrouter module\n- Service dependency fixes\n- Bunch of centos-specific network changes\n- Repository priority fixes\n\nChange-Id: I3dffbbd683590e84a0fdc9d2803b0525150fe0d8",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-05-06 14:47:14+03:00",
+        "files": ["site-common-pre.pp", "site-compute-post.pp", "site-contrail-post1.pp", "site-contrail-pre.pp", "site-controller-pre.pp", "dkms.conf", "vrouter.patch", "init.pp", "network.pp", "setup.pp", "vrouter_module.pp", "agent_param.erb", "tasks.yaml"]
+      },
+      {
+        "hash": "efc0b7b932f6583008c7b9e156e2b04d1fb2bf0e",
+        "msg": "Mirantis copyright and license headers added\n\nChange-Id: I542a432b4f5ca93b27bd2368189c1bc5ba013151",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-05-08 15:04:40+03:00",
+        "files": ["LICENSE", "site-common-pre.pp", "site-compute-post.pp", "site-contrail-post1.pp", "site-contrail-post2.pp", "site-contrail-post3.pp", "site-contrail-post4.pp", "site-contrail-pre.pp", "site-controller-post.pp", "site.pp", "get_first_ip.rb", "get_ip_from_range.rb", "get_last_ip.rb", "get_private_ifname.rb", "config.pp", "exec_pip.pp", "init.pp", "network.pp", "package.pp", "provision.pp", "run_fabric.pp", "service.pp", "setup.pp", "ssh.pp", "testbed.pp", "vrouter_module.pp", "install.sh"]
+      },
+      {
+        "hash": "b30aac77e682549e8adfa68eeaa3a7bbfb72ed6b",
+        "msg": "Node roles for plugin tasks updated.\n\nNode_role variable for plugin puppet tasks set explicitly\nto address the case when nodes may have multiple roles assigned,\ne.g. compute nodes with ceph-osd.\n\nChange-Id: I1e42f0f57c52a5ad1821eb252edbfc28c4507774",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-05-09 22:10:35+03:00",
+        "files": ["site-compute-post.pp", "site-contrail-post2.pp", "site-contrail-post3.pp", "site-contrail-pre.pp", "site-controller-post.pp", "vrouter_module.pp"]
+      },
+      {
+        "hash": "0787919e97f58f295419db74de0ac6511505e966",
+        "msg": "vRouter module build fix for latest Fuel builds.\n\nDependency on kernel-devel package added, the dkms routines\nupdated with additional checks.\nCloses bug FPL-209.\n\nChange-Id: Iade81a8d31ceda297ea560df001f62b99e0c3cc9",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-05-15 12:35:29+03:00",
+        "files": ["vrouter_module.pp"]
+      },
+      {
+        "hash": "10907b2891167e964e92c41fa02705ffa91ea270",
+        "msg": "Private network configuration fixed for Centos\n\nThis commit addresses the issue with file for persistent\nconfiguration of private network interface.\n\nChange-Id: I8c9aecaad569a6ee3492106c29f385658fe0e612",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-05-20 16:11:20+03:00",
+        "files": ["network.pp"]
+      },
+      {
+        "hash": "74fcc2d2bf315b37119e9cd6567be0b1935125c4",
+        "msg": "OpenVSwitch removal routines updated\n\nThis commit is addressing the new openvswitch-dkms and openvswitch-kmod packages in\nnewer Fuel ISOs.\n\nChange-Id: I52a8ce442b5e00f8eb1cc6c2f3362bbd50bf5635",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-05-22 13:47:26+03:00",
+        "files": ["site-compute-post.pp"]
+      },
+      {
+        "hash": "ae2994f0382437650b476905af51a392cc36497a",
+        "msg": "Change addressing FPL-201\n\nThe public network removed from Contrail Controllers.\nContrail UI and API now available via haproxy on MOS Controllers.\nPlugin UI updated.\n\nChange-Id: I03a05f4597635a87a7133ec4aa61bd28b2971b38",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-05-22 15:37:04+03:00",
+        "files": ["site-contrail-post1.pp", "site-contrail-pre.pp", "config.pp", "init.pp", "network.pp", "setup.pp", "094-web_for_contrail.cfg.erb", "contrail-vrouter-agent.conf.erb", "testbed.py.erb", "tasks.yaml"]
+      },
+      {
+        "hash": "918a5f26590fc838df92ac9124673a9fc63e4810",
+        "msg": "Change addressing the bug FPL-219\n\nTo prevent de-configuring contrail private network interfaces\nwith netconfig routines when cluster nodes are added or removed,\nplugin overrides the network scheme for compute nodes.\nContrail setup, configure and provisioning tasks ensured to be\nidempotent to allow safe cluster configuration changes.\n\nChange-Id: Ibb6dabafebc595b2182c1b44df93556710844e7d",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-05-26 15:44:36+03:00",
+        "files": ["plugins.yaml", "provision.py.patch", "network.pp", "provision.pp", "run_fabric.pp", "setup.pp", "vrouter_module.pp"]
+      },
+      {
+        "hash": "df617d0f326302c2f23152a62b6be9e2747c139f",
+        "msg": "Fixes removing a bunch of dependent packages\n\nSome packages depends on each other and deploy fails on their remove\nin some cases.\nFixed now.\n\nChange-Id: Iffe2d955fc0f054ffbea7b1e79a6bb67ce45b956",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-05-27 14:01:38+03:00",
+        "files": ["package.pp"]
+      },
+      {
+        "hash": "4e8070ba4a7e2b584b6e32171f0dfd793ea0baa6",
+        "msg": "Puppet template for hiera overrides updated\n\nTo prevent de-configuring contrail private network interfaces\nplugin overrides the network scheme for compute nodes.\nThis commit updates the network_scheme overrides to ensure\ncompartibility with netconfig routines.\n\nChange-Id: Iebd36b9349e9de87cf9d89feda4a93c9ca3e06ac",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-05-28 18:44:52+03:00",
+        "files": ["init.pp", "network.pp", "plugins.yaml.erb"]
+      },
+      {
+        "hash": "19d29ec83987926430c0592ddceb90de52c4f99e",
+        "msg": "Fixes for updated contrail packages.\n\nContrail 2.01-46 release includes vrouter module patches.\nWe should get rid of code applying them.\nAlso debug output for fabric tasks enabled.\n\nChange-Id: I7ff0fe346cd43f6311818cb5c3a8effaa32b2acd",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-06-01 18:22:32+03:00",
+        "files": ["run_fabric.pp", "vrouter_module.pp"]
+      },
+      {
+        "hash": "cce6df0e18bad5b7fba111e83624c9c6249d4eeb",
+        "msg": "Fabric tasks at contrail::setup are running package installation on REMOTE nodes\n\nSuch behaviour causes race conditions: local-started vs\nremote-started package manager instances.\n\nSo contrail::setup moved to isolated post-deploy task.\n\nChange-Id: I836ce3dbab9f1d5e040c2401c180bc0f824e2ca1\nCloses-Bug: #1461611",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-08 09:17:12+00:00",
+        "files": ["site-contrail-post1.pp", "site-contrail-post2.pp", "site-contrail-post3.pp", "site-contrail-post4.pp", "site-contrail-post5.pp", "tasks.yaml"]
+      },
+      {
+        "hash": "0d2ed26f2532e5aaf758e14682b78a75c016cca0",
+        "msg": "Change addressing FPL-219\n\nAdmin_token and service_token variables clarified.\nNow contrail uses keystone neutron settings from astute.yaml.\n\nChange-Id: I5043d81a64e9eba6b2520547b8619598daab01ab",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-08 16:24:15+03:00",
+        "files": ["config.pp", "init.pp", "provision.pp", "testbed.py.erb"]
+      },
+      {
+        "hash": "05c5fe85c29a3fcae5303741efc2905acca179fa",
+        "msg": "Package conflict resolved\n\npython-pycrypto(contrail) and python-crypto(mos)\n\nChange-Id: I32ce885d9a7060d92834c7431fad98f4d3c1d862",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-06-08 19:22:55+03:00",
+        "files": ["site-common-pre.pp"]
+      },
+      {
+        "hash": "a2d0ec191e2961c89d30adf0113b674fa15e41b6",
+        "msg": "Patchset enables plugin deploy with latest contrail version\n\nSet of changes to make plugin work with the latest contrail:\n\n- Contrail SVC monitor added\n- Casssandra minimal disk usage changed\n- Patching commandline.py to change provisioning ip addresses\n\nChange-Id: Ic82db390f26e40ff49b97dd429b76d94c2b67261",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-06-08 20:12:38+00:00",
+        "files": ["commandline.py.patch", "provision.py.patch", "config.pp", "setup.pp"]
+      },
+      {
+        "hash": "2c0dd44ca39e55ec31d8b5f547f8d814ca5a8813",
+        "msg": "This commit reflects package-related changes in latest contrail\n\n- MOS repo removed from contrail controllers\n- pinning added for specific packages\n- pip package versions updated\n\nChange-Id: Idb7d027ad378f48f6516c9d0aea3d18441a0b712",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-09 11:36:26+03:00",
+        "files": ["site-common-pre.pp", "site-contrail-post1.pp", "contrail-pin-100", "package.pp", "contrail-pin-100.erb", "tasks.yaml"]
+      },
+      {
+        "hash": "5303adab866d2374cf9261631dec31f59f100201",
+        "msg": "FPL-219 related changes reverted\n\nNow service_token variable is set to admin_token value.\n\nChange-Id: Ia2e1fd1373a35002468281ba3d62a69e974b3185",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-06-09 18:52:29+03:00",
+        "files": ["init.pp", "setup.pp", "testbed.py.erb"]
+      },
+      {
+        "hash": "d59eac925583063d6516b07437d21d84e17dfbe7",
+        "msg": "Typos fixed, apt-repo related changes\n\n- apt pinning and repo management moved from common-pre task\n\nChange-Id: Ia5f79f076dbbfa7abdbccb5de0913dcffcec0849",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-09 20:47:23+03:00",
+        "files": ["site-common-pre.pp", "site-compute-post.pp", "site-contrail-post1.pp", "contrail-pin-100.erb"]
+      },
+      {
+        "hash": "686e9ac1140f322c584dd7169b0a3e14930d09d6",
+        "msg": "Bugfixing for latest contrail\n\n- typos fixed\n- cassandra-related changes applied for all nodes\n- pip packages list updated\n\nChange-Id: I2b0fe1fab7783e027c5c8443dcf0e4b062a65c9e",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-10 03:11:26+03:00",
+        "files": ["site-common-pre.pp", "site-contrail-post1.pp", "install.py.patch", "init.pp", "setup.pp", "testbed.py.erb"]
+      },
+      {
+        "hash": "1f5a898b50112817598a3997853b7694df1ef523",
+        "msg": "Neutron admin password updated\n\n- now neutron admin_password value is set from admin_token\n\nChange-Id: I5237c2305094511eefb56ba09f5d170ec5e7b845",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-10 04:49:45+03:00",
+        "files": ["config.pp"]
+      },
+      {
+        "hash": "e3787acdcebc949652fbeda1276821fe48c7771f",
+        "msg": "Change addressing FPL-219\n\nAdmin_token and service_token variables clarified.\nNow contrail uses keystone neutron settings from astute.yaml.\n\nChange-Id: I5043d81a64e9eba6b2520547b8619598daab01ab",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-15 15:51:31+03:00",
+        "files": ["site-controller-post1.pp", "site-controller-post2.pp", "config.pp", "init.pp", "provision.pp", "setup.pp", "testbed.py.erb", "tasks.yaml"]
+      },
+      {
+        "hash": "878560882ff8a273e30325ba9d9ef6ba1ef4ad2d",
+        "msg": "Change addressing FPL-219\n\nAdmin_token and service_token variables clarified.\nNow contrail uses keystone neutron settings from astute.yaml.\n\nChange-Id: I5043d81a64e9eba6b2520547b8619598daab01ab",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-15 18:18:50+03:00",
+        "files": ["site-controller-post1.pp", "site-controller-post2.pp", "config.pp", "init.pp", "provision.pp", "setup.pp", "testbed.py.erb", "tasks.yaml"]
+      },
+      {
+        "hash": "fc28a5f51a6200eaa1f8120f7ddda291515ac7db",
+        "msg": "GRE segmentation mode support\n\nPatch allows to deploy fuel environments with GRE segmentation mode.\n\nChange-Id: Ia97d79787e5bbafdb1d23dc8c210fe59f03e418d",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-06-16 12:29:42+03:00",
+        "files": ["get_private_ifname.rb", "network.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "638b6faaacb1488a7efa559bb813717bef2f7e52",
+        "msg": "GRE segmentation mode support\n\nPatch allows to deploy fuel environments with GRE segmentation mode.\n\nChange-Id: I8447a6ef4c73e40c439e6123b8f51b1b694d0050",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-06-16 12:50:35+03:00",
+        "files": ["get_private_ifname.rb", "network.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "51eb2f0e7adf935af500270159af72dfd67a905c",
+        "msg": "Network scheme overrides updated\n\nPhysical device names added, done some refactoring.\n\nChange-Id: Ice40a6d43827d59c16e8bd1177b4c59da317acd4",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-16 14:07:42+03:00",
+        "files": ["init.pp", "plugins.yaml.erb"]
+      },
+      {
+        "hash": "94516f7620124594bf81fa90113119de763dc57f",
+        "msg": "Network scheme overrides updated\n\nPhysical device names added, done some refactoring.\n\nChange-Id: Ice40a6d43827d59c16e8bd1177b4c59da317acd4",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-17 12:27:56+03:00",
+        "files": ["init.pp", "plugins.yaml.erb"]
+      },
+      {
+        "hash": "d811752449e9adfbf265431f9d2889bbd77b0420",
+        "msg": "Puppet exec resource idempotency\n\nThe puppet exec resources updated to create a marker file on their\nsuccessful completion to avoid re-running the commands that can\npotentially be unsafe or expected to fail on re-run.\n\nChange-Id: I69dbc49da2d592eaad8d49bad606e4ce5d76a88d",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-17 16:00:32+03:00",
+        "files": ["provision.pp", "run_fabric.pp", "setup.pp"]
+      },
+      {
+        "hash": "88e04693062db536034f2023a1ef1397516d03b6",
+        "msg": "Changes addressing latest Fuel ISOs\n\n- role name updated for public interfaces\n- explicit nova services restart added for controller nodes\n\nChange-Id: Ib8ca8dc18ed482fb27007b35f420bb4b3435d0bd",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-18 13:17:22+03:00",
+        "files": ["site-controller-post2.pp", "service.pp", "plugins.yaml.erb"]
+      },
+      {
+        "hash": "0b7cbd0224a5e9938b751a93b95487e6b2841044",
+        "msg": "Changes addressing latest Fuel ISOs\n\n- role name updated for public interfaces\n- explicit nova services restart added for controller nodes\n\nChange-Id: Ib8ca8dc18ed482fb27007b35f420bb4b3435d0bd",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-18 15:41:46+03:00",
+        "files": ["site-controller-post2.pp", "service.pp", "plugins.yaml.erb"]
+      },
+      {
+        "hash": "aced52743564d380caded424d21b4e12601f2084",
+        "msg": "Puppet exec resource idempotency\n\nThe puppet exec resources updated to create a marker file on their\nsuccessful completion to avoid re-running the commands that can\npotentially be unsafe or expected to fail on re-run.\n\nChange-Id: I69dbc49da2d592eaad8d49bad606e4ce5d76a88d",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-18 19:34:06+03:00",
+        "files": ["provision.pp", "run_fabric.pp", "setup.pp"]
+      },
+      {
+        "hash": "424100d25c7f8480c885bddd4b1996efb89a2266",
+        "msg": "Haproxy service for contrail controllers ensured\n\nHaproxy service must be restarted and running after changing\nits configuration.\n\nChange-Id: I2d95e44144f97c9eae7044fa401fa6c319cf78f3",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-18 19:37:39+03:00",
+        "files": ["service.pp"]
+      },
+      {
+        "hash": "1601b391e49088a2b954005e0c08f03cf9fa5c9d",
+        "msg": "Configuration file for nodemgr added\n\nA separate nodemgr config file was added for deployment on compute nodes.\n\nChange-Id: Ie5666425a970d1ce922fc5b090778006de1a9ca4",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-18 20:41:46+03:00",
+        "files": ["config.pp", "contrail-vrouter-nodemgr.conf.erb"]
+      },
+      {
+        "hash": "9087941f81300d8f06ce4d4e8a8479198a711708",
+        "msg": "Commit addressing FPL-285\n\n- hiera plugin overrides updated\n- nova-compute ensured to be enabled on compute nodes\n- private interface name pulled directly from astute.yaml\n- bridge settings removed from private interface config\n\nChange-Id: Ie8317c41f5dd23b37aff177aa863d1ee8b0467be",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-21 22:17:39+03:00",
+        "files": ["site-compute-post.pp", "get_private_ifname.rb", "init.pp", "network.pp", "service.pp", "plugins.yaml.erb"]
+      },
+      {
+        "hash": "2587a5279918d5970966ddf877de09013507a203",
+        "msg": "Contrail SVC Monitor configuration adjusted\n\nThe name of default section for rabbit settings in\ncontrail-svc-monitor.conf updated\n\nChange-Id: I370f1ccd20b936d3491f1ce8654908e32033f725",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-22 20:30:52+03:00",
+        "files": ["config.pp"]
+      },
+      {
+        "hash": "14db344366287845a4b53c189165a33a0682d688",
+        "msg": "Patch for keepalived config re-introduced\n\nThis commit addresses the incorrect keepalived configuration issue,\nnow fab creates a config file with correct devices described.\n\nChange-Id: I7b1b66a0403893559ad7748537acfb6797dcf78f",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-25 18:43:59+03:00",
+        "files": ["ha.py.patch", "setup.pp"]
+      },
+      {
+        "hash": "a83f1d7524fa059e4b97e585f9f0797a5ba4f4f9",
+        "msg": "Testbed file definitions updated\n\nOpenStack admin password variable clarified to deploy the environment\nwith non-default credentials.\n\nChange-Id: I1c5baa2c634a2528c02ef7ba9f40c26a6e50d2ea",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-25 20:07:40+03:00",
+        "files": ["init.pp", "testbed.py.erb"]
+      },
+      {
+        "hash": "f121c0871c5b9ab8a61733e6f159aed1b6508cd2",
+        "msg": "Testbed file definitions updated\n\nOpenStack admin password variable clarified to deploy the environment\nwith non-default credentials.\n\nChange-Id: I1c5baa2c634a2528c02ef7ba9f40c26a6e50d2ea",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-25 20:09:40+03:00",
+        "files": ["init.pp", "testbed.py.erb"]
+      },
+      {
+        "hash": "82a7cab1ce8e2397b425dcd5bac26093459cb9a1",
+        "msg": "Support for Private network gateway added\n\nThis commit introduces the ability to add a gateway for\nprivate network into vRouters and contrail controllers\nconfiguration. This gateway is needed to reach the\nBGP peers in case if they are located outside Private network.\n\nChange-Id: I1e88547cb2352d044a7be38229ac11467ef29c1e",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-25 21:26:33+03:00",
+        "files": ["init.pp", "network.pp", "contrail-vrouter-agent.conf.erb", "environment_config.yaml"]
+      },
+      {
+        "hash": "823a8ea1cc252fac6f91fd690d37d7cf31d788d0",
+        "msg": "A workaround that allows to complete re-deploy\n\nNetwork configuration substituted by noop manifest.\n\nChange-Id: I2cf35bc5018f1985b527eb36053c013041b58065",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-06-26 00:18:29+03:00",
+        "files": ["site-common-pre.pp"]
+      },
+      {
+        "hash": "6f96acc61e64541c83a7c3efdeadde8d411ca063",
+        "msg": "Disk space requirment for Cassandra updated\n\nTestbed template updated with minimum disk space variable\nset to 32 GB.\n\nChange-Id: If1abc4ee832577e0dbb05e455868309f9fcce21d",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-06-26 15:17:38+03:00",
+        "files": ["site-contrail-post1.pp", "testbed.py.erb"]
+      },
+      {
+        "hash": "bc14607410d4fd6a83ff8c9eca1ea3a3ea7fa6e9",
+        "msg": "A workaround that allows to complete re-deploy\n\nNetwork configuration substituted by noop manifest.\n\nChange-Id: I2cf35bc5018f1985b527eb36053c013041b58065",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-06-26 19:53:40+03:00",
+        "files": ["site-common-pre.pp"]
+      },
+      {
+        "hash": "5eab9bd1da975cd75fbf3c98f12ea58dfe71dab1",
+        "msg": "Patch for keepalived config re-introduced\n\nThis commit addresses the incorrect keepalived configuration issue.\nFabric creates a correct config file now.\n\nChange-Id: Id4aefa302d8b32522216832746d1ea561bfe5712",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-06-29 15:53:55+03:00",
+        "files": ["ha.py.patch", "setup.pp"]
+      },
+      {
+        "hash": "c7e8bc66b5dfe22eec9a844e6d5c6217306baf08",
+        "msg": "Codestyle fix\n\nFix to pass puppet-lint\n\nChange-Id: Ic500204668bf38003cf0c3b24a0fbb9e179e43d4",
+        "cmtr": "Vyacheslav Struk",
+        "date": "2015-06-30 17:11:38+03:00",
+        "files": ["site-compute-post.pp"]
+      },
+      {
+        "hash": "139c94efbe65bfa3a209cbc629660c9f18ac57d1",
+        "msg": "RabbitMQ settings updated for contrail-device-manager\n\nNow contrail-device-manager service uses RabbitMQ on MOS controllers.\n\nChange-Id: I3bba28adcaf9a153cec386d9d321e654ae63522d",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-07-01 18:07:14+03:00",
+        "files": ["config.pp"]
+      },
+      {
+        "hash": "238f30fcd84319737f6fcfe016c4103fa0d5dc76",
+        "msg": "Contrail Heat templates added\n\nThis commit introduses support for contrail-specific heat templates.\n\nChange-Id: I7463b3895c63fb2c01a077c036bd682be281ccb7",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-07-01 18:31:08+03:00",
+        "files": ["site-controller-post1.pp", "service.pp"]
+      },
+      {
+        "hash": "6371ea0fa1a49487fae0dd6a434b646ea4e9985f",
+        "msg": "Puppet template for hiera overrides updated\n\nThis commit updates the settings to be overrided in plugins hiera data file\nto ensure idempotency of fuel-library routines in plugin-enabled environments.\n\nChange-Id: Ifd86213faee9bfcc71528f9e891ecfa0a579afe2",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-07-06 19:00:10+03:00",
+        "files": ["init.pp", "plugins.yaml.erb"]
+      },
+      {
+        "hash": "3369b311581fdbcc6a8957b588c7485c08fc18a5",
+        "msg": "Package priorities updated\n\n- mos repo re-enabled on base-os nodes\n- apt pinning file updated\n\nChange-Id: I735e4f4a7c508a8e9f216a3ef075b637c68fe8a6",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-07-15 11:45:33+03:00",
+        "files": ["site-contrail-post1.pp", "contrail-pin-100", "contrail-pin-100.erb"]
+      },
+      {
+        "hash": "ae7a5b6b02b54a84f265c75165d7263807a1b686",
+        "msg": "Typo fixed\n\nA typo in puppet manifest eliminated\n\nChange-Id: Ic0674e142acdf0ff7f24d62958f94b60fe298c31",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-07-15 15:28:32+03:00",
+        "files": ["site-contrail-post1.pp"]
+      },
+      {
+        "hash": "726d21d9c53a4f51feae6bd49fd7478017f0dde5",
+        "msg": "Package pinning updated\n\nAPT pin file updated for compute nodes\n\nChange-Id: I4a91b9fa10c3def141538a68fc95099ad317a459",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-07-15 18:37:44+03:00",
+        "files": ["site-compute-post.pp"]
+      },
+      {
+        "hash": "e63454001012ca226f603cb5a1dc269c06a2173c",
+        "msg": "Node re-deploy issue mitigated\n\n- netconfig routines disabled on re-deploy\n- plugin overrides removed\n- condition for compute reboot added\n\nChange-Id: Iea6b391dff83be2b16053b185a2af86d3a1b1215",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-07-19 18:07:04+03:00",
+        "files": ["site-common-pre.pp", "plugins.yaml", "init.pp", "network.pp", "plugins.yaml.erb", "tasks.yaml"]
+      },
+      {
+        "hash": "f04d2802e570001e2c8dda40e2eff72bbfbc4119",
+        "msg": "GRE segmentation type support extended\n\nImprovements:\n- private IP address assignments from Fuel's neutron/mesh network\n- additional static routes handling\n\nChange-Id: I40997b3f0086c96678c3fb550a42c154de4f3dbc",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-07-29 17:30:35+03:00",
+        "files": ["exec_pip.pp", "init.pp", "network.pp", "package.pp", "contrail-vrouter-agent.conf.erb", "contrail-vrouter-nodemgr.conf.erb", "testbed.py.erb", "environment_config.yaml"]
+      },
+      {
+        "hash": "3ec99afc919c5ca1b477bc34f42d70efbb460043",
+        "msg": "Contrail database puppet manifest added\n\nThis commit contains puppet code, files and templates\nto deploy the software packages and configuration\nfor contrail database component.\n\nChange-Id: I45661087e0b0572930a3de68ff0ea722dde6172d",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-08-19 12:18:37+03:00",
+        "files": ["site-common-pre.pp", "site-compute-post.pp", "site-contrail-post1.pp", "site-contrail-post2.pp", "cassandra-env.sh", "supervisord_database.conf", "config.pp", "database.pp", "network.pp", "provision.pp", "setup.pp", "cassandra.yaml.erb", "contrail-database-nodemgr.conf.erb", "zoo.cfg.erb"]
+      },
+      {
+        "hash": "57891cc73033e0b640566c15523d222d12b5e098",
+        "msg": "Contrail HA puppet manifest added\n\nThis commit contains puppet code, files and templates\nto deploy the software packages and configuration\nfor keepalived and haproxy for contrail HA.\n\nChange-Id: If4c48ba142607a9ed4221d286c6ef4799fbaadf1",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-08-19 09:35:05+00:00",
+        "files": ["site-contrail-post2.pp", "init.pp", "setup.pp", "vip.pp", "haproxy.conf.erb", "keepalived.conf.erb"]
+      },
+      {
+        "hash": "7fbbe0fb5a3c5e47e0dc5e41b1204fccabc809fb",
+        "msg": "Puppet cfgm class added for managing contrail-config service\n\nThis commit contains puppet code, files and templates\nto deploy the software packages and configuration\nfor contrail config service.\n\nChange-Id: Ic43aa9cdd7a4ba021c5c004e5fd851bdfce364a2",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-08-20 12:58:53+03:00",
+        "files": ["site-contrail-post2.pp", "java.security", "log4j.properties", "publisher.properties", "cfgm.pp", "setup.pp", "basicauthusers.properties.erb", "contrail-api.conf.erb", "contrail-device-manager.conf.erb", "contrail-discovery.conf.erb", "contrail-keystone-auth.conf.erb", "contrail-schema.conf.erb", "contrail-svc-monitor.conf.erb"]
+      },
+      {
+        "hash": "b9e3f353f4a5544bc9054fd06d0f687abebe684f",
+        "msg": "Puppet analytics class added\n\nThis commit contains puppet code, files and templates\nto deploy the software packages and configuration\nfor contrail analytics service.\n\nChange-Id: I72f0b3b52c50d8772f339ec2f3af80099872a608",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-08-20 13:06:17+03:00",
+        "files": ["site-contrail-post2.pp", "redis.conf", "analytics.pp", "contrail-analytics-api.conf.erb", "contrail-analytics-nodemgr.conf.erb", "contrail-collector.conf.erb", "contrail-device-manager.conf.erb", "contrail-query-engine.conf.erb", "contrail-snmp-collector.conf.erb", "contrail-topology.conf.erb"]
+      },
+      {
+        "hash": "755921cdc9bc54c1d6790965f8f83835feebd8c2",
+        "msg": "Puppet control class added\n\nThis commit contains puppet code, files and templates\nto deploy the software packages and configuration\nfor contrail control service.\n\nChange-Id: I9c850ae56b9202ac4b990c93b30228a37ec7d4c0",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-08-20 10:16:36+00:00",
+        "files": ["site-contrail-post2.pp", "contrail-named.conf", "contrail-rndc.conf", "control.pp", "setup.pp", "contrail-control-nodemgr.conf.erb", "contrail-control.conf.erb", "contrail-dns.conf.erb"]
+      },
+      {
+        "hash": "d7c62254605900830a78ec0d1e42e8d2381fc45b",
+        "msg": "Puppet webui class added\n\nThis commit contains puppet code, files and templates\nto deploy the software packages and configuration\nfor contrail webui service.\n\nChange-Id: I5b4d5c06af9178d0fb4303e90f01b865c1294ed8",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-08-20 10:16:44+00:00",
+        "files": ["site-contrail-post2.pp", "setup.pp", "webui.pp", "config.global.js.erb", "contrail-webui-userauth.js.erb"]
+      },
+      {
+        "hash": "3ddfc96933c5b08936125f01b19f76e22b893ca5",
+        "msg": "Puppet provisioning class updated\n\nThis commit contains puppet code to provision the\nservices and configuration for contrail cluster.\n\nChange-Id: I11b31ff70209110b7d6e77d83b42609d353f1b61",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-08-20 17:59:41+03:00",
+        "files": ["site-contrail-post2.pp", "site-contrail-post3.pp", "site-contrail-post4.pp", "config.pp", "provision.pp", "service.pp"]
+      },
+      {
+        "hash": "4b0dcd2d4111b13d9b46020570bef2003ee1932d",
+        "msg": "Contrail-specific heat templates settings added\n\nChange-Id: Id98df8951940e84a5d856fa531ebc849d59a385b",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-08-21 11:56:47+03:00",
+        "files": ["config.pp", "provision.pp"]
+      },
+      {
+        "hash": "d9cabd57ad5438a434df7ab329cfcc1348ed5264",
+        "msg": "Puppet neutron class added\n\nThis commit contains puppet code, files and templates\nto deploy the contrail neutron plugin packages and configuration\nfor neutron service on openstack controller nodes.\n\nChange-Id: Ia67f1022b927f34cc5a085b990fc6edd9a20fd9d",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-08-21 16:48:37+03:00",
+        "files": ["site-controller-post1.pp", "site-controller-post2.pp", "config.pp", "controller.pp", "provision.pp", "setup.pp", "testbed.pp", "ContrailPlugin.ini.erb", "testbed.py.erb"]
+      },
+      {
+        "hash": "de7aa21ca98b76e32481fd6b8e75fb0a24159002",
+        "msg": "Contrail configuration updated\n\n- cassandra listen address fixed\n- forwarders list for contrail DNS added\n- contrail VNC API config file added\n- contrail config nodemgr file added\n- provision routines updated\n- config files permissions fixed\n\nChange-Id: I79a7a30f8f01d0c2e25122e70536abd9b4f8ca15",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-08-23 15:59:25+03:00",
+        "files": ["site-contrail-post3.pp", "site-contrail-post4.pp", "site-contrail-post5.pp", "site-contrail-pre.pp", "cfgm.pp", "control.pp", "database.pp", "provision.pp", "ssh.pp", "vip.pp", "webui.pp", "cassandra.yaml.erb", "contrail-config-nodemgr.conf.erb", "contrail-database-nodemgr.conf.erb", "contrail-named.conf.erb", "haproxy.cfg.erb", "vnc_api_lib.ini.erb", "tasks.yaml"]
+      },
+      {
+        "hash": "23a9441efaffb3358885b1d42559dbf049aaad7e",
+        "msg": "Plugin version bump. UI support for OpenContrail added.\n\nChange-Id: I466fd6f1299d4bbf2f6d2b322e8d3401da3c6024",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-08-25 19:29:48+03:00",
+        "files": ["site-common-pre.pp", "site-contrail-post1.pp", "database.pp", "init.pp", "config.global.js.erb", "environment_config.yaml", "install.sh", "metadata.yaml"]
+      },
+      {
+        "hash": "7ccd82fb16040a2465b7dab3cdfebd109038a36f",
+        "msg": "Fix for contrail packages installation\n\nNow the tzdata and tzdata-java packages versions are ensured to\ncontrail-specific.\n\nChange-Id: I919be67695701540c845f7c453865bdb64126943",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-08-26 14:48:48+03:00",
+        "files": ["site-contrail-post1.pp"]
+      },
+      {
+        "hash": "6566a003853eef4188c3d334356b1efe603d0eb9",
+        "msg": "Opencontrail-related changes to configs and provisioning\n\n- listen ports for Opencontrail services clarified\n- provisioning routines updated\n\nChange-Id: I5fc9488fd4d4f474b2f833139bb91c987b16d975",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-08-27 18:33:12+03:00",
+        "files": ["site-contrail-post3.pp", "site-contrail-post4.pp", "provision.pp", "contrail-api.conf.erb", "contrail-discovery.conf.erb"]
+      },
+      {
+        "hash": "2bd3954f76c49c22f2da915e8379be71d0528f03",
+        "msg": "Provision routines changes for opencontrail reverted\n\nChange-Id: I5f5cdc855addf3104eb4abdaceea65d30c00f8ef",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-08-28 18:26:51+03:00",
+        "files": ["provision.pp"]
+      },
+      {
+        "hash": "608f23a25a768783de99bd630d70eb7ea4f7ad9e",
+        "msg": "Network puppet class updated\n\nIn some cases setting gateway for private network could\nbreak the deployment.\n\nCloses-bug: 1486078\nChange-Id: Id2549539e9f52cdff37a7994601daca02789c1b9",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-09-01 13:41:45+03:00",
+        "files": ["network.pp"]
+      },
+      {
+        "hash": "192f7fc52ea875fa4bec3d43c651d8321743b918",
+        "msg": "Contrail VIP addresses updated\n\nIn environments with multiple node groups the variables values for\ncontrail VIPs could be resolved to addresses from wrong network segment.\n\nChange-Id: I72b67fab047faffce816107f3263d57f2c45d552\nCloses-bug: 1490685",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-09-01 15:57:31+03:00",
+        "files": ["init.pp", "network.pp"]
+      },
+      {
+        "hash": "88e8c75aa601c285df7b1f9126a577a3873ccde1",
+        "msg": "Vrouter fixup added for compute nodes\n\nPuppet manifests for compute nodes updated to install\na fixup-vrouter init script and start it at boot to\nworkaroung bug 1494638.\nPlugin repo priority adjusted.\nNetconfig task moved to separate puppet task, in some cases\na shell task configuring network could cause timeouts.\n\nCloses-bug: #1495538\nCloses-bug: #1493023\nChange-Id: Iab09e925f9767d19d8d3f20e82587ddae39c0ecc",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-09-15 18:19:35+03:00",
+        "files": ["contrail-pin-100", "fixup-vrouter.init", "config.pp", "tasks.yaml"]
+      },
+      {
+        "hash": "572e03a85a3a0b3010e29bb723496b82f8ca52d9",
+        "msg": "Performance tuning for contrail-config services\n\nSupervisord files updated to raise the limit of open files.\n\nChange-Id: Ie1e38f3d96732c59ae46724b8b2f8acb3f21a7c0",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-09-21 16:14:27+03:00",
+        "files": ["supervisord_config.conf", "supervisord_database.conf", "cfgm.pp"]
+      },
+      {
+        "hash": "6d2c0590b3557731717f739f014e566aed8e06f9",
+        "msg": "Provides support for more recent Contrail builds\n\nChange-Id: I64f08c0079e3de1a4868b5507770d9d101f3e7c6\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-10-14 13:54:35+03:00",
+        "files": ["site-common-pre.pp", "site-contrail-post1.pp", "analytics.pp", "cfgm.pp", "config.pp", "contrail-api.ini.erb", "install.sh", "metadata.yaml"]
+      },
+      {
+        "hash": "d7331cf9007344fe6a486ac0c1703b2c88b0ad6d",
+        "msg": "Transfer Contrail logs via syslog\n\nAdd cron job for transfer contrail-logs to Fuel\nmaster via syslog.\n\nChange-Id: I2ee93e11a5fed5b90af12e8bc3b66076d60cfab9\nCloses-Bug: #1499314",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-10-14 19:12:17+00:00",
+        "files": ["analytics.pp", "contrailsyslog.sh.erb"]
+      },
+      {
+        "hash": "8cc7593452cd5da10732f117587569e2c7850fdb",
+        "msg": "Plugin updated to support Fuel 7.0\n\n- metadata updated with SDK version and supported releases\n- plugin version bump\n- pre_build hook updated\n- plugin manifests updated to support latest contrail builds\n\nChange-Id: Ibfa5e980c63588671446fba910f340cd40786ab4",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-10-27 18:35:59+00:00",
+        "files": ["site-common-pre.pp", "site-contrail-post1.pp", "site-contrail-pre.pp", "contrail-pin-110", "supervisord_database.conf", "analytics.pp", "config.pp", "controller.pp", "database.pp", "init.pp", "basicauthusers.properties.erb", "cassandra.yaml.erb", "config.global.js.erb", "contrail-alarm-gen.conf.erb", "contrail-analytics-api.conf.erb", "contrail-api.conf.erb", "contrail-collector.conf.erb", "contrail-device-manager.conf.erb", "contrail-discovery.conf.erb", "contrail-query-engine.conf.erb", "contrail-schema.conf.erb", "contrail-svc-monitor.conf.erb", "haproxy.cfg.erb", "zoo.cfg.erb", "deployment_tasks.yaml", "environment_config.yaml", "install.sh", "metadata.yaml", "pre_build_hook", "tasks.yaml"]
+      },
+      {
+        "hash": "f2d34d0e8547e68c9764f5ccf3700ca91a0a1687",
+        "msg": "Adding Fuel default virtual networks\n\nThe plugin manisfests updated to create net04 and net04_ext\nnetworks after deployment of neutron contrail plugin.\nRoute target is configured for net04_ext.\nThis allows the environment to pass OSTF tests out of the box.\n\nChange-Id: I18862dee25656a3b56ef20b45c3dd286508d4f58",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-10-28 15:20:45+00:00",
+        "files": ["site-controller-post2.pp", "controller.pp", "create_network.pp", "init.pp", "provision.pp", "service.pp", "plugins.yaml.erb", "environment_config.yaml"]
+      },
+      {
+        "hash": "77e06009f2f604fc741d8558a8cec59269137b23",
+        "msg": "GW for Private network removed from plugin settings\n\nDefault environment settings expect BGP peers to be\nin the Private cluster network.\nIn case of using multiple cluster networks,\nFuel Node groups feature must be used.\nPlugin puppet code updated to use gateway for Private\nnetwork set via Fuel network settings.\n\nChange-Id: Icaf016dc6f8c3f64b97aa3249d06a2987940279b",
+        "cmtr": "Illia Polliul",
+        "date": "2015-11-02 12:47:03+02:00",
+        "files": ["README.md", "site-compute-post.pp", "site-contrail-post1.pp", "get_private_ifname.rb", "init.pp", "network.pp", "provision.pp", "agent_param.erb", "contrail-vrouter-agent.conf.erb", "ubuntu-ifcfg-vhost0.erb", "environment_config.yaml"]
+      },
+      {
+        "hash": "df77e0e8cc2c94a7c9666ae18fac0520254398cc",
+        "msg": "Config file for heat engine updated\n\nPlugins_dir variable updated, services provider changed to pacemaker.\n\nChange-Id: I3e9481523b4b2856546aec4f9bb969bb994c401f",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-11-05 08:39:03+00:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "108df14b1a00e3dd82681bb8f17ce5db644fa19e",
+        "msg": "Package install routines updated\n\nPlugin manifests updated to remove the hardcoded\nversion of tzdata-java.\n\nChange-Id: I2c950aa3ecab8c691614beb9d6c9c26793b7f399",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-11-12 15:03:43+02:00",
+        "files": ["site-contrail-post1.pp"]
+      },
+      {
+        "hash": "9198fdf508e9dcc3ca0ec0fc1cd9a4b5480ef1e7",
+        "msg": "Deployment tasks updated to support plugin roles.\n\nRoles for contrail-db, contrail-config and contrail-control added.\nPlugin tasks refactored to support new roles.\nTemplates for config files updated.\n\nChange-Id: I236085c86dc18fe53f6a1d59dbcfafb170d64c18",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-11-17 11:18:56+00:00",
+        "files": ["compute-config.pp", "contrail-config.pp", "contrail-control.pp", "contrail-db.pp", "contrail-provision.pp", "contrail-repo.pp", "contrail-utils.pp", "controller-config.pp", "controller-hiera.pp", "controller-provision.pp", "site-common-pre.pp", "site-compute-post.pp", "site-contrail-post1.pp", "site-contrail-post2.pp", "analytics.pp", "cfgm.pp", "compute.pp", "config.pp", "control.pp", "controller.pp", "create_network.pp", "database.pp", "init.pp", "network.pp", "provision.pp", "provision_compute.pp", "provision_contrail.pp", "provision_controller.pp", "run_fabric.pp", "vip.pp", "vrouter.pp", "vrouter_module.pp", "webui.pp", "basicauthusers.properties.erb", "cassandra.yaml.erb", "config.global.js.erb", "contrail-alarm-gen.conf.erb", "contrail-analytics-api.conf.erb", "contrail-api.conf.erb", "contrail-collector.conf.erb", "contrail-device-manager.conf.erb", "contrail-discovery.conf.erb", "contrail-query-engine.conf.erb", "contrail-schema.conf.erb", "contrail-svc-monitor.conf.erb", "plugins.yaml.erb", "deployment_tasks.yaml", "metadata.yaml", "node_roles.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "51ec174c2b6d592cb679a939c6b1ab9a6e014ee3",
+        "msg": "Custom VIP functions added\n\nNow plugin defines a custom VIP in private network,\nhosted on openstack controller nodes and managed by Fuel HA.\nThis VIP is used as a load-balancer for contrail services.\n\nChange-Id: I22044860dbea52c73a9a090ed27b5c5318bab7b2",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-11-17 14:09:32+02:00",
+        "files": ["controller-vip.pp", "controller.pp", "init.pp", "provision_compute.pp", "vip.pp", "094-web_for_contrail.cfg.erb", "095-rabbit_for_contrail.cfg.erb", "096-vip_for_contrail.cfg.erb", "contrail-api.conf.erb", "contrail-device-manager.conf.erb", "contrail-schema.conf.erb", "contrail-svc-monitor.conf.erb", "haproxy.cfg.erb", "keepalived.conf.erb", "deployment_tasks.yaml", "network_roles.yaml"]
+      },
+      {
+        "hash": "7ac4b83c4d30fa99a30265d36c1c01a899ab2404",
+        "msg": "Plugin tasks for compute nodes updated\n\nNetwork and vRouter-related code refactored.\n\nChange-Id: I5c56edd43c12e9a816088a03510984b9fc483e17",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-11-18 13:55:45+02:00",
+        "files": ["get_private_ifname.rb", "compute.pp", "init.pp", "network.pp", "provision_compute.pp", "vrouter.pp"]
+      },
+      {
+        "hash": "54df4d8d94c706c9a655761d65578d3af6322e7e",
+        "msg": "Plugin tasks updated\n\nContrail repo priorities adjusted.\nZookeeper config template updated.\nHiera override for OSTF nets template updated.\n\nChange-Id: Iace1dac1ad785de6fdc7fbbe11d340c63bcc2cf5",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-11-18 14:31:45+02:00",
+        "files": ["common-repo.pp", "contrail-utils.pp", "controller-hiera.pp", "init.pp", "plugins.yaml.erb", "zoo.cfg.erb", "deployment_tasks.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "c92aa3e0fc9aad3290b3a51c436f3c1d4aa1ce0f",
+        "msg": "APT pin for computes updated\n\nNow the plugin pre-deploy tasks set the proper\npackage repo priorities on compute nodes, that ensures\nnova-compute and qemu/kvm packages installed from\nmos repos.\nNode provision routines now run on all of\nthe contrail-control nodes.\n\nChange-Id: Iae2596bf0f4577252c52339c691078b10697b654",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-11-18 18:32:21+02:00",
+        "files": ["compute-repo.pp", "contrail-pin-110", "control.pp", "provision_contrail.pp", "vrouter.pp", "tasks.yaml"]
+      },
+      {
+        "hash": "d6c6e0b2b5d22333b008e6598180c32b33d49eca",
+        "msg": "Compute pre-deploy task updated\n\nChange-Id: Id4bfa3e37a3bca95359460eccd16194275143e08",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-11-18 23:54:36+02:00",
+        "files": ["compute-repo.pp"]
+      },
+      {
+        "hash": "af0a7f9ea37ecd05177645ea6afc91d9924cc482",
+        "msg": "Quick fix for control class\n\nVNC API config added for control nodes.\nIF-MAP users file updated.\nExec resource defaults deined.\n\nChange-Id: I7729ec214d3dcec80e41ad673505e5723ee0440a",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-11-19 13:41:52+02:00",
+        "files": ["control.pp", "basicauthusers.properties.erb", "vnc_api_lib.ini.erb"]
+      },
+      {
+        "hash": "3070bac2ac1f1b443b98b6e94a12776266d778dd",
+        "msg": "Contrail vRouter provision changes\n\nProvision routines for compute nodes updated to use VIP in Private network\nand to run before OVS removal.\n\nChange-Id: Ib2041730d53fd9502f5d45ad97d954ce07a681f6\nCloses-bug: #1517973",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-11-19 21:28:46+02:00",
+        "files": ["compute-config.pp", "provision_compute.pp"]
+      },
+      {
+        "hash": "0d687083f86f24eae3184d28596cea8a6ec1dc9f",
+        "msg": "Get_private_ifname function updated\n\nNow an argument with private bridge name can be specified,\nthat allows to use bridges with custom names.\n\nChange-Id: I1dd36e349e9302b9913a719d82f1c3efa22603da",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-11-26 20:06:29+02:00",
+        "files": ["get_private_ifname.rb", "init.pp"]
+      },
+      {
+        "hash": "444749561d5117e600a970e5297f7724a57bda96",
+        "msg": "Provision routines for computes updated\n\nNow provision command is not re-executed on\nre-running the plugin manifests.\n\nChange-Id: Ief2e0c0855a610fe8f990c57d34106d2810efc76",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-11-26 20:07:59+02:00",
+        "files": ["provision_compute.pp"]
+      },
+      {
+        "hash": "5bac5f1385d8c463696dbefbd6e369376a032fea",
+        "msg": "Plugin-defined volume for contrail-db added\n\n- custom location for cassandra data files introduced\n- cassandra config templates updated\n- volumes.yaml file added\n\nChange-Id: I1c9933c614fe88f444232a7e8bc8a69d2a6df83b",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-12-07 17:07:33+02:00",
+        "files": ["database.pp", "init.pp", "cassandra.yaml.erb", "contrail-database-nodemgr.conf.erb", "volumes.yaml"]
+      },
+      {
+        "hash": "1625b1858a7d4a9868ef378cb48e9ffe55c2e426",
+        "msg": "Update to vrouter provision\n\n- now the vrouter provision routine use the binary from\ncontrail-utils package\n\nChange-Id: I179b56053627d152ae3c77ce25f8d1f70c730a36",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-12-15 11:34:22+00:00",
+        "files": ["provision_compute.pp"]
+      },
+      {
+        "hash": "fe6a06e49740e8a6807a1731d302a34efc534cd7",
+        "msg": "Unused services disabled\n\n- puppet manifests updated to disable the neutron agents on controllers,\nwhich are not used with contrail\n\nChange-Id: Ib67f2d38d7126aa21e0fbf9a92df92de9754311b",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-12-15 11:35:03+00:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "3c4d83ff60b9796d80de0f000cb550061dd2e3d9",
+        "msg": "Special chars screened in provision routines\n\nAdmin and service users can contain special characters, so the puppet manifests\nfor contrail and compute nodes provisioning were updated to screen them.\n\nChange-Id: I3b18cf33a4934dd12d6dc6fb2ee8011a5bd7cc05",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-12-17 19:13:23+02:00",
+        "files": ["provision_compute.pp", "provision_contrail.pp", "provision_controller.pp"]
+      },
+      {
+        "hash": "f301e5ebda35a8439188a059acf8ede63f5725eb",
+        "msg": "Routines for disabling unused services updated\n\nDisabled pacemaker services can affect adding new ones.\nNow PCS resources for disabled services are deleted.\n\nChange-Id: I90254602ac531368446ea260cdafa619b2c82148\nCloses-bug: #1527628",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-12-21 16:13:42+02:00",
+        "files": ["controller.pp", "init.pp", "pcs_delete_resource.pp"]
+      },
+      {
+        "hash": "d82d9b7d2def4089953b008f50ae43c05312676d",
+        "msg": "Contrail syslog script updated\n\n- analytics_api_ip argument added to contrail-logs command\n- cron job now is executed on primary config node only\n\nChange-Id: I0aa8f32dde2acfd86ab4bd4d1b436c2356f69591",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2015-12-25 17:34:33+02:00",
+        "files": ["analytics.pp", "contrailsyslog.sh.erb"]
+      },
+      {
+        "hash": "b30c1199c67d1de8a11e94586939767412073c27",
+        "msg": "Contrail distribution removed from plugin settings\n\n- environment_config updated\n\nChange-Id: I9b28da1061224f5150b3aa6faeedcb88f0946e10",
+        "cmtr": "Illia Polliul",
+        "date": "2016-01-14 18:32:09+02:00",
+        "files": ["init.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "e780f45a09bc7691205c5f54f5784f7c233161fa",
+        "msg": "Compute puppet manifests updated\n\n- nova-compute service refreshed\n- compute node reboots avoided\n\nChange-Id: I0498a504721fb06121b6e070b1de0c91d5a19b6d",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-01-19 22:42:50+02:00",
+        "files": ["compute.pp", "vrouter.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "7cde06dfc103a6b4a5780941844d01012d398a48",
+        "msg": "Fix for case when cinder is on controller node\n\nChange-Id: I871ded17a6e50c4400a188c2a4611a686f4dc582\nSigned-off-by: Vitalii Kovalchuk <naviot96@gmail.com>",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-01-22 16:39:59+02:00",
+        "files": ["provision_controller.pp"]
+      },
+      {
+        "hash": "d863c2cc339d515fe9da944da376d4ac9a623199",
+        "msg": "Rewrite haproxy configs using native openstack::ha::haproxy_service resource\n\nChange-Id: Ib47f07149ae7bb1481f77791925894432ae6d5c9",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-02-02 16:19:51+02:00",
+        "files": ["vip.pp", "095-rabbit_for_contrail.cfg.erb", "096-vip_for_contrail.cfg.erb"]
+      },
+      {
+        "hash": "11a1f6ed4cdda3e034cd2cdf97ff42deb0746154",
+        "msg": "Add ssl to contrail public API endpoints\n\nChange-Id: Iccd2c7edcdf756f1edf99db7e83f249fb0e9afac",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-02-03 12:04:35+02:00",
+        "files": ["init.pp", "vip.pp"]
+      },
+      {
+        "hash": "baa9ad17df0c747d87581ce12903d92143b10d02",
+        "msg": "Support for Contrail-specific Ceilometer meters\n\nChange-Id: Ia3919fc7526c4b1ab9e3a20347c1fc30b8ba02eb",
+        "cmtr": "Illia Polliul",
+        "date": "2016-02-03 15:02:30+02:00",
+        "files": ["controller.pp", "init.pp", "pipeline.yaml.erb"]
+      },
+      {
+        "hash": "419a63bb1d69493bef413680d0a96409fa3c5655",
+        "msg": "Implement shared certificate for Contrail WebUI\n\nChange-Id: I1918dd1c0bdc6f04f91aa2ccced9f6ef87847fc9",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-02-04 12:47:19+02:00",
+        "files": ["vip.pp", "config.global.js.erb"]
+      },
+      {
+        "hash": "7ef8c0c15ecfadd9cf3c6f40a8a1b73e76271149",
+        "msg": "Add Kafka deployment integration\n\nChange-Id: I0bd1e633eb2eddcdce95b2093b04a2662f78c5dd",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-02-12 12:45:39+02:00",
+        "files": ["kafka-log4j.properties", "database.pp", "kafka-server.properties.erb"]
+      },
+      {
+        "hash": "668b58461fba996e6b038e89e3429d1fe4ac7f57",
+        "msg": "Fix typo in controller.pp\n\nChange-Id: I192dbb10bb1537bda906da38a32aa7ad586b0d07",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-02-16 11:12:11+02:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "c0214039d7548c663c3000d9e50d611ecf9d970b",
+        "msg": "Hiera override routines updated\n\n- empty predefined_nets before deployment\n- create contrail-specific predefined_nets in post-deploy\n- disable netconfig on already deployed computes\n\nChange-Id: Ib62314e27541cbdb3ada42a682d6b28a0213f0fb\nCloses-bug: #1544580",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-02-17 17:06:04-06:00",
+        "files": ["compute-repo.pp", "controller-hiera.pp", "provision_compute.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "d5a282088aa4e4cd0b7b0bd258a802296b62b110",
+        "msg": "Hiera routines update\n\nChange-Id: Ie12c6287af6e3ac7e962743cf27866a1d99ebdca\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-02-20 22:54:54+02:00",
+        "files": ["controller-hiera-post.pp", "controller-hiera-pre.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "416a28e1e111b41985525e0c0e659a0dc92c690a",
+        "msg": "Hiera routines update\n\nChange-Id: Ie12c6287af6e3ac7e962743cf27866a1d99ebdca\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-02-20 20:58:56+00:00",
+        "files": ["controller-hiera-post.pp", "controller-hiera-pre.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "702c99c96c5268de0606fb75f6f7d99eae070419",
+        "msg": "Split deployment on compute role\n\nChange-Id: I6a9b881016a51444a114a56dbb4d9edd3062b59e",
+        "cmtr": "Illia Polliul",
+        "date": "2016-02-20 21:43:13+00:00",
+        "files": ["contrail-compute-firewall.pp", "contrail-compute-network.pp", "contrail-compute-nova.pp", "contrail-compute-provision.pp", "contrail-compute-repo.pp", "contrail-compute-vrouter.pp", "firewall.pp", "network.pp", "nova.pp", "provision.pp", "vrouter.pp", "deployment_tasks.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "fd34c8c8af6be53b7d6aa5f4e0afb854e33644cb",
+        "msg": "Contrail plugin for Fuel 9.0\n\n- components.yaml file added for component registry feature\n- install.sh script updated with new package names\n- hiera overrides updated\n- neutron-related tasks updated\n\nChange-Id: I34f046a743c9065275cf124ac3ef888139c8580c",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-02-29 10:25:03-06:00",
+        "files": ["components.yaml", "common-repo.pp", "controller-hiera-post.pp", "controller-hiera-pre.pp", "controller.pp", "init.pp", "pcs_delete_resource.pp", "provision_controller.pp", "plugins.yaml.erb", "deployment_tasks.yaml", "install.sh", "metadata.yaml"]
+      },
+      {
+        "hash": "c11370bea83b91ed98a191a5bc55dcdc291905e9",
+        "msg": "Provision tasks updated\n\nTo support deployment of the latest Contrail 3.0 builds,\nadditional provision tasks added to plugin:\n- provision contrail config\n- provision contrail db\n- provision contrail control refactored\n\nChange-Id: Iae24a2d0f8f54654648d4104e87ad6ecad379225",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-03-02 10:31:39-06:00",
+        "files": ["contrail-compute-provision.pp", "contrail-config-provision.pp", "contrail-control-provision.pp", "contrail-db-provision.pp", "controller-provision.pp", "control.pp", "controller.pp", "database.pp", "compute.pp", "config.pp", "control.pp", "controller.pp", "db.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "b6879d8bb67b6d567d018461f2a6e362794c7cb2",
+        "msg": "Override-friendly changes to plugin\n\nPlugin teams should be able to integrate their plugins with Fuel\ncontrail plugin. To implement this we should have puppet module settings\nconfigurable by overriding tasks.\n\nChange-Id: Ia73cf7d822192913faa60cca7882b445095d888a",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-03-11 11:05:50-06:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "eaf474eec6ae502d880b9cc3b1639da000f6291e",
+        "msg": "Hiera override updated\n\nChange-Id: Id1e1daac82d412017ca7e1a96ffc0c6675b4a679",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-03-14 12:54:01-05:00",
+        "files": ["controller-hiera-post.pp"]
+      },
+      {
+        "hash": "4bebf2f4b33d3edca8bdace62fa3f6642c6ebfd0",
+        "msg": "Fix for rabbit_ips variable\n\nThe variable must be array\n\nChange-Id: I9e1acde08b752773fc65058354723951f91840e6",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-03-14 17:07:21-05:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "9308d76e255e85c6f8992239ca387f7be91e3833",
+        "msg": "Make Hiera override for OVS usage disabled\n\non compute nodes\n\nCo-Authored-By: Sergey Vasilenko <svasilenko@mirantis.com>\n\nChange-Id: I469f30da2ceb927154940f8bbe3d977f968a802f\nCloses-bug: #1557701",
+        "cmtr": "Sergey Vasilenko",
+        "date": "2016-03-16 17:14:08-05:00",
+        "files": ["compute-hiera.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "7a48450db5553af2b3660f26b70006f0b6d0e019",
+        "msg": "Conditional service startup for contrail components\n\nTo support upgrades, we need a way to control of services\nstart-up after components deployment. If a flag variable is found\nin Hiera, manifests do not ensure services to be started.\nAlso, ubuntu-specific tweaks were added to manifests to prevent\nautomation service starts and restarts after package installation\nor upgrades\n\nChange-Id: I13c607078fc2fd4f26a90665a217b1c40288ed04",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-03-17 17:24:20-05:00",
+        "files": ["contrail-config.pp", "analytics.pp", "config.pp", "control.pp", "init.pp"]
+      },
+      {
+        "hash": "eb6e21382837f28002da60fd3aafece29a90a214",
+        "msg": "Public SSL changes for Fuel 9.0\n\n- public_ssl_path added\n- use_ssl hash supported\n\nChange-Id: Ie920b0cd123257bf7d6c69fc73cce66248abf9af",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-03-17 22:46:36+00:00",
+        "files": ["init.pp", "vip.pp"]
+      },
+      {
+        "hash": "27cef79a29ba3ef4b2eb6020a60d6e72ec374ef5",
+        "msg": "Increase idempotence of nodes IP address list\n\nby sorting list of IP addresses.\n\nCo-Authored-By: Sergey Vasilenko <svasilenko@mirantis.com>\nCloses-bug: #1560147\nChange-Id: I132b0a780954e709c61f924148872a3a2c3cf192",
+        "cmtr": "Sergey Vasilenko",
+        "date": "2016-03-21 12:57:37-05:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "2be2c1a243dfcfff8d1a2685ebc2266cbaa41ee5",
+        "msg": "Analytics configuration updated\n\nresolves the issues resulted in inconsistent analytics API responses in some cases\n\n - analytics-api now uses discovery service to obtain collectors IP address\n - configuration for contrail-alarm-gen adjusted with host_ip param\n - contrail-alarm-gen re-enabled\n\nChange-Id: I4548a14442fb346e0d483886330c7b07f1570c84\nCloses-bug: #1562123\nCloses-bug: #1562120\nCloses-bug: #1556988",
+        "cmtr": "Illia Polliul",
+        "date": "2016-03-30 20:22:55+03:00",
+        "files": ["analytics.pp", "contrail-alarm-gen.conf.erb", "contrail-analytics-api.conf.erb"]
+      },
+      {
+        "hash": "564c257bb3491ad9a93ccf798471070dcb80fbf6",
+        "msg": "Libvirt configuration updated to support cgroups\n\n- /dev/net/tun added to cgroup_device_acl\n\nChange-Id: I9d5aa4c0e6439fa091266e72d686c8a6fd840e25",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-03-31 19:02:42+00:00",
+        "files": ["nova.pp"]
+      },
+      {
+        "hash": "22ef5b8237b52da4bf11c28baadaabf54b3aa58a",
+        "msg": "Repo management manifest updated\n\nHardcoded plugin version removed from common-repo task\n\nCloses-bug: #1566018\nChange-Id: I64cd86641dff506f847c4ee95067d018b569392d",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-04-04 16:41:56-05:00",
+        "files": ["common-repo.pp"]
+      },
+      {
+        "hash": "d11ff91c793811feddd938c97e513945bea79de1",
+        "msg": "Added hugepages configuration\n\n- Hugepages kernel settings\n- Tasks\n- Defaults for HugePages setting\n- Mount added for HugePages\n- Flavor for HugePages creation\n\nChange-Id: I7ee9504e3c47db7a6a6e587636afb56e57541b65\nSigned-off-by: Oleksandr Martsyniuk <omartsyniuk@mirantis.com>",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-04-04 22:43:18+00:00",
+        "files": ["contrail-compute-aggregate.pp", "contrail-compute-hugepages.pp", "contrail-db-provision.pp", "default.rb", "grub2.rb", "augeasprovider.rb", "kernel_parameter.rb", "aggregate.pp", "hugepages.pp", "init.pp", "config.pp", "db.pp", "deployment_tasks.yaml", "environment_config.yaml"]
+      },
+      {
+        "hash": "ce2b027806f804249eacf48452ae6f118cfd61d9",
+        "msg": "DPDK vrouter configuration management\n\n- Added routines for creation nova-aggregate with hugepages support\n- Added global variable for DPDK\n- Added restrictions for options in environment_config.yaml\n- Added AggregateInstanceExtraSpecFilter in nova.conf on controllers at scheduler_default_filters.\n- Repo management script updated\n- Nova compute configuration for dpdk\n- Add possibility install nova from contrail repository\n- Add possibility install qemu, libvirt from contrail repository\n- Add possibility change CPU pinning through contrail WebUI settings\n- Idempotency enabled for compute::vrouter class\n\nChange-Id: I8000f9f08f007bf092c76fd5835a7348477ba272\nSigned-off-by: Oleksandr Martsyniuk <omartsyniuk@mirantis.com>",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-04-06 18:25:10+00:00",
+        "files": ["common-repo.pp", "contrail-compute-override.pp", "contrail-compute-repo.pp", "controller-dpdk.pp", "contrail-pin-110", "get_dev_pci_addr.rb", "get_mac_from_vrouter.rb", "aggregate.pp", "hugepages.pp", "nova.pp", "vrouter.pp", "dpdk.pp", "init.pp", "compute.pp", "db.pp", "agent_param.erb", "contrail-vrouter-agent.conf.erb", "contrail-vrouter-dpdk.ini.erb", "ubuntu-ifcfg-vhost0.erb", "deployment_tasks.yaml", "environment_config.yaml", "install.sh", "node_roles.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "e516245aa2867ba32e2a5e9c4cca52845215b626",
+        "msg": "SR-IOV support\n\n- custom facter added to detect srv-iov capable interfaces\n- nova scheduler settings updated\n- sr-iov enabled for nova\n\nChange-Id: Ibc4fb4cccadf57506549fbdc7927cc466745193f\nSigned-off-by: Oleksandr Martsyniuk <omartsyniuk@mirantis.com>",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-04-06 20:40:23+00:00",
+        "files": ["contrail-compute-sriov.pp", "controller-scheduler.pp", "libnl_version.rb", "get_sriov_devices.rb", "nova.pp", "sriov.pp", "scheduler.pp", "init.pp", "rclocal_vfs.pp", "deployment_tasks.yaml", "environment_config.yaml", "node_roles.yaml"]
+      },
+      {
+        "hash": "b5b21af4336232ab078454a44edb0fe3d34fb708",
+        "msg": "Patch python-nova instead of reinstalling packages\n\nPatch provides extenstion to nova vrouter driver for dpdk use. Making\npatch instead of replacing packages will provide compatibility with\nstorage packages, like cinder or ceph.\n\nChange-Id: I68e8faa3d99db940998edcbfb62c8afc208887ee\nRelated-Bug: 1558473\nSigned-off-by: Oleksandr Martsyniuk <omartsyniuk@mirantis.com>",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-04-06 15:46:37-05:00",
+        "files": ["contrail-compute-override.pp", "nova-dpdk-vrouter.patch", "init.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "74d7fee29512e178b561e596ff9c9789e889efbd",
+        "msg": "Hugepages provisioning split to avoid race condition\n\n- hugepages-specific aggregate and flavor created from primary controller\n- hosts added to aggregates from compute nodes\n\nChange-Id: I464a28c84afd28a84e4a45388f460e760e166880",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-04-06 20:51:57+00:00",
+        "files": ["contrail-controller-aggregate.pp", "aggregate.pp", "aggregate.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "c6fbd6f027eb8fcdb0b460397dda9f259e24d186",
+        "msg": "Fuel 9.0 related changes to support custom auth\n\n- hardcode removed for neutron user and tenant\n- SSL support added for keystone connections\n- ceilometer routines updated to support non-ha mode\n\nChange-Id: Ia09ae38fe4ceac77c94ff5485da9782a2d4ff785",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-04-06 20:54:02+00:00",
+        "files": ["nova.pp", "controller.pp", "init.pp", "compute.pp", "config.pp", "control.pp", "controller.pp", "db.pp", "ContrailPlugin.ini.erb", "contrail-keystone-auth.conf.erb", "contrail-webui-userauth.js.erb", "vnc_api_lib.ini.erb"]
+      },
+      {
+        "hash": "ad66a91c4db5278f6eea630e47c3332777aac7b6",
+        "msg": "Keystone SSL configuration adjusted\n\nChange-Id: Ib0a83f7b5691344c77462c79dc94250c6f2338fc",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-04-06 17:37:34-05:00",
+        "files": ["controller.pp", "contrail-keystone-auth.conf.erb"]
+      },
+      {
+        "hash": "a0cfbadd39497fa2d3e5b141cdb1f44c4d8e30cc",
+        "msg": "Fix compute provisioning when TLS enabled\n\n  - Read keystone endpoint hostname/ip (--openstack_ip parameter value)\n  from $contrail::keystone_address instead of hardcoding management vip\n\n  - AUTHN_PROTOCOL: https\n  should be specified in vnc_api_lib.ini\n  in case of TLS enabled. There is no another way to specify protocol\n  for contrail-provision-vrouter script\n\nChange-Id: I2bd4c5da63c48631e20d8e64e8a6b73507e8abce",
+        "cmtr": "Andrey Bubyr",
+        "date": "2016-04-07 10:37:48-05:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "6660a85479f195a71e6c6b94d6c31ac6f7188259",
+        "msg": "Fuel 8.0 Contrail plugin with Liberty support\n\nChange-Id: Ie2ae99b4c99419cd852b4a8248924c57a34806bc",
+        "cmtr": "Illia Polliul",
+        "date": "2016-04-19 09:38:06+00:00",
+        "files": ["analytics.pp", "controller.pp", "contrail-named.conf.erb", "contrailplugin.ini.erb", "deployment_tasks.yaml", "metadata.yaml"]
+      },
+      {
+        "hash": "0e6e49e6ec09487923a708c7b55ec36692fafd72",
+        "msg": "Default network creation with non-default admin tenant fixed\n\n- admin_tenant variable now used for network creation\n\nChange-Id: Ibe688f853f25cc7e66cd3298ab48d31a412c902b",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-05-12 13:11:40+03:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "5912bc1e430ab08fe7761145852b6da5ca75e586",
+        "msg": "Rewrite a SR-IOV whitelist function for PCI addresses\n\nChange-Id: I44765932f5b988c420591e8ea0a9377b976517ac",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-05-19 15:45:14+03:00",
+        "files": ["generate_passthrough_whitelist.rb", "nova.pp", "init.pp"]
+      },
+      {
+        "hash": "29e561c264331f96765dd71355d489c4049fecda",
+        "msg": "Plugin option added to toggle Contrail API listening on Public VIP.\n\nChange-Id: Id389c07e8102c34df614ea2f9d32fc7ec82a229e\nCloses-Bug: #1583863",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-05-23 12:55:12+03:00",
+        "files": ["init.pp", "vip.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "789c14fad0e710fc944ca4fdeb255176ae989309",
+        "msg": "Add checkbox for DPDK on VF feature\n\nChange-Id: Ibfcb1ce52b897161ed439a38dbf4082079cb7f9b",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-05-23 13:12:59+03:00",
+        "files": ["init.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "f57953d682d309fc8deee7175d38bb7026b49b19",
+        "msg": "Fix non dpdk compute deployment in environment with dpdk enabled\n\nChange-Id: I346ce5da81e616169f965d76ed3cf03eb575d8c1",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-05-26 11:25:35+03:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "6f0daae52fc65fd79e5cb2464b7d41bf3df12afd",
+        "msg": "Port number for Contrail API on Public VIP added to plugin settings\n\nChange-Id: I4d18a06d1f5db0b52e123163cffda6346917ec19\nRelated-bug: #1583863",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-05-31 16:12:00+03:00",
+        "files": ["init.pp", "vip.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "0b7f29dc8786833f214296a4a2a2ad9b840fb5d5",
+        "msg": "Provision routines for contrail control updated\n\n- prov_control exec split into prov_control_asn and\n  prov_control_bgp\n\nChange-Id: I5c9f1b1c677a7c917dc812ad0b4202ba73cbf5cc\nCloses-Bug: #1584045",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-06-02 13:40:39+03:00",
+        "files": ["control.pp"]
+      },
+      {
+        "hash": "683eba7a65c735c0df1bc82c2dc1adab946c729b",
+        "msg": "Link python-certifi cacert to systemwide certificates file\n\nIn case if python-certifi package is installed, glance client uses CA bundle\nsupplied with python-certifi. This CA bundle doesn't include CA for self-signed\ncertificates provided through Fuel and deployment fails on upload_cirros task\n\nCloses-Bug: #1586083\n\nChange-Id: Icc4a7c908db64583ce880278fe7bb6fc4b42977f\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-04 18:32:02+03:00",
+        "files": ["contrail-utils.pp", "controller.pp"]
+      },
+      {
+        "hash": "282c78c8696a6ee37030b85f1a2974f79b85bf18",
+        "msg": "Fix for MAC address value on vlan interfaces\n\nFacter uses underscore in interface name separator. Because of this,\nin case when private interface is vlan tagged, contrail-vrouter-agent.conf\nrecieved a blank value for physical_interface_mac used in DPDK mode.\n\nChange-Id: I4574dccf8bca661b04c82dab08f523f44a05d9d0\nPartial-Bug: #1565107\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-04 18:59:43+03:00",
+        "files": ["vrouter.pp"]
+      },
+      {
+        "hash": "a827ee75a65d935af530561543a785a3a67ff071",
+        "msg": "Permanent MAC for bonds\n\nIn case of bonding, MAC address should be set explicitly, because interfaces\nmay start in random order during boot process\n\nChange-Id: Ic7cc44f06541f932c218713ca5913c90f312d27e\nCloses-Bug: #1565107\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-04 20:01:03+03:00",
+        "files": ["vrouter.pp"]
+      },
+      {
+        "hash": "1674b0435ce05a7c232da5bd0486308808a5239c",
+        "msg": "Move override.pp and utils.pp inside contrail plugin\n\nChange-Id: I82a936506e1f3eedbcbe10375aff68384de05561\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-05 13:36:10+03:00",
+        "files": ["contrail-compute-override.pp", "contrail-utils.pp", "override.pp", "utils.pp"]
+      },
+      {
+        "hash": "6e7fc39fa0364ef99730a51ae22ffbb460e221c2",
+        "msg": "Rewrite nova packages instead of patching it\n\nChange-Id: I7927c09e7f22b576e6a809420a5757624b4a02b4",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-05 10:38:42+00:00",
+        "files": ["aggregate.pp", "nova.pp", "override.pp"]
+      },
+      {
+        "hash": "8737c297675852880bda42a01a08cd0d1c61327b",
+        "msg": "Change ceilometer polling interval\n\nDefault value was 10 minutes. That create problem for OSTF autoscaling\n\nChange-Id: I3af5ec7066a1bf966b742769e9657b15bdfd9d17\nCloses-Bug: #1583526",
+        "cmtr": "Przemysław",
+        "date": "2016-06-06 18:07:39+02:00",
+        "files": ["nova.pp"]
+      },
+      {
+        "hash": "0afeae9273c64b65e72d614208a87eb657cf0fbe",
+        "msg": "Setting 65535 file desciptor ulimit for analytics services\n\nChange-Id: I92c485e92b40d2aa0fb3346365e0b905e4f99225",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-06 18:13:16+00:00",
+        "files": ["analytics.pp"]
+      },
+      {
+        "hash": "114536ef2e7c569300019844e0ca57d278e27791",
+        "msg": "Fix router ASN provisioning\n\nChange-Id: I6bb74fcaebb4ea28babd6840fbe2eecc6bfe8241\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-07 18:51:58+03:00",
+        "files": ["control.pp"]
+      },
+      {
+        "hash": "0943990630ff396d3a96c73479fe4f28d63846f7",
+        "msg": "DPDK on VF feature\n\nChange-Id: I9a48da04ff0b64ec66d27afdc412ac2f168ba1fc",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-09 15:43:53+00:00",
+        "files": ["contrail-compute-dpdk-on-vf.pp", "add_data_to_yaml.rb", "generate_passthrough_whitelist.rb", "get_sriov_devices.rb", "get_vf_data.rb", "sriov_in_kernel.rb", "dpdk_on_vf.pp", "network.pp", "nova.pp", "override.pp", "vrouter.pp", "init.pp", "72-contrail-dpdk-on-vf.rules.erb", "contrail-vrouter-agent.conf.erb"]
+      },
+      {
+        "hash": "0391dd7e571286dfcc4ce7422a8746ef2012b0cc",
+        "msg": "Contrail TSN node tasks\n\nChange-Id: I8a0bf78bd9056edfeb44678367ebc435c3534c07\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-10 11:10:16+03:00",
+        "files": ["contrail-tsn-provision.pp", "reconfigure-contrail-tsn-vrouter.pp", "init.pp", "tor_agent.pp", "tsn.pp", "tor_agent.pp", "tsn.pp", "contrail-tor-agent.conf.erb", "contrail-tor-agent.ini.erb", "deployment_tasks.yaml", "environment_config.yaml", "node_roles.yaml"]
+      },
+      {
+        "hash": "99b23a1cd5bc26ead47a980bc572e35e6b0a8ddf",
+        "msg": "Fix network configuration fails\n\n- this need because dpdk vrouter move private interface from kernel space to user space\n\nChange-Id: I1ff53eb49a7beeeb46c82349b5a8137036379ecc\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-13 19:15:27+03:00",
+        "files": ["contrail-compute-repo.pp", "vrouter.pp"]
+      },
+      {
+        "hash": "7804c861eedeb405c4db864fd573913641e615d6",
+        "msg": "Fix for gateway value in contrail-vrouter-agent.conf\n\nChange-Id: I1b27e33c5823b90919b0064fbe8c27f920bbf2f6\nCloses-Bug: 1591405\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-14 12:45:18+03:00",
+        "files": ["init.pp", "contrail-vrouter-agent.conf.erb", "ubuntu-ifcfg-vhost0.erb"]
+      },
+      {
+        "hash": "e77ee79b1314592e8d502eacc6c91d96d7978455",
+        "msg": "Static route to routers loopback interfaces\n\nChange-Id: I68be831d872bdb5439f8730114d8a222ead048b4\nCloses-Bug: 1591407\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-14 15:19:50+03:00",
+        "files": ["control.pp"]
+      },
+      {
+        "hash": "a2769bbbe64d1ed549ad681734dc09b459b8a863",
+        "msg": "Fix. Remove nova-compute-kvm package dependency for compute with dpdk role\n\nCloses-Bug: 1592267\nChange-Id: I9fa152b78432caf5eaf7ae4e2ed641b40ce460f2",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-14 19:36:14+00:00",
+        "files": ["vrouter.pp"]
+      },
+      {
+        "hash": "c9b2d9313956662ee1d92794708f57f2cb55b18b",
+        "msg": "Fix core dependency for dpdk compute\n\nCloses-Bug: 1592267\nChange-Id: I8fcebd9f7f8d525dcfc314cb12e177fb22706bd6",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-16 07:47:42+00:00",
+        "files": ["contrail-compute-repo.pp", "add_data_to_yaml.rb", "sriov.pp", "vrouter.pp", "init.pp", "rclocal_vfs.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "90bab434abc771f17da35a8628d16fd851b1b7c0",
+        "msg": "Fix for ceilometer polling\n\nChange-Id: I14478b7228231b81446a60b1a40bff1427b13322\nCloses-Bug: 1583526\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-16 11:50:14+03:00",
+        "files": ["nova.pp"]
+      },
+      {
+        "hash": "6c1def87f524b170f59b5601971b50a441ea0dee",
+        "msg": "Fix for default_route on DPDK computes\n\nChange-Id: Ib97dd7e6dd0483aff7558a45b9416294e99badaf\nCloses-Bug: 1593234\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-16 16:46:51+03:00",
+        "files": ["contrail-compute-repo.pp"]
+      },
+      {
+        "hash": "530ff6074677828d3c420aba3ff1213ecab66991",
+        "msg": "Fix for DPDK controller addition\n\nWhen DPDK vrouter is started, interface from network_scheme is not\npresent in the system, and this causes L23network scripts failures\n\nCloses-Bug: #1593680\nCloses-Bug: #1593744\nChange-Id: I5a40c20ac1a37b69014ee6ded391e15714f6535d\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-18 20:07:09+03:00",
+        "files": ["contrail-compute-repo.pp", "nova.pp", "override.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "fcb397d8172dd20e5eaf1bb0cc33371e68f1f058",
+        "msg": "Fix for qemu overrides on SR-IOV nodes\n\nChange-Id: Ibddddb1456979c2f50a0bbd91ac25368b7a9b784\nCloses-Bug: #1593744\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-19 09:38:35+03:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "b6a0488163df763a3360eb9f22d1bafa46fa9b5b",
+        "msg": "Fix for static routes on computes\n\nChange-Id: Iefdb776dc3f729f721709c66c8c381322a8bd6ce\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-06-23 14:52:04+03:00",
+        "files": ["control.pp", "ubuntu-ifcfg-vhost0.erb"]
+      },
+      {
+        "hash": "25b8a4d4c1646a7528ebd2b594f903bb2f707779",
+        "msg": "Upgrade script for contrail packages\n\nChange-Id: I0a66bac24b8187c5721bde3e6fb9e4bca1305017",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-07-05 19:01:06+03:00",
+        "files": ["vrouter.pp", "config.pp", "control.pp", "controller.pp", "database.pp", "upgrade-contrail-compute.pp", "upgrade-contrail-config.pp", "upgrade-contrail-control.pp", "upgrade-contrail-controller.pp", "upgrade-contrail-db.pp", "upgrade-contrail-post.pp", "upgrade-contrail-pre.pp", "upgrade-contrail-stop.pp", "upgrade.sh", "upgrade_tasks.yaml"]
+      },
+      {
+        "hash": "df30e67b5287eed7064fca96c7240257287930db",
+        "msg": "Dedicated node role for Contrail Analytics added\n\nChange-Id: Ica6a275ea8fdb81cb4c82d054a3ecf03e71cbcff\nRelated-bug: #1599156",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-07-07 17:26:30+03:00",
+        "files": ["contrail-analytics-provision.pp", "contrail-analytics.pp", "contrail-config.pp", "analytics.pp", "config.pp", "control.pp", "database.pp", "init.pp", "analytics.pp", "config.pp", "utils.pp", "vip.pp", "deployment_tasks.yaml", "node_roles.yaml"]
+      },
+      {
+        "hash": "250c8829a145a7789c9e0d49eb41c6af5d61cfaf",
+        "msg": "Enable caching keystone authentication token for contrail\n\nCloses-bug: #1601826\n\nChange-Id: I78a084e35ccfda2f7119e8db6a245319dbb32d88",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-07-11 16:09:49+00:00",
+        "files": ["config.pp", "init.pp", "contrail-keystone-auth.conf.erb"]
+      },
+      {
+        "hash": "28391ac8f80ad37cbd201a48600ce56e926e27b1",
+        "msg": "Heat config updated to support 3.0 Contrail templates.\n\nChange-Id: I673a3233045479619143071af949c38850f05b9f",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-07-12 07:37:08+00:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "b1031c6b8e2652d5f5b2acf2ad67e6ee780c4839",
+        "msg": "Support for contrail-analytics role added to experimental upgrade script\n\nChange-Id: I8305aa502ed702ce57d621ab07b517309a7f29af",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-07-15 13:40:12+03:00",
+        "files": ["upgrade-contrail-analytics.pp", "upgrade-contrail-config.pp", "upgrade-contrail-stop-analytics.pp", "upgrade-contrail-stop-config.pp", "upgrade.sh", "upgrade_tasks.yaml"]
+      },
+      {
+        "hash": "377f4317ab8a57624e2d051c338a88d688da10ee",
+        "msg": "Contrail API check script updated\n\nChange-Id: Ifd097faf09c7b159fa11950ba18361eed6d5b4ff",
+        "cmtr": "Illia Polliul",
+        "date": "2016-07-15 13:32:01+00:00",
+        "files": ["analytics.pp", "compute.pp", "config.pp", "control.pp", "db.pp"]
+      },
+      {
+        "hash": "cd2025adb18c9d0d3f77155fccbdae7d9d2ba6a2",
+        "msg": "Read \"Private\" network NIC MTU and use it for vhost0 interface\n\n * Changes MTU for vhost0, thus changing it for interface vif0/0\n\nChange-Id: Iadc3e5a50ea7a9947dfe2cce6ebfc1a1387695e1",
+        "cmtr": "Illia Polliul",
+        "date": "2016-07-15 15:47:59+00:00",
+        "files": ["get_physdev_mtu.rb", "init.pp", "ubuntu-ifcfg-vhost0.erb"]
+      },
+      {
+        "hash": "af39b6926539e6ba2948a1ee374ecd1867909fcf",
+        "msg": "Contrail API check script updated\n\nChange-Id: Iace1917d610b8018b159bd21b9242bdb8e5e2a2d\nCloses-bug: #1603959\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-07-18 16:32:20+03:00",
+        "files": ["analytics.pp", "compute.pp", "config.pp", "control.pp", "db.pp"]
+      },
+      {
+        "hash": "5d0ea04ffd448279634febecf042c4876cb347ab",
+        "msg": "Refactor functions which read astute yaml directly\n\n* Fuctions should not be reading astute yaml directly\n  because it will break a lot of things\n* Functions should use data provided through their arguments\n\nRally-ID: US717768\nChange-Id: Ief8ad621dba130701d7df4f8f5afbd92ed05ed4b",
+        "cmtr": "Illia Polliul",
+        "date": "2016-07-19 18:01:47+03:00",
+        "files": ["get_dev_pci_addr.rb", "get_private_ifname.rb", "init.pp"]
+      },
+      {
+        "hash": "1c4e9b859fa25146d7ad8f838afcbc6a2dd35052",
+        "msg": "Disable neutron nets provisioning\n\nIn case if some addresses needed to be excluded from floating ip range,\nchanging floating IP pool will break further adding of compute nodes.\nTo avoid this, we allow users to skip automatic creation of neutron networks.\n\nChange-Id: Ib830ff130d8cd9f839dd3d0e24058293db4fcf64\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Przemysław",
+        "date": "2016-07-21 10:14:25+02:00",
+        "files": ["controller.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "f506d716b0031e79e0ca91f0853454222c74c87f",
+        "msg": "Fix libnl version check\n\nChange-Id: I5a859ce6c0e5da1e8ed3e5379ef2569b9e4a828f",
+        "cmtr": "Illia Polliul",
+        "date": "2016-07-21 19:04:22+00:00",
+        "files": ["rclocal_vfs.pp"]
+      },
+      {
+        "hash": "9a59445ad3f38aacc34e827c17d06a4970d6c0d1",
+        "msg": "Sysctl setting vm.max_map_count added to hugepages manifests to\nfix the vrouter startup with high amount of hugepages.\n\nChange-Id: Ia10fa4801b2b4a77488ab19a0b2ffa073bfffafe",
+        "cmtr": "Illia Polliul",
+        "date": "2016-07-22 09:01:48+00:00",
+        "files": ["hugepages.pp"]
+      },
+      {
+        "hash": "930b7f1fe86a4e7e47566d0745dcfa98f047fcf9",
+        "msg": "Fix dependency issue for contrail-vrouter-dpdk.ini.erb\n\nChange-Id: Ieee1083bce4b6a2a20063d1db996505e91b4f8ca",
+        "cmtr": "Illia Polliul",
+        "date": "2016-07-22 09:03:36+00:00",
+        "files": ["vrouter.pp"]
+      },
+      {
+        "hash": "cb51782a04c7164334c8aa867c9edc426776446c",
+        "msg": "Fix nova package pinning for new contrail packages\n\nCloses-bug: #1605173\nChange-Id: If8ddc9e8a04ce24b1340b8a8e7a9e253d18c3d49",
+        "cmtr": "Illia Polliul",
+        "date": "2016-07-22 09:04:08+00:00",
+        "files": ["override.pp"]
+      },
+      {
+        "hash": "12918206e251598a3259f5468e85be92a56ff663",
+        "msg": "vRouter puppet manifest updated to resolve DPDK on VF issue\n\nChange-Id: Ib9baf960b8b02c30a9115659b5de03e575d71a18\nCloses-bug: #1604790",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-07-25 17:16:11+00:00",
+        "files": ["vrouter.pp"]
+      },
+      {
+        "hash": "0c37640dcceb5aeb59f12d585948320d04bec4a6",
+        "msg": "SR-IOV interface configuration changes\n\n- commands for setting number of VFs moved to PF interface config\n\nChange-Id: I10f81fb2b6d2cdc4294dbcec58a851abb494ed32\nCloses-bug: #1607175",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-08-04 09:18:24+00:00",
+        "files": ["rclocal_vfs.pp"]
+      },
+      {
+        "hash": "147096824061627dd5a47608a560a1435f02dd44",
+        "msg": "Update tasks and manifests to support Fuel 9\n\nChange-Id: I5c1e58db37d791ef00d055e2269166991eb013fe",
+        "cmtr": "Illia Polliul",
+        "date": "2016-08-16 12:41:09+00:00",
+        "files": ["analytics.pp", "init.pp", "config.pp", "control.pp", "contrail-named.conf.erb", "deployment_tasks.yaml", "metadata.yaml", "network_roles.yaml"]
+      },
+      {
+        "hash": "c15bf2ba9c14ff5a6a1a35a4c605a62a705549f8",
+        "msg": "Update configs for Contrail 3.1\n\nChange-Id: I74060fdd8ef993733982fffa2aa022235d41d238\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-08-16 13:17:46+00:00",
+        "files": ["supervisord_config.conf", "controller.pp", "contrail-api.conf.erb", "contrail-keystone-auth.conf.erb", "contrailplugin.ini.erb"]
+      },
+      {
+        "hash": "b6a8031208ba9554a0f713b91e5061bfd08f6b6f",
+        "msg": "Fix for contrail-analytics-api\n\nChange-Id: I95ffae26c0093e0117fd544e97daf6226a655fb1\nCloses-bug: #1614015\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-08-17 13:33:07+03:00",
+        "files": ["control.pp", "contrail-analytics-api.conf.erb"]
+      },
+      {
+        "hash": "d833b2ad199f3558e61baf56df256eb0740aeb9d",
+        "msg": "Contrail services switched from remote to local memcached servers.\n\nChange-Id: I9f3c6bd438892cfe68736f62ba6b35e4973ac792",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-08-18 09:53:26+00:00",
+        "files": ["config.pp", "init.pp", "contrail-keystone-auth.conf.erb", "spec-4.0.1.rst"]
+      },
+      {
+        "hash": "6684fc6c2c12ba3e43c46be3418330de1a95f786",
+        "msg": "Rewrite ini-file-configs into providers\n\nPlugin refactoring\n\nChange-Id: If67eccb3354596cdf5b0f6628102ef16a89d9c87",
+        "cmtr": "Illia Polliul",
+        "date": "2016-08-18 13:08:29+00:00",
+        "files": ["ini_setting.rb", "ini_setting.rb", "ini_setting.rb", "agent_param_config.rb", "contrail_collector_config.rb", "contrail_device_manager_config.rb", "vnc_api_lib_ini_config.rb", "analytics.pp", "vrouter.pp", "config.pp", "control.pp", "controller.pp", "database.pp", "init.pp", "webui.pp", "contrail-alarm-gen.conf.erb", "contrail-analytics-api.conf.erb", "contrail-analytics-nodemgr.conf.erb", "contrail-api.conf.erb", "contrail-api.ini.erb", "contrail-collector.conf.erb", "contrail-config-nodemgr.conf.erb", "contrail-control-nodemgr.conf.erb", "contrail-control.conf.erb", "contrail-database-nodemgr.conf.erb", "contrail-device-manager.conf.erb", "contrail-discovery.conf.erb", "contrail-dns.conf.erb", "contrail-keystone-auth.conf.erb", "contrail-query-engine.conf.erb", "contrail-schema.conf.erb", "contrail-snmp-collector.conf.erb", "contrail-svc-monitor.conf.erb", "contrail-topology.conf.erb", "contrail-vrouter-agent.conf.erb", "contrail-vrouter-dpdk.ini.erb", "contrail-vrouter-nodemgr.conf.erb", "contrailplugin.ini.erb"]
+      },
+      {
+        "hash": "70966c30e30fa3af25e03deb2d3f43f147f6b702",
+        "msg": "Fix for compute::vrouter\n\nunnesesary dependencies left after moving to providers\n\nChange-Id: Iaf55b4170aa1b757816abc709199d3c04416213d\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-08-19 01:40:40+03:00",
+        "files": ["vrouter.pp"]
+      },
+      {
+        "hash": "725a5ef79115b1924a7ecf54605c5cc2a88f2462",
+        "msg": "Zookeeper server list variable fixed\n\nChange-Id: I9a1a88029744933b39aeb29164244c7a4ecd4638",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-08-19 11:31:18+03:00",
+        "files": ["init.pp", "kafka-server.properties.erb"]
+      },
+      {
+        "hash": "607dbdb1a1adb4149fde3f0b446a967a3de4c8a6",
+        "msg": "Unused haproxy service disabled on contrail config nodes\n\nChange-Id: I6ddf9a47b19f45cf09dbae6b1698f9e5b3a0158d\nCloses-bug: #1614863",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-08-19 12:49:41+03:00",
+        "files": ["config.pp"]
+      },
+      {
+        "hash": "ddc441e7aa262c636f42a1d8980f6cab2d571c6f",
+        "msg": "Fix zookeeper list in analytics configs\n\nChange-Id: I7fbe9fd5ad3856f7428be5800ca19f8f23365528\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-08-19 16:33:45+03:00",
+        "files": ["analytics.pp"]
+      },
+      {
+        "hash": "d1cd992c6b1896a02c358e8ee784fadc78fad1ba",
+        "msg": "contrail-keystone config passed to analytics services\n\nChange-Id: I497102bb4bdfab4c2c0b9d238c05cc4f0a06a494\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-08-19 13:36:29+00:00",
+        "files": ["analytics.pp"]
+      },
+      {
+        "hash": "9ce30340ca85ca7cfa8e85d15b982806cda0e9fc",
+        "msg": "Collector config should be passed in supervisor file\n\nChange-Id: I438b4f88899737db377bd437c3d6e514a12302ea\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-08-22 16:37:34+03:00",
+        "files": ["analytics.pp"]
+      },
+      {
+        "hash": "4d3289f58f5311f99faeeac4ccc55976710e78e2",
+        "msg": "Ceilometer fixup for compute nodes removed\n\nChange-Id: Iec91baf7bc9040712ef16956bacb54896e1cabfc\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-08-22 15:47:44+00:00",
+        "files": ["nova.pp"]
+      },
+      {
+        "hash": "b3b8aa682cb64319699c29484439e939987dabba",
+        "msg": "Fix deployment with DPDK node on Fuel 9\n\nChange-Id: I461030635a30482c98a94fda9b4a791feecbd321",
+        "cmtr": "Illia Polliul",
+        "date": "2016-08-25 10:15:41+00:00",
+        "files": ["contrail-compute-repo.pp", "aggregate.pp"]
+      },
+      {
+        "hash": "0cce47eb564d2e0c52882bdadd9bb4830aa0ab8d",
+        "msg": "IF-MAP connection issue fixed\n\n- if-map credentials corrected for contrail-dns\n- basicauthusers.properties file template updated\n\nChange-Id: I262bebf04a1770bbfcf1eae150c873093d64530a",
+        "cmtr": "Illia Polliul",
+        "date": "2016-08-25 10:55:02+00:00",
+        "files": ["control.pp", "basicauthusers.properties.erb"]
+      },
+      {
+        "hash": "637392cfa48b50111e37a4018990d27d20fd432e",
+        "msg": "Added auto creation of contrail webui link in fuel dashboard\n\nChange-Id: I40aec24390d3f6ce46f742a893620aef90337319",
+        "cmtr": "Przemysław Szypowicz",
+        "date": "2016-08-25 16:17:54+02:00",
+        "files": ["contrail-webui.pp", "contrail_webui.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "09c1fc44f875a71d73204c8efbff6dadd4d2cb99",
+        "msg": "Dedicated role for Contrail Analytics DB added.\n\nChange-Id: I73a79f4f9b3b4835f7105ed275d6418e9f93188d",
+        "cmtr": "Illia Polliul",
+        "date": "2016-08-25 19:03:38+00:00",
+        "files": ["analytics.pp", "config.pp", "database.pp", "init.pp", "cassandra.yaml.erb", "deployment_tasks.yaml", "environment_config.yaml", "node_roles.yaml", "upgrade.sh", "volumes.yaml"]
+      },
+      {
+        "hash": "490cab311e3fca1a3625c6c474895e27d5c3a419",
+        "msg": "Override network_scheme to skip interfaces used by DPDK vrouter\n\n  * Depends on new l23network features\n  * Overrides br-mesh to vhost0\n  * vhost0 pre-up line has to be moved from interfaces.d file\n  * Gateway is set if multirack configuration is used\n  * Supervisor config is generated in the same way as in virouter init\n    script. This prevents unnecessary restarts during task execution\n  * Private interface mac is generated by facter instead of a function\n  * openstack-network-common-config is skipped for the dpdk role\n\nChange-Id: Ia2eeb5641729261ec4e58f33fe7db69526ffa5a0\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-08-26 12:48:17+00:00",
+        "files": ["compute-hiera.pp", "contrail-analytics.pp", "contrail-compute-netconfig-override.pp", "pre-up-contrail-vrouter", "mac_from_vrouter.rb", "supervisor_params.rb", "get_private_ifname.rb", "vrouter_override_network_scheme.rb", "compute_netconfig_override.pp", "network.pp", "vrouter.pp", "init.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "8d39015d8e1b2266244026f3133ef05611970b69",
+        "msg": "Fix zookeper server list\n\nAfter one of rebases wrong value was introduced back.\n\nChange-Id: I245f1c7d422d180946bfbcabfe0a0c8051bddc81\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-08-27 01:02:15+03:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "1647efe5f320077c9d06e03c0c0f7294f605db98",
+        "msg": "Resource ordering fixed for contrail::database class\n\nChange-Id: Ic7086a579bf66d4c9a1d8867447cf88ef57588e6",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-08-30 09:41:01+00:00",
+        "files": ["database.pp"]
+      },
+      {
+        "hash": "7e3bf3b4f8fbdbd1edba9b6b46982dc59db7bbc0",
+        "msg": "Set link to always https\n\nCloses-Bug: #1618437\n\nChange-Id: I62baad1b77499e1c8d37b2fa6a08e9d199da526f",
+        "cmtr": "Przemysław Szypowicz",
+        "date": "2016-08-30 14:58:57+02:00",
+        "files": ["contrail_webui.pp"]
+      },
+      {
+        "hash": "a3d218767cba4d7e0a683c52a312688c11d89a5e",
+        "msg": "Switch to package-based cassandra-env.sh\n\nInstead of putting cassandra-env.sh it should be taken\nfrom cassandra package. Only Xss value should be changed\n\nChange-Id: I0f864ce1ca805b4df0cc688da75e29b1d9d8b2aa\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-08-31 03:56:13+03:00",
+        "files": ["cassandra-env.sh", "database.pp"]
+      },
+      {
+        "hash": "8035093472163478fafd49a665aaf86373ce720a",
+        "msg": "Fix for link\n\nChange-Id: Ie2171b8c74cd7102015f509ab24f0c1c444f3651",
+        "cmtr": "Przemysław",
+        "date": "2016-08-31 10:49:49+02:00",
+        "files": ["contrail_webui.pp"]
+      },
+      {
+        "hash": "6e4444fe427aba2588a8cecfb0a9db36e5f47962",
+        "msg": "Create override to prevent cassandra autostart\n\nChange-Id: I537fe17ccd4a463369fb13772c01a327ffc29258\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-08-31 21:15:18+03:00",
+        "files": ["database.pp"]
+      },
+      {
+        "hash": "9043d56a1822f738434e5d918bcf1b685599f6f1",
+        "msg": "Plugin SR-IOV deprecation in favor of Fuel 9.0 implementation\n\n  * Using fuel-library new netconfig feautures to configure vfs for nics\n  * Configuring pci_passthrough_whitelist using fuel-library manifests\n  * IOMMU kernel parameters configuration is pushed with nailgun\n\nChange-Id: I4af4bea8976b3468be6811ff8d43a316fc300dcd",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-09-01 14:20:49+03:00",
+        "files": ["contrail-compute-sriov.pp", "nova.pp", "override.pp", "sriov.pp", "scheduler.pp", "init.pp", "rclocal_vfs.pp", "deployment_tasks.yaml", "environment_config.yaml", "node_roles.yaml"]
+      },
+      {
+        "hash": "27b0ed063b09e9b7802395ee90d7003bca151218",
+        "msg": "Lower vm.swappiness parameter to 10 on cassandra nodes\n\nThe default value 60 might cause unneccessary swapping to disk,\nresulting in delays in requests.\n\nChange-Id: I10ac5d184a3a37fd2c6db92d5c60f8661c6cdd2c\nCloses-bug: #1618309\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-01 17:18:19+03:00",
+        "files": ["database.pp"]
+      },
+      {
+        "hash": "858c1e0da2e30b14538a738d721cf278591dc7e1",
+        "msg": "Switch to Keystone v3\n\nChange-Id: Iacbb1f1ad0c81829104401fadcba1095036152c1\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-01 14:35:00+00:00",
+        "files": ["init.pp", "config.global.js.erb", "vnc_api_lib.ini.erb"]
+      },
+      {
+        "hash": "0b46ed3aa8298b600a6955f6b2b06b1267c9d4ee",
+        "msg": "Fixed a typo and a missing headless_mode variable in vrouter config\n\nChange-Id: I8e28b0c6159beec7845769639636931c9cf70b63\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-02 12:58:20+03:00",
+        "files": ["vrouter.pp"]
+      },
+      {
+        "hash": "e05b06eed86cd7d7ee11710f3608a3c594c1848b",
+        "msg": "Add vcenter manifests related to compute-vmware\n\nChange-Id: Ia343c009cd494f8809be2161519ed6590d0dda6b",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-09-02 20:15:38+00:00",
+        "files": ["contrail-compute-vmware-pkg.pp", "contrail-compute-vmware-repo.pp", "contrail-compute-vmware.pp", "nova-compute.conf.erb_fixed", "vmware.pp", "vmware_pkg.pp", "vmware_repo.pp", "init.pp", "contrail-vcenter-plugin.conf.erb", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "97a40b055728d3f23cc89bd212e03663ea181be6",
+        "msg": "Add role compute-vmware\n\n- Add vcenter manifests related to compute-vmware\n\nChange-Id: Ia47efcc4953dddd10351619a47857a2494248065",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-09-02 20:24:56+00:00",
+        "files": ["contrail-vmware.pp", "contrail_vmware.pp", "deployment_tasks.yaml", "node_roles.yaml"]
+      },
+      {
+        "hash": "255e893f9b52302c484b85bde009119f565fa28c",
+        "msg": "Create ESXiToVRouterIp.map file on compute-vmware role\n\nChange-Id: I6d7df1ccf227cf6bdefcd7c9f1a3c55d10198972",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-09-06 08:13:04+00:00",
+        "files": ["get_node_private_ip.rb", "vmware.pp", "vmware_repo.pp", "init.pp", "ESXiToVRouterIp.map.erb", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "c5a59e2d5540f708102bf39ed36780699e9b2c1f",
+        "msg": "Fix nova-compute override for DPDK\n\nChange-Id: I5842a123dab8fce14451cba18d7fdda1cf427e22\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-06 10:16:11+00:00",
+        "files": ["override.pp"]
+      },
+      {
+        "hash": "f941bae964f1b7ac11a67084c5f247be5a87f0f3",
+        "msg": "Deploy and provision contrail-vmware\n\nChange-Id: I5e8b8ef75cdd9962603375c1e4be33dfdf535b34",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-09-07 09:27:03+00:00",
+        "files": ["contrail-vmware.pp", "get_vmware_devices.rb", "contrail_vmware.pp", "init.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "967db59a651a624b2a5b23321115846f48eac837",
+        "msg": "Enforce installation of packages before configuring files\n\nChange-Id: Ic1d8c14915c8287a3df40effece6c1ebb834f365",
+        "cmtr": "Przemysław Szypowicz",
+        "date": "2016-09-07 14:22:37+02:00",
+        "files": ["vrouter.pp"]
+      },
+      {
+        "hash": "c9c72dfdc9724c682661fa10e3678f41fd86ce9c",
+        "msg": "Fix nova-compute.conf.erb\n\n- Fix nova.conf settings\n\nChange-Id: I8dfdd9f20ea660ca2762e32c322567580617205c",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-09-07 14:03:37+00:00",
+        "files": ["nova-compute.conf.erb_fixed", "vmware.pp"]
+      },
+      {
+        "hash": "93797482bbd52947aafa4fa7bf230296c2f94e23",
+        "msg": "New cassandra option and ability to override it through hiera\n\nChange-Id: Id8d9a772c890c9626957e7065707868d96595267",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-07 16:14:52+00:00",
+        "files": ["init.pp", "cassandra.yaml.erb"]
+      },
+      {
+        "hash": "2dbd97539f8b49795a323c554db32eed4af40357",
+        "msg": "Add vmware related setting to Fuel Contrail tab\n\nChange-Id: Ic2ee7586492f03b4f4b05e833418f3a797e71f4c",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-09-12 08:36:34+00:00",
+        "files": ["nova-compute.conf.erb_fixed", "vmware.pp", "init.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "eab1d3ce84d13d1b3019a15b65d75fdf81c893a3",
+        "msg": "Fix parsing vmware settings\n\nChange-Id: I391a12747977a809f46facc74c78d6c468ece9b6",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-09-13 10:07:53+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "d3aa49b24fc0b4561c709f8d5ab58035d208213f",
+        "msg": "Add TSN HA support\n\nChange-Id: I9835f06d74346c6c8762bbdccb6aea2170481bef",
+        "cmtr": "Przemysław Szypowicz",
+        "date": "2016-09-13 13:22:33+02:00",
+        "files": ["generate_tsn_certificates.py", "init.pp", "tor_agent.pp", "tor_agent.pp", "tsn.pp", "vip.pp", "tor_agent.pp", "contrail-tor-agent.conf.erb", "deployment_tasks.yaml", "contrail_tsn.rst", "contrail-tsn-nodes.png", "tsn_settings.png", "environment_config.yaml", "node_roles.yaml"]
+      },
+      {
+        "hash": "98d5e31fbd41c8e230088e35e397c1eed1efc064",
+        "msg": "Added condition for gateway in vrouter configuration\n\nChange-Id: Ie2bac8dd2b51be4a2c0790709ff8f9450b1493dc",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-14 20:54:49+03:00",
+        "files": ["vrouter.pp"]
+      },
+      {
+        "hash": "52fb2092af6f326575992f9568fa09e6b56373cb",
+        "msg": "Increase minfds limit for contrail-control\n\nChange-Id: I07272929a2912979fd734040dde6e98e202321f5",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-14 17:58:57+00:00",
+        "files": ["control.pp"]
+      },
+      {
+        "hash": "b6c726b3e5a904a0389ac6e99f675349c690cf60",
+        "msg": "Set TBB_THREAD_COUNT for vrouter to address inflated CPU Utilization\n\nChange-Id: I78037f532d3c57f8a07c9605aefa60954fd7002c",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-14 21:28:21+03:00",
+        "files": ["vrouter.pp"]
+      },
+      {
+        "hash": "dfdb5caf0048d052b32436a8ef4d44dc1ed4ba1c",
+        "msg": "Set quota_driver in neutron configuration on controller nodes\n\nChange-Id: I0cd87b9db481d73baac2941b0ddb092c880714fc",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-09-14 18:38:43+00:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "2a7356f9a912e2288b4848c900da02b24ab7c820",
+        "msg": "New vrouter params + variables to override\n\nChange-Id: I4d6da6468be63dcb492085bf52e673b5a8701b9b",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-14 22:15:05+03:00",
+        "files": ["vrouter.pp", "init.pp"]
+      },
+      {
+        "hash": "843979349661d1abf29c02ac62dc054163ff130f",
+        "msg": "Add RBAC support\n\nChange-Id: Ib675cf531665bb5179950f5ca2b110ea9ce70d07\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-15 15:28:09+00:00",
+        "files": ["config.pp", "controller.pp", "init.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "0dc31d6df9ca61d229bcf676b229dfcce95391be",
+        "msg": "TBB_THREAD_COUNT for vrouter variable adjusted\n\nNow the value is set via environment variable\n\nChange-Id: I32717bf6fdace307575e77464d352996a452d756",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-09-15 20:28:41+03:00",
+        "files": ["vrouter.pp"]
+      },
+      {
+        "hash": "6fe6213bcf3c7d44f95ae78d4c2ee9f48b7f2546",
+        "msg": "Set flows thread count for vrouter explicitly\n\nChange-Id: Iaf6c7ec35fab824e421795d4ed08358af5135679\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-15 21:26:28+03:00",
+        "files": ["vrouter.pp"]
+      },
+      {
+        "hash": "ad44b2e1140b7fd2eaebdb04ae9db844dad6264a",
+        "msg": "Revert \"Set flows thread count for vrouter explicitly\"\n\nThis reverts commit 6fe6213bcf3c7d44f95ae78d4c2ee9f48b7f2546.\n\nChange-Id: I3c4f00258f88767e38a743212fa5fca7eec77356",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-16 14:55:14+00:00",
+        "files": ["vrouter.pp"]
+      },
+      {
+        "hash": "59a207fbe7422ccb1d6b305722a95ae5891a22b1",
+        "msg": "Use Fuel 9 hugepages and cpu_pinning implemenation instead of a custom one\n\nCheck if nova hugepages are used, to avoid conflicts in implementation\n  * /etc/libvirt/qemu.conf - hugetlbfs_mount value is a list if both\n1G and 2M pages are used, this breakes augeas, since it expects a string\nDisable transparent hugepages for DPDK nodes\n\nChange-Id: I0cae1836474870a4e0a99c08e4eaf67647ebb01d\nSigned-off-by: Oleksandr Martsyniuk <omartsyniuk@mirantis.com>",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-09-16 19:37:17+03:00",
+        "files": ["hugepages.pp", "init.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "8a845de8aaff3d620859cd1fda45c5f82da1b9f8",
+        "msg": "Fix ESXiToVRouterIp.map in case when we delete contrail-vmware\n\n- Fix notice in contrail-compute-vmware-pkg.pp\n- Fix settings description for internal DVS name\n\nChange-Id: Ie7b081a0d20bfee627a18c7ce58694652f9a1bb5",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-17 14:00:56+00:00",
+        "files": ["contrail-compute-vmware-pkg.pp", "ESXiToVRouterIp.map.erb", "environment_config.yaml"]
+      },
+      {
+        "hash": "46bbf1787404de02b35038daf49d8fbfa0e3eea8",
+        "msg": "Fix connection between vmware and openstack parts\n\n- increase cpu amount and disk space for ContrailVM\n- Fix order of package installation on compute-vmware\n- Fix vrouter restart\n- Fix typos\n\nChange-Id: If7f4364df6de418372506cce9af8360138fc04ac",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-09-19 12:08:04+03:00",
+        "files": ["vmware_pkg.pp", "contrail_vmware.pp", "spawner.py", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "d6ce5137c2c967affcd9309061cd710d4667c357",
+        "msg": "DPDK on VF feature updated to support core SR-IOV\n\n- generate_passthrough_whitelist function updated\n- create_vfs puppet manifest added\n- dpdk_on_vf manifest updated\n- vrouter manifest updated\n- reboot task removed\n- typos fixed\n\nChange-Id: I4ddf1676d39844567390f29567abbd83478d7f76\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-19 12:13:54+03:00",
+        "files": ["contrail-compute-dpdkonvf.pp", "generate_passthrough_whitelist.rb", "get_sriov_devices.rb", "get_vf_data.rb", "dpdk_on_vf.pp", "network.pp", "nova.pp", "vrouter.pp", "create_vfs.pp", "init.pp", "agent_param.erb", "ubuntu-ifcfg-vhost0.erb", "deployment_tasks.yaml", "environment_config.yaml", "node_roles.yaml"]
+      },
+      {
+        "hash": "09dd47ccdbb64bb53d5c0b6fd33c72865f56aab7",
+        "msg": "Add VLAN support to DPDK on VF\n\n- functions updated to support vlan\n- config creation for vlan interface added\n- PciPassthroughFilter returned to scheduler config\n\nChange-Id: Ied756fc800b02a8caebebc75416e06f7907d9d2b\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-09-19 09:33:27+00:00",
+        "files": ["generate_passthrough_whitelist.rb", "get_sriov_devices.rb", "get_vf_data.rb", "network.pp", "vrouter.pp", "scheduler.pp"]
+      },
+      {
+        "hash": "44d89f319e02d6d63b4c4409c0f175da356eff9a",
+        "msg": "Ensure user_token is not present in api-paste.ini for cloud-admin\n\nChange-Id: I2cc64bd4551d16ef36e596f3cad7417679218c1d\nCloses-bug: #1625080\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-19 12:44:26+03:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "53ce2402b9508a45447e302d97c77156c3dffcb4",
+        "msg": "vRouter thread count options updated\n\n- Set flows thread count for vrouter explicitly\n- Set TBB_THREAD_COUNT for vrouter to address inflated CPU Utilization\n- Threading settings enabled for kernel vRouter only\n\nChange-Id: I308391c629deaec255e36f6e2f99c706093220f2",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-09-19 12:45:40+03:00",
+        "files": ["vrouter.pp"]
+      },
+      {
+        "hash": "4db4701a18b254ac082890716e8b8fe11040e048",
+        "msg": "Fix typo\n\nChange-Id: Id62aad23cd06165002ebda4b9d4cc1d8a2dd55d7\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-19 13:01:49+03:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "409051b0854813ae8977db84825190c44b5c3428",
+        "msg": "Fix logging duplicate\n\n- Fix flake8 check\n- Fix provision contrail-vmware\n\nCloses-Bug: #1625520\nChange-Id: I2667fe276c8f7f7b1a03510e85edb4571a4978b1",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-09-20 16:52:41+03:00",
+        "files": ["contrail_vmware.pp", "spawner.py", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "594b11539fe9d050f5e1152328fcf99b9e173f96",
+        "msg": "Fix deploy with ceilometer\n\nChange-Id: I970216a6ca0f1e76d060c7928d31a5d99009fb98\nCloses-Bug: #1625969",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-09-21 11:46:36+00:00",
+        "files": ["vmware_pkg.pp"]
+      },
+      {
+        "hash": "eff54e932adf08afc563d734a7fbc06ff36472c3",
+        "msg": "Remove ssl from analytics api.\n\nChaing protocol in /etc/contrail/config.js from http to https doesnt\nwork in case of analytics api. It still returns http endpoint.\n\nChange-Id: I94c21942582533428f803fad8ec5c5ba2957490c",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-09-26 13:05:15+00:00",
+        "files": ["vip.pp"]
+      },
+      {
+        "hash": "2d2085d54d0ce07a2158f9fea76750effc0ee8af",
+        "msg": "Add ability to change rpc_max_threads in cassandra\n\nIn some cases we need posibility to set rpc_max_threads\nto prevent cassandra to open unlimited amount of threads,\nit can cause out of memory\n\nChange-Id: Ib509fb48066a09adbf154033ad91a14fc366066a",
+        "cmtr": "Oleksandr Martsyniuk",
+        "date": "2016-09-26 16:34:38+03:00",
+        "files": ["init.pp", "cassandra.yaml.erb"]
+      },
+      {
+        "hash": "bd87047fa987e56ee37137229d85212ebf34dfe9",
+        "msg": "Add analytics db to post-deploy group\n\nChange-Id: I493eb9a58dff9fe148b60dd900d562e908292dfb",
+        "cmtr": "Przemysław Szypowicz",
+        "date": "2016-09-26 17:39:40+02:00",
+        "files": ["database.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "f4f9752f6a79b7507fd0b31921796beff4ad27c9",
+        "msg": "Add all-to-all seed settings in cassandra\n\nChange-Id: I76dda602ffb36c713725135d6f537aa2d2414c6a",
+        "cmtr": "Przemysław",
+        "date": "2016-09-27 22:33:04+02:00",
+        "files": ["database.pp", "cassandra.yaml.erb", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "a1d4bf7c51fb78a62a4b89aa3b1c1fbf07b3d58c",
+        "msg": "Explicitly limit availability zone for SNAT netns in hybrid clusters with KVM and vCenter computes\n\nChange-Id: Id6e679cfe229b045922b5349077a5e1b45499e38\nCloses-Bug: #1628018",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-09-28 17:43:34+03:00",
+        "files": ["config.pp", "init.pp"]
+      },
+      {
+        "hash": "2d7151fea9d19a90f56f871d6bfb90ec7c0e2d23",
+        "msg": "Bonding support for DPDK on VF\n\n- get_sriov_devices function updated\n- VF configuration moved to a defined type\n- get_vf_data function updated\n- generate_passthrough_whitelist fuction updated\n\nChange-Id: Idbcdd5e7a574d2a8474132ece43aef1776eccbe8\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-09-28 23:01:04+03:00",
+        "files": ["contrail-compute-dpdkonvf.pp", "generate_passthrough_whitelist.rb", "get_bond_name.rb", "get_sriov_devices.rb", "get_vf_data.rb", "network.pp", "vrouter.pp", "configure_vfs.pp", "create_vfs.pp", "init.pp"]
+      },
+      {
+        "hash": "4d579beec6b850dd46948aba2dd26c3d776cc73b",
+        "msg": "Configure headless only when used per se\n\nPartial-Bug: #1624507\n\nChange-Id: Ibbf7b7695d188f42ec4a3d4ddb2afe29ea61c576",
+        "cmtr": "Przemysław",
+        "date": "2016-09-29 15:21:39+02:00",
+        "files": ["vrouter.pp", "init.pp"]
+      },
+      {
+        "hash": "57433da2670b7e988134cede8f93d10734b69762",
+        "msg": "Contrail-controller role\n\nInstead of contrail-config, contrail-control contrail-db roles\nthere will be one role, called contrail-controller.\n\nChange-Id: I2c472c0b5107b127a8183024c2a1a29aa59deede\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-10-05 19:58:55+03:00",
+        "files": ["database.pp", "init.pp", "config.pp", "control.pp", "vip.pp", "basicauthusers.properties.erb", "config.global.js.erb", "contrail-vcenter-plugin.conf.erb", "kafka-server.properties.erb", "zoo.cfg.erb", "deployment_tasks.yaml", "environment_config.yaml", "node_roles.yaml", "volumes.yaml"]
+      },
+      {
+        "hash": "aa69cade0361530f65e4ba28fa0cb39c6af0c68d",
+        "msg": "Fix restart of contrail-vcenter-plugin service\n\nChange-Id: Ib2f4ef6443ba44c338151f676ac3c77a05a3ea5b\nCloses-Bug: #1630143",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-10-06 16:03:47+03:00",
+        "files": ["vmware.pp"]
+      },
+      {
+        "hash": "92746f72ee1e5971fc5140bfdb11b155e5bc7e6d",
+        "msg": "Fix for zookeeper id\n\nzookeeper id should be a value between 1 and 255.\nuid can be bigger than 255, so it should be calculated\n\nChange-Id: If1dcecde8f066b1e27b5c2f0331ee5dc0b0c0804\nCloses-bug: #1622008\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-10-07 13:14:20+00:00",
+        "files": ["database.pp"]
+      },
+      {
+        "hash": "d8d88e4a3a9aaa0d5b6ac9c28ad4490765d8f11f",
+        "msg": "Add settings for single node group gateway\n\nChange-Id: I85a66d5d30fd8690af8822ba66c18e9b27d44b62\nPartial-Bug: #1624507",
+        "cmtr": "Illia Polliul",
+        "date": "2016-10-08 09:08:02+00:00",
+        "files": ["init.pp", "ubuntu-ifcfg-vhost0.erb", "environment_config.yaml"]
+      },
+      {
+        "hash": "f48ac1f71d535bdfe4890063875cdecd61f7d8c9",
+        "msg": "Seperate analytics database nodemgr check\n\nCloses-bug: #1631562\nChange-Id: I9a06af9f3bf9f051cb9ca841ca4b730401748821\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-10-08 12:24:34+00:00",
+        "files": ["database.pp"]
+      },
+      {
+        "hash": "6c578fb9e292044c860fcdd3a259d241b885b9d0",
+        "msg": "Revert \"Add all-to-all seed settings in cassandra\"\n\nThis reverts commit f4f9752f6a79b7507fd0b31921796beff4ad27c9.\n\nChange-Id: Ifa4527d62d708a6bc20140132e900e9887aede4c",
+        "cmtr": "Illia Polliul",
+        "date": "2016-10-08 16:22:47+03:00",
+        "files": ["database.pp", "cassandra.yaml.erb", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "66533163c3fd2c7245a56b98dfa88b743ec5f9c8",
+        "msg": "Match cassandra_compaction_throughput with fab settings\n\nChange-Id: I0b93ad781f0b20e2d48d5611c03dcb344cdb9dc7\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-10-09 20:16:24+03:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "d60b04db4e512540bd9d6798d83bbbdacbf193be",
+        "msg": "Fix for add_ha_analytics_db\n\nChange-Id: Ida856d7ad148226d87dc961d5abf279db3d43f12\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-10-10 14:05:08+00:00",
+        "files": ["database.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "9aed16cea13f4ffa32a92056273fb425ddeccb5b",
+        "msg": "Remove cassandra seed check\n\nChange-Id: I49c05ff2dae0cd8fab0d88bbef8fa60ab94bef60\nCloses-Bug: #1632238",
+        "cmtr": "Vitalii Kovalchuk",
+        "date": "2016-10-11 14:49:55+00:00",
+        "files": ["database.pp"]
+      },
+      {
+        "hash": "c85378f015941341f42870454d09ea245fd622ab",
+        "msg": "Empty task.yaml\n\nChange-Id: Id0d4f1f0b31fcbc94b09fcd5a00ae5cf3d503da4\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-10-14 12:15:58+03:00",
+        "files": ["common-repo.pp", "deployment_tasks.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "690ac1b02d52e51d180972698294b88956698d07",
+        "msg": "Fix libvirt service name in ceph manifest\n\nFor DPDK comuptes, we install libvirt from Contrail repo and this\npackage uses libvirt-bin name instead of libvirtd.\nIt causes unnecessary libvirt and nova-compute restart.\n\nChange-Id: I031ffe5d1f6090f226be714427250dcfee2c7304\nCloses-bug: 1628931\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-10-14 10:40:26+00:00",
+        "files": ["nova.pp"]
+      },
+      {
+        "hash": "69565a657980323c4f5ee33e7de2202f0dd3f676",
+        "msg": "Remove cassandra seed check\n\nChange-Id: I00d076edd6ba9662415a7bfe765501174a5c68c5\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-10-14 20:58:45+03:00",
+        "files": ["database.pp"]
+      },
+      {
+        "hash": "d721199ddb5aac2559998b1f7ce6514e01f5396a",
+        "msg": "Contrail-discovery service returns 0 exit code when fails\n\nBug in upstream for this issue:\nhttps://bugs.launchpad.net/opencontrail/+bug/1491872\n\nChange-Id: Ic19e6cc9bf43c6fe40dd0ee913aaf4e4795891a7\nRally-Id: DE225249",
+        "cmtr": "Illia Polliul",
+        "date": "2016-10-19 09:51:30+00:00",
+        "files": ["ini_setting.rb", "contrail_discovery_ini_config.rb", "config.pp"]
+      },
+      {
+        "hash": "40bccf438803a9280862ca3bb50a0df047ee7cef",
+        "msg": "Allow unauthenticated packages for DPDK\n\nChange-Id: I96e846d84247108d5fa78f9b9c3606dbdfd9eecd\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-10-19 14:09:29+03:00",
+        "files": ["override.pp"]
+      },
+      {
+        "hash": "37ddf7a6320db0e6028faa168e1c8cf2ecc5454e",
+        "msg": "Fix controller addition with DPDK computes\n\nChange-Id: I065a5f82b5484f6fddb55084a2afad2741fb7817\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-10-24 13:18:02+03:00",
+        "files": ["nova.pp"]
+      },
+      {
+        "hash": "2f116b68d18756897c5828027e1acb39bb5164ab",
+        "msg": "Add ini_subsettings for vrouter flows and mpls.\n\nChange-Id: I33a3b4b705a794b550033b893c95cb176f1b15d1",
+        "cmtr": "Illia Polliul",
+        "date": "2016-10-25 18:24:53+00:00",
+        "files": ["vrouter.pp"]
+      },
+      {
+        "hash": "768a1972f69495d8e683555209597141a756894b",
+        "msg": "Fix compute addition for DPDK-on-VF\n\nChange-Id: I60bf69d7ff6e68ff65200e8311341b11414d0b2d\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-10-25 18:25:10+00:00",
+        "files": ["contrail-compute-repo.pp", "nova.pp"]
+      },
+      {
+        "hash": "8aaa4fa190c5678e8015ce92d0190ad9419abb3e",
+        "msg": "Fix DPDK-on-VF idempotency\n\nChange-Id: I513bb76d4691b63fd0eca35fae6759072d0ee5d3\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2016-10-26 14:34:38+03:00",
+        "files": ["compute-hiera.pp"]
+      },
+      {
+        "hash": "ca8bb999e2280dc0dbb9d541c525be9566d4771e",
+        "msg": "Update pin removal task\n\nhttps://review.openstack.org/#/c/415267/\n\nPartial-bug: #1644608\nChange-Id: I4a056dcbbb1c0529652f9046fefbb2d6e4a92c6d\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2017-01-13 16:53:33+00:00",
+        "files": ["common-repo.pp"]
+      },
+      {
+        "hash": "65e97aa29a737ce3edcf5c8fba1b5cf8cac7f1da",
+        "msg": "Remove nolinger option from HAProxy config\n\nHAProxy nolinger option conflicts with forceclose, which resulted in\nconnection reset\n\nCloses-bug: #1644608\nChange-Id: I45ebfb96f1423bf33c056f30f745966149143884\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2017-01-17 12:29:54+00:00",
+        "files": ["vip.pp"]
+      },
+      {
+        "hash": "5cb3880d13dcbbe6fcbaeb28ca4a1d0e9fb7e80c",
+        "msg": "Remove kafka from Contrail-controller role\n\nChange-Id: I91b9e737f2ee7755c2f47b9b46f2242fadaf0127\nCloses-bug: 1656117\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>\n(cherry picked from commit 70838b35dccc0b599478c0e3e081074c3a4377b3)",
+        "cmtr": "Illia Polliul",
+        "date": "2017-02-28 08:15:42+00:00",
+        "files": ["database.pp"]
+      },
+      {
+        "hash": "dc66701ceeb7387e41ba6d07dbf40417a93c298b",
+        "msg": "Actualize package names for service_overrides\n\nCurrent names for tweaks::ubuntu_service_override don't match packages which\nwill be installed. That leads to those packages being installed before\ntweaks::ubuntu_service_override.\n\nAdd set of additinal ubuntu_service_overrides\n\nAlso, default `require` for file resource is deleted to prevent\ndepenency cycles.\n\nChange-Id: I5c34542009c75a9e7a17e465bb79e7f86db2d77f",
+        "cmtr": "Illia Polliul",
+        "date": "2017-02-28 08:29:03+00:00",
+        "files": ["analytics.pp", "config.pp", "control.pp", "database.pp"]
+      },
+      {
+        "hash": "73b6c79b38d80893ed21ab827c96070ed10ea724",
+        "msg": "Stop configuring contrail-named from a template\n\nCurrently contrail-named is configurated from a template, which doesn't make any\nsence 'cause contrail-dns overrides contrail-named's configuration files.\n\nChange-Id: If91b98fa2c835cf764f4a66b777b4ec8e7664c30",
+        "cmtr": "Illia Polliul",
+        "date": "2017-02-28 08:29:17+00:00",
+        "files": ["contrail-rndc.conf", "control.pp", "contrail-named.conf.erb"]
+      },
+      {
+        "hash": "ddb2d6e8fb8d5eac4b96a6c98cc796a37830fabe",
+        "msg": "Wait until all tables for anaylytics are ready\n\nDuring starting up contrail-collector creates all tables in Cassandra.\nThis process shouldn't  take place on all contrail-analytics nodes\nsimultaneously, because it may break Cassandra DB.\n\nTo prevent concurrent tables creating, wait_for_cassandra_keyspace is added.\n\nChange-Id: I1a7302414abd542f24f944684c5a4810dbc2b8ad\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2017-02-28 11:40:36+01:00",
+        "files": ["contrail-analytics-db-wait.pp", "analytics_db_wait.pp", "init.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "0a3c290360e1e94d5d24586a86115bf7537510aa",
+        "msg": "Add analytics values for contrail-collector.conf\n\nChange-Id: I3ebb1bc737d909b7ae0ed1e0f85b6a7369fee888",
+        "cmtr": "Illia Polliul",
+        "date": "2017-02-28 16:32:57+01:00",
+        "files": ["analytics.pp"]
+      },
+      {
+        "hash": "cfe6574c9785bf61d942135c6bfa4d8775deb8a3",
+        "msg": "Expose parameters for zookeeper config\n\n[US867617]\n\nChange-Id: Ia9c36655f01c62453a20160f96d1830a507e5d19\n(cherry picked from commit ea9d101d6e00d936d274947b1fd240a8522f1a39)",
+        "cmtr": "Illia Polliul",
+        "date": "2017-02-28 16:17:06+00:00",
+        "files": ["init.pp", "zoo.cfg.erb"]
+      },
+      {
+        "hash": "4913edf43f44684c016952ad93e875fd2f4a1f19",
+        "msg": "Kafka should create partitions at start\n\nCloses-bug: #1666888\nChange-Id: I80c73fe66eda35d1e48a01e688ffccdb39e96cfc\nSigned-off-by: Illia Polliul <ipolliul@mirantis.com>",
+        "cmtr": "Illia Polliul",
+        "date": "2017-03-03 19:04:07+00:00",
+        "files": ["analytics.pp", "kafka-server.properties.erb"]
+      },
+      {
+        "hash": "582bdac436eba3b92e09ffe535861faddb391a7c",
+        "msg": "Update for latest package of redis-server.\n\nChange-Id: I15400d3a44cc3866e34392cbac419109d05c2006\n(cherry picked from commit 73d963c5e9b256e4f33628f113640846f4b31dfa)",
+        "cmtr": "Illia Polliul",
+        "date": "2017-04-21 15:19:20+00:00",
+        "files": ["webui.pp"]
+      },
+      {
+        "hash": "8d10327d11c46c2a7f5a3dbd6ccf08b1de746561",
+        "msg": "Change default value for vRouter thread count\n\nChange-Id: I5b45273a5723e3541100daf632a4b24728a62b5f",
+        "cmtr": "Mykola Yakovliev",
+        "date": "2017-06-14 13:30:11-05:00",
+        "files": ["vrouter.pp", "init.pp"]
+      }]
+    }

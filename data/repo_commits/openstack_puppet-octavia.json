@@ -1,0 +1,595 @@
+    {
+      "url": "https://github.com/openstack/puppet-octavia",
+      "pp_files": ["logging.pp", "db.pp", "init.pp", "sync.pp", "certificates.pp", "postgresql.pp", "worker.pp", "params.pp", "neutron.pp", "authtoken.pp", "config.pp", "policy.pp", "deps.pp", "roles.pp", "glance.pp", "client.pp", "api.pp", "housekeeping.pp", "service_auth.pp", "mysql.pp", "quota.pp", "apache.pp", "auth.pp", "nova.pp", "health_manager.pp"],
+      "pp_cmtrs": ["Daniel Pawlik", "Emilien Macchi", "Mykyta Karpin", "Matthew J. Black", "Juan Antonio Osorio Robles", "jacky06", "Brent Eagles", "Harry Rybacki", "Tobias Urdin", "ZhongShengping", "melissaml", "Xingchao Yu", "zhubingbing", "Carlos Goncalves", "Sharat Sharma", "Alex Schultz", "Sofer Athlan-Guyot", "zhulingjie", "Denis Egorenko", "Mohammed Naser", "Iury Gregory Melo Ferreira"],
+      "num_pp_commits": 84,
+      "num_tot_commits": 228,
+      "commits": [{
+        "hash": "481dde1725b12a4678a61f3592b850d260346f91",
+        "msg": "puppet-octavia: Initial commit\n\nThis is the initial commit for puppet-octavia.\nIt has been automatically generated using cookiecutter[1] and msync[2]\n\n[1] https://github.com/openstack/puppet-openstack-cookiecutter\n[2] https://github.com/openstack/puppet-modulesync-configs\n\nChange-Id: Ieeb5f5c94f093c163fd15ff80672b1f0e4a66ba0",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-03-09 18:09:58-05:00",
+        "files": [".gitignore", "Gemfile", "LICENSE", "README.md", "Rakefile", "ini_setting.rb", "octavia_config.rb", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "init.pp", "auth.pp", "logging.pp", "params.pp", "policy.pp", "metadata.json", "centos-70-x64.yml", "default.yml", "nodepool-centos7.yml", "nodepool-trusty.yml", "ubuntu-server-1404-x64.yml", "octavia_db_mysql_spec.rb", "octavia_db_postgresql_spec.rb", "octavia_db_spec.rb", "octavia_keystone_auth_spec.rb", "octavia_logging_spec.rb", "octavia_policy_spec.rb", "shared_examples.rb", "spec_helper.rb", "spec_helper_acceptance.rb", "ini_setting_spec.rb", "octavia_config_spec.rb", "init.pp"]
+      },
+      {
+        "hash": "f9e0c01897107d936e99ca9ece70644dc0f4539c",
+        "msg": "Totally drop Qpid support\n\nQpid was removed in Mitaka from Oslo Messaging, so now we can\ndrop it in manifests.\n\nChange-Id: I929ee62b56ac24ed50d306c4fd828d3ef7e6e17a",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-04-19 17:32:38+03:00",
+        "files": ["logging.pp", "octavia_logging_spec.rb"]
+      },
+      {
+        "hash": "e46429293e39245b7b4dd616b1883cd87ecfd841",
+        "msg": "Remove verbose option in logging\n\n-Remove verbose for logging\n-Remove verbose in README Remove verbose from tests.\n\nChange-Id: I284f8b22a59e930fbdd9909725f7cffc5fc4d183",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-05-19 09:08:42-03:00",
+        "files": ["logging.pp", "octavia_logging_spec.rb"]
+      },
+      {
+        "hash": "5e3f167eb4cdbe129248553fead4b64e473131a0",
+        "msg": "Switch octavia to oslo\n\nThe db, policy and logging options are configured\nusing puppet oslo module.\n\nAdditional changes:\n\n* add dependencies and version of oslo package in\n  metadata.json file\n* update related unit test\n* remove useless parameters\n\nChange-Id: Id252d6043daefb38e934df964755ac6b2efb44ff",
+        "cmtr": "ZhongShengping",
+        "date": "2016-05-22 21:09:28+08:00",
+        "files": ["db.pp", "logging.pp", "params.pp", "policy.pp", "metadata.json", "octavia_db_spec.rb", "octavia_policy_spec.rb"]
+      },
+      {
+        "hash": "d175681256c0b515a5bcd994e9a6f422e45415ef",
+        "msg": "Add support for the oslo db_max_retries parameter\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: I28f533d87fbc61f8f16f62e3d2f6087ec6c1c04f\nCloses-Bug: 1579718",
+        "cmtr": "ZhongShengping",
+        "date": "2016-05-30 23:53:18+08:00",
+        "files": ["db.pp", "octavia_db_spec.rb"]
+      },
+      {
+        "hash": "8b378a881c925b71e36216af42258528d084208b",
+        "msg": "Implement init.pp class\n\nDeploy basic bits to deploy Octavia.\nChange-Id: I279ff6bf63b8754332d34861f54183935bc914b5",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-06-06 14:08:31-04:00",
+        "files": ["db.pp", "init.pp", "params.pp", "octavia_spec.rb", "octavia_init_spec.rb"]
+      },
+      {
+        "hash": "4b879bb2071ea5e70a6310a79665a82c435b1e42",
+        "msg": "Add purge_config option\n\nAdd the option in order to facilitate management.\nUser can ensure that only the options they hoped\nare configured.\n\nChange-Id: If735185a66b7ba4992d91838031811d21fbd8737",
+        "cmtr": "ZhongShengping",
+        "date": "2016-06-08 11:39:57+08:00",
+        "files": ["init.pp", "octavia_init_spec.rb"]
+      },
+      {
+        "hash": "e8e6a527f3995c8f179fa0c91681763d1569453b",
+        "msg": "Provide default service_name for keystone endpoint\n\nThis change updates the octavia::keystone::auth class to include a\ndefault service_name of 'octavia' so that if a user changes the\nauth_name, the service is still created as being related to 'octavia'.\nThis improves the user experiance when they want to customize the\nusernames for services.\n\nChange-Id: I2241cc2ea581c4ef6726aee8be2026eba4fd02f8\nCloses-Bug: #1590040",
+        "cmtr": "ZhongShengping",
+        "date": "2016-06-08 14:22:13+08:00",
+        "files": ["auth.pp", "octavia_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "6f701d6b38fb2deec1f96b4953ca26366f6324d3",
+        "msg": "Implement api.pp\n\nDeploy Octavia API.\n\nChange-Id: I5947f8d3fd060e043e8f1b3563d2ee9c371da406",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-06-10 15:39:09+00:00",
+        "files": ["api.pp", "params.pp", "octavia_spec.rb", "octavia_api_spec.rb"]
+      },
+      {
+        "hash": "ebab1a53e611e10b99387fb5d4ada668d50d04bc",
+        "msg": "Update db_sync command\n\nThe real command to use is:\noctavia-db-manage upgrade head\n\nThis patch updates the module to use & test it.\n\nChange-Id: I4dc9ff20f4889c3a66b6e0484db1773927dcda1f",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-06-11 23:35:05+00:00",
+        "files": ["sync.pp", "octavia_spec.rb"]
+      },
+      {
+        "hash": "a31c31c756a479b4de9d72970b449329021e32cb",
+        "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: I94418bffcc8dbca7104493f5c13859c43581cbdf\nRelated-Bug: 1599113",
+        "cmtr": "Sofer Athlan-Guyot",
+        "date": "2016-07-07 12:12:47+02:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "6ef738f37344a138c9abb9c2ba7c352b1f8c8f99",
+        "msg": "Implement worker.pp\n\n- Deploy Octavia Worker service.\n- Allow to manage the Nova flavor required for Octavia worker service to\nrun.\n\nDepends-On: I55edf888ecea6f789a0539d4fa961400cdb73462\nChange-Id: I7166f0ccb76d3369bcdd1f7e188fff1e4fe16c14",
+        "cmtr": "Brent Eagles",
+        "date": "2016-07-18 17:28:47-02:18",
+        "files": ["init.pp", "params.pp", "worker.pp", "metadata.json", "octavia_spec.rb", "octavia_init_spec.rb", "octavia_worker_spec.rb"]
+      },
+      {
+        "hash": "db34ab261a22475253cdd7393d3d1f1cd9f18664",
+        "msg": "Adding health_worker.pp\n\nAdding basic health manager support.\n\nChange-Id: I3be10dffd446d0c12e1849b0de58e458858fc75d",
+        "cmtr": "Brent Eagles",
+        "date": "2016-07-25 16:16:58-02:18",
+        "files": ["health_manager.pp", "params.pp", "octavia_spec.rb", "octavia_health_manager_spec.rb"]
+      },
+      {
+        "hash": "239cfc6360082209256e0fe02d2ab3a3def1dc36",
+        "msg": "Adding housekeeping.pp\n\nAdding basic Octavia housekeeping service support.\n\nChange-Id: Id3156a0245d8b885a9917605a53dfb061d1c3047",
+        "cmtr": "Brent Eagles",
+        "date": "2016-07-27 10:04:34-02:18",
+        "files": ["housekeeping.pp", "params.pp", "octavia_spec.rb", "octavia_housekeeping_spec.rb"]
+      },
+      {
+        "hash": "cf115ac40320787c3512b697fbec7333f4b55b82",
+        "msg": "Move octavia to authtoken\n\n- Remove keystone parameters from api.pp\n- Add a octavia::keystone::authtoken class to configure\nall keystone middleware options\n\nChange-Id: I6a4b6670343ddf79b87f1d9ef259c3284093ac06",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-08-04 18:04:52+00:00",
+        "files": ["api.pp", "authtoken.pp", "octavia_spec.rb", "octavia_api_spec.rb", "octavia_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "5bf9d855c746488a86e2807432ad3d1be92d6abb",
+        "msg": "Fix authtoken\n\n-Fix doc in authtoken class\n-Fix metadata dependencies\n-Require to first create admin keystone\nbefore trying to create nova flavors.\n\nChange-Id: If23e0674ebbbe55f9785b1abc448ef25643ad3c9",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-08-27 02:08:53-03:00",
+        "files": ["authtoken.pp", "metadata.json", "octavia_spec.rb"]
+      },
+      {
+        "hash": "2b383a087f8cbdfb49093799b6d5ee54de274799",
+        "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: I892869a67136b648a0acf9d4468914c2d8875f86\nCloses-Bug: #1628580",
+        "cmtr": "Sharat Sharma",
+        "date": "2016-09-29 14:15:48+00:00",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "6c74a52ca51a325abbf351767051fceec50df292",
+        "msg": "Fix documentation for log_dir parameter\n\nChange-Id: I506bb0e4bdadb4ef095a70c59191837922141c17\nPartial-Bug: #1600294",
+        "cmtr": "Mykyta Karpin",
+        "date": "2016-10-10 18:19:34+03:00",
+        "files": ["logging.pp"]
+      },
+      {
+        "hash": "66bffc72ed9db52c2e0e91f1f8be6c062ae9db07",
+        "msg": "Remove rabbit connection paramters\n\nThe rabbitmq connection parameters have been removed in favor of the\ndefault_transport_url setting.\n\nChange-Id: I4af7999dea4b8d2e94e3595f8994dd83176897ed\nRelated-Bug: #1625198",
+        "cmtr": "Alex Schultz",
+        "date": "2016-11-10 09:08:44-07:00",
+        "files": ["init.pp", "octavia_spec.rb", "octavia_init_spec.rb"]
+      },
+      {
+        "hash": "925794a2c92be9db7fd5b4705fc795a29a6a0202",
+        "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nChange-Id: I281a300df5abfa927b8b6de54f1755ad89ccf563",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-07 11:48:51+08:00",
+        "files": ["api.pp", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "health_manager.pp", "housekeeping.pp", "init.pp", "auth.pp", "authtoken.pp", "logging.pp", "policy.pp", "worker.pp", "external_install_mgmt_hook-1e652961711571a3.yaml", "octavia_api_spec.rb", "octavia_init_spec.rb"]
+      },
+      {
+        "hash": "d953d25fe67e2939fb6329fd31557814ea0b87f9",
+        "msg": "Use correct section for host and port settings\n\nThe module configured the bind_host and bind_port as\npart of the api section, which does not exist in config\nreference. The correct section should be DEFAULT. With\nthe setting being in api, the api service starts up with\nbinding to host 127.0.0.1 instead of 0.0.0.0.\n\nChange-Id: I90218f65cc60c546c7ef43d9f5a464d9e7031431\nCloses-Bug: 1650837",
+        "cmtr": "Matthew J. Black",
+        "date": "2016-12-19 11:16:24-05:00",
+        "files": ["api.pp", "octavia_api_spec.rb"]
+      },
+      {
+        "hash": "81ec750cf50e8050e66590c5e03f8f20a213aab0",
+        "msg": "Added parameters to configure ip and port\n\nThe health manager manifest is missing two configuration parameters\nto configure the health manager bind_ip and bind_port.\n\nChange-Id: I566374b0dc7f8f696d440ffe152565a3bd47e1e5",
+        "cmtr": "Matthew J. Black",
+        "date": "2016-12-20 11:55:15-05:00",
+        "files": ["health_manager.pp", "octavia_health_manager_spec.rb"]
+      },
+      {
+        "hash": "08e61921edf57991c45d55f76c5d34d0459be33d",
+        "msg": "Deprecate signing_dir option\n\nThe signing_dir is deprecated for removel because of PKI token format\nis no longer supported.\nUpdate warning message and release note.\n\nChange-Id: Ib5dcbf6194f5c1d23c8c1c1ff9f43deea850973b\nCloses-Bug: #1652700",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-28 14:31:08+08:00",
+        "files": ["authtoken.pp", "deprecate_signing_dir_parameter-1a34ef813a913548.yaml", "octavia_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "e34142da0cdc913cc14732e757fa5f5d54ba99bc",
+        "msg": "Allow python-memcache install from authtoken class\n\nThe python-memcache package is required if using memcached. By\ndefault the package is not installed and the define has it set to\nfalse. This change allows managing the python-memcache package\ninstall from the authtoken class.\n\nChange-Id: I22417da1630bbe2e9661b6d4932fcf8fd7da643b",
+        "cmtr": "Matthew J. Black",
+        "date": "2017-01-11 17:10:55-05:00",
+        "files": ["authtoken.pp", "authtoken_manage_memcache_package-88dca510e70ef1e1.yaml", "octavia_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "6f064e21f4945089709820dd4f747f00d6351261",
+        "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should be\ninstalled before dbsync starts.\n\nChange-Id: I69719206eb45e727c8c85eb9277dc40ecfb83501",
+        "cmtr": "Alex Schultz",
+        "date": "2017-01-23 18:15:12+00:00",
+        "files": ["deps.pp"]
+      },
+      {
+        "hash": "76a2df9e7290ff3d2455e145be87c33f9049be82",
+        "msg": "Move db include from ::octavia to ::octavia::api\n\nThe database configuration for octavia isn't required by all services so\nmoving it out of ::octavia and into ::octavia::api.\n\nCloses-Bug: #1632667\nChange-Id: I7a782a1378b94ac001419e331a2e48a8559a6565",
+        "cmtr": "Alex Schultz",
+        "date": "2017-01-23 18:15:19+00:00",
+        "files": ["api.pp", "init.pp", "dont-initialize-db-in-init-85ac6f87576814d6.yaml", "octavia_init_spec.rb"]
+      },
+      {
+        "hash": "c7b4060c72a0702754de66d59a0bcdc43e249bc2",
+        "msg": "Add missing _driver config items\n\nA working octavia deployment requires configuration of compute, network\nand amphora drivers for the octavia worker service.\n\nChange-Id: I422ca9aefbb2a1173f285ddc8271caef8a966a7b",
+        "cmtr": "Brent Eagles",
+        "date": "2017-01-27 11:07:22-03:18",
+        "files": ["worker.pp", "add-work-driver-7097e125fccb11b5.yaml", "octavia_worker_spec.rb"]
+      },
+      {
+        "hash": "2ee0e421d1dd7b6e53669f097b0758d968dedeab",
+        "msg": "Add auth_strategy configuration\n\nAdded missing auth_strategy configuration and keystone authtoken\ninitialization to the API service.\n\nChange-Id: Ic38d4f9f9a8e69ffcee6ccc4bba9a9ab0f161d0e",
+        "cmtr": "Brent Eagles",
+        "date": "2017-01-30 16:25:23-03:18",
+        "files": ["api.pp", "add-auth-strategy-99518a6623bcb665.yaml", "octavia_api_spec.rb"]
+      },
+      {
+        "hash": "0d5e41e85223f03f6bc2049d912488e64ba4b653",
+        "msg": "Fix lint issue\n\nChange-Id: Ie46fecd5c80322a10b670c342d4e0216f9c9bd3f",
+        "cmtr": "ZhongShengping",
+        "date": "2017-02-01 15:04:42+08:00",
+        "files": ["worker.pp"]
+      },
+      {
+        "hash": "778cbed9b3cd4ec9ea3f5f1004f55d4dad389a1e",
+        "msg": "Add control_exchange and rpc_response_timeout options\n\nAdd control_exchange to configure an exchange name for message.\nAdd rpc_response_timeout to configure seconds time for waiting\nfor a response from a call.\n\nChange-Id: Ida071f7862f16cb7c5679d23860f99db9fab6f57",
+        "cmtr": "ZhongShengping",
+        "date": "2017-02-07 09:43:05+08:00",
+        "files": ["init.pp", "add_messaging_default_parameters-8a235ef98135d357.yaml", "octavia_init_spec.rb"]
+      },
+      {
+        "hash": "04a76970fd1c4cefdacfd39dcad14ee65f1e6fd2",
+        "msg": "Inconsistent package_ensure parameter name\n\nThe parameter name used to enforce package state is inconsistent across\nmanifests and modules. I settle on package_ensure since it's already\nwidely used.\n\nChange-Id: I3f0d04677723884a28a65f469305f89311b08da2\nCloses-Bug: #1668732",
+        "cmtr": "ZhongShengping",
+        "date": "2017-03-08 17:43:48+08:00",
+        "files": ["init.pp", "deprecate_ensure_package_parameter-71358a34df982376.yaml", "octavia_init_spec.rb"]
+      },
+      {
+        "hash": "2850def15c39c2a71f636d5b65d22c873cbc1807",
+        "msg": "Fix manage_service parameter\n\nPreviously even if manage_service was set to false, we were always\nattempting to define the octavia-api service within puppet. This change\nupdates the manage_service to control skipping the definition of the\noctavia-api service.\n\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>\nChange-Id: I6d2729b3e22f4c434da098ea180a9d11cf73058b\nCloses-Bug: 1633001",
+        "cmtr": "Alex Schultz",
+        "date": "2017-03-24 08:04:34-06:00",
+        "files": ["api.pp", "api-manage-service-3a54c606e08ee623.yaml", "octavia_api_spec.rb"]
+      },
+      {
+        "hash": "9eb1bc9316b60050e2a2a36a571fadef3d0b1c03",
+        "msg": "Add the setting log level\n\nIncrease the setting log level in the synchronization database.\n\nChange-Id: I486ed0250e09f75bfebc1dcb6f56be178d1243e9\nCloses-Bug: #1683567",
+        "cmtr": "ZhongShengping",
+        "date": "2017-04-18 11:27:51+08:00",
+        "files": ["sync.pp", "octavia_db_sync_spec.rb"]
+      },
+      {
+        "hash": "8062f88888f51d47ffdb1d61b5e3fc39acd45a5b",
+        "msg": "Fix CI\n\n1) The host and port options[1] should be bind_host and bind_port. The\nhost option[2] is the hostname that Octavia is running on. See log[3].\nSo fix it.\n\n[1]https://github.com/openstack/octavia/blob/master/octavia/common/config.py#L33\n[2]https://github.com/openstack/octavia/blob/master/octavia/common/config.py#L53\n[3]http://logs.openstack.org/55/467855/1/check/gate-puppet-octavia-puppet-beaker-rspec-centos-7/9c5655b/logs/octavia/worker.txt.gz#_2017-06-09_00_54_01_238\n\n2) Fix unit test\n\nThe db_backend_package name has changed in puppet-oslo[0], so fix it.\n\n[0]: https://review.openstack.org/#/c/467582/\n\nChange-Id: I1b27e61247130df57d9c34e80cfdc96d35e2bdc4\nCloses-Bug: #1693403\nCloses-Bug: #1696890",
+        "cmtr": "ZhongShengping",
+        "date": "2017-06-09 10:29:28+08:00",
+        "files": ["api.pp", "octavia_api_spec.rb", "octavia_db_spec.rb"]
+      },
+      {
+        "hash": "e16f1565e1749d28eed79fe407ed538424bf6281",
+        "msg": "Remove deprecated keystone authtoken signing_dir option\n\nChange-Id: Ief864b3aa904e7d654929dbb0421c0280a6d68e6",
+        "cmtr": "ZhongShengping",
+        "date": "2017-07-07 10:00:47+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_signing_dir_option-833cd0913febeea1.yaml"]
+      },
+      {
+        "hash": "fcf164292e738fc593a2a35f59e5dd4ad9a00a33",
+        "msg": "Fix documentation bug for manage_nova_flavor default value\n\nChange-Id: I83f6d253325a0f5dec4fb965a154bdf00ab5c44e",
+        "cmtr": "Mohammed Naser",
+        "date": "2017-07-25 16:14:59-04:00",
+        "files": ["worker.pp"]
+      },
+      {
+        "hash": "1e8980f28b9ec5e2dacd1878b2918e4dc707baf6",
+        "msg": "Add amp_secgroup_list configuration parameter\n\nIn order for Octavia to setup the correct security groups for new\namphorae, it needs to know which security groups to attach.\n\nThis patch adds the option of allowing to setup those security\ngroups if they need to be customized.\n\nChange-Id: I765740583dda2b54d930825f2f10f8130b5f4e9d",
+        "cmtr": "Mohammed Naser",
+        "date": "2017-07-26 08:48:44-04:00",
+        "files": ["worker.pp", "add-amp-secgroup-list-d3dcc292465b0fe7.yaml", "octavia_worker_spec.rb"]
+      },
+      {
+        "hash": "8b4707a1f5ffda5f6e4416d4f69bbf033df483e5",
+        "msg": "Add certificate configuration for PKI\n\nOctavia uses PKI in order to securely communicate over REST between\nthe control plane and the amphorae.  However, there is no option to\ncurrently configure these options at the moment.\n\nThis patch adds a class which helps configure these options to be\nable to successfully communicate with PKI.  It is important that\nthe SSL certificates must still be generated by the user.\n\nChange-Id: Ifbf5cd5118e6d02c514589ecbce9d49096faf242",
+        "cmtr": "Mohammed Naser",
+        "date": "2017-07-27 15:07:53-04:00",
+        "files": ["certificates.pp", "add-certificates-configuration-6e956bd99e5c2a2b.yaml", "octavia_certificates_spec.rb"]
+      },
+      {
+        "hash": "3c1dd62dd749613be3cc88557a8ea9d0645592bc",
+        "msg": "Change service-type to load-balancer\n\nChanges the default service type from \"octavia\" to \"load-balancer' to match\nchanges to the octavia service [1].\n\n[1] https://review.openstack.org/#/c/450916/\n\nChange-Id: Icb72e484a15a918fb66ea8eed190acaaeabd7c3b",
+        "cmtr": "Brent Eagles",
+        "date": "2017-08-02 16:32:39-02:18",
+        "files": ["auth.pp", "change-service-type-c7bea5ac392fd0d1.yaml", "octavia_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "a16691710be2bb3bac65c3ecf1954158d4e834a0",
+        "msg": "Deprecate oslo.messaging rpc_backend option parameter\n\nOslo.messaging uses the transport_url to represent the rpc and\nnotification messaging driver to use and its full configuration. The\nrpc_backend configuration option is deprecated for removal and\nshould not gate oslo.messaging driver configuration options.\n\nThis patch:\n* deprecate rpc_backend\n* remove conditional check\n* update spec tests\n* add release note\n\nChange-Id: Icc6fa09cdd5ea20b8126aab577cf9ff9a33d93f7\nCloses-Bug: #1708976",
+        "cmtr": "ZhongShengping",
+        "date": "2017-08-07 14:18:27+08:00",
+        "files": ["init.pp", "deprecate_rpc_backend_parameter-d0a8b677bcf5b39e.yaml", "octavia_init_spec.rb"]
+      },
+      {
+        "hash": "3d72b705547007a2268ffdd9428cf4d1fa405a49",
+        "msg": "Add worker configuration for amphora communication.\n\nAdding the configuration for amp_ssh_key_name, key_path.\n\nChange-Id: I216b6fa8facffcbe7ccd8ee579e393244c847450",
+        "cmtr": "Mohammed Naser",
+        "date": "2017-09-05 14:02:36+00:00",
+        "files": ["worker.pp", "ssh-cert-files-42b8a31092405454.yaml", "octavia_worker_spec.rb"]
+      },
+      {
+        "hash": "8859ec2d2347eaae70908d7d880cd1438c549e23",
+        "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: I261f2444830aca15f882b8c8b232503d50eb8711\nCloses-Bug: #1717144",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-14 11:49:45+08:00",
+        "files": ["authtoken.pp", "deprecate_revocation_cache_time_parameter-a1812c70688d809e.yaml", "octavia_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "240af51915dd9877fd380eae16f0a459992af5db",
+        "msg": "deprecate bind_host, bind_port and auth_strategy options\n\nbind_host is deprecated for removal. Its value may be silently ignored\nin the future.\nReason: This setting has moved to the [api_settings] section.[0]\n\nbind_port is deprecated for removal. Its value may be silently ignored\nin the future.\nReason: This setting has moved to the [api_settings] section.[1]\n\nauth_strategy is deprecated for removal. Its value may be silently ignored\nin the future.\nReason: This setting has moved to the [api_settings] section.[2]\n\n[0]https://docs.openstack.org/octavia/latest/configuration/configref.html#DEFAULT.bind_host\n[1]https://docs.openstack.org/octavia/latest/configuration/configref.html#DEFAULT.bind_port\n[2]https://docs.openstack.org/octavia/latest/configuration/configref.html#DEFAULT.auth_strategy\n\nChange-Id: I30a8c6de07d2f70f398021209da5e517dd4e7fde\nCloses-Bug: #1717192",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-14 15:29:26+08:00",
+        "files": ["api.pp", "octavia_api_spec.rb"]
+      },
+      {
+        "hash": "0fdc4d39ab1b86ac5a023df3ce9c1e0fa599505e",
+        "msg": "Add api_handler option\n\nAdd the ability to configure the handler that the API communicates with.\n\nChange-Id: I2afb1b31e94f7a25942c2cbd05f71ee6328a1909",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-18 09:27:14+08:00",
+        "files": ["api.pp", "add-api-handler-a935135d2345ef23.yaml", "octavia_api_spec.rb"]
+      },
+      {
+        "hash": "763e565fcd326fc6bf8aae9dc79c4fdb36a3d55e",
+        "msg": "Configure *_domain_name to Default by default\n\nKeystone v2.0 API was removed so we have no choice but configuring\nuser_domain_name and project_domain_name otherwise it fallbacks to\nKeystone v2.0 and it fails. This patch sets the default value so we make\nsure Keystone v3 will be used out of the box for our users.\n\nChange-Id: I82eee83ce8e8dfe5003a19941708121e3eca5771",
+        "cmtr": "Harry Rybacki",
+        "date": "2017-10-06 10:42:54-04:00",
+        "files": ["authtoken.pp", "default-domain-77d3a64d09ee42ea.yaml", "octavia_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "952417f622642bb5856aa1c2a1ca2619ae317503",
+        "msg": "Add ability of managing ssh key generation\n\nThis patch add the ability to generate ssh key pair for Amphora\ninstances to use, it will be disabled by default.\n\nDepends-On: I641c3a380c5647d28535914e3a6fb5dd793b6fba\n\nChange-Id: I0e7c7df629600f027220272613fc0c85c9d27d76",
+        "cmtr": "Xingchao Yu",
+        "date": "2017-10-31 05:02:28+08:00",
+        "files": ["worker.pp", "metadata.json", "add-sshkey-gen-management-d76f17ed3f6056b9.yaml", "octavia_worker_spec.rb"]
+      },
+      {
+        "hash": "aa19faa05d9d51d63d537474a0f26c20cde33b85",
+        "msg": "Change Amphora flavor from public to private\n\nIn octavia, when create specified nova flavor for Amphora,\nit's supposed to be accessed by octavia for creating Amphora instances,\nand other projetcs/users shouldn't get this flavor[1].\n\n[1] https://github.com/openstack/octavia/blob/master/devstack/plugin.sh#L396\n\nCloses-Bug: #1729450\nChange-Id: I1d2b74dd99d949263e24b62c427c8718ec8de5b0",
+        "cmtr": "Xingchao Yu",
+        "date": "2017-11-02 06:17:27+08:00",
+        "files": ["worker.pp", "change-amphora-flavor-property-178cb1a154af80ba.yaml", "octavia_worker_spec.rb"]
+      },
+      {
+        "hash": "fc7dbda80cc8a6af1c1805167a84b5e21ff3fcb6",
+        "msg": "Add octavia::client class\n\nThis patch adds new class octavia::client to manage client,\nnote that it only supports Debian and Ubuntu, b/c there is\nno available rpm package in CentOS currently.\n\nChange-Id: I8f44676a3923702cfdaffa3a0aee3f84074321d1",
+        "cmtr": "Xingchao Yu",
+        "date": "2017-11-02 09:03:43+08:00",
+        "files": ["client.pp", "params.pp", "add-octavia-client-f5421024b0a945f0.yaml", "octavia_client_spec.rb"]
+      },
+      {
+        "hash": "65e32066a13fba5c7c0fc50fcac6c4acac0d0b83",
+        "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: I0ee204f5f6bbbc32f994a8581989d96c0a46ebb9",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-11-27 15:00:28+02:00",
+        "files": ["logging.pp", "log-json-98686537151bb119.yaml", "octavia_logging_spec.rb"]
+      },
+      {
+        "hash": "9faccf9cac24d51a8ba140a2e25eb852bbf6d004",
+        "msg": "Adding service_auth configuration\n\nAdds support for the basic set of 'service_auth' section parameters\nfor Octavia.\n\nChange-Id: Ifcd38386db386ee6d61aa7f262b1e14ac6516eb7",
+        "cmtr": "Brent Eagles",
+        "date": "2017-12-06 10:13:02-03:18",
+        "files": ["service_auth.pp", "add-service-auth-configuration-f70310c15b15443c.yaml", "octavia_service_auth_spec.rb"]
+      },
+      {
+        "hash": "a5e4f235d1f59fc720f4dcd726040ffb32936343",
+        "msg": "Support populating certificate files\n\nThis patch extends octavia::certificates to support populating\ncertificate and key files using data passed in string form.\n\nChange-Id: I8d46bad372b8c24b290500ee6040207cb808ba23",
+        "cmtr": "Brent Eagles",
+        "date": "2017-12-07 11:11:44-03:18",
+        "files": ["certificates.pp", "support-populating-cert-files-86533953f901d3b2.yaml", "octavia_certificates_spec.rb"]
+      },
+      {
+        "hash": "8cb1a195e452be579818f747b5838eefcc67f599",
+        "msg": "Add auth_type parameter to service_auth section\n\nAdd parameter to allow setting auth_type.\n\nChange-Id: I712db2e7310ba32cb68a7266c6b563ab3f4ab8cf",
+        "cmtr": "Brent Eagles",
+        "date": "2017-12-12 12:32:38-03:18",
+        "files": ["service_auth.pp", "octavia_service_auth_spec.rb"]
+      },
+      {
+        "hash": "8626d273222158d5f60a41735d6951976a96e45f",
+        "msg": "Allow disabling SSH access to amphora\n\nThis patch provides a mechanism for disabling configuration\nof the SSH key name for accessing amphora.\n\nChange-Id: Ic6cf523809e390df0263e26d5879c06986688cfa",
+        "cmtr": "Brent Eagles",
+        "date": "2017-12-13 11:11:44-03:18",
+        "files": ["worker.pp", "add-enable-ssh-access-param-1f2454d898b9b59b.yaml", "octavia_worker_spec.rb"]
+      },
+      {
+        "hash": "bab31c0ba257948e1c5e01754da0630fc3c3688d",
+        "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nChange-Id: I063979fc2944667f200c8bd774b5252241faf5f6\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2018-01-10 14:23:29-08:00",
+        "files": ["params.pp", "policy.pp", "octavia_policy_spec.rb"]
+      },
+      {
+        "hash": "d2fa948463cd4ca9929894735df37370ebcae8a0",
+        "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: Iaa8d36d4622f6b58885a8c82ac04fa489fd2ba5b",
+        "cmtr": "ZhongShengping",
+        "date": "2018-01-15 16:06:56+08:00",
+        "files": ["logging.pp", "add-use_journal-option-for-logging-9f95c7513816de6f.yaml", "octavia_logging_spec.rb"]
+      },
+      {
+        "hash": "3dc8602da67c4bed1d85cc8563773daf1b514086",
+        "msg": "Add amp_project_name to configure flavor access list\n\nAdds support for adding the project being used by octavia to create\namphora to the amphora flavor's access list.\n\nChange-Id: Iba14098d571f26e15c587b82271f00fd7cdc65d5",
+        "cmtr": "Brent Eagles",
+        "date": "2018-01-17 14:03:11-03:18",
+        "files": ["worker.pp", "add-amphora-project-name-0afeebd83e114328.yaml", "octavia_worker_spec.rb"]
+      },
+      {
+        "hash": "4bb15efe836053b872c266855f5e868375e764e5",
+        "msg": "Define octavia client package for Red Hat family\n\npython-octaviaclient is being packaged starting in RHOSP 13,\nRDO Queens and Fedora 28.\n\nChange-Id: Ide01e285bf89e39839f5c6319c2810bad206c114",
+        "cmtr": "Carlos Goncalves",
+        "date": "2018-02-08 15:41:59+00:00",
+        "files": ["params.pp", "add-octavia-client-red-hat-family-4188177cb4ebe503.yaml", "octavia_client_spec.rb"]
+      },
+      {
+        "hash": "f0068d143b94002ecf6f9b6a568fdf4b05a7da6c",
+        "msg": "Add kombu_failover_strategy option\n\nAdds the kombu_failover_strategy option for configuring\noslo.messaging.rabbit. This will determines how the next RabbitMQ node\nis chosen in case the one we are currently connected to becomes\nunavailable.\n\nChange-Id: Ia0512a8f9b3248127b9c2ee96821e4d793ae6523\nCloses-Bug: #1748353",
+        "cmtr": "ZhongShengping",
+        "date": "2018-02-09 15:13:18+08:00",
+        "files": ["init.pp", "add_rabbit_kombu_options-b446553d924dc219.yaml", "octavia_init_spec.rb"]
+      },
+      {
+        "hash": "fd3b9d66811350242615f900437f3aba29bc1d9a",
+        "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: Idfcbaa2d137c91a464fb5d49ae25fa348c67d642\nCloses-Bug: #1755102",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-12 16:33:09+08:00",
+        "files": ["sync.pp", "openstack_db_tag-825e070a8eda32b3.yaml", "octavia_db_sync_spec.rb"]
+      },
+      {
+        "hash": "5578d67159906535c0c5ddb090702de6e967135c",
+        "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: If920218e97a2a3f16174e7a19bec3047a586915b\nCloses-Bug: #1757581",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-22 11:09:50+08:00",
+        "files": ["db.pp", "add-pool_timeout-option-for-db-9130bf45e981c845.yaml", "octavia_db_spec.rb"]
+      },
+      {
+        "hash": "3ee646a7e0d3aebd899c6399fd1b45988feaf42f",
+        "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: Idb855cbd0c1192aa42f735c6a1af7004f0d0c1de",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-27 10:33:23+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-8eeeaac0ccc5c8fa.yaml"]
+      },
+      {
+        "hash": "1f3ee8eccb1f5d00e4ba6f205944e858f04facf4",
+        "msg": "Remove deprecated ensure_package option\n\nChange-Id: If45fc4c3aeb97520d7b430cf6529fd453a1a324c",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-29 12:01:15+08:00",
+        "files": ["init.pp", "remove_deprecated_ensure_package_option-8b6ede6e5dc3761c.yaml"]
+      },
+      {
+        "hash": "808cb7e7d7be11fab8ae0f396faab057d9629bc8",
+        "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: Icef9a4028767a889ae522cc1e75128a3d3546418\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
+        "cmtr": "ZhongShengping",
+        "date": "2018-04-03 16:55:03+08:00",
+        "files": ["authtoken.pp", "deprecate_auth_uri_parameter-8eb7b53f730ada01.yaml", "octavia_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "d6c8f91f6394b7bd1c82fd6212b81d4a10590a3b",
+        "msg": "Add keystone roles for Octavia policies\n\nThis patch adds creation of the necessary keystone roles to support\nusing Octavia's access policies.\n\nRelated-Bug: #1762774\nChange-Id: Ib34ad49d52bb6afba6d035cf966592e0f0fd9a85",
+        "cmtr": "Brent Eagles",
+        "date": "2018-04-11 14:30:29-02:18",
+        "files": ["roles.pp", "add-roles-for-octavia-2207bc1adea61c55.yaml", "octavia_roles_spec.rb"]
+      },
+      {
+        "hash": "31f0bd4b6057afc11d6559e873c4f9d6254695be",
+        "msg": "Debian is using python3-octaviaclient\n\nChange-Id: I0a3975def0a408eb1fc49b2ef29ccb7c29c1d6ab",
+        "cmtr": "zhubingbing",
+        "date": "2018-04-12 11:23:12+08:00",
+        "files": ["params.pp", "octavia_client_spec.rb"]
+      },
+      {
+        "hash": "a887994258d056c85760d69ff911f2fd8d3c3939",
+        "msg": "Add octavia::quota class\n\nThis patch add a new class octavia::quota to manage\nthe quota settings in Octavia services.\n\nChange-Id: Ibd7d87ae1b7df0884b4b7a6f89ba79cefea2a9cc",
+        "cmtr": "Xingchao Yu",
+        "date": "2018-05-07 12:06:25+12:00",
+        "files": ["quota.pp", "add-octavia-quota-class-7d786b98740f85a8.yaml", "octavia_quota_spec.rb"]
+      },
+      {
+        "hash": "b833ae6c16ebb3144fe7c64b8875a0bad1f99e14",
+        "msg": "Replace port 35357 with 5000 for \"auth_url\"\n\nBased on the change in Keystone Install Guide [1],\nthis patch replace port 35357 with 5000 for \"auth_url\".\n\nFor more details, please check similar changes which have been done\non other projects: Nova [2], Neutron [3], Cinder [4], Glance [5].\n\n[1] https://review.openstack.org/#/c/541857\n[2] https://review.openstack.org/#/c/562812\n[3] https://review.openstack.org/#/c/566491\n[4] https://review.openstack.org/#/c/565464\n[5] https://review.openstack.org/#/c/558932\n\nChange-Id: I6b07abc527af72241ab25a76c77914a019fcf0f4",
+        "cmtr": "melissaml",
+        "date": "2018-05-21 14:56:11+08:00",
+        "files": ["authtoken.pp", "octavia_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "0be13a60829558a14c9570cace8e5d2152979ce7",
+        "msg": "Remove deprecated rpc_backend param\n\nRemove the deprecated rpc_backend param which has been deprecated for\ntwo years. The default_transport_url has been present for a while\nnow and should be used.\n\nChange-Id: Iecc7b1a1d3f01b8b2f6435f850240ec06992f3cb",
+        "cmtr": "ZhongShengping",
+        "date": "2018-05-24 11:03:35+08:00",
+        "files": ["init.pp", "remove-deprecated-rabbit-params-975b0c89b2ef85fc.yaml"]
+      },
+      {
+        "hash": "01d2002d52a79e23c110dd161909505890a44e90",
+        "msg": "fix a typo\n\nChange-Id: Ib0fa3bc3deed52beb506667607ec80dca5c71f4a",
+        "cmtr": "melissaml",
+        "date": "2018-06-05 18:06:29+08:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "28ac2c12f9c2234086dfeaca96fff7a194d9e02b",
+        "msg": "Fix annotations\n\nChange-Id: Ifd991b5b47437f281df1203e4ee7d55a0ab3c016",
+        "cmtr": "zhubingbing",
+        "date": "2018-06-15 15:07:37+08:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "dcb613484330d2b82baf411bf41b11bd64553700",
+        "msg": "Fix the smoke testing link\n\nChange-Id: Iab92127f0add330c3923f457a9fc10f20fbb2acf",
+        "cmtr": "jacky06",
+        "date": "2018-07-30 12:31:32-04:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "14c52579f186c87dbbca61cd499e0624243af65c",
+        "msg": "Add allow_tls_terminated_listeners config option\n\nAdds the allow_tls_terminated_listeners config option to\nthe octavia::api class, this sets the\n[api_settings]/allow_tls_terminated_listeners option in\nthe octavia.conf file.\n\nChange-Id: I9da0f52addaab9c484ce5d5cfa9b233439a873e6",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-08-29 11:36:44+02:00",
+        "files": ["api.pp", "api-allow_tls_terminated_listeners-5555b0b3bc8c5313.yaml", "octavia_api_spec.rb"]
+      },
+      {
+        "hash": "6e7daccea4b0ceb3f9e9b5cbb6a51ae1d59b4b86",
+        "msg": "Add api_v1_enabled and api_v2_enabled options\n\nAdds the api_v1_enabled and api_v2_enabled config options.\n\nChange-Id: I1744d44e4f7fb0cf2fe4f916b46076554abf2ba7",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-08-29 18:22:42+02:00",
+        "files": ["api.pp", "api-v1-v2-options-393e026d4d22b94d.yaml", "octavia_api_spec.rb"]
+      },
+      {
+        "hash": "7d6badaac803aa33bdd7d0f98ae18cc441924c34",
+        "msg": "Add workers support to octavia::worker class\n\nAdds a new workers parameter that sets the amount of\nworkers for the octavia worker daemon.\n\nChange-Id: I52f052ddc757418a5a98fc4b9b8ccf31defde0c4",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-08-29 22:13:18+02:00",
+        "files": ["worker.pp", "controller-workers-947eada7f23b5da9.yaml", "octavia_worker_spec.rb"]
+      },
+      {
+        "hash": "6864cd083dd84e520ed092912851da473c5ece2f",
+        "msg": "Add octavia::nova to configure nova section\n\nAdds new class octavia::nova that can be used to\nconfigure the nova section in octavia.conf\n\nChange-Id: I7d271c0184750aa90be59a25944c29fec3c3afd2",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-08-30 09:53:56+00:00",
+        "files": ["nova.pp", "octavia-nova-0205d7406d58e871.yaml", "octavia_nova_spec.rb"]
+      },
+      {
+        "hash": "9b285e740f4fa79003b344649c069772f3f28e50",
+        "msg": "Add missing options to octavia::certificates\n\nAdds new parameter for the missing options that can\nbe configured in the certificates section in octavia.conf\n\nChange-Id: Id3de1ec92f7bc309fefaa8f96f3c353e328bfbbf",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-08-30 11:55:22+02:00",
+        "files": ["certificates.pp", "certificates-options-45294bca5186878e.yaml", "octavia_certificates_spec.rb"]
+      },
+      {
+        "hash": "6731e53bb56fe59c8453b0db5b6be5e3d1f2e160",
+        "msg": "Add octavia::glance to configure glance section\n\nAdds new class octavia::glance that can be used to\nconfigure the glance section in octavia.conf\n\nChange-Id: I249269aa774955bbb1d41e5808ac8d09fbe8598f",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-08-30 10:55:37+00:00",
+        "files": ["glance.pp", "octavia-glance-37d48b9829d6ca8d.yaml", "octavia_glance_spec.rb"]
+      },
+      {
+        "hash": "d2a9586a59576e366bf204655f2d877b19981048",
+        "msg": "Add octavia::neutron to configure nova section\n\nAdds new class octavia::neutron that can be used to\nconfigure the neutron section in octavia.conf\n\nChange-Id: I124a1a02afaf9f937b1e57d0362db53eeb026954",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-08-30 14:19:24+02:00",
+        "files": ["neutron.pp", "octavia-neutron-7d3d9cc0e95ecb11.yaml", "octavia_neutron_spec.rb"]
+      },
+      {
+        "hash": "e1531c3bcb615398d546b6bdcfee960ee67102a0",
+        "msg": "Add Octavia API WSGI support\n\nAdds support for running the Octavia API under WSGI with Apache.\n\nChange-Id: Icbb380421796ccb6592400081805e854478964c6",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-08-30 20:59:47+02:00",
+        "files": ["api.pp", "params.pp", "apache.pp", "octavia-api-wsgi-2d9469478fd2cd28.yaml", "octavia_api_spec.rb"]
+      },
+      {
+        "hash": "45673eefb52e160723d7c713902d8091ec373f08",
+        "msg": "Added missing DB params to init class\n\nChange-Id: Idb9970c396ebbe8c857ade7b662ab7aed0557474",
+        "cmtr": "Daniel Pawlik",
+        "date": "2018-08-30 20:29:37+00:00",
+        "files": ["db.pp", "init.pp", "octavia_init_spec.rb"]
+      },
+      {
+        "hash": "2b83ae20f2c18e8ce2eebfa4cdfe301625ec4ff4",
+        "msg": "Add octavia::certificates::client_ca and data\n\nThis patch adds two new parameters client_ca and\nclient_ca_data.\n\nWhen setting up a development or testing Octavia setup\nthere is no real issue to using the same CA for both\nthe client and server part (client_ca and ca_certificate, server_ca).\n\nHowever when you have a production environment you want to separate\nthe client_ca and ca_certificate/server_ca into to separate CAs.\n\nThis is because otherwise if one amphora is compromised it could use\nits certificate to access all other amphoras.\n\nThis change is backward compatible since by setting the default value\nfor client_ca to undef the pick() function will select the\nca_certificate value by default.\n\nChange-Id: I41de310daab5bf1bc623819df40dea61b852ffc9",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-08-31 18:01:10+02:00",
+        "files": ["certificates.pp", "client-ca-b05d5a5e4a93bfe3.yaml", "octavia_certificates_spec.rb"]
+      },
+      {
+        "hash": "8833f40cdd6f7946889de3856e2e01998ae1f83d",
+        "msg": "Fix stupid spacing\n\nSomehow a spacing was left in there that puppet-lint\ndid not fail on.\n\nChange-Id: I7f5a5fd47bf30e0ea9fe072856cf9c54666659cb",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-08-31 19:26:16+02:00",
+        "files": ["apache.pp"]
+      },
+      {
+        "hash": "c65d6ccae484e69987ef2b3bbcfa36a3e380f0a9",
+        "msg": "Fix the duplicated vars defined\n\noctavia client defined twice, it is unnecessary\n\nChange-Id: I235c08625c7aeb24ef372331192051bac1d8129a\nCloses-Bug: #1792606",
+        "cmtr": "zhulingjie",
+        "date": "2018-09-13 17:27:59-04:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "c0dd4061b96795d78805ac010fce9f5ab15430bb",
+        "msg": "Provide more useful fail message\n\nChange-Id: I5e2e69386c644bbec5644e0ebf6c62c10288e298\nCloses-Bug: #1792713",
+        "cmtr": "zhulingjie",
+        "date": "2018-09-13 20:30:59-04:00",
+        "files": ["params.pp"]
+      }]
+    }

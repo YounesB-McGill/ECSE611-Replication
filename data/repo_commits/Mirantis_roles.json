@@ -1,0 +1,56 @@
+    {
+      "url": "https://github.com/Mirantis/roles",
+      "pp_files": ["ca.pp", "pmlc_ceph_osd.pp", "default.pp", "compute.pp", "mongo.pp", "db.pp", "pmlc_compute.pp", "bootstrap_server.pp", "init.pp", "proxy.pp", "deploy.pp", "master.pp", "pmlc_controller.pp", "server.pp", "pmlc_mongo.pp", "controller.pp", "ceph_osd.pp"],
+      "pp_cmtrs": ["Scott Brimhall"],
+      "num_pp_commits": 7,
+      "num_tot_commits": 8,
+      "commits": [{
+        "hash": "e01ed9c154bbd9c5e71ad429cadab0b02d8880d2",
+        "msg": "Initial commit",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-27 09:18:42-07:00",
+        "files": [".fixtures.yml", ".gitignore", ".travis.yml", "CHANGELOG.md", "Gemfile", "README.md", "Rakefile", "default.pp", "deploy.pp", "bootstrap_server.pp", "proxy.pp", "server.pp", "server.pp", "init.pp", "ceph_osd.pp", "compute.pp", "controller.pp", "mongo.pp", "ca.pp", "db.pp", "master.pp", "metadata.json", "init_spec.rb", "spec_helper.rb", "init.pp"]
+      },
+      {
+        "hash": "331724b73830f8c5d2472b71de34d6483e73c87a",
+        "msg": "Change cicd firewall profile name to deploy.",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-27 09:41:52-07:00",
+        "files": ["deploy.pp"]
+      },
+      {
+        "hash": "7db117f776dcb2ed941c02d2fac24dff6fc25612",
+        "msg": "Add roles for pmlc versions of openstack boxen",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-27 12:54:11-07:00",
+        "files": ["pmlc_ceph_osd.pp", "pmlc_compute.pp", "pmlc_controller.pp", "pmlc_mongo.pp"]
+      },
+      {
+        "hash": "18c59dabd7fe721ab70bf155f22d1b417f37ef96",
+        "msg": "Remove unnecessary/unconfigured modules for pmlc",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-27 13:24:31-07:00",
+        "files": ["pmlc_ceph_osd.pp", "pmlc_compute.pp", "pmlc_controller.pp", "pmlc_mongo.pp"]
+      },
+      {
+        "hash": "4c24a1c0a934dd5a8e49def49ff64288e6c5f4bb",
+        "msg": "Revert \"Remove unnecessary/unconfigured modules for pmlc\"\n\nThis reverts commit 18c59dabd7fe721ab70bf155f22d1b417f37ef96.",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-27 17:46:44-07:00",
+        "files": ["pmlc_ceph_osd.pp", "pmlc_compute.pp", "pmlc_controller.pp", "pmlc_mongo.pp"]
+      },
+      {
+        "hash": "e015defa639aaaaeda428c47e3381cd350985a6e",
+        "msg": "debug sudo",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-27 19:18:15-07:00",
+        "files": ["pmlc_controller.pp"]
+      },
+      {
+        "hash": "5b94f457643cce0d6d2bee70deabfa18bfe229fa",
+        "msg": "Revert \"debug sudo\"\n\nThis reverts commit e015defa639aaaaeda428c47e3381cd350985a6e.",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-27 19:20:12-07:00",
+        "files": ["pmlc_controller.pp"]
+      }]
+    }

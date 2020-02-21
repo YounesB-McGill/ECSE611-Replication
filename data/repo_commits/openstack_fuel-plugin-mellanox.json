@@ -1,0 +1,252 @@
+    {
+      "url": "https://github.com/openstack/fuel-plugin-mellanox",
+      "pp_files": ["compute.pp", "controller_sriov.pp", "init.pp", "configure_mlnx_neo.pp", "cinder.pp", "params.pp", "controller.pp", "configure_iser_child.pp", "compute_sriov.pp", "configure_qos.pp", "agent.pp", "eswitchd.pp", "verify_kernel_devel.pp", "snapshot_patch.pp", "iser_rename.pp", "controller_ib_pv.pp", "testvm.pp", "iser_child.pp", "cinder_iser.pp"],
+      "pp_cmtrs": ["Rawan Herzallah", "Gil Meir", "Hamdy Khader", "root", "Aviram Bar-Haim"],
+      "num_pp_commits": 35,
+      "num_tot_commits": 169,
+      "commits": [{
+        "hash": "2badc837fc6ce5c31bfa984e3275781b968dabe3",
+        "msg": "Adding Ethernet flow\n\n* The pre_deployment stage runs after OS provisioning, and before\n  Openstack is installed. It does the following:\n  - Installs OFED\n  - Sets SR-IOV related configurations in the driver & FW\n  - Renames the iSER interface if iSER is used\n\n* The post_deployment stage runs after the Openstack installation.\n  It does the following:\n  - Runs puppet manifests to configure each role: controller, cinder, compute\n  - Replaces the existing TestVM image with the Mellanox-Cirros image\n\nChange-Id: Icd31cd38079f8ffa93f4dc34df88107b318a5df3\nSigned-off-by: Gil Meir <gilmeir@mellanox.com>",
+        "cmtr": "Gil Meir",
+        "date": "2015-04-15 14:28:34+03:00",
+        "files": [".gitignore", "README.md", "common", "delete_images.rb", "install_ofed.sh", "link_astute_file.sh", "log_stage.sh", "mellanox_settings.py", "cinder.pp", "compute.pp", "controller.pp", "iser_rename.pp", "testvm.pp", "LICENSE", "Modulefile", "README.md", "Rakefile", "network.filters", "ini_setting.rb", "ini_setting.rb", "mellanox_agent_config.rb", "mellanox_eswitchd_config.rb", "agent.pp", "cinder.pp", "compute.pp", "controller.pp", "eswitchd.pp", "init.pp", "iser_rename.pp", "params.pp", "metadata.json", "spec_helper.rb", "iser_rename.erb", "init.pp", "replace_cirros.sh", "sriov.sh", "environment_config.yaml", "metadata.yaml", "pre_build_hook", "post.spec", "tasks.yaml"]
+      },
+      {
+        "hash": "844146b224f1234ec65c508705313cdef1a415ac",
+        "msg": "Run cirros replacement task only on primary-controller role\n\nChange-Id: Id5f4e15d500f080569bed055656e1ca7f7612fd1\nSigned-off-by: Gil Meir <gilmeir@mellanox.com>",
+        "cmtr": "Gil Meir",
+        "date": "2015-04-19 11:06:19+03:00",
+        "files": ["testvm.pp", "metadata.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "dca052069c4765f465d537b2630e695f20059141",
+        "msg": "Fixed branches in the different deployment flows\n\n* puppet sriov manifests depend on sriov being enabled\n* puppet iser manifests depend on iser being enabled\n* cirros-mellanox test-vm image is replaced only if sriov is enabled\n* sriov validation after reboot executed only if sriov is enabled\n* mellanox_settings set storage_vlan only if vlan is set on storage network\n\nChange-Id: Ia0b5f95bd555dbde8c78bfbdeabb312f1e6e8a17\nSigned-off-by: Gil Meir <gilmeir@mellanox.com>",
+        "cmtr": "Gil Meir",
+        "date": "2015-04-20 11:07:49+03:00",
+        "files": ["mellanox_settings.py", "cinder.pp", "compute.pp", "controller.pp", "cinder_iser.pp", "compute_sriov.pp", "controller_sriov.pp", "replace_cirros.sh", "sriov.sh", "metadata.yaml"]
+      },
+      {
+        "hash": "d779723fec74af48dbc82b38450ed60b24d244af",
+        "msg": "Add Infiniband support\n\nAdd packages and configurations required for Openstack\ninstallation based on Infiniband network.\n\nChange-Id: I9385cf30f93d0c3aaa89c95cbef9cddfaa50b7c8",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2015-04-27 17:01:01+03:00",
+        "files": ["install_ofed.sh", "mellanox_settings.py", "move_ubuntu_ib_interfaces_conf.sh", "configure_iser_child.pp", "controller.pp", "iser_rename.pp", "configure_iser_child.pp", "controller_sriov.pp", "iser_child.pp", "iser_child_create.erb", "replace_cirros.sh", "metadata.yaml", "pre_build_hook", "tasks.yaml"]
+      },
+      {
+        "hash": "650ee39193670b77c1cf06eca23b57ae840f5365",
+        "msg": "Fix IPOIBD to support new Fuel OVS-LB arch\n\nIn order to support arch of LB -> OVS -> LB, few changes\nrequired to the EIPOIBD.\nThis commits adds these changes to a tmp ipoibd file\n(until it will be patched to MLNX_OFED package).\n\nChange-Id: I1b4f641b5227708a2d4128e112cd55fc8e149ea8",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2015-05-03 19:33:35+03:00",
+        "files": ["install_ofed.sh", "ipoibd", "controller.pp", "controller_ib_pv.pp", "controller_sriov.pp", "mlnx_dnsmasq_pv_config.erb", "metadata.yaml", "pre_build_hook"]
+      },
+      {
+        "hash": "251884878306151bb0b3b92fcbb80fd1506d075b",
+        "msg": "Fix IB and VFs order issues\n\nChange provider of DHCP service and set a default value\nto iSER interface for servers without VFs, before adding\nintel_iommu to kernel parameters and reboot.\n\nChange-Id: Idf3eddcf9cb2226998b186febb7cc720cda39e70",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2015-05-14 17:35:03+03:00",
+        "files": ["move_ubuntu_ib_interfaces_conf.sh", "controller_ib_pv.pp", "controller_sriov.pp", "iser_rename.erb", "sriov.sh", "metadata.yaml"]
+      },
+      {
+        "hash": "232990b071dff3f1e4930f480cd7c17b566a954f",
+        "msg": "Verify that kernel devel packages are installed\n\nIn CentOS there can be 2 different kernels, 3.10 based\nand 2.6 based. In case 2.6 based kernel is chosen, kernel-devel\npackage, that is required for MLNX_OFED recompilation, is not installed.\n\nChange-Id: I90d38d74ba470befed48cacab52be7e9fe3ef6b0",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2015-05-28 14:26:50+03:00",
+        "files": ["verify_kernel_devel.pp", "metadata.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "3bd7d716d9c72324064362900da75ff562fdc993",
+        "msg": "Add SRIOV snapshot patch for hostdev devices\n\nChange-Id: I583e4ab3af9711347f4431282318865dfa4ecf29",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2015-06-01 17:02:19+03:00",
+        "files": ["sriov.patch", "compute_sriov.pp", "params.pp", "snapshot_patch.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "7558789bbf78223ec2c431a1f157772ccdba43b4",
+        "msg": "Fix Ubuntu duplicated declaration of nova-compute\n\nChange-Id: I389bb54b2f8d7e4fbf50b93ea72465ba619e1fcf",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2015-06-03 14:12:02+03:00",
+        "files": ["agent.pp", "snapshot_patch.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "517c32b8f62ba0254f27d950c6a91a4f15db560a",
+        "msg": "Integrations and workarounds for Fuel 7.0\n\nChange-Id: Id3bb45b3d4319dc58d2038433dc58aa4956cea5d",
+        "cmtr": "root",
+        "date": "2015-10-22 14:31:50+00:00",
+        "files": ["mellanox_settings.py", "sriov.patch", "compute_sriov.pp", "params.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "656f2863f0c514c2e1083c873b10c5f586265cb9",
+        "msg": "Add fix to Cinder.pp for storage_address\n\nChange-Id: I24ea0c0e70980a6097937afeca4355c71b501eb0",
+        "cmtr": "Rawan Herzallah",
+        "date": "2015-10-27 08:50:31+00:00",
+        "files": ["cinder.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "1cc660e344efb7051a897f9986b88c5fa999ab61",
+        "msg": "Adding a fix to installing neutron mlnx on controller and comopute nodes\n\nChange-Id: I5338fa0eb0c3e775e14e81cc15eb1c50bb63415e",
+        "cmtr": "Rawan Herzallah",
+        "date": "2015-10-27 13:34:37+00:00",
+        "files": ["network.filters", "agent.pp", "controller_sriov.pp", "params.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "c03921affabefe64d21a5ee454e7565e5eada099",
+        "msg": "Add support for sriovnicswitch and VXLAN offload\n\nNew configurations for fuel mellanox plugin to use sriovnicswitch\nmechanism driver for ethernet networks, it also gives the user the\noption to enable vxlan offloading to imporove performance and reduce\nCPU overhead.\n\nChange-Id: I480d4efb31fde126a51594bdbf48307a4e63ea74",
+        "cmtr": "Rawan Herzallah",
+        "date": "2016-01-20 10:35:26+00:00",
+        "files": ["common", "generate_pci_passthrough_whitelist.py", "mellanox_settings.py", "compute.pp", "controller.pp", "compute_sriov.pp", "controller_sriov.pp", "params.pp", "sriov.sh", "vxlan_offloading.sh", "environment_config.yaml", "metadata.yaml", "pre_build_hook", "tasks.yaml"]
+      },
+      {
+        "hash": "1c0b59227998d7b20c62111b07dc0611bfd8dce7",
+        "msg": "Support new deployment tasks structure\n\nWith adding:\n  1. New repositories creation before MLNX_OFED installation.\n  2. Fix udev renaming of eIPoIB.\n  3. Set direct port configurations for Infiniband.\n\nChange-Id: I3abba26bb6094927eb33d8b69d65d098a20bc18b",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2016-02-11 14:53:52+02:00",
+        "files": ["generate_pci_passthrough_whitelist.py", "install_ofed.sh", "openibd", "compute.pp", "compute_sriov.pp", "controller_sriov.pp", "deployment_tasks.yaml", "metadata.yaml"]
+      },
+      {
+        "hash": "362b635b7c4f3d0c5ef57c1f617f34961ce12f77",
+        "msg": "Move iSER configurations to use iscsi_protocol\n\nStarting from Liberty release LVM iSER volume driver is deprecated and\niSER configurations are being done using iscsi_protocol parameter.\nMoreover, in order to use iSER transport protocol, a physical\nendpoint is required.\n\nChange-Id: I03046e229ccc221a4a391ad3cf7d03721aa2574d",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2016-02-11 15:24:18+02:00",
+        "files": ["cinder_iser.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "689fe24394985364e0919ee2f9015de8486d3c0d",
+        "msg": "Flush br-storage IP address for RDMA connection\n\nChange-Id: I846b4f0c5a23184d4d91fcc3a4eb9eef149943e6",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2016-02-14 21:09:46+02:00",
+        "files": ["mellanox_settings.py", "cinder_iser.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "4223cfde07022467bff7b9f755bd4c1416189567",
+        "msg": "Fix MLNX mechanism driver deb init file\n\nChange-Id: I64f6951f6f31da416437bd337d4a5abaa1f8525a",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2016-02-16 08:34:03+00:00",
+        "files": ["agent.pp", "params.pp"]
+      },
+      {
+        "hash": "7eb10350c101156d42dfbda78d734f9590db7153",
+        "msg": "Configure direct port agent\n\nChange-Id: I83f45e55c14237c22c67ba5c3235a3c6af3d84d9",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2016-02-16 20:05:52+02:00",
+        "files": ["ini_setting.rb", "sriov_nic_agent_config.rb", "compute_sriov.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "aad3f8a966ec48628f5c7ad443e84e7242a6d696",
+        "msg": "Release extra VF for SR-IOV use in IB\n\nChange-Id: Ic2ed4b60295b2a1f5aaf85aeb6851a7840d06b4a",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2016-02-17 20:10:01+02:00",
+        "files": ["generate_pci_passthrough_whitelist.py", "compute.pp", "compute_sriov.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "ae58e9faec45d129661d3258e26e1d143bdccc3d",
+        "msg": "Fix DHCP broadcast reply in IB\n\nChange-Id: I0006302a5977955641e582251754887374ed1801",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2016-02-21 18:32:18+02:00",
+        "files": ["controller.pp", "controller_ib_pv.pp", "controller_sriov.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "74542858a4e0eb1829f369399ca0f792acac1158",
+        "msg": "Fix nova instance creation with direct neutron port\n\nAdded support for dual port NIC CX card configuration and nova\ninstance creation with direct port type.\n\nChange-Id: I2a45b407fc4b5e98bf349fb708890510e6e7377f",
+        "cmtr": "Rawan Herzallah",
+        "date": "2016-02-24 15:21:09+00:00",
+        "files": ["compute_sriov.pp", "sriov.sh", "metadata.yaml"]
+      },
+      {
+        "hash": "6c010bb84fe784420ade39de96d7d6aec3c35464",
+        "msg": "Fix nova compute service duplication for IB\n\nChange-Id: Iafa394f59c379ca450b700a2f0e67ad91276fbf4",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2016-02-25 12:09:25+02:00",
+        "files": ["agent.pp", "compute_sriov.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "fe5e47ba560872378e621bb7c79064c30b61aea4",
+        "msg": "Fix parallel restart of DHCP on IB HA controllers\n\nChange-Id: Idd41618587a0f96fadb69553900338c19320e485",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2016-02-27 10:12:33+02:00",
+        "files": ["controller_sriov.pp", "deployment_tasks.yaml", "metadata.yaml"]
+      },
+      {
+        "hash": "81b452307404f6acafb164aa249f732f735b1a5e",
+        "msg": "Configure Mellanox NEO SDN mechanism driver\n\nFor auto VLAN provisioning for private VLAN networks\n\nChange-Id: I9b571ec8734d19c279fc1c40213c6bae7981b4bb",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2016-03-01 11:25:21+02:00",
+        "files": ["configure_mlnx_neo.pp", "controller.pp", "controller_sriov.pp", "deployment_tasks.yaml", "metadata.yaml", "pre_build_hook"]
+      },
+      {
+        "hash": "f5431f3a4e0512a0a1b831aeacb8b1fd39db301e",
+        "msg": "Support QoS over VLAN network ports\n\nAdded the relevant configurations to enable QoS over vlan netowrk ports\nwhen SR-IOV is enabled over ConnectX-3 / ConnectX-3 pro HCA.\n\nChange-Id: Icd1617f308f0333db6c3b23801616478b9663149",
+        "cmtr": "Rawan Herzallah",
+        "date": "2016-03-03 12:43:43+00:00",
+        "files": ["common", "configure_qos.sh", "controller.pp", "configure_qos.pp", "deployment_tasks.yaml", "metadata.yaml"]
+      },
+      {
+        "hash": "517345f0db3ec46cfa9c2e41b83c0bd713b9c6a5",
+        "msg": "Post setting Mellanox interfaces\n\n1. Moving IB iser child to persistent configurations.\n2. Resetting VFs num in non controller nodes.\n\nChange-Id: I00cd3038aaeade99047983513b7e1c8f886f38e7",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2016-03-08 19:54:45+02:00",
+        "files": ["common", "post_set_mellanox_interfaces.sh", "configure_iser_child.pp", "sriov.sh", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "c9ffc114b21b96e7f040da62616e9944efe01047",
+        "msg": "Fix mellanox plugin naming in scripts\n\nAdded a more robust way to find mellanox plugin name and version\n\nChange-Id: I44f57411806ad4c9e58bd2211df3e0461f77b575",
+        "cmtr": "Rawan Herzallah",
+        "date": "2016-03-09 07:05:02+00:00",
+        "files": ["compute_sriov.pp", "metadata.yaml", "common", "create_mellanox_vpi_bootstrap"]
+      },
+      {
+        "hash": "3083194a7dca7c33d96857a7195e73ea96c8af83",
+        "msg": "Fix sriovnicswitch vendor ID to static value\n\nAdded support for Mellanox NIC VFs\n\nChange-Id: Ie4de722934733f08d6398008bf676d74b9408f0f",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2016-03-15 13:24:47+02:00",
+        "files": ["controller.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "e14c36ad7bf24d6a2f4e981269fbf1e3fe8addfa",
+        "msg": "Fix QoS Configurations\n\nAdded compute neutron sriov agent related configurations.\n\nChange-Id: I64ce8be3d90c90cd43c93d6a6b2214cf864796a1",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2016-03-16 21:11:54+02:00",
+        "files": ["configure_qos.sh", "compute.pp", "controller.pp", "configure_qos.pp", "metadata.yaml", "pre_build_hook"]
+      },
+      {
+        "hash": "23c4cf34949fa3b666f82d9b673c3de3259373a2",
+        "msg": "Fix IB iSER after reboot and untagged iSER support\n\nChange-Id: Ie2195e9b6a52ebae7f4876b09d94d158b022bb91",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2016-03-20 14:14:15+02:00",
+        "files": ["mellanox_settings.py", "post_set_mellanox_interfaces.sh", "configure_iser_child.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "f219298364c6541fd0c82a753efb2e621e1b18dc",
+        "msg": "Reboot all controllers DHCP agents in IB HA SR-IOV\n\nIn order to enable DHCP broadcast reply for improving PV support\nover new networks\n\nChange-Id: I28ba2f46df6e33ac8a466e8ccea1c32550a5d4e6",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2016-03-20 21:37:39+02:00",
+        "files": ["controller_sriov.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "42c47329fcc644093ef91686b9ce3000b232a127",
+        "msg": "Implement ConnectX-4 configurations\n\nAdd changes to implement features for ConnectX-4 adapters\n\nChange-Id: Ie66162a2cb37ea3c1766f20bf218fb239eca8cf3",
+        "cmtr": "Rawan Herzallah",
+        "date": "2016-04-21 14:06:07+00:00",
+        "files": ["common", "configure_qos.sh", "install_ofed.sh", "mellanox_settings.py", "post_set_mellanox_interfaces.sh", "compute.pp", "controller.pp", "iser_rename.pp", "compute_sriov.pp", "controller_sriov.pp", "iser_rename.erb", "sriov.sh", "vxlan_offloading.sh", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "pre_build_hook"]
+      },
+      {
+        "hash": "a837fe3ca0f9064055ec4956a8757d0f727cd486",
+        "msg": "Fix ConnectX4-LX SR-IOV Support\n\nAdding pci_vendor_dev for Connect-X4 LX in order to support vfs\ncreated on such adapters\n\nCloses-Bug: 1618814\nChange-Id: I416cf9f172968afbe7b86e7a806a3695ddb1fca0",
+        "cmtr": "Hamdy Khader",
+        "date": "2016-09-02 19:37:22+00:00",
+        "files": ["controller.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "e007626f1f4c9df3e84af793766ebe2a59d3cb1e",
+        "msg": "Adding support for Fuel 9 deployment over Ethernet\n\nWith SR-IOV and iSER over Cinder\n\nChange-Id: Ic8456cd73e57e74c372ba751f061e9849a65fffc",
+        "cmtr": "Aviram Bar-Haim",
+        "date": "2016-11-03 17:19:01+02:00",
+        "files": ["cinder_iser.pp", "params.pp", "metadata.yaml", "common"]
+      },
+      {
+        "hash": "b488aaaf7a589d4fda10d91100cabfcd24bb2115",
+        "msg": "Add support for ConnectX-5 adapters\n  - upgrade mlnx-ofed-fuel to version 4.0-2.0.0.1\n  - add maximum number of CX5 VFs to 96\n\nChange-Id: Ie3612d5b9a488ade49dbfc65389be9e9f9442bb0",
+        "cmtr": "Hamdy Khader",
+        "date": "2017-07-13 16:27:07+03:00",
+        "files": ["common", "mellanox_settings.py", "controller.pp", "sriov.sh", "pre_build_hook"]
+      }]
+    }

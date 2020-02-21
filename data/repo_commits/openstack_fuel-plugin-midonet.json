@@ -1,0 +1,252 @@
+    {
+      "url": "https://github.com/openstack/fuel-plugin-midonet",
+      "pp_files": ["midolman_site.pp", "midonet-host-registry.pp", "midonet-enable-ip-forward.pp", "midonet-nsdb.pp", "cleanup.pp", "midonet-edge-router-cleanup-bgp-gw.pp", "midonetapi_site.pp", "midonet-gateway-static-router-ifaces.pp", "compute_site.pp", "db.pp", "midonet-install-nova-network.pp", "midonet-define-repositories.pp", "midonet-compute-nova.pp", "midonet-edge-router-setup-static-per-host.pp", "midonet-edge-router-setup-static.pp", "midonet-cleanup-masquerade.pp", "cassandra.pp", "midonet-edge-router-setup.pp", "stop_zookeeper.pp", "midonet-generate-openrc-for-gw.pp", "nsdb.pp", "params.pp", "controller.pp", "controller_site.pp", "start_zookeeper.pp", "midonet-cleanup-static.pp", "midonet-edge-router-setup-bgp-gw.pp", "midonet_agent.pp", "neutron.pp", "midonet-trick-l23network.pp", "midonet-restart-agent.pp", "midonet-install-analytics.pp", "kern_module.pp", "midonet-override-hiera.pp", "midonet-edge-router-setup-bgp.pp", "api.pp", "midonet-mem-horizon-override.pp", "tunnels_site.pp", "midonet-install-java8.pp", "zookeeper.pp", "midonet-install-agent.pp", "midonet-install-mem.pp", "midonet-install-haveged.pp", "midonet-bgp-interfaces.pp", "repos.pp", "compute_neutron.pp", "midonetapi.pp", "midonet-recreate-neutron-db.pp", "midonet-ensure-rootwrap.pp", "midonet-install-api.pp", "midonet-restart-neutron.pp", "midonet-reconfigure-neutron.pp", "midonet-cleanup-static-per-host.pp", "midonet-edge-router-cleanup-bgp.pp", "midonet-replace-guess-func.pp", "midonet-horizon-lb-firewall.pp", "midonet-install-cluster.pp", "midonet-gateway-bgp.pp", "enable_ip_forward.pp", "midonet-neutron-networks.pp", "midolman.pp", "midonet-neutron-configure.pp", "midonet-gateway-static.pp", "midonetdb_site.pp", "midonet-disable-services.pp", "midonet-restart-cluster.pp", "midonet-delete-datapaths.pp"],
+      "pp_cmtrs": ["Carmela Rubinos", "Ukov Dmitry", "Alex Ruiz Estradera", "Samir Ibrad\u017ei\u0107", "Jaume Devesa", "Antoni Segura Puimedon"],
+      "num_pp_commits": 35,
+      "num_tot_commits": 101,
+      "commits": [{
+        "hash": "ea9058d84edcf25d08613cdf005ff484eb3f2fb0",
+        "msg": "Iintial implemenation of Fuel Midonet plugin\n\nChange-Id: I022e1d8d20036b7c50d92f009ad25d17a11dda55",
+        "cmtr": "Ukov Dmitry",
+        "date": "2015-04-07 17:49:24+03:00",
+        "files": ["LICENSE", "README.md", "cleanup.pp", "compute_site.pp", "controller_site.pp", "enable_ip_forward.pp", "midolman_site.pp", "midonetapi_site.pp", "midonetdb_site.pp", "CentOS-Base.repo", "epel.repo", "create_tunnel_zone.rb", "generate_zookeeper_hash.rb", "ini_setting.rb", "ruby.rb", "ruby.rb", "ini_setting.rb", "midolman_config.rb", "midonet_host.rb", "midonet_tunnel_zone.rb", "neutron_plugin_midonet.rb", "cassandra.pp", "compute_neutron.pp", "controller.pp", "db.pp", "kern_module.pp", "midolman.pp", "midonet_agent.pp", "midonetapi.pp", "neutron.pp", "params.pp", "repos.pp", "zookeeper.pp", "CentOS-Base.repo", "cassandra.yaml.erb", "create_tunnel_zone.sh", "epel.repo", "midokura.repo.erb", "midonet-api.xml.erb", "midonet_plugin.ini.erb", "midonetrc.erb", "server.xml.erb", "start_zookeeper.sh", "stop_zookeeper.sh", "web.xml.erb", "zoo.cfg.erb", "start_zookeeper.pp", "stop_zookeeper.pp", "tunnels_site.pp", "environment_config.yaml", "metadata.yaml", "pre_build_hook", ".gitkeep", ".gitkeep", "tasks.yaml"]
+      },
+      {
+        "hash": "f6899c07cdc2985ef0893b82a3921d8054352a9a",
+        "msg": "Added copyright\n\nChange-Id: Ia597c83b2d7ea193e4a15b7ad15071f5553f87a4",
+        "cmtr": "Ukov Dmitry",
+        "date": "2015-04-17 18:42:13+03:00",
+        "files": ["cleanup.pp", "compute_site.pp", "controller_site.pp", "enable_ip_forward.pp", "midolman_site.pp", "midonetapi_site.pp", "midonetdb_site.pp", "create_tunnel_zone.rb", "generate_zookeeper_hash.rb", "ini_setting.rb", "ruby.rb", "ruby.rb", "ini_setting.rb", "midolman_config.rb", "midonet_host.rb", "midonet_tunnel_zone.rb", "neutron_plugin_midonet.rb", "cassandra.pp", "compute_neutron.pp", "controller.pp", "db.pp", "midolman.pp", "midonet_agent.pp", "midonetapi.pp", "neutron.pp", "params.pp", "repos.pp", "zookeeper.pp", "start_zookeeper.pp", "stop_zookeeper.pp", "tunnels_site.pp"]
+      },
+      {
+        "hash": "ed636f50fc49bf2fce39d097ae7913821756149c",
+        "msg": "Updated year for copyright\n\nChange-Id: Id6316109572f33a1a835ec9d494b5c2cdcdc8fa2",
+        "cmtr": "Ukov Dmitry",
+        "date": "2015-04-20 10:45:03+03:00",
+        "files": ["LICENSE", "cleanup.pp", "compute_site.pp", "controller_site.pp", "enable_ip_forward.pp", "midolman_site.pp", "midonetapi_site.pp", "midonetdb_site.pp", "create_tunnel_zone.rb", "generate_zookeeper_hash.rb", "ini_setting.rb", "ruby.rb", "ruby.rb", "ini_setting.rb", "midolman_config.rb", "midonet_host.rb", "midonet_tunnel_zone.rb", "neutron_plugin_midonet.rb", "cassandra.pp", "compute_neutron.pp", "controller.pp", "db.pp", "midolman.pp", "midonet_agent.pp", "midonetapi.pp", "neutron.pp", "params.pp", "repos.pp", "zookeeper.pp", "start_zookeeper.pp", "stop_zookeeper.pp", "tunnels_site.pp"]
+      },
+      {
+        "hash": "1f0d9d22530221848863e58e0a168d3c15ef395f",
+        "msg": "Adapt the NSDB nodes\n\nRely on midonet-midonet puppet module to deploy ZooKeeper and Cassandra\nservices.\n\nPrevious zookeeper and cassandra manifests have been deleted.\n\nNew NSDB (No State DataBase) role has to be created on the Fuel roles,\nas well as its corresponding group. Way to do it is informed on the\n`doc/content/user-guide.rst` file\n\nChange-Id: Iac949876b20e1bfe761b27269b3c4414cb768b17",
+        "cmtr": "Jaume Devesa",
+        "date": "2015-07-19 10:46:50+02:00",
+        "files": [".gitignore", "install_midonet_module.sh", "midonetdb_site.pp", "nsdb.pp", "generate_zookeeper_hash.rb", "cassandra.pp", "zookeeper.pp", "cassandra.yaml.erb", "midokura.repo.erb", "start_zookeeper.sh", "stop_zookeeper.sh", "zoo.cfg.erb", "start_zookeeper.pp", "stop_zookeeper.pp", "user-guide.rst", "environment_config.yaml", "metadata.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "42b1053123b813a087c5475ca2606f924cc0d2d0",
+        "msg": "Adapt the API to new plugin\n\nExecute the midonet::midonet_api instead of the plugins' own code. This\nwill let us to delete a lot of code of the plugin for a better\nmaintenance.\n\nChange-Id: Idce5f5d27de102c2408b92c04df8eeff1de598c3",
+        "cmtr": "Jaume Devesa",
+        "date": "2015-07-20 12:43:40+02:00",
+        "files": ["api.pp", "controller.pp", "install_controller_dependencies.sh", "install_nsdb_dependencies.sh", "generate_api_zookeeper_ips.rb", "generate_zookeeper_hash.rb", "midonetapi.pp", "midonet-api.xml.erb", "server.xml.erb", "web.xml.erb", "user-guide.rst", "metadata.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "3b9b7ee013ba0e26b2e2c3e21150ea635c960505",
+        "msg": "Finish the 2.0 plugin main features\n\nAlthough I know this not follows best practices, this huge commit\nreorganizes and defines the mail functionality for the rest of the\nplugin refactor work:\n\n * Renames and moves tasks to puppet/manifests/midonet-* names\n * Stops, reconfigures and restarts Neutron\n * Makes DHCP and metadata work\n * Improves documentation\n\nChange-Id: I6d5ed20ba212a089b808c09fe50a8aedaab74721",
+        "cmtr": "Jaume Devesa",
+        "date": "2015-07-30 17:58:23+02:00",
+        "files": [".gitignore", "api.pp", "clean-neutron.sh", "cleanup.pp", "compute_site.pp", "controller.pp", "controller_site.pp", "install_dependencies.sh", "install_nsdb_dependencies.sh", "midolman_site.pp", "midonet-delete-datapaths.pp", "midonet-disable-services.pp", "midonet-enable-ip-forward.pp", "midonet-host-registry.pp", "midonet-install-agent.pp", "midonet-install-api.pp", "midonet-nsdb.pp", "midonet-reconfigure-neutron.pp", "midonet-recreate-neutron-db.pp", "midonet-restart-neutron.pp", "generate_api_zookeeper_ips.rb", "generate_zookeeper_hash.rb", "CentOS-Base.repo", "epel.repo", "create_tunnel_zone.rb", "ini_setting.rb", "ruby.rb", "ruby.rb", "ini_setting.rb", "midolman_config.rb", "midonet_host.rb", "midonet_tunnel_zone.rb", "neutron_plugin_midonet.rb", "compute_neutron.pp", "controller.pp", "db.pp", "kern_module.pp", "midolman.pp", "midonet_agent.pp", "neutron.pp", "params.pp", "repos.pp", "CentOS-Base.repo", "create_tunnel_zone.sh", "epel.repo", "midonet_plugin.ini.erb", "midonetrc.erb", "tunnels_site.pp", "user-guide.rst", "metadata.yaml", "pre_build_hook", "python-neutron-plugin-midonet-2014.2.2.1.0-2.el6.noarch.rpm", "tasks.yaml"]
+      },
+      {
+        "hash": "4dbca661d2a3c9ae4408a6b2671adc15c7c97cb3",
+        "msg": "Adding gateway functionality\n\nAdd the gateway role functionality on the midonet plugin\n\nChange-Id: I3fc13dfc03e61ae64ee41a0a9224b8052c9eca5d",
+        "cmtr": "Jaume Devesa",
+        "date": "2015-08-08 10:38:45+02:00",
+        "files": ["midonet-gateway-bgp.pp", "metadata.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "3eafd711087606651fdbe9a96a3105b02d5121b3",
+        "msg": "Making the gateway work\n\nWith this change we can make it work the gateway role.\n\nChange-Id: I6c283f3a0342dbd1f399cb52d5592d1d4182ee1c",
+        "cmtr": "Jaume Devesa",
+        "date": "2015-08-10 13:00:18+00:00",
+        "files": ["README.md", "README.rst", "install_dependencies.sh", "startup.conf", "midonet-delete-datapaths.pp", "midonet-gateway-bgp.pp", "midonet-host-registry.pp", "midonet-install-agent.pp", "midonet-install-api.pp", "midonet-reconfigure-neutron.pp", "midonet-restart-neutron.pp", "midonet-trick-l23network.pp", "generate_api_zookeeper_ips.rb", "generate_remote_peers.rb", "public_network_hash.rb", "environment_config.yaml", "metadata.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "e7b90be3f23db129df65713cd5b4b3cdc6ab3bc2",
+        "msg": "Force openstack-juno for midonet repo\n\nWhen defining the repo, force the 'juno' one, since Fuel 6.1 works with\nJuno. Don't need to download the rdo-release repo.\n\nChange-Id: I7bcda0d5549ac0cdae5b935b99a58c6885503093\nFixes-bug: #1485886",
+        "cmtr": "Jaume Devesa",
+        "date": "2015-08-18 18:06:47+02:00",
+        "files": ["midonet-install-agent.pp", "midonet-install-api.pp"]
+      },
+      {
+        "hash": "4467faf829fdb6ea6059455518a38d46410d9d35",
+        "msg": "Adding custom credentials\n\nShamelessly, I did harcoded all the admin tenant user/passwords. This\ncommit gets the fuel settings from Astute to pass the credentials to\npuppet-midonet modules\n\nChange-Id: I80a2b9e1ccf9aa094971d5a029459e32bc4977f4\nCloses-bug: #1488648",
+        "cmtr": "Jaume Devesa",
+        "date": "2015-08-27 17:59:06+02:00",
+        "files": ["midonet-gateway-bgp.pp", "midonet-install-agent.pp", "midonet-install-api.pp", "midonet-nsdb.pp", "midonet-reconfigure-neutron.pp", "midonet-restart-neutron.pp"]
+      },
+      {
+        "hash": "cb613cd966bea8cd1d3da31cc64c2f812170996e",
+        "msg": "Added sleep for 3s before starting midolman service\n\nThis patch adds a new exec with a 3s sleep within the\nmidonet-delete-datapaths.pp manifest to prevent midolman service to\nstart before the midonet datapath is properly deleted.\n\nChange-Id: I14f2a1d0462448d37fc922f02a39dd3349e96f93",
+        "cmtr": "Carmela Rubinos",
+        "date": "2015-10-02 16:26:04+02:00",
+        "files": ["midonet-delete-datapaths.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "5850695dd77529de7f9a8d03991064fb0dcf5538",
+        "msg": "Install nova-network package if OS is Debian-based\n\nThis patch adds a new puppet manifest and a new task to be executed in\nthe compute role, which will install nova-rootwrap network filters in\ncase the OS is Debian-based.\n\nhttp://docs.midonet.org/docs/latest/quick-start-guide/ubuntu-1404_juno\n/content/nova_compute_node.html\n\nChange-Id: I6e9ca5ad5b637306cea86a13ebb0558309d4363b",
+        "cmtr": "Antoni Segura Puimedon",
+        "date": "2015-10-08 10:10:05+00:00",
+        "files": ["midonet-install-nova-network.pp", "tasks.yaml"]
+      },
+      {
+        "hash": "0400022e159cf3b909e9b8458b4889aaf23c232c",
+        "msg": "Allow to install Midokura Enterprise MidoNet from UI\n\nThis patch adds new options in the Fuel Web UI that let the user choose\nwhether to install MidoNet or Enterprise MidoNet.\n\nAccording to what the user chooses, it also automatically changes the\nrepositories.\n\nChange-Id: I21775d257203abe744314fd97602584714ec6fff",
+        "cmtr": "Carmela Rubinos",
+        "date": "2015-10-09 23:49:50+02:00",
+        "files": ["midonet-install-agent.pp", "midonet-install-api.pp", "midonet-nsdb.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "1aad5b7564f1e386ce976325885a68d5787cf6b4",
+        "msg": "Change runtime value for net.ipv4.ip_forward\n\nThis patch adds an exec which forces sysctl to change the runtime value\nfor net.ipv4.ip_forward\n\nChange-Id: I1772a1295363d8f8e5b3107facf95388931c5492\nCloses-bug: #1505581",
+        "cmtr": "Carmela Rubinos",
+        "date": "2015-10-14 13:38:50+02:00",
+        "files": ["midonet-enable-ip-forward.pp"]
+      },
+      {
+        "hash": "733f66a703c0b923926d6a5382aee098a95e7261",
+        "msg": "Add a condition to stop midolman\n\nSometimes midolman services does not run when installed. I ignore why,\nbut this behavior can make the plugin fail when try to stop the service\nwhen it is already stopped. Add an 'onlyif' condition to execute the\n'service stop' statement before removing datapaths.\n\nChange-Id: Id495b20f9afbce42f842a6c7cf37d5b0b332acfd",
+        "cmtr": "Jaume Devesa",
+        "date": "2015-11-17 17:16:18+01:00",
+        "files": ["midonet-delete-datapaths.pp"]
+      },
+      {
+        "hash": "8deb5bcac0e56dab6315239c2a1ecacb8f8ed385",
+        "msg": "Provide correct sources for apt MEM\n\nThe way we defined the MEM repos for Ubuntu was wrong. This patch fixes\nthe issue. 'Trusty' must be difined as the 'stage' and apt::source must\nbe replaced by apt::key\n\nChange-Id: I2019b35ee7c5eba84db56a752f0fc82b3d7e99f9",
+        "cmtr": "Jaume Devesa",
+        "date": "2015-11-18 15:48:21+01:00",
+        "files": ["midonet-install-agent.pp", "midonet-install-api.pp", "midonet-nsdb.pp"]
+      },
+      {
+        "hash": "b3f95e4c77cc85880b79ffb9234816b92f30986a",
+        "msg": "Create a new task for repositories\n\nThere is not need anymore to define the repository in each puppet\nmanifest task because changes on puppet-midonet. So much better to\ncreate the repositories first and make the assumption that they are\nthere on the other tasks.\n\nChange-Id: Iccf2ab9b921c22d34f3eaa201e63e32bdc172683",
+        "cmtr": "Jaume Devesa",
+        "date": "2015-11-24 15:16:53+01:00",
+        "files": ["midonet-define-repositories.pp", "midonet-install-agent.pp", "midonet-install-api.pp", "midonet-nsdb.pp", "tasks.yaml"]
+      },
+      {
+        "hash": "b1b8e68431c37d9b7aeb476c55716ca2a857e5cf",
+        "msg": "Update metadata version for a new tag\n\nUpdate the plugin version in metadata file and also updated\nthe fuel-plugin-midonet local path for a task, according to\nthe new version.\n\nChange-Id: I830e8c667028cda215dc7f5a70201619c880b43c",
+        "cmtr": "Carmela Rubinos",
+        "date": "2016-01-12 15:55:34+01:00",
+        "files": ["startup.conf", "midonet-gateway-bgp.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "4a57eb3af5da983377587783262e4c8914dd657a",
+        "msg": "Adapt metadata and params to Fuel 7.0\n\nAdded python-neutron-plugin-midonet to Ubuntu repository\n\nAlso deleted the same package for CentOS, since it's not supported for\nFuel 7.0\n\nInstall Kilo instead of Juno\n\nEdited several manifest to adapt it to Fuel 7.0\n\nAdded new tasks and roles files for Fuel 7.0\n\nThese files were not available for previous Fuel versions\n\nMinor changes in environment_config and tasks files\n\nChange-Id: Ib99c4b955fb709c1e05d395a6085d8435f8a36da",
+        "cmtr": "Carmela Rubinos",
+        "date": "2016-01-13 12:41:09+01:00",
+        "files": ["startup.conf", "midonet-define-repositories.pp", "midonet-delete-datapaths.pp", "midonet-disable-services.pp", "midonet-gateway-bgp.pp", "midonet-host-registry.pp", "midonet-install-agent.pp", "midonet-install-api.pp", "midonet-nsdb.pp", "midonet-reconfigure-neutron.pp", "midonet-restart-neutron.pp", "generate_api_zookeeper_ips.rb", "generate_zookeeper_hash.rb", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "node_roles.yaml", "python-neutron-plugin-midonet-2014.2.2.1.0-2.el6.noarch.rpm", "python-neutron-plugin-midonet_2015.1.1_all.deb", "tasks.yaml"]
+      },
+      {
+        "hash": "9053dff5675611b6e0de24376de0242fc44393fc",
+        "msg": "Fix function to return correct data\n\ngenerate_zookeeper_hash function was generating wrong syntax in zoo.cfg\nZK config file\n\nChange-Id: I59c9a81efb2ad599f422647c6a7be901387da531",
+        "cmtr": "Carmela Rubinos",
+        "date": "2016-01-20 21:00:18+01:00",
+        "files": ["midonet-nsdb.pp", "generate_zookeeper_hash.rb"]
+      },
+      {
+        "hash": "f619a12fcbedbf9415c4e9abc2f7160f3f3ba9c1",
+        "msg": "Fix Neutron recreate db timeout\n\nThis fixes default puppet 300s tiemout for neutron-recreate-db\ncommand. Under virtualised HA test conditions it usually takes\nalmost 300s, and sometimes times-out.\n\nChange-Id: Ic48d63b9053ff704e54253c14b563a66ec5628ff",
+        "cmtr": "Samir Ibradžić",
+        "date": "2016-03-01 19:49:34+09:00",
+        "files": ["midonet-recreate-neutron-db.pp"]
+      },
+      {
+        "hash": "e14e86bb972852d50409bf882da31ae75cbd296d",
+        "msg": "Add BGP subnet, local peer IP and remove secondary BGP\n\nThis adds two extra configuration options required for working\nBGP setup, BGP subnet CIDR & local GBP perr IP address. I also\nremoves unsupported secondary BGP configuration options.\n\nChange-Id: I644b45cfa76d858835980414355df79fa8cfa875",
+        "cmtr": "Samir Ibradžić",
+        "date": "2016-03-01 20:51:53+09:00",
+        "files": ["midonet-gateway-bgp.pp", "generate_remote_peers.rb", "environment_config.yaml"]
+      },
+      {
+        "hash": "a226fbc3caae8c6fff631e3dfceb634680c6dacf",
+        "msg": "Remove neutron-l3-agent from corosync\n\nThis totally removes neutron-l3-agent from corosync setup,\nallowing Fuel health-check test to pass.\n(HA tests; Check pacemaker status)\n\nChange-Id: I88f7f4569629335611a8d8e78a2bfef1bfaaf122",
+        "cmtr": "Samir Ibradžić",
+        "date": "2016-03-04 00:38:57+09:00",
+        "files": ["midonet-disable-services.pp"]
+      },
+      {
+        "hash": "e4f2482856d42c24b0b2e710ac49e09e93b245ff",
+        "msg": "Fix puppet firewall module class usage\n\nhttps://tickets.puppetlabs.com/browse/MODULES-1525\n\nChange-Id: I7aa339b96ab5e71cfb8e8dfe6d4a5cffa92ed85c",
+        "cmtr": "Samir Ibradžić",
+        "date": "2016-03-15 04:41:59+09:00",
+        "files": ["midonet-install-agent.pp", "midonet-install-api.pp", "midonet-nsdb.pp"]
+      },
+      {
+        "hash": "3ea512a1eb0f55829b2d3a0939359315a0d0c9a7",
+        "msg": "Introduce Fuel 8\n\nAll changes needed to be compatible with Fuel 8\n\nChange-Id: I729bbc3b9b96899f0fb18ec45e1debab0783e409",
+        "cmtr": "Jaume Devesa",
+        "date": "2016-03-29 09:35:19+02:00",
+        "files": [".gitignore", "README.rst", "components.yaml", "clean-neutron.sh", "install_dependencies.sh", "install_midonet_puppet_modules.sh", "midonet-fuel-plugin.yaml", "startup.conf", "midonet-compute-nova.pp", "midonet-define-repositories.pp", "midonet-delete-datapaths.pp", "midonet-disable-services.pp", "midonet-enable-ip-forward.pp", "midonet-ensure-rootwrap.pp", "midonet-gateway-bgp.pp", "midonet-host-registry.pp", "midonet-install-agent.pp", "midonet-install-api.pp", "midonet-neutron-configure.pp", "midonet-neutron-networks.pp", "midonet-nsdb.pp", "midonet-override-hiera.pp", "midonet-reconfigure-neutron.pp", "midonet-recreate-neutron-db.pp", "midonet-replace-guess-func.pp", "midonet-restart-neutron.pp", "deployment_tasks.yaml", "Makefile", "installation.rst", "bgp_params.png", "floating_network.png", "mem.png", "mem_credentials.png", "nodes_to_roles.png", "other.png", "overridden_options.png", "plugin_config.png", "public_network.png", "public_to_all.png", "tunnel_type.png", "tunneling.png", "appendix.rst", "appendixes.rst", "bgp-peer.rst", "conf.py", "description.rst", "guide.rst", "index.rst", "installation.rst", "licenses.rst", "terms.rst", "environment_config.yaml", "metadata.yaml", "node_roles.yaml", "post_install.sh", ".gitkeep", "python-neutron-plugin-midonet_1.0.0_all.deb", "python-neutron-plugin-midonet_2015.1.1_all.deb", "fuel-plugin-midonet.rst", "tasks.yaml", "volumes.yaml"]
+      },
+      {
+        "hash": "c0467c23cecb25d811af1bf8d05732f77ef9f57f",
+        "msg": "Remove unnecessary exec tasks from BGP GW manifest\n\nTwo task, 'set down external bridge' and 'remove bridge ip address'\nare not really necessary, and they break external network\nconnectivity from GW node by removing default gateway\n\nChange-Id: Ib3813747615d4b1bd8a1ca7fd36ba87d58f211f0",
+        "cmtr": "Samir Ibradžić",
+        "date": "2016-05-01 23:27:44+09:00",
+        "files": ["midonet-gateway-bgp.pp"]
+      },
+      {
+        "hash": "09e1b36d90d145e71cedb1c685c327bf797b3aa2",
+        "msg": "Fix idempotence issue with agent install manifest\n\nIt is known that MidoNet agent conflicts with openvswitch-switch service,\nthe two can not co-exist. Agent manifest already purges the package\nproviding the openvswitch service which results in service being stopped,\nwe do not need to explicitly call service class (which BTW breaks compute\nre-deploy, when package is alredy uninstalled)\n\nChange-Id: I6b11790d013072dc9dcfaa32a278793834c8e2c8",
+        "cmtr": "Samir Ibradžić",
+        "date": "2016-05-02 23:00:43+09:00",
+        "files": ["midonet-install-agent.pp"]
+      },
+      {
+        "hash": "a3074f9be30784d42177d6e41d92c3f2f8a306a6",
+        "msg": "Introduce Fuel 9 and Midonet 5.x\n\nAll changes needed to be compatible with\nFuel 9 and Midonet 5.x\n\nChange-Id: I9040e5452a37b451b01ba79f56b0a9e98fa726ad",
+        "cmtr": "Alex Ruiz Estradera",
+        "date": "2016-11-11 13:11:28+01:00",
+        "files": [".gitignore", "README.rst", "install_midonet_common_modules_and_gems.sh", "install_midonet_openstack_package.sh", "install_midonet_package_from_source.sh", "install_midonet_puppet_modules.sh", "override_neutron_module.sh", "midonet-fuel-plugin.yaml", "midonet.yaml", "startup-static.conf", "startup.conf", "midonet-bgp-interfaces.pp", "midonet-cleanup-masquerade.pp", "midonet-cleanup-static-per-host.pp", "midonet-cleanup-static.pp", "midonet-compute-nova.pp", "midonet-define-repositories.pp", "midonet-edge-router-cleanup-bgp-gw.pp", "midonet-edge-router-cleanup-bgp.pp", "midonet-edge-router-setup-bgp-gw.pp", "midonet-edge-router-setup-bgp.pp", "midonet-edge-router-setup-static-per-host.pp", "midonet-edge-router-setup-static.pp", "midonet-edge-router-setup.pp", "midonet-enable-ip-forward.pp", "midonet-gateway-bgp.pp", "midonet-gateway-static-router-ifaces.pp", "midonet-gateway-static.pp", "midonet-generate-openrc-for-gw.pp", "midonet-host-registry.pp", "midonet-install-agent.pp", "midonet-install-analytics.pp", "midonet-install-api.pp", "midonet-install-cluster.pp", "midonet-install-java8.pp", "midonet-install-mem.pp", "midonet-mem-horizon-override.pp", "midonet-neutron-configure.pp", "midonet-neutron-networks.pp", "midonet-nsdb.pp", "midonet-override-hiera.pp", "midonet-replace-guess-func.pp", "midonet-restart-agent.pp", "midonet-restart-cluster.pp", "midonet-trick-l23network.pp", "filter_nodes.rb", "generate_bgp_edge_port_hash.rb", "generate_bgp_edge_subnet_hash.rb", "generate_bgp_neighbors_for_gateway_bgp.rb", "generate_cidr_from_ip_netlength.rb", "generate_fqdn_list.rb", "generate_port_bindings_to_delete.rb", "generate_router_interfaces_list.rb", "generate_router_interfaces_to_delete.rb", "loadyamlv2.rb", "cleanup_masquerade.erb", "cleanup_static_gateway.sh.erb", "create_router_interfaces.sh.erb", "create_router_interfaces_static.sh.erb", "delete_router_interfaces_bgp.sh.erb", "remove_router_interfaces.sh.erb", "vhost_mem_manager.erb", "deployment_tasks.yaml", "installation.rst", "environment_config.yaml", "metadata.yaml", "node_roles.yaml", ".gitkeep", "python-neutron-plugin-midonet_1.0.0_all.deb", "tasks.yaml", "volumes.yaml"]
+      },
+      {
+        "hash": "e298c21bae191acba4e886a4ff45e89cea3b6126",
+        "msg": "Fix Bugs on 9.1 Plugin\n\nFixed a race condition for zookeeper/cassandra\nRemoved unused variables\nFixed WS endpoints\nAllow SSL Horizon Endpoint\n\nChange-Id: I6434b57825a7f69151a769fe2d5a9b3474e20a48",
+        "cmtr": "Alex Ruiz Estradera",
+        "date": "2016-11-21 11:35:04+01:00",
+        "files": ["midonet-cleanup-masquerade.pp", "midonet-cleanup-static.pp", "midonet-edge-router-setup-static-per-host.pp", "midonet-edge-router-setup-static.pp", "midonet-edge-router-setup.pp", "midonet-horizon-lb-firewall.pp", "midonet-install-cluster.pp", "midonet-install-mem.pp", "midonet-neutron-networks.pp", "midonet-nsdb.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "5c17cbe4f2163758250891ee5b4d9c0232a82b98",
+        "msg": "Use FQDN to find the mgmt add for nsdb\n\nLets use FQDN since is is safer than using the\nhostname.\n\nChange-Id: I9aa2ce7e9ad0456a05bdc5a4a840f14e459f5dea",
+        "cmtr": "Alex Ruiz Estradera",
+        "date": "2016-11-30 16:42:08+01:00",
+        "files": ["midonet-nsdb.pp"]
+      },
+      {
+        "hash": "e3574ed3ffd504d16886acc746c553a26add6a6f",
+        "msg": "Make sure DHCP and Metadata agents are dead\n\nChange-Id: I37968533075dc8c4045f7a2e61279a89b8e54a50",
+        "cmtr": "Alex Ruiz Estradera",
+        "date": "2016-12-05 10:17:22+01:00",
+        "files": ["midonet-disable-services.pp", "midonet-neutron-configure.pp", "get_node_by_fqdn.rb", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "074aa8a2f415cca3d6ccb1420f77041f44190617",
+        "msg": "Add 5.4 plugin!\n\nChange-Id: Id7428c5135eab2f8c9622c735e4be384c1ceb6cc",
+        "cmtr": "Alex Ruiz Estradera",
+        "date": "2017-02-13 14:41:56+01:00",
+        "files": ["LICENSE", "install_midonet_common_modules_and_gems_54.sh", "override_neutron_module.sh", "startup-static.conf", "startup.conf", "midonet-bgp-interfaces.pp", "midonet-cleanup-masquerade.pp", "midonet-cleanup-static.pp", "midonet-compute-nova.pp", "midonet-define-repositories.pp", "midonet-edge-router-cleanup-bgp-gw.pp", "midonet-edge-router-cleanup-bgp.pp", "midonet-edge-router-setup-bgp-gw.pp", "midonet-gateway-static-router-ifaces.pp", "midonet-gateway-static.pp", "midonet-install-analytics.pp", "midonet-install-cluster.pp", "midonet-install-haveged.pp", "midonet-install-mem.pp", "midonet-neutron-configure.pp", "midonet-override-hiera.pp", "vhost_mem_manager.erb", "deployment_tasks.yaml", "description.rst", "installation.rst", "licenses.rst", "revisions.rst", "environment_config.yaml", "metadata.yaml", "node_roles.yaml"]
+      },
+      {
+        "hash": "c1b055318ebe75c41ebcdb7accad4b0577487a9e",
+        "msg": "Add midonet repo\n\nChange-Id: Icdebd2db9750d259fe63f15a2c68044946d7280c",
+        "cmtr": "Alex Ruiz Estradera",
+        "date": "2017-02-13 16:11:26+01:00",
+        "files": ["midonet-define-repositories.pp"]
+      },
+      {
+        "hash": "2b25ab714db61bb0c3c6d02a4db5a36f10f9c544",
+        "msg": "Fix the MEM repo\n\nChange-Id: I33f9ffdfd04803b5404bfd4e5548495d18605ed6",
+        "cmtr": "Alex Ruiz Estradera",
+        "date": "2017-02-14 16:12:47+01:00",
+        "files": ["midonet-define-repositories.pp"]
+      },
+      {
+        "hash": "fed5d7dc2fe39b538cbc7c32213194e94293bc84",
+        "msg": "Fix the repositories script\n\nChange-Id: Ic7720efb7d8dae7dd06e6c637827f8c38eac0763",
+        "cmtr": "Alex Ruiz Estradera",
+        "date": "2017-02-15 17:45:06+01:00",
+        "files": ["midonet-define-repositories.pp"]
+      }]
+    }

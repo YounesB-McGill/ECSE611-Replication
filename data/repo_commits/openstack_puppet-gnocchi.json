@@ -1,0 +1,798 @@
+    {
+      "url": "https://github.com/openstack/puppet-gnocchi",
+      "pp_files": ["logging.pp", "db.pp", "init.pp", "sync.pp", "postgresql.pp", "metricd.pp", "params.pp", "cors.pp", "redis.pp", "authtoken.pp", "config.pp", "policy.pp", "deps.pp", "influxdb.pp", "client.pp", "api.pp", "storage.pp", "statsd.pp", "s3.pp", "mysql.pp", "site.pp", "swift.pp", "generic_service.pp", "file.pp", "ceph.pp", "apache.pp", "auth.pp"],
+      "pp_cmtrs": ["Yanis Guenane", "Emilien Macchi", "Pradeep Kilambi", "Xing Zhou", "Benedikt Trefzer", "Matthew J. Black", "Julien Danjou", "David Moreau Simard", "Sebastien Badia", "Cody Herriges", "Juan Antonio Osorio Robles", "Athlan-Guyot sofer", "Tobias Urdin", "ZhongShengping", "melissaml", "Thomas Goirand", "Christian Schwede", "Gael Chamoulaud", "Swapnil Kulkarni (coolsvap)", "Yuan Xiaohua", "zhubingbing", "Carlos Camacho", "ZhijunWei", "Mathieu Gagne\u0301", "Sharat Sharma", "Alex Schultz", "Denis Egorenko", "Mohammed Naser", "Alfredo Moralejo", "Iury Gregory Melo Ferreira", "Evan Giles", "Zuo ZongMing", "Trevor McCasland"],
+      "num_pp_commits": 113,
+      "num_tot_commits": 308,
+      "commits": [{
+        "hash": "7acdab3657028d353ed86df6d603f8d3c933e475",
+        "msg": "Add site.pp for example\n\nThis is how we will install gnocchi service.",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-12-29 13:47:37+01:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "5b9d6a5bc6b89f99a228bb2449d9950e091dae63",
+        "msg": "Implement Gnocchi keystone resources\n\n* Manage user, user/role, service and endpoints.\n* Update the README with service description.",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-12-29 14:06:15+01:00",
+        "files": ["README.md", "auth.pp", "gnocchi_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "33f1836b8aa32c0270a1b61ee835f7e1f841cfff",
+        "msg": "Implement Gnocchi database support\n\n* MySQL\n* PostgreSQL",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-12-29 18:09:12-05:00",
+        "files": ["mysql.pp", "postgresql.pp", "sync.pp", "gnocchi_db_mysql_spec.rb", "gnocchi_db_postgresql_spec.rb"]
+      },
+      {
+        "hash": "71ac56260893d93d73096fe364b59e3fe5455a40",
+        "msg": "Implement init class\n\nAdd ::gnocchi with basic parameters.",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-12-29 18:09:12-05:00",
+        "files": ["init.pp", "gnocchi_init_spec.rb"]
+      },
+      {
+        "hash": "0df7e3f616dd4f14315a9f3412553c1c694ad5a6",
+        "msg": "Implement API service\n\n* Import generic_service\n* Create params\n* Implement gnocchi::api",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-12-29 18:09:12-05:00",
+        "files": ["api.pp", "generic_service.pp", "params.pp", "gnocchi_api_spec.rb"]
+      },
+      {
+        "hash": "e083e56f365e29321bc66a36f02864d618f5016d",
+        "msg": "Implement Swift storage driver\n\nConfigure Swift storage driver.",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-12-29 18:09:12-05:00",
+        "files": ["swift.pp", "gnocchi_storage_swift_spec.rb"]
+      },
+      {
+        "hash": "72955bebc68660e8ac6f1806e29a56f8083fc85d",
+        "msg": "Implement file storage driver\n\nConfigure file storage driver.",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-12-29 18:09:13-05:00",
+        "files": ["file.pp", "swift.pp", "gnocchi_storage_file_spec.rb"]
+      },
+      {
+        "hash": "3b839c576a9e32066cd5ed96c8596e5b464d8956",
+        "msg": "Fix unit tests\n\n* fix reassignment in params.pp (it was a typo)\n* delete useless param in swift rspec",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-12-29 21:11:23-05:00",
+        "files": ["params.pp", "gnocchi_storage_swift_spec.rb"]
+      },
+      {
+        "hash": "9d7e2042282a893da08aa4715a220516036fcc1e",
+        "msg": "Migrate postgresql backend to use openstacklib::db::postgresql\n\nLet migrate to the new openstacklib::db::postgresql helper for\npostgresql backend. This commit also unpin postgresql fixture\n(openstacklib support now the latest version of postgre module).\n\nImplements: blueprint commmon-openstack-database-resource",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-12-30 18:05:57+01:00",
+        "files": [".fixtures.yml", "postgresql.pp", "gnocchi_db_postgresql_spec.rb"]
+      },
+      {
+        "hash": "faff1fc96cefad870f6228ca750745dda760b86d",
+        "msg": "Implement Ceph Backend\n\nGnocchi has a Ceph backend.\nThis patch implements the configuration to use it.\n\nAlso fix puppet-lint for MySQL class.\n\nChange-Id: I2455bead3644de9961c9a15ece8e72233c9dde1e",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-01-14 17:26:05-05:00",
+        "files": ["mysql.pp", "ceph.pp", "gnocchi_storage_ceph_spec.rb"]
+      },
+      {
+        "hash": "9671923d9880419bc46025117346c862fe4cb148",
+        "msg": "Fix db sync relationships\n\nThe gnocchi puppet module doesn't specify a 'gnocchi' package (or\ntitle), the package declaration is managed by generic_service define,\nand the package title is generated using service name (eg. 'api') and\nthe prefix 'gnocchi-', so let's switch to 'gnocchi-api' for package\ndependency.\n\nThe gnocchi puppet module doesn't specify a 'gnocchi' user, let's remove\nthis relationship.\n\nAnd finally this patch fix the relationship about 'database/connection'\nin order to use Gnocchi_config instead of Keystone_config.\n\nThis patch also remove deprecated [database]/sql_* group names.\n\nChange-Id: I25b86efd5d0253d4528d2de5cec9cb498de82502",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-02-25 16:05:36+00:00",
+        "files": ["api.pp", "sync.pp", "gnocchi_api_spec.rb"]
+      },
+      {
+        "hash": "4438badb1499ceed11b32287f861de2ce5961122",
+        "msg": "Add Puppet 4.x lint checks\n\nThis changes the puppet-lint requirement to 1.1.x, so that we can use\npuppet-lint plugins. Most of these plugins are for 4.x compat, but some\njust catch common errors.\n\nChange-Id: I3a35ddd0e550a307bd1200fc9aa63e156a508f80",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-03-10 11:38:32+01:00",
+        "files": ["Gemfile", "site.pp", "api.pp", "generic_service.pp", "init.pp"]
+      },
+      {
+        "hash": "b7b1706bcbe9a4d296d8ce821ac09a708b1380d7",
+        "msg": "MySQL: change default MySQL collate to utf8_general_ci\n\nInstall & configure MySQL database by using utf8_general_ci collation\nwhich is the way documented in OpenStack [1] and already the default\nin puppetlabs-mysql [2].\n\n[1] http://goo.gl/GA5gyZ\n[2] https://github.com/puppetlabs/puppetlabs-mysql/blob/master/manifests/db.pp#L7\n\nChange-Id: I56c19b78ff4d9b313d666f6ede7591848556b840\nCloses-bug: #1446375",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-04-21 20:39:37+00:00",
+        "files": ["mysql.pp", "gnocchi_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "efa68f8d01515330b6b527c080d232abe6c02e40",
+        "msg": "acceptance: Added noop acceptance test\n\ngnocchi packaging is not yet ready, thus we cant do functional testing\non this module, but beaker jobs are now voting in the OpenStack CI this\ntherefore blocks all patches on puppet-gnocchi module.\n\nThis patch add a noop acceptance test in order to unlock the CI for\npuppet-gnocchi.\n\nThis patch also inclued https://review.openstack.org/#/c/195486/\n\n lint: Fix lint issues (missing documentation for define types)\n The gem 'puppet-lint-param-docs' was bumped to 1.2.0 and now handle\n class and define type. This patch fix lint issues (missing documentation).\n\nChange-Id: I6f46d82c14b950ce511d9000f72eeb3220f782c3",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-06-25 12:25:12+02:00",
+        "files": ["Gemfile", "generic_service.pp", "basic_gnocchi_spec.rb", "default.yml", "nodepool-centos7.yml", "nodepool-trusty.yml", "ubuntu-server-1404-x64.yml", "spec_helper_acceptance.rb"]
+      },
+      {
+        "hash": "14558869ea888202c0d9f5f1094f56bae7d7e829",
+        "msg": "keystone/auth: make service description configurable\n\nThis commit adds the service description as a class parameter in order to allow\nusers to update from a previous version if the service description is changed\n(incorrectly spelled or wrong description)\n\nChange-Id: I2cd251e722fc4fc2bcaffb06525501f73c9c8245\nCloses-Bug: #1468407",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-06-26 09:39:50+00:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "fc3353698e912b0aab2f5a8da7f6e6bcc5a471b9",
+        "msg": "Add gnocchi::config class\n\nOther modules provide an X::config class to be able to specify\nparameters that are not yet part of the module. Gnocchi was missing this\nfeature. This commit aims to add it for puppet-gnocchi.\n\nChange-Id: I925ae084dc9dfcbf7cb7a13558de5256d39f6301",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-07-20 10:58:33+02:00",
+        "files": ["config.pp", "gnocchi_config_spec.rb"]
+      },
+      {
+        "hash": "b3e503c3e09b24c1540ac13bba8c07181f10563a",
+        "msg": "Add tag to package and service resources\n\nIn order to be able to take an action after all the packages of the\nmodule have been installed/updated or all the services have been\nstarted/restarted, we set a 'gnocchi-package' and 'gnocchi-service'\ntag for each package and service of this module.\n\nAt the moment, there is a generic openstack tag that is not specific\nenough if one wants to take action upon a single module change.\n\nUse case :\n\nIf an action needs to be taken after all the packages have been\ninstalled or updated : Package <| tag == 'gnocchi-package' |> -> X\n\nChange-Id: I90902e01bd095e1b0f6a2944ceedfc53de6f7b01",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-07-22 21:19:25+02:00",
+        "files": ["generic_service.pp", "shared_examples.rb"]
+      },
+      {
+        "hash": "46925dd1475392ffea156ddd91c7a7c43a271f2c",
+        "msg": "Rely on autorequire for config resource ordering\n\nCurrently we specify the ordering of config resources wherever it is\nnecessary based on the presence of the file it will write to, or the\npresence of the package in charge of providing the file it will write\nto.\n\nThose kind of ordering can be specified directly at the resource level\nusing the autorequire mechanism. With this patch, any config resource\nwill make sure the package in charge of providing the file will be\ninstalled first.\n\nChange-Id: I3b0df55fa4d827934185f8e213ad89d360fb56a0",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-08-12 19:00:38+02:00",
+        "files": ["gnocchi_config.rb", "api.pp", "gnocchi_config_spec.rb"]
+      },
+      {
+        "hash": "328e29c871b02dfee003fb9557027eaca06a03c8",
+        "msg": "Put all the logging related parameters to the logging class\n\nCurrently logging configuration is splitted in two distinct classes,\nthe api.pp and the logging.pp classes. This review aims to centralize\nall logging related parameters in a single class, the logging.pp one.\n\nThe impacted parameters are :\n\n  * use_syslog\n  * use_stderr\n  * log_facility\n  * verbose\n  * debug\n  * log_dir\n  * log_file\n\nThis change remains backward compatible with what is currently in place.\n\nChange-Id: I9f69d50020c703115625fdcc62708dc57dd465ce",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-10-01 09:48:50+02:00",
+        "files": ["api.pp", "logging.pp", "gnocchi_api_spec.rb", "gnocchi_logging_spec.rb"]
+      },
+      {
+        "hash": "4d64bd45a79005a170b2407a5053356f2d5e09fb",
+        "msg": "Introduce gnocchi::db class\n\nCurrent modules[1][2][3] implements a\n<component>::db class that is not implemented in gnocchi.\n\nThis commit aims to apply here the same logic.\n\n[1] https://github.com/openstack/puppet-nova/blob/master/manifests/db.pp\n[2]\nhttps://github.com/openstack/puppet-designate/blob/master/manifests/db.pp\n[3]\nhttps://github.com/openstack/puppet-ceilometer/blob/master/manifests/db.pp\n\nChange-Id: I9bd224740740c3e587f4ae2c5e645d2ad5db98ba",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-10-12 15:11:24+02:00",
+        "files": ["api.pp", "db.pp", "init.pp", "params.pp", "gnocchi_api_spec.rb", "gnocchi_db_spec.rb"]
+      },
+      {
+        "hash": "2ecad6fdd0a2e9efe46c389548f387eff522183c",
+        "msg": "db: Use postgresql lib class for psycopg package\n\nThis patch introduce the same design than mysql for postgresql\nby requiring dedicated lib::python class instead of declaring\na new resource package within gnocchi module.\n\nChange-Id: I72ea82c49ace7fd87f1d906670f6473a79b33e34",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-10-20 15:49:36+02:00",
+        "files": ["db.pp", "params.pp", "gnocchi_db_spec.rb"]
+      },
+      {
+        "hash": "feee9118239824e4908903ba015eac3e889b5f8d",
+        "msg": "Implement API service & dependencies\n\nThis patch rewrite puppet-gnocchi to be compliant with other modules.\nIt takes example at how puppet-aodh was written.\n\n* Update init.pp to match Gnocchi requirements\n* Update config.pp\n* Add policy.pp\n* Add storage.pp for carbonara\n* Update db configuration\n* Update keystone/auth.pp\n* Add acceptance for API service for Centos only (not packaged on Ubuntu)\n* Update unit tests\n\nChange-Id: I82400b1e30f3700ab7a3d006b6bb143351bcc830",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-11-06 15:43:42-05:00",
+        "files": ["api.pp", "config.pp", "db.pp", "mysql.pp", "sync.pp", "generic_service.pp", "init.pp", "auth.pp", "logging.pp", "params.pp", "policy.pp", "storage.pp", "apache.pp", "basic_gnocchi_spec.rb", "gnocchi_api_spec.rb", "gnocchi_db_mysql_spec.rb", "gnocchi_db_spec.rb", "gnocchi_init_spec.rb", "gnocchi_keystone_auth_spec.rb", "gnocchi_logging_spec.rb", "gnocchi_policy_spec.rb", "gnocchi_storage_spec.rb", "gnocchi_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "a22687f4ed81af9de84bcbd5ff43591ad21dd349",
+        "msg": "Implement Gnocchi Statsd support\n\n* Manage Gnocchi statsd package & service\n* Manage Gnocchi configuration\n* Complete example manifests and acceptance tests with the new class.\n* Make sure db_sync is run before gnocchi services, otherwise statsd\n  would fail to start.\n\nChange-Id: Ib894571889a69e67760402217f9fc18a339ced19",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-11-24 13:54:31+00:00",
+        "files": ["site.pp", "api.pp", "params.pp", "statsd.pp", "basic_gnocchi_spec.rb", "gnocchi_statsd_spec.rb"]
+      },
+      {
+        "hash": "13adea7faa59fdecc7c1ec2607df74ef82c0213d",
+        "msg": "Add Influxdb as a possible backend storage for Gnocchi\n\nChange-Id: I83bb9ed2e9a54bf34240f90fd6579d97a2631f5f",
+        "cmtr": "Evan Giles",
+        "date": "2015-12-03 10:25:58+11:00",
+        "files": ["influxdb.pp", "gnocchi_storage_influxdb_spec.rb"]
+      },
+      {
+        "hash": "1d0ba66a12b4869adc90b293061a02254a015261",
+        "msg": "Implement ::gnocchi::client\n\nCreate ::gnocchi::client class that takes care of python-gnocchiclient\npackage.\n\nChange-Id: I1118f48fb5cbeaaa920035b1ba14767744c8a083",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-12-08 12:18:58-05:00",
+        "files": ["site.pp", "client.pp", "params.pp", "basic_gnocchi_spec.rb", "gnocchi_client_spec.rb"]
+      },
+      {
+        "hash": "9377bbb813fa9692e8983dabca1155245c43ee0d",
+        "msg": "Switch gnocchi to use os_service_default fact\n\nThis change switches the gnocchi module to use the os_service_default\nfact for configuration options that default to '<SERVICE DEFAULT>'.\n\nRelated-bug: #1515273\nChange-Id: I88f51a7025905b381c117675afc30a9ec1756c5b\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-12-09 16:00:11+01:00",
+        "files": ["init.pp", "logging.pp", "gnocchi_api_spec.rb", "gnocchi_client_spec.rb", "gnocchi_db_mysql_spec.rb", "gnocchi_db_postgresql_spec.rb", "gnocchi_db_spec.rb", "gnocchi_init_spec.rb", "gnocchi_logging_spec.rb", "gnocchi_policy_spec.rb", "gnocchi_statsd_spec.rb", "gnocchi_storage_ceph_spec.rb", "gnocchi_storage_file_spec.rb", "gnocchi_storage_spec.rb", "gnocchi_storage_swift_spec.rb", "gnocchi_wsgi_apache_spec.rb", "spec_helper.rb"]
+      },
+      {
+        "hash": "9005f63e2345bbd1e706932a0e85b487d7cd4039",
+        "msg": "Fix ::gnocchi::statsd class parameters documentation\n\nChange-Id: Ia788b460818744059fd861b4922aebce0a086736\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-12-10 14:45:07+01:00",
+        "files": ["statsd.pp"]
+      },
+      {
+        "hash": "9786b38533abec984fde0638c17d55658388f717",
+        "msg": "Support of PyMySQL driver for MySQL backend\n\nThis change adds the ability to use the python-pymysql library as a\nbackend for MySQL connections. This change also updates the acceptance\ntest to leverage the pymsql driver.\n\nChange-Id: I535c6e045d9dbb7cc953275ffe07235d68bb38e4",
+        "cmtr": "Alex Schultz",
+        "date": "2016-01-04 17:09:19-07:00",
+        "files": ["db.pp", "params.pp", "basic_gnocchi_spec.rb", "gnocchi_db_spec.rb"]
+      },
+      {
+        "hash": "ca64b935079bf51a68d90eb6734916dd73a32fa4",
+        "msg": "Update typo\n\nChange-Id: I4c56a296fb0f8bfcb8f166ce6a9c1380acf0c983",
+        "cmtr": "Swapnil Kulkarni (coolsvap)",
+        "date": "2016-01-08 03:33:21+00:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "7e5456139880389a52fc4b383f23eabdfe5e5ee0",
+        "msg": "Add missing metricd service\n\nChange-Id: Ic42d5c406fbda78853146a58852e4f56d0b6c9b1",
+        "cmtr": "Christian Schwede",
+        "date": "2016-01-12 09:26:19+01:00",
+        "files": ["metricd.pp", "params.pp", "basic_gnocchi_spec.rb", "gnocchi_metricd_spec.rb"]
+      },
+      {
+        "hash": "e34e7ef628f36672c598ec08cada0f940bbf5336",
+        "msg": "Change db-sync command for gnocchi and drop mock\n\nNote: the 3 changes need to be in the same commit because CI is broken at\nthis time.\n\nChange #1\nIn Mitaka gnocchi-dbsync was moved to gnocchi-upgrade [1,2].\n[1] https://github.com/openstack-packages/gnocchi/commit/aee5df615e03427ab76658b8c311f2633290fda1\n[2] https://review.openstack.org/#/c/245069/5/setup.cfg\nPartial-bug: #1535382\n\nChange #2\ndrop mock dependency\nmock is not used anywhere in the module, let's drop it.\nThis patch will help to hit this bug:\nhttps://launchpad.net/bugs/1492636\n\nRelated-Bug: #1492636\nDepends-On: I3ac207f744847b5742fc331d2c16d1dad475f9ea\nChange-Id: I1e88361018fbbff42cae7e57f2e039fa45eaaeb1",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-01-27 11:35:47-05:00",
+        "files": ["Gemfile", "sync.pp", "gnocchi_db_sync_spec.rb", "spec_helper.rb"]
+      },
+      {
+        "hash": "08c4a1de23eb34a267fa5d55f7872d55079bd61c",
+        "msg": "Add api_paste type/provider for Gnocchi\n\nAdd gnocchi_api_paste_ini type/provider for Gnocchi.\nAlso add the capability to configure api-paste.ini with config.pp.\nCloses-bug: #1483371\n\nChange-Id: Iae097c5cee3f43c5fb801550c9d038ccb652a1b5",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-01-28 14:05:27-05:00",
+        "files": ["ini_setting.rb", "gnocchi_api_paste_ini.rb", "config.pp", "gnocchi_config_spec.rb", "ini_setting_spec.rb", "gnocchi_api_paste_ini_spec.rb"]
+      },
+      {
+        "hash": "ddf4855e6fa8034de529a4f4ee296abc356fe2c7",
+        "msg": "Enable correct auth pipeline when keystone is enabled\n\nUse keystone_authtoken in the main pipeline when we want to use keystone\nauthentication.\n\nKeystone is not a requirement to run Gnocchi that's why we enable the\npipeline only if we provide a keystone_identity_uri, which is a\nparameter that we need when using Keystone.\n\nChange-Id: I4ed26d3e294e82c383afc443914b0d7bb1906e46",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-01-28 14:05:41-05:00",
+        "files": ["api.pp", "gnocchi_api_spec.rb"]
+      },
+      {
+        "hash": "d9f76a7f480acd2457987911a88a8ccc90fabc14",
+        "msg": "Adjust api-paste pipeline to work with keystone\n\n\"keystone_authtoken gnocchi\" no longer works against the latest\nversion of gnocchi. It now requires to be \"gnocchi+auth\".\n\nChange-Id: Icf4a4b38fbba4fd2e4a20c7c3ffeacf1cc86085e\nCloses-Bug: #1542069",
+        "cmtr": "David Moreau Simard",
+        "date": "2016-02-04 18:03:06-05:00",
+        "files": ["api.pp", "gnocchi_api_spec.rb"]
+      },
+      {
+        "hash": "b8f4147c6bd2d91672e6218e6c0b1ce3c20747e3",
+        "msg": "Fix incorrect class params\n\nChange-Id: Ie53d822926a3d1358ac77ce294d077807ddd089d",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2016-02-25 10:55:59-05:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "f43c57203c6f860d7dac45ecf69bbf0e12bf7cd4",
+        "msg": "Skip storage sync during gnocchi upgrade by default\n\nstorage option is only needed during upgrades and we want\nstorage to be up. This helps when swift or ceph are not\nup yet during install and wont halt the deployment.\n\nChange-Id: I28265a039d411b9096c0e2b1aaf631cb6578e98d",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2016-03-22 14:00:46-04:00",
+        "files": ["sync.pp", "gnocchi_db_sync_spec.rb"]
+      },
+      {
+        "hash": "a47c4fdda465ee48d3a1ca9532f28e03529eb171",
+        "msg": "Fix typo in database classes.\n\n  This commit will set the titles on the Exex resource collection to\n  gnocchi-db-sync, instead of gnocchi-dbsync.  The former being the same\n  actually set in Class[gnocchi::db::sync].\n\n  Without this, tests fail on Puppet 4 because Puppet 4 now runs by\n  default in a manifest parse order.  Previously this was running is the\n  old pseudo random order and we were just getting lucky on the\n  ordering.\n\nChange-Id: If18578013aabda1c9c25fe06d189ca58fb380c1a",
+        "cmtr": "Cody Herriges",
+        "date": "2016-03-22 18:22:32-07:00",
+        "files": ["mysql.pp", "postgresql.pp"]
+      },
+      {
+        "hash": "df012edec8d6609ce49c516ec0d5f43916849e65",
+        "msg": "Add sync_db param to gnocchi api class\n\nThis makes it cleaner to pass the flag from tht\nrather than adding if checks.\n\nChange-Id: I054d8bb57f605c8f4449fd78445a7c7ab3a8e49e",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2016-04-07 11:35:39-04:00",
+        "files": ["api.pp", "add-sync_db-to-gnocchi-db-class-d3fed198a27b15e0.yaml", "gnocchi_api_spec.rb"]
+      },
+      {
+        "hash": "2a24355e9039daa14eae81e3da2712c7fded94e3",
+        "msg": "Manage the pipeline to remove keystone auth\n\npuppet-gnocchi cannot run keystoneless setup since it doesn't manage\nthe pipeline configuration parameter.\n\nThese modifications removes the keystone authentication if it is\nnecessary.\n\nChange-Id: I90b655298f80f03e5067b1fc4c564b2fef44670f\nCloses-Bug: #1543730",
+        "cmtr": "Trevor McCasland",
+        "date": "2016-04-11 15:02:29-05:00",
+        "files": ["api.pp", "gnocchi_api_spec.rb"]
+      },
+      {
+        "hash": "458012e39b65cc4e0d9351bce4538fe301eb8cbe",
+        "msg": "ceph: add ceph_secret option\n\nceph_secret option has been added to Gnocchi Ceph backend, so we don't\nneed the keyring file anymore, we can directly set the password.\n\nChange-Id: Iac761fc799292db4adb4a1fd4c12001f9775789f",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-04-14 16:16:11-04:00",
+        "files": ["ceph.pp", "ceph_secret-8e8fbccd416b0883.yaml", "gnocchi_storage_ceph_spec.rb"]
+      },
+      {
+        "hash": "5fd98dd085324f14feb640a1d86304f1d2fa385b",
+        "msg": "Totally drop Qpid support\n\nQpid was removed in Mitaka from Oslo Messaging, so now we can\ndrop it in manifests.\n\nChange-Id: I1b9a0c3df59824ac12c51d4ffe37d9f3859a7d44",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-04-18 13:45:45+03:00",
+        "files": ["logging.pp", "drop_qpid-1774ee36bab4e8e9.yaml", "gnocchi_logging_spec.rb"]
+      },
+      {
+        "hash": "b44afcb6cbb714f78119828e9c4229a5fdb5dfdb",
+        "msg": "ceph: allow to deploy python-cradox\n\npython-cradox is a new dependency in Gnocchi when deploying Ceph\nbackend.\nRDO team does not want to handle this dependency because it's too\nspecific to the Ceph backend, so puppet-gnocchi will be able to deploy\nit or not (installed by default).\n\nUsage of puppetlabs-stdlib will allow duplicated resource, also using\nthe tags will allow to modify the resource.\nAdding tests & release note.\n\nChange-Id: I110d1080b2dcf362f4e48a773ceef1e87d68b7cd",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-05-03 10:44:45-04:00",
+        "files": ["params.pp", "ceph.pp", "cradox-e10fb8c46ec2935a.yaml"]
+      },
+      {
+        "hash": "aa9c18a17785034d738675a11cc233af89eaba3c",
+        "msg": "Use oslo module for logging and policy configuration\n\nChange-Id: If08a0bc9d4941aa97aedb28d1338603164490f70",
+        "cmtr": "ZhongShengping",
+        "date": "2016-05-09 08:39:29+08:00",
+        "files": ["logging.pp", "policy.pp", "switch_to_oslo-3eef147d9c6214e8.yaml", "gnocchi_policy_spec.rb"]
+      },
+      {
+        "hash": "ea4ef0906625bec3c4f5cd5f6072215477cb3a59",
+        "msg": "Delete useless parameters description\n\nThe state_path and lock_path parameters are useless,\nso delete their decriptions.\n\nChange-Id: I2e15ab0b8652d91c532931f769e25aa2518a9346",
+        "cmtr": "ZhongShengping",
+        "date": "2016-05-17 11:06:03+08:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "9ec9f039eadb7c6be89d2e124be6ff75c9383a39",
+        "msg": "Deprecate verbose option in logging\n\nOption \"verbose\" from group \"DEFAULT\" is deprecated for removal.\nThe parameter has no effect.\n-Deprecated verbose for logging and init\n-Remove verbose in README Remove verbose from tests.\n\nIf this option is not set explicitly, there is no such warning.\n\nChange-Id: I7056cd1cd965224d49e26520b310dfdfe748ec20",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-05-19 09:12:08-03:00",
+        "files": ["README.md", "init.pp", "logging.pp", "verbose-deprecation-586c044e066c05d9.yaml", "basic_gnocchi_spec.rb", "gnocchi_logging_spec.rb"]
+      },
+      {
+        "hash": "c8df591e5e6714aaac2859762cf3a396b1d21b24",
+        "msg": "Add coordination url to gnocchi::storage\n\nChange-Id: Ie4c0fbee88486d9ff4f1b06105a8f401c9b6b719",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2016-06-06 09:37:41-04:00",
+        "files": ["storage.pp", "gnocchi_storage_spec.rb"]
+      },
+      {
+        "hash": "d826734fb925f7c517ac4446475ad8c976c51597",
+        "msg": "Add purge_config option\n\nAdd the option in order to facilitate management.\nUser can ensure that only the options they hoped\nare configured.\n\nChange-Id: I85f45086139079ff8c0576c1d314bfb7178a43e1",
+        "cmtr": "ZhongShengping",
+        "date": "2016-06-08 10:37:37+08:00",
+        "files": ["init.pp", "gnocchi_init_spec.rb"]
+      },
+      {
+        "hash": "857ba17d39a5714552c8b2a9e63851022a02754e",
+        "msg": "Provide default service_name for keystone endpoint\n\nThis change updates the gnocchi::keystone::auth class to include a default\nservice_name of 'gnocchi' so that if a user changes the auth_name, the\nservice is still created as being related to 'gnocchi'.  This improves the\nuser experiance when they want to customize the usernames for services.\n\nAdditional changes:\n\n* update related spec test\n* add a release note\n* add the service_description option in order to configure it\n\nChange-Id: Iaca2fe1ec33041593ddc8ee9b7bd7a0cd31f1f3f\nCloses-Bug: #1590040",
+        "cmtr": "ZhongShengping",
+        "date": "2016-06-20 23:59:37+08:00",
+        "files": ["auth.pp", "keystone-auth-name-c23eaad41284ac43.yaml", "gnocchi_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "8360c7dfe265f06e7fd99efbff53e73302b77fd7",
+        "msg": "Lint fixes for absolute class name\n\nThis change updates the mysql require lines to resolve lint errors\n\nChange-Id: Ib6789082f40a35592bc1c44b60eff6dc0b724f8a",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-06-28 15:44:53-04:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "0c1f61b7c60dfe58c7abb04b629f7f04869492ed",
+        "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: I8c02e708f32f06bee810f97a7f0893dc492769f6\nRelated-Bug: 1599113",
+        "cmtr": "Athlan-Guyot sofer",
+        "date": "2016-07-08 08:56:15+00:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "c79055bf22d743e26afabf58ee98f4b86002e5b9",
+        "msg": "Keystone authoken resource change\n\nCreate a new class to handle the keystone authtoken configuration\nutilizing the keystone::resource::authtoken resource.\n\nSome deprecations:\n - gnocchi::api::keystone_user is deprecated in favor of\n   gnocchi::keystone::authtoken::username.\n - gnocchi::api::keystone_password is deprecated in favor of\n   gnocchi::keystone::authtoken::password.\n - gnocchi::api::keystone_tenant is deprecated in favor of\n   gnocchi::keystone::authtoken::project_name\n - gnocchi::api::keystone_identity_uri is deprecated in favor of\n   gnocchi::keystone::authtoken::auth_url.\n - gnocchi::api::keystone_auth_uri is deprecated in favor of\n   gnocchi::keystone::authtoken::auth_uri\n\nChange-Id: I7be1c8f471472e74642e25508c6871d0f948d75b\nRelated-Bug: #1604463",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-08-12 15:49:22-03:00",
+        "files": ["gnocchi.rb", "api.pp", "authtoken.pp", "authtoken-c0b1d26fc3156482.yaml", "basic_gnocchi_spec.rb", "gnocchi_api_spec.rb", "gnocchi_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "a403dbca8ebfc25f88725e181c3e0ca92c4d6f93",
+        "msg": "Set the user and project domain name to Default\n\nLike other projects see aodh/ceilometer, we should set the\ndefault to the user and project domain name settings to\nDefault for keystone v3 auth to work\n\nChange-Id: I2d1f5c3197bc873e1eb5208c4be7cd9e683da6e8",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2016-09-02 16:53:28-04:00",
+        "files": ["authtoken.pp", "gnocchi_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "bbd0b178f4dc7a92fde53ab155a39b0f981dfa99",
+        "msg": "Add python-rados package in ceph backend class.\n\nThe python-rados package provides the functionality that was missing, which\ncradox implemented. As of ceph jewel there is an official package that replaces\nthe need for the cradox package. The cradox package has been deprecated in\nfavor of the offical package.\n\nChange-Id: I5dbc12b320c3b08e2a5c37ea91101252a2b5d823",
+        "cmtr": "Matthew J. Black",
+        "date": "2016-09-09 12:20:58-04:00",
+        "files": ["params.pp", "ceph.pp", "added_python_rados_package-0427154d398c9d75.yaml", "gnocchi_storage_ceph_spec.rb"]
+      },
+      {
+        "hash": "2d643c091f8fb9460529bc3bfae9e19227ffddc0",
+        "msg": "Tune workers and thread defaults for better performance\n\nSimilar to how we do in devstack gate calculate the workers on the fly\ninstead of defaulting to 1. Also limit the number the threads to a more\nconservative number. We can override this based on the need.\n\nChange-Id: I102f8f73fed997133dc8ecabbc95deca94627a05",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2016-09-12 16:00:26-04:00",
+        "files": ["apache.pp", "tune-workers-and-thread-defaults-8eaabb88ae5a7d79.yaml", "gnocchi_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "ce8bece7dc691ac9a99b1cf2e6a5e66d24b6ef98",
+        "msg": "Fix puppet-lint before upgrading gem\n\nRemoving 140 chars limit exeeded in favor\nof upgrading puppet-lint\n\n2016-09-13 21:04:47.755458 | manifests/api.pp:165:WARNING: line has more than 140 characters\n\nChange-Id: Ia588d5883a847931f1a55daa781f30c938b8827a",
+        "cmtr": "Carlos Camacho",
+        "date": "2016-09-14 11:09:17+02:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "690d3549b2b65f02c3b162622150b415397b43de",
+        "msg": "Add parameter to metricd to configure workers\n\nAdd a parameter to allow workers to be configured for metricd\nclass.\n\nChange-Id: I685fac0a37dc4e903cca2ed604923308e7682f9c",
+        "cmtr": "Matthew J. Black",
+        "date": "2016-09-21 11:27:58-04:00",
+        "files": ["metricd.pp", "metricd_workers-6fe3da8ec2927909.yaml", "gnocchi_metricd_spec.rb"]
+      },
+      {
+        "hash": "f9f8f4ffec15b4556a14aacaf3dbb09432d1eadc",
+        "msg": "Remove verbose\n\nSince we are in Ocata we should remove the\nverbose option that was deprecated\n\nChange-Id: I4b5914ee67cd9d5dafc00f99bebe3ae686ced2e9",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-09-27 20:28:58-03:00",
+        "files": ["init.pp", "logging.pp", "remove_verbose-6f796fb4c2fde1e3.yaml"]
+      },
+      {
+        "hash": "419492adec45ed3e0e274ad341b458b40b3fd9c4",
+        "msg": "Default metricd workers to a safer value\n\nThis parameter can be spawn up to to\nthe processor count. This submission\nadds a safer value.\n\nChange-Id: I08ed181e8253fa07acecf87a7dd74d06c9167570\nCloses-bug: #1626473",
+        "cmtr": "Carlos Camacho",
+        "date": "2016-09-28 17:20:39+02:00",
+        "files": ["metricd.pp", "default-metricd-to-safer-value-529c85e617105424.yaml", "gnocchi_metricd_spec.rb"]
+      },
+      {
+        "hash": "81c45cdc0857a195cd2f6a760f269ad0cb1c04bd",
+        "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: Ia6a095c1bc0633a9369a7cf3f61d994d156ddd78\nCloses-Bug: #1628580",
+        "cmtr": "Sharat Sharma",
+        "date": "2016-09-29 12:10:24+05:18",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "ae2db9f946ebc754fbc5f83988b4359ca275ee33",
+        "msg": "Remove unnecesary spaces in log messages.\n\nSpaces added by mistake in some log messages.\n\nChange-Id: Ida99755ab1a2c70feb3935c05e36f99f0c6f2c9c",
+        "cmtr": "Carlos Camacho",
+        "date": "2016-09-29 09:22:32+02:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "8eab030abd8046d4e17a3220e09f8217a7ca3ac5",
+        "msg": "Add option to enable Gnocchi's SSL middleware\n\nGnocchi is now using the HTTPProxyToWSGI middleware from\noslo.middlware in its default api-paste configuration [1]. This commit\ngives us the ability to enable/disable that middlware.\n\n[1] Ic5526cf37e70335fa2cc70946a271253f227f129\n\nChange-Id: Iae5f9d56970ae930294eeae34928061a6b434095",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2016-10-11 13:07:59+03:00",
+        "files": ["api.pp", "Adds-enable-proxy-header-parsing-3f3da693df01b5ec.yaml", "gnocchi_api_spec.rb"]
+      },
+      {
+        "hash": "718be4c8719c568fa6c038c2a6fbdfe37e6ec060",
+        "msg": "Change worker defaults to ::os_workers\n\nThis patch changes the default worker count from ::processorcount to the\nnew ::os_workers fact. ::os_workers is based on the number of processors\n(currently cpu/4) but is capped at a maximum of 8 worker processors.\nThis is a much more reasonable default in general and prevents excessive\nresource consumption on systems with a large number of CPUs.\n\nChange-Id: Iae9e5c6e5a5f68cb7f0a0dfc0edb0d21912cda19",
+        "cmtr": "Alex Schultz",
+        "date": "2016-10-20 14:20:33-06:00",
+        "files": ["api.pp", "apache.pp", "os_workers_for_worker_count-3517788058682645.yaml", "gnocchi_api_spec.rb", "gnocchi_db_sync_spec.rb", "gnocchi_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "0acd871f6f55b7b32138411adfa6966117feefa6",
+        "msg": "Fix common options position in params.pp\n\nThese parameters are common for both systems,\nthey could be moved out from 'case'.\n\nChange-Id: Id65344404b823241cf293041853e6ddce50cd75e",
+        "cmtr": "ZhongShengping",
+        "date": "2016-11-08 10:02:33+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "3de5b5ddfdccd023aeeee0e5a63af3961ab44685",
+        "msg": "Remove old authtoken options\n\nSince we are in ocata lets remove all old parameters in api\nto configure the keystone_authtoken section\n\nChange-Id: I2e5569896e0d34dc9380582bf81826584bd69809",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-11-08 01:51:08-03:00",
+        "files": ["api.pp", "authtoken.pp", "remove_old_authtoken_options-2ea2763a69ea5f76.yaml", "gnocchi_api_spec.rb"]
+      },
+      {
+        "hash": "654cd9c862863ef156e4d8ecfbd22777525ffa15",
+        "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nChange-Id: Idc43b06eab3f7103392da699e2a77bb55ce7344d",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-05 11:44:08+08:00",
+        "files": ["api.pp", "client.pp", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "init.pp", "auth.pp", "authtoken.pp", "logging.pp", "metricd.pp", "policy.pp", "statsd.pp", "storage.pp", "ceph.pp", "file.pp", "influxdb.pp", "swift.pp", "apache.pp", "external_install_mgmt_hook-6717235a692f234d.yaml", "gnocchi_api_spec.rb", "gnocchi_client_spec.rb", "gnocchi_db_sync_spec.rb", "gnocchi_init_spec.rb", "gnocchi_metricd_spec.rb", "gnocchi_statsd_spec.rb", "gnocchi_storage_spec.rb", "gnocchi_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "3d4553b757b7d4ace4fa712c985eb978a90aa837",
+        "msg": "Add customization for wsgi process display name\n\nChange-Id: Ice921f0fdd4bec6de50e62c39c447ee40dc0e8f5\nRelated-Bug: #1626550",
+        "cmtr": "Xing Zhou",
+        "date": "2016-12-20 20:46:21+08:00",
+        "files": ["apache.pp", "gnocchi_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "abd4775dd5e4930ef28e326a7781f782e5b2ebaf",
+        "msg": "Deprecate signing_dir option\n\nThe signing_dir is deprecated for removel because of PKI token format\nis no longer supported.\nUpdate warning message and release note.\n\nChange-Id: I26180ba65060b2af6ee610e4fe438b26cb5580e9\nCloses-Bug: #1652700",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-28 13:57:14+08:00",
+        "files": ["authtoken.pp", "deprecate_signing_dir_parameter-6135a83f34551ef9.yaml", "gnocchi_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "3a34b190ed6d447f6aef27e101a37c56ab86d16b",
+        "msg": "Allow python-memcache install from authtoken class\n\nThe python-memcache package is required if using memcached. By\ndefault the package is not installed and the define has it set to\nfalse. This change allows managing the python-memcache package\ninstall from the authtoken class.\n\nChange-Id: Ib6fede2f42f618f0a2fcbacf3da5f9b7e8606be5",
+        "cmtr": "Matthew J. Black",
+        "date": "2017-01-11 18:20:54-05:00",
+        "files": ["authtoken.pp", "authtoken_manage_memcache_package-a83630efd64e36a0.yaml", "gnocchi_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "970ecbbb8a179c33d7b66f00369a45219ecfebbe",
+        "msg": "Remove carbonara package reference\n\ncarbonara package only had one bin file carbonara-dump.\nThats gone now. Rest of the carbonara code is just python\nand part of python-gnocchi. So we dont need this anymore.\n\nChange-Id: Iaf1d4b5c85dde30b68d383f43b95d650e43d96a4",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-01-19 18:43:55-05:00",
+        "files": ["params.pp", "storage.pp", "gnocchi_storage_spec.rb"]
+      },
+      {
+        "hash": "70d9b39d869ff17665b0a77079412e3f8a74c499",
+        "msg": "Set auth mode in gnocchi to keystone\n\nBy default auth_mode is set to basic. Instead set it\nto keystone so it works with openstack.\n\nChange-Id: If6d16410143cf91c07c7dd067416cd7cde5ad308",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-01-20 14:31:14-05:00",
+        "files": ["api.pp", "gnocchi_api_spec.rb"]
+      },
+      {
+        "hash": "e7dc74610786a953ebb4c9d47bd493b412db7f51",
+        "msg": "Remove api-paste configuration\n\napi-paste has been moved under the python code and does not\nneed to be configured in etc. Remove this configuration and\nprovider and type files. Now on just setting the auth mode\nshould handle everything automatically.\n\nChange-Id: I96c93dc124d5b87465d2dde6b27a896266f71eb4",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-02-01 15:07:48-05:00",
+        "files": ["api.pp", "config.pp", "remove-api-paste-712235bf18a47855.yaml", "gnocchi_api_spec.rb", "gnocchi_config_spec.rb"]
+      },
+      {
+        "hash": "f580416d46b4a18bd945904645ee009c2e535767",
+        "msg": "Remove non-existing options\n\nThose options are long gone are not relevant anymore.\n\nChange-Id: I2b48d23006e38f56f04456b4556374bf0fcdb14a",
+        "cmtr": "Julien Danjou",
+        "date": "2017-02-03 16:58:06+01:00",
+        "files": ["api.pp", "gnocchi-api-deprecated-options-782e19fefaff5f5f.yaml", "gnocchi_api_spec.rb"]
+      },
+      {
+        "hash": "ea7c395af4cd7117d2ea200a65e4c132188969de",
+        "msg": "add middlewares configuration\n\nadd middlewares configuration to gnocchi.conf\n\nChange-Id: Ic05c390aca4e96a1107143017b77d6e6d5879c10",
+        "cmtr": "Yuan Xiaohua",
+        "date": "2017-02-23 15:40:46+08:00",
+        "files": ["api.pp", "add-middlewares-configuration-fdb6048123cc848f.yaml", "gnocchi_api_spec.rb"]
+      },
+      {
+        "hash": "c0f0622e1df0cd9242c1d17f01ae6ec544c32563",
+        "msg": "Install python-redis when coordination is set\n\nWithout this redis can be missing when needed and cause\nmetricd to go nuts.\n\nChange-Id: I5aa394f25f8c7b0f733868eb4389acda26333132",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-03-03 11:30:45-05:00",
+        "files": ["params.pp", "storage.pp", "install-redis-ded395c27ee7dfc3.yaml", "gnocchi_storage_spec.rb"]
+      },
+      {
+        "hash": "c8dc4eb3f7cac586078aa2bc92bbe8f56fefb3e7",
+        "msg": "Inconsistent package_ensure parameter name\n\nThe parameter name used to enforce package state is inconsistent across\nmanifests and modules. I settle on package_ensure since it's already\nwidely used.\n\nChange-Id: I5f19aec39094c446904d5517e66141401ff149ae\nCloses-Bug: #1668732",
+        "cmtr": "ZhongShengping",
+        "date": "2017-03-08 17:30:29+08:00",
+        "files": ["db.pp", "init.pp", "deprecate_ensure_package_parameter-8a3583e991345fd3.yaml"]
+      },
+      {
+        "hash": "315733a00c12fdc6586094394852f7e7d05c3eca",
+        "msg": "Add metric_processing_delay param\n\nExpose this param to tweak the delay between processing\nmetrics in gnocchi.\n\nChange-Id: I5de5283d1b14e0bba63d6d9a440611914ba86ca4",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-04-19 12:29:36-04:00",
+        "files": ["storage.pp", "add-metric-delay-c4b5db22171d9165.yaml", "gnocchi_storage_spec.rb"]
+      },
+      {
+        "hash": "fbc732590184b0e4dfd7f6037ea5ac283f2a8ba2",
+        "msg": "Use proper resource collector syntax for httpd service\n\nPrevious syntax (exported resource collector) was wrong.\n\nChange-Id: Ib066724db1a82c86058219a82bb9a1701cbd9153",
+        "cmtr": "Mathieu Gagné",
+        "date": "2017-06-07 13:20:27-04:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "48f6acd3a50d2e5e1622f48a89e60d74ae44a29c",
+        "msg": "Use the correct tag on httpd so gnocchi service gets notified\n\nChange-Id: Ibfa9fb39f60c1e4a802d189b32ff4c34476c93d3",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-06-13 15:14:42-04:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "48ab267d686a9ec5e364df3b8c368fa628afe0b8",
+        "msg": "Deprecate logging options\n\nGnocchi is moving away from oslo.log to using daiquiri[1]\n\nLets deprecate the options that dont make sense anymore.\n\n[1]  http://github.com/jd/daiquiri\n\nChange-Id: I0b8e324f40ac35f2f7f7f1234b8183eb40a8a64d",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-06-15 14:51:53+00:00",
+        "files": ["logging.pp", "deprecate-oslo-log-params-12ed30a5db0e5baf.yaml", "gnocchi_logging_spec.rb"]
+      },
+      {
+        "hash": "1accdde3637f16e6b7e7178838aacf18f065edc2",
+        "msg": "Add support for metric_cleanup_delay option\n\nmetric_cleanup_delay option is useful to configure the number of seconds\nto wait between cleaning of expired data.\n\nChange-Id: I8d2fccb0cef49246b3c15b0942ba6067519cee1f",
+        "cmtr": "Emilien Macchi",
+        "date": "2017-07-04 13:40:12-07:00",
+        "files": ["metricd.pp", "gnocchi_metricd_spec.rb"]
+      },
+      {
+        "hash": "c03444d013a8cfc0649ba72e4c1264188bad759a",
+        "msg": "Remove deprecated keystone authtoken signing_dir option\n\nChange-Id: I003f51863116a798138f02c88d4e10e7ebd19db9",
+        "cmtr": "ZhongShengping",
+        "date": "2017-07-07 09:59:02+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_signing_dir_option-9910df26a9798db6.yaml"]
+      },
+      {
+        "hash": "698a64838c63d20adb211b04a3243f6a596eede7",
+        "msg": "Add support for redis incoming storage driver\n\nChange-Id: Id8d4d091da2611de75390e045ebd473caf2a8909",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-07-14 17:04:48+00:00",
+        "files": ["redis.pp", "gnocchi_storage_incoming_redis_spec.rb"]
+      },
+      {
+        "hash": "e90617a59369f40e7075ed22ff766fc3203c7fab",
+        "msg": "Enable configuring swift_endpoint_type\n\nThis is needed if we want to be able to control which endpoint type\n(internal or public) should gnocchi use to contact swift.\n\nChange-Id: I558276ee3b6c4a3ffcaac4607a4baaa228a1b449\nCloses-Bug: #1711060",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-08-17 08:29:16+03:00",
+        "files": ["swift.pp", "gnocchi_storage_swift_spec.rb"]
+      },
+      {
+        "hash": "70b14dadecebdb84f07d184d6d81d8a59b78dcbc",
+        "msg": "Drop InfluxDB storage classes\n\nThe support for InfluxDB was dropped over a year ago[1] however it\nseems that the classes were not removed from the module.\n\n[1]: https://review.openstack.org/#/c/297032/\n\nChange-Id: If45833e2009768e2065d0b7009c0ae77c24b34e5",
+        "cmtr": "Mohammed Naser",
+        "date": "2017-08-18 09:40:10-04:00",
+        "files": ["influxdb.pp", "drop-influxdb-classes-d2e4d3d02290ce9d.yaml", "gnocchi_storage_influxdb_spec.rb"]
+      },
+      {
+        "hash": "cbb2099803446774b67c31c9ba080fd61230adcd",
+        "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: I801e932bb6fef3bfa4846ca27cf10a8cc8af216b\nCloses-Bug: #1717144",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-14 11:29:48+08:00",
+        "files": ["authtoken.pp", "deprecate_revocation_cache_time_parameter-f2b545e59754e5ba.yaml", "gnocchi_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "dfeb00ade4a802c201cd72cf48379708f3d909b0",
+        "msg": "add parameter to overwrite/add wsgi process options\n\nAdd parameter to apache_wsgi to allow overwrite\nand/or add additional wsgi process options.\n\nThis possibility was added to openstacklib\nwith Change-Id: I41914ce3361988d5db1695f09d21209772fdf548\n\nChange-Id: I2bcd2068f2d2968a63c29247d4e65815be33b176",
+        "cmtr": "Benedikt Trefzer",
+        "date": "2017-09-19 14:23:10+02:00",
+        "files": ["apache.pp", "wsgi_process_options-c96a71aca0c2e1e5.yaml", "gnocchi_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "965a79945beb6bc137f34c2fb04cc8364d8eadbc",
+        "msg": "Deprecate project_id and user_id options\n\nOption \"user_id\" from group \"statsd\" is deprecated for removal.\nIts value may be silently ignored in the future.\nOption \"project_id\" from group \"statsd\" is deprecated for removal.\nIts value may be silently ignored in the future\n\nChange-Id: Ib2122af574075c4a83609116251478b3c37519a1\nCloses-Bug: #1718848",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-22 14:14:05+08:00",
+        "files": ["statsd.pp", "deprecate_statsd_options-87315a345ef19816.yaml", "gnocchi_statsd_spec.rb"]
+      },
+      {
+        "hash": "56c9fca51616880d288d21eaccc5a97df605cf05",
+        "msg": "Allow setting log files for apache vhost\n\nThis allows the setting of the error and access file logs, as well as\nthe access log format. This was done in a similar fashion as one can\nconfigure these ones in the keystone wsgi manifest.\n\nChange-Id: I4f20028ec2f104668a114eb438328f9b57e60d8c",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-10-06 14:23:46+03:00",
+        "files": ["apache.pp", "gnocchi_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "3ae8cb8c36536ee05eb51eda8e665853515cb71b",
+        "msg": "Add processing delay param for metricd\n\nCloses-bug: #1722788\n\nChange-Id: I6f2d6835967a21e266243b66e36ed2690350d819",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-10-11 13:25:00+00:00",
+        "files": ["metricd.pp", "add-metricd-processing-delay-76c234b0727f092a.yaml", "gnocchi_metricd_spec.rb"]
+      },
+      {
+        "hash": "fc35e8b1c2d135ff9e28694f19f553eaf031063b",
+        "msg": "Accept empty strings for log_dir\n\nAn empty string is an acceptable value of this entry, and it forces\nlogging to stdout/stderr, which is useful when running on containers.\n\nChange-Id: Idb790bd8b54ac7ae8209feff7136e809b215d104",
+        "cmtr": "ZhongShengping",
+        "date": "2017-10-12 09:12:04+08:00",
+        "files": ["logging.pp"]
+      },
+      {
+        "hash": "579a17a4f405dfa4a00ae7d92ee6a5490a9a10c7",
+        "msg": "Add S3 storage driver\n\nChange-Id: I5a49fa34d344c4464ea883bf96350f00b0a17eac",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-11-15 17:07:00-05:00",
+        "files": ["s3.pp", "add-s3-driver-c73d167c81a8b33c.yaml", "gnocchi_storage_s3_spec.rb"]
+      },
+      {
+        "hash": "439646467e0fb8f09c4e09ca9f77471d92f33c4d",
+        "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: Ic7713712d8f224e690435ead6dabe40bd31d8ae3",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-11-27 14:35:08+02:00",
+        "files": ["logging.pp", "log-json-514a919eec6e2b8e.yaml", "gnocchi_logging_spec.rb"]
+      },
+      {
+        "hash": "274b8f39acb23c5aa8b49684f405d8ae385de111",
+        "msg": "Use gnocchi-api binary for wsgi script\n\nWSGI script gnocchi/rest/app.wsgi has been removed in [1] which has\nbeen included in release 4.1.0 and gnocchi-api must be used instead [2].\n\nNote that new version has been bumped in RDO but not ubuntu yet, so\nthis patch is switching the wsgi script only for Red Hat deployments.\n\n[1] https://github.com/gnocchixyz/gnocchi/commit/cef3396908947b6a8437476c899e6d5cec48a6d5#diff-f6608875dec4d7646c38d649181fd350\n[2] https://github.com/gnocchixyz/gnocchi/blob/176c1332f6279dfa3a8238c9e017769553e59f02/releasenotes/notes/wsgi-script-deprecation-c6753a844ca0b411.yaml\n\nChange-Id: Ibf901844e8319eec9c60f7c5c27770c89aae6427\nCloses-Bug: #1735118",
+        "cmtr": "Alfredo Moralejo",
+        "date": "2017-11-29 12:06:19+01:00",
+        "files": ["params.pp", "gnocchi_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "3a6ed6fb4e83e38b7158704e527d3bb957f1cfef",
+        "msg": "Fixed keystone misspelling\n\nChange-Id: I3100991b298a795723f0c4d8704843ce8503458d",
+        "cmtr": "Zuo ZongMing",
+        "date": "2017-12-15 15:40:28+08:00",
+        "files": ["swift.pp"]
+      },
+      {
+        "hash": "41f252f645025877cdff8db662e81206f9660ea4",
+        "msg": "gnocchi-indexer-sqlalchemy not packaged\n\ngnocchi-indexer-sqlalchemy is not longer packaged for Ubuntu\nwhich is the reason scenario001 is failing CI right now.\n\nThis patch removes the installation of the gnocchi-indexer-sqlalchemy\npackage on Debian based platforms but still leaves it intact for Red Hat\nbased.\n\nI have reached out to James and Corey from Canonical for confirmation if\nthis is permanent or not ported, should not be merged until confirmed.\n\nChange-Id: I74d93e1d7012c43431259bd8335df17650b8242f",
+        "cmtr": "Tobias Urdin",
+        "date": "2017-12-27 10:12:13+01:00",
+        "files": ["db.pp", "params.pp", "gnocchi_db_spec.rb"]
+      },
+      {
+        "hash": "2271915bb91ddf1619ec3d1b23feaf425553b325",
+        "msg": "Rename openstack-gnocchi to gnocchi\n\nChange-Id: Icedf71915b44294c1260fecea87b27ec9e6086c5\nCloses-Bug: #1741144",
+        "cmtr": "Emilien Macchi",
+        "date": "2018-01-03 16:17:53-08:00",
+        "files": ["params.pp", "gnocchi_api_spec.rb", "gnocchi_init_spec.rb", "gnocchi_metricd_spec.rb", "gnocchi_statsd_spec.rb"]
+      },
+      {
+        "hash": "470803265140b32b095fd88efb197490209c20cf",
+        "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nChange-Id: I223a39c51fbe8e36ed35add00f59af242414ce7a\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2018-01-10 14:22:57-08:00",
+        "files": ["params.pp", "policy.pp", "gnocchi_policy_spec.rb"]
+      },
+      {
+        "hash": "f63a707d5188dfb45fa97a2acbddb11f34ba4310",
+        "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: I1ebe450c74d13a26a44f1e06b9f2e92bd40f4ce6",
+        "cmtr": "ZhongShengping",
+        "date": "2018-01-15 15:48:37+08:00",
+        "files": ["logging.pp", "add-use_journal-option-for-logging-8c99500f64320163.yaml", "gnocchi_logging_spec.rb"]
+      },
+      {
+        "hash": "d84d09b9faed3021523d41526eca8c9e34cff187",
+        "msg": "fix mysql connection\n\nChange-Id: Ib544770953ff41d5d62f9286692e8432625efc58",
+        "cmtr": "melissaml",
+        "date": "2018-03-05 13:25:19+08:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "56794f300acaf0c2dd46a0bac3830f7c90120670",
+        "msg": "Move gnocchi api in wsgi back to python2\n\nCanonical are packaging gnocchi-api package with apache\nand python3 by default. We cannot test it in CI since\nwe cannot run py2 and py3 on the same node with apache wsgi.\n\nCanonical helped us by packaging python2 support back into\npython-gnocchi package so we change our wsgi usage to use\nthis package and set the new wsgi script path.\n\nWe still want users to be able to install only gnocchi-api\nsince they might not run apache wsgi even though its installed by\ndefault.\n\nAdds installation of rados and redis packages for python3\nwhen needed, this is because all gnocchi components will\nstill be running in py3, also CLI such as gnocchi-upgrade\nbut the gnocchi-api is in wsgi using py2. Because of that\nwe still need to install the py2 packages.\n\nEnables acceptance testing for Debian based operating systems.\n\nChange-Id: I070f88dd40ca4129cbd3abf5b4f5ecb511b2895e",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-03-06 22:34:21+01:00",
+        "files": ["api.pp", "params.pp", "storage.pp", "ceph.pp", "apache.pp", "basic_gnocchi_spec.rb", "gnocchi_api_spec.rb", "gnocchi_storage_ceph_spec.rb", "gnocchi_storage_spec.rb", "gnocchi_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "d595457836a82a20b18573b085b166d396bdba1a",
+        "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: I800fd9a00ddf7e7ca0ebd54c9d203cf04477aa3b\nCloses-Bug: #1755102",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-12 16:33:07+08:00",
+        "files": ["sync.pp", "openstack_db_tag-8b0893929fcd6617.yaml", "gnocchi_db_sync_spec.rb"]
+      },
+      {
+        "hash": "62701862288129bdd4579768982549d100ebd801",
+        "msg": "Remove deprecated logging options\n\nChange-Id: Iaba77dbf12ae80121ae2b630655faae5269f721b",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-20 13:52:53+08:00",
+        "files": ["logging.pp", "remove_deprecated_logging_options-7601c56e6cc49f3c.yaml"]
+      },
+      {
+        "hash": "737b2dbd15eadf076b3bb51102dd992245356f3c",
+        "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: If17432d247a834157d70131a439d1e6475590799",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-27 10:33:21+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-8a0d0250946f08bf.yaml"]
+      },
+      {
+        "hash": "e3b7c250a82b022765641c30c861b281d428d7c4",
+        "msg": "Remove deprecated ensure_package option\n\nChange-Id: I4f4e1993795625a24785ce548cd06f2447e13349",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-29 12:01:15+08:00",
+        "files": ["db.pp", "init.pp", "remove_deprecated_ensure_package_option-b6afaafe8e6bf9fd.yaml"]
+      },
+      {
+        "hash": "5526cda66f9617cbff8ef9ee8ff8b3f48ed59891",
+        "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: Ie5ea4578879fc8aa21bb27e228b1eea52200cdb7\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
+        "cmtr": "ZhongShengping",
+        "date": "2018-04-05 10:04:32+08:00",
+        "files": ["gnocchi.rb", "authtoken.pp", "deprecate_auth_uri_parameter-91324d12d87e4618.yaml", "gnocchi_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "396d6307f0f6b69446966f03253f395baea96a48",
+        "msg": "Debian is using python3-gnocchiclient\n\nChange-Id: I3aa785eaf30187df6a2dbb7ca0087ef695c48f18",
+        "cmtr": "zhubingbing",
+        "date": "2018-04-12 11:12:10+08:00",
+        "files": ["params.pp", "gnocchi_client_spec.rb"]
+      },
+      {
+        "hash": "1eb58aac2c703aec2a19148b288a597152517ad9",
+        "msg": "Debian is using python 3 & path to wsgi script\n\nThis patch fixes 2 things:\n- path to the wsgi script.\n- uses python3-* packages in Debian.\n\nChange-Id: I2297f919c8b91ef723b8c6e1ee1c7c679553d339",
+        "cmtr": "Thomas Goirand",
+        "date": "2018-05-08 13:41:34+02:00",
+        "files": ["params.pp", "gnocchi_api_spec.rb", "gnocchi_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "06a1d232bca2fdbd39c4469e7eb035991d3acaff",
+        "msg": "Debian: fix path to gnocchi-api\n\nThe last commit had an error, the path really is:\n/usr/bin/gnocchi-api\n\nand not:\n/usr/share/gnocchi-api\n\nChange-Id: I6fe306d6b99b09b02ef7dab7d8fb3a9c88157c47",
+        "cmtr": "Thomas Goirand",
+        "date": "2018-05-09 13:42:19+02:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "ed78de5fdd7f5ca92c4f753195d6f5ad3080d820",
+        "msg": "neat: missing : in $::os_service_default\n\nChange-Id: I829da6d65dfc909be012d4d29e08fd1160670d37",
+        "cmtr": "zhubingbing",
+        "date": "2018-05-11 14:02:39+08:00",
+        "files": ["authtoken.pp"]
+      },
+      {
+        "hash": "f0036b7f749d90b098f90991c40d8b84c04c2958",
+        "msg": "Replace port 35357 with 5000\n\nNow that the v2.0 API has been removed, we don't have a reason to\ninclude deployment instructions for two separate applications on\ndifferent ports.\n\nChange-Id: Ideba7e85f92803b1ecc059287bf0237c1485fdd5",
+        "cmtr": "ZhijunWei",
+        "date": "2018-05-13 15:28:04+08:00",
+        "files": ["site.pp", "authtoken.pp", "gnocchi_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "0e29b9207d146a7a61ed46352046d6bc376894aa",
+        "msg": "Remove deprecated parameters\n\nRemoves deprecated parameters that has been\ndeprecated for one cycle or more.\n\nDepends-On: https://review.openstack.org/#/c/569542/\nChange-Id: I3f53036f65cd520403efdb2e179a5509a0637b90",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-06-12 09:54:00+02:00",
+        "files": ["site.pp", "api.pp", "statsd.pp", "gnocchi-api-remove-deprecated-host-port-workers-8bbe2e5ddf6b7072.yaml"]
+      },
+      {
+        "hash": "8fe68ff81205141844eeb64eee9136e5bdcb18e0",
+        "msg": "Fix annotations\n\nChange-Id: I414703a79e78c9b69f1dbd5998b2eab793738289",
+        "cmtr": "zhubingbing",
+        "date": "2018-06-15 15:07:37+08:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "91fd9c52ce02d9678b0f7ce9c13e88e2a7c76cf0",
+        "msg": "Add CORS config support\n\nChange-Id: I4f750863ba1bde478efff026f9bc64bac13030ec",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2018-06-15 15:39:09-04:00",
+        "files": ["cors.pp", "gnocchi_cors_spec.rb"]
+      }]
+    }

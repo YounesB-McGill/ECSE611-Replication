@@ -1,0 +1,273 @@
+    {
+      "url": "https://github.com/openstack/fuel-plugin-opendaylight",
+      "pp_files": ["service.pp", "odl-sfc.pp", "hiera-override.pp", "stop-neutron.pp", "odl-netconfig.pp", "quagga_extension.pp", "init.pp", "remove-odl-override.pp", "odl-nol3-configure_default_route.pp", "hiera_override.pp", "recreate-ovs.pp", "controller-pre.pp", "start-neutron.pp", "vxgpe.pp", "odl-dashboard.pp", "quagga.pp", "odl-common_config.pp", "odl-install.pp", "ml2-configuration.pp", "odl-ml2-configuration.pp", "install.pp", "neutron-configuration.pp", "odl-service.pp", "disable-ovs-agent.pp", "haproxy.pp", "recreate-neutron-db.pp", "haproxy_service.pp", "sfc.pp", "odl-vxgpe.pp", "setup-floating.pp"],
+      "pp_cmtrs": ["Ferenc Cserepkei", "Michael Polenchuk", "Manuel Buil", "Nikolas Hermanns", "Igor Zinovik", "Romanos Skiadas", "Michal Skalski"],
+      "num_pp_commits": 38,
+      "num_tot_commits": 103,
+      "commits": [{
+        "hash": "2ce0d0b829aef48b78839a04a378d24800cbcbdf",
+        "msg": "Import code from personal repo\n\nCurrent status:\n  * OpenDaylight controller is installed on primary controller\n  * OpenDaylight is set as OVS manager\n  * VLAN, GRE, VXLAN segmentation supported\n  * Neutron agent is responsible for L3 traffic\n\nChange-Id: Ibd804940e2c8acc81a1d507b1de964ee97250107",
+        "cmtr": "Michal Skalski",
+        "date": "2015-06-25 09:31:50+02:00",
+        "files": ["LICENSE", "README.md", "clean-neutron.sh", "controller-pre.pp", "disable-ovs-agent.pp", "ml2-configuration.pp", "odl-service.pp", "recreate-neutron-db.pp", "recreate-ovs.pp", "setup-floating.pp", "start-neutron.pp", "stop-neutron.pp", "neutron.rb", "neutron.rb", "neutron_network.rb", "init.pp", "service.pp", "tomcat-server.erb", "environment_config.yaml", "metadata.yaml", "opendaylight", "opendaylight-post", "LICENSE", "README", "fuel.patch", "openstack.net-virt-1.0.3-Helium-SR3.jar", "opendaylight", "opendaylight-post", "pre_build_hook", ".gitkeep", ".gitkeep", "tasks.yaml"]
+      },
+      {
+        "hash": "3f9e86d9ac1f0d5d822c63606e030d4fb156220b",
+        "msg": "Put Dlux Web Ui and restconf api behind haproxy\n\nAlthough it is not possible to make a cluster of OpenDaylight\ncontrollers in Helium release, we can make services like Dlux and apidoc\nexplorer become accessible on public vip address.\n\nChange-Id: Id51bdb2f5ebe881155a6432f22d188a364f11177",
+        "cmtr": "Michal Skalski",
+        "date": "2015-06-30 16:51:43+02:00",
+        "files": ["ml2-configuration.pp", "odl-service.pp", "recreate-ovs.pp", "start-neutron.pp", "haproxy.pp", "haproxy_service.pp", "init.pp", "service.pp", "jetty.xml.erb", "tomcat-server.xml.erb", "metadata.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "a726b8720b09aa2d0157b3358cb703fbbcedb825",
+        "msg": "Fix discovering node roles\n\nRole can change during deployment, we need to compare role name with\nlist of all roles assigned to node.\n\nChange-Id: I02aecfe8ac9cd9ec2ea8569d8bb98eb55fe79749",
+        "cmtr": "Michal Skalski",
+        "date": "2015-07-03 17:19:30+02:00",
+        "files": ["README.md", "disable-ovs-agent.pp", "start-neutron.pp", "service.pp", "metadata.yaml"]
+      },
+      {
+        "hash": "2860ac191a889bd872b2732efac9e005421edd7e",
+        "msg": "ODL Lithium release\n\nIntegrate ODL Lithium release with Openstack Juno.\n\nChange-Id: I939476f641a9d680a5cc38f0b254432c9e5e93b2",
+        "cmtr": "Michal Skalski",
+        "date": "2015-07-16 15:23:27+02:00",
+        "files": ["README.md", "service.pp", "custom.properties.erb", "org.apache.karaf.features.cfg.erb", "tomcat-server.xml.erb", "metadata.yaml", "fuel.patch", "openstack.net-virt-1.0.3-Helium-SR3.jar", "LICENSE", "README", "fuel.patch", "openstack.net-virt-1.1.0-Lithium.jar", "opendaylight", "pre_build_hook"]
+      },
+      {
+        "hash": "f13066eaef5daf05d7f778e2be86e5d05a69c37d",
+        "msg": "ODL Lithium SR1\n\nIntegrate ODL Lithium SR1 with Openstack Juno.\n\nChange-Id: If6fe1d29dc1244444acdf19647ed418fa6dcc485",
+        "cmtr": "Michal Skalski",
+        "date": "2015-09-16 10:45:11+02:00",
+        "files": ["README.md", "odl-service.pp", "recreate-ovs.pp", "service.pp", "custom.properties.erb", "jetty.xml.erb", "org.apache.karaf.features.cfg.erb", "tomcat-server.xml.erb", "metadata.yaml", "fuel.patch", "openstack.net-virt-1.1.0-Lithium.jar", "openstack.net-virt-1.1.1-Lithium-SR1.jar", "opendaylight", "pre_build_hook", "tasks.yaml"]
+      },
+      {
+        "hash": "5ddc49a7bea6aabf83eaa3c4298860fa2e4f66bd",
+        "msg": "Fix MTU for vxlan segmentation\n\nWe need to decrease MTU for VMs when vxlan is used.\n\nChange-Id: I117384313d03e64b4b70ca42d963628bf509aaf2",
+        "cmtr": "Michal Skalski",
+        "date": "2015-10-01 13:07:01+02:00",
+        "files": ["README.md", "ml2-configuration.pp", "opendaylight-repositories.png", "metadata.yaml"]
+      },
+      {
+        "hash": "bc428a4f0033ec37faf0f269679340bc0e36ca3c",
+        "msg": "Easier way to define karaf features\n\nChange-Id: I65b341b265638d80fbacdf550f9a92b42def8c95",
+        "cmtr": "Michal Skalski",
+        "date": "2015-10-22 17:22:18+02:00",
+        "files": [".gitreview", "service.pp", "org.apache.karaf.features.cfg.erb", "environment_config.yaml"]
+      },
+      {
+        "hash": "d7f301a1d8ff9aedad72294c3a67365c0e8ca815",
+        "msg": "Support for MOS 7.0\n\nPlugin can now be used on Fuel 7.0. It will install and setup\nOpenDaylight Lithium SR2 controller together with networking_odl driver.\nUser can now decided where ODL controller will be installed by assigning\nrole OPENDAYLIGHT to one of the nodes.\nExperimental option of managing L3 traffic by ODL was added. It will\nprepare necessary configuration on ODL and Neutron side and also disable\nneutron l3 agent. This feature require further development and should be\nonly enabled by users who know what they are doing.\n\nChange-Id: I99bb9434f0e2baec52748e20551681d63d2bf1ce",
+        "cmtr": "Michal Skalski",
+        "date": "2015-11-09 12:50:40+00:00",
+        "files": ["CHANGELOG.md", "README.md", "disable-ovs-agent.pp", "ml2-configuration.pp", "recreate-ovs.pp", "setup-floating.pp", "start-neutron.pp", "stop-neutron.pp", "neutron.rb", "neutron.rb", "neutron_network.rb", "haproxy.pp", "init.pp", "service.pp", "custom.properties.erb", "org.apache.karaf.features.cfg.erb", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "node_roles.yaml", "openstack.net-virt-1.1.2-Lithium-SR2.jar", "pre_build_hook", "volumes.yaml"]
+      },
+      {
+        "hash": "6d47c63685e6c18175bff3c3615b356d27b51262",
+        "msg": "Add SFC feature to an ODL based openstack deployment\n\nThis commit adds Service Function Chaining(SFC) basic installation opportunity\nto a Fuel orchestrated openstack cluster. SFC installation is integrated into\nfuel-plugin-opendaylight, since it covers orchestration tasks only and\nthe used SFC is closely tied to the OpenDayLight installation used.\nThis is the Fuel7 uplift of the original change set.\n\nChange-Id: Ib9b4b8fbd5964453d1a2478abaa74c21849f11d0",
+        "cmtr": "Ferenc Cserepkei",
+        "date": "2015-12-05 21:45:14+01:00",
+        "files": ["service.pp", "environment_config.yaml", "dependencies.txt"]
+      },
+      {
+        "hash": "a86fbf4192b9cdbbce20e1df3f6592cafd1af5f5",
+        "msg": "Adding quagga extension to the ODL\n\nThis commit add quagga to the Opendaylight\ninstallation.\n\nChange-Id: I2fe79561de31761bf5afd98003f10bf87406c93e",
+        "cmtr": "Nikolas Hermanns",
+        "date": "2015-12-18 17:42:45+01:00",
+        "files": ["quagga_extension.pp", "deployment_tasks.yaml", "pre_build_hook"]
+      },
+      {
+        "hash": "9e1e823d2e921f9ecba600f4ef828e24b7446d43",
+        "msg": "Adding service BGPVPN\n\nThis commit adds vpn features to odl if BGPVPN\nis used.\n\nChange-Id: I496190a8538dd9738eb397281fa9062a329225fb",
+        "cmtr": "Nikolas Hermanns",
+        "date": "2016-01-07 20:31:53+01:00",
+        "files": ["service.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "5d11066250c34d4d990e2b54bdd2c82aba7f26d7",
+        "msg": "Support MOS 8.0.\n\n - Support MOS 8.0.\n - Move ODL installation and configuration\n   to main phase of deployment.\n - L3 traffic managed by ODL possible when vxlan\n   tunneling is used.\n - Include snapshot of OpenDaylight Beryllium,\n   stable version not available at this moment.\n - Get rid of hardcoded configuration related to specific ODL version.\n   Now plugin is more elastic and should support a broader\n   number of ODL versions.\n - odl_network_scheme function overrided standard network scheme\n   so custom network templates are not required.\n - ODL is no longer patched to use br-floating bridge\n\nChange-Id: I8d1391817ff3a012697aac487ce9eaea489d8df6",
+        "cmtr": "Michal Skalski",
+        "date": "2016-01-19 00:53:39+01:00",
+        "files": [".gitignore", "CHANGELOG.md", "LICENSE", "README.md", "clean-neutron.sh", "controller-pre.pp", "disable-ovs-agent.pp", "hiera-override.pp", "ml2-configuration.pp", "neutron-configuration.pp", "odl-install.pp", "odl-ml2-configuration.pp", "odl-netconfig.pp", "odl-nol3-configure_default_route.pp", "odl-service.pp", "quagga_extension.pp", "recreate-neutron-db.pp", "recreate-ovs.pp", "setup-floating.pp", "start-neutron.pp", "stop-neutron.pp", "odl_hiera_overrides.rb", "odl_karaf_features.rb", "odl_network_scheme.rb", "haproxy.pp", "haproxy_service.pp", "hiera_override.pp", "install.pp", "service.pp", "custom.properties.erb", "org.apache.karaf.features.cfg.erb", "deployment_tasks.yaml", "environment_config.yaml", "opendaylight-options.png", "metadata.yaml", "LICENSE", "README", "fuel.patch", "openstack.net-virt-1.1.2-Lithium-SR2.jar", "pre_build_hook"]
+      },
+      {
+        "hash": "3e2f7886761932cf6052b92151411b548682a6f9",
+        "msg": "Reflect new changes in fuel-library\n\nChange introduced in this commit [1] broke deployment with ODL plugin.\n\n[1]\nhttps://github.com/openstack/fuel-library/commit/ea69a7adb54426a9636c488201d826873bef8648#diff-96266aa7b55a1ad5c42d52b5c0e5ca54\n\nChange-Id: I2b90b5d4b0bea3e6218f60b488e06ca67e799d5c\nSigned-off-by: Michal Skalski <mskalski@mirantis.com>",
+        "cmtr": "Michal Skalski",
+        "date": "2016-01-25 13:34:55+01:00",
+        "files": ["neutron-configuration.pp", "odl-ml2-configuration.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "2d2988b314cf43a617fdb2e6503e986ec6eac6e9",
+        "msg": "Adjust manifests to reflect last changes in fuel-library\n\nSwitch to ODL Beryllium RC1 version\n\nChange-Id: Ia0e1d4bc39849030eee39083aec1c0bc77be0060\nSigned-off-by: Michal Skalski <mskalski@mirantis.com>",
+        "cmtr": "Michal Skalski",
+        "date": "2016-02-05 00:53:50+01:00",
+        "files": ["odl-ml2-configuration.pp", "odl-netconfig.pp", "odl_hiera_overrides.rb", "pre_build_hook"]
+      },
+      {
+        "hash": "6f68010accf719d904657db3f397ba6a9b6676d5",
+        "msg": "Provide possibility to build plugin with openjdk-8\n\nDaniel Smith discover large resource consumption when SFC features are\nenabled and openjdk-7 is used. Following his advice we want to add\noption to use openjdk-8. Becuase this version is not offically available\nin ubuntu 14.04, it needs to be included inside plugin. This can be achieved\nby setting USE_JAVA8=true environment variable during plugin compilation:\n\n  USE_JAVA8=true fpb --debug --build fuel-plugin-opendaylight\n\nChange-Id: If1318c766b31ff9749bd3d75f8ee3c5ca6f89ffc\nSigned-off-by: Michal Skalski <mskalski@mirantis.com>",
+        "cmtr": "Michal Skalski",
+        "date": "2016-02-14 14:36:23+01:00",
+        "files": ["README.md", "install.pp", "dependencies.txt", "pre_build_hook"]
+      },
+      {
+        "hash": "a4f66177e10c7cd014f1f6f6a935b482464d5367",
+        "msg": "Stop use deprecated method to fetch nodes info\n\nNodes hash become a deprecated structure, replace it with\nnetwork_metadata.\n\nChange-Id: I051af35436c1ba2e86331a2223ccc78114ecbac2",
+        "cmtr": "Michal Skalski",
+        "date": "2016-03-07 10:49:36+01:00",
+        "files": ["hiera-override.pp", "neutron-configuration.pp", "odl-install.pp", "odl-netconfig.pp", "odl-nol3-configure_default_route.pp", "odl-service.pp", "odl_ovsdb_managers.rb", "haproxy.pp", "hiera_override.pp", "init.pp", "install.pp", "service.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "c6573ae56713300cf5d259bdaaf324fc0a9c4485",
+        "msg": "Enable BGPVPN_extension/SDNVPN_feature\n\nTo enable SDNVPN feature we have to do:\n- setup the transport endpoint that it\n  has the correct ip in ovs and ODL\n- Add br-int\n- Configure ODL as the controller for br-int\n- disable ovsdb feature and enable sdnpvpn feature\n- fuel network setup has to be changed\n  to stick to sdnvpn network concept\n\nChange-Id: I320c9597b4b760f3a7d273aad710b5e43f4ba754",
+        "cmtr": "Nikolas Hermanns",
+        "date": "2016-03-10 14:47:24+01:00",
+        "files": [".gitignore", "neutron-configuration.pp", "odl_hiera_overrides.rb", "odl_karaf_features.rb", "odl_network_scheme.rb", "service.pp", "setup_TEPs.py", "environment_config.yaml", "metadata.yaml"]
+      },
+      {
+        "hash": "e250b6a33c4bcd2cc99b38749254ccb2ecd61b99",
+        "msg": "[SDNVPN] Change order of set manager/Use PUT\n\nIn this commit two things are changed.\nThe manager of ovs will be set after\nall the configuration is done.\nThat guarantees that the config on ODL\nis stabel and now resync has to be done.\n\nIn addition the Trunk Endpoint information\nis not delete anymore when a new tunnel\nis added.\n\nChange-Id: I33731fad724d41665998abe69ad61c995a518910",
+        "cmtr": "Nikolas Hermanns",
+        "date": "2016-03-14 13:32:25+01:00",
+        "files": ["neutron-configuration.pp", "setup_TEPs.py"]
+      },
+      {
+        "hash": "d5049320c3968098ff7a6b1cb1a7e317059eaba2",
+        "msg": "Switch to fuel plugin framework v4.0\n\nRegister OpenDaylight as a network component, it will be available in\nenvironment creation wizard.\nAdd task which will register DLUX dashboard inside Fuel Web UI.\nMove ODL credentials and jetty port number from puppet manifests to\nhiera.\n\nSigned-off-by: Michal Skalski <mskalski@mirantis.com>\nChange-Id: I6f347aec73435886d72d734fb7d0deecc065b618",
+        "cmtr": "Michal Skalski",
+        "date": "2016-04-15 15:21:55+02:00",
+        "files": ["README.md", "components.yaml", "odl-dashboard.pp", "haproxy.pp", "init.pp", "install.pp", "service.pp", "jetty.xml.erb", "setup_TEPs.py", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "1415172894fae609fc1746f0ba797ec01098bb38",
+        "msg": "Add support for Fuel 9.0\n\nAllow deployments on mitaka-9.0 release.\nMost of the changes are connected to the fact that in Fuel 9.0 task base\ndeployment[0] is enabled by default[1]. Replace skipping task in favor\nof overwriting.\n\nNew features will be introduced in future changes.\n\n[0]\nhttps://docs.google.com/presentation/d/1jZCFZlXHs_VhjtVYS2VuWgdxge5Q6sOMLz4bRLuw7YE\n[1] https://review.openstack.org/#/c/273693/\n\nChange-Id: I0d4ae5b5c43a902b42b9d7f85f8b48972fedcd9c",
+        "cmtr": "Michal Skalski",
+        "date": "2016-04-26 20:09:09+02:00",
+        "files": ["README.md", "odl-common_config.pp", "odl-ml2-configuration.pp", "odl-netconfig.pp", "deployment_tasks.yaml", "metadata.yaml", "pre_build_hook"]
+      },
+      {
+        "hash": "c4f43000c1592ae913e2beb5d702b0f5b20cc352",
+        "msg": "Support odl_v2 driver\n\nVersion v2 of the networking-odl driver supposed to resolve race\nconditions and better support HA deployments. It is still considered as\nexperimental and can introduce new problems. It is new option, not the\ndefault choice.\n\nChange-Id: Ied938155b369371c4516cb1496167a6fd1de6c30\nSigned-off-by: Michal Skalski <mskalski@mirantis.com>",
+        "cmtr": "Michal Skalski",
+        "date": "2016-05-10 12:51:52+02:00",
+        "files": ["odl-common_config.pp", "odl_hiera_overrides.rb", "environment_config.yaml", "pre_build_hook"]
+      },
+      {
+        "hash": "1332065c4256038a960c4bf67d7ab13c3aab8151",
+        "msg": "App coexistence configuration for Netvirt and SFC\n\nRest API config so that Netvirt and SFC are configured\nbefore the switches from computes are connected to ODL\n\nChange-Id: I4f326f461087036a0c4aef13a87bc9c5405f2442\nSigned-off-by: Manuel Buil <manuel.buil@ericsson.com>",
+        "cmtr": "Manuel Buil",
+        "date": "2016-05-19 12:56:58+02:00",
+        "files": ["odl-sfc.pp", "sfc.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "65f80ef389293fa92fc85e343effe9510cd63e88",
+        "msg": "Smooth out hiera values\n\n- get hiera data just once\n- pass functions params instead of get them inline\n\nChange-Id: If94783b6dcf878109d2f90da99fcdcbabb8d26fe",
+        "cmtr": "Michael Polenchuk",
+        "date": "2016-06-29 15:54:52+03:00",
+        "files": ["hiera-override.pp", "odl-common_config.pp", "odl-dashboard.pp", "odl_karaf_features.rb", "odl_ovsdb_managers.rb", "haproxy.pp", "install.pp", "service.pp", "sfc.pp"]
+      },
+      {
+        "hash": "ae7f56df70acb92f78150c5461d84896e6aef1b4",
+        "msg": "SFC specific ODL version\n\nODL_BORON_TARBALL_LOCATION env variable can be used to point to dedicated\nversion of ODL for SFC, opendaylight-boron deb package will be created.\n\nChange-Id: Ia9ec2457de82e793b29af494b48c37d567fc7e72\nSigned-off-by: Michal Skalski <mskalski@mirantis.com>",
+        "cmtr": "Michal Skalski",
+        "date": "2016-06-30 15:23:28+02:00",
+        "files": ["init.pp", "install.pp", "environment_config.yaml", "pre_build_hook"]
+      },
+      {
+        "hash": "c78c601748988cce0f1573868750a48d9deb20e4",
+        "msg": "enable full quagga support\n\nChange-Id: I4677008fdd51c041743e1d84862d6a893dccfc5e",
+        "cmtr": "Nikolas Hermanns",
+        "date": "2016-07-01 08:51:47+02:00",
+        "files": ["install.pp", "quagga.pp", "pre_build_hook"]
+      },
+      {
+        "hash": "32b3824f8437588b0b6baacc36291670c2d692c6",
+        "msg": "Fix quagga class\n\nChange-Id: Icd6013fed0f92585f8ceb993f2eabb117d7d717c\nSigned-off-by: Michal Skalski <mskalski@mirantis.com>",
+        "cmtr": "Michal Skalski",
+        "date": "2016-07-05 10:53:16+02:00",
+        "files": ["quagga.pp"]
+      },
+      {
+        "hash": "550965c331da86e1105d4625afdc2943e58b176b",
+        "msg": "Open vxlan-gpe port on compute\n\nTested in virtual environment\n\nChange-Id: I40018a280760f76edf79f94c797ab0cfce79b193\nSigned-off-by: Ferenc Cserepkei <ferenc.cserepkei@ericsson.com>",
+        "cmtr": "Ferenc Cserepkei",
+        "date": "2016-07-30 21:30:08+02:00",
+        "files": ["odl-vxgpe.pp", "vxgpe.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "da08a2b5e707490f3434abff5b886bfd18d23d60",
+        "msg": "Modified the new SFC features for ODL Boron\n\nEnabling SFC implies ODL Boron usage.\n\nChange-Id: Ia5e6339c2726822baa26e733ca8b8c9f79243446\nSigned-off-by: Manuel Buil <manuel.buil@ericsson.com>\nSigned-off-by: Michal Skalski <mskalski@mirantis.com>",
+        "cmtr": "Michal Skalski",
+        "date": "2016-08-11 14:10:22+02:00",
+        "files": ["odl_package_name.rb", "init.pp", "install.pp", "environment_config.yaml", "pre_build_hook"]
+      },
+      {
+        "hash": "694ec577fb5c397e22b95887e0889b482aa69db8",
+        "msg": "Fix setting bgpd password with puppet\n\nThe bgpd.conf file created by puppet was malformed, due to using the\ndefault key_val_seperator '=' which is wrong. This commit makes\nthe ini_setting resource use the right separator for quagga, which is a\nspace.\n\nChange-Id: I9dd1cf17f9056ec63d42ac254ffb6f6a1884873b\nSigned-off-by: Romanos Skiadas <rski@intracom-telecom.com>",
+        "cmtr": "Romanos Skiadas",
+        "date": "2016-08-30 18:25:41+03:00",
+        "files": ["quagga.pp"]
+      },
+      {
+        "hash": "7453acb706595fb9713f5c31fee822bf46380ce4",
+        "msg": "Add firewall resource that opens BGP ports\n\nQuagga cannot peer with another quagga unless the firewall allows\nconnections to port 179.\n\nChange-Id: I4691ee799f75c40f7747457636b3e796c800917a\nSigned-off-by: Romanos Skiadas <rski@intracom-telecom.com>",
+        "cmtr": "Romanos Skiadas",
+        "date": "2016-09-09 18:34:54+03:00",
+        "files": ["quagga.pp"]
+      },
+      {
+        "hash": "0a7b260ebcdbdd24c87a905434c7f252d045ab5e",
+        "msg": "Fuel 9.1 compatibility\n\nChange-Id: I8ccdc5a366d0acc2a41a19082e9c6c0aee1aab4f\nSigned-off-by: Michal Skalski <mskalski@mirantis.com>",
+        "cmtr": "Michal Skalski",
+        "date": "2016-10-17 13:59:40+02:00",
+        "files": ["odl-netconfig.pp", "hiera_override.pp"]
+      },
+      {
+        "hash": "5d1885b2583e65b4b123093c6cb113e9bb5d32eb",
+        "msg": "Uplift BGPVPN to Boron-SR1 and odl-netvirt feature\n\n- Make the plugin use Boron SR1 when the bgpvpn features are used\n- Make BGPVPN use the odl-netvirt feature\n- Make EXPERIMENTAL_TARBALL_LOCATION point to SR1\n- Remove the default gateway input for bgpvpn\n- Unconditionally enable some features which were disabled for bgpvpn.\n  Disable the bgpvpn specific environment configurations that were used\n  in lieu of those features that were disabled for bgpvpn\n- Make floating IP work for odl-netvirt-openstack. This is done by\n  adding a provider_mapping to ovs between physnet1 and br-floating, which\n  opendaylight uses to configure the networking setup accordingly.\n\nCo-Authored-By: Romanos Skiadas <rski@intracom-telecom.com>\nChange-Id: Icdb962dac83d0a68b25914285a0e7d8987daefdc",
+        "cmtr": "Romanos Skiadas",
+        "date": "2016-11-22 11:34:41+02:00",
+        "files": ["odl-common_config.pp", "odl_karaf_features.rb", "odl_network_scheme.rb", "service.pp", "setup_TEPs.py", "environment_config.yaml", "pre_build_hook"]
+      },
+      {
+        "hash": "f5c52caac2e153756b1e17cf752ac2ba21b3522f",
+        "msg": "Use integration-packaging project to build ODL Deb\n\nUse docker container from integration-packaging project to build\nOpenDaylight deb packages. This change introduce support for systemd\nand is a part of uplifting plugin to Fuel 10.\n\nNotice: to build plugin with more than one version of ODL\nfuel-plugin-builder needs to be installed from sources, this change is\nrequired: https://review.openstack.org/#/c/311031/\n\nChange-Id: Ib6204c1fa71a844fe42b878352bd987c192ee9dd\nSigned-off-by: Michal Skalski <mskalski@mirantis.com>",
+        "cmtr": "Michal Skalski",
+        "date": "2016-12-06 12:08:30+01:00",
+        "files": ["README.md", "odl_hiera_overrides.rb", "odl_package_name.rb", "install.pp", "override.conf.erb", "setenv.erb", "environment_config.yaml", "dependencies.txt", "opendaylight", "opendaylight-post", ".gitkeep", "opendaylight", "opendaylight-post", "Dockerfile", "buildPatchedOpenflowjavaJarball.sh", "openflowplugin_modify_nsh_subtype.patch", "pre_build_hook"]
+      },
+      {
+        "hash": "0574e57f397ffe453ccb6c31eb0162d3c35f9b1b",
+        "msg": "Fuel 10 uplift\n\n- generate override actions\n- clean up outdated manifests\n- align function calls\n\nChange-Id: Ie1bf8f2360f72f9de4d3f63c0a6b397f3e94909d\nSigned-off-by: Michal Skalski <mskalski@mirantis.com>",
+        "cmtr": "Michal Skalski",
+        "date": "2016-12-06 12:15:58+01:00",
+        "files": ["README.md", "odl-common_config.pp", "odl-ml2-configuration.pp", "odl-netconfig.pp", "odl-nol3-configure_default_route.pp", "odl_hiera_overrides.rb", "odl_network_scheme.rb", "hiera_override.pp", "deployment_tasks.yaml", "metadata.yaml"]
+      },
+      {
+        "hash": "581fcf5c41ec1a584057b31a1af740351fb5faef",
+        "msg": "Add support for Fuel 10\n\n* Make hiera override functionality reenterant.\n  Change default behaviour (do not create them) of resource overrides.\n  Produce override with resource creation during ML2 plugin configuration.\n\n* Instead of writing file in odl_hiera_overrides(), return yaml data and\n  write it using puppet file resource.\n\n* Neutron dhcp agent reset ovs manager setting. Add one more input\n  argument to `odl_hiera_overrides' function that configure\n  `ovsdb_connection' in neutron.conf. This way ovsdb manager will be set\n  correctly.\n\n* Change `primary-openstack-network-plugins-l2' deployment task placement in deployment\n  graph. Make it appear before\n  `primary-openstack-network-server-config'. Otherwise we will try to\n  start neutron-server prior to `neutron-server' .deb package\n  installation.\n\n* Switch `ovsdb_interface' to `vsctl' for both l3 and dhcp agents in\n  neutron.conf, instead of writing it in two files (l3_agent.ini and\n  dhcp_agent.ini).\n\nChange-Id: I8ccb4bfe8e788cd171bafde125903d91aa31b59e\nPartial-bug: 1648349",
+        "cmtr": "Igor Zinovik",
+        "date": "2017-01-20 18:42:04+03:00",
+        "files": ["odl-ml2-configuration.pp", "remove-odl-override.pp", "odl_hiera_overrides.rb", "hiera_override.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "001dc03a0691bb3c94570d447584eea7e12264dc",
+        "msg": "Skip creating non-existing resources\n\nSkip creating overridden neutron resources\nfor odl controller in standalone mode.\n\nChange-Id: I429ff55e49744b84e6132412ed379b7a6a37ee14",
+        "cmtr": "Michael Polenchuk",
+        "date": "2017-02-03 18:45:51+04:00",
+        "files": ["odl_hiera_overrides.rb", "hiera_override.pp"]
+      },
+      {
+        "hash": "6aa47a6ad6f45175ce9f645d1ac171e0129507b2",
+        "msg": "Mend standalone mode condition\n\nTake into account roles with hiera_override task explicitly\nin order to get standalone true mode.\n\nChange-Id: I45cdf1aeea297a0875e542beeac2ca32d63cdf0d",
+        "cmtr": "Michael Polenchuk",
+        "date": "2017-02-07 12:19:13+04:00",
+        "files": ["hiera_override.pp"]
+      },
+      {
+        "hash": "c1be687a93c43a2bce793e080d22aaf210718be8",
+        "msg": "Install and start quagga/zrpcd\n\n- compile and install zrpcd on the controller node using the compile script\n  provided by upstream zrpcd\n- install a systemd file for zrpcd\n- start the service\n- increase the timeout for odl-install.pp to account for the compilation time\n\nChange-Id: Ia75cd9a2c9fa76ba128c943d373de4be96292e86\nSigned-off-by: Romanos Skiadas <rski@intracom-telecom.com>",
+        "cmtr": "Romanos Skiadas",
+        "date": "2017-02-17 12:19:07+02:00",
+        "files": [".gitignore", "odl-install.pp", "quagga.pp", "zrpcd.service", "deployment_tasks.yaml", "pre_build_hook"]
+      }]
+    }

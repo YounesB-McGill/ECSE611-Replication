@@ -1,0 +1,1295 @@
+    {
+      "url": "https://github.com/openstack/puppet-ceph",
+      "pp_files": ["keystone.pp", "init.pp", "mds.pp", "params.pp", "civetweb.pp", "key.pp", "client.pp", "mon.pp", "keys.pp", "mirror.pp", "conf.pp", "apache_fastcgi.pp", "repo.pp", "mons.pp", "mgr.pp", "rgw.pp", "base.pp", "osd.pp", "apache_proxy_fcgi.pp", "apache.pp", "auth.pp", "fs.pp", "osds.pp", "pool.pp"],
+      "pp_cmtrs": ["Emile Snyder", "Alexander Brovman", "Emilien Macchi", "Mykyta Karpin", "Rongze Zhu", "Matthew J. Black", "Ourson", "Giulio Fidente", "David Moreau Simard", "Oleksiy Molchanov", "Sebastien Badia", "David Gurtner", "Jan Provaznik", "Cody Herriges", "Eric Cook", "Andrew Woodward", "Fran\u00e7ois Charlier", "Ricardo Rocha", "David Critch", "Tobias Urdin", "yatin", "Dan Williams", "Micka\u00ebl Li\u00e9nard", "Gerrit Code Review", "Devise Alexis", "Gaudenz Steinlin", "Keith Schincke", "John Fulton", "Carlos Camacho", "Richard Arends", "Alex Schultz", "zhangbailin", "Nick", "Sofer Athlan-Guyot", "Brandon Weeks", "Mohammed Naser", "Thierno Bald\u00e9", "autaa", "Guillaume Ruscassie", "Gilles Dubreuil", "Erno Kuvaja", "Simon Murray", "Loic Dachary", "Florian Haas", "cdelatte", "Vianney DUPOY DE GUITARD", "David Eglem"],
+      "num_pp_commits": 184,
+      "num_tot_commits": 481,
+      "commits": [{
+        "hash": "c15e3fcc6fe3fa398f3f1fb06f5856f6f1fd6698",
+        "msg": "Add ceph::repo and it's unit tests to puppet-ceph\n\nceph::repo is used to set up official ceph repositories.\nThis commit brings support for the Ubuntu LTS and Debian operating\nsystems.\nIt also allows the cuttlefish and the dumpling release of Ceph.\nRedhat-like support is planned.\n\nCloses-bug: #1243348\nChange-Id: I667acebdd94d0644006e5775962a25e6280e6896",
+        "cmtr": "David Moreau Simard",
+        "date": "2013-10-23 17:26:01-04:00",
+        "files": [".fixtures.yml", "Puppetfile", "repo.pp", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "1b884bdb3819b55bd6c2e265b529e28ead4f0c91",
+        "msg": "Introduction of ceph installation and configuration management\n\n* ceph is used to do the installation and configuration of\ncommon dependencies across classes (such as ceph package\ninstallation, global configuration namespaces in ceph.conf).\n\n* ceph::params is meant to hold defaults/constants for various\nclasses and manage operating system differences in the future.\n\n* ceph::osd, ceph::mon, ceph::mds are introduced solely to manage\ntheir respective 'global' configuration for the time being.\n\nIt was decided that we leave most default configurations up to Ceph\nunless they are necessary in installing the cluster.\nAs such, the configurations that are probably most likely to be\nchanged are available as parameters but optional. If they are not\nset (undef), the ceph_config provider will not write them to\nceph.conf and thus, Ceph will handle the defaults.\n\nOther configuration options (exotic or otherwise) can always be\nset through the users' manifests with the help of ceph_config.\nIf support is required, we can always add them if necessary.\n\nChange-Id: I0020a65fe1caada8bc46f6dc63254bcfefb64dbb",
+        "cmtr": "David Moreau Simard",
+        "date": "2013-11-15 17:08:59-05:00",
+        "files": ["Rakefile", "init.pp", "mds.pp", "mon.pp", "osd.pp", "params.pp", "ceph_init_spec.rb", "ceph_mds_spec.rb", "ceph_mon_spec.rb", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "143e4501cf09e84fe1a236144521490a9236fed1",
+        "msg": "Change 4 space indent to 2\n\nIn order to comply with puppet-opestack standard all files where changed to\n be a uniform 2 space indent.\n\nChange-Id: I1763f9229330fed3e6216cb2d2937a8154505981",
+        "cmtr": "Andrew Woodward",
+        "date": "2013-11-18 15:35:31-08:00",
+        "files": ["init.pp", "mds.pp", "mon.pp", "osd.pp", "params.pp"]
+      },
+      {
+        "hash": "68ef474aab6c000eaf9f6ce29756dbbfe7a534cb",
+        "msg": "Add ceph::repo RedHat support\n\nAdds repo's required to support RedHat distros.\nUpdate case tests so RedHat doesn't fail.\n\nSourced from: https://github.com/Mirantis/fuel/blob/master/deployment/puppet/ceph/manifests/yum.pp\n\nSystem spec tests will be provided in a follow up commit\nrepos are from a working deployment and are tested by hand.\n\nCloses-bug: #1243872\nChange-Id: I6d9e356bac6855fd30c522916bf7c4867195488c",
+        "cmtr": "Andrew Woodward",
+        "date": "2013-12-02 11:15:15-08:00",
+        "files": ["params.pp", "repo.pp", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "707761548e7c72fe900729c7022bec9da6c2ac45",
+        "msg": "Make ceph::repo ensurable + add support for emperor\n\nThe ensure argument is added to ceph::repo and used in integration tests\nto make sure the repository is removed the repository before installing\nit. The integration tests do not re-create a virtual machine for each\ntest and the leftovers of the previous test must be cleaned.\n\nThe emperor Ceph release is now supported to be the default.\n\nCloses-Bug: #1255940\n\nChange-Id: Ib6da26b95be9f549d55bd88f867b43d6aa536f10\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Loic Dachary",
+        "date": "2013-12-14 18:06:04+01:00",
+        "files": ["repo.pp", "ceph_repo_spec.rb", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "66d91a3d191475e5530ddad16bebe71a67863dcc",
+        "msg": "ceph::mon create or destroy monitors\n\n* ceph::mon resource\n\n  create a MON if ensure == present or destroy one if absent\n\n  all combinations of keys / keyring as specified in the blueprint are\n  supported\n\n* integration tests cover all cases and unit tests are implemented to\n  ensure syntax correctness\n\n* minor corrections to other classes are included ( two nodes for\n  integration tests, default values for the ceph class etc. )\n\n* A ceph::mons class wrapper is created for compatibility with\n  scenario_node_terminus\n\nCloses-Bug: #1251443\n\nChange-Id: Ic56a4124738006f7946ee9c166295f7048cb7854\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Loic Dachary",
+        "date": "2013-12-18 22:18:31+01:00",
+        "files": [".nodeset.yml", "Gemfile", "README.md", "init.pp", "mon.pp", "mons.pp", "osd.pp", "ceph_init_spec.rb", "ceph_mons_spec.rb", "ceph_mon_spec.rb", "spec_helper_system.rb", "ceph_mon_spec.rb"]
+      },
+      {
+        "hash": "7731c8e030f716046e7c57199e23a187b049fcd3",
+        "msg": "use --show-config-value instead of --show-config\n\nIt is simpler and does not require a call to sed.\n\nChange-Id: Iec2daf0ce345242701dfe4f0225fca0a25d6be6f\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Loic Dachary",
+        "date": "2013-12-30 11:39:54+01:00",
+        "files": ["mon.pp"]
+      },
+      {
+        "hash": "1a20b806a9729aad9b5812131761a764b68d1224",
+        "msg": "correct option name in class ceph\n\nthere is not osd_default_crush_rule option in ceph.conf, the correct\nname is osd_pool_default_crush_rule.\n\nChange-Id: Ice8ec6f0bdc1e8f1c5f143134eb0fdf108ceda1f",
+        "cmtr": "Rongze Zhu",
+        "date": "2014-01-13 20:03:37+08:00",
+        "files": ["init.pp", "ceph_init_spec.rb"]
+      },
+      {
+        "hash": "a93f13a0bdc04571cef7f54e31607e3627f5665d",
+        "msg": "add the mon string in class names\n\nSo that they are unique and there is no risk of name clash.\n\nChange-Id: Ie07e00af7b75f5b295e4085f4e2e3e6ff50d4482\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Loic Dachary",
+        "date": "2014-02-18 15:08:12+01:00",
+        "files": ["mon.pp"]
+      },
+      {
+        "hash": "6778b373100180f361284ada4a3b47a220674cd4",
+        "msg": "ceph::conf class wrapper for ceph_config\n\nSo that scenario_node_terminus can use it.\n\nChange-Id: I65b9e712b98b65f9bea6029853d92c0241acf1d6\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Gerrit Code Review",
+        "date": "2014-03-11 15:43:50+00:00",
+        "files": ["conf.pp", "ceph_conf_spec.rb"]
+      },
+      {
+        "hash": "94e78cfb7f62cb3845b9ff1d6424f27341179d37",
+        "msg": "ensure => absent must remove the mon data dir\n\nInstead of moving it to another directory because it prevents running\nthree or more mon installation / destruction in sequence on the same\nmachine.\n\nChange-Id: I418c2fdcd35ff0bc1cc258d069516f870807cdbe\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Gerrit Code Review",
+        "date": "2014-03-11 16:58:00+00:00",
+        "files": ["mon.pp"]
+      },
+      {
+        "hash": "1b0c333bd67eb67680b222d168b41336688ed83d",
+        "msg": "define ceph::osd\n\nPrepare (i.e. create the file system) and activate (i.e. register the\nOSD with the Ceph cluster and run the OSD daemon) a designated device on\nthe machine. It supports cephx and no authentication. It supports\nexternal journals.\n\nThe activate part of the operation is implicit (triggered by udev rules\ninstalled with the Ceph package).\n\nThe ensure absent implementation is probably not useful in production,\nbecause it enough to remove the disk and let Ceph deal with the\nconsequences. It is however useful for integration tests to reset the\ndevice permissions and declare it non existent to the Ceph cluster.\n\nThe shell snippets associated with present and absent are larger than\nnecessary. They will be reduced to oneliners when the features\nrequired of ceph-disk are implemented. The issue tickets associated\nidempotency and OSD removal are added as comments in the define\nimplementation to keep track of the progress of their implementation.\n\nThe spec tests are little more than syntax checking. The integration\ntests verify ensure present/absent with and without cephx, with and\nwithout an external journal.\n\nChange-Id: I15e170b4e3b144da9c2061c0746411f65a744519\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Loic Dachary",
+        "date": "2014-03-14 19:30:05+01:00",
+        "files": ["osd.pp", "ceph_osd_spec.rb", "ceph_osd_spec.rb", "ceph_mon_spec.rb", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "2787b2165f6ea990f99aca54afec4ad621e61292",
+        "msg": "define ceph::key.\n\nProvides keyring management.\n\nHandles cephkeys (cephx), creating keyring files, injecting keys into\nthe keyring via ceph and ceph-autotool tools. Includes support for\nmultiple keys in the same keyring file (as this is supported by the\nceph-authtool tool).\n\nIncludes rspec system puppet for validation.\n\nChange-Id: Ib3c4832ffcff61ab42ae221cdd5a5bfb76ee36c5\nImplements: blueprint puppet-ceph#key",
+        "cmtr": "Ricardo Rocha",
+        "date": "2014-04-09 09:01:24+12:00",
+        "files": ["key.pp", "ceph_key_spec.rb", "ceph_key_spec.rb"]
+      },
+      {
+        "hash": "ad41fc4259585ebc2abf5a672b8623ab6e997a32",
+        "msg": "Fixes for ceph::key\n\nThe sed command had escape sequences interpreted by puppet which\nhave been escaped now to allow correct execution of the unless\nparameter\n\nChange-Id: Icd0322eeeb6996a42906431add0322e51849061d",
+        "cmtr": "Simon Murray",
+        "date": "2014-04-17 09:27:01+01:00",
+        "files": ["key.pp"]
+      },
+      {
+        "hash": "f02c508af3d4f8297718eafa06da5f05a647f49a",
+        "msg": "ceph::key : make shell verbose for clarity\n\nSo that the output contains the actual shell lines being run, otherwise\nit is most difficult to figure out what went wrong and why.\n\nChange-Id: I655ef1b87ecede02c5a76f04c9b3075456a622ab\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Loic Dachary",
+        "date": "2014-05-07 22:10:26+00:00",
+        "files": ["key.pp", "ceph_key_spec.rb"]
+      },
+      {
+        "hash": "d5106442fee00dffc87f84e72ece081accc26e42",
+        "msg": "ceph::key : add keyring and id key injection arguments\n\nThe id and keyring used when injecting a key do not necessarily match\nthe ceph default. The inject_as_id and inject_keyring arguments are\nadded to change them independently of each other.\n\nThe argument documentation is updated and the integration tests upgraded\nto demonstrated the intended side effect.\n\nChange-Id: I9b19a66558bc11e16da9fde4f11d23b850154186\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Loic Dachary",
+        "date": "2014-05-07 22:26:08+00:00",
+        "files": ["key.pp", "ceph_key_spec.rb", "ceph_key_spec.rb"]
+      },
+      {
+        "hash": "eb2c61157077695066233832af913c371fbf6d9f",
+        "msg": "ceph::key : add the cluster argument\n\nSo that ceph::key can be used on a cluster that is not named after the\ndefault (ceph).\n\nChange-Id: I7b7626ceb83ff387b4c8d100534dea637f91a798\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Loic Dachary",
+        "date": "2014-05-07 22:39:54+00:00",
+        "files": ["key.pp", "ceph_key_spec.rb", "ceph_key_spec.rb"]
+      },
+      {
+        "hash": "63ccb72a6dca9fc31e41b32307f2b4e1e045a5c9",
+        "msg": "ceph::key : fix cap_{mon,osd,mds} prototype to match the documentation\n\nSet cap_{mon,osd,mds} to undef by default instead of '' and fix the\nintegration tests accordingly.\n\nChange-Id: I520c3b4f1f983c8503fc7bac0a5bb05c90da0bbc\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Loic Dachary",
+        "date": "2014-05-07 22:52:59+00:00",
+        "files": ["key.pp", "ceph_key_spec.rb"]
+      },
+      {
+        "hash": "d3b7bcd2ddf1310c0019d08c6464dfb818e0d629",
+        "msg": "ceph::key : exec touch is redundant with file\n\nChange-Id: Iec58d37324a1b8c79c02247ab1b3956332314789\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Loic Dachary",
+        "date": "2014-05-07 22:53:10+00:00",
+        "files": ["key.pp"]
+      },
+      {
+        "hash": "f0b9abe610e468ae64c4e91ac83dfe2e85e399ed",
+        "msg": "ceph::key : proofread documentation strings\n\nChange-Id: Ice6c57375a6ba28e134fa8c9bb87fa55b6974fc1\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Loic Dachary",
+        "date": "2014-05-07 22:53:45+00:00",
+        "files": ["key.pp"]
+      },
+      {
+        "hash": "7b717e33fba3193ad04b5142deac5b77629cdbec",
+        "msg": "ceph::mon : control client.admin key generation\n\nCreating an empty /etc/ceph/ceph.client.admin.keyring file disables the\nautomatic creation of the client.admin credentials when the first\nmonitor is created.\n\nThe creation of the key must be done via ceph::key, using the\nmon. keyring, in the same way ceph-create-keys does.\n\nModify the client.volumes test to actually use cephx instead of\ninjecting a key in a non cephx cluster. It makes the client.something\ntest redundant and also demonstrates that the client.admin key can be\ncreated by puppet instead of being automatically created by\nceph-create-keys.\n\nChange-Id: I7060e418c27ea3f6f4e53604044f21865438382e\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Loic Dachary",
+        "date": "2014-05-07 22:54:16+00:00",
+        "files": ["mon.pp", "ceph_mon_spec.rb", "ceph_key_spec.rb", "ceph_mon_spec.rb", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "94a82ffd98c0b1ea26c27880f94df370cf66043c",
+        "msg": "ceph::osd : do not hardcode the cluster name\n\nAnd cleanup the content of the OSD when it is removed, before umounting it.\n\nChange-Id: Ie255d4ae4012b995fd2fc0e6f643ed32a03ce165\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Loic Dachary",
+        "date": "2014-05-07 22:54:22+00:00",
+        "files": ["osd.pp"]
+      },
+      {
+        "hash": "056e117655c0989a9528176d7ddda2f573a540e9",
+        "msg": "ceph::osd : add support for mon data directories\n\nThe creation of the OSD is separated in two stages, ceph-disk prepare\nand ceph-disk activate. When dealing with a device this is not\nnecessary. But it is necessary when mon data is a directory.\n\nThe mon data directory is created if it does not exist. Although this is\nnot necessary for versions >= dumpling, it is for cuttlefish.\n\nThe tests are unmodified : they are run once with the /dev/sdb device\nand again with the /srv/data directory.\n\nThe filestore_xattr_use_omap = true is added because cuttlefish does not\nset it by default and will fail if trying to OSD::mount a directory from\na file system with limited xattr capacity such as ext4.\n\nNote: the indentation in the tests is intentionally incorrect to not\nintroduce white space changes and make a clean diff.\n\nChange-Id: Ie40eea0908b0f2e14420e2b0df2ba26e1465d23e\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Loic Dachary",
+        "date": "2014-05-07 22:54:28+00:00",
+        "files": ["osd.pp", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "539fd68e53326e4a01f5a9fffdf36e9259a2130b",
+        "msg": "drop --cluster from ceph-disk activate (osd).\n\nThis commit removes the --cluster option from the 'ceph-disk activate'\npart of the osd configuration (when the cluster is given as an arg).\nOnly 'ceph-disk prepare' accepts a cluster option.\n\nChange-Id: I4027690c36141a184c1fb1b64b382e17cbbcf487\nCloses-Bug: #1323120",
+        "cmtr": "Ricardo Rocha",
+        "date": "2014-05-26 16:04:01+12:00",
+        "files": ["osd.pp"]
+      },
+      {
+        "hash": "51bfbc1930e31d3803882c1e5cdda87de62d6d55",
+        "msg": "define ceph::pool.\n\nProvides pool management.\n\nHandles ceph pools, including creation and the basic pool attributes\n(pg_num, pgp_num, size/replica), as well as deletion of existing pools.\n\nIncludes rspec system puppet for validation.\n\nChange-Id: Ia5aa832fc286f0eb5ad0932dcc2fb0796c21187b",
+        "cmtr": "Ricardo Rocha",
+        "date": "2014-05-26 16:41:42+12:00",
+        "files": ["pool.pp", "ceph_pool_spec.rb", "ceph_pool_spec.rb"]
+      },
+      {
+        "hash": "ab782949442a136c46d74449d207fe61211fdf67",
+        "msg": "Fixes Bug: \"yum repo don't work in CentOS 6.4\"\n\nRemoving curly braces around the the basearch parameter which\nlead to parsing issues.\n\nFixing additional issues with yum repo configuration and\nadapting the CI test.\n\nLocally verified this with RS_SET=two-centos-64-x64.\nWhile it would be preferable to verify it via gerritexec,\nall of the CI except ceph_repo_spec.pp fail.\nThis will be handled with subsquent patches.\n\nChange-Id: Ia99e20dab8c496cc3becec77acbe38003c6d7779\nCloses-Bug: 1264959\nPartially-Bug: 1264916",
+        "cmtr": "David Gurtner",
+        "date": "2014-05-26 14:21:17+02:00",
+        "files": ["repo.pp", "ceph_repo_spec.rb", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "e5a50f4d3c629f9b80910b538ba2bd23fc4c8f87",
+        "msg": "Support for RedHat in ceph::mon\n\nSupport for RedHat in ceph::mon and in ceph::mon, ceph::keys CI tests.\n\nYumrepo isn't propperly removed but only disabled. This leads to a need\nto ensure => absent on the ceph::repo whenever a switch to a different\nceph version happens. Therefore it's refactored run tests ordered by\nrelease\n\nChange-Id: I51150c1e3316bdab20c4458e79c4aeeb15fe4bd2\nCloses-Bug: #1264916\nCloses-Bug: #1323841",
+        "cmtr": "David Gurtner",
+        "date": "2014-05-28 01:49:13+02:00",
+        "files": ["mon.pp", "ceph_mons_spec.rb", "ceph_mon_spec.rb", "spec_helper.rb", "spec_helper_system.rb", "ceph_key_spec.rb", "ceph_mon_spec.rb", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "d7d966e411516d3e59d25c491559dbf1fa91d3af",
+        "msg": "Fixed removal command in ceph::osd\n\nAnd updated the CI tests. ceph::repo needs to be removed whenever\na different release is targeted. This is mainly because \"enabled\" is\nused in yumrepos, because of the lack of \"ensure\" in Puppet < 3.5\nRefactored to not have to switch ceph::repo constantly, but run tests\non a per release order.\n\nChange-Id: I555acda7413765aaa99f922893649e1f13215450\nCloses-Bug: #1264916\nCloses-Bug: #1323841\nCloses-Bug: #1323838",
+        "cmtr": "David Gurtner",
+        "date": "2014-05-27 23:49:38+00:00",
+        "files": ["osd.pp", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "10f2d4aa497240e74cf3792c38978ef87182e6f2",
+        "msg": "Remove unnecessary if statement in ceph::mon\n\nA previous patchset implementing RedHat family support for ceph::mon had\nan erroneous if statement in the OS selection code.\nThis is fixed here, in its own patchset though, as changes to the previous\npatchset failed the CI tests (and even crashed the test infrastructure as\nit got stuck indefinitely.)\n\nThe removal of the if statement requires some changes in the tests as well.\n\nAlso added a check for the exec in RedHat family.\n\nChange-Id: I38fbf189c806a21c40bb55dd47d6debb3a592b89",
+        "cmtr": "David Gurtner",
+        "date": "2014-05-28 23:16:16+00:00",
+        "files": ["mon.pp", "ceph_mons_spec.rb", "ceph_mon_spec.rb"]
+      },
+      {
+        "hash": "4ea286a15b3e14b5a3b6ada1de81ea133238767f",
+        "msg": "Initial classes/tests for a roles/profiles pattern\n\nThis is a first step to providing roles/profiles manifests according\nto the roles/profiles pattern.\n\nThe roles/profiles pattern is a way to combine ceph manifests into\nfunctional units:\n\nProfiles combine multiple manifest to provide a single service. For\nexample a ceph monitor server needs the repository, packages,\nconfiguration and finally the monitor service.\n\nRoles define sets of profiles to configure a specific server. For\nexample an allinone role would install the monitor as well as an osd\nprofile.\n\nThe learn more have a look at:\nhttp://www.slideshare.net/PuppetLabs/roles-talk\n\nTo start with the basic configuration this provides:\n* params: extracts the configuration from hiera\n* base: installs ceph and configures ceph.conf\n\nAll configuration happens via hiera. Example hiera files are\nprovided.\n\nNB: this uses hiera autoloading and will only work with Puppet >=3.0\n\nChange-Id: Iba9aca7f124bd3a719dc18292b18fc0f4f386d5c",
+        "cmtr": "David Gurtner",
+        "date": "2014-05-30 18:02:01+02:00",
+        "files": ["common.yaml", "hiera.yaml", "base.pp", "params.pp", "ceph_profile_base_spec.rb", "hiera.yaml", "spec_helper_system.rb", "ceph_profile_base_spec.rb"]
+      },
+      {
+        "hash": "8ca2b452a5fe166663c2371cafd1bc9fb783d8cd",
+        "msg": "obsolete cuttlefish and add firefly\n\nFirefly is the latest stable Ceph released and was published May\n2014. It is added to all integration tests. The cuttlefish release is\nobsoleted to reduce the burden of backward compatibility down to the\nlast three stable releases.\n\nThe journal size for tests is made to be 100MB to use less disk during\ntesting and lower the risks of running of out space.\n\nChange-Id: I35ad5d702a5f8094bb72c67b87582154e2c017fc\nSigned-off-by: Loic Dachary <loic@dachary.org>",
+        "cmtr": "Loic Dachary",
+        "date": "2014-05-31 11:20:44+02:00",
+        "files": ["README.md", "repo.pp", "ceph_repo_spec.rb", "ceph_key_spec.rb", "ceph_mon_spec.rb", "ceph_osd_spec.rb", "ceph_pool_spec.rb", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "04f0f69c71c73333bcac14b271003264cbef46a3",
+        "msg": "Support for scenario_node_terminus for ceph::mon\n\nscenario_node_terminus allow users to specify a data layer that lives on\ntop of Puppet and allows an additional level of flexibility to\ndeployments.\nIs was designed to compose a set of core Puppet modules into multiple\ndeployment permutations (or reference architectures) called scenarios\nwhile requiring as little duplicate code as possible.\n\nThe above description is taken from the source:\nhttps://github.com/bodepd/scenario_node_terminus/\n\nThis patch adds the necessary dependency information to support\nscenario_node_terminus:\n\n* Configuring the repositories before installing the package\n* Configuring /etc/ceph/ceph.conf before adding a monitor\n\nThe last needed dependency of installing the package before configuring\n/etc/ceph/ceph.conf was already in place, but is necessary for this as\nwell.\n\nTo show the dependency information is correct, there is a basic\nintegration test which installs one monitor without cephx on one host\nusing scenario_node_terminus.\n\nChange-Id: Ie160c8f644d7324177b5ced00e7d5e75257e359b",
+        "cmtr": "David Gurtner",
+        "date": "2014-06-01 14:21:04+02:00",
+        "files": ["init.pp", "mon.pp", "mons.pp", "params.pp", "repo.pp", "base.yaml", "config.yaml", "common.yaml", "common.yaml", "common.yaml", "absent.yaml", "purged.yaml", "first.yaml", "second.yaml", "Debian.yaml", "RedHat.yaml", "2_role.yaml", "role_mappings.yaml", "2_role.yaml", "hiera.yaml", "ceph_mons_spec.rb"]
+      },
+      {
+        "hash": "abeed657a11f50241abf99101d535ba7734234c0",
+        "msg": "cephx support for scenario_node_terminus\n\nscenario_node_terminus allow users to specify a data layer that lives on\ntop of Puppet and allows an additional level of flexibility to\ndeployments.\nIs was designed to compose a set of core Puppet modules into multiple\ndeployment permutations (or reference architectures) called scenarios\nwhile requiring as little duplicate code as possible.\n\nThe above description is taken from the source:\nhttps://github.com/bodepd/scenario_node_terminus/\n\nThis patch adds the necessary dependency information to support\ncephx while using scenario_node_terminus.\n\nAn integration test which can serve as an example configuration is also\nprovided.\n\nChange-Id: I77db3da5800e25dd5c78c76ca73791dd726b3ece",
+        "cmtr": "David Gurtner",
+        "date": "2014-06-01 18:31:05+02:00",
+        "files": ["key.pp", "keys.pp", "common.yaml", "cephx.yaml", "common.yaml", "absent.yaml", "purged.yaml", "first.yaml", "second.yaml", "cephx.yaml", "ceph_mons_spec.rb"]
+      },
+      {
+        "hash": "1cfa6b28c937b9903b9d32976e42162b0f89c1ac",
+        "msg": "ceph::osd support for scenario_node_terminus\n\nscenario_node_terminus allow users to specify a data layer that lives on\ntop of Puppet and allows an additional level of flexibility to\ndeployments.\nIt was designed to compose a set of core Puppet modules into multiple\ndeployment permutations (or reference architectures) called scenarios\nwhile requiring as little duplicate code as possible.\n\nThe above description is taken from the source:\nhttps://github.com/bodepd/scenario_node_terminus/\n\nThis patch adds the necessary dependency information to manage\nceph::osd instances while using scenario_node_terminus.\n\nAn integration test which can serve as an example configuration is also\nprovided.\n\nChange-Id: I1bb2b402028df66478039535a3c7b48cbd05dcbb",
+        "cmtr": "David Gurtner",
+        "date": "2014-06-09 00:22:38+02:00",
+        "files": ["osd.pp", "osds.pp", "ceph_osds_spec.rb", "config.yaml", "common.yaml", "absent.yaml", "purged.yaml", "allinone.yaml", "role_mappings.yaml", "2_role.yaml", "allinone.yaml", "cephx.yaml", "hiera.yaml", "ceph_osds_spec.rb"]
+      },
+      {
+        "hash": "5125e5a694f7b16d0e46d1eea5f362ea76cc63e5",
+        "msg": "Configuring all dependencies in the manifests\n\nThis patch defines the last missing dependencies between the different\nparts that make up a RADOS cluster.\n\nThe entire module should now have sane dependencies and except where\nexplicitely wanted, the integration tests should not need to specify\nthem anymore and have been updated appropriately.\n\nHere is an overview of the dependencies:\n\nWhen installing:\n* packages:\n  * need the repositories\n* configuration (ceph_config):\n  * needs the packages, so the base folder exists\n* ceph::mon:\n  * needs all configuration (ceph_config) to be done\n* ceph::key:\n  * needs the binaries (package)\n  * if injecting configuration needs to be available (to find the\n    address of the monitor)\n  * if injecting needs the monitor to be available\n* ceph::osd:\n  * needs all configuration (ceph_config) to be done\n  * needs monitors in the same cluster to be running\n  * needs keys in the same cluster to be installed\n* ceph::pool:\n  * needs all configuration (ceph_config) to be done\n  * needs monitors to be running\n  * needs keys to be installed\n\nWhen removing:\n* ceph::mon:\n  * needs the binaries (package) still around\n* ceph::osd:\n  * needs the monitors in the same cluster to still be available\n* ceph::pool:\n  * needs the monitors to still be available\n\nChange-Id: I26933fcccdb4d953725070dc46456c36f2fee101",
+        "cmtr": "David Gurtner",
+        "date": "2014-06-12 16:33:34+02:00",
+        "files": ["key.pp", "mon.pp", "mons.pp", "osd.pp", "osds.pp", "pool.pp", "repo.pp", "ceph_key_spec.rb", "ceph_mon_spec.rb", "ceph_osd_spec.rb", "ceph_pool_spec.rb"]
+      },
+      {
+        "hash": "b02695b99bf1c9ee63b5c3bcbd170766b339356f",
+        "msg": "Replaced 'mutually exclusives' with 'mutually exclusive' in comments\n\nChange-Id: If91ec483da6fb45144cf84abe1cffc20708616ec\nCloses-Bug: #1326251",
+        "cmtr": "Vianney DUPOY DE GUITARD",
+        "date": "2014-06-17 11:57:02+02:00",
+        "files": ["mon.pp"]
+      },
+      {
+        "hash": "bd59844d24a50086f75d4cae5271a96d8e39567d",
+        "msg": "added missing copyright year in init.pp\n\nChange-Id: Ib0d196712365072f14beb9ccba107f4fefebe948\nCloses-Bug: 1326249",
+        "cmtr": "David Eglem",
+        "date": "2014-06-17 11:43:21+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "c5e1e5e73dac2bcaac3b4c59067bfb31b0093833",
+        "msg": "ceph-autotool typo\n\nIn manifests/key.pp replace ceph-autotool with ceph-authtool (replace\nthe o with an h)\n\nChange-Id: I52a9373d9f3aa941ce0277e476dba9d72c63ab70\nCloses-Bug: #1326258",
+        "cmtr": "Devise Alexis",
+        "date": "2014-06-17 11:50:37+00:00",
+        "files": ["key.pp"]
+      },
+      {
+        "hash": "224d17a4fe1aa8b629b81179eb3ca5275007b96f",
+        "msg": "Edit of the manifest repo.pp and change the xarses by the email\n\nChange-Id: Ie3eff99d3763b38af03cd1a4d518b4554d572cd8\nCloses-Bug: 1326252",
+        "cmtr": "autaa",
+        "date": "2014-06-17 11:58:52+00:00",
+        "files": ["repo.pp"]
+      },
+      {
+        "hash": "f640fafdc722a026614d92978f971ee0aa9ed9f5",
+        "msg": "Add Copryright date\n\nReplaced 'Copyright (C) iWeb Technologies Inc.' with 'Copyright (C) 2013, 2014 iWeb Technologies Inc.'\n\nCloses-Bug: #1330931\nChange-Id: Ieb3c46abd5310b3c0ae0403bf88241f3241e7d6f",
+        "cmtr": "Guillaume Ruscassie",
+        "date": "2014-06-17 14:45:54+02:00",
+        "files": ["repo.pp"]
+      },
+      {
+        "hash": "7886018944b3d5afe14b6081ed8eb2f8149a7ef4",
+        "msg": "missing year in mon.pp copyright notice\n\nChange-Id: If01fd0726db3da1ecbe32bdb57d994dcf5587e58\nCloses-bug: 1330928",
+        "cmtr": "Mickaël Liénard",
+        "date": "2014-06-17 15:19:55+02:00",
+        "files": ["mon.pp"]
+      },
+      {
+        "hash": "a26b95c145f40a76f053a8c52619034984898829",
+        "msg": "missing year in params.pp copyright notice\n\nChange-Id: I7d05de24cc364682c0925fc7c0897215e09c3d9e\nCloses-Bug: 1330927",
+        "cmtr": "Ourson",
+        "date": "2014-06-17 13:25:27+00:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "de7b5a14f490f137dcea4179890c640761e2aa4e",
+        "msg": "Add year to copyright notice\n\nChange-Id: Ib6fee21e3c3cb735233e607e6fdae121180f8929\nCloses-bug: #1330929",
+        "cmtr": "Thierno Baldé",
+        "date": "2014-06-17 17:18:18+02:00",
+        "files": ["mds.pp"]
+      },
+      {
+        "hash": "831f144e81e03b94cf49660cf7378d27f122939e",
+        "msg": "Mon profile for roles/profiles pattern\n\nThis provides a profile for monitor instances in the context of a\nroles/profiles pattern.\n\nThe roles/profiles pattern is a way to combine ceph manifests into\nfunctional units:\n\nProfiles combine multiple manifest to provide a single service. For\nexample a ceph monitor server needs the repository, packages,\nconfiguration and finally the monitor service.\n\nRoles define sets of profiles to configure a specific server. For\nexample an allinone role would install the monitor as well as an osd\nprofile.\n\nThe learn more have a look at:\nhttp://www.slideshare.net/PuppetLabs/roles-talk\n\nAll configuration happens via hiera. Example hiera files are\nprovided.\n\nChange-Id: If07d18cdb202706c8478570027e80a85c8159d31\nNB: this uses hiera autoloading and will only work with Puppet >=3.0",
+        "cmtr": "David Gurtner",
+        "date": "2014-06-20 16:55:23+02:00",
+        "files": ["common.yaml", "mon.pp", "ceph_profile_mon_spec.rb", "common.yaml", "spec_helper.rb", "ceph_profile_mon_spec.rb"]
+      },
+      {
+        "hash": "b9c351785070ba0177894eb46f6338393188a777",
+        "msg": "Client profile for roles/profiles pattern\n\nThis provides a profile for client machines in the context\nof a roles/profiles pattern.\n\nThe client installs a client.admin key.\n\nChange-Id: I2557b3e34804c93735c7ee651898313e4d04faf4",
+        "cmtr": "David Gurtner",
+        "date": "2014-07-10 17:48:29+00:00",
+        "files": ["client.pp", "ceph_profile_client_spec.rb", "ceph_profile_mon_spec.rb", "ceph_profile_client_spec.rb"]
+      },
+      {
+        "hash": "227241986e7f290f5be83d9da29841e49df22f25",
+        "msg": "OSD profile for roles/profiles pattern\n\nThis provides a profile for OSD machines in the context\nof a roles/profiles pattern.\n\nThe OSD profile takes a hash from hiera and creates disks accordingly.\n\nExample hiera files are provided.\n\nChange-Id: I2ec9616e9a899cf122bcd0e666b779ed1fd76c33",
+        "cmtr": "David Gurtner",
+        "date": "2014-07-10 17:48:36+00:00",
+        "files": ["first.yaml", "second.yaml", "osd.pp", "ceph_profile_osd_spec.rb", "first.yaml", "ceph_profile_osd_spec.rb"]
+      },
+      {
+        "hash": "8462154fb8fa8cfc81d8f8ef5dff646f777029f9",
+        "msg": "Escape the base64 encoded key in regexp matching\n\nThe base64 encoding of ceph keys often contains the slash / character.\nThis interferes with the regexp matcher slashes and thus never exits\nwith code 0.\n\nThe fix is to use a different RE delimiter.\n\nChange-Id: Ia262b36250ebeb833b4a125e6b1f3976f8b069cd\nCloses-Bug: #1333657",
+        "cmtr": "David Gurtner",
+        "date": "2014-07-10 20:08:07+00:00",
+        "files": ["key.pp", "ceph_key_spec.rb", "ceph_osds_spec.rb"]
+      },
+      {
+        "hash": "99f0b48fc0e0e1e933f096cf280807f6df4d981e",
+        "msg": "Update email information for David Gurtner\n\nThe current email for David Gurtner is no longer valid, this provides\nvalid contact information.\n\nChange-Id: I85261879ff03fc3d16523403f7b8afc9c07f6cd5",
+        "cmtr": "David Gurtner",
+        "date": "2014-07-31 15:31:25+02:00",
+        "files": ["init.pp", "keys.pp", "mon.pp", "osd.pp", "osds.pp", "params.pp", "pool.pp", "base.pp", "client.pp", "mon.pp", "osd.pp", "params.pp", "repo.pp", "ceph_mons_spec.rb", "ceph_osds_spec.rb", "ceph_profile_base_spec.rb", "ceph_profile_client_spec.rb", "ceph_profile_mon_spec.rb", "ceph_profile_osd_spec.rb", "ceph_mon_spec.rb", "spec_helper.rb", "spec_helper_system.rb", "ceph_key_spec.rb", "ceph_mon_spec.rb", "ceph_mons_spec.rb", "ceph_osd_spec.rb", "ceph_osds_spec.rb", "ceph_pool_spec.rb", "ceph_profile_base_spec.rb", "ceph_profile_client_spec.rb", "ceph_profile_mon_spec.rb", "ceph_profile_osd_spec.rb", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "6e342f5c4644147e1c16c501a23c5d5dabc026b1",
+        "msg": "Refactor to remove inheritance in profiles\n\nInheritance is not necessary and can be replaced with 'require' for\nall the profile classes.\nAccording to the Puppet Style Guide Class inheritance is best avoided\nif it is not necessary:\nhttp://docs.puppetlabs.com/guides/style_guide.html#class-inheritance\n\nChange-Id: I4149147ec79acac78f2112e4e849bb353df43fa7",
+        "cmtr": "David Gurtner",
+        "date": "2014-08-02 22:48:43+00:00",
+        "files": ["client.pp", "mon.pp", "osd.pp"]
+      },
+      {
+        "hash": "16d230b402036d11e18eba51b7bc9b95c1421ca7",
+        "msg": "Added hook 'ceph::profile::params::manage_repo'.\n\nWhether we should manage the local repository (true) or depend on what is available (false). Set this to false when you want to manage the the repo by yourself.\n\nChange-Id: I45000830eeb8ea3ffd69c2e4fe4d538360528186",
+        "cmtr": "Richard Arends",
+        "date": "2014-08-30 17:40:41+02:00",
+        "files": ["base.pp", "params.pp", "ceph_profile_base_spec.rb"]
+      },
+      {
+        "hash": "9554e9d3625747673066042b75aadce34ff7ddd8",
+        "msg": "add ceph-extras and fast-cgi repositories.\n\nadds ceph-extras and mod_fastcgi repositories, with newer versions for\nrequired dependencies.\n\nboth off by default. includes rspec and rspec system tests.\n\nChange-Id: I7aa0011b1891dfb3bcdfba8a59c409bb499593a7",
+        "cmtr": "Ricardo Rocha",
+        "date": "2014-09-02 11:06:07+12:00",
+        "files": ["repo.pp", "ceph_repo_spec.rb", "ceph_key_spec.rb", "ceph_mon_spec.rb", "ceph_osd_spec.rb", "ceph_pool_spec.rb", "ceph_profile_base_spec.rb", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "8efd03917ab17986c268f2c0d75c28df2ff42262",
+        "msg": "separate ceph-disk prepare / activate on ceph::osd\n\nseparates the ceph-disk prepare and activate parts, so that we\nproperly handle osds that are not active but have already been prepared\n(as in an unmounted partition after a reboot).\n\nuses ceph-disk output to detect status of partitions.\n\nCloses-Bug: #1361446\n\nChange-Id: I201817623c3162c7247893af44cad58b20989042",
+        "cmtr": "Ricardo Rocha",
+        "date": "2014-09-22 17:44:44+12:00",
+        "files": ["osd.pp", "ceph_osd_spec.rb", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "701a294d75115a9664c7f50f501eb92122c886d7",
+        "msg": "define ceph::rgw, ceph::rgw::apache.\n\nProvides setup and configuration for the ceph rados gateway.\n\nAlso includes setup of an apache based frontend, with an\nappropriate virtual host.\n\nIncludes rspec puppet and rspec system puppet for validation.\n\nChange-Id: I2b498f688134e2e18ab408baafbd65db09d71e6d",
+        "cmtr": "Ricardo Rocha",
+        "date": "2014-09-23 16:15:00+12:00",
+        "files": [".fixtures.yml", "Modulefile", "Puppetfile", "params.pp", "rgw.pp", "apache.pp", "ceph_rgw_apache_spec.rb", "ceph_rgw_spec.rb", "spec_helper_system.rb", "ceph_rgw_apache_spec.rb"]
+      },
+      {
+        "hash": "3bafe7096f6ec29eb8216f49078c93103b738138",
+        "msg": "Remove unnecessary non-ascii characters\n\nThis apparently causes some issues on some environment:\nhttp://lists.ceph.com/pipermail/ceph-users-ceph.com/2014-November/044742.html\n\nChange-Id: If86b440ea73888ebc886410d947fd430a245cb7a",
+        "cmtr": "David Moreau Simard",
+        "date": "2014-11-18 15:42:44-05:00",
+        "files": ["repo.pp", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "1fb079ac80077dcfb1236f97bd6103c93b0dd27a",
+        "msg": "This fixes various issues with the centos CI tests\n\nAs the centos CI tests haven't been run for a while various issues\nhave accumulated:\n\n- due to POODLE, downloading the EPEL mirror list doesn't work over https\n  anymore. Switched to http. As packages are still verified via GPG, this\n  shouldn't be unsafe.\n- when adding tests for extra repositories curl was removed as a workaround,\n  that's not a valid operation under centos, as yum depends on it.\n- the recently applied fix for SNT didn't work under centos yet, due to\n  additional whitespace.\n\nChange-Id: I583ceb38cec72ae908dbdd5e6d937ed09058f446",
+        "cmtr": "David Gurtner",
+        "date": "2014-12-10 20:04:59+01:00",
+        "files": ["repo.pp", "ceph_repo_spec.rb", "ceph_key_spec.rb", "ceph_mon_spec.rb", "ceph_mons_spec.rb", "ceph_osd_spec.rb", "ceph_osds_spec.rb", "ceph_pool_spec.rb", "ceph_profile_base_spec.rb", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "df2fe6713df5e225d2f59cf2ffaa18f6f4bf2889",
+        "msg": "fixed directory listing for non-blockdevice osds\n\nwithout the directory switch ls -l lists the content of osd directories,\nand not the directory names. Maybe the output of ls -l differs on various\ndistribuitons. ls -ld should work on every distro.\n\nthis patch and commit message was written and originally submitted by\nhttps://github.com/b0e as https://github.com/stackforge/puppet-ceph/pull/7\n\nChange-Id: I7899a249df677c899016ddbfe36eb4a8b6d6135c",
+        "cmtr": "David Gurtner",
+        "date": "2015-01-12 23:42:43+01:00",
+        "files": ["osd.pp"]
+      },
+      {
+        "hash": "e147439ecd323eacd47ad85c2724e5457144d109",
+        "msg": "Bump default version to giant, test against giant and drop emperor\n\n- The default version in repo should be the latest stable release\n- We want to keep tests against all LTS releases as well as the\nlatest stable release. So drop emperor and add giant. When hammer\nis released, we will drop giant and add hammer.\n\nChange-Id: I753c0ef326c4b8585e9e9f330a64160f95edd8a8",
+        "cmtr": "David Moreau Simard",
+        "date": "2015-02-02 10:45:12-05:00",
+        "files": ["README.md", "common.yaml", "repo.pp", "ceph_repo_spec.rb", "ceph_key_spec.rb", "ceph_mon_spec.rb", "ceph_mons_spec.rb", "ceph_osd_spec.rb", "ceph_osds_spec.rb", "ceph_pool_spec.rb", "ceph_profile_base_spec.rb", "ceph_profile_client_spec.rb", "ceph_profile_mon_spec.rb", "ceph_profile_osd_spec.rb", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "1e151789ea51f9f557d3eedb2ab2721464b5de7c",
+        "msg": "fix mon removal to be idempotent\n\nthe mon removal exec was missing an unless clause.\nwith this the mon removal should be idempotent from\nthe puppet view as well (from what happened on the system\nit already was idempotent.)\n\nalso added system tests to prove idempotency and the long\nmissing spec tests.\n\nChange-Id: I77c585cdcb064ad1925f7071ba1b53ec15a89dd5",
+        "cmtr": "David Gurtner",
+        "date": "2015-02-02 18:48:07+01:00",
+        "files": ["mon.pp", "ceph_mon_spec.rb", "ceph_mon_spec.rb"]
+      },
+      {
+        "hash": "5d455c949aea0844adb6dee09eb76a12a85dd088",
+        "msg": "fix osd removal to be idempotent\n\nthe osd removal exec was missing an unless clause.\nwith this the osd removal should be idempotent from\nthe puppet view as well (from what happened on the system\nit already was idempotent.)\n\nChange-Id: I65f1661a8478ef455a277b91d435d669aa462eb7",
+        "cmtr": "David Gurtner",
+        "date": "2015-02-03 01:38:06+01:00",
+        "files": ["osd.pp", "ceph_osd_spec.rb", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "040e3e850263ccee0b9072b91c0f178c0c0c4460",
+        "msg": "Fix dependency tree to include necessary package ceph\n\nThe file /var/lib/ceph/radosgw needs package ceph as a dependency,\nbecause the parent directory /var/lib/ceph is not necessarily present\notherwise.\n\nThe cleanest way to achieve that is to make sure all packages tagged\nceph are present.\n\nChange-Id: Ic861e1fb3b3c556961ac8f9026a50863dff7f9e1",
+        "cmtr": "David Gurtner",
+        "date": "2015-02-08 19:48:08+01:00",
+        "files": ["rgw.pp"]
+      },
+      {
+        "hash": "5522be54cbba1e356fd1d46f34170bacc1b3da1b",
+        "msg": "Fix Exec unless test for set-${name}-size\n\nThe test contained a superflous backtick character and a wrong\ncomparison operator which made it always fail even if the pool\nsize was already correct.\n\nChange-Id: I05a9a00ccfd59a3ab8eda651dc5808c4a80375b6",
+        "cmtr": "Gaudenz Steinlin",
+        "date": "2015-02-17 21:01:07+01:00",
+        "files": ["pool.pp", "ceph_pool_spec.rb"]
+      },
+      {
+        "hash": "63cbbda8f2462f7defea6bf9239e1a715cb86515",
+        "msg": "Check and lint documentation parameters\n\nThis puppet-lint plugin checks if all parameters are documented. This commit\nalso fix lint issues (due to puppet-lint upgrade) and puppet strings errors.\n\nChange-Id: If2e2be0e0c28649b0293f2988faf59b2a0e73437",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-02-27 00:45:37+01:00",
+        "files": ["Gemfile", "Gemfile-rspec-system", "conf.pp", "init.pp", "key.pp", "keys.pp", "mds.pp", "mon.pp", "mons.pp", "osd.pp", "osds.pp", "params.pp", "pool.pp", "base.pp", "client.pp", "mon.pp", "osd.pp", "params.pp", "repo.pp", "rgw.pp"]
+      },
+      {
+        "hash": "e0270a4b2fb8a81b8957ba5ca20a57bc0ac3e41a",
+        "msg": "Fix doc header of mon\n\nChange-Id: I9d59584ee907789314fe1b432250ec29641b2d24\nceph::mon is a define and not a class.",
+        "cmtr": "David Gurtner",
+        "date": "2015-02-27 14:55:38+01:00",
+        "files": ["mon.pp"]
+      },
+      {
+        "hash": "582c54283f6805cd8658f52edf7a24fd1ac4f5ca",
+        "msg": "Fix the documentation title\n\nChange-Id: I865c293f2d6bccd1b4ebd6af88a523636f658e43",
+        "cmtr": "David Gurtner",
+        "date": "2015-02-27 14:59:16+01:00",
+        "files": ["apache.pp"]
+      },
+      {
+        "hash": "6fd0f87f04695baa42be5434f71919d08e0c4c9a",
+        "msg": "Add Puppet 4.x lint checks\n\nThis changes the puppet-lint requirement to 1.1.x, so that we can use\npuppet-lint plugins. Most of these plugins are for 4.x compat, but some\njust catch common errors.\n\nChange-Id: If9f969703d99f3a45fd1822208a2b1342f13e49a",
+        "cmtr": "David Gurtner",
+        "date": "2015-02-28 22:18:53+00:00",
+        "files": ["Gemfile", "Gemfile-rspec-system", "init.pp", "base.pp", "osd.pp", "repo.pp", "apache.pp"]
+      },
+      {
+        "hash": "2041c1e7b5e7d2eda12e5a2b526d8808676fd9d2",
+        "msg": "Increase flexibility with managing client keys in profile\n\nThis commit introduces the client_keys hash parameter to\nceph::profile. This allows one to use the profile to inject\nand configure any client keys with any parameter.\n\nBackwards compatibility is *NOT* maintained for the purpose\nof staying as clean and as simple as possible in the context\nof drafting the first stable release of puppet-ceph.\nThis avoids shipping the first stable release with, already,\na deprecation that will have to be maintained throughout an\nentire release cycle.\n\nSome tests have been added and test coverage is in general\nimproved as part of this commit.\n\nChange-Id: Ie6adbd601388ab52c37037004bd0ceef9fc41942",
+        "cmtr": "David Moreau Simard",
+        "date": "2015-03-05 18:50:23-05:00",
+        "files": ["common.yaml", "client.yaml", "client.pp", "mon.pp", "osd.pp", "params.pp", "ceph_profile_client_spec.rb", "ceph_profile_mon_spec.rb", "ceph_profile_osd_spec.rb", "ceph_profile_params_spec.rb", "common.yaml", "client.yaml", "ceph_profile_client_spec.rb", "ceph_profile_mon_spec.rb", "ceph_profile_osd_spec.rb"]
+      },
+      {
+        "hash": "a1c1ce2aea987550e54bcb1f3e3a18f428a10506",
+        "msg": "Fix apt::key location to not contain redirect\n\npuppetlabs-apt since versions 1.5.x uses the apt_key provider which\ndoes not allow for http redirects.\n\nThe ceph documentation at\nhttp://docs.ceph.com/docs/master/install/get-packages/#add-keys\nstates the location of the key to be\nhttps://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc\nwhich currently redirects to\nhttp://git.ceph.com/?p=ceph.git;a=blob_plain;f=keys/release.asc\n\nThis patch suggests to update the URL to the new location where\nnecessary.\n\nChange-Id: I859bd1f0a84fe27acd16e32c82e4d95c69cea6d3\nCloses-Bug: #1445900",
+        "cmtr": "David Gurtner",
+        "date": "2015-04-28 21:13:26+00:00",
+        "files": ["repo.pp", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "71fccdf944a2b0721a972a8a86f97703cabd586e",
+        "msg": "Add EL7 Support, Fix unit and integration tests\n\nThis commit is a merge of two patchsets that adds\nsupport for EL7 and fixes unit and integration tests.\nThey are required to be in the same patchset in order\nfor all tests to pass.\n---\nMake puppet-ceph unit tests compliant with Puppet4\n\n- Bump rspec-puppet to 2.1.0 includine Puppet 4.0 support [1].\n- Bump puppetlabs-apache to 1.4.1\n- Bump puppetlabs-concat to 1.2.1\n- Fix puppet lint issue with missing doc\n- Fix dependency version acceptance tests\n- Drop firefly from the ::ceph::rgw::apache tests as it seems buggy.\n- Fix acceptance tests. Beaker acceptance test have been enabled for trusty\n  and centos recently. This module does not yet support them so currently\n  jenkins tests always fail.\n\n[1] https://github.com/rodjek/rspec-puppet/commits/v2.1.0\n\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>\n(cherry picked from commit ca86aafb05871ab4201d0d0102e429d33600e8e7)\n---\nAdd EL7 support\n\nIf Fedora is 20 or more, CentOS / Red Hat 7, we want to install EPEL7.\nOtherwise, we want to setup EPEL6 for backward compatibility with Fedora\n19 and before, and CentOS / Red Hat 6.X and before.\n\nCo-Authored-By: Emilien Macchi <emilien@redhat.com>\nCo-Authored-By: David Gurtner <aldavud@crimson.ch>\nCo-Authored-By: Gael Chamoulaud <gchamoul@redhat.com>\nCo-Authored-By: Andrew Woodward <xarses@gmail.com>\nCo-Authored-By: Florian Haas <florian@hastexo.com>\nCo-Authored-By: Jan Kundrat <jkt@kde.org>\nCo-Authored-By: Aimon Bustardo <me@aimon.net>\n(cherry picked from commit 009d222911949336689617fdca421fd3cc75beb6)\n\nCloses-bug: #1422516\nCloses-bug: #1392002\nChange-Id: I4af127715260b7999dcc7c3e0079ffaf28439c1e",
+        "cmtr": "David Moreau Simard",
+        "date": "2015-06-30 16:29:26-04:00",
+        "files": [".fixtures.yml", "Gemfile", "Gemfile-rspec-system", "Puppetfile", "README.md", "repo.pp", "rgw.pp", "metadata.json", "ceph_usecases_spec.rb", "centos70-x64.yml", "nodepool-centos7.yml", "nodepool-trusty.yml", "ceph_mons_spec.rb", "ceph_profile_base_spec.rb", "ceph_profile_client_spec.rb", "ceph_profile_mon_spec.rb", "ceph_profile_osd_spec.rb", "ceph_repo_spec.rb", "ceph_mon_spec.rb", "spec_helper_acceptance.rb", "spec_helper_system.rb", "ceph_rgw_apache_spec.rb"]
+      },
+      {
+        "hash": "b76719ef98cfec1cc17ceec68773d7a7a0079dc7",
+        "msg": "osd: fix pattern when matching ${data}\n\nIt could give false positive e.g. if looking for /srv/data while\n/srv/data1 already exists.\n\nChange-Id: I42a20a9d871bc3033b42693eefca05ba73766d33",
+        "cmtr": "Andrew Woodward",
+        "date": "2015-07-01 15:45:27+00:00",
+        "files": ["osd.pp", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "2b0ba61b4697bab2f964321b96afc68340b62636",
+        "msg": "Bump default release to hammer\n\nCloses-Bug: 1468865\n\nChange-Id: I4d4710e58a54ff079245bb9e811fb5e632b66553",
+        "cmtr": "Florian Haas",
+        "date": "2015-07-01 22:23:10+02:00",
+        "files": ["README.md", "common.yaml", "repo.pp", "ceph_repo_spec.rb", "common.yaml", "ceph_key_spec.rb", "ceph_mon_spec.rb", "ceph_mons_spec.rb", "ceph_osd_spec.rb", "ceph_osds_spec.rb", "ceph_pool_spec.rb", "ceph_profile_base_spec.rb", "ceph_profile_client_spec.rb", "ceph_profile_mon_spec.rb", "ceph_profile_osd_spec.rb", "ceph_repo_spec.rb", "ceph_rgw_apache_spec.rb"]
+      },
+      {
+        "hash": "c1dd900b35d6aee72c6fd32587783b83bf4e6032",
+        "msg": "define ceph::rgw::keystone.\n\nProvides keystone configuration for the ceph radosgw (additional\nparameters in ceph.conf).\n\nIncludes rspec puppet and rspec system tests for validation.\n\nCloses-Bug: #1362642\nImplements: blueprint rgw keystone\nChange-Id: I4c3d8a78487ca94c79aea676220eb4f3bb2f144a",
+        "cmtr": "David Gurtner",
+        "date": "2015-07-07 23:32:15+00:00",
+        "files": ["keystone.pp", "ceph_rgw_keystone_spec.rb", "spec_helper_system.rb", "ceph_rgw_keystone_spec.rb"]
+      },
+      {
+        "hash": "2ec59f3b8ae4da8f953212091c67ae943861923c",
+        "msg": "osd: fix pattern when matching ${data}\n\nWhen looking for ${data} ceph block devices, check ${data}1\ntoo (the first partition), in case ${data} is a whole disk.\n\nAlso, simplify the code a little, while here.\n\nChange-Id: I7a0beaa0a7b3cbb03b3fec84e718336fd3a381a4",
+        "cmtr": "David Gurtner",
+        "date": "2015-07-22 17:34:04+00:00",
+        "files": ["osd.pp", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "10fabadd204587713dbc4ed99d8a57050c6b73fb",
+        "msg": "Enable GPG for EPEL\n\nAdd more security around EPEL repositories.\n\nChange-Id: I7623fdf5920e61dc1f695fc2e27645f93a040f20",
+        "cmtr": "David Gurtner",
+        "date": "2015-08-04 18:33:31+02:00",
+        "files": ["repo.pp", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "e81e93e45881870b312ae5448e6d39614d7f9640",
+        "msg": "Fix a race condition in mon creation\n\nIn EL7 based systems there seems to be a race condition between the\ncreation of client.admin stub and the service startup.\n\nThe easy fix is to ensure that the stub is there before the mon exists.\n\nChange-Id: I34924f85387388942b0a88e10155c5af73c32a6f",
+        "cmtr": "David Gurtner",
+        "date": "2015-08-04 22:45:47+02:00",
+        "files": ["mon.pp"]
+      },
+      {
+        "hash": "2eb9458fdac9ac03a3474d104450c8634ab285ae",
+        "msg": "Fix rgw keystone\n\n* use correct URL/API string:\n  radosgw adds the keystone version to the url itself when contacting\n  keystone, therefore specifying it as part of the url lead to duplication:\n  i.e. http://keystone.example.com:5000/v2.0/v2.0\n* use different nss-tools package for Debian and RedHat based systems\n* do not set rgw_port by default when using apache, this has to be either or\n* change according to newer apache module\n* add rspec-beaker tests\n* cleanup the rspec-system tests\n\nChange-Id: I308995d4fb9676b4af8cc16d69909ba3de0b0e54",
+        "cmtr": "David Gurtner",
+        "date": "2015-08-05 11:09:08+02:00",
+        "files": ["params.pp", "rgw.pp", "apache.pp", "keystone.pp", "ceph_rgw_spec.rb", "ceph_rgw_apache_spec.rb", "ceph_rgw_keystone_spec.rb", "ceph_rgw_spec.rb", "spec_helper_acceptance.rb", "spec_helper_system.rb", "ceph_rgw_apache_spec.rb", "ceph_rgw_keystone_spec.rb"]
+      },
+      {
+        "hash": "0d7fb171026fa998fbd3c87d3949b2d98863a913",
+        "msg": "Make args for conf, mons, osds and keys wrappers optional\n\nBy making args optional we can include it in the manifest and\nprovide args from hieradata. Otherwise we're forced to pass a\nvalue from args from the manifests.\n\nChange-Id: I3932026dc6b21f57a9175239a2afe1cdcab611bb",
+        "cmtr": "Giulio Fidente",
+        "date": "2015-08-05 20:41:07+02:00",
+        "files": ["conf.pp", "keys.pp", "mons.pp", "osds.pp"]
+      },
+      {
+        "hash": "6cb9a00898c86bf32a5706ade64fe3787b0b739b",
+        "msg": "Allow customization of OSDs journal size via class param\n\nCustomization of the journal file/dev size is recommended by the\nCeph documentation as it depends on drives speed and sync interval.\n\nChange-Id: Iaa32aca538b0bcad544641dcd7b67448fb4cada5",
+        "cmtr": "Giulio Fidente",
+        "date": "2015-08-12 15:48:18+02:00",
+        "files": ["common.yaml", "init.pp", "base.pp", "params.pp", "ceph_init_spec.rb", "common.yaml"]
+      },
+      {
+        "hash": "008370a86c2f32161473b97dbd51a00c07dbda55",
+        "msg": "Fix RGW Apache syslog creation\n\nFix to pass the syslog boolean flag to the correct parameter in the\npuppet apache module.\n\nChange-Id: Ic69b5ec0860bb02335e08061a08101c46248bb5f",
+        "cmtr": "David Gurtner",
+        "date": "2015-08-18 13:03:59+02:00",
+        "files": ["apache.pp", "ceph_rgw_spec.rb", "ceph_rgw_apache_spec.rb"]
+      },
+      {
+        "hash": "398b904eb56611b948cc5aea2a33b3dd538337b7",
+        "msg": "use full length APT key\n\nThis is to make newer APT module versions happy. Without this change,\nit always complains 'The id should be a full fingerprint (40\ncharacters), see README.'\n\nChange-Id: I271bed669e0ff7ba05928ac441cd20a0cab5fd4b",
+        "cmtr": "David Gurtner",
+        "date": "2015-08-19 22:45:52+00:00",
+        "files": ["repo.pp", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "7585a60ec7f9c6cd781068859663f57f9a945f2f",
+        "msg": "Switch to new release key\n\nDue to a possible breach the gpg release key has been replaced.\n\nChange-Id: I6697f071b79ccb1a7d163e31c309af4716207190",
+        "cmtr": "David Gurtner",
+        "date": "2015-09-23 20:34:21+02:00",
+        "files": ["repo.pp", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "34efb4d41c248326ee5adf25df9402e1ad83d77d",
+        "msg": "Update the location of the fastcgi repository key\n\nThis key has also moved, follow up from commit\nI6697f071b79ccb1a7d163e31c309af4716207190\n\nChange-Id: Ic3d2f218e7044154ed1d4aa636347b8ea9134259",
+        "cmtr": "David Moreau Simard",
+        "date": "2015-10-09 11:01:14-04:00",
+        "files": ["repo.pp", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "618a5b2553590be76fe6a4c792b6c23d0a04bf0d",
+        "msg": "Be more specific with CentOS7 package exclude\n\nFirefly is the last ceph.com supported release which has conflicts with\nthe CentOS 7 base channel. Therefore make sure to only exclude the\nconflicting packages in the exact combination of CentOS7 and Firefly.\n\nChange-Id: I0176822e0908171cdbc96c1a728bdcbd66026a5c\nCloses-Bug: 1477601",
+        "cmtr": "David Gurtner",
+        "date": "2015-11-23 11:00:27+01:00",
+        "files": ["repo.pp", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "5096c97ddfbd4b491eb6050db41df04a93c0a8b9",
+        "msg": "fix mon creation to be more idempotent\n\nmon creation is not idempotent from a puppet point of view (it is\nidempotent from a ceph point of view though.\n\nthis is a first step in cleaning this up.\n\nmainly still missing is the keyring which gets created on the fly.\n\nChange-Id: I6a970b7142dcfec6ca784f7cdb10236b63603430",
+        "cmtr": "David Gurtner",
+        "date": "2015-12-02 23:31:45+00:00",
+        "files": ["mon.pp", "ceph_mon_spec.rb"]
+      },
+      {
+        "hash": "6a03609cce9f7b1f379230ef01d844723cf051da",
+        "msg": "Added default timeout for exec resources\n\nAdds a default timeout value to relevant Exec commands.\nA specific value can be passed to all involved defined resource type.\nIf undefined $ceph::params::exec_timeout parameter is used with a default value\nof 600 (seconds).\n\nhttps://bugzilla.redhat.com/show_bug.cgi?id=1243611\n\nChange-Id: Iae2f1eaa8b854300b95c27ecdb4ff608d2346df6",
+        "cmtr": "Gilles Dubreuil",
+        "date": "2015-12-16 09:26:58+11:00",
+        "files": ["mon.pp", "osd.pp", "params.pp", "pool.pp"]
+      },
+      {
+        "hash": "5252808a9b6b5e883c92f1e42155a95d467ecbc9",
+        "msg": "Adds public_addr setting.\n\nChange-Id: Ia20aeecb48f69ee4b44f8c61647d36e25f16fac1\nCloses-Bug: 1529981\nSigned-off-by: Emile Snyder <emile.snyder@gmail.com>",
+        "cmtr": "Emile Snyder",
+        "date": "2016-01-13 11:04:32-07:00",
+        "files": ["init.pp", "ceph_init_spec.rb"]
+      },
+      {
+        "hash": "3d7d647789455e36993fdd97c68408093cc2b16c",
+        "msg": "Add support for setting globally ms_bind_ipv6\n\nWhen deploying with IPv6 we need to set ms_bind_ipv6 to true; this\nchange adds an option to set it globally as mixed environments are\nnot supported by Ceph.\n\nChange-Id: I7c438d76dfcc0b58768a0896c3f50e97fa609a60",
+        "cmtr": "Giulio Fidente",
+        "date": "2016-01-25 13:49:54+01:00",
+        "files": ["init.pp", "base.pp", "params.pp", "ceph_init_spec.rb"]
+      },
+      {
+        "hash": "185f76380b57d7c420729be10bf70ef3a3c046ae",
+        "msg": "mon: fix service provider for redhat systems\n\nAdding provider => 'init' for Ceph Mon service resource on redhat\nsystems, otherwise puppet run is not idempotent.\n\nIf we don't set it, puppet will try to start the service at every puppet\nrun.\n\nThis patch also add a beaker test to make sure a single puppet run is\nenough & idempotent.\n\nChange-Id: I76c9c12f3d5b3e3e66c9522c144c68c761cf2168\nCloses-Bug: #1539773",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-01-29 16:51:24-05:00",
+        "files": ["mon.pp", "ceph_usecases_spec.rb"]
+      },
+      {
+        "hash": "5c517b347abbf4a0fc77a115c72ed35666b51bb0",
+        "msg": "Split the Rados GW tests into parts\n\nThis is a afirst step to refactor and fix the acceptance tests.\nThe goal is to first break it into smaller chunks for easier debugging,\nthen move to infernalis and liberty and finally fix and reenable CentOS\ntests.\n\nChange-Id: I21d26056640ab2780a861f32bb7d58c539d8f4ef",
+        "cmtr": "David Gurtner",
+        "date": "2016-01-31 00:09:16+00:00",
+        "files": ["rgw.pp", "ceph_rgw_spec.rb"]
+      },
+      {
+        "hash": "c59467369dd2e6f54ed9a7d94176f8639941b8f5",
+        "msg": "Update ceph::repo to use download locations documented at ceph.com\nhttp://docs.ceph.com/docs/master/install/get-packages/\n\nChange-Id: I9cb6da4fa8619be03814d2dd53df88a394c8e025",
+        "cmtr": "Keith Schincke",
+        "date": "2016-02-03 15:13:24-05:00",
+        "files": ["repo.pp", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "45d9124a55eed3699b3db28e6aa8b07119a7c3a8",
+        "msg": "Drop deprecated rspec-system tests and releases\n\nThis drops the rspec-system tests as well as the tests for\nCentOS 6 and Ubuntu Precise.\n\nChange-Id: I99336ae9f12324e8a83f9e7c3e18ef3b0b4b1050",
+        "cmtr": "David Gurtner",
+        "date": "2016-02-06 17:52:04+01:00",
+        "files": [".gitignore", "Gemfile-rspec-system", "Puppetfile", "README.md", "params.pp", "centos-66-x64.yml", "two-centos-66-x64.yml", "two-ubuntu-server-1204-x64.yml", "ubuntu-server-1204-x64.yml", "ceph_mons_spec.rb", "ceph_profile_base_spec.rb", "ceph_profile_client_spec.rb", "ceph_profile_mon_spec.rb", "ceph_profile_osd_spec.rb", "ceph_profile_params_spec.rb", "ceph_repo_spec.rb", "ceph_rgw_apache_spec.rb", "ceph_rgw_keystone_spec.rb", "ceph_rgw_spec.rb", "cephx.yaml", "class_groups.yaml", "common.yaml", "absent.yaml", "purged.yaml", "Debian.yaml", "RedHat.yaml", "2_role.yaml", "mon.yaml", "mon.yaml", "hiera.yaml", "base.yaml", "config.yaml", "common.yaml", "common.yaml", "cephx.yaml", "common.yaml", "absent.yaml", "purged.yaml", "first.yaml", "second.yaml", "Debian.yaml", "RedHat.yaml", "2_role.yaml", "allinone.yaml", "role_mappings.yaml", "2_role.yaml", "allinone.yaml", "cephx.yaml", "hiera.yaml", "spec_helper_system.rb", "ceph_key_spec.rb", "ceph_mon_spec.rb", "ceph_mons_spec.rb", "ceph_osd_spec.rb", "ceph_osds_spec.rb", "ceph_pool_spec.rb", "ceph_profile_base_spec.rb", "ceph_profile_client_spec.rb", "ceph_profile_mon_spec.rb", "ceph_profile_osd_spec.rb", "ceph_repo_spec.rb", "ceph_rgw_apache_spec.rb", "ceph_rgw_keystone_spec.rb", "ceph_usecases_spec.rb"]
+      },
+      {
+        "hash": "2e676077ada17df1533befbff1d1e640124ffbfc",
+        "msg": "The ceph extras location is no more.\n\nFrom http://ceph.com/packages/ceph-extras/debian/\n\"The requested resource /packages/ceph-extras/debian/\nis no longer available on this server and there is no forwarding\naddress. Please remove all references to this resource.\"\n\nChange-Id: Ic37b3b047568418d70a49a72f5b77b5c42a330e7",
+        "cmtr": "Keith Schincke",
+        "date": "2016-02-08 20:39:18-05:00",
+        "files": [".gitignore", "repo.pp", "ceph_repo_spec.rb", "ceph_rgw_apache_spec.rb", "ceph_rgw_keystone_spec.rb"]
+      },
+      {
+        "hash": "5da48368d97094d18eccb3fb89e58c26422ca3ca",
+        "msg": "Enable radosgw on restart\n* Add 2 new parameters for radosgw start and enable after reboot\n* Update test\n\nChange-Id: Ib536c9499cf53d684d8fb8d5757fbe8d821f5ab3\nCloses-Bug: 1538525",
+        "cmtr": "Oleksiy Molchanov",
+        "date": "2016-02-09 16:52:45+02:00",
+        "files": ["rgw.pp", "ceph_rgw_spec.rb"]
+      },
+      {
+        "hash": "998e023d8f20584220d8c4ab2eed27541cd7ef98",
+        "msg": "Bump required version of puppetlabs-apt\n\npuppetlabs-apt 2.x is a major rewrite and is backwards incompatible.\nThis change makes 2.0.0 the minimum required version, updates the parameter\nnames and adds $lsbdistid to spec tests.\n\nChange-Id: I1c6ded810ae3984607d0af5614096911258d4936",
+        "cmtr": "Brandon Weeks",
+        "date": "2016-02-09 13:39:59-08:00",
+        "files": [".fixtures.yml", "repo.pp", "metadata.json", "ceph_rgw_spec.rb", "ceph_profile_base_spec.rb", "ceph_profile_client_spec.rb", "ceph_profile_mon_spec.rb", "ceph_profile_osd_spec.rb", "ceph_repo_spec.rb", "ceph_rgw_apache_spec.rb", "ceph_rgw_keystone_spec.rb", "spec_helper_acceptance.rb"]
+      },
+      {
+        "hash": "2ca15a50d35cd5910231af482bf3e63e4d44fdc9",
+        "msg": "Fix idempotency when bootstrapping ceph::mon with cephx\n\nDuring bootstrapping with cephx ceph::mon needs a temporary file\nunder /tmp/ to store the mon. key. This gets laters removed again\ndue to security reasons.\n\nThis changes the creation of the key from a file to an exec with\nan unless clause so the key doesn't get recrreated and removed\nduring every subsequent run.\n\nChange-Id: Ied38afc03d68f7868b1d1320752a48989fa2d018",
+        "cmtr": "David Gurtner",
+        "date": "2016-02-17 01:36:26+01:00",
+        "files": ["mon.pp", "ceph_rgw_spec.rb", "ceph_mon_spec.rb"]
+      },
+      {
+        "hash": "d91f45ec1ba64cd17e6d718e278ce427245bcc1a",
+        "msg": "Disable udev rules in ::osd for releases <= Hammer\n\nFor versions older than Infernalis we disable the udev rules as\nthey race causing activation to occasionally fail [1].\n\nWe also add a line to wait for udev to settle after prepare for\nnewer versions for which the rules are not disabled.\n\n1. http://www.spinics.net/lists/ceph-devel/msg28449.html\n\nCo-Authored-By: David Gurtner <dgurtner@redhat.com>\nChange-Id: I6991cf92ce393b39a480289723b8354dc1903d81",
+        "cmtr": "Giulio Fidente",
+        "date": "2016-02-22 22:01:55+01:00",
+        "files": ["osd.pp", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "08806947a8e282f80bdd33c16a4e45bbd3bf189f",
+        "msg": "Add possibility to use mod_proxy for radosgw\n\nAdd possibility to configure apache to work not only with\nmod_fastcgi, but with mod_proxy_fcgi\n\nChange-Id: I0df8a87ec91f6203d1daf573f956e7d073b68834\nCloses-Bug: 1532209",
+        "cmtr": "Oleksiy Molchanov",
+        "date": "2016-02-24 13:42:01+02:00",
+        "files": ["rgw.pp", "apache.pp", "apache_fastcgi.pp", "apache_proxy_fcgi.pp", "ceph_rgw_spec.rb", "ceph_rgw_apache_fastcgi_spec.rb", "ceph_rgw_apache_proxy_fcgi_spec.rb", "ceph_rgw_apache_spec.rb", "ceph_rgw_keystone_spec.rb"]
+      },
+      {
+        "hash": "59fc06026da552462e6d852695eb963cb5272e1a",
+        "msg": "fix collectors: Ceph_Config -> Ceph_config\n\nThe right collecror name for ceph_config resource is Ceph_config, not\nCeph_Config.\n\nChange-Id: I96fba149fd2900bc8f304c434b1280279991fbf4",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-02-26 19:39:55-05:00",
+        "files": ["init.pp", "key.pp", "mon.pp", "osd.pp", "pool.pp", "mon.pp"]
+      },
+      {
+        "hash": "2fb87074581f04c83885f8dec4f3bad0eaeae9ed",
+        "msg": "Add support for civetweb\n\nThis configure radosgw to use the built-in civetweb server instead of\nan external apache server.\n\nceph::rgw { 'radosgw.gateway':\n  user              => $user, #userid to run radosgw as\n  rgw_frontend_type => 'civetweb', #enable the civetweb server\n  rgw_frontends     => 'civetweb port=10.10.2.20:80', #optional parameters to change the listening ipaddress:port\n}\n\nChange-Id: I828b6afa8bceb79973ee452edabcebcb4f097910",
+        "cmtr": "Oleksiy Molchanov",
+        "date": "2016-02-29 10:16:17+00:00",
+        "files": ["params.pp", "rgw.pp", "rgw.pp", "civetweb.pp", "ceph_rgw_civet_spec.rb", "ceph_rgw_spec.rb", "ceph_usecases_spec.rb", "ceph_rgw_civetweb_spec.rb", "ceph_rgw_spec.rb"]
+      },
+      {
+        "hash": "a796cb0b0181aca4bbf1057a2cb3e7fff215756d",
+        "msg": "Fix documentation duplicate in rgw.pp\n\nChange-Id: I35337ef6c74958cfcd04cf1710832e3558cd6866",
+        "cmtr": "Oleksiy Molchanov",
+        "date": "2016-02-29 18:33:44+02:00",
+        "files": ["rgw.pp"]
+      },
+      {
+        "hash": "63163c1edb7685e2e84e5b57c9a555a247edee09",
+        "msg": "adding configurable yum proxy options for the yum repositories\n\nChange-Id: I458726572f4788d683f5c5f3cb88d0306a1985b5",
+        "cmtr": "Alexander Brovman",
+        "date": "2016-03-06 19:43:25+01:00",
+        "files": ["repo.pp", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "134e431719c986474c6e967569ab7544ac84909a",
+        "msg": "Allow setting of public_addr from ::profile::mon and ::mon\n\nTo make public_addr persistent this change writes it into the\n[mon.$id] section from the ::mon define.\n\nThis change also allows for configuration of public_addr from the\n::profile::mon class so that it can be set via hieradata.\n\nChange-Id: I56f969328c68ed83a9b2d54ff4254dbcd6f55de0",
+        "cmtr": "Giulio Fidente",
+        "date": "2016-03-09 08:15:56+00:00",
+        "files": ["mon.pp", "mon.pp", "params.pp", "ceph_profile_mon_spec.rb", "ceph_mon_spec.rb", "common.yaml"]
+      },
+      {
+        "hash": "512a34f42793d68ae7a503018e628c5c9dc01d23",
+        "msg": "Change profile to not use $name\n\nIn some cases when you include $name may not be scoped correctly. This\ncan result in oddness in interperting variables, to avoid this we should\nadd a specific variable instead.\n\nChange-Id: I04584c8bf4c2a7ded2a06900814f4e4bdc9aec39",
+        "cmtr": "Andrew Woodward",
+        "date": "2016-03-16 10:27:43-07:00",
+        "files": ["params.pp", "rgw.pp"]
+      },
+      {
+        "hash": "4a0e5a36f2bc6928d2630f7db51abeb005454f03",
+        "msg": "Fix check for osd prepare\n\nActually the check we fix make sense only after 'ceph-disk activate' run.\nAfter we run prepare we have 3 files created under ${data_path}:\nfsid, ceph_fsid and magic.\n\nCloses-Bug: 1558997\nChange-Id: Ia25dcf9926e5f0511755355265ea554fc812e647",
+        "cmtr": "Oleksiy Molchanov",
+        "date": "2016-03-18 15:27:03+02:00",
+        "files": ["osd.pp", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "1f2be78a2614fb6e6d0c4ffbc7b3b078a0e95f5f",
+        "msg": "properly scale down an OSD when requested\n\nWhen scaling down an OSD, we need to run `crush remove` command before\ndeleting the OSD, to properly scale down the Ceph cluster.\n\nThis patch also improve the way we test if an OSD is up or DNE.\n\nThis recommendation is documented in the official Ceph documentation:\nhttps://access.redhat.com/documentation/en/red-hat-ceph-storage/version-1.3/red-hat-ceph-storage-13-red-hat-ceph-administration-guide/#removing-osds-manual\n\nChange-Id: I1749093740a4ab5de3493e257e311a0b9a3f06e3",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-03-18 15:58:07-04:00",
+        "files": ["osd.pp", "ceph_usecases_spec.rb", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "b7b9ca415bc2c87056d54d4d352805227e9e4bd6",
+        "msg": "Add possibility to preserve previous apache deployment\n\nBy default radosgw deployment for apache vhost destroys\nalready existing apache configs. This patch gives possibility\nto configure radosgw vhost w/o any modifications.\n\nChange-Id: I737a55cadb15f3c96825116b6563380d2460d5c4\nCloses-Bug: 1528609",
+        "cmtr": "Oleksiy Molchanov",
+        "date": "2016-03-21 18:45:38+02:00",
+        "files": ["apache.pp", "apache_fastcgi.pp", "apache_proxy_fcgi.pp", "ceph_rgw_apache_fastcgi_spec.rb", "ceph_rgw_apache_proxy_fcgi_spec.rb"]
+      },
+      {
+        "hash": "f8ecd2bd4bd84ba8b03170a93328ce58165531a1",
+        "msg": "Refactor ceph::profile::rgw\n\n- Clean up setting values to their defaults.\n- Remove the if clause to enable rgw - if you include rgw you want rgw,\nif you don't, don't include the class.\n- Make sure all parameters that get passed are from ceph::profile::params\n\nChange-Id: I7760f1f17423f27a7768a09ccb0cd43388023e42",
+        "cmtr": "David Gurtner",
+        "date": "2016-03-22 22:03:29+01:00",
+        "files": ["params.pp", "rgw.pp"]
+      },
+      {
+        "hash": "5dd932a8fd3e934712b2501e558a98c7639e5bc4",
+        "msg": "repo: allow to disable EPEL repository\n\nAllow to disable EPEL repository, but keep it enabled by default for\nbackward compatibility.\n\nChange-Id: I9cbf1a4e84d51ffd05b30ac7505cb76b5b352694",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-03-24 20:32:39-04:00",
+        "files": ["repo.pp", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "635227c39b8f143c8bfc840325a42bee9e79c647",
+        "msg": "Set OS specific init service providers\n\n  This commit replaces the use of the \"init\" provider for services with\n  OS specific ones, \"redhat\" and \"debian\".\n\n  This is to get around that fact that \"init\" is explicitely disabled on\n  Ubuntu for Puppet 4[1] and we've seen other issues where Puppet's systemd\n  provider doesn't understand \"static\" as a service enabled state.\n  Falling back to the legacy provider that inherits from \"init\" should\n  provide us the same functionality.\n\n  [1] https://tickets.puppetlabs.com/browse/PUP-5016\n  [2] https://tickets.puppetlabs.com/browse/PUP-5353\n\nChange-Id: Ib16ef8e15cccde1ee19198eaf387daecc031450d\nCloses-Bug: #1564203",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-04-04 15:54:06-04:00",
+        "files": ["mon.pp", "params.pp", "rgw.pp"]
+      },
+      {
+        "hash": "c98f406a126efc5286c372b2c8b5968e06309abc",
+        "msg": "Have configs notify service\n\nWe've been having issues with the beaker test for centos and this is an\nattempt to see if the failures are happening because the service is\nrunning prior to setting up the configs which ends up with a\nmisconfigured service.\n\nChange-Id: I5238f740c975735bfb35b4bf1901ecb96a59aaaa",
+        "cmtr": "Alex Schultz",
+        "date": "2016-04-12 08:20:35-06:00",
+        "files": ["mon.pp"]
+      },
+      {
+        "hash": "e13f3d55e17a632364aaa81ee97f0dc97f131e8e",
+        "msg": "repo: add support for CentOS SIG\n\nCentOS SIG [1] is currently a reference to deploy Ceph packages on\nCentOS operating system. They provide all we need without using EPEL &\nceph.com repositories.\n\nSome use-cases (with OpenStack) want to avoid deploying EPEL repository,\nso CentOS SIG is very helpful for that, by providing supported\npackaging.\n\nThis patch adds a new boolean, false by default for backward\ncompatibility:\nenable_sig\n\nWhen True, centos-release-ceph rpm will be installed before any other\nceph package in the Puppet catalog. Also, repositories from ceph.com\nwon't be installed at all\n\nWe don't add a complex logic where we lock a specific operating system\nbut still send a warning if we try to enable SIG on something else than\nCentOS (still Red Hat operating system though). Also, even if not\nsuggested, we don't check if EPEL is enabled or not.\nThe logic keeps things simple: allow Red Hat users to choose between\nceph.com and SIG. Also keep the possibility to allow EPEL or not.\n\n[1] https://wiki.centos.org/SpecialInterestGroup/Storage/\n\nChange-Id: Ic42c19b2b5b4bc499565c69c3053395173c29a8e\nCloses-Bug: #1562998",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-04-12 14:14:49-04:00",
+        "files": ["repo.pp", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "e80ef1fa34b9d3d47b531aa2180dba601ab21b29",
+        "msg": "Correct typo resulting in a hardcoded paramter used incorrectly\n\nmanifests/rgw.pp had 'radosgw.gateway' hardcoded as the name parameter\nto ceph::rgw::civetweb. This resulted in a new stanza being created in\nceph.conf with information needed in the correct stanza.\n\nceph::rgw need to support the following configurations:\n1) frontend_type civetweb; rgw_frontend not defined (builtin default)\n2) frontend_type civetweb, rgw_frontend customized\n3) frontend_type apache-fastcgi, rgw_port defined\n4) frontend_type apache-fcgi, rgw_frontend defined\n\nChange-Id: I3cca88174cd250379d559efce51667350d0a2f51",
+        "cmtr": "Keith Schincke",
+        "date": "2016-04-21 13:44:16-04:00",
+        "files": ["rgw.pp", "ceph_rgw_civetweb_spec.rb"]
+      },
+      {
+        "hash": "0d68c38980521cb8826f9294f747b4c55e58fc44",
+        "msg": "Rados gateway name check\n\nIt is not obvious that radosgw works only with radosgw stanzas that\nnames match ^client\\.radosgw\\. We should fail if it is wrong.\n\nChange-Id: I9ef7390ab9625bba28b12dff14562f377de24693\nCloses-Bug: 1535321",
+        "cmtr": "Oleksiy Molchanov",
+        "date": "2016-04-27 13:44:47+03:00",
+        "files": ["rgw.pp", "civetweb.pp", "keystone.pp", "ceph_rgw_civetweb_spec.rb", "ceph_rgw_spec.rb"]
+      },
+      {
+        "hash": "0117e4e06fa932c67e22408d9b8d2179f9d185e2",
+        "msg": "allow to deployments on Ubuntu Xenial\n\nFrom this patch, deployments should work on Ubuntu 16.04 LTS, that uses\nsystemd by default.\n\nInstead of using operatingsystem, use service_provider to determine\nwhether or not we want to run upstart scripts.\n\nChange-Id: I2435ad3153c667a9ffd01bd10b5c5b645d5b76fb",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-05-02 15:55:34-04:00",
+        "files": ["mon.pp", "rgw.pp", "systemd-8b86dee2f9df5a14.yaml", "ceph_mon_spec.rb", "ceph_rgw_spec.rb"]
+      },
+      {
+        "hash": "a293a037238d9caee41c94966c0213ab44925518",
+        "msg": "Prepare puppet-ceph for 1.0.0\n\nYeah! It's time to release puppet-ceph 1.0.0, that will support Hammer\n(LTS) on long term.\n\nChange-Id: I717855b140807ccbe3834afccbcf97f06d7fad7d",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-05-06 17:54:13-04:00",
+        "files": ["repo.pp", "first_release-a7268e1c8959eca3.yaml", ".placeholder", "conf.py", "index.rst", "unreleased.rst", "setup.cfg", "setup.py", "ceph_repo_spec.rb", "test-requirements.txt", "tox.ini"]
+      },
+      {
+        "hash": "2fa488ea4563ea00b8d3c48fe2c7c8f343bd9445",
+        "msg": "Acceptence test: rgw/civetweb with keystone\n\nUpdated the acceptence test to test rgw/civetweb with keystone.\n\nChange-Id: I9e8571b4953ca856fda2ac40d9924052e3800fdd",
+        "cmtr": "Keith Schincke",
+        "date": "2016-05-09 12:14:13-04:00",
+        "files": ["keystone.pp", "ceph_rgw_civet_spec.rb", "ceph_rgw_keystone_spec.rb"]
+      },
+      {
+        "hash": "68ea744762eca109df20f6c319d91ec750b45492",
+        "msg": "Bump to Jewel\n\nThis patch bumps puppet-ceph to use Jewel, the new LTS that will replace\nHammer (previous LTS).\n\n* Change defaults repositories to download Jewel by default except on\n  CentOS [1].\n* Ensure mon/osd files are created as the ceph user [2] only if ceph\n  user is present on the system (managed by ceph packaging since Jewel).\n* Rename radosgw service to match with Jewel packaging.\n* acceptance: configure Ceph to limit OSD object name lengths for ext4.\n* acceptance: deploy Jewel for Ubuntu and Hammer on CentOS7, packages\n  are not ready for CentOS SIG:\n  http://buildlogs.centos.org/centos/7/storage/x86_64/ceph-jewel/\n* acceptance: limit OSD object name lengths for ext4:\n  As of the Ceph Jewel release, certain limitations apply to OSD object\n  name lengths: specifically if ext4 is in use for block devices or a\n  directory based OSD is configured, OSD's must be configured to limit\n  object name length [3].\n\n[1] https://bugs.centos.org/view.php?id=10803\n[2] http://docs.ceph.com/docs/master/release-notes/#upgrading-from-hammer\n[3] Thanks to James Page: https://review.openstack.org/#/c/318612/1\n\nChange-Id: I2ebe0fbab10d04b21c851df64d60b834f4006d3a",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-06-03 14:27:30-04:00",
+        "files": ["common.yaml", "mon.pp", "osd.pp", "repo.pp", "jewel-218ac52343f4e165.yaml", "ceph_rgw_civet_spec.rb", "ceph_rgw_spec.rb", "ceph_usecases_spec.rb", "ceph_repo_spec.rb", "ceph_mon_spec.rb", "ceph_osd_spec.rb", "common.yaml"]
+      },
+      {
+        "hash": "4b8fbc5e7ab74b48d426bbd5083161b7853310f3",
+        "msg": "Fix keystone part for non-pki tokens\n\n* Give possibility to deploy w/o errors when non-PKI tokens are\n  used on keystone\n* Provide new parameters rgw_s3_auth_use_keystone and use_pki\n\nChange-Id: I74b258710063ed767a8db08d3bc7ef697bade864",
+        "cmtr": "Oleksiy Molchanov",
+        "date": "2016-06-06 11:24:51+00:00",
+        "files": ["keystone.pp", "ceph_rgw_keystone_spec.rb"]
+      },
+      {
+        "hash": "df1e04c81c39f33452aaa77063544c4cddb227be",
+        "msg": "Move enable_sig and release to ceph::params\n\nThis patch moves these parameters to ceph::params. This will allow\nthe code to make better decisions in future patches.\n\nChange-Id: I26beaea4c1e036b7a8cbb9935a9b3206c8008b2c",
+        "cmtr": "Keith Schincke",
+        "date": "2016-06-14 16:25:04-04:00",
+        "files": ["params.pp", "repo.pp"]
+      },
+      {
+        "hash": "08f010987fa74f2691d52980c5ec305538d50870",
+        "msg": "correctly parse out the version number for jewel\n\nTo prevent the udev rule from being disabled, which will cause osds to\nnot be created successfully.\n\nChange-Id: Id9c06fb55065308d91bb3e11940dd4937d5ec91d",
+        "cmtr": "Eric Cook",
+        "date": "2016-06-22 13:42:57-04:00",
+        "files": ["osd.pp", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "fb88544ab5895490a851bb330fefe753dbc53ca1",
+        "msg": "Re-boostrap beaker tests\n\nCurrent puppet-ceph CI is broken for all functional jobs.\nI would like to restart from scratch the way we test the module.\n\n1) centos7: deploy Jewel using buildlogs.centos.org repo\nCentOS SIG does not provide packaging to deploy the Jewel repository,\nlet's install it by hand.\n\n2) Remove RGW tests for now. We'll re-add them later, in a\npuppet-openstack-integration scenario.\n\n3) Reset spec files to match with other Puppet OpenStack modules.\n\n4) On CentOS, use systemd resource and not sysvinit.\n\n5) Fix keyring idempotency with SElinux.\n\nChange-Id: Ie9ba521cdb4ac6823746d37bb5d1697e274e4119",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-07-07 16:27:14-04:00",
+        "files": [".fixtures.yml", ".gitignore", ".nodeset.yml", ".prefabs.yml", "Gemfile", "Rakefile", "key.pp", "mon.pp", "repo.pp", "ceph_mon_osd_spec.rb", "ceph_rgw_civet_spec.rb", "ceph_rgw_spec.rb", "ceph_usecases_spec.rb", "ceph_repo_spec.rb", "ceph_key_spec.rb", "ceph_mon_spec.rb", "shared_examples.rb", "spec_helper.rb", "spec_helper_acceptance.rb"]
+      },
+      {
+        "hash": "adcce43d262585edeba0359914dae1550d1e0098",
+        "msg": "Explicit conditional with ensure statement\n\nThe ensure conditional allowed any value other than present\nto ensure absent an osd. If the user had mistakenly put the\nvalue at 'presen' or 'presentt' it would remove the OSD.\nThe conditional has been update prevents any value other than\neither present or absent from being acceptable.\n\nChange-Id: I7440544518ae5f830a76c2ae222d8b8610b0c97d",
+        "cmtr": "Matthew J. Black",
+        "date": "2016-07-11 20:22:47-04:00",
+        "files": ["mon.pp", "osd.pp", "osd_define_explicit_conditional-ceaadb2e4ea34595.yaml", "ceph_mon_spec.rb", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "63530d08fe8f35dedff5c7c417ff6d90bac845b7",
+        "msg": "Adding OSD level params\n\nThe osd parameters added will be disabled by default as to not cause duplicate declarations for\nusers defining this with in-house puppet modules\n\nCloses-Bug: #1488126\nChange-Id: I87fe265370adaf1c02e23ffe6ad63bdc93649438",
+        "cmtr": "cdelatte",
+        "date": "2016-07-13 10:14:10-04:00",
+        "files": ["common.yaml", "init.pp", "base.pp", "params.pp", "osd-level-5ebc22c7377e0300.yaml", "ceph_init_spec.rb", "common.yaml"]
+      },
+      {
+        "hash": "ff24009ee0ac6613c40f6679481a466aefad75c1",
+        "msg": "repos: allow to configure Debian mirror\n\nAllow to choose from which server to dowload Debian packages for Ceph.\n\nChange-Id: If84d1d0b5ae3bcf4042e62b0328600891e43887e",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-07-19 19:54:44-04:00",
+        "files": ["repo.pp", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "1383b9c0a8944becdc19b88010d29f2461b92f05",
+        "msg": "Extend radosgw to support systemd on centos\n\nCeph Jewel from CentOS SIG and Ceph is now systemd based for CentOS/RHEL\n\nChange-Id: If627a50d8aa0cba0f1b4e00dfd43103c7eaff6f6",
+        "cmtr": "Keith Schincke",
+        "date": "2016-07-21 20:18:33-04:00",
+        "files": ["rgw.pp"]
+      },
+      {
+        "hash": "d823bf6ac91eb1fd12b0acea5161ba83b819f9f7",
+        "msg": "Refresh keys if caps are changed\n\nUpdates the local keyring if any of its param (including caps) are\nchanged.\n\nChange-Id: I24abbf23cae4f3449c3f1d46df3b3b0a7422c839\nCloses-Bug: 1606918\nCo-Authored-By: Jiri Stransky <jistr@redhat.com>",
+        "cmtr": "Giulio Fidente",
+        "date": "2016-07-29 12:10:59+02:00",
+        "files": ["key.pp", "ceph_key_spec.rb"]
+      },
+      {
+        "hash": "f13493abc38cb13eec94bf203f15ec1d26d7ad28",
+        "msg": "Ensure SELinux file context is applied on data directories\n\nWhen SELinux is in 'enforcing' mode, we need to label the data\ndirectories.\n\nChange-Id: Ic2c376999315c89ae05e45a2aab31cacf3369b6a\nCloses-Bug: 1611893",
+        "cmtr": "Giulio Fidente",
+        "date": "2016-08-12 01:55:10+02:00",
+        "files": ["osd.pp", "params.pp"]
+      },
+      {
+        "hash": "76b48dc84566c0621485f3d28ae2dde9d35f0c46",
+        "msg": "Update ceph::rgw::keystone to support array argument\n\nUpdate ceph::rgw::keystone to support passing in an array list\nof rgw_keystone_accepted_roles. If an array is passed, they\nare joined into a list. If an string is passed, it is used as-is.\n\nChange-Id: I08367b98fc6007eb15d3556240f39604e80b7604",
+        "cmtr": "Keith Schincke",
+        "date": "2016-08-12 00:02:45-04:00",
+        "files": ["keystone.pp"]
+      },
+      {
+        "hash": "b1af406398488df7fc3d35263451f3e2ad802b9b",
+        "msg": "Expose osd crush update on start option\n\nExposing osd crush update on start option enables usage of\ncrush maps to allow different performance characteristics\nto be defined in the cloud.\n\nChange-Id: I22dff5ea8fc4868b78d78d868d390e1924aa60e0",
+        "cmtr": "Erno Kuvaja",
+        "date": "2016-08-18 08:45:10+01:00",
+        "files": ["init.pp", "params.pp", "ceph_init_spec.rb"]
+      },
+      {
+        "hash": "f49341bc7255f35b07e65b666265b4fdd0a19d1e",
+        "msg": "Manage all OSDs before managing pools.\n\n  This commit will ensure that all OSDs are being managed before we\n  create any pools.\n\n  This needs to be done to prevent instances where a pool is defined but\n  there are no initial OSDs to support it before services depending on\n  the pool attempt to use it.\n\nCloses-Bug: 1614547\nChange-Id: Ifd3bcb4b922b467add4f3177ed487aab491a1eaf",
+        "cmtr": "Cody Herriges",
+        "date": "2016-08-19 14:29:08-07:00",
+        "files": ["pool.pp"]
+      },
+      {
+        "hash": "309ef4819b4c1ddbcc83e43fc931a2135882fa68",
+        "msg": "Fix the logic to skip SELinux labeling of block devices\n\nPreviously the unless clause was cusing the SELinux label to\nhappen for block devices too.\n\nCloses-Bug: 1617310\nChange-Id: I4ab32e5f796609cf2f985e989c6dc04d0eb37190",
+        "cmtr": "Giulio Fidente",
+        "date": "2016-08-26 15:07:13+02:00",
+        "files": ["osd.pp"]
+      },
+      {
+        "hash": "b72bf9d6b8fde1feba4c4e7ef5c38249d58c3413",
+        "msg": "Make RGW deployment idempotent\n\n- Set selinux_ignore_defaults to True for RGW directories otherwise Puppet\n  will try to modify SElinux context, different from packaging.\n- Update rgw service for systemd\n\nChange-Id: Idea369a3f08be2d6c25913152b63cab5eadb8641",
+        "cmtr": "Keith Schincke",
+        "date": "2016-08-30 23:58:41-04:00",
+        "files": ["rgw.pp", "ceph_rgw_spec.rb"]
+      },
+      {
+        "hash": "26333fd8735a7402d89367099a2a1d9fc1b0cdd8",
+        "msg": "Update Jewel Ceph RGW to support Keystone V3\n\nThis patch updates ceph::rgw:keystone to support Keystone V3\n\nUsage:\nThe domain, project, user and password are pre-populated\nin keystone.\nceph::rgw::keystone{ 'radosgw.gateway':\n  rgw_keystone_version        => 'v3',\n  rgw_keystone_admin_domain   => 'default',\n  rgw_keystone_admin_project  => 'openstack',\n  rgw_keystone_admin_user     => 'rgwuser',\n  rgw_keystone_admin_password => '123456',\n  use_pki                     => false,\n}\n\nChange-Id: Ifb24615372c962b9e264167888d8da939b46341d\nRef: http://docs.ceph.com/docs/master/radosgw/keystone/\nRef: http://docs.ceph.com/docs/master/radosgw/config-ref/#keystone-settings",
+        "cmtr": "Keith Schincke",
+        "date": "2016-09-07 17:08:08-04:00",
+        "files": ["params.pp", "keystone.pp", "auth.pp", "radosgw-keystone-v3-93b3895e24b5f913.yaml", "ceph_rgw_keystone_spec.rb"]
+      },
+      {
+        "hash": "658dc50aedf3ebfb2f0e62d8fb8cb4cf770c2241",
+        "msg": "Adding object name[space] parameters\n\nWith Jewel the ceph-osd daemon will refuse to start if the configured\nrados max object name length cannot be safely stored [1],[2].\n\nAdding options for osd_max_object_name_len and osd_max_object_namespace_len,\n\n1. http://tracker.ceph.com/issues/16187\n2: http://docs.ceph.com/docs/jewel/rados/configuration/filesystem-recommendations/#filesystems\n\nChange-Id: Id487d6d656e88dfe29eac80c378058551c92dfd9",
+        "cmtr": "Alex Schultz",
+        "date": "2016-09-07 17:04:36-06:00",
+        "files": ["init.pp", "base.pp", "params.pp", "ceph_mon_osd_spec.rb", "ceph_init_spec.rb", "common.yaml"]
+      },
+      {
+        "hash": "16889b71e996c622fca317df23020b5f4b3b6967",
+        "msg": "Honor rgw_enable and mon_enable for systemd units\n\nConsume rgw_enable and mon_enable parameters to set the 'enable'\nstate for the systemd units.\n\nAlso removes support for sysvinit as we don't support Hammer\nin the master branch so we can default to systemd.\n\nChange-Id: I1e0415f0b7f640b1b2d05abcc2e7781ad5bb35a3\nCloses-Bug: 1622825\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
+        "cmtr": "Alex Schultz",
+        "date": "2016-09-15 09:45:41-06:00",
+        "files": ["mon.pp", "params.pp", "rgw.pp", "keystone.pp", "service-management-9483b9cfc067c736.yaml", "ceph_rgw_spec.rb"]
+      },
+      {
+        "hash": "ede4eb080e927491301d65bdd4b8de30f4c56e15",
+        "msg": "Correct typo in ceph::rgw\n\nA tag was misnamed for the RGW service\n\nChange-Id: Ic7336e58b9392abdaa14d750375e1db088d56d22",
+        "cmtr": "Keith Schincke",
+        "date": "2016-09-20 16:45:05-04:00",
+        "files": ["rgw.pp"]
+      },
+      {
+        "hash": "39d40883a28b946e1cda0f465f30f0b90868b48c",
+        "msg": "Fix puppet-lint before upgrading gem\n\nRemoving 140 chars limit exeeded in favor\nof upgrading puppet-lint\n\n2016-09-13 21:04:51.478751 | manifests/init.pp:176:WARNING: line has more than 140 characters\n2016-09-13 21:04:51.478833 | manifests/mon.pp:141:WARNING: line has more than 140 characters\n2016-09-13 21:04:51.478857 | manifests/params.pp:71:WARNING: line has more than 140 characters\n2016-09-13 21:04:51.478877 | manifests/repo.pp:125:WARNING: line has more than 140 characters\n2016-09-13 21:04:51.478897 | manifests/repo.pp:138:WARNING: line has more than 140 characters\n2016-09-13 21:04:51.478917 | manifests/repo.pp:230:WARNING: line has more than 140 characters\n2016-09-13 21:04:51.478940 | manifests/rgw/apache_fastcgi.pp:109:WARNING: line has more than 140 characters\n2016-09-13 21:04:51.478965 | manifests/rgw/apache_fastcgi.pp:143:WARNING: line has more than 140 characters\n\nChange-Id: I090ae328633b00ffc5948285df76eafa2d99f6e6",
+        "cmtr": "Carlos Camacho",
+        "date": "2016-09-21 14:13:31+02:00",
+        "files": ["init.pp", "mon.pp", "params.pp", "repo.pp", "apache_fastcgi.pp", "ceph_mon_spec.rb"]
+      },
+      {
+        "hash": "a46d5c5a2099eeeddad0c0ceaa931579f0872a3f",
+        "msg": "Deployment should fail when trying to add another Ceph cluster's OSD\n\nThis change explicitly adds the FSID to the $cluster_option variable\nand causes Puppet to exit if OSD preparation/activation will fail\nbecause the OSD belongs to a different Ceph cluster as determined by\nan FSID mismatch. FSID mismatch is a symptom of attempting to install\nover another deploy. The FSID mismatch failure will be logged so that\nthe user may determine the reason for failure and then choose to zap\naway the old deploy away before re-attempting deployment.\n\nCloses-Bug: 1604728\nChange-Id: I61d18400754842860372c4cc5f3b80d104d59706",
+        "cmtr": "Alex Schultz",
+        "date": "2016-09-23 15:54:50+00:00",
+        "files": ["osd.pp", "osd-check-fsid-mismatch-a5cb615be1b4e40f.yaml", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "3e8ebf5b52b4588931ccd60497539b16735c6ee9",
+        "msg": "Ensure list of packages to install is user customizable\n\nThere are hardcoded references to the 'ceph' package in the module but\nthe package isn't provided by the ceph.com repos anymore. This change\nfixes the dependencies by referring them to ::ceph::params::packages instead\n\nIt also changes the type of the packages parameter to an array so that\nmultiple packages can be passed.\n\nChange-Id: I13462219522386f8740b0d70916a44f3474115e4\nCloses-Bug: 1630468",
+        "cmtr": "Giulio Fidente",
+        "date": "2016-10-06 10:34:29+02:00",
+        "files": ["key.pp", "params.pp"]
+      },
+      {
+        "hash": "939307f49756cc925fa9cbc1227be6d316576537",
+        "msg": "repo: deploy ceph.com apt key only when required\n\nDo not try to deploy ceph.com Apt key if the repository is not used.\nOpenStack mirrors contain packages signed with this key.\n\nAlso disable beaker tests on Ubuntu, ceph.com is down.\n\nChange-Id: Iae692bd90126930ca40a853d641aa17634e745de",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-10-11 21:12:07-04:00",
+        "files": ["repo.pp", "ceph_mon_osd_spec.rb", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "e8590dac94d31f8cba3414be00460195f0c8f1e1",
+        "msg": "Ensure wget is installed for RGW Keystone integration\n\nThe minimal install of CentOS does not include wget causing the\nexec resources to fail.  This patch ensures that it is installed\non the operating system.\n\nChange-Id: I55b8a227bbf309f99583261eb879e6a1b6e602de",
+        "cmtr": "Andrew Woodward",
+        "date": "2016-10-17 13:31:32-07:00",
+        "files": ["params.pp", "keystone.pp"]
+      },
+      {
+        "hash": "1d77607bf07d77172a088719fe9b741a476987de",
+        "msg": "Change conf from create to ensure\n\nIn order to help minimize issues with create/duplicates we need to switch\nfrom create_resources to ensure_resources\n\nChange-Id: I3238d30ad90b67107e6a13e3655e590ee802c6ff",
+        "cmtr": "Andrew Woodward",
+        "date": "2016-10-17 14:14:44-07:00",
+        "files": ["conf.pp"]
+      },
+      {
+        "hash": "803e151736f506aa57820e457448cc66b408e5d4",
+        "msg": "Notify radosgw service on configuration change\n\nThe ceph-radosgw service should be notified on configuration change else\nit won't be able to pick-up new/changed configuration.\n\nChange-Id: I47a5ddaae95a151ebd7fa3ea740a616f8d58ad36",
+        "cmtr": "François Charlier",
+        "date": "2016-10-18 17:06:17+02:00",
+        "files": ["rgw.pp"]
+      },
+      {
+        "hash": "7c9e77906e5b3c97c6436e0eddc5436624c2ac52",
+        "msg": "Make pid_max settable on OSD nodes.\n\nOn OSD nodes during recovery you can ovewhelm the default PID max of\n32k. The docs recommend setting to the largest possible value, 4194303.\nBy default this will not be set.\n\nhttp://docs.ceph.com/docs/jewel/rados/troubleshooting/troubleshooting-osd/\n\nChange-Id: Id7714e8d237db2137fdc32002ab7ae373fb81357\nCloses-Bug: #1362825",
+        "cmtr": "Alex Schultz",
+        "date": "2016-10-20 12:46:18-06:00",
+        "files": ["osds.pp", "params.pp", "metadata.json", "allow_changing_pidmax_on_osd_nodes-d1a98328f666a895.yaml", "ceph_osds_spec.rb"]
+      },
+      {
+        "hash": "6a12d71f43b27243c46669b44196c5eb04430ddd",
+        "msg": "Switch puppet-ceph to rspec-puppet-facts\n\nChange-Id: I17bbb499971499f96588cc5a98e1420b9abbdd42",
+        "cmtr": "Mykyta Karpin",
+        "date": "2016-11-24 16:09:36+02:00",
+        "files": ["osd.pp", "ceph_init_spec.rb", "ceph_mds_spec.rb", "ceph_mons_spec.rb", "ceph_osds_spec.rb", "ceph_key_spec.rb", "ceph_osd_spec.rb", "ceph_pool_spec.rb", "ceph_rgw_civetweb_spec.rb"]
+      },
+      {
+        "hash": "3bb76e7364fd0e00418226e98535aa1463f0dfc0",
+        "msg": "Unify parameter arguments between classes.\n\nceph::rgw::keystone and ceph::rgw:keystone::auth used\ndifferent parameter defaults. This patch makes both use\nceph::profile::params\n\nChange-Id: Ic55960841f4e42e66a4a04be1976a2b205db2cdc\nDepends-On: Ie9b8113351300ab8ab331f083a47fef7d4735e69",
+        "cmtr": "Keith Schincke",
+        "date": "2016-11-29 11:36:06-05:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "a2aa860719ff74827af9013eb1ef9fa9230f95e3",
+        "msg": "Update ceph::key to update keys\n\nThe previous code exited immediatly when one of the shell commands\nreturned fail. The grep failed when there were no changes between\nthe temp key and the real key. This resulted in the temp key\nnot being deleted.\n\nChange-Id: I9ac13efb59e7f575d739107e0fcac66c05504940",
+        "cmtr": "Keith Schincke",
+        "date": "2016-12-06 05:26:05-05:00",
+        "files": ["key.pp"]
+      },
+      {
+        "hash": "f95aa995f6e7b7ee2ad2f2124004cfedbc9ca61f",
+        "msg": "Add support for installing Ceph rbd-mirror\n\nChange-Id: If00c85d69cb4b3d2c0c34dd6d2ee2c1fc3db4a2f",
+        "cmtr": "Keith Schincke",
+        "date": "2016-12-08 10:50:09-05:00",
+        "files": ["mirror.pp", "mirror.pp", "params.pp", "rgw.pp", "civetweb.pp", "rbd-mirror-e8c13699bb0e71d8.yaml", "ceph_rbd_mirror_spec.rb"]
+      },
+      {
+        "hash": "e21a6310a2c831d645536306b01ddde5f9b6cfd9",
+        "msg": "Include and not redeclare apache mod_env\n\nThe apache mod_env has been moved in its own class, we only need\nto include that class now.\n\nChange-Id: I6de3d9dd4769ea69a97bd627eaf6a019ef892ce6\nCloses-Bug: #1651987",
+        "cmtr": "Giulio Fidente",
+        "date": "2016-12-22 10:36:28+01:00",
+        "files": ["apache_proxy_fcgi.pp", "ceph_rgw_apache_proxy_fcgi_spec.rb"]
+      },
+      {
+        "hash": "5cc19541b872ab249267756992af3b9f19d2197e",
+        "msg": "Improves support for ceph-mds\n\nThis change adds a profile for the MDS service and extends the\nexisting MDS class to enable the service on boot and set the\ndaemon binding address.\n\nChange-Id: I558b43deaa9b243c54f3d7ae945f11dd4925eb5d\nRelated-Bug: #1644784",
+        "cmtr": "Giulio Fidente",
+        "date": "2017-01-04 14:23:27+01:00",
+        "files": ["mds.pp", "params.pp", "mds.pp", "params.pp", "mds-support-improvements-e30c7c4fdb838439.yaml", "ceph_mds_spec.rb", "ceph_profile_mds_spec.rb", "common.yaml"]
+      },
+      {
+        "hash": "28e8f4525f4448a9f585f7ff4212fa9df58f4464",
+        "msg": "Add cephfs resource type and profile\n\nThis resource type can be used for setting up cephfs, it\nexpects FS name, data and metadata pool names as input\nparameters. Data and metadata pools should already exist.\n\nChange-Id: I18436a64fc991b9e697a1d79e369ac110cf8fe20\nPartial-Bug: #1644784",
+        "cmtr": "Jan Provaznik",
+        "date": "2017-01-10 14:48:12+01:00",
+        "files": ["common.yaml", "fs.pp", "fs.pp", "params.pp", "ceph_profile_fs_spec.rb", "ceph_fs_spec.rb", "common.yaml"]
+      },
+      {
+        "hash": "8e01a414312ff0387f3847a1b8fb2a9bdc828b16",
+        "msg": "init: allow to configure rbd_default_features\n\nAllow puppet-ceph to configure rbd_default_features parameter in\nceph.conf / [client] section. Operators deploying newer Ceph clients\nthat must use older Ceph servers need to be able to easily set this\noption for backwards compatibility.\n\nDepends-On: I3242cfe0f141fe2bbb951ce2cf7071fd07456db8\nChange-Id: I477640c5db2cc84622da7734fb54cfe7740bd137\nPartial-Bug: 1633552",
+        "cmtr": "John Fulton",
+        "date": "2017-01-13 17:49:17+00:00",
+        "files": ["init.pp", "base.pp", "params.pp", "ceph_init_spec.rb"]
+      },
+      {
+        "hash": "37a01c99a820123ddec19f73a2c045021191dc81",
+        "msg": "Ensure the CephX client keys are provisioned by the mirror profile\n\nPreviously we were not deploying on the nodes hosting only the mirror\nprofile any CephX client key, these are required instead to give\nappropriate permissions to the mirror daemon.\n\nChange-Id: I5bcc9d1e19c60043b8c28ebf7dc2b12dde3d7567",
+        "cmtr": "Giulio Fidente",
+        "date": "2017-01-25 16:29:57+01:00",
+        "files": ["mirror.pp"]
+      },
+      {
+        "hash": "eccdd9a0c0b5916f175035493ebf57a82cedb7eb",
+        "msg": "Update to reduce puppet errors.\n\nThis patch reduces the amount of warnings due to 'unknown variables'\nwith certian combinations of class arguments. mon_caps, osd_caps and\nmds_caps are set to '' if no relevant options are passed.\ncluster_option is set to '--cluster ceph' if no custom cluster name\nis passed to the relevant classes.\n\nChange-Id: I3204b402c00dab4836c8a3ea64eb769a83f7b51f",
+        "cmtr": "Keith Schincke",
+        "date": "2017-01-25 14:32:24-05:00",
+        "files": ["key.pp", "mon.pp", "osd.pp", "ceph_mon_spec.rb", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "dba788f010f35f1fda15fb9e7115f804947e2c8f",
+        "msg": "Reduce ceph::key.pp warnings\n\nA second pass to reduce the puppet about unused variables. Unused\nvariables are set to ''. No functionality changes.\n\nChange-Id: Ia82d6b130c4eb948922dc5255ec29dde2279a15d",
+        "cmtr": "Keith Schincke",
+        "date": "2017-02-06 11:39:15-05:00",
+        "files": ["key.pp"]
+      },
+      {
+        "hash": "108f5500adb38f5e8c2ddf271937ef184f57067a",
+        "msg": "Automatically zap a disk if no valid gpt label is present\n\nThis change will execute 'ceph-disk zap' on any OSD or journal\ndisk if there is no valid gpt label present. This makes it\nconsistent with the ceph-ansible project.\n\nChange-Id: I47c9e73421a0b472c237ef5cbe6ceb4ff72bcf35\nPartial-Bug: 1656428",
+        "cmtr": "David Critch",
+        "date": "2017-02-07 23:06:19+00:00",
+        "files": ["osd.pp", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "02e1a6361d9322844312b49740d0fbc962620a11",
+        "msg": "Deprecate unused ::ceph::rgw::syslog parameter\n\nThe syslog parameter is not used by ::ceph::rgw. ceph::rgw::apache_fastcgi\nand ::ceph::rgw::apache_proxy_fcgi use the syslog parameter but are\nnot called from ::ceph::rgw. This paramter will be removed in a future\nrelease\n\nChange-Id: I57326a52138826dea1902dab7fe1cbe97c3ee861",
+        "cmtr": "Keith Schincke",
+        "date": "2017-02-08 08:32:18-05:00",
+        "files": ["rgw.pp", "remove-rgw-syslog-2a6909362b702b15.yaml", "ceph_rgw_spec.rb"]
+      },
+      {
+        "hash": "f749fa16ceaa50d1b119a7f6eea82891175372af",
+        "msg": "Ensure osd.pp moves to activate only after finishing prepare\n\nEnsures the order in which osd.pp executes the prepare and\nactivation is preserved for all disks so that none of the OSDs is\nactivated until all prepare (and udevadm settle) finished for all\ndisks.\n\nChange-Id: Ie8666c0e3a68776fb6d2fbcba1f04846eaa1782b",
+        "cmtr": "Giulio Fidente",
+        "date": "2017-02-15 15:57:40+01:00",
+        "files": ["osd.pp"]
+      },
+      {
+        "hash": "9f52c306e1584d8def0890002ad12df87117e882",
+        "msg": "Revert \"Automatically zap a disk if no valid gpt label is present\"\n\nThis reverts commit 108f5500adb38f5e8c2ddf271937ef184f57067a.\n\nChange-Id: I75a7fc7ae63a4f7fc4db9292a1e7d1bb99df1a34\nRelated-Bug: #1664496",
+        "cmtr": "Mykyta Karpin",
+        "date": "2017-02-20 11:00:01+02:00",
+        "files": ["osd.pp", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "7451d6ea295ca16b6ba3bd2e7ed2412d18f2bec4",
+        "msg": "Fail deployment if non-existent block devices are passed for OSDs\n\nIf a user passes a block device, e.g. /dev/sdx, that doesn't actually\nexist, then the user made a mistake and the deployment should fail.\nWithout this change if /dev/sdx doesn't exist, then a directory is\ncreated called /dev/sdx and set up as a directory-backed OSD. This\npatch adds a check to fail the deployment if the requested OSD is\na directory with a name starting with /dev.\n\nChange-Id: I5f03fc332b8df3914dc8609a203eb38693cb87a7\nCloses-Bug: 1665697",
+        "cmtr": "John Fulton",
+        "date": "2017-03-17 15:39:27+00:00",
+        "files": ["osd.pp", "osd-check-non-existent-block-device-6f827dba142a3aa5.yaml", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "0ab0f3f3a03bb17283fa3d3fc269760c651dec4f",
+        "msg": "Switch trunk/cbs/buildlogs to use https\n\nThere is a permanent redirection from http to https in buildlogs, cbs\nand trunk repos that might create issues when the redirection fails for\nsome reasons.\nLet's use https directly.\n\nChange-Id: I0a0f3616c905e81b60ddd49d5fc996cfc1c4f73d",
+        "cmtr": "Emilien Macchi",
+        "date": "2017-03-21 08:24:41-04:00",
+        "files": ["repo.pp"]
+      },
+      {
+        "hash": "2767d1ab7e7bee693256813320eb59c8dbc1a890",
+        "msg": "repo: use $ceph_mirror in ceph::repo\n\nIf $ceph_repo is set, let's use it when deploying SIG repo.\nThe feature was only available for Ubuntu until now. But we\ncould use it for CentOS too.\n\nThanks to this patch, the Puppet OpenStack CI will now deploy\nCeph repositories from AFS mirrors provided by OpenStack Infra.\n\nRelated-Bug: #1676421\nDepends-On: Ica91b23c0954ccee17ea13903048b6133758f9f3\n\nChange-Id: I840c0288e5ea15c74578d6468f55acf2456c3326",
+        "cmtr": "Emilien Macchi",
+        "date": "2017-03-27 12:48:56-04:00",
+        "files": ["repo.pp", "centos-mirror-71fd6fb3f5916d5d.yaml", "ceph_repo_spec.rb"]
+      },
+      {
+        "hash": "ff2b2e689846dd3d980c7c706c591e8cfb8f33a9",
+        "msg": "Allow use of device aliases for OSDs\n\nResolves $data paths using readlink, as ceph-disk does, so we don't\nfail if the two mismatch.\n\nCloses-Bug: #1677605\nChange-Id: I13c2776dbbfd9c7cb91dc272e8a3405cd60210b0",
+        "cmtr": "Giulio Fidente",
+        "date": "2017-04-06 18:43:50+02:00",
+        "files": ["osd.pp", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "0754aecaa9cddfe5a6bf7c9bed43c18b35db6508",
+        "msg": "Correctly configure /dev/nvme0n1 devices as OSDs\n\nChange pupppet-ceph's assumption that all devices which end with\na \"1\" have a first partition so that it can correctly configure\nNVMe SSDs, which appear as /dev/nvme0n1 and whose partitions appear\nas /dev/nvme0n1p1, /dev/nvme0n1p2 and so on.\n\nCloses-Bug: #1687114\nChange-Id: I433fd3ab3ce240c661e7e9faeb758fd0d0215f6a",
+        "cmtr": "John Fulton",
+        "date": "2017-05-16 15:38:47-04:00",
+        "files": ["osd.pp", "support-nvme0n1-as-osd-46e4a00ec699f718.yaml", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "e72b6f34d2e82f09b37d24041009809514c90b9f",
+        "msg": "Fix lint issues to upgrade to puppet-lint 2.3\n\n2017-07-20 14:28:44.376006 | manifests/mon.pp:121:WARNING: arrow should be on the right operand's line\n2017-07-20 14:28:44.376112 | manifests/mon.pp:157:WARNING: arrow should be on the right operand's line\n2017-07-20 14:28:44.376146 | manifests/mon.pp:165:WARNING: arrow should be on the right operand's line\n2017-07-20 14:28:44.376178 | manifests/mon.pp:203:WARNING: arrow should be on the right operand's line\n2017-07-20 14:28:44.376209 | manifests/mon.pp:209:WARNING: arrow should be on the right operand's line\n2017-07-20 14:28:44.376240 | manifests/mon.pp:230:WARNING: arrow should be on the right operand's line\n2017-07-20 14:28:44.376286 | manifests/mon.pp:244:WARNING: arrow should be on the right operand's line\n\nChange-Id: I2fe4ed016100ebda260dcfdc67d2907c7cc06787",
+        "cmtr": "Carlos Camacho",
+        "date": "2017-07-20 19:55:29+02:00",
+        "files": ["mon.pp"]
+      },
+      {
+        "hash": "4e76bd2fc9f6572cabcb7a37aae9fd4d74643856",
+        "msg": "Some fixes for the ceph disk activate part\n\nThe \"unless\" condition for the ceph disk activate part did not work when using block devices as puppet always tried to activate a running OSD again and again. So I introduced an additional check with \"ceph-disk list\" which checks if the OSD is already active. The test to check if a whole block device gets used was not working for me as well. Udev should activate a whole block device when running ceph (since Infernalis), but for me the module tried to activate a OSD.\n\nChange-Id: I708e2c62f351c4588ef1f69797f631c161388949",
+        "cmtr": "Nick",
+        "date": "2017-08-31 11:42:12+02:00",
+        "files": ["osd.pp", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "16924072d59098d9e2b0fded8dfa7b487d6d5f9a",
+        "msg": "Add ceph-mgr support\n\nThe latest release of Ceph requires the setup of ceph-mgr, so this\npatch allows users to install it if necessary.\n\nDepends-On: Ib979a44e9fb20469332ed16cb284383198a086d6\nChange-Id: Iebc37202a467c28c731045054dd68a80c6c602ee",
+        "cmtr": "Mohammed Naser",
+        "date": "2017-09-04 14:19:58+00:00",
+        "files": ["mgr.pp", "mgr.pp", "params.pp", "add-ceph-mgr-support-d2a5e9104021f81a.yaml", "ceph_mon_osd_spec.rb", "ceph_profile_mgr_spec.rb", "ceph_mgr_spec.rb", "common.yaml"]
+      },
+      {
+        "hash": "7f21b323d7c3b192711c82947800ce9eeacf2e14",
+        "msg": "fix the service names\n\nI also fixed the rgw class and used the 'name as default' approach which\nremoved the need for one additional variable.\n\nRemoved the servcie_provider variable from the params class.\n\nChange-Id: I404421da5df78e06241fd32b52f3b850780901fe",
+        "cmtr": "Nick",
+        "date": "2017-09-12 09:23:36+02:00",
+        "files": ["mon.pp", "params.pp", "rgw.pp"]
+      },
+      {
+        "hash": "39ea7f81aa2efeb630f6bd7fb78bddd138beaeec",
+        "msg": "Fix outdated links and document spelling error\n\nUpdate doc links according to OpenStack document migration.\nUse https instead of http for docs links.\n1)http://docs.openstack.org/infra/bindep/\n--> https://docs.openstack.org/infra/bindep/\n2)http://ceph.com/docs/master/install/install-ceph-gateway/\n  --> http://docs.ceph.com/docs/master/install/install-ceph-gateway/\nCloses-Bug:#1717835\n\nChange-Id: Ie2dca6e916d04278ca2ee9ed7c4ed43b73b77e82",
+        "cmtr": "zhangbailin",
+        "date": "2017-09-17 22:32:20-07:00",
+        "files": ["bindep.txt", "apache_fastcgi.pp", "osd-check-fsid-mismatch-a5cb615be1b4e40f.yaml", "osd-level-5ebc22c7377e0300.yaml"]
+      },
+      {
+        "hash": "cb20c32c0b149c79d65a9179a500f1a76678a873",
+        "msg": "Fixed resource ordering for ceph-mgr\n\nChange-Id: I25043337c79f48c0b73d167ac6b7121086b2994e",
+        "cmtr": "Mohammed Naser",
+        "date": "2017-09-27 15:38:35-04:00",
+        "files": ["mgr.pp"]
+      },
+      {
+        "hash": "c61c01840fbe2ffaeb88fd512eb13b608b840873",
+        "msg": "Fix idempotency for ceph-mgr\n\nChange-Id: Ia5db0bcc884d47c918c7da6657aa5b9bfdcdce44",
+        "cmtr": "Mohammed Naser",
+        "date": "2017-09-27 15:39:29-04:00",
+        "files": ["mgr.pp"]
+      },
+      {
+        "hash": "710364b405fdaf5ff44142563a80450a60938e12",
+        "msg": "Add Luminous support for CentOS\n\nChange-Id: Ic4d4219892d13d7a9c1b06c1fc19d512a3996032",
+        "cmtr": "Mohammed Naser",
+        "date": "2017-09-27 15:39:32-04:00",
+        "files": ["common.yaml", "osds.pp", "params.pp", "params.pp", "repo.pp", "add-luminous-centos-e038729331945b61.yaml", "ceph_mon_osd_spec.rb", "ceph_repo_spec.rb", "common.yaml"]
+      },
+      {
+        "hash": "5db96f877d07480b4bdf95542a3fdb0210d6baca",
+        "msg": "Allows mgr caps to be added to keys.\n\nAllows setting optional mgr caps on the cephx keys.\nThe mgr caps are required to query the ceph-mgr daemon.\n\nChange-Id: I1c4d010b55611377573e4b928ee9527441050d51\nCloses-Bug: #1720864",
+        "cmtr": "Dan Williams",
+        "date": "2017-10-04 06:40:31+01:00",
+        "files": ["key.pp", "add_mgr_caps-56dadf9202ce30b3.yaml", "ceph_key_spec.rb"]
+      },
+      {
+        "hash": "f5ed71b38a84ff26abbced4022914bafd37267ba",
+        "msg": "Remove ceph::rgw::apache\n\nceph::rgw::apache was deprecated in Hammer and the upstream puppetlabs\napache module has removed support for fastcgi in EL7. This change\nremoves the redhat tests around this as well as removing the\nceph::rgw::apache class.\n\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>\nChange-Id: I009e3717e9e5c7887a2898dffa65079d61caadca",
+        "cmtr": "Alex Schultz",
+        "date": "2017-10-30 16:44:24-06:00",
+        "files": ["apache.pp", "remove-ceph-rgw-apache-a2e1181ec92dab53.yaml", "ceph_rgw_apache_fastcgi_spec.rb", "ceph_rgw_apache_spec.rb", "ceph_rgw_keystone_spec.rb"]
+      },
+      {
+        "hash": "864f9b221e3c00e2388615dca15bd2922d528e06",
+        "msg": "Deprecate mod_fastcgi. Promote civetweb.\n\npuppet-apache has dropped support for fastcgi on RHEL/CentOS 7 hosts (1).\nThis patch deprecate fastcgi for removal in the P+2 release. Civetweb\nis set a the default frontend for rgw.\n\nChange-Id: I8681018ccd9d38df5e964385d6d433c42c246b06\n1: https://github.com/puppetlabs/puppetlabs-apache/commit/6c1ed75df6988dee291041c1bc4251f0f9525be9",
+        "cmtr": "Keith Schincke",
+        "date": "2017-11-01 11:35:10-04:00",
+        "files": ["rgw.pp", "apache_fastcgi.pp", "civetweb.pp", "depricate-fast-cgi-2fdaeeef93342069.yaml", "ceph_rgw_civetweb_spec.rb", "ceph_rgw_spec.rb"]
+      },
+      {
+        "hash": "7a366f92a53cc9015d3aaeab86e36c3d1649cf79",
+        "msg": "Make sure pg_num is updated before pgp_num.\n\nWe need to order the change because pgp makes a check on the pg\nnumber.\n\nCloses-Bug: #1730457\n\nChange-Id: I2983de1448ce4e4bbbfffb970a1d0f082854d879",
+        "cmtr": "Sofer Athlan-Guyot",
+        "date": "2017-11-06 18:16:36+01:00",
+        "files": ["pool.pp", "ceph_pool_spec.rb"]
+      },
+      {
+        "hash": "04d1a0438cd24ada3fba4e7b07eada78ad0ac9fb",
+        "msg": "Update unless statement for cephx key checking.\n\nSome cephx keys (manila) have specail features enabled via quoted\nwords in their capabilities list. The initial key is created on the\nfile system with escaped quotes (\\\"auth del\\\" and \\\"auth caps\\\").\nHowever the output of ceph auth get does not excape these quotes.\nThis results in the grep in unless satement always failing and\ncausing the key to be reimported multiple times.\n\nA Ceph tracker issue has been opend to for this issue. (1)\n\n1: http://tracker.ceph.com/issues/22227\n\nChange-Id: I2cf6d3ded28d2d37c10fbe9ffb29822b744a561c",
+        "cmtr": "Keith Schincke",
+        "date": "2017-11-22 11:48:39-05:00",
+        "files": ["key.pp", "update-ceph-key-unless-cecb0202f0ecd392.yaml"]
+      },
+      {
+        "hash": "fbb6b1ce97687100f701c22db5fdb7294482e5e2",
+        "msg": "Remove _member_ role from the keystone accepted roles\n\nAs per the development mailing list: Keystone removed _member_ role management\n\nChange-Id: I9e3179e6e578002df0a8eec79fa5a58bf9d3d4c4",
+        "cmtr": "Keith Schincke",
+        "date": "2017-12-27 12:36:34-05:00",
+        "files": ["keystone.pp", "ceph_rgw_keystone_spec.rb"]
+      },
+      {
+        "hash": "0626ccc0a96640ff54f50c5554b4a93fd5ea4fc5",
+        "msg": "Added rgw_keystone_implicit_tenants to ceph::rgw::keystone\n\nSet to true for private tenant for each new user (1).\n\n1: http://docs.ceph.com/docs/master/radosgw/keystone/\n\nChange-Id: I8e0c08b3ab5812bbd75fdeed176655fefe2c631a\nCloses-Bug: 1743602",
+        "cmtr": "Keith Schincke",
+        "date": "2018-01-16 16:55:13-05:00",
+        "files": ["keystone.pp", "bug-1743602-f7aa5f3ca3173f28.yaml", "ceph_rgw_keystone_spec.rb"]
+      },
+      {
+        "hash": "f3f166935b484683ba352f81dd7488f0e5ab53de",
+        "msg": "Update ceph-osd-check-udev to correct an awk condition\n\nThe awk statement will print 1 if the ceph release it < 0.94.\nOtherwise, it will print nothing. When it does not print anything,\nno value is set to DISABLE_UDEV. This results in the test failing.\n\n++ ceph --version\n++ awk 'match($3, /[0-9]+\\.[0-9]+/) {if (substr($3, RSTART, RLENGTH) <= 0.94) {print 1}}'\n+ DISABLE_UDEV=\n+ test -f /usr/lib/udev/rules.d/95-ceph-osd.rules\n+ test -eq 1\nsh: line 3: test: -eq: unary operator expected\n\nThis patch adds a 'else { print 0 }' if the substr does not return true.\n\n++ ceph --version\n++ awk 'match($3, /[0-9]+\\.[0-9]+/) {if (substr($3, RSTART, RLENGTH) <= 0.94) {print 1} else { print 0 } }'\n+ DISABLE_UDEV=0\n+ test -f /usr/lib/udev/rules.d/95-ceph-osd.rules\n+ test 0 -eq 1\n\nChange-Id: I4d2da48717c57b0d8d853d9e2a711ca02b18c6e1",
+        "cmtr": "Keith Schincke",
+        "date": "2018-05-04 15:13:02-04:00",
+        "files": ["osd.pp", "ceph_osd_spec.rb"]
+      },
+      {
+        "hash": "16d2799998b6f550cbc8986731cb4683aa10b0d9",
+        "msg": "Puppet incorrectly sets rgw_keystone_revocation_interval to absent\n\nPuppet incorrectly sets rgw_keystone_revocation_interval when use_pki\nis false. According to (1), the default value will be 15*60. This value\nshould be 0 when not using PKI tokens. This patch ensures the parameter\nis set to the value passed into the module.\n\n1: http://docs.ceph.com/docs/master/radosgw/config-ref/\n\nChange-Id: Ic8abf0c9d54847dad72824db211a5850737a05b8\nCloses-bug: 1770234",
+        "cmtr": "Keith Schincke",
+        "date": "2018-05-09 15:45:14-04:00",
+        "files": ["keystone.pp", "ceph_rgw_keystone_spec.rb"]
+      },
+      {
+        "hash": "c65d73d64bfda2952aae3f10397b576a82284e8e",
+        "msg": "Add Mimic support\n\nThis changes the repos to use Mimic.\nProbably needs a lot of other work but it's a start.\n\nA patch will be pushed to p-o-i to test Mimic.\n\nChange-Id: I62bddf421f3fae6a22b1a58f42bbbf80c53fdd8d",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-06-03 23:03:47+02:00",
+        "files": ["common.yaml", "osds.pp", "params.pp", "params.pp", "repo.pp", "ceph_repo_spec.rb", "common.yaml"]
+      },
+      {
+        "hash": "72235f18aa2cc77869f5008d57558656fe7911fd",
+        "msg": "Fix lspool issues on Mimic\n\nWith the Mimic release they have changed\nthe output of the \"ceph osd lspools\" command.\n\nThe old output (from Luminous):\n$ceph osd lspools\n5 glance,6 gnocchi,13 cinder,25 nova,\n\nThe new output (from Mimic):\n$ceph osd lspools\n1 glance\n2 nova\n3 cinder\n4 gnocchi\n\nThis changes the usage of \"ceph osd lspools\"\nto \"ceph osd pool ls\" which exists in both\nversions and has the same output.\n\nExample output of \"ceph osd pool ls\"\n$ceph osd pool ls\nglance\nnova\ncinder\ngnocchi\n\nWe combine this with a grep with word-regexp\nwhich will make sure we do a fullmatch on the\nname of the pools.\n\nChange-Id: I8883c8400ffc18672479fe2ad8cc7955a52bc466",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-06-18 22:12:15+02:00",
+        "files": ["pool.pp"]
+      },
+      {
+        "hash": "fd64982c1f73471d6fd7dce42ac1e475a83fb824",
+        "msg": "Do not enable Epel repo in case of Fedora\n\nEpel repos are not meant for CentOS/RHEL, Fedora\nhas it's own set of packages. So do not enable epel\nrepo with Fedora.\n\nChange-Id: I21a29ef103da4330951207af1373db7e55475c48",
+        "cmtr": "yatin",
+        "date": "2018-06-26 21:52:18+05:18",
+        "files": ["repo.pp"]
+      },
+      {
+        "hash": "9dc34406f6f6c17730d0b52d8948f6f550153186",
+        "msg": "Allow setting pool application tag as supported from the Luminous\nrelease.\n\nChange-Id: I956001fd7ee8a15b1b9f3032bb8f898c32ba9ac3\nCloses-Bug: #1796761",
+        "cmtr": "Dan Williams",
+        "date": "2018-10-11 19:33:39+01:00",
+        "files": ["pool.pp", "ceph_pool_spec.rb"]
+      }]
+    }

@@ -1,0 +1,14 @@
+    {
+      "url": "https://github.com/Mirantis/puppet-foreman_proxy",
+      "pp_files": ["service.pp", "proxydhcp.pp", "settings_file.pp", "init.pp", "params.pp", "plugin.pp", "pulp.pp", "config.pp", "chef.pp", "proxydns.pp", "register.pp", "copy_file.pp", "sync_file.pp", "install.pp", "salt.pp", "openscap.pp", "abrt.pp", "tftp.pp", "puppetca.pp"],
+      "pp_cmtrs": ["Scott Brimhall"],
+      "num_pp_commits": 1,
+      "num_tot_commits": 5,
+      "commits": [{
+        "hash": "f2927cef2de8269b699b71f54f5ac25a94cdc5df",
+        "msg": "initial commit",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-30 10:01:33-07:00",
+        "files": ["CHANGELOG.md", "CONTRIBUTING.md", "Gemfile", "LICENSE", "README.md", "Rakefile", "validate_listen_on.rb", "config.pp", "init.pp", "install.pp", "params.pp", "plugin.pp", "abrt.pp", "params.pp", "chef.pp", "params.pp", "openscap.pp", "params.pp", "pulp.pp", "params.pp", "salt.pp", "params.pp", "proxydhcp.pp", "proxydns.pp", "puppetca.pp", "register.pp", "service.pp", "settings_file.pp", "tftp.pp", "copy_file.pp", "sync_file.pp", "metadata.json", "foreman_proxy__config__spec.rb", "foreman_proxy__plugin__abrt_spec.rb", "foreman_proxy__plugin__chef__spec.rb", "foreman_proxy__plugin__openscap_spec.rb", "foreman_proxy__plugin__pulp_spec.rb", "foreman_proxy__plugin__salt_spec.rb", "foreman_proxy__proxydhcp__spec.rb", "foreman_proxy__proxydns__spec.rb", "foreman_proxy__register__spec.rb", "foreman_proxy__spec.rb", "foreman_proxy_plugin_spec.rb", "module_spec_helper.rb", "spec.opts", "spec_helper.rb", "bmc.yml.erb", "dhcp.yml.erb", "dns.yml.erb", "abrt.yml.erb", "chef.yml.erb", "openscap.yml.erb", "pulp.yml.erb", "pulpnode.yml.erb", "salt.yml.erb", "puppet.yml.erb", "puppetca.yml.erb", "realm.yml.erb", "settings.yml.erb", "sudo.erb", "sudo_augeas.erb", "templates.yml.erb", "tftp.yml.erb"]
+      }]
+    }

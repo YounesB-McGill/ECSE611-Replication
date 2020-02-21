@@ -1,0 +1,1169 @@
+    {
+      "url": "https://github.com/wikimedia/translatewiki",
+      "pp_files": ["web1.pp", "mediawiki.pp", "es.pp", "init.pp", "ssl.pp", "site.pp", "vcs.pp", "mwelasticsearch.pp", "sites.pp"],
+      "pp_cmtrs": ["Siebrand", "Amir E. Aharoni", "jenkins-bot", "Antoine Musso", "Nikerabbit", "Niklas Laxstr\u00f6m", "Reedy", "Siebrand Mazeland", "YuviPanda"],
+      "num_pp_commits": 166,
+      "num_tot_commits": 5014,
+      "commits": [{
+        "hash": "df608fbe9877c3183cdfbae42b356534ac39b1ac",
+        "msg": "Translatewiki.net puppet configuration\n\nStarted with nginx\n\nChange-Id: I7bcb0f0c8c339fac8365463154b3dd8e273b3877",
+        "cmtr": "Niklas Laxström",
+        "date": "2012-10-28 13:12:26+00:00",
+        "files": ["Makefile", "nginx.conf", "stats.translatewiki.net", "translatewiki.net", "init.pp", "init.pp", "init.pp", "site.pp"]
+      },
+      {
+        "hash": "aedf60d06bbb5db912a1926b7e4027e23bb7e910",
+        "msg": "Puppet module for memcached\n\nChange-Id: I07b8fc03fed63b8fae4b56d2fbcaa4a0a6e8020d",
+        "cmtr": "Niklas Laxström",
+        "date": "2012-11-01 14:21:15+00:00",
+        "files": ["memcached.conf", "init.pp", "site.pp"]
+      },
+      {
+        "hash": "180db7c80d89630a0c5c02a9e09b38633bc27537",
+        "msg": "Some base packages for puppet\n\nChange-Id: Ib21f57d770aa21f501c5f735305004326ae14f34",
+        "cmtr": "Niklas Laxström",
+        "date": "2012-11-01 14:50:10+00:00",
+        "files": ["init.pp", "site.pp"]
+      },
+      {
+        "hash": "3882bc188673eca8d6399089a4a47b8bcb603470",
+        "msg": "Proxy lists.translatewiki.net via lighttpd like stats\n\nChange-Id: I412c02edfaa8c0575a0f4d14c20831caeb8fc5de",
+        "cmtr": "Niklas Laxström",
+        "date": "2012-11-26 20:35:41+00:00",
+        "files": ["lists.translatewiki.net", "init.pp"]
+      },
+      {
+        "hash": "0d68f70489a3e7ac68f03a3f210a9c2fafcb0f2c",
+        "msg": "Add nginx/mime.types to puppet\n\nMainly to add correct mimetype to woff files,\nbut took a version other improvements as well\n\nChange-Id: Ifa648277233239a5f934393298ae94adecb09c22",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-07-30 09:21:37+00:00",
+        "files": ["mime.types", "init.pp"]
+      },
+      {
+        "hash": "611c908e17a956e39f087367f4f857970dfe3415",
+        "msg": "Install ElasticSearch package\n\nChange-Id: I0705ed56b4fb86a65f7a35158092286846f25a81",
+        "cmtr": "Reedy",
+        "date": "2013-09-11 23:47:17+00:00",
+        "files": [".gitmodules", "elasticsearch", "stdlib", "site.pp"]
+      },
+      {
+        "hash": "e7ea89e4ecff0f6321a5bbcb16a442937396c7a6",
+        "msg": "Add ppas for nginx and php\n\nChange-Id: Icdae6ec23d55aef24b156d131d69f2019178736c",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-13 13:08:06+03:00",
+        "files": ["init.pp", "init.pp"]
+      },
+      {
+        "hash": "01af03b1a499e78e75c9d4fc40d06d6dc64ce6f2",
+        "msg": "Reorder php packages to avoid pulling unwanted dependencies\n\nChange-Id: I8fe8431e9ccb67d53e92f62f5386c1620f95c5e2",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-13 13:43:07+03:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "c213d924ed6f8540e037fc678cfc0d8a7d4741e3",
+        "msg": "Add git-review to packages to install\n\nChange-Id: I5d22396f084f879b98732af39f82730d35527027",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-24 13:50:04+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "b4f7d3ad38bf7ba70140c17ec46b0c49bd67b4b0",
+        "msg": "Mariadb module\n\nUses mysql module of puppetlabs with mariadb repo\n\nChange-Id: I00e0cd5e74cbdec14398166f93ac44be419403f4",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-24 13:50:31+00:00",
+        "files": [".gitmodules", "init.pp", "init.pp", "mysql", "site.pp"]
+      },
+      {
+        "hash": "db47de43ea72caebba84a99f44283b24fba53023",
+        "msg": "New packages for the server\n\nChange-Id: I570a684a49926deb3e8490d26d5d661835b3b810",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-24 14:09:58+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "df8ebebccfd889c285ca7eafcec1c87ecc9d4f64",
+        "msg": "Users for the new server\n\nUsers who have not logged this year have been disabled\n\nChange-Id: I28849edaaed784081f02185415c48b4d8f4bb1d8",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-24 14:33:59+00:00",
+        "files": ["init.pp", "site.pp"]
+      },
+      {
+        "hash": "f046e6d41e6b06573d94216e634390c401fb2126",
+        "msg": "Add sudo configuration\n\nChange-Id: Ib0d5eeff3397d6472eaf9ad82ee3e9cacb129719",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-24 14:50:09+00:00",
+        "files": ["local", "init.pp", "site.pp"]
+      },
+      {
+        "hash": "c8b519385dde4e7d0426fd13717b44a987eab67a",
+        "msg": "Update my.cnf\n\nChange-Id: I75d2fa1e9a03a62b6d15a8631f384b5b6f3cf1cb",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-10-24 23:42:15+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "453870c73b346418b57cb7e95d757c72901496ab",
+        "msg": "Do not automatically restart after config change\n\nChange-Id: I3268cab4d6367843f02d7a4dd9408c3fc2756395",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-10-25 00:50:03+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "f51722ecb9d68cb98726a592a56057367b8b0924",
+        "msg": "Add exim-config module\n\nChange-Id: I8adab2098f54a1e6a18e178e0c598e582b677c5d",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-10-25 22:32:10+02:00",
+        "files": ["exim4.conf", "mailname", "init.pp", "site.pp"]
+      },
+      {
+        "hash": "9e0d2c66efa9177bc0ef71849d64401e18c9d071",
+        "msg": "Add /etc/aliases\n\nChange-Id: Icc56ae3f7204c83f9718120b139f7e9c1981a010",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-10-25 23:57:50+02:00",
+        "files": ["aliases", "init.pp"]
+      },
+      {
+        "hash": "91df996c8e128f38e35c232d7deadbcdea00730d",
+        "msg": "Add logrotate files\n\nChange-Id: I0e10518088d04775ffdc1f2cc8489aa4b55f8dfe",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-10-26 00:29:22+02:00",
+        "files": ["twn", "twn-database-backup", "init.pp"]
+      },
+      {
+        "hash": "08c023250c085c722afb56543b4e8654e8dfed38",
+        "msg": "Fix logrotate class name and include it\n\nChange-Id: Ie5226a600b995c44860cc0e65eced018f0f641cc",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-10-26 00:40:21+02:00",
+        "files": ["init.pp", "site.pp"]
+      },
+      {
+        "hash": "225d129cdb5087c3fc07379daab9e4fd177fa1d4",
+        "msg": "Add handy tool\n\nChange-Id: I7d2076e8ec1f17f5390c2835f82f51a4abefcb79",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-10-26 01:13:21+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "1376e72e464aa57031176762c36b849a98515241",
+        "msg": "Add betawiki cronjobs to puppet\n\nChange-Id: I6cd2b9c77452aa95e825ef2b1df025440ed0f970",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-26 08:39:47+00:00",
+        "files": ["init.pp", "wikibackup.erb", "wikimaintenance.erb", "wikiservices.erb", "wikistats.erb", "site.pp"]
+      },
+      {
+        "hash": "227ea429208075af85a2a890bb6863a661acb77a",
+        "msg": "Add \"file managed by puppet\" to all files\n\nChange-Id: Ic22c1483aa69be9821fe1b18acbf0c01ba06aaeb",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-10-26 11:52:39+02:00",
+        "files": ["exim4.conf", "mailname", "init.pp", "twn", "twn-database-backup", "aliases"]
+      },
+      {
+        "hash": "d41ef02dfb52f2c1c8c30279d30d0e9b87343ec8",
+        "msg": "Style update\n\nChange-Id: I0256188df8bc15e6a819e18293ca46ea40615b79",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-10-26 17:24:31+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "15675114f3691d527cc242ce3879d28e3e005936",
+        "msg": "Add fcgiwrap module\n\nChange-Id: I5f1c609d617a02194f992a9a79ed5ccac7bb360b",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-27 13:48:31+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "617a72c3c7fcc075365c8456198ee7e584b71936",
+        "msg": "Add backup module\n\nChange-Id: I59fab3f631b2bf70ca67296aa719fe85a3f647c7",
+        "cmtr": "Nikerabbit",
+        "date": "2013-10-27 13:54:51+00:00",
+        "files": ["backup.sh", "duplicity.conf", "logrotate", "init.pp", "backup.erb", "dump-databases.sh.erb", "init.pp", "init.pp", "init.pp", "wikibackup.erb", "site.pp"]
+      },
+      {
+        "hash": "0e3a71043c9bfc50325e269ccb20700e0e3e5da1",
+        "msg": "Add mailman config\n\nTodo:\n* Get the service running. Need hexmode's help for that.\n* Confirm that we have the correct nginx configuration.\n\nChange-Id: Iee263e70b1c2ab82173195d1ce321a9b2df2d469",
+        "cmtr": "Siebrand",
+        "date": "2013-10-27 14:01:43+00:00",
+        "files": ["04_mailman_options", "450_mailman_aliases", "40_mailman_pipe", "lists.translatewiki.net", "init.pp", "lists.translatewiki.net", "init.pp", "site.pp"]
+      },
+      {
+        "hash": "4bf8b6929b55ae9b347d160b3ba153270e50a03f",
+        "msg": "Sort alphabetically\n\nChange-Id: I72d987c77e6e0cb4b489d1092810bc7f1a40b218",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-27 14:04:36+00:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "7c343c0ac1dac51abd8d0bb1e9ba1318b8c0224b",
+        "msg": "Awstats module\n\nChange-Id: I1851244499cb2c6216fa3e727823eafff9ee58e1",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-27 14:56:07+00:00",
+        "files": ["awstats.conf", "awstats.cron", "stats.translatewiki.net", "init.pp", "stats.translatewiki.net", "init.pp", "site.pp"]
+      },
+      {
+        "hash": "cf90f0aebd955249abb5fe65cc539699c3e474d3",
+        "msg": "Install php-apc while we are using php 5.4\n\nChange-Id: I22a097814e7a86ff3dec90e6363d5ec7c915d15e",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-27 17:27:53+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "746db7ea55049146d2755c650d46cc3655cf8d4d",
+        "msg": "Pin the MariaDB repo to prevent update issues\n\nChange-Id: I9e0a35fac8baea9b7743dbe8c15697334bcf399d",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-10-27 18:29:57+01:00",
+        "files": ["mailman", "init.pp"]
+      },
+      {
+        "hash": "343caf75ff2673cb50c19af609dfb7e358a72683",
+        "msg": "Add ssh module\n\nChange-Id: Ib1dd64e59290529cd741eb18fe17c054f099e7cd",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-10-27 19:22:10+01:00",
+        "files": [".gitmodules", "ssh", "init.pp", "site.pp"]
+      },
+      {
+        "hash": "ad122801e07255d0ff720c9ee22c5002b144f6c4",
+        "msg": "Fix some mailman issues\n\nChange-Id: Iefcd82ac44844993993f678896c73034fd37aa90",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-10-27 20:29:03+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "37c7e9fc3f5e1f132402f4c3e5661482bfbe374f",
+        "msg": "Stub module for translation memory\n\nChange-Id: I8f29c2a916903209d1de9afcfef4588c246045aa",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-28 09:10:54+00:00",
+        "files": ["init.pp", "site.pp"]
+      },
+      {
+        "hash": "dc66ba22aa358294a1f4302c0548c71e04d09659",
+        "msg": "Actually place the files\n\nChange-Id: Id341e10fcb82b47363c297cbaadc328724770820",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-10-28 20:33:34+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "3086e953c680142bb3447cfc3498187ce49174a9",
+        "msg": "Ensure /var/list exists\n\nChange-Id: I9a4398bcd20eb1ff3ec8b7d6c230352471122ad6",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-10-28 21:16:55+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "8b37aac929097d7b815163ffacc1a28ab775870a",
+        "msg": "Add our commands to default path\n\nChange-Id: I82b7b106984eba372ffe989588f06ff81f566221",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-29 07:18:49+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "8c1bac33e9788b38bed8b347c2a59bf15d829047",
+        "msg": "Add required package for irc bots\n\nAlso \" -> '\n\nChange-Id: Id36ebc4419eed13185847a5a402588cd0df10b1b",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-29 11:30:51+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "93ee610c9064f9205be77f1bea6afe898ffcead7",
+        "msg": "Instructions for unautomated wikidiff2\n\nChange-Id: Ia9700fc0feca78574f2cdabbbed94ffd539a5e32",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-29 21:06:55+00:00",
+        "files": ["README", "init.pp"]
+      },
+      {
+        "hash": "9056d496a2f3ac6570d3573f72c000231bf72afb",
+        "msg": "Enable backups\n\nChange-Id: Iae2bd9fad95d0717ea3460b83d6dae18fbad1cf1",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-30 07:56:49+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "bf4deebe586a16fc4c18bde1499bdd1cd8f04228",
+        "msg": "Install optipng and jepgoptim\n\nChange-Id: I0e7cc7ff46ee0f0774264b17a9aeb5fa8c868ce4",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-10-30 13:29:35+00:00",
+        "files": ["init.pp", "wikimaintenance.erb"]
+      },
+      {
+        "hash": "e4cd2201339c6504264df30828e951f03d9e0e38",
+        "msg": "Disable root login\n\nChange-Id: I9025045dd2112a229965b0279aa2609dbc0002ff",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-10-30 20:34:26+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "7fca87915c5ea3e52865aefd416171fb5ba66ce0",
+        "msg": "Increase APC memory limit\n\nDefault is 32M which is useless with miss ratio of 99%\n\nChange-Id: Ib45b430957876592a6ef121f550835549940d44f",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-11-02 17:38:10+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "b470c26d54053a46007edd298c7b097867febb25",
+        "msg": "Backup scripts need executable bit\n\nChange-Id: Iec861f60f01a1595ad0fdd6ef7a8eca451d3a6cb",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-11-02 17:42:44+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "f095f0326d4ae3c38989578feca2619829101174",
+        "msg": "Install mosh\n\nChange-Id: I33b0ccefc6a2827ee3ae02c3459f230f1ec263a5",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-11-02 17:47:42+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "284d01b651531ca67fe0bc1342423438c3e68ce9",
+        "msg": "Correct database name\n\nChange-Id: Ie4468d77e40b763e2dfcaf188c5e808255e257d1",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-11-03 18:12:11+00:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "dbc567665231fa73063b017fee95fab11bb36faf",
+        "msg": "Changes to use multiple IPv6 addresses\n\nChange-Id: I5cf884d9474dab27f697311f2693b9aace0c638d",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-11-04 12:43:53+01:00",
+        "files": ["stats.translatewiki.net", "lists.translatewiki.net", "translatewiki.net", "init.pp"]
+      },
+      {
+        "hash": "ef6d6f1f5e77f0eec2fa87c9322e8e3f73c794e4",
+        "msg": "Install newer version of git-review from pip\n\n\"git review -d\" failing if the branch already exists is just too\nbig productivity killer.\n\nChange-Id: Ia23c2e748603a2d7cb04433d11ddba32f1595049",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-11-04 12:22:47+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "7b74736f7ec1d45f47a8ba4cacdc6ad7fb3f102f",
+        "msg": "Enable spdy\n\nChange-Id: I4b306ae3d34603e75081c5d9ac3c00a215e082c8",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-11-04 18:41:58+00:00",
+        "files": ["stats.translatewiki.net", "lists.translatewiki.net", "translatewiki.net", "init.pp"]
+      },
+      {
+        "hash": "9ac2f0bb4886fc5c650859846ca090d80290e685",
+        "msg": "Add unzip package\n\nChange-Id: I42fc614fc9587f6962b3b313f67a8f405f5075c3",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-11-19 11:04:51+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "e6211d6d5cabcd33aa4ed4555bcb865af1f41a3e",
+        "msg": "We are forced to use composer now\n\nChange-Id: Ied174a180052eb08dceb013ff172d81c13254839",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-11-25 08:19:46+00:00",
+        "files": [".gitmodules", "composer", "site.pp"]
+      },
+      {
+        "hash": "3a4606fb36e78652fd9f7f0febd946b408c55f10",
+        "msg": "Set file mode explicitly\n\nChange-Id: I6e45db9c85a16bb3e1a2d2fd99f0a652a0455736",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-11-30 12:14:00+00:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "9df5abdf73a10a430d316241cdfdbabb53314b17",
+        "msg": "Fix backups\n\nSwitch from sftp to rsync over ssh\n\nChange-Id: I221ca4019b35fc4c97b2ddc411dcb3fc3294972f",
+        "cmtr": "Niklas Laxström",
+        "date": "2013-11-30 12:19:17+00:00",
+        "files": ["backup.sh", "duplicity.conf", "ssh-config", "init.pp"]
+      },
+      {
+        "hash": "1f88696ceb14f57e7464151c69bc531f6b7b845a",
+        "msg": "Switch to faster MariaDB repo mirrors.n-ix.net\n\nChange-Id: I13d97004a9e91af48a389386adcc8cbda22ca484",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-12-05 00:50:14+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "8190d6eca96d75ad8d1c9a1d3efbe767bc4048a9",
+        "msg": "Add redirect for translatewiki.org\n\nChange-Id: Ibe5385ee946fe7be600bc14bfb3a8a2b6533f9ce",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2013-12-27 14:13:27+01:00",
+        "files": ["translatewiki.org", "init.pp"]
+      },
+      {
+        "hash": "93208aa37946389ca223f6e4579d7ef4233df694",
+        "msg": "key_buffer to key_buffer_size\n\nThe former is deprecated\n\nChange-Id: Ief0137f748ea6e7643ddff7a189c10bab3862a69",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-01-06 13:14:07+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "169e840366e286f482b8a4d4fa98fe94d52d3598",
+        "msg": "ho ho (not) very much\n\nDue to https://github.com/facebook/hhvm/issues/1437 not much works.\nBasically you can browse around logged in over http if you set the\nhhvm=1 cookie.\n\nChange-Id: Ic9cdd67e120fb7fecb7eeef5d22e19b4008744c5",
+        "cmtr": "Nikerabbit",
+        "date": "2014-01-07 14:43:01+00:00",
+        "files": ["init.pp", "translatewiki.net", "site.pp"]
+      },
+      {
+        "hash": "84b6cb15f8a2368a348965904bd54678365a6f41",
+        "msg": "Update ES puppet conf\n\n* No need to store the deb file anymore, the module manages repos\n* New version of ES\n* Updated the elasticsearch module to latest master\n\nChange-Id: I03386f1119186d623f642d6ead6fd3df8020014c",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-03-21 09:30:53+00:00",
+        "files": ["elasticsearch", "site.pp"]
+      },
+      {
+        "hash": "edf259c6c893e3b163f2eb137fe24f1ff2521517",
+        "msg": "hhvm needs a new repository\n\nChange-Id: Iacfaeea112f33b6cea3fce59bd8620d87998129d",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-03-21 11:57:22+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "cd56cd1a799db19d0a438d5e6395dc65ac3b1849",
+        "msg": "Use upstart to run hhvm-fastcgi service\n\nGives automatic restarts if the process dies\n\nAlso removes the need to install hhvm-fastcgi package, so\ninstalling hhvm-nightly instead. Configuration migrated to ini\nfiles (from hdf) and added to puppet as well.\n\nChange-Id: Ia2faed1b4964a288c390a39d149ed3f86056544e",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-03-27 08:13:15+00:00",
+        "files": ["server.ini", "upstart", "init.pp"]
+      },
+      {
+        "hash": "cf6ea22f1636e1773363381905daea03e757cc05",
+        "msg": "puppet: partial lint of manifests\n\nhttp://puppet-lint.com/ ensures good code hygiene when writting puppet\nmanifests :-]\n\nEasily installable using:\n\n  gem install puppet-lint\n\nNo code change.\n\nChange-Id: I81347503c705be234bd9af1458566948682d2599",
+        "cmtr": "Antoine Musso",
+        "date": "2014-04-02 22:48:23+02:00",
+        "files": ["init.pp", "init.pp", "init.pp", "init.pp", "init.pp", "init.pp", "init.pp", "init.pp", "init.pp", "init.pp"]
+      },
+      {
+        "hash": "08c9b77f43517d7c10022ebd17fb6ca81e0ae28e",
+        "msg": "Add kitano.nl site\n\nChange-Id: I815257b306655d17732c555a68be25a79859ccb3",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2014-04-05 13:22:23+02:00",
+        "files": ["kitano.nl", "init.pp", "site.pp"]
+      },
+      {
+        "hash": "76357a624ffa575ac8ab8b2bd2711f0bdce6986a",
+        "msg": "Add apticron as standard package\n\nChange-Id: Ie562f641d866b980c69d026e1b47b4f5e3d9781b",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2014-04-08 18:18:38+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "f0f8ca790d192967b42cb6fa95196795802af66c",
+        "msg": "ElasticSearch to 1.1 branch\n\nChange-Id: I1c7cd1dc1017e8fa482d81300a0046d0e62c64a3",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-04-16 17:18:55+00:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "c40dbbb3dfc1c205e8f95aa4ca5de7b5b4358ec7",
+        "msg": "Account maintenance\n\nDisabled: ialex, tor\nEnabled: robin\n\nChange-Id: Ia73ae609e296871d268c639a28d095bc63fb77df",
+        "cmtr": "Siebrand",
+        "date": "2014-05-10 14:16:56+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "49986c62bcba2f4f4f5babfdd6d2776ad65cd072",
+        "msg": "Give yuvipanda a shell account\n\nChange-Id: I6b95c3f0ab0c8a67a16309e27eeb9bb36e578c83",
+        "cmtr": "YuviPanda",
+        "date": "2014-06-19 12:21:27+05:18",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "23caa4c3d3c7763d0d6281676a78f0689a7d572f",
+        "msg": "tcp tuning\n\nhttp://chimera.labs.oreilly.com/books/1230000000545/ch02.html#_tuning_server_configuration\n\n1-2 were already enabled by default, this does the third and fourth needs\nnewer kernel, which should come when we upgrade to 14.04 LTS later this year.\n\nChange-Id: I6eecebf9aeadf71648421dff7684b000b309e763",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-06-21 18:57:40+00:00",
+        "files": [".gitmodules", "sysctl", "site.pp"]
+      },
+      {
+        "hash": "6241944c39f0a3c97853d4d94841a953e53b8da9",
+        "msg": "Update elastic search\n\n* From 1.1.x to 1.2.x\n* Need to enable dynamic scripting in 1.2.x\n* Add some more memory\n* Allow to manage java (needs JRE 7, we had 6)\n* Update submodule to 0.3.0\n\nChange-Id: Ibcfc643133da13bcac420ce003cf584a6c3b3906",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-06-24 20:29:48+00:00",
+        "files": ["elasticsearch", "site.pp"]
+      },
+      {
+        "hash": "a00041be8be09f142d0a59e1c04e19105165d5a8",
+        "msg": "Tweak group permissions\n\nChange-Id: I50cee05223d5f70f4852a0118f6975c9aed32cae",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-06-30 15:03:45+00:00",
+        "files": ["init.pp", "init.pp"]
+      },
+      {
+        "hash": "c5b23ea36990cf778dc6f31cf12f1a4f89c7794f",
+        "msg": "MariaDB repo no longer needed on Trusty\n\nChange-Id: Ib545e2cbeacb97476e89690e378411d6158b0654",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2014-07-09 14:26:00+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "13796b35f49cfdc565d64530114d8c5be54cb801",
+        "msg": "Duplicity repo no longer needed in Trusty\n\nChange-Id: I90e200bae41f5dfd30250b5211ddea5bdc0a8af8",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2014-07-09 14:30:35+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "6ac35f2d1ce083484d385db147e41918ed1ef51e",
+        "msg": "PHP repo no longer needed in Trusty, nor APC\n\nChange-Id: I0f7ec160ccb9fd052ac54cd3e5d99fa738895542",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-07-09 12:35:36+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "04849587322fb28f0bc4a0bbe522385847b60621",
+        "msg": "nginx & hhvm updates\n\n* Disable current hhvm for now\n* Comment out IPV6 listen for lists.translatewiki.net as\n  it prevents nginx from starting, can investigate later.\n\nChange-Id: Icd3a83230527007da4bc1b77f896a5f16015ba2c",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-07-09 12:38:13+00:00",
+        "files": ["translatewiki.net", "init.pp", "site.pp"]
+      },
+      {
+        "hash": "ce4b312d215952709908bf77c47f07cfde45aaa0",
+        "msg": "More fixes to get site running\n\nChange-Id: I9adbb8d3d18b735b197969fcb0b5e272a0a02830",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-07-09 13:08:47+00:00",
+        "files": ["TranslateSettings.php", "TranslatewikiSettings.php", "init.pp", "init.pp"]
+      },
+      {
+        "hash": "8a142bdcf4a5e162c674342aa234223489169dfb",
+        "msg": "Enable Wikimedia HHVM\n\nChange-Id: I157b0234009f69fb41ac781ddbb74714fa939430",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-07-09 15:53:57+00:00",
+        "files": ["config.hdf", "upstart", "wikimedia.key", "init.pp", "translatewiki.net", "site.pp"]
+      },
+      {
+        "hash": "ada472df433a762e29aed175d9eb9cb1f92848b8",
+        "msg": "Bind more services to localhost\n\nChange-Id: I4d5d083f167c06dca843ee4624f0c970a292e3e0",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-07-10 10:04:37+00:00",
+        "files": ["config.hdf", "site.pp"]
+      },
+      {
+        "hash": "f704e6169d9797b50bddfe2009aefc46ef600ca9",
+        "msg": "Fix wikimedia key adding\n\nChange-Id: Id881f9d4c4b392f1176e3392023721a233fcfd70",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-07-10 16:23:29+03:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "cefa17fd1093b3f5fd9101e6920e5bb87274333b",
+        "msg": "Set server locale using puppet\n\nChange-Id: If393110333299f405b218650594f6173d8f817a9",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2014-07-10 15:46:07+02:00",
+        "files": ["README", "init.pp"]
+      },
+      {
+        "hash": "45890aa84a3e8bd56048702569b6f62c5b250492",
+        "msg": "Configure IPv6 addresses from puppet\n\nChange-Id: I658de6cdd8913dae0053592381b3c8c4b5fbbb34",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2014-07-10 15:59:18+02:00",
+        "files": ["README", "interfaces", "init.pp"]
+      },
+      {
+        "hash": "2d64487f46ead95dc656914ae557b8e8db02857c",
+        "msg": "Set hostname using puppet\n\nChange-Id: I40844226157c7f272981726cf91ce4e5e963aea0",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2014-07-10 18:20:18+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "16555d17d98dd648f697eeba3e9f50a12ad6bdc9",
+        "msg": "Fix file location for interfaces\n\nChange-Id: I0b3c40157163974eb798b99711f66c56479503f2",
+        "cmtr": "Nikerabbit",
+        "date": "2014-07-10 21:05:01+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "b86a7d912644c019b2b9e26bab53b01ea172bee0",
+        "msg": "Puppet and README cleanups\n\n* Quiet annoying puppet warning\n* Update steps for php extensions (can be dropped once we switch to hhvm)\n* Fix incorrect documentation for /etc/webauth\n\nChange-Id: I592ed7c20accd33ebf80fa04e640d88bedffda09",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-07-11 11:03:23+02:00",
+        "files": ["README", "init.pp"]
+      },
+      {
+        "hash": "4a93cd20fcb0f213fe79bab5b90216adda57ecdd",
+        "msg": "Two more TCP knobs now that we have newer kernel\n\nChange-Id: I5b39c098454a7730e4a1f0f01a3fb222c9cd429e",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-07-11 18:29:59+02:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "219959facd4b68ec9c08b4baffe7c040e8111ce9",
+        "msg": "Install svg conversion tool for MediaWiki\n\nChange-Id: I6fdc0214f261c45aa371f015063d8fec06a9914e",
+        "cmtr": "Nikerabbit",
+        "date": "2014-07-11 16:59:10+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "39ecf78b1c3569c191e8cea0ca410e4d5c3a7fc6",
+        "msg": "Install dejavu fonts\n\nPHP Fatal error:  SetFontTTF: Can't find TrueType font\n/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans.ttf in\n/home/betawiki/software/phplot-6.1.0/phplot.php on line 1957\n\nChange-Id: Id80bfc0f562b27d60c246a98e45d91f497d58ed1",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-07-12 21:41:30+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "82f6723585b2718c5b9f3e94fcbb4ceefe4b349c",
+        "msg": "Remove references to solr\n\nChange-Id: Ia4da14632c572e3196436445c0dbe6e172a2c06e",
+        "cmtr": "Nikerabbit",
+        "date": "2014-07-17 14:14:58+00:00",
+        "files": ["solr-init", "init.pp", "wikiservices.erb", "site.pp"]
+      },
+      {
+        "hash": "18f51faf6f3716100e45f531176a1286f26c22a5",
+        "msg": "Add offline config to nginx\n\nSo that I can easily switch to it next time I need it. Disabled by default.\n\nChange-Id: I65774ee6b34e5d57c715458a6bc9cfdab1d28d98",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-07-18 19:55:22+02:00",
+        "files": ["offline", "init.pp"]
+      },
+      {
+        "hash": "cd286a2d30b00798128d09b0288b6499217668a4",
+        "msg": "Update hhvm config\n\n* Bring closer to mediawiki vagrant\n** Moved most settings to php.ini\n** Updated dynamic extension path\n** But the admin console etc. were not added\n* Use unix socket\n* Disable hhvm fastcgi by default still\n\nChange-Id: I9da2a1c359835df9fe246faf2f6d067a7f1e0ed7",
+        "cmtr": "Nikerabbit",
+        "date": "2014-07-24 08:38:07+00:00",
+        "files": ["hiera.yaml", "git", "config.hdf", "php.ini", "server.ini", "upstart", "init.pp", "translatewiki.net"]
+      },
+      {
+        "hash": "caaa190fe96df0dfffc1f76185eff63a7af799fc",
+        "msg": "Add user bsitzmann to shell users\n\nWill take over Yuvi's role in importing and exporting translations for\nWikimedia mobile apps.\n\nChange-Id: If976225b4ee26c1821b42d00d8df0722b3ba1b4f",
+        "cmtr": "Nikerabbit",
+        "date": "2014-07-24 19:14:32+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "63f786ea614cd8dd0abf4481e47c9eab3381a90b",
+        "msg": "Remove Yuvi's user account\n\nSince bsitzmann will take over this\n\nChange-Id: Ib5262e1f78a8cb4e0666736dd7e6685a6c71ba89",
+        "cmtr": "Nikerabbit",
+        "date": "2014-07-25 17:21:33+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "dcd45fa44b784e08456a7fe963035a346dd2027a",
+        "msg": "Changes for ElasticSearch needed by TTMServer\n\nChange-Id: Iceac4bd220577e0111b5e4a5b28204ad0e3e2f33",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-09-04 17:47:15+02:00",
+        "files": ["mwelasticsearch.pp", "site.pp"]
+      },
+      {
+        "hash": "5b79696d60b583a06f156bb32e254e78872b8e16",
+        "msg": "Reduce mariadb memory\n\nStopgap to avoid running out of memory and having it killed by OOM\n\nChange-Id: I8abaf97fc9f78fd8a9e210004045e933d86d3771",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-09-25 11:20:37+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "94126af7ae5a200c97ec63f035c4d560ea520217",
+        "msg": "Update ES to use network.host\n\nThis sets both network.bind_host and network.publish_host. Gets rid\nof connection errors seen in the logs.\n\nChange-Id: Id0bea113c097329a04602f1fa97cc55ee013a0cf",
+        "cmtr": "Nikerabbit",
+        "date": "2014-09-25 09:25:46+00:00",
+        "files": ["mwelasticsearch.pp"]
+      },
+      {
+        "hash": "a9b3003243d633fdda6f1d82ef0f5e50c3e95f9c",
+        "msg": "Update hhvm configuration\n\nGet rid of hdf file and some increased resource limits taken\nfrom I455c0e9f1746ba9.\n\nRemove access log rules, were not working anyway and not needed\nsince nginx is proxying hhvm.\n\nChange-Id: I49840b9821f8d8ddea4aee89b0b30096d4130080",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-10-02 11:59:51+02:00",
+        "files": ["config.hdf", "php.ini", "upstart", "init.pp"]
+      },
+      {
+        "hash": "a3281f4cfa2c3550426865bdde5935fee1e0c3bf",
+        "msg": "Update nginx ssl config\n\nChange-Id: I6ebd084ec9f32992ebf51fcc24a2df2aff44aef5",
+        "cmtr": "Niklas Laxström",
+        "date": "2014-12-09 15:48:08+01:00",
+        "files": ["rapidssl.pem", "translatewiki.net", "init.pp"]
+      },
+      {
+        "hash": "813fe29308e1f188f613ecc5f6b9d38131f85a12",
+        "msg": "Replace unflexible ssh module with just storing the config in puppet\n\nContains changes similar to Ib6c5dc9e5d0a79\n\nChange-Id: I8d80e71768de1fbdd220ca5436cb04f510627fb0",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-01-28 22:47:26+01:00",
+        "files": [".gitmodules", "ssh", "init.pp", "sshd_config", "init.pp", "site.pp"]
+      },
+      {
+        "hash": "aad1e449c43392c195ffbfc2aaa2107d9972c683",
+        "msg": "Fix puppetlint-lenient whitespace failure\n\nChange-Id: I778a2a56f599c9b62432b9f123e7629461f74932",
+        "cmtr": "Amir E. Aharoni",
+        "date": "2015-04-04 12:17:29+03:00",
+        "files": ["mwelasticsearch.pp"]
+      },
+      {
+        "hash": "35f3832807423863ff953dab78882e8d80504af8",
+        "msg": "Fix puppetlint-strict arrow_alignment failures\n\nChange-Id: I78d703edcc1fe3e5ccee3db6ae8763c81914f7ef",
+        "cmtr": "Amir E. Aharoni",
+        "date": "2015-04-04 13:11:36+03:00",
+        "files": ["init.pp", "init.pp", "mwelasticsearch.pp"]
+      },
+      {
+        "hash": "2dee73bd4cf7103acd7833d0c925d5a837092e0d",
+        "msg": "Fix puppet-lint failure quoted_booleans\n\nChange-Id: Ib8331119a895abc799f3f77f443e2a5f4fad6a8f",
+        "cmtr": "Amir E. Aharoni",
+        "date": "2015-04-04 13:20:00+03:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "ba8e83a6eb1d004c615e76eb4349349fc17809fa",
+        "msg": "Fix puppetlint error double_quoted_strings\n\nChange-Id: I0a40d14adab2b5d9501d50825c711795d535e030",
+        "cmtr": "Amir E. Aharoni",
+        "date": "2015-04-04 17:20:14+03:00",
+        "files": ["mwelasticsearch.pp"]
+      },
+      {
+        "hash": "7846c52ed06325bfb04db7b2e123596ff3e7f8e1",
+        "msg": "Revert \"Fix puppet-lint failure quoted_booleans\"\n\nUnfortunately it does not do what is expected:\n-innodb_file_per_table = true\n+innodb_file_per_table\n\n\nThis reverts commit 2dee73bd4cf7103acd7833d0c925d5a837092e0d.\n\nChange-Id: I9cc763d09936d869856bcf3f6048879e316abab5",
+        "cmtr": "Nikerabbit",
+        "date": "2015-04-09 08:26:02+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "03be1022769c9a15722f47a28dc51a3312bc87ec",
+        "msg": "Sync local changes\n\nChange-Id: Ib1dfc73bcc59d1aa30006611de25911b38d39548",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-04-09 10:26:37+02:00",
+        "files": ["php.ini", "translatewiki.net", "site.pp"]
+      },
+      {
+        "hash": "ea4fe91caa833100e97bd62d628ac1bd99f716d0",
+        "msg": "While hhvm migration is stuck, update to PHP 5.6\n\nChange-Id: Iea3078b4914597760ba96a55a6cedd7405c634f7",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-04-10 16:28:34+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "71d79ec3197d0db3b45a1dfcde77376a65a79aa0",
+        "msg": "Update web config files\n\nChange-Id: I71d44d640d59bca385504b4a74f9e98ee73c01de",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-05-25 13:01:58+02:00",
+        "files": ["php.ini", "nginx.conf", "translatewiki.net", "mwelasticsearch.pp"]
+      },
+      {
+        "hash": "bf6fd61a59622efd20e8a4c0772a950b323b8911",
+        "msg": "Sync local changes to puppet\n\nChange-Id: I43c334e5b6d6047c5f20fa5d7cb633f2cf2ce728",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-07-01 21:15:53+02:00",
+        "files": ["awstats.conf", "php.ini", "logrotate", "nginx.conf", "init.pp"]
+      },
+      {
+        "hash": "c75a7e2022cfd2ec89b64f4f836d943ef12d8818",
+        "msg": "Move mysql tools from base to mariadb\n\nChange-Id: I38415c813a3a1bfac33fd096429dec6ac8277e39",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-07-05 21:09:45+02:00",
+        "files": ["init.pp", "init.pp"]
+      },
+      {
+        "hash": "fd95a32bba978c60699dd36b4055e7580870c381",
+        "msg": "Disable puppet service as we are not using it\n\nAll changes are applied manually with puppet apply.\n\nChange-Id: I646fa15c6e08522537852772e906268f81197619",
+        "cmtr": "Siebrand",
+        "date": "2015-07-05 19:14:52+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "fd1fa0b67de8407a24a29995ab9a64a47024da53",
+        "msg": "Configure new server to run ES with nginx as proxy\n\nBasically same as the temporary arrangement with the old server\nbut now properly puppetized sans webauth file. Update to 1.6\nwhile at it and give ES half of the available memory, rest\nwill be used by Lucene itself.\n\nChange-Id: I2728939fa12ffc658ed9a9496cd8896ae86dc6f6",
+        "cmtr": "Siebrand",
+        "date": "2015-07-05 19:16:10+00:00",
+        "files": ["es.translatewiki.net", "mwelasticsearch.pp", "site.pp"]
+      },
+      {
+        "hash": "5219b4e1821ecd5adee5844fd09b6cd70268658c",
+        "msg": "Make base thinner\n\nNow that we have two servers, it makes no sense to install all the\nextra packages on both of them. Also comment out hostname/interfaces\nuntil we figure out what to do with them.\n\nChange-Id: I14fe0f6a28622eb33405a6b1b7b62b83c505d873",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-07-05 21:22:55+02:00",
+        "files": ["init.pp", "mediawiki.pp", "vcs.pp"]
+      },
+      {
+        "hash": "5b0bda4c6d07ffb7061608a765d363adefe7e20f",
+        "msg": "Made nginx module thinner\n\nNow that we have two servers, nginx is going to be used differently\non them. Get rid of the symlink thingie while at it. Comment out\nthe current sites and ssl things until they are moved elsewhere.\n\nChange-Id: I6c07a334e7d9799d741b9ad394ad60b766bf07d0",
+        "cmtr": "Nikerabbit",
+        "date": "2015-07-05 19:29:32+00:00",
+        "files": ["nginx.conf", "init.pp"]
+      },
+      {
+        "hash": "7b636d82ea00034bbf8e4acaeec81b411cb2a6a9",
+        "msg": "Update puppet for new servers\n\n* Add IPv6 configuration\n* Restore hostname for web1 to translatewiki.net\n* Remove inactive configuration\n\nChange-Id: I998ce32830ca63782c067272ca48ee0f9791c595",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2015-07-15 20:22:10+02:00",
+        "files": ["interfaces-es", "interfaces-web1", "es.pp", "init.pp", "web1.pp", "site.pp"]
+      },
+      {
+        "hash": "55c81f02c5cd4fb343e8ef1916c2f71caa6da65f",
+        "msg": "Updates for the new server\n\n* update stuff for new nginx layout\n* update stuff for new ip addresses\n* remove broken composer\n* remove php\n* Tweaks hhvm settings related to ini_set discovery\n* Update apt module to latest release\n* update mem limits for memcached and mysql\n* document www-data permission issue\n* update node name\nChange-Id: I3e1120300c944ce0675052e5d9a613958a94e7a1",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-07-16 21:48:27+02:00",
+        "files": [".gitmodules", ".gitmodules", "README", "apt", "stats.translatewiki.net", "init.pp", "composer", "php.ini", "server.ini", "upstart", "init.pp", "init.pp", "memcached.conf", "nginx.conf", "translatewiki.net", "init.pp", "sites.pp", "ssl.pp", "init.pp", "site.pp"]
+      },
+      {
+        "hash": "d9c6bc726858087c88bed820b228f7677b1a616b",
+        "msg": "Update configuration for email\n\n* mailman runs on web1\n* just outbound smarthost on es\n\nChange-Id: I719eaaca6f27ca3759a5f060a9fdd54be40f998b",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2015-07-23 08:36:31+02:00",
+        "files": ["exim4.conf-es", "exim4.conf-web1", "es.pp", "init.pp", "web1.pp", "40_mailman_pipe", "lists.translatewiki.net", "site.pp"]
+      },
+      {
+        "hash": "9385103fb0b415f14c4475e4f56487d627992209",
+        "msg": "Update kitano.nl web config\n\nChange-Id: If73d825c5928ad3a82b996252080cb2411dd6969",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2015-07-23 09:03:08+02:00",
+        "files": ["kitano.nl", "site.pp"]
+      },
+      {
+        "hash": "3eb97100f5b9f95be9afce35878193ae104c6e7e",
+        "msg": "Fix exim config for es server\n\nChange-Id: I5ce9b900f32ee54831ea9b0c1ecd1dfc969ad101",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2015-07-23 10:05:13+02:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "fdfd2012bcd22fa49ee1501be81d19299eee3668",
+        "msg": "Update kitano for nginx paths\n\nChange-Id: I8f001e52baad21a67eebb1635a94f5bfdc84aa24",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-07-23 15:37:33+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "3f18cea199d18f55e4d500844e9debe2ccafedf4",
+        "msg": "Enable backups on new server\n\n+ wikiservices\n+ get rid of the unnecessary logrotate\n\nChange-Id: I6fe683fa120ff04b3e96a86b0ef093798b3ee5db",
+        "cmtr": "Nikerabbit",
+        "date": "2015-07-23 16:09:35+00:00",
+        "files": ["duplicity.conf", "logrotate", "init.pp", "dump-databases.sh.erb", "site.pp"]
+      },
+      {
+        "hash": "0460750f09a89ea71e1897cadc2b479e906a7ae9",
+        "msg": "nginx fixes\n\n* cache main page jpgs\n* compress svg images\n* add back org -> net redirect\n\nChange-Id: I0a145fa3b7be2d9ddac4f8575e639ff5be0498d2",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-07-26 19:28:12+02:00",
+        "files": ["nginx.conf", "translatewiki.net", "sites.pp"]
+      },
+      {
+        "hash": "22caae844bc61eaef4529a737fdae014145eac12",
+        "msg": "Run separate hhvm instance for dev.translatewiki.net\n\nAvoid spamming production error log with warnings from dev.\nPossibly makes easier to use hhvm repo authoritative mode in\nthe future.\n\nChange-Id: Ic440c290db9d23934de52e657a5bbc2027239705",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-08-05 12:55:06+02:00",
+        "files": ["development.ini", "php.ini", "server.ini", "upstart-development", "init.pp", "nginx.conf", "translatewiki.net"]
+      },
+      {
+        "hash": "8c309b14f761ca5e366ee624c50f7c8bf030b598",
+        "msg": "Update modules and ES config\n\nStarted by updating modules (except mailman and exim), ES module config\nchanged considerably so I had to update it. While doing that, also\nupdated ES version to 1.7.1 and removed the whitelist which is no longer\nneeded (see I5fbf79c5b2b4b1).\n\nChange-Id: Ia5d435c941048de52caa5285edfd4029edd3fed7",
+        "cmtr": "Nikerabbit",
+        "date": "2015-08-05 20:00:15+00:00",
+        "files": [".gitmodules", "apt", "elasticsearch", "git", "java", "mysql", "mwelasticsearch.pp", "puppi", "stdlib", "sysctl"]
+      },
+      {
+        "hash": "e7a1f8bc17e215c3246298ee5fc11f88ab3b2f68",
+        "msg": "Add niedzielski\n\nBug: T106349\nChange-Id: I61ce3421f3c37c26ad9602c2ea5d7cef0f676c16",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-08-06 10:06:55+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "11c96a266aca9069344422f5573f74b2d7f8e54e",
+        "msg": "Restore dynamic scripting for ES\n\nI thought it was no longer needed, but it definitely is\n\nChange-Id: Ifcea470fd6a7efaf5c73fd2b207a92faf84fda40",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-08-08 18:50:51+02:00",
+        "files": ["mwelasticsearch.pp"]
+      },
+      {
+        "hash": "e181ff440013e7e0d0361c1734a4c4b822c03ea6",
+        "msg": "Update nginx ssl configuration\n\n* Separate ssl config into includable file.\n* Some tweaks based on analysis of ssllabs test.\n\nChange-Id: I6c309df6fbeb190cd615839d17e5224d9970676d",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-08-15 13:19:10+02:00",
+        "files": ["stats.translatewiki.net", "ssl.conf", "translatewiki.net", "ssl.pp"]
+      },
+      {
+        "hash": "b08ed51ee75898b58be8eab2967ff9d7a630e0ba",
+        "msg": "Remove executable bit from files that don't need it\n\nChange-Id: I9f4f0125f40b1acb788b2dfb1300d0bc3c8992f0",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-08-15 13:34:46+02:00",
+        "files": ["init.pp", "mediawiki.pp", "vcs.pp", "init.pp", "nginx.conf", "init.pp", "sites.pp", "ssl.pp", "es.translatewiki.net", "mwelasticsearch.pp", "init.pp", "site.pp"]
+      },
+      {
+        "hash": "2ff16362749503d0c439ceea7fbc2a456d00d3e9",
+        "msg": "Install package 'unattended-upgrades'\n\nChange-Id: Ibd1bb25655d05883cd8a1c4262f20543d4e45444",
+        "cmtr": "Nikerabbit",
+        "date": "2015-09-23 12:19:25+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "8f4ad71d6afbb50c0bba20408aef782dcd9751f2",
+        "msg": "Update hhvm config\n\nWe are currently running on upstream packages and thus do not\nhave the extensions.\n\nChange-Id: I5f40068f31160489ac50e0d569f3e910d84a7517",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-09-29 20:13:30+02:00",
+        "files": ["php.ini", "init.pp"]
+      },
+      {
+        "hash": "c18df495d308f0cf75c2dc40c719ccb69584fb05",
+        "msg": "Rename module exim-conf to eximconf\n\nSatisfies puppet-lint-strict check WARNING class name containing a dash\n(names_containing_dash)\n\nChange-Id: I4c66f259d858bb2f7f494d55f1a1617128a1ceed",
+        "cmtr": "Nikerabbit",
+        "date": "2015-10-23 17:21:54+00:00",
+        "files": ["es.pp", "web1.pp", "exim4.conf", "exim4.conf-es", "exim4.conf-web1", "es.pp", "init.pp", "web1.pp", "site.pp"]
+      },
+      {
+        "hash": "d6f332157eff7707bdd75f995172ff11fc74c284",
+        "msg": "Rename module kitano-nl to kitanonl\n\nSatisfies puppet-lint-strict check WARNING class name containing a dash\n(names_containing_dash)\n\nChange-Id: Ica88ed6038ca5ea46f7afe4ed15dec0ecbf19919",
+        "cmtr": "Nikerabbit",
+        "date": "2015-10-23 17:29:53+00:00",
+        "files": ["kitano.nl", "init.pp", "site.pp"]
+      },
+      {
+        "hash": "dcbb588172eca7ab5392158efd1d6b06c54ed4d3",
+        "msg": "Rename module mailman-conf to mailmanconf\n\nSatisfies puppet-lint-strict check WARNING class name containing a dash\n(names_containing_dash)\n\nChange-Id: I73a01dd1441275618b123fb14106c9f5a6a2c151",
+        "cmtr": "Nikerabbit",
+        "date": "2015-10-23 17:41:10+00:00",
+        "files": ["04_mailman_options", "450_mailman_aliases", "40_mailman_pipe", "lists.translatewiki.net", "init.pp", "site.pp"]
+      },
+      {
+        "hash": "933c2a3a89bacd0282efa088fc3389619bbe4e97",
+        "msg": "Fix some puppet-lint warnings\n\nChange-Id: If885db3a5a23c0bdc36e43ebabd3bf3a684b35fe",
+        "cmtr": "Nikerabbit",
+        "date": "2015-11-18 07:38:21+00:00",
+        "files": ["init.pp", "mwelasticsearch.pp", "init.pp"]
+      },
+      {
+        "hash": "534b3e287e24560ce245456af9ad65f1a0fc4b90",
+        "msg": "Add class documentation\n\nSatisfies puppet-lint-strict check\n\nChange-Id: I8cde140a4d7e99d9484e2bbe296843646e386599",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2015-11-23 10:20:05+01:00",
+        "files": ["es.pp", "init.pp", "mediawiki.pp", "vcs.pp", "web1.pp", "es.pp", "init.pp", "web1.pp", "init.pp", "init.pp", "init.pp", "init.pp", "init.pp", "init.pp", "sites.pp", "ssl.pp", "mwelasticsearch.pp", "init.pp", "init.pp", "init.pp", "init.pp"]
+      },
+      {
+        "hash": "527118f2e835c645a2799639e2ad4951da18b322",
+        "msg": "Add bgerstle\n\nChange-Id: If361211032fce831d322b2a0aad44944450d2961",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-12-08 16:39:55+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "0ef1d89676904846146854f3d11b7c3ccc403512",
+        "msg": "Revert trigger happy puppet linter changes\n\nI think the linter is stupid if it recommends people to cause\nbugs:\n\n--- /etc/mysql/my.cnf   2015-08-05 21:57:28.394597000 +0200\n+++ /tmp/puppet-file20151208-19568-17f27gn      2015-12-08 17:14:48.503574000 +0100\n@@ -16,7 +16,7 @@\n expire_logs_days = 10\n innodb_additional_mem_pool_size = 400M\n innodb_buffer_pool_size = 12G\n-innodb_file_per_table = true\n+innodb_file_per_table\n innodb_log_file_size = 500M\n key_buffer_size = 64M\n log-error = /var/log/mysql/error.log\n\nChange-Id: Ib248b251a97a2a4abc5c80ca387ed69d99280a5c",
+        "cmtr": "Niklas Laxström",
+        "date": "2015-12-08 17:15:25+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "5140b538c4a58b7a71232610772745d02134525a",
+        "msg": "Remove quotes boolean\n\nChange-Id: I77987f7e46a315fa536beeb853e288fe38fdea00",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2016-01-27 09:41:28+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "1bef6a0e62a328e5405cd6b8837aff950a03338e",
+        "msg": "Add public key for user siebrand\n\nChange-Id: I7548ca8e7dd0f927b3a97b6246db43a7e0b1a436",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2016-01-27 10:15:27+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "41c046a2e08136e2198f5c2c3431c4916bf5bf47",
+        "msg": "Use '1' instead of true to prevent line from being removed\n\nChange-Id: I2029c0bab1af874acc8b21cb80f2e3d684abd19e\nSee: https://tickets.puppetlabs.com/browse/MODULES-1577",
+        "cmtr": "Siebrand",
+        "date": "2016-01-27 12:23:50+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "51f35649873935696cba7c091f423aad9109109f",
+        "msg": "Put ensure as the first attribute\n\nChange-Id: Id305c9abc04e2108df3f528c9b80b1c34db6efcd",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2016-02-11 09:07:49+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "4889addbaffbf5ee9e90785b427cb1f308131e31",
+        "msg": "Move JobRunner from cron to upstart job.\n\nAvoids the slow hhvm start-up every minute. Delay in executing\njobs is reduced. Takes some memory while the process stays alive,\nbut added --maxjobs 1000 to control for that (in addition to the\nalready existing memory limit check).\n\nChange-Id: I4dffc17b4834d3e82207a1312008753cdc66ab7f",
+        "cmtr": "Niklas Laxström",
+        "date": "2016-02-25 16:09:38+01:00",
+        "files": ["upstart", "init.pp", "wikimaintenance.erb"]
+      },
+      {
+        "hash": "50da51e367614f673f1a3c9ca5c4a4ae7a4ec03d",
+        "msg": "Remove bgerstle, add fjalapeno\n\nBug: T129104\nChange-Id: I1f812af22daceee718acb63fa00c0f8c0973e24e",
+        "cmtr": "Niklas Laxström",
+        "date": "2016-03-16 16:41:14+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "fa3e8992de709af7bc6f732ab4bd79076aed96e2",
+        "msg": "Tweak mysql settings and install mysql on es\n\nExperimenting to reduce some pressure on the db.\n\nChange-Id: Ic4956d550c6f6d2416e467b6c5603b4aa0d6613d",
+        "cmtr": "Niklas Laxström",
+        "date": "2016-03-30 14:28:38+02:00",
+        "files": ["init.pp", "site.pp"]
+      },
+      {
+        "hash": "53ce87f80d7ce897ef254870b7cc6b87b59af9d8",
+        "msg": "Update ElasticSearch to 2.3.3\n\nChange-Id: I9565067aae0f1e2fdb3796216ff359dcccb3102d",
+        "cmtr": "Niklas Laxström",
+        "date": "2016-06-09 13:03:55+02:00",
+        "files": ["mwelasticsearch.pp"]
+      },
+      {
+        "hash": "e58b49e2b4639f4f1e2e2458cef27b0e6ac561db",
+        "msg": "Make ES config up to date and working\n\nChange-Id: Ib62132ee460a78d915fb0dac906822236e9f80a2",
+        "cmtr": "Nikerabbit",
+        "date": "2016-08-11 13:31:14+00:00",
+        "files": ["mwelasticsearch.pp"]
+      },
+      {
+        "hash": "5cd60875c0fc2b50414df822a72d6114c8a15520",
+        "msg": "Update ssl configuration\n\n* Used certbot to get cert for all subdomains\n* Main site still using the existing cert\n* Fixed lists.translatewiki.net which was not updated for new location\n* Use more strict ssl config for the subdomains\n\nChange-Id: If96014d7e5ea6a8ddd9427f4d7743759bc57ff57",
+        "cmtr": "Niklas Laxström",
+        "date": "2016-09-21 21:25:47+02:00",
+        "files": ["stats.translatewiki.net", "lists.translatewiki.net", "init.pp", "dev.translatewiki.net", "ssl-certbot.conf", "translatewiki.net", "sites.pp", "ssl.pp"]
+      },
+      {
+        "hash": "b249d206a0916696cc1dc0191ea487afcbbf3057",
+        "msg": "Puppet: nginx updates\n\n* nginx-light is sufficient (extras were for spdy support)\n* set worker_processes to auto as in upstream\n\nChange-Id: I8c89b3bb7c83cc996ff0aed051a3ccf83328539e",
+        "cmtr": "Niklas Laxström",
+        "date": "2016-10-24 17:02:23+02:00",
+        "files": ["nginx.conf", "init.pp"]
+      },
+      {
+        "hash": "5bceb2c82aa7c8ddd68da2ebf66dc3a24f341794",
+        "msg": "Puppet: use pbzip2 for db backups\n\nCuts database backup creation time from 20 minutes to 5 minutes.\nAdd nice also for compression.\n\nChange-Id: I79144eae61629d440812c31223b5e78e4307d57b",
+        "cmtr": "Niklas Laxström",
+        "date": "2016-10-25 16:50:17+02:00",
+        "files": ["init.pp", "dump-databases.sh.erb"]
+      },
+      {
+        "hash": "363dac21dced74e31060f4cb4914f2664f13ce6c",
+        "msg": "Add newline to /etc/mailname\n\nhttps://wiki.debian.org/EtcMailName\n\nChange-Id: I5fa969e1ad491976159a5edfb008644fd93d9139",
+        "cmtr": "Niklas Laxström",
+        "date": "2017-02-07 15:17:43+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "8d20c65df3099cc17ba97a35937398bc2198e3a1",
+        "msg": "Remove use of slow query log\n\nChange-Id: I5b20c5493a8eec5dfa236d5f5c52e4faf8ea4b01",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2017-02-23 15:08:32+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "58601e4dc20cd089964f2ef492505a28d31d8f3d",
+        "msg": "Puppet: mariadb: disable error logging to a file\n\nConflicts with syslog, apparently the default in Ubuntu 16.04\n\nChange-Id: I3d8dea49f2d5f06332af4cf72e87bd56ac72d1da",
+        "cmtr": "Niklas Laxström",
+        "date": "2017-02-23 15:43:28+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "308c2423bd5eb2b12f7dca1585cd3948cb618afa",
+        "msg": "Add module to set hostname for translatewiki.net servers\n\nvServers have fixed IP addresses, so we can switch based on that.\n\nChange-Id: I8c670f1474c53a3b49336e1a8eda11d5db79cde5",
+        "cmtr": "Niklas Laxström",
+        "date": "2017-02-24 09:25:32+01:00",
+        "files": ["init.pp", "site.pp"]
+      },
+      {
+        "hash": "aa482c442f08a5e5e11659ba91f0fa7065a62b71",
+        "msg": "Update host names for puppet\n\nChange-Id: Id20484f564fd9241ae78248cb28c9805cd8db31e",
+        "cmtr": "Nikerabbit",
+        "date": "2017-02-24 08:37:46+00:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "f7e6914f28296c28c30792a5f1120ec4cff9d468",
+        "msg": "Fixes for distro upgrade\n\nChange-Id: Id8631e85fb4fe346637c660a5efc0bf85f65a5ef",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2017-02-24 10:39:22+01:00",
+        "files": ["web1.pp", "init.pp"]
+      },
+      {
+        "hash": "d262308d80f0ca8e8e7b83c84a347da802541b1a",
+        "msg": "More fixes for distro upgrade\n\nsystemd files etc.\n\nChange-Id: Ib552cafb7a0c0d6ce166126675f750d2efd8fd72",
+        "cmtr": "Nikerabbit",
+        "date": "2017-02-24 11:05:35+00:00",
+        "files": ["rakkauspipe.sh", "screen-init.sh", "development.ini", "hhvm-development.service", "hhvm.service", "server.ini", "upstart", "upstart-development", "wikimedia.key", "init.pp", "init.pp", "irc-log-relay.service", "irc-rc-relay.service", "mw-jobrunner.service", "phplog2irc.service", "upstart", "init.pp", "wikimaintenance.erb", "wikiservices.erb"]
+      },
+      {
+        "hash": "5398cb10dc718c854dbb8e30783e4a63592219cd",
+        "msg": "Remove explicit provider => systemd\n\nUbuntu updated the packaged puppet to fix this issue.\n\nChange-Id: If64fee60320bbab0b9d42c05dac250c4c073258e",
+        "cmtr": "Niklas Laxström",
+        "date": "2017-03-06 10:31:24+01:00",
+        "files": ["init.pp", "init.pp", "init.pp"]
+      },
+      {
+        "hash": "26adbcbd789666844ffccf61e8a292b079d93f41",
+        "msg": "Update ES to 5.1.2\n\nChanges needed:\n* Remove head (no longer supported)\n* Update wikimedia extra\n* Plugin syntax changed from slashes to colons\n* Define module_dir because puppet fails to detect it and explodes\n* Update elasticsearch submodule\n* Migrate ES_HEAD_SIZE to jvm options\n** I had to manually empty /etc/default/elasticsearch-es-01 to make\n   it disapper from there\n* Remove listen on _local_, apparently the quotes added by puppet\n  confuses ES and makes it not listen on anything.\n** Confirmed manually that the default is localhost:\ntcp6       0      0 127.0.0.1:9200          :::*                    LISTEN      107        10321089    11923/java\ntcp6       0      0 ::1:9200                :::*                    LISTEN      107        10321088    11923/java\n\nChange-Id: I558ae184c01e27b961dd9d6ca5bb76503112f4fc",
+        "cmtr": "Niklas Laxström",
+        "date": "2017-03-23 11:46:04+01:00",
+        "files": ["elasticsearch", "mwelasticsearch.pp"]
+      },
+      {
+        "hash": "d9117365663f962b8019be683f3563fd09bab49c",
+        "msg": "Add custom error page for production site\n\nVery ugly, maybe someone wants to make it prettier?\n\nChange-Id: I12fdb348658e40b302c3d364052a867a025c7eb5",
+        "cmtr": "Niklas Laxström",
+        "date": "2017-05-17 17:52:26+02:00",
+        "files": ["error.html", "translatewiki.net", "sites.pp"]
+      },
+      {
+        "hash": "cb50e4de1b188e332f7fc37d7ea33df4b31690fc",
+        "msg": "Disable account for Bernd Sitzmann\n\nLast login was 2015-08-18, and he's indicated before to Niklas his\naccount could be removed.\n\nChange-Id: Idc376ad9c46cf96f4c6e29c3bac3e7dbe8ff140e",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2017-05-21 11:59:55+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "1dcbe1609be54e7f84ca75f03689d1ca1e0f0d61",
+        "msg": "Update ssh key for siebrand\n\nChange-Id: If13a085df6255616d6328a10c9bb2f3a013cb86f",
+        "cmtr": "Siebrand Mazeland",
+        "date": "2017-11-29 22:11:52+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "45e029e0d03853d360b8720007d37519e51037ae",
+        "msg": "Mininal migration to puppet 4\n\nChange-Id: I23f4bb4bdca9422f291837171e45a9d1e5454a17",
+        "cmtr": "Niklas Laxström",
+        "date": "2017-12-15 14:43:12+01:00",
+        "files": [".gitignore", "Makefile", "Puppetfile", "Puppetfile.lock", "README", "apt", "datacat", "elasticsearch", "exim", "es.pp", "init.pp", "web1.pp", "git", "java", "mysql", "init.pp", "puppi", "stdlib", "sysctl", "site.pp"]
+      },
+      {
+        "hash": "11c746545072ef10fed791edd278605912659f9a",
+        "msg": "Upgrade ElasticSearch to 5.5.2\n\nAlso updating the puppet module\n\nChange-Id: I86aa25454885dac608f4867e08d4362bd10af1b0",
+        "cmtr": "Niklas Laxström",
+        "date": "2017-12-15 14:52:32+01:00",
+        "files": ["Puppetfile", "Puppetfile.lock", "mwelasticsearch.pp"]
+      },
+      {
+        "hash": "4adf5d34c56a67397fe4b66cfe4ed27150f4cc46",
+        "msg": "Puppetize certbot\n\nBug: T181053\nChange-Id: I02965dc636f28609c670c3e5bb6efd0c70626a15",
+        "cmtr": "Nikerabbit",
+        "date": "2017-12-17 19:02:33+00:00",
+        "files": ["Puppetfile", "Puppetfile.lock", "rapidssl.pem", "ssl.conf", "translatewiki.net", "ssl.pp"]
+      },
+      {
+        "hash": "a0b48c13fe3699e6263691e98629e2de99257e53",
+        "msg": "Fix docroot for dev for letsencrypt\n\nChange-Id: I743cae95d280858d066d33e0a59e933e85f11d0c",
+        "cmtr": "Niklas Laxström",
+        "date": "2017-12-21 08:32:58+01:00",
+        "files": ["ssl.pp"]
+      },
+      {
+        "hash": "60cd086109f211d16ec3d677c04ae83381c06aec",
+        "msg": "[puppet] Pin elasticsearch to avoid cron spam\n\nChange-Id: I8f0ff555c6a4b88468e926f5074f31d3d88527ba",
+        "cmtr": "Niklas Laxström",
+        "date": "2017-12-28 20:46:50+01:00",
+        "files": ["mwelasticsearch.pp"]
+      },
+      {
+        "hash": "31de5f274fa9397818b278fbacc396192e13aab1",
+        "msg": "Upgrade puppet-lint and puppet-syntax checks\n\nIgnore vendor modules and update puppet itself to the version we\nare using.\n\nChange-Id: I754f4b7469317bde89c45842a42f216647eaf673",
+        "cmtr": "Niklas Laxström",
+        "date": "2018-01-05 15:28:03+01:00",
+        "files": ["Gemfile", "Rakefile", "init.pp"]
+      },
+      {
+        "hash": "bea9cf546fbc50b9eb01b6452cc24c3115a072e4",
+        "msg": "Migrate from HHVM to PHP 7\n\nBug: T190016\nBug: T181208\nChange-Id: Id8efa83a4cadcff0079c8456b4ef664fe97886ca",
+        "cmtr": "Niklas Laxström",
+        "date": "2018-03-19 11:19:24+01:00",
+        "files": ["TranslatewikiSettings.php", "development.ini", "hhvm-development.service", "hhvm.service", "php.ini", "server.ini", "init.pp", "dev.translatewiki.net", "nginx.conf", "translatewiki.net", "www.conf", "init.pp", "mw-jobrunner.service", "phplog2irc.service", "site.pp", "repong.php"]
+      },
+      {
+        "hash": "95a8d1be682698dbceade0b4bc9917956e5b9370",
+        "msg": "puppet: Add dba extension for PHP\n\nChange-Id: I5eabe6edc3014a7a7eb44308bcfd8ecf9d51cc4c",
+        "cmtr": "jenkins-bot",
+        "date": "2018-04-04 08:14:12+00:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "b8c83881cc93c4c6ea18b3042a8b429a134e1126",
+        "msg": "Puppet: Add Kibana\n\nChange-Id: I6c9badc607c051d2a6a755d199899bf8596cba11",
+        "cmtr": "jenkins-bot",
+        "date": "2018-07-11 08:48:40+00:00",
+        "files": ["Puppetfile", "Puppetfile.lock", "mwelasticsearch.pp"]
+      },
+      {
+        "hash": "fd809d4cdd26ee0301c7112dc368e1dcf802293d",
+        "msg": "Audit shell users\n\nNo last login recorded:\n  robin, lcawte, santhosh\nMobile people who no longer need access (also no recent logins):\n  niedzielski, fjalapeno\n\nChange-Id: I3b7e5509f215e7df2c6dbd98d5e868e1e2b355a3",
+        "cmtr": "jenkins-bot",
+        "date": "2018-09-22 09:40:35+00:00",
+        "files": ["init.pp"]
+      }]
+    }

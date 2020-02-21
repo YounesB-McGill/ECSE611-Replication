@@ -1,0 +1,1722 @@
+    {
+      "url": "https://github.com/openstack/puppet-heat",
+      "pp_files": ["api_cloudwatch.pp", "logging.pp", "db.pp", "init.pp", "sync.pp", "apache_api_cfn.pp", "postgresql.pp", "cache.pp", "params.pp", "cors.pp", "api-cfn.pp", "authtoken.pp", "config.pp", "host_access.pp", "policy.pp", "purge_deleted.pp", "deps.pp", "client.pp", "api.pp", "engine.pp", "api_cfn.pp", "site.pp", "auth_cfn.pp", "mysql.pp", "domain.pp", "apache.pp", "api-cloudwatch.pp", "auth.pp", "apache_api_cloudwatch.pp", "apache_api.pp"],
+      "pp_cmtrs": ["Daniel Pawlik", "Sergey Kolekonov", "Lukas Bezdicka", "Yanis Guenane", "Emilien Macchi", "Mark T. Voelker", "Ivan Chavero", "Steve Baker", "Mykyta Karpin", "Benedikt Trefzer", "Marcus Furlong", "Matthew J. Black", "Matthias Lisin", "Martin M\u00e1gr", "Ian Wienand", "hgangwx", "Sebastien Badia", "Saju Madhavan", "Sam Morrison", "Fran\u00e7ois Charlier", "Soren Hansen", "Juan Antonio Osorio Robles", "zhangdetong", "Spyros Trigazis", "Javier Pena", "danehans", "Athlan-Guyot sofer", "Tobias Urdin", "ZhongShengping", "Jose Luis Franco Arza", "Andrew Smith", "Thomas Goirand", "Nate Potter", "Gael Chamoulaud", "Chris Hoge", "Matthias Bastian", "Xingchao Yu", "rabi", "Simon Leinen", "zhubingbing", "Pierre RAMBAUD", "Mathieu Gagne\u0301", "Colleen Murphy", "ZhijunWei", "\u00c9milien Macchi", "Clayton O'Neill", "iberezovskiy", "Alex Schultz", "Francesco Vollero", "Ryan S. Brown", "Rich Megginson", "Sharat Sharma", "Sergii Golovatiuk", "Venkata Mahesh Jonnalagadda", "Pierre Riteau", "Martin Andr\u00e9", "nanhai.liao", "Lokesh Jain", "Matt Fischer", "Drew Fisher", "Andreas Jaekel", "Denis Egorenko", "dmburmistrov", "Mike Dorman", "Gilles Dubreuil", "Iury Gregory Melo Ferreira", "Steven Hardy", "Thomas Herve", "schegi", "Florian Haas", "Dan Prince", "Johannes Grassler", "Michael Chapman"],
+      "num_pp_commits": 245,
+      "num_tot_commits": 607,
+      "commits": [{
+        "hash": "b63a40b0308a9401bbf79ac8edd1340c86fa440d",
+        "msg": "Basic structure + DB + Client support",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-05-30 15:20:11+02:00",
+        "files": ["Gemfile", "LICENSE", "Modulefile", "README", "Rakefile", "client.pp", "db.pp", "mysql.pp", "host_access.pp"]
+      },
+      {
+        "hash": "2e240569ef6ce026cbecc5070ba89b341d79712f",
+        "msg": "Basic manifests",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-05-30 17:44:13+02:00",
+        "files": ["api.pp", "engine.pp", "init.pp", "params.pp"]
+      },
+      {
+        "hash": "409d16a62bf333742d924f06c6236dff9c64b202",
+        "msg": "Configure init.pp manifest",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-05-30 18:29:29+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "b9bb05d7cfd46bb968b0a69622ed53cdd67c4ec7",
+        "msg": "Fix a typo in init.pp",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-05-30 18:31:28+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "fbaeef4c7f317617cf05a41e3541b496d1744588",
+        "msg": "Configure api.pp manifest",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-05-30 18:37:18+02:00",
+        "files": ["api-cfn.pp", "api-cloudwatch.pp", "api.pp"]
+      },
+      {
+        "hash": "7c9893532c169886de0830e86387a0ad26d72ec9",
+        "msg": "Configure api-cnf.pp manifest",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-05-30 18:46:11+02:00",
+        "files": ["api-cfn.pp"]
+      },
+      {
+        "hash": "7549efce43d0798ca18b45b2dbb8edfd06fb9d8a",
+        "msg": "Clean init.pp",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-05-30 20:49:20+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "f3907b9642fc30c0e68c3a48c79447ea349085a0",
+        "msg": "Drop heat_config because of new providers",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-05-30 21:54:04+02:00",
+        "files": ["api.pp", "init.pp"]
+      },
+      {
+        "hash": "3bdd5d7a33f0ec090f56f5a7b9aeee442ae7c8bd",
+        "msg": "Set good providers to manifests",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-05-30 22:05:19+02:00",
+        "files": ["api-cfn.pp", "api-cloudwatch.pp", "api.pp", "engine.pp"]
+      },
+      {
+        "hash": "633e3d446e01dea56dc70c8a97ba243f34fcf23e",
+        "msg": "Update provider in db manifest",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-05-30 22:13:13+02:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "7200fc9f823a702713652682ea8c1897121070e5",
+        "msg": "Update API manifests with Rabbit flags",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-05-30 22:24:23+02:00",
+        "files": ["api-cfn.pp", "api-cloudwatch.pp", "api.pp"]
+      },
+      {
+        "hash": "328263a8feb77440dde37ab7128f99cff5250991",
+        "msg": "Update manifest params",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-05-30 22:36:07+02:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "2372b65dffc412d7131b1aa91c582572c6232b61",
+        "msg": "Fix typo in params",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-05-30 22:59:10+02:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "90257778a38c16a8d765c9e748c9687b029a9e72",
+        "msg": "Add RabbitMQ support",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-05-30 23:10:19+02:00",
+        "files": ["engine.pp"]
+      },
+      {
+        "hash": "57a4863a0b4e643ce96cad38f43c98d4e00255ee",
+        "msg": "Update Heat API manifest",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-05-31 22:54:05+02:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "b9e4f2253b230c8b9566d2be3c5cc1e579a07c91",
+        "msg": "Update Heat API manifest",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-05-31 23:01:14+02:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "0688ff4b9197884d81205021d4899ebca969f173",
+        "msg": "Add heat_keystone_endpoint_spec & Update manifests",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-01 00:09:33+02:00",
+        "files": ["engine.pp", "heat_keystone_endpoint_spec.rb"]
+      },
+      {
+        "hash": "0c7a61082b9d295984a73c81ca87661439f94ca9",
+        "msg": "Improve Engine manifest",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-01 00:17:31+02:00",
+        "files": ["engine.pp"]
+      },
+      {
+        "hash": "87372458d1aa4d900d99a71f6b0422ec770e410b",
+        "msg": "Update API + Engine",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-01 18:27:22+02:00",
+        "files": ["api-cfn.pp", "api-cloudwatch.pp", "api.pp", "engine.pp"]
+      },
+      {
+        "hash": "2811170e9474d12e26825bcd9a00cb0835dfebbc",
+        "msg": "Update dbsync class",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-02 04:35:00+02:00",
+        "files": ["db.pp", "params.pp"]
+      },
+      {
+        "hash": "fba25d7ac6f093f2a5aa09c749c482e85d78f216",
+        "msg": "Add an site.pp for example",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-03 11:54:32+02:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "0bd0f09251a4ae269d0a22245a7bcef1489c0f91",
+        "msg": "Fix a typo in site.pp",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-03 21:32:03+02:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "753936f408a679f572b0bca0d7050b824dc08530",
+        "msg": "Fix typos in manifests with virtual ressources",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-03 21:45:12+02:00",
+        "files": ["api-cfn.pp", "api-cloudwatch.pp", "api.pp", "engine.pp", "init.pp"]
+      },
+      {
+        "hash": "7311e90c3f9e861184ee5fd45a458b177d808a8f",
+        "msg": "Fix typos in engine manifest",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-03 21:46:38+02:00",
+        "files": ["engine.pp"]
+      },
+      {
+        "hash": "8c588638a1bf23e2d9ce4c9b672024f624ea79f5",
+        "msg": "Fix keystone password in engine manifest",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-03 21:49:59+02:00",
+        "files": ["engine.pp"]
+      },
+      {
+        "hash": "170180fabf45cc1aa578bd22ff4650350c21ac98",
+        "msg": "Fix typo in manifests",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-04 22:56:29+02:00",
+        "files": ["api-cloudwatch.pp", "engine.pp"]
+      },
+      {
+        "hash": "9d66e0d546c427476bfbc193f017b03fe9c8b88c",
+        "msg": "Add common class in site.pp",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-06 10:32:10+02:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "7895b063c2343b98a4b9230151401e3d9a799f41",
+        "msg": "Fix typo in group ownership",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-06 10:53:41+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "a7e8f56feb0a4ad30c7443db4bc7e3d1ba245565",
+        "msg": "Drop db-sync stuff",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-09 23:06:40+02:00",
+        "files": ["api-cfn.pp", "api-cloudwatch.pp", "api.pp", "db.pp", "mysql.pp", "engine.pp", "params.pp"]
+      },
+      {
+        "hash": "fa2d2675934313bcafcd866d035a2ece61c19c71",
+        "msg": "Update DB & example manifest",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-09 23:18:11+02:00",
+        "files": ["site.pp", "db.pp"]
+      },
+      {
+        "hash": "5de381930ac45a9e64581fb34963776033418151",
+        "msg": "Update DB manifest",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-09 23:19:25+02:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "f8540d84407f38bd59363f30d189f354eb38ce43",
+        "msg": "Update DB manifest",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-09 23:29:45+02:00",
+        "files": ["api-cfn.pp", "api-cloudwatch.pp"]
+      },
+      {
+        "hash": "faaf58209837c21aaa14849d927168501dbd160b",
+        "msg": "Update init.pp",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-09 23:32:56+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "889e7e3dea761a60ea69d4823ff0cbe2e1cd6807",
+        "msg": "Fix two typos with API",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-09 23:37:02+02:00",
+        "files": ["api-cfn.pp", "api-cloudwatch.pp"]
+      },
+      {
+        "hash": "e70d9f4af4e664029b13be1978cf232e5c188d3f",
+        "msg": "Fix again a typo",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-09 23:38:32+02:00",
+        "files": ["api-cloudwatch.pp"]
+      },
+      {
+        "hash": "4cff6cd9309d9c021661e63e1af694ecd518f659",
+        "msg": "Drop keystone stuffs in Engine.pp",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-09 23:49:45+02:00",
+        "files": ["engine.pp"]
+      },
+      {
+        "hash": "a28a0e4e3aaf823e62a2177875bb6204ccb78077",
+        "msg": "Fix api.pp with RabbitMQ",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-09 23:55:10+02:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "adf5af8b9fb2675237b89d551360571230d6a460",
+        "msg": "Fix api.pp with RabbitMQ",
+        "cmtr": "Émilien Macchi",
+        "date": "2013-06-09 23:56:26+02:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "ac80ddbf6fbd76bad4012a714cb48536fa20a5b1",
+        "msg": "Changes to make it work with Fedora",
+        "cmtr": "Francesco Vollero",
+        "date": "2013-07-22 18:13:55+02:00",
+        "files": ["api.pp", "mysql.pp", "engine.pp", "params.pp"]
+      },
+      {
+        "hash": "1ba69d0efb00f2af74b9b5c20731d788a0a3cfdd",
+        "msg": "Added the initialization of the ENCRYPTION_KEY in heat-engine.conf",
+        "cmtr": "Francesco Vollero",
+        "date": "2013-07-24 10:37:38+02:00",
+        "files": ["engine.pp"]
+      },
+      {
+        "hash": "e9e261be3bbff99ae95786e9b2089712bfc03eb4",
+        "msg": "Update allowed_hosts conditional statement\n\nIn the origin heat::db::mysql, if the value of $allowed_hosts\ncontains or equals to $host, then puppet will complain duplicate\ndeclaration error. This patch is aim to update the allowed_hosts\nconditonal statement in heat::db::mysql.\n\nThere are two cases to pass $allowed_hosts to $real_allowed_hosts:\n\n   - If $allowed_hosts is array,then remove $host from $allowed_hosts;\n   - elsif $allowed_hosts is string and not equivalent to $host;\n\nAt last, if $real_allowed_hosts is not undef, then run\nheat::db::mysql::host_access\n\nAdd heat_db_mysql_spec for related test.\n\nFix bug 1206444\n\nChange-Id: Iac6a32fb614c9ad19f9eaa3aaa883cb3bf9aa2ef",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-08-05 14:25:45+08:00",
+        "files": ["mysql.pp", "heat_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "03ef6a7b7faaa712a7913f1a5109c897c7a5f086",
+        "msg": "Update the module for new config file method\n\nSince we have now an only config file (heat.conf) with this patch:\nhttps://review.openstack.org/#/c/36476/\n\nThis patch updates the module and delete old configuration files\nsupport and add a test.\n\nAlso, I fixed some tab issues in manifests.\nFix bug #1207858\n\nChange-Id: If3d044e2581156fa5ce4de19f5c740328efa0aa8",
+        "cmtr": "Emilien Macchi",
+        "date": "2013-08-06 23:28:31+02:00",
+        "files": ["ini_setting.rb", "ini_setting.rb", "ini_setting.rb", "ini_setting.rb", "heat_api_cfn_config.rb", "heat_api_cloudwatch_config.rb", "heat_config.rb", "heat_engine_config.rb", "api-cfn.pp", "api-cloudwatch.pp", "api.pp", "db.pp", "engine.pp", "init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "99b9286ef525ed9b6bb6138476e34c1236c1315e",
+        "msg": "Added support for QPID in Heat\n\nThis patch is adding the support for Apache Qpid in Heat.\n\nChange-Id: I0ea4bd403e09426b0173a1aa3493d5c7c23fc688\nSigned-off-by: Francesco Vollero <fvollero@redhat.com>",
+        "cmtr": "Francesco Vollero",
+        "date": "2013-08-08 16:38:11+02:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "1b21b36636f3f5bfc9c40f7858339356c7d79cba",
+        "msg": "Use Puppet boolean for better consistency\n\nThis fixes puppet-lint warning \"quoted boolean value\".\n\nChange-Id: I2ab34d535accaf621b1058658f5f371ae4aca921",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-08-09 15:39:30-04:00",
+        "files": ["api-cfn.pp", "api-cloudwatch.pp", "api.pp", "engine.pp", "init.pp"]
+      },
+      {
+        "hash": "4a972180be0042b2fd1bf32acf109f0f190532c0",
+        "msg": "engine.pp: removed undefined Heat_engine_config\n\nChange-Id: Ie9e6389aa65aebfa8f6561cea24dfae84736665b",
+        "cmtr": "Francesco Vollero",
+        "date": "2013-08-27 13:48:49+02:00",
+        "files": ["engine.pp"]
+      },
+      {
+        "hash": "08a1141f160bdf71cc218cbf26142022b51918a4",
+        "msg": "Deprecate classes with hyphens\n\nPuppet does not recommend the use of hyphens in class names.\n\nThis change deprecates classes with hypens and inform the users\nto use the new ones. Backward compatibility is preserved.\n\nChange-Id: Ib4ce5ec3f9354d77397d97500811ccac2a0ff395",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-08-29 10:08:21-04:00",
+        "files": ["api-cfn.pp", "api-cloudwatch.pp", "api_cfn.pp", "api_cloudwatch.pp", "engine.pp"]
+      },
+      {
+        "hash": "84dbad08b7edf50e9965eb19f3ea6c148687ea73",
+        "msg": "Consolidate config into single file\n\nUpstream commits [1,2] modified heat to use a single config file.\nThis modifies the puppet config of each component to use different\nsections of the same file.\n\nSome notes about the change:\n\n - each of heat-api, heat-api-cfn, heat-api-cloudwatch has indvidual\n   options for bind_port, bind_host\n - heat-engine options live under DEFAULT (it does not bind to any\n   ports)\n - new log_dir global\n - slight fixes to ENCRYPTION_KEY generation for new heat.conf name\n - include rspec tests for api-cfn & api-cloudwatch\n\nFixes bug 1214824\n\n[1] https://review.openstack.org/#/c/39980/\n[2] https://review.openstack.org/#/c/43697/\n\nChange-Id: I7d8865a809da71696b944ab0654a1f728cd827df",
+        "cmtr": "Ian Wienand",
+        "date": "2013-08-30 07:23:56+10:00",
+        "files": ["site.pp", "api.pp", "api_cfn.pp", "api_cloudwatch.pp", "engine.pp", "init.pp", "heat_api_cfn_spec.rb", "heat_api_cloudwatch_spec.rb", "heat_api_spec.rb"]
+      },
+      {
+        "hash": "c6fb1f0e82d770138489b2a779d29cc9f33600d7",
+        "msg": "Remove heat::db class\n\nheat::db is different to every other project's puppet modules.  All of\nnova, glance, keystone and cinder take a \"sql_connection\" parameter to\nthe \"main\" (project name) class.\n\nThis removes heat::db and adds it into init.pp to maintain parity with\nthose projects.  This seems more logical than adding it to engine.pp;\nsince heat-engine is only using the DEFAULT section of heat.conf.\n\nChange-Id: I4584cdb12d1f9e624228e6ee34b4bcfbf649a12e",
+        "cmtr": "Ian Wienand",
+        "date": "2013-09-09 15:03:16+10:00",
+        "files": ["site.pp", "db.pp", "init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "08b11b13f234a40d6464ea9f371337dffccf85c7",
+        "msg": "Add heat::keystone::auth class\n\nAdd heat::keystone::auth and heat::keystone::auth_cfn classes to\nconfigure heat & heat-cfn service/endpoints\n\nChange-Id: I0a2ce7001ccf6dccd680dfc002351bb034943e2e",
+        "cmtr": "Ian Wienand",
+        "date": "2013-09-12 11:57:03+10:00",
+        "files": ["auth.pp", "auth_cfn.pp", "heat_keystone_auth_cfn_spec.rb", "heat_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "7d4a5ecfa6a76086afa25847e8bb53efd4c9cdc4",
+        "msg": "Remove heat::db from all the components of the module.\n\nThis patch is needed to completely remove any require heat::db that\npoint to heat::db that was removed in change:\nI4584cdb12d1f9e624228e6ee34b4bcfbf649a12e\n\nThe patch is connected to the fact that in the cited change we\nmissed those references.\n\nChange-Id: Idd9dcefd52c63e9c8cd74fc39bc4b7ba04f981bc",
+        "cmtr": "Francesco Vollero",
+        "date": "2013-09-12 11:23:51+02:00",
+        "files": ["api.pp", "api_cfn.pp", "api_cloudwatch.pp", "engine.pp"]
+      },
+      {
+        "hash": "67f0661443a91658e98330fb0c80b301358ad4d4",
+        "msg": "Enable execution of heat-manage db_sync\n\nThis patch is aiming to correct a fault in puppet-heat that was not\nexecuting the heat-manage db_sync that was making this module in the\nend not fully working.\n\nAt this stage there are no tests to support this change but I am\nwilling to add those in a later commit.\n\nThis patch it's been rebased according to this change: https://review.openstack.org/46227\n\nThis new patchset include a patch from Sebastien Badia and should\nmake all the tests green with Change id: I2aa8fc070e5f5ee18040200e4a5b4f6161550280\n\nChange-Id: Ib7731ab429ea92947f52bcf015facc8864466586",
+        "cmtr": "Francesco Vollero",
+        "date": "2013-09-26 17:08:37+02:00",
+        "files": [".fixtures.yml", "api.pp", "api_cfn.pp", "api_cloudwatch.pp", "engine.pp", "init.pp", "params.pp"]
+      },
+      {
+        "hash": "5c978d82efdc32764ddcb0d90739bcb1b8ae3430",
+        "msg": "params.pp: correctly define client_package_name\n\nLeaving this unset leads to problematic consequences if another\nmodule does the same, as both would alias the package to nil.\n\nnode bob {\n  include heat::client\n  include neutron::client\n}\n\nError: Could not retrieve catalog from remote server: Error 400 on\nSERVER: Puppet::Parser::AST::Resource failed with error ArgumentError:\nCannot alias Package[python-neutronclient] to [nil] at\n/etc/puppet/modules/neutron/manifests/client.pp:20; resource\n[\"Package\", nil] already declared at\n/etc/puppet/modules/heat/manifests/client.pp:17 at\n/etc/puppet/modules/neutron/manifests/client.pp:20 on node bob\nWarning: Not using cache on failed catalog Error: Could not retrieve\ncatalog; skipping run\n\nChange-Id: Ib0ae86d7ff406039f4b361a65c2e092d2a321a77",
+        "cmtr": "Florian Haas",
+        "date": "2013-10-17 12:38:04+02:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "2796c108dc47ae41680b38a969265f7a751846b9",
+        "msg": "fix postgresql connection string\n\nChange-Id: Iec4ec4202ca35a88155221cc8e6a55c002f3e4c3",
+        "cmtr": "Benedikt Trefzer",
+        "date": "2013-11-20 19:00:36+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "51816260b97e0bb3c9c085a12d0dba319d94d7e9",
+        "msg": "replace rabbit_virtualhost parameter\n\nrabbit_virtualhost is wrong, replace it\nwith rabbit_virtual_host.\n\nChange-Id: I393cf9f57e060c1440658a8264bbe6b9d7924e3e",
+        "cmtr": "Benedikt Trefzer",
+        "date": "2013-11-21 17:46:45+01:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "65766e8deea9a9a45c24d637f33a0fb6539415c9",
+        "msg": "Removes Unneeded mysql::server Dependency\n\nPreviously, the heat::db::mysql class contained a dependency on\nmysql::server. This dependency is unneeded since mysql::db requires\nmysql::config, which depends on mysql::server. Additionally, the\nmysql::server dependency causes MYSQL HA installations such as\nGalera to fail. Lastly, this aligns the class more closely with\nthe other [OPENSTACK_SERVICE]::db::mysql classes.\n\nChange-Id: Ie6c4d3c8aaa531502bc5b9cd66a547f1f506385f",
+        "cmtr": "danehans",
+        "date": "2013-12-03 20:51:56+00:00",
+        "files": ["mysql.pp", "heat_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "becc987fec256101f6dd31f29240164ea95d02f1",
+        "msg": "Fix puppet lint WARNING issues\n\nChange-Id: I5c645ca060005c0cb2b5965219c10e2b7ae2b194\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2013-12-29 12:37:07+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "9a885b068b90e1e9d89a6ceee7b857b06fc090ea",
+        "msg": "make auth_encryption_key a parameter\n\nAlso add tests for heat::engine\n\nChange-Id: Ic84344060eaad006026fb6b66d569efa3d2592e3\nCloses-Bug: #1249280",
+        "cmtr": "François Charlier",
+        "date": "2013-12-30 13:53:06+01:00",
+        "files": ["site.pp", "engine.pp", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "d8978464dd4b71b9b19f51d8d3c44d9897d68520",
+        "msg": "engine_life_check_timeout support\n\nSince https://github.com/openstack/heat/commit/d7ae961fcae5e0e75bf232606a6878d2414dfeef\ngot merged, heat engine has now a distributed stack lock using the\ndatabase to avoid race conditions when multiple engines are deployed.\n\nThis patch aims to add a new flag to configure the RPC timeout for the\nengine liveness check that is used for stack locking.\n\nChange-Id: Iad7958225651e2b52844b5d942f6630bbe9e86fa\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2013-12-30 22:51:20+01:00",
+        "files": ["engine.pp", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "0f263b4580c22a85efb1d6429e6f023208978a8f",
+        "msg": "Add syslog support to heat module\n\nChange-Id: I5507147b71874149972635ed974fc96724441bb1",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-01-29 17:01:06+01:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "498ce5093c272f20f305420389ca419934ecf98e",
+        "msg": "api: bring workers support\n\nAllow to configure the number of workers for Heat API services.\n\nChange-Id: I94f938ede1f7f5e97adb406d592206e667d30f8d\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-02-18 21:27:27+01:00",
+        "files": ["api.pp", "api_cfn.pp", "api_cloudwatch.pp", "heat_api_cfn_spec.rb", "heat_api_cloudwatch_spec.rb", "heat_api_spec.rb"]
+      },
+      {
+        "hash": "603fb207959fe6fdeca2029c29c18342fc2d6b60",
+        "msg": "Allow log_dir to be set to false in order to disable file logging\n\nThis commit allows a user to disable logging to a directory (for\nexample if syslog is enabled, in order to not log twice).\n\nChange-Id: I814bf8199fcf57f976e95b9bbf872478694b9d3e\nCloses-bug: #1282296",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-02-19 23:59:55+01:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "768a4e593e6db8b7948623b9eb3ae840a9ef4ab4",
+        "msg": "Fixes the EC2 Auth Token Settings\n\nPreviously, the module would create a keystone_ec2_uri parameter\nin heat.conf.  This flag does not exist within heat.conf.\nAdditionally, the auth_uri within [ec2authtoken] would use the\nincorrect auth uri (standard Keystone URL instead of the EC2\nURI).\n\nChange-Id: I61bcf59c60617db07eb3fad3e3e23e8fd6ab9eff",
+        "cmtr": "danehans",
+        "date": "2014-02-26 17:39:55+00:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "49f066e637fe22a25e80449cff8f0936682d7f10",
+        "msg": "Adds Support for Database Idle Timeout\n\nOther OS services support the idle_timeout parameter that is\nneeded for reaping stale sql connections.  This is important for\nclustered databases.\n\nChange-Id: Ia297410e61f246b2f5b4788b5d24961f070aa087",
+        "cmtr": "danehans",
+        "date": "2014-03-04 22:03:49+00:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "4a5a5849a5088290bf6a46a1e13406312af0b72c",
+        "msg": "Aligns Keystone auth_uri with other OpenStack Services\n\nPreviously, auth_uri had a default address of 127.0.0.1 as did\nthe keystone_host parameter.  This caused problems for users that\nuse a different IP address for Keystone.  This can cause issues\nwhere the keystone host is an actual address and the auth_uri still\nuses 127.0.0.1.  Additionally, this patch will allow the auth_uri\nbehavior to be consistent with the other OpenStack modules.\n\nConflicts:\n\n        spec/classes/heat_init_spec.rb\n\nChange-Id: I81fc650606c419d25a2e13dc2093c8e4538fb997",
+        "cmtr": "danehans",
+        "date": "2014-03-07 15:53:20+00:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "074675b1ac53abdf493d50263676a00e89612ab1",
+        "msg": "Add support for puppetlabs-mysql 2.2\n\nPuppetlabs-mysql has been rewritten to be much\ncleaner. This patch adds a new parameter for the\nheat mysql and init classes allowing users to use\nthe new version. Previous behavior will continue\nas normal when using the old version (0.9)\n\nChange-Id: I4d268d793740c31493acd5999dd3f8501cc1d281",
+        "cmtr": "Michael Chapman",
+        "date": "2014-03-18 16:08:56+11:00",
+        "files": ["README.md", "mysql.pp", "host_access.pp", "init.pp", "heat_db_mysql_spec.rb", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "7b69e0354e48cabff0be500910c71cce4aca1464",
+        "msg": "Added the option to define rabbitmq's queues as \"durable\"\n\nAdd the capability to use durable queues in amqp.\n\nChange-Id: I2a35731d9760e2665f49a8637defda728af89246",
+        "cmtr": "Pierre RAMBAUD",
+        "date": "2014-03-24 10:14:11+01:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "455fd63406e61195fb9d18918b77416bc724bbb4",
+        "msg": "Change heat mysql default charset to utf8\n\nChanged the default charset to uf8 and the\ncollation to utf8_unicode_ci.\n\nChange-Id: I52e4af03d58149c705a5a6e1effe9cac130f9ae3",
+        "cmtr": "Ivan Chavero",
+        "date": "2014-03-31 22:41:09-07:00",
+        "files": ["mysql.pp", "heat_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "217567fbeec1534673c285819fff2c15fbcfab4e",
+        "msg": "Add SSL parameters for rabbit\n\nAdds the following parameters:\n * kombu_ssl_ca_certs option\n * kombu_ssl_certfile option\n * kombu_ssl_keyfile option\n * kombu_ssl_version option\n\nChange-Id: I226ee5c6964cf9bbb13b14b70aa2139b20858788",
+        "cmtr": "Benedikt Trefzer",
+        "date": "2014-04-09 09:55:31+02:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "1cd2e6404f1f7b29fcce7f2e48afc86dc175d286",
+        "msg": "Fix outdated DB connection information\n\nIn Icehouse, the format of heat.conf has changed to be more consistent\nwith other projects.  What used to be:\n[DEFAULT]\nsql_connection= ...\n\nIs now:\n\n[database]\nconnection= ...\n\nThis patch fixes the heat module so that it correctly populates\ndatabase connection information.\n\nChange-Id: I6edc9c7b58dcd5569f20f202b9b665431c7b0845\nCloses-Bug: #1308868",
+        "cmtr": "Mark T. Voelker",
+        "date": "2014-04-17 02:24:05-04:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "d1f32f72a05b3594b57f1072100e19cd12f09711",
+        "msg": "Fixed database service resource\n\nVersion 2.2+ of the puppetlabs-mysql moudule starts the MySQL database\nwith the Service resource name mysqld [1]. The puppet-heat module\nlists a requirement for a Service resource with name mysql. This will\nlead to an undefined resource error.\n\nThis patch corrects the dependency.\n\n[1] https://github.com/puppetlabs/puppetlabs-mysql/blob/master/manifests/server/service.pp#L15\n\nChange-Id: I2f60b610eab4d03552352108d0dfd4f2b796fc70",
+        "cmtr": "Chris Hoge",
+        "date": "2014-04-23 14:35:44-07:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "85a98e13e82e7c87549b92cbd3bb114d4afbde43",
+        "msg": "Fail when ssl parameters are missing and rabbit_use_ssl is set to true\n\nThis commit causes the run to fail is rabbit_use_ssl parameter is set\nto true but the ssl related parameters remains undef.\n\nChange-Id: If621de7ed4432c4ef79d18cee4da822ebadb0a4f",
+        "cmtr": "Yanis Guenane",
+        "date": "2014-05-16 12:22:38-04:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "025b8cb830d7fa476c4ab1a0b0228b88b5ba10c3",
+        "msg": "Enable heat server to be run in SSL mode\n\nThis commit allows one to specify cert and key file\nto run heat server in SSL mode.\n\nNote: The flag use_ssl per se is not used in heat yet,\nits purpose here it to verify collateral parameters.\n\nChange-Id: I94d0b461adc752b028770aea71bf4e4612722539",
+        "cmtr": "Yanis Guenane",
+        "date": "2014-05-23 13:14:50-04:00",
+        "files": ["api.pp", "api_cfn.pp", "api_cloudwatch.pp", "heat_api_cfn_spec.rb", "heat_api_cloudwatch_spec.rb", "heat_api_spec.rb"]
+      },
+      {
+        "hash": "2ab35c80171495f26345ccded167e3a86a0dfcc7",
+        "msg": "Fix title of database sync Exec in mysql class\n\nThe mysql class incorrectly defined an Exec collector to match on 'heat-manage\ndb_sync', which is not a real Exec in the catalog. The collector silently\nfailed to find this resource and the notify relationship between the database and the\nsync command was never created. This changes the collector to match on\nheat-dbsync, which is a real exec defined in init.pp.\n\nChange-Id: Icc8ceb25b525ba83e66c719abca31799a4d2d223",
+        "cmtr": "Colleen Murphy",
+        "date": "2014-07-09 11:47:38-07:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "4b2e57b4f03a30628ef8cd31e1a1551422f8af61",
+        "msg": "Use 2.2 as the default mysql_module\n\nChange-Id: Ib82957123932f4795b9826dab7b88c572ffe57d9",
+        "cmtr": "Soren Hansen",
+        "date": "2014-07-16 18:34:00+05:18",
+        "files": [".fixtures.yml", "mysql.pp", "init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "6a89a44f9d2c6114b3bb1a4a74eff62ec13f545e",
+        "msg": "Hide secrets from puppet logs\n\nCurrently secrets like rabbit_password or admin_password are laked\n\npuppet logs when changed. This commit changes heat_*_config and\nheat_*_ini types adding a new parameter that triggers obfuscation\nthe values in puppet logs.\n\nChange-Id: Ib06a0f967dd5d5f8cc1c4dc7257c0e196786e8ae\nCloses-Bug: #1328448",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-22 13:13:23+00:00",
+        "files": ["heat_config.rb", "init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "5837aaeaadb14fdc089b25e666cfd8d91f0f53a6",
+        "msg": "Require Class['mysql::server'], not Service['mysqld'] when creating DB.\n\nWhen using version >= 2.2 of the MySQL module, setting up the database\nfor Keystone depended on the MySQL service (Service['mysqld']). However,\nif the service is not managed by Puppet (e.g. it is managed through\nPacemaker instead), this would cause catalog compilation to fail because\nthere is no Service['mysqld']. This is the case when the MySQL module is\ncalled with service_manage => false. Requiring Class['mysql::server']\ninstead fixes this.\n\nChange-Id: I4ba7932d679764576a46ea599499991a5c57fc56\nCloses-Bug: 1349316",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-28 14:00:07+02:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "ddea2e245a861c5f97d483394a98189bec3f7b41",
+        "msg": "Adds ability to override service names for service catalog\n\nInstead of forcing the name of the service in the service catalog to\nmatch auth_name, this allows the ability to explicitly set the service\nname, spearately from auth_name.\n\nIf service_name is not specified, it's value defaults to the value\nof auth_name (which maintains the current behavior.)\n\nCloses-bug: #1359755\nChange-Id: I1d26aa7970471a40d7d636387826523925a71844",
+        "cmtr": "Mathieu Gagné",
+        "date": "2014-08-21 09:55:04-04:00",
+        "files": ["auth.pp", "auth_cfn.pp", "heat_keystone_auth_cfn_spec.rb", "heat_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "2492ef5fb35258251b41fc692ff7e2b8043e9c0f",
+        "msg": "Add extended logging options.\n\nThere is a range of extended logging options in Openstack services that use\nopenstack.common.logger (Ceilometer, Cinder, Heat, Keystone, Nova). Adding\nheat::logging to support them. This change is identical to\n<https://review.openstack.org/#/c/113560/> but it applies to puppet-heat\ninstead of puppet-ceilometer.\n\nNo blueprint/spec, as discussed in the IRC meeting on 08-11-2014.\n\nChange-Id: Ia120b799d676e516d8e593088f93d44891c20cbd",
+        "cmtr": "Johannes Grassler",
+        "date": "2014-09-01 12:42:16+00:00",
+        "files": ["logging.pp", "heat_logging_spec.rb"]
+      },
+      {
+        "hash": "a4a20a9012114ee21ad175422d3a9d5f0ab41120",
+        "msg": "Makes kombu_ssl_* parameters optional when rabbit_use_ssl => true\n\nThe kombu_ssl_* parameters should not be required when rabbit_use_ssl => true\nRather, rabbit_use_ssl must be set to true if the kombu_ssl_* parameters are\nused.\n\nChange-Id: If9cceb4f4090c8b39079aa1aae2f53640c9ac0ff\nCloses-Bug: 1356083",
+        "cmtr": "Mike Dorman",
+        "date": "2014-09-04 14:17:11-06:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "a95a9435dcb5f4b24b2e53213fe05b5466b46d6a",
+        "msg": "Migrate mysql backend to use openstacklib::db::mysql\n\nImplements: blueprint commmon-openstack-database-resource\nChange-Id: I71e1bf084139524e41276e5cbd7f5be02d07e825",
+        "cmtr": "Colleen Murphy",
+        "date": "2014-09-08 16:34:10-07:00",
+        "files": [".fixtures.yml", "Modulefile", "README.md", "mysql.pp", "host_access.pp", "init.pp", "heat_db_mysql_spec.rb", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "c1102fd5e34af55d9cac01bae6b021ff0cceba04",
+        "msg": "Make user creation optional when creating service.\n\nIn some cases it is useful to be able to just configure\nthe service in Keystone and not the service user. This\nis the case when e.g. a read only LDAP backend is used.\nAdded a parameter configure_user (defaults to true).\nCloses-Bug: 1360232\n\nChange-Id: Ia17fa32744bd951eac3307a858917ac1ba3be37c",
+        "cmtr": "Mike Dorman",
+        "date": "2014-09-11 18:04:35-05:00",
+        "files": ["auth.pp", "auth_cfn.pp", "heat_keystone_auth_cfn_spec.rb", "heat_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "41608dc6c8e3248049c91c2a3c8647f0cbd7caad",
+        "msg": "Implement Keystone domain creation\n\nKeystone domain has to be created for Heat. This patch implements this\nvia helper script [1] since we don't have support for Keystone v3 API\nin puppet-keystone yet. This implementation should be refactored as soon\nas we will have v3 API available in puppet-keystone. For more info\nplease check [2].\n\n[1] https://github.com/openstack/heat/blob/master/bin/heat-keystone-setup-domain\n[2] https://bugzilla.redhat.com/show_bug.cgi?id=1076172\n\nChange-Id: I036a84eee6b9d0afa9a9ed96849494324ba4c4db",
+        "cmtr": "Martin Mágr",
+        "date": "2014-09-18 12:27:20+02:00",
+        "files": ["Gemfile", "ruby.rb", "heat_config.rb", "heat_domain_id_setter.rb", "domain.pp", "heat_keystone_domain_spec.rb", "spec_helper.rb", "heat_spec.rb"]
+      },
+      {
+        "hash": "2ee54962a8132065ea9f8558bcb7cdfd39f946bd",
+        "msg": "Add manage_service feature\n\npuppet-heat lacks of disabling service managing. This patch adds\n$manage_service parameter to all relevant classes.\n\nCloses-bug: #1359823\nChange-Id: I54245b39f3484ccdb9910aa0fa4c8dc2bae3f0ce",
+        "cmtr": "Martin Mágr",
+        "date": "2014-09-19 15:13:21+02:00",
+        "files": ["api.pp", "api_cfn.pp", "api_cloudwatch.pp", "engine.pp", "heat_api_cfn_spec.rb", "heat_api_cloudwatch_spec.rb", "heat_api_spec.rb", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "0e6d7eacecd70819384ac61ea3b9df38b90411b0",
+        "msg": "engine: configure deferred authentication method\n\nThe default deferred_auth_method of password is deprecated as of\nIcehouse, so although it is still the default, deployers are strongly\nencouraged to move to using deferred_auth_method=trusts, which is\nplanned to become the default for Juno.\n\n* It avoids storing user credentials in the heat database\n* It removes the need to provide a password as well as a token on stack create\n* It limits the actions the heat service user can perform on a users behalf.\n\nThis patch aims to:\n* Set deferred_auth_method = trusts in /etc/heat/heat.conf for engine\n* Specify the roles to be delegated to the heat service user\n   (trusts_delegated_roles in heat.conf, defaults to heat_stack_owner\n   which will be referred to in the following instructions. You may wish\n   to modify this list of roles to suit your local RBAC policies)\n* Create the role(s) in Keystone (optional and enabled by default).\n\nChange-Id: I99eaf29473bc4e70017580b3b340c24093aa0619",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-10-08 12:20:52-04:00",
+        "files": ["engine.pp", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "92d5df6f657b15cc628b954491fd75b8fa2cbb96",
+        "msg": "policy.json: Allow one to manage them from the puppet module\n\nThis commit allow a deployer to manage the policies via this module\nIt relies on augeas to change only the policy needed. The init takes\na hash of policies and apply them.\n\nChange-Id: If41f08571577bb799a373202dc58c2577bbe7f74",
+        "cmtr": "Yanis Guenane",
+        "date": "2014-10-22 10:51:14-04:00",
+        "files": ["api.pp", "api_cfn.pp", "api_cloudwatch.pp", "policy.pp", "heat_api_cfn_spec.rb", "heat_api_cloudwatch_spec.rb", "heat_api_spec.rb", "heat_policy_spec.rb"]
+      },
+      {
+        "hash": "27f39cd68e894eacc2a068cfee7aea3c49223892",
+        "msg": "Deprecate sql_connection in favor of database_connection\n\nChange-Id: I2ca6118448c93b5b5779e815169c5198fbdafdcd\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2014-10-28 18:18:21+01:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "fd34b59ba5f7648fc6952aa930beca955776e829",
+        "msg": "policy.pp : Fix duplicate ressource issue openstacklib::policy\n\nCurrently, in the policy.pp file the class openstacklib::policy\nis called. The same apply for all components resulting in a\nDuplicate Ressource issue. Using directly the underlying ressource\nopenstacklib::policy::base we prevent this issue.\n\nChange-Id: I96df810db8c14e564baca508b7d2eec71c6573c3",
+        "cmtr": "Yanis Guenane",
+        "date": "2014-11-10 13:58:30-05:00",
+        "files": ["policy.pp", "heat_policy_spec.rb"]
+      },
+      {
+        "hash": "45a35dc2ec5f01bd79189ada881d083e1a51413b",
+        "msg": "Add puppet-lint-param-docs plugins to puppet-lint\n\n- This puppet-lint plugin checks if all parameters are documented\n- Fix some unaligned arrows\n- https://github.com/domcleal/puppet-lint-param-docs\n\nChange-Id: I5e73747b726191bc4fc55e6e227892507e185871\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2014-11-13 12:42:40+01:00",
+        "files": ["Gemfile", "api-cfn.pp", "api-cloudwatch.pp", "api.pp", "api_cfn.pp", "api_cloudwatch.pp", "client.pp", "mysql.pp", "engine.pp", "init.pp", "auth.pp", "auth_cfn.pp", "logging.pp", "params.pp", "policy.pp"]
+      },
+      {
+        "hash": "d1479219e946bc9cc7fb08d60de9f3ec85cb7176",
+        "msg": "Remove deprecated api-cfn and api-cloudwatch classes\n\nheat::api-cloudwatch and heat::api-cfn are not correctly named, these\nclasses are deprecated and replaced by respectively heat::api_cloudwatch\nand heat::api_cfn since release 3.0.0-rc2. It's time to clean it for\nrelease after 4.2.0.\n\nChange-Id: Ib29741173e971cefde1cff67281bce368365dde2",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-11-18 09:34:59+01:00",
+        "files": ["api-cfn.pp", "api-cloudwatch.pp"]
+      },
+      {
+        "hash": "077ef2d42c150c6d4094e096eb1d0f82a3f3c420",
+        "msg": "Refactorise Keystone resources management\n\nRefactorise the code of Keystone resources management with backward\ncompatibility since we don't modify the unit tests.\n\nChange-Id: I397768ba0c9d8020c6e722aa34315dd32b1d967a\nImplements: blueprint common-openstack-identity-resource",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-11-21 10:24:14-05:00",
+        "files": ["auth.pp", "auth_cfn.pp"]
+      },
+      {
+        "hash": "2aad2eba462a3d22441bfb396f24ee97d575040a",
+        "msg": "db: Added postgresql backend using openstacklib helper\n\nStandardize heat module, and add postgresql backend.\n\nChange-Id: I6f5479008f1fc82329e802a5204576e26f0e80d7\nImplements: blueprint commmon-openstack-database-resource",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-12-30 19:23:11+01:00",
+        "files": [".fixtures.yml", "postgresql.pp", "heat_db_postgresql_spec.rb"]
+      },
+      {
+        "hash": "c231da8de6d3ef14a23259d1d8e05c7b6c6d83ba",
+        "msg": "Switch to TLSv1 as SSLv3 is considered insecure and is disabled by default\n\nRabbitmq won't talk to us anymore if we try to use SSLv3 as it disabled\nsupport for SSLv3. Openstack components use python's openssl\nimplementation which does not support TLSv1.1 and TLSv1.2 yet so we\njust switch to TLSv1. Support for newer TLS should come with python\n2.7.9+\n\nCloses-Bug: #1409667\nChange-Id: I949421cd092a31eab3ef7f2194c4da3a9dbac818",
+        "cmtr": "Lukas Bezdicka",
+        "date": "2015-01-12 16:42:17+00:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "74e874365933b3d7a07d6413762597e78efaaaa8",
+        "msg": "Move keystone role creation to keystone area\n\nWhen the engine code does things with Keystone roles/etc it breaks when\nrun on nodes that are not running Keystone. Some environments have\nKeystone in a separate node thereby causing issues. This moves it into\nthe Keystone auth class to match the functaionality of other puppet\nmodules and avoid this issue. The older parameters are deprecated but\nwill still work.\n\nBased on the original patch by Vladislav Belogrudov.\n\nChange-Id: I3d6545cf1e5338b1098ee52daedcc17dc9ad990b\nCloses-Bug: #1393293",
+        "cmtr": "Matt Fischer",
+        "date": "2015-01-12 14:25:56-07:00",
+        "files": ["engine.pp", "auth.pp", "heat_engine_spec.rb", "heat_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "ef541ea4f181ba7fe201c653f7f918c8477023e8",
+        "msg": "Run dbsync when engine is upgraded\n\nThe dbsync needs to be run when upgrading the engine package so that we\nwill apply any new database migrations needed by the new code.\n\nChange-Id: Iac432741adf07122e27367c1011a9291273f514b",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-01-20 19:48:15+00:00",
+        "files": ["engine.pp"]
+      },
+      {
+        "hash": "9bbf4df6efbb68619ca364f87c92ad8fdb9ab933",
+        "msg": "added option to configure flavor in heat.conf\n\nOption to Specify Authentication method.\nSet flavor to 'standalone' to get Heat to work with a remote OpenStack.\nDefaults to 'keystone'\n\nChange-Id: I5ff596b6418d71726714ec69211352dd5f4b8db2\nImplements: blueprint option-to-configure-flavor-in-heat.conf",
+        "cmtr": "Saju Madhavan",
+        "date": "2015-02-02 14:11:53+05:18",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "a4af24cb2f00a413e35d87e078807659addf5d55",
+        "msg": "Rework delegated roles\n\nIn deployments that have keystone only nodes, the keystone nodes will\nneed to configure the keystone roles, but they will not have a heat.conf\nfile. This means that the functionality between writing the config file\nand configuring the role is split. The old role configuration is left in\nengine as a deprecated parameter.\n\nFixes-bug: #1409977\n\nChange-Id: I84a53c4992bcdfc4440560b78c602d517a18ec39",
+        "cmtr": "Matt Fischer",
+        "date": "2015-02-03 17:46:49+00:00",
+        "files": ["engine.pp", "auth.pp", "heat_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "d24f0290e0758403aeede6165a54ff7aa7e4d16a",
+        "msg": "Support region_name for Heat\n\nIn environments with more than one region, heat will just pick the first\nendpoints it sees in the catalog unless the region is specified. This\nallows the ability to tell Heat which region to use\n\nChange-Id: I795315fee8955d9c1c29e273852f6dad3b777019",
+        "cmtr": "Matt Fischer",
+        "date": "2015-02-04 19:59:55-07:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "02df1c7974c656fc4e3c39c8ab11ac9d4e2c75d2",
+        "msg": "Mark heat's keystone password as secret\n\nChange-Id: I7d4e0fe452566435eb67d3d9ed6b3849021ba690",
+        "cmtr": "Matt Fischer",
+        "date": "2015-02-24 13:22:50-07:00",
+        "files": ["init.pp", "domain.pp", "heat_init_spec.rb", "heat_keystone_domain_spec.rb"]
+      },
+      {
+        "hash": "ab27c58659d8927c05b723b6ba75ccf5ccce9285",
+        "msg": "Add support for identity_uri.\n\nThis patch adds the ability to set a new identity_uri parameter.\nIt also deprecates the old auth_host, auth_port, auth_protocol,\nand auth_admin_prefix parameters. Logic is in place so that\nusers of the deprecated settings should have a smooth upgrade\nprocess and get deprecation warnings until they adopt the\nnew settings.\n\nChange-Id: I833bbac9338553daf88459a311f14a3788d90dfb",
+        "cmtr": "Matt Fischer",
+        "date": "2015-02-27 10:25:24-07:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "0993b23eeb02c892400d4ab14179740515772539",
+        "msg": "Make configuring the service optional.\n\nEven if the endpoint is disabled the service will always be created.\nMake this settable like the endpoint.\n\nChange-Id: I7a4f7c660c1ce857f936156a0e3d2bb419571759",
+        "cmtr": "Matt Fischer",
+        "date": "2015-03-01 18:49:43-07:00",
+        "files": ["auth.pp", "auth_cfn.pp", "heat_keystone_auth_cfn_spec.rb", "heat_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "4276170148737e035eb5881ee9b0ed14eae30302",
+        "msg": "Set instance_user in heat.\n\nIf you leave it commented out, heat defaults it to ec2-user which can be\nconfusing to users. This allows you to set the value.\n\nChange-Id: I44fef59d3ed1f7851d8504855a7ae0d5460fdc84",
+        "cmtr": "Matt Fischer",
+        "date": "2015-03-01 19:00:27-07:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "44e1bbf0399408f2621571f8138b8598389ee6d1",
+        "msg": "Add Puppet 4.x lint checks\n\nThis changes the puppet-lint requirement to 1.1.x, so that we can use\npuppet-lint plugins. Most of these plugins are for 4.x compat, but some\njust catch common errors.\n\nChange-Id: If5f03538be85cee4a1d3b4c9a87eae1230432114",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-03-02 13:54:32+01:00",
+        "files": ["Gemfile", "site.pp", "api.pp", "api_cfn.pp", "api_cloudwatch.pp", "client.pp", "engine.pp", "init.pp", "domain.pp"]
+      },
+      {
+        "hash": "c67c563416f1983e7de09b391ab5ae5b968b2ab9",
+        "msg": "Added missing enable_stack_abandon configuration option.\n\nChange-Id: I71f8aa8abb211ec25075d5dea2f8a9014fe22c28\nCloses-Bug: #1415986",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-03-11 22:12:54+01:00",
+        "files": ["engine.pp", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "8c09567b62040245ae196d36ac8f2c94b3a9b6c9",
+        "msg": "Log output of heat-keystone-setup-domain\n\nFor debugging reasons output of the script should be logged (and I'm\nvery sorry that I didn't realize it in the original patch).\n\nChange-Id: I7799021b51039bffd7082c4e587fe49b8424f5d0",
+        "cmtr": "Martin Mágr",
+        "date": "2015-03-19 10:27:56+01:00",
+        "files": ["domain.pp", "heat_keystone_domain_spec.rb"]
+      },
+      {
+        "hash": "dc047a0f011c52d809dea3f2b3c01cb103f0091a",
+        "msg": "Add support for stack_adopt and move stack_abandon\n\nThis adds support for enable_stack_adopt and moves\nenable_stack_abandon out of the engine manifest and into the main one.\n\nChange-Id: I93629f2b2173a767669fec0b17107a69dbf759de",
+        "cmtr": "Matt Fischer",
+        "date": "2015-03-27 10:23:39-06:00",
+        "files": ["engine.pp", "init.pp", "heat_engine_spec.rb", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "73df6089363d8f4ea58188b5ae2187dbca3cbd6c",
+        "msg": "Tag all Heat packages\n\nSome users wish to override the default package provider by their own.\n\nTag all packages with the 'openstack' to allow mass resource attributes\noverride using resource collectors.\n\nCloses-bug: #1391209\n\nChange-Id: I09e54700438894e22d29605fec51bb056baf4050\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-03-28 19:07:21+01:00",
+        "files": ["api.pp", "api_cfn.pp", "api_cloudwatch.pp", "client.pp", "engine.pp", "init.pp", "heat_client_spec.rb", "heat_engine_spec.rb", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "744f4bbcf5bfa8d09993c6e598b10c4190c10467",
+        "msg": "Create a sync_db boolean for Heat.\n\nOther components offer the option to decide whether or not to run the\ndb sync command. Heat was missing this feature. This commit add this\nfeature for Heat.\n\nChange-Id: I06b669123fe08e02c66ee34dab78a943ff5de90c",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-04-07 11:51:28+02:00",
+        "files": ["api.pp", "api_cfn.pp", "api_cloudwatch.pp", "engine.pp", "init.pp", "heat_api_cfn_spec.rb", "heat_api_cloudwatch_spec.rb", "heat_api_spec.rb", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "c280fa550114744adb0b572982c0820ace9b207b",
+        "msg": "Fix Keystone domain class\n\nCurrently ::heat::keystone::domain works only if keystonerc_admin\nis sourced because of missing OS_TENANT_NAME env given to script\nheat-keystone-setup-domain. This patch fixes this issue.\n\nChange-Id: Idf5d35df2c39fe724350a00437b76be3333194c2",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-04-14 11:42:06+02:00",
+        "files": ["domain.pp", "heat_keystone_domain_spec.rb"]
+      },
+      {
+        "hash": "b531066283243a721fa384ba8e6ac2f61dcf76c1",
+        "msg": "MySQL: change default MySQL collate to utf8_general_ci\n\nInstall & configure MySQL database by using utf8_general_ci collation\nwhich is the way documented in OpenStack [1] and already the default\nin puppetlabs-mysql [2].\n\n[1] http://goo.gl/GA5gyZ\n[2] https://github.com/puppetlabs/puppetlabs-mysql/blob/master/manifests/db.pp#L7\n\nChange-Id: I8037d3c1971e4b9bc965a9fd0884e1839585d071\nCloses-bug: #1446375",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-04-21 18:53:53-04:00",
+        "files": ["mysql.pp", "heat_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "8b6cf3bbb794e3fac744b779f01e0c87580660b8",
+        "msg": "Make package_ensure consistent across classes\n\nThis adds a package_ensure parameter to all classes that did not have it\nand updated all package resources to use the package_ensure parameter.\n\nChange-Id: I49c3e50153bc5eba323c5a766ed1f30c23653985",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-04-23 13:42:56-04:00",
+        "files": ["api.pp", "api_cfn.pp", "api_cloudwatch.pp", "engine.pp", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "23d58ec2b61353befd2a324999ea7632a1a40e16",
+        "msg": "Engine: validate auth_encryption_key\n\nWhen using a string with a length != 16, 24, or 32 as value for the\nauth_encryption_key parameter in the /etc/heat/heat.conf file it is not\npossible to create new stacks. Creating a new stack (and probably\nanything else) will fail with the following exception:\n\nValueError: AES key must be either 16, 24, or 32 bytes long.\n\nChange-Id: I4e35cf0f782f22861319d05a3f028e5784ad26d5\nCloses-bug: #1415887",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-04-29 18:59:02-04:00",
+        "files": ["engine.pp", "heat_engine_spec.rb", "heat_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "8e97bd8438c0045b7f4ff7615b1e738d5bff44f1",
+        "msg": "Allow setting default config/signal transport\n\nThis change allows the Kilo heat.conf options\ndefault_software_config_transport and default_deployment_signal_transport to\nbe set. This is required for operators who would prefer a different default\ntransort, such as Swift TempURLs.\n\nChange-Id: I66a20f2fd6370909165093b77ef04992fb735380",
+        "cmtr": "Steve Baker",
+        "date": "2015-05-28 12:56:12+12:00",
+        "files": ["engine.pp", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "bfa9f0aa3e9dfc6dd50a000bf59c06feb07144e8",
+        "msg": "Run db_sync when heat-common is upgraded\n\nThe other packages appear to already have this, but heat-common isn't\ntriggering a db sync, and at least on Ubuntu, if this package is\nupgraded first, all the others get pulled in also.  When that happens,\nPuppet doesn't trigger a notification for the other packages and the db\nsync is never run.\n\nChange-Id: I454220ee6c501c416b60564fd3b1f00fdecfd296",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-06-06 12:35:03+00:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "456355e4709bfe4147b25449f2dab72d39decdfd",
+        "msg": "Move rabbit/kombu settings to oslo_messaging_rabbit section\n\nKilo oslo-messaging deprecates rabbit/kombu settings in the\nDEFAULT section.\n\nMove these settings to proper oslo_messaging_rabbit section.\n\nChange-Id: I8cd5fb7b8074e0acd62535238fe73a4bb9869a5d\nCloses-bug: 1444161\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-06-08 17:26:46+00:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "8062dd7ae51d7bd373949adce888a0b87113ef94",
+        "msg": "Introduce public_url, internal_url and admin_url\n\nThis change deprecates the following parameters:\n- version (replaced by public/internal/admin_url)\n- port (replaced by public/internal/admin_url)\n- public_protocol (replaced by public_url)\n- public_address (replaced by public_url)\n- internal_protocol (replaced by internal_url)\n- internal_address (replaced by internal_url)\n- admin_protocol (replaced by admin_url)\n- admin_address (replaced by admin_url)\n\nAdd deprecation warnings if any of those values are provided\nwhile maintaining full backward compatibility.\n\nCloses-bug: #1274979\nChange-Id: I52ed1e7bd9315bfc3b4d4b331ff8c4006654ea3c",
+        "cmtr": "Mathieu Gagné",
+        "date": "2015-06-11 16:49:35-04:00",
+        "files": ["auth.pp", "auth_cfn.pp", "heat_keystone_auth_cfn_spec.rb", "heat_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "0ea44a1eb117bdffb4dcd2ccc95e2c34d31cdd35",
+        "msg": "keystone/auth: make service description configurable\n\nThis commit adds the service description as a class parameter in order to allow\nusers to update from a previous version if the service description is changed\n(incorrectly spelled or wrong description)\n\nChange-Id: Ifa39ae38c1004924f14089cfc45394839d442081\nCloses-Bug: #1468407",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-06-25 08:43:16+00:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "dde3c5134f9a972d2b82d11d8966c52bb84a38e1",
+        "msg": "Add support for RabbitMQ connection heartbeat\n\nKilo oslo.messaging added heartbeating support for RabbitMQ\nconnections.  This patch adds support for this in Puppet modules\nby managing the oslo_messaging_rabbit/heartbeat_timeout_threshold\nand oslo_messaging_rabbit/heartbeat_rate settings.\n\nChange-Id: I19c82aacf83e5a4f7c9c5fbf76527f9713d6e846\nCloses-bug: 1467667",
+        "cmtr": "Mike Dorman",
+        "date": "2015-07-07 11:26:39-06:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "c06b8cbc34c08ebe552d16f73c5d7ff71ed6027f",
+        "msg": "Support setting instance_user to an empty string\n\nThis deals with the case where you don't want heat setting instance_user\nfor you. See\nhttp://lists.openstack.org/pipermail/openstack-dev/2015-June/068333.html\nfor details.\n\nCloses-Bug: #1472053\n\nChange-Id: I9e8be0dd50709d271fc81683770c78380724e405",
+        "cmtr": "Matt Fischer",
+        "date": "2015-07-07 19:24:18-06:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "46cda612de1f575623d66bd72563f0586e2b3540",
+        "msg": "Expose RPC response timeout as a puppet parameter.\n\nFor some deployments (multi-DC) being able to increase the response\ntimeout for heat RPC's is vital.\n\nChange-Id: Ib6a61e01ba9879315f9283c4fae34873ce89d338",
+        "cmtr": "Ryan S. Brown",
+        "date": "2015-07-10 12:26:46-04:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "1b1f7ca0ab9d25f7e487bfbc1b1628887a0d4a7c",
+        "msg": "Add heat::config class\n\nOther modules provide an X::config class to be able to specify\nparameters that are not yet part of the module. Heat was missing this\nfeature.\n\nThis commit aims to add it for puppet-heat.\n\nChange-Id: Ie481598ee4a1b2c451a1e8bddd5faa526d15ef30",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-07-16 15:28:51+02:00",
+        "files": ["config.pp", "heat_config_spec.rb"]
+      },
+      {
+        "hash": "0e850373a8196b06e4387abb5f2fe81727dce1fb",
+        "msg": "Add tag to package and service resources\n\nIn order to be able to take an action after all the packages of the\nmodule have been installed/updated or all the services have been\nstarted/restarted, we set a 'heat-package' and 'heat-service' tag\nfor each package and service of this module.\n\nAt the moment, there is a generic openstack tag that is not specific\nenough if one wants to take action upon a single module change.\n\nUse case :\n\nIf an action needs to be taken after all the packages have been\ninstalled or updated : Package <| tag == 'heat-package' |> -> X\n\nChange-Id: I38a6b422054dbf0fceacf6b7e329dbb3cb0fa9cb",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-07-22 20:22:24+02:00",
+        "files": ["api.pp", "api_cfn.pp", "api_cloudwatch.pp", "engine.pp", "init.pp", "heat_api_cfn_spec.rb", "heat_api_cloudwatch_spec.rb", "heat_api_spec.rb", "heat_engine_spec.rb", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "b7d19f43bd729e505d12979350082bf0c26b5b40",
+        "msg": "Remove deprecated parameter stack_user_domain\n\nAccording to [1], stack_user_domain parameter is deprecated,\nand now will be used stack_user_domain_name parameter instead.\n\n[1] http://docs.openstack.org/kilo/config-reference/content/orchestration-configuring-api.html\n\nChange-Id: I558eaf311af8751897c402b3d3c2d82b4fadb07d",
+        "cmtr": "Denis Egorenko",
+        "date": "2015-07-30 14:31:55+00:00",
+        "files": ["ruby.rb", "heat_domain_id_setter.rb", "domain.pp", "heat_keystone_domain_spec.rb", "heat_spec.rb"]
+      },
+      {
+        "hash": "b5f0f0de7469aa734a3d3ff005a819e03d6633ac",
+        "msg": "Create Heat Domain with Keystone_domain resource\n\nThis patch replaces the usage of Exec to create the Heat domain, by\nusing the Keystone_domain resource recently implemented in\npuppet-keystone.\n\nChange-Id: I5abdac6334e535e8be4e4d19223b4e83b7a39db1",
+        "cmtr": "Rich Megginson",
+        "date": "2015-07-31 13:34:06-06:00",
+        "files": ["domain.pp", "basic_heat_spec.rb", "heat_keystone_domain_spec.rb"]
+      },
+      {
+        "hash": "b0bc5d9a482ffda8c0e49aa70cf229c33bb171bb",
+        "msg": "Creation of heat::db::sync\n\nIn order to standardize the way dbsync are run across our modules,\nwe create a new class heat::db::sync.\nThis class will be included if sync_db is enabled.\n\nBy making this transition the heat::db::sync class\ncan be returned by the ENC.\n\nA use case would be in an highly available environment, with 3 galera\nnodes, include heat on every node with sync_db set to false\nand have the ENC return heat::db::sync just for one node.\n\nChange-Id: I2165dcce6ae9a47b8c9315411933de42516a18c9",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-08-04 15:33:19+02:00",
+        "files": ["sync.pp", "engine.pp", "init.pp", "heat_db_sync_spec.rb", "heat_engine_spec.rb", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "0b983460fee6eeee020455d36ad6d03690f7d57c",
+        "msg": "Add an ability to manage use_stderr parameter\n\nWhen logging is already set up, it can be useful to disable this option\nto avoid logs duplication (collected by Upstart, for example)\n\nChange-Id: I6ceb1d38307db9ca7187d19e0b4a686e39c4a118\nCloses-bug: #1482564",
+        "cmtr": "Sergey Kolekonov",
+        "date": "2015-08-07 16:44:24+00:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "0cf89d487e51d53dbce1807ce684cac4b86c0b85",
+        "msg": "Rely on autorequire for config resource ordering\n\nCurrently we specify the ordering of config resources wherever it is\nnecessary based on the presence of the file it will write to, or the\npresence of the package in charge of providing the file it will write\nto.\n\nThose kind of ordering can be specified directly at the resource level\nusing the autorequire mechanism. With this patch, any config resource\nwill make sure the package in charge of providing the file will be\ninstalled first.\n\nChange-Id: I6476060c97d350640b5a254738a60e319ad522e9",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-08-12 19:03:34+02:00",
+        "files": ["heat_config.rb", "api.pp", "api_cfn.pp", "api_cloudwatch.pp", "engine.pp", "init.pp", "ini_setting_spec.rb", "heat_config_spec.rb"]
+      },
+      {
+        "hash": "b2f791400dd4d2ab5d68b933b24cd51f27b268c8",
+        "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nChange-Id: I032ee01505e0cbc125b0e219c436b77c93f57720",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-08-29 03:19:02+00:00",
+        "files": ["api.pp", "api_cfn.pp", "api_cloudwatch.pp", "mysql.pp", "postgresql.pp", "sync.pp", "engine.pp", "init.pp", "policy.pp", "heat_api_cfn_spec.rb", "heat_api_cloudwatch_spec.rb", "heat_api_spec.rb", "heat_db_postgresql_spec.rb", "heat_engine_spec.rb", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "1b209d35be143564d4592ef188ea5c0d906a8e96",
+        "msg": "Cleanup configure_delegated_roles deprecated parameter\n\nIn Kilo, we decided to use ::heat::keystone::auth to manage the\nKeystone_role resource to help with Trusts configuration.\nThough the configuration was and still remains part of ::heat::engine\nclass because we assume ::heat::keystone::auth can be run outside the\nheat-engine node.\n\nSo this patch aims to drop the deprecated parameter, update the\ndocumentation and unit tests.\n\nChange-Id: I045a3a82095e23778c4e878b13f2fc7f561d680e",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-09-24 07:54:27-04:00",
+        "files": ["engine.pp", "auth.pp", "basic_heat_spec.rb", "heat_engine_spec.rb", "heat_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "b608fcebda837ae4c9cdf2d8a8e6e3615f111cf5",
+        "msg": "Update rpc_backend default parameter\n\nrpc_backend should be 'rabbit' which is the default in Olso Messaging.\nThis patch update the default and the conditional.\n\nChange-Id: I392dc5670d8b9ebb8c58e06c8cadd44a4adb1694",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-09-24 08:39:22-04:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "320e93d30128dabc8fa2d1e87f9c5ccae1357833",
+        "msg": "Allow to not manage Keystone domain\n\nWhen configuring Heat domains, we might want to use the default domain.\nHowever, the default domain might already exist or managed by\npuppet-keystone.\nThis patch allows to disable its management in puppet-heat, but keep\nTrue for backward compatibility so the domain will be managed by\ndefault.\n\nChange-Id: I2e9f2ebb5b12cc33565d74bf955250dcc82bcbb9",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-09-25 12:26:03-04:00",
+        "files": ["domain.pp", "heat_keystone_domain_spec.rb"]
+      },
+      {
+        "hash": "bc4e8c0d654fccaa69e0b4bb5b7d1462a9085468",
+        "msg": "Make the role for heat_stack_user configurable\n\nBefore you could configure the role in the config file but not the\nkeystone role that was created. Now you can do both.\n\nChange-Id: Iea6df1679d3ceef1f0876e65dac06628147c700b",
+        "cmtr": "Matt Fischer",
+        "date": "2015-09-29 19:44:53-06:00",
+        "files": ["engine.pp", "auth.pp", "heat_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "9ad6f36ea4cd9b7b20a5cbdb058dbea5105366d9",
+        "msg": "Put all the logging related parameters to the logging class\n\nCurrently logging configuration is splitted in two distinct classes, the\ninit.pp and the logging.pp classes. This review aims to centralize all\nlogging related parameters in a single class, the logging.pp one.\n\nThe impacted parameters are :\n\n  * use_syslog\n  * use_stderr\n  * log_facility\n  * verbose\n  * debug\n  * log_dir\n\nThis change remains backward compatible with what is currently in place\n\nChange-Id: Ia040f7c935941da0b747cf3e8b5eda1abf2ae07a",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-10-01 10:11:47+02:00",
+        "files": ["init.pp", "logging.pp", "heat_init_spec.rb", "heat_logging_spec.rb"]
+      },
+      {
+        "hash": "f592e646c4b6ca1b6f06cd6e3e01ea43f692b56d",
+        "msg": "Missing domain in keystone::domain\n\nThe domain name wasn't used for the keystone_user_role resource.\n\nThis change requires \"replace indirection calls\" [1]\nBoth needs to be merged as same time in order to pass CI tests.\n\n[1] https://review.openstack.org/226624\n\nChange-Id: I2a717b06a73af966d6625b4f6ec3254baf7c50a0\nDepends-On: I36fabf547fa50fc14d49f491f11cb4a0571f7d31",
+        "cmtr": "Gilles Dubreuil",
+        "date": "2015-10-14 09:00:32+11:00",
+        "files": ["domain.pp", "heat_keystone_domain_spec.rb"]
+      },
+      {
+        "hash": "fb4486166a27618e872b199a05ade1822b6e0016",
+        "msg": "Introduce heat::db class\n\nCurrent modules[1][2][3] implements a\n<component>::db class that is not implemented in heat.\nThis commit aims to apply here the same logic\n\n[1] https://github.com/openstack/puppet-nova/blob/master/manifests/db.pp\n[2]\nhttps://github.com/openstack/puppet-designate/blob/master/manifests/db.pp\n[3]\nhttps://github.com/openstack/puppet-ceilometer/blob/master/manifests/db.pp\n\nChange-Id: I922260265d110d5823c546813ee125400ecc183d",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-10-14 09:34:58+02:00",
+        "files": ["db.pp", "init.pp", "params.pp", "heat_db_spec.rb", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "dca9fe942b99b9c30e31167e4736058767738f21",
+        "msg": "Move deps & external hooks into a standalone class\n\nPreviously the anchors and dependencies that allow external hooks were\nall in the main ::heat class.  However, if you wanted to include just\n::heat::db::mysql, then it would fail, since it assumed the main heat\nclass was included.  This moves all of those resources and relationships\ninto a new class, ::heat::deps.  All of the classes will now include\nthis class so that the anchors and deps are always evaluated even if\nonly a portion of the classes are used, and even if ::heat isn't pulled\nin.\n\nChange-Id: I4297df160a7afae2b66c1ac76e37de313fa4fb09\nCloses-Bug: #1507934",
+        "cmtr": "Clayton O'Neill",
+        "date": "2015-10-20 09:57:36-04:00",
+        "files": ["api.pp", "api_cfn.pp", "api_cloudwatch.pp", "client.pp", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "engine.pp", "init.pp", "auth.pp", "auth_cfn.pp", "domain.pp", "logging.pp", "policy.pp", "heat_deps_spec.rb"]
+      },
+      {
+        "hash": "0be4a414861e67101eb1575064824b98639430d1",
+        "msg": "db: Use postgresql lib class for psycopg package\n\nThis patch introduce the same design than mysql for postgresql\nby requiring dedicated lib::python class instead of declaring\na new resource package within heat module.\n\nChange-Id: I386e61054e84b14d25afebb4aa415ab2b6161a57",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-10-20 16:27:14+02:00",
+        "files": ["db.pp", "params.pp", "heat_db_spec.rb"]
+      },
+      {
+        "hash": "679c8a3379bd48f8a293eb7c2ef1b392e3abcb7e",
+        "msg": "Remove POSIX users, groups, and file modes.\n\nThis patch removes the File, Group, and User resources of /etc/heat and\n/etc/heat/heat.conf which should be delivered by packaging tools.  These\nresources (mode, user, and group attributes) could be in conflict with\ndifferent OS packaging systems which isn't a desired result.\n\nChange-Id: I5d49f3fc06df295700377eb66f883c9780959f96\nCloses-Bug: #1458915",
+        "cmtr": "Drew Fisher",
+        "date": "2015-10-20 08:40:56-06:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "65df5d530bd1c3c85cd239a632e445700d6ecd0a",
+        "msg": "Change section name for AMQP qpid parameters\n\nAccording to docs for liberty and kilo [1,2] should be\nsection 'oslo_messaging_qpid' instead of 'DEFAULT'.\n\n[1] http://docs.openstack.org/liberty/config-reference/content/configuring-rpc.html\n[2] http://docs.openstack.org/kilo/config-reference/content/configuring-rpc.html\n\nChange-Id: Ic96528a60730a43838e002e639fa7aeb166c2424",
+        "cmtr": "Denis Egorenko",
+        "date": "2015-10-21 14:52:07+03:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "cef8a55374eebb501d53f8ac4f3b6d479d734153",
+        "msg": "Change section name for AMQP rabbit parameters\n\nParameter 'amqp_durable_queues' under section 'DEFAULT' now is\ndeprecated since Liberty and should be placed under certain\nrpc backend section [1,2]\n\n[1] https://github.com/openstack/oslo.messaging/blob/liberty/oslo_messaging/_drivers/amqp.py#L36\n[2] http://docs.openstack.org/liberty/config-reference/content/configuring-rpc.html\n\nChange-Id: Ib7bbea586b21c42eb9fd13c4a376d23fce165272",
+        "cmtr": "Denis Egorenko",
+        "date": "2015-10-21 20:15:28+03:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "bf3b36044a9ee7034af5472dc166c8f925a01c28",
+        "msg": "Fix up doc string for workers variable\n\nChange-Id: Ie886a5e2603dd38c2642393cb553806b3e749d43",
+        "cmtr": "Sam Morrison",
+        "date": "2015-10-22 09:52:55+11:00",
+        "files": ["api.pp", "api_cfn.pp", "api_cloudwatch.pp"]
+      },
+      {
+        "hash": "e7c472d053679490d8b225d2f5c1f591003b5b6e",
+        "msg": "Improve heat::keystone::domain\n\n - change resource names so that autorequire works\n - enable to skip Keystone resource management\n\nChange-Id: I9078be31f26e454e0686debcefa070721767a581",
+        "cmtr": "Martin Mágr",
+        "date": "2015-11-09 12:01:36+01:00",
+        "files": ["domain.pp", "heat_keystone_domain_spec.rb"]
+      },
+      {
+        "hash": "cb7f3fa6ebf5c94862b1182ffce5fcff7aea54aa",
+        "msg": "Add rabbit_ha_queues option\n\nThere are two ways for setting up RabbitMQ HA:\n\n 1. Configure rabbit_hosts to multi rabbit hosts.\n 2. Setting up a loadbalancer in front of RabbitMQ cluster,\n    provide a unique address in rabbit_host\n\nIn current, rabbit_ha_queues option is controled by rabbit_hosts\nif conditional statement. When users try the second method:\nchanging rabbit_ha_queues to true. If they don't set rabbit_hosts\n, then current logic will not work.\n\nThis patch is aim to add an rabbit_ha_queues option, set it to undef by\ndefault for backward compatbility.\n\nChange-Id: I25fe5ef79d774757ee395efeaf4588efc56aada5\nClose-Bug: #1485287",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-11-18 03:17:37+08:00",
+        "files": ["init.pp", "heat_init_spec.rb", "heat_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "4d4430efd68a75d29554e5d98db02735f2d0823b",
+        "msg": "Allow customization of db sync command line\n\nAdd parameter to heat::db::sync to allow end\nusers to add command line parameters to the db sync command.\n\nChange-Id: Id9de1022481fbeedc3db78a3dd2e3c5f2a962e10\nPartial-bug: #1472740",
+        "cmtr": "Nate Potter",
+        "date": "2015-11-19 15:18:27+00:00",
+        "files": ["sync.pp", "params.pp", "heat_db_sync_spec.rb"]
+      },
+      {
+        "hash": "ae2044375198353f262148565d9afc8c703b9cd0",
+        "msg": "Switch Heat to $::os_service_default - part 1\n\nSwitching Heat to usage of os_service_default fact\n\nChange-Id: Iff9cda880bb938b1fff3bf217c7cbf233daaf68a\nRelated-bug: #1515273",
+        "cmtr": "Mykyta Karpin",
+        "date": "2015-11-26 18:21:56+02:00",
+        "files": ["db.pp", "init.pp", "logging.pp", "heat_db_postgresql_spec.rb", "heat_db_spec.rb", "heat_init_spec.rb", "heat_logging_spec.rb"]
+      },
+      {
+        "hash": "6aa38dc8aeefff0a74f6bdcdbc9f5283112274b1",
+        "msg": "add more heat.conf settings to heat, engine classes\n\nheat.conf settings added:\n\n max_template_size\n max_json_body_size\n max_resources_per_stack\n notification_driver\n instance_connection_https_validate_certificates\n instance_connection_is_secure\n\nChange-Id: I00db48bb7e5fde7ba1048fc1cb24fcdcf4e85c04",
+        "cmtr": "Mykyta Karpin",
+        "date": "2015-12-02 10:37:19+02:00",
+        "files": ["engine.pp", "init.pp", "heat_engine_spec.rb", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "f70d5d5f31685bccc7e1f8bca9a63ea43ccb3251",
+        "msg": "Support of PyMySQL driver for MySQL backend\n\nAdd the ability to use python-pymysql library as backend for MySQL\nconnections.\n\nUpdate acceptance tests to use pyMySQL.\n\nChange-Id: Id27afb52428a50ec889e8ae77f3509e1ca956538\nDocs: https://wiki.openstack.org/wiki/PyMySQL_evaluation",
+        "cmtr": "Javier Pena",
+        "date": "2015-12-03 10:11:31+01:00",
+        "files": ["site.pp", "db.pp", "params.pp", "basic_heat_spec.rb", "heat_db_spec.rb", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "dcd32842ab96ccbd0dfc06047e1f7cc6d1621635",
+        "msg": "Remove qpid messaging support\n\nQpid messaging driver is removed from Oslo.messaging [1]\nTherefore, we cannot support it anymore.\n\n[1] I4a9cba314c4a2f24307504fa7b5427424268b114\n\nChange-Id: I2bb8e24e3dc316af672aa18f4e3cbf57e4746ad7",
+        "cmtr": "Denis Egorenko",
+        "date": "2015-12-07 20:31:59+03:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "b898edf90ae5814f32e6303b733468673970ddfd",
+        "msg": "Wrong usage of \"an\"\n\nWrong usage of \"an\" in the messages:\n\"The value is an hash of heat_config resources\"\nShould be:\n\"The value is a hash of heat_config resources\"\n\nTotally 1 occurrence in puppet-heat base code.\n\nChange-Id: I0d449ca9411da303772351e07eaa53331ed27aff",
+        "cmtr": "hgangwx",
+        "date": "2015-12-30 20:04:53+08:00",
+        "files": ["config.pp"]
+      },
+      {
+        "hash": "019883ba1d0eaf3d5c2d34c86ced924f0f4a4123",
+        "msg": "Implement crontab to purge deleted data\n\nheat-manage provides a tool to purge Heat deleted data [1].\nThis patch implements a crontab using the same interface as other\nmodules.\nBy default, it will purge that are more than 1 day old.\n\n[1] http://docs.openstack.org/developer/heat/man/heat-manage.html\n\nChange-Id: Ia2b80e5003450cd794ebb0c9ca72200ec8616e81",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-01-16 09:35:51-05:00",
+        "files": ["purge_deleted.pp", "basic_heat_spec.rb", "heat_cron_purge_deleted_spec.rb"]
+      },
+      {
+        "hash": "811f7ce4b04d74ef428f815d42228468a0bed63f",
+        "msg": "Switch Heat to $::os_service_default - part 2\n\nSwitching to os_service_default fact below classes:\nheat\nheat::api\nheat::api_cfn\nheat::api_cloudwatch\nheat::engine\n\nChange-Id: Iff0275b701f2096f6f927ff962ef06c673827b4e",
+        "cmtr": "Mykyta Karpin",
+        "date": "2016-01-25 18:53:16+02:00",
+        "files": ["api.pp", "api_cfn.pp", "api_cloudwatch.pp", "engine.pp", "init.pp", "heat_api_cfn_spec.rb", "heat_api_cloudwatch_spec.rb", "heat_api_spec.rb", "heat_engine_spec.rb", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "df8fe7fde475de1476c847dbbba5a168a0d4c0cb",
+        "msg": "Add api_paste type/provider for Heat\n\nAdd the capability to configure api-paste.ini with config.pp.\nCloses-bug: #1483371\n\nChange-Id: Ide505a7cc0ed2e5a64db0fca0a6ae0c1ba7a3a7e",
+        "cmtr": "ZhongShengping",
+        "date": "2016-02-17 14:24:45+08:00",
+        "files": ["config.pp", "heat_config_spec.rb"]
+      },
+      {
+        "hash": "bd2cd8997cde4dea9d2e5e66890b8a939b02430f",
+        "msg": "Set region_name for [keystone_authtoken]\n\nregion_name_for_services ensures that heat will talk to the right\nservices like nova/neutron, but for the token validation we need to also\nset region_name for the keystone_authtoken section.\n\nChange-Id: I62974e661cb82e52d721c97c27c586f98eee970c\nCloses-Bug: #1558673",
+        "cmtr": "Matt Fischer",
+        "date": "2016-03-17 11:01:13-06:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "48b80077e83203c2dc40894e3adc6f3bd1ac170d",
+        "msg": "Support preferred Keystone auth methods\n\nKey moments:\n  * fill \"trustee\" section in heat.conf\n  * add auth_plugin support (for interaction\n    with keystone)\n  * deprecate keystone_authtoken options\n    (all options not for auth_plugin settings)\n  * use versionless keystone urls\n  * create \"clients_keystone\" section to prevent\n    \"keystone_authtoken/auth_uri\" usage\n\nChange-Id: Iade6c0736e57b8e752244badd540eb3d605714f5\nCloses-bug: #1528963\nCloses-bug: #1529016",
+        "cmtr": "dmburmistrov",
+        "date": "2016-03-24 17:26:43+03:00",
+        "files": ["init.pp", "versionless-auth-urls-08c741084b9a9040.yaml", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "07dd209c029f574ffe2fd88bba2345633b556a01",
+        "msg": "Set oslo options in heat module through puppet-oslo\n\nKey moments:\n  * use oslo::{db,log}, oslo::messaging::{default,\n    notifications,rabbit}\n  * update top-file docs\n  * add new parameters provided by oslo\n  * update tests accordingly\n  * add oslo dependency to \"metadata.json\"\n  * add release notes\n  * purge qpid rpc_backend configuration\n\nChange-Id: I1a0df52a2e1475fbbf171e138ad3ef67566b041d",
+        "cmtr": "dmburmistrov",
+        "date": "2016-04-11 16:47:46+03:00",
+        "files": ["db.pp", "init.pp", "logging.pp", "metadata.json", "switch_to_oslo-33725628dde94d4a.yaml", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "b63840b4821765751f948d53c1008c5a311e72d6",
+        "msg": "Purge redundant database configuration\n\n* this logic is already applyed by oslo::db\n* remove duplicated code\n* purge unused params\n* update tests\n\nChange-Id: Icbfd98e57ff1af3f9c5f7c37012e2f5d8685eb1e",
+        "cmtr": "dmburmistrov",
+        "date": "2016-04-12 20:46:21+03:00",
+        "files": ["db.pp", "params.pp", "heat_db_spec.rb"]
+      },
+      {
+        "hash": "7c8cecf7fe24a47295153e1e7a073426969933a1",
+        "msg": "Set oslo::policy in heat\n\nChange-Id: I96f3706512a31fa99fb36ffc32c13ed303c58e2c",
+        "cmtr": "dmburmistrov",
+        "date": "2016-04-13 18:06:48+03:00",
+        "files": ["policy.pp", "heat_policy_spec.rb"]
+      },
+      {
+        "hash": "2ee44729da778040830b28d90e3c90fcefb7e47b",
+        "msg": "add missing num_engine_workers parameter\n\nThis option exists for heat::api but is missing for heat::engine.\nThis commit adds the missing num_engine_workers parameter.\n\nChange-Id: I69565c13b732ef74531a516aac8a368597411856",
+        "cmtr": "Marcus Furlong",
+        "date": "2016-04-14 05:37:02+00:00",
+        "files": ["engine.pp", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "d69638490940bb4bd27ca070d50702ddfaa61b6b",
+        "msg": "Fix email and auth_name defaults in header\n\nThe header had different values (\"heat\" rather than \"heat-cfn\") for\nthese than the code.  This change fixes it by adapting the\ndocumentation (header) to the reality of the code.\n\nChange-Id: I92b25527b65e954afae36292b0d9140a8b6e4b09\nCloses-bug: #1571407",
+        "cmtr": "Simon Leinen",
+        "date": "2016-04-17 23:07:51+02:00",
+        "files": ["auth_cfn.pp"]
+      },
+      {
+        "hash": "6099d5c09780a1477be388477a3c0c97c98cac7d",
+        "msg": "Totally drop Qpid support\n\nQpid was removed in Mitaka from Oslo Messaging, so now we can\ndrop it in manifests.\n\nChange-Id: I5702e42ec50e3ea4612434f9d3c836d0b0356c29",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-04-18 14:05:14+03:00",
+        "files": ["init.pp", "logging.pp", "drop_qpid-a1f943682593ae2d.yaml", "heat_logging_spec.rb"]
+      },
+      {
+        "hash": "a70877902ce995ed582ed4e58088a99b8a3fb713",
+        "msg": "Cleanup rabbit ssl checks\n\nThe checks for rabbitmq ssl parameters weren't removed\nin commit with switching to oslo::messaging usage.\nThese check are already in oslo::messaging define,\nso don't need to keep them in heat module anymore.\n\nRemove unit test with strict requirement for setting\nkombu_ssl_certfile and kombu_ssl_keyfile parameters\ntogether as this isn't actually required in oslo messaging.\n\nChange-Id: I822905723a07f5835202b4475944bffd206d8b86",
+        "cmtr": "iberezovskiy",
+        "date": "2016-04-20 20:17:52+03:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "3b49812852e8f672a5be64d026e95cbda50d00ef",
+        "msg": "Drop all current deprecated parameters for heat\n\nChange-Id: I71ef16d9467230c9430458971266c67ae2def238",
+        "cmtr": "iberezovskiy",
+        "date": "2016-04-22 14:45:22+03:00",
+        "files": ["mysql.pp", "init.pp", "auth.pp", "auth_cfn.pp", "domain.pp", "heat_keystone_auth_cfn_spec.rb", "heat_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "c21602d8f401bb8624966d7db791c14cdd20c057",
+        "msg": "Add support for db_max_retries param\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: Ie4f94a07c6e6e9fdddd8c048447e493abb3ebd48\nCloses-Bug: 1579718",
+        "cmtr": "nanhai.liao",
+        "date": "2016-05-10 13:39:47+08:00",
+        "files": ["db.pp", "heat_db_spec.rb"]
+      },
+      {
+        "hash": "671eb9ce2acae8b763b542a9b22c6f6b9b3e1321",
+        "msg": "Add some kombu options\n\nAdd kombu_reconnect_delay, kombu_failover_strategy\nand kombu_compression for heat.\n\nChange-Id: I7fa58c710a967acbff726801683025a08aab326b",
+        "cmtr": "iberezovskiy",
+        "date": "2016-05-12 17:05:41+03:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "50c7bc086ca0e9bc924e71cd9747856385232be1",
+        "msg": "Introduce support for oslo.messaging amqp driver configuration\n\nhis commit adds support for the oslo.messaging amqp rpc_backend which enables\nthe AMQP 1.0 driver. A proposed feature for the Newton oslo.messaging release is\nan update to the AMQP 1.0 driver to support a stateless messaging interconnect\nfor RPC traffic[1].\n\nThis patch:\n* use oslo::messaging::amqp resource\n* add new parameters for the oslo_messaging_amqp driver\n* update spec tests for amqp as alternate rpc_backend\n* add feature release note\n\n[1] https://blueprints.launchpad.net/oslo.messaging/+spec/amqp-dispatch-router\n\nChange-Id: I314f0f6bbba07d32f720b650b12c7bd30d07d295",
+        "cmtr": "Andrew Smith",
+        "date": "2016-05-12 12:02:19-04:00",
+        "files": ["init.pp", "add_oslo_messaging_amqp-99fc5cbd6f7af42c.yaml", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "dcc6dc20fd66e1094d372b0e9c3d91a06a5b6655",
+        "msg": "Deprecate verbose option in logging\n\nOption \"verbose\" from group \"DEFAULT\" is deprecated for removal.\nThe parameter has no effect.\n-Deprecated verbose for logging and init\n-Remove verbose in README\n-Remove verbose from tests.\n\nIf this option is not set explicitly, there is no such warning\n\nChange-Id: I0a3a42341e4dd32196beb793d718edf85850394f",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-05-18 01:49:23-03:00",
+        "files": ["README.md", "init.pp", "logging.pp", "verbose-deprecation-5e3dc0c4718181a5.yaml", "basic_heat_spec.rb", "heat_init_spec.rb", "heat_logging_spec.rb"]
+      },
+      {
+        "hash": "a60abccabbbba8aff6e53b2c64d98fb8a1a6739c",
+        "msg": "Add option to enable Heat's SSL middleware\n\nHeat is using the HTTPProxyToWSGI middleware from oslo.middlware in\nits default api-paste configuration. This commit gives us the ability\nto enable/disable that middlware.\n\nChange-Id: If80609d03399cf6511c0cf7e764e75a9e217f219\nDepends-On: I35256153b2f005e729be9d242f63ff14f393b54a",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2016-05-19 20:38:42+03:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "90477ae87d084dc1dfbc94d4b20776611797ea38",
+        "msg": "Add support for clients_heat/url option\n\nThis option is used for connection between Heat\nand other OpenStack services.\n\nChange-Id: I7ec1fcfaeb29634a1246e17b0d41b63d1d505fda",
+        "cmtr": "iberezovskiy",
+        "date": "2016-05-23 13:10:35+03:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "5b9adc693782452b479e8eaf6251d1ab3cc67cc6",
+        "msg": "Add support for convergence_engine option\n\nThis is a boolean which enables the \"new\" heat convergence architecture.\n\nHeat plans to make this enabled by default soon (currently disabled), so\nadding this will provide an easy way for deployers to maintain the old\narchitecture if they wish.\n\nChange-Id: I4e879751a30c961e851ab9da80612d3f2fb2395a",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-05-25 12:04:49-04:00",
+        "files": ["engine.pp", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "85d069bbf7836dfb54b9ea5f840cb7705d301e09",
+        "msg": "Add transport_url parameters for oslo.messaging\n\nThis commit adds the transport_url parameters for oslo.messaging. The\nurl is of the form:\n\n  transport://user:pass@host1:port[,hostN:portN]/virtual_host\n\nWhere the transport scheme specifies the rpc or notification backend\nas one of rabbit, amqp, zmq, etc. Oslo.messaging is deprecating the\nhost, port, and auth configuration options [1]. All drivers will get\nthese options via the transport_url.\n\nThis patch:\n* use oslo::messaging::default resource\n* use oslo::messaging::notifications resource\n* add parameters for transport_url(s)\n* update spec tests\n* add feature release note\n\n[1] https://review.openstack.org/#/c/317285/\n\nChange-Id: I42ac4ecb3ce9935dc5403c3b1962ee6a6ff8625b",
+        "cmtr": "Andrew Smith",
+        "date": "2016-05-27 09:14:10-04:00",
+        "files": ["init.pp", "add_transport_url_parameters-1472d30d4aaa30ba.yaml", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "e1c09e7c384c6245c88158e65d793034c8b7364c",
+        "msg": "Add purge_config option\n\nAdd the option in order to facilitate management.\nUser can ensure that only the options they hoped\nare configured.\n\nChange-Id: I3756c7123fe35dc15da9f0ee526c0039f9e74ad9",
+        "cmtr": "ZhongShengping",
+        "date": "2016-06-08 10:47:04+08:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "6f16641c4e35e12844bd4b5c9a4bbf9c8d030886",
+        "msg": "Provide default service_name for keystone endpoint\n\nThis change updates the heat::keystone::auth class to include a default\nservice_name of 'heat' so that if a user changes the auth_name, the\nservice is still created as being related to 'heat'. This improves the\nuser experiance when they want to customize the usernames for services.\n\nCloses-Bug: #1590040\n\nChange-Id: Iee47e78dbeb269e5fe6c52030de378c13e51c1f3",
+        "cmtr": "Venkata Mahesh Jonnalagadda",
+        "date": "2016-06-10 06:45:40-04:00",
+        "files": ["auth.pp", "auth_cfn.pp", "keystone-auth-name-8b4dba1dfc52533b.yaml", "heat_keystone_auth_cfn_spec.rb", "heat_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "f55c866119ff453fcd69137ce6a0cf07f3db29c3",
+        "msg": "Enforce use_ssl flag\n\nSetting the certificate and key in heat's configuration has the\neffect of enabling SSL. So, one can actually enable SSL using those\nand ignore the use_ssl flag.\n\nThis commit enforces that flag, so if the flag is not set, then those\nparameters shouldn't be persisted in Heat's configuration.\n\nA unit test was removed for each of the correspondent API's because they no\nlonger apply. If ssl is not enabled, then heat_config resources containing\nthose configurations are not present in the resource catalog.\n\nChange-Id: I87fb234943829d7f0d8786e98e90b81e9a71c8ef",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2016-06-15 16:48:10+03:00",
+        "files": ["api.pp", "api_cfn.pp", "api_cloudwatch.pp", "heat_api_cfn_spec.rb", "heat_api_cloudwatch_spec.rb", "heat_api_spec.rb"]
+      },
+      {
+        "hash": "21a466b5ca60546587f44115c1b509e794c4ba2d",
+        "msg": "Add memcached_servers for keystone authtoken\n\nThis change adds the abiltity to manage the memcached servers for the\nkeystone authtoken configuration in heat\n\nChange-Id: Ifa1f98607b4c0298a2723765870ef466dbb8447a",
+        "cmtr": "Alex Schultz",
+        "date": "2016-07-01 13:06:52-06:00",
+        "files": ["init.pp", "keystone-authtoken-memcached-5479c664f92e0179.yaml", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "3ae24a481510ca455d19cfa12cc48b0383e4e3b5",
+        "msg": "Actually use domain_name parameters\n\nIn a previous patch [1] we introduced new parameters to configure domain\nname for project & user but the parameters were not used anywhere.\nNow they are, and we can deploy Keystone from trunk.\nAlso modify default values for *_domain_id parameters to use\nos_service_default.\n\n[1] 48b80077\n\nChange-Id: Ib4e8590219559d056252924b21b93fd9acd08715",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-07-04 10:37:40-04:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "54dea6345eef7ac92c15e7d152b9a042bbb6f4b5",
+        "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: I904746113accb61943604d34b783167149992561\nRelated-Bug: 1599113",
+        "cmtr": "Athlan-Guyot sofer",
+        "date": "2016-07-08 08:56:27+00:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "519f9745938be2e55be15b8463c6cac8e50e1ba1",
+        "msg": "Add environment_dir and template_dir options\n\nAdd environment_dir and template_dir options to config.\n\nChange-Id: Ia1aba0d65906fef378472967cf28a79254e05f6b",
+        "cmtr": "ZhongShengping",
+        "date": "2016-08-05 08:29:25+08:00",
+        "files": ["engine.pp", "add_environment_template_dir_parameters-56134e912ad9f417.yaml", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "d13fa69cea28740529475fb903039962476c3c25",
+        "msg": "Add CORS settings\n\nAllow configuring CORS settings.\n\nChange-Id: I17c6298d051a25ce1917f4c4b32bfafe76c6e367",
+        "cmtr": "Martin André",
+        "date": "2016-08-12 10:20:55+02:00",
+        "files": ["cors.pp", "heat_cors-10be802ba4227f07.yaml", "heat_cors_spec.rb"]
+      },
+      {
+        "hash": "85b55571b8789ad7b2e651cd029ba41cbb2b67a0",
+        "msg": "Move Heat to authtoken\n\nSwitch keystone_authtoken parameters for the new class\nheat::keystone::authtoken to configure the keystone_authtoken section\nin heat.conf.\n\nSome deprecations:\n- heat::auth_uri is deprecated in favor of\n  heat::keystone::authtoken::auth_uri.\n- heat::identity_uri is deprecated in favor of\n  heat::keystone::authtoken::auth_url.\n- heat::auth_plugin is deprecated in favor of\n  heat::keystone::authtoken::auth_type.\n- heat::keystone_user is deprecated in favor of\n  heat::keystone::authtoken::username.\n- heat::keystone_tenant is deprecated in favor of\n  heat::keystone::authtoken::project_name.\n- heat::keystone_password is deprecated in favor of\n  heat::keystone::authtoken::password.\n- heat::keystone_user_domain_name is deprecated in favor of\n  heat::keystone::authtoken::user_domain_name.\n- heat::keystone_user_domain_id is deprecated, use the name option.\n- heat::keystone_project_domain_name is deprecated in favor of\n  heat::keystone::authtoken::project_domain_name.\n- heat::keystone_project_domain_id is deprecated, use the name option.\n- heat::memcached_servers is deprecated in favor of\n  heat::keystone::authtoken::memcached_servers.\n\nChange-Id: I466558e98176f20743271191df64dc327f0efcc6\nCloses-bug: #1604463",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-08-25 18:08:22-03:00",
+        "files": ["site.pp", "init.pp", "authtoken.pp", "authtoken-715a6152e71bd744.yaml", "basic_heat_spec.rb", "heat_api_cfn_spec.rb", "heat_api_cloudwatch_spec.rb", "heat_api_spec.rb", "heat_cron_purge_deleted_spec.rb", "heat_db_postgresql_spec.rb", "heat_engine_spec.rb", "heat_init_spec.rb", "heat_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "1d95c04dba02d9f931247824e3981190ecd984d5",
+        "msg": "authtoken: add missing doc\n\nChange-Id: I0afa325735db9510aefb17bcfcff7b8ae9c4591f",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-08-26 14:21:40-04:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "cd0c068d75f676c03fa16fe9435b7efa52e3355c",
+        "msg": "Configure clients_keystone with admin URL\n\nIn Heat, [clients_keystone] auth_uri has to be the admin URL even we\nwould believe not.\n\nIt has been confired with how Heat's gate is running with Devstack and\nalso with TripleO CI currently failing with the current implementation.\n\nChange-Id: I7a9d10b0a8092b3d0c70708b57637098cfe2b56d",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-08-29 19:03:41-04:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "b0982fa982aea452b1b153587c86eba163a94297",
+        "msg": "add parameter to configure the name of the node\n\nThis may required in instances where socket.gethostname() (the default)\ndoes not return an FQDN and an FQDN (or other identifer) is desired.\n\nChange-Id: Ibb86cdcf7e6304eabc1fe165feec9555bfadb32f",
+        "cmtr": "Marcus Furlong",
+        "date": "2016-08-30 12:51:09+10:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "0b0f6289e1e005ad7f3630e038d3d4634e663b54",
+        "msg": "Add options to configure yaql settings\n\nChange-Id: Id41001d74ce1008dbb5a98b962d5c53dbf39c903",
+        "cmtr": "Dan Prince",
+        "date": "2016-09-27 11:05:57-04:00",
+        "files": ["init.pp", "yaql_config_options-d25ae9c0bd25706f.yaml", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "5e3b5e050fa2b9377792852aabba8487abb7099e",
+        "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: I094f592989928cefef0b9cd9c7b9d837f51d03b1\nCloses-Bug: #1628580",
+        "cmtr": "Sharat Sharma",
+        "date": "2016-09-29 12:14:28+05:18",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "468a12493da6d2261a7d23c7b0f0815c735bc52e",
+        "msg": "Fix documentation for log_dir parameter\n\nChange-Id: Ifba8e0b5f9119426a8093a0124e5bb5d4e89b20a\nPartial-Bug: #1600294",
+        "cmtr": "Mykyta Karpin",
+        "date": "2016-10-10 16:17:42+03:00",
+        "files": ["init.pp", "logging.pp", "fix_log_dir_documentation-abcdb4f483057b78.yaml"]
+      },
+      {
+        "hash": "7171d68cc852a6c40f122ed29d5c76335733ff23",
+        "msg": "Deprecate auth_plugin option\n\nOption \"auth_plugin\" from group \"trustee\" is deprecated in Heat.\nUse option \"auth_type\" from group \"trustee\" instead.\n\nChange-Id: I19024ad7be968c7364dbb8ff94372a168f6f6096\nCloses-Bug: #1633282",
+        "cmtr": "ZhongShengping",
+        "date": "2016-10-19 08:45:23+08:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "eecda65a110bbfc7ed0b5767a2cf6d7818760f0d",
+        "msg": "Remove verbose\n\nSince we are in Ocata we should remove the\nverbose option that was deprecated\n\nChange-Id: Ife75d144e7c0bde13ece85472fa446af12c0650e",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-10-25 20:02:37-03:00",
+        "files": ["init.pp", "logging.pp", "remove_verbose-a23fce0717d789c6.yaml"]
+      },
+      {
+        "hash": "a1f3dfe6a9e7057197dd05d51a2b57ac06f0adfc",
+        "msg": "Force domain_password parameter to be defined\n\nHaving a default value for a password is not acceptable for security\npurpose.  We should unset the default value so we make sure catalog fail\nif no value is set.  It enforces our users to set a value and stop\nopening a security problem.\n\nChange-Id: I41b974f6ece39743bfc2ad922b2f0dad20aec469",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-11-02 10:46:33-04:00",
+        "files": ["domain.pp", "domain_password-b9e2e385ebf5d912.yaml"]
+      },
+      {
+        "hash": "08488e3686850ad4f8615a6df701e265b8f22ca2",
+        "msg": "Ability to manage domain config seperately\n\nThis change allows a user of the heat::keystone::domain class to manage\nthe user creation seperately from the user configuration for the heat\nservices.\n\nPreviously one could disable the management of the users but could not\nprevent the configuration file from being updated if all they wanted to\ndo was create the users.\n\nChange-Id: Iab8204d3dfd727149d41ad86616a8f95a6f720dc",
+        "cmtr": "Alex Schultz",
+        "date": "2016-11-03 08:52:12-06:00",
+        "files": ["domain.pp", "heat-domain-user-config-d1396bc6e3f17a2a.yaml", "heat_keystone_domain_spec.rb"]
+      },
+      {
+        "hash": "a6a860106bb22bb17c581e0908d10be612d7d619",
+        "msg": "Align equals in heat::params\n\nChange-Id: Ia94cd822715bf75b9eebb876e17d0b05fdf0da50",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-11-04 12:32:26+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "d727cf872fb7d8cfa05ddb994d65ef614390a751",
+        "msg": "Fix common options position in params.pp\n\nThese parameters are common for both systems,\nthey could be moved out from 'case'.\n\nChange-Id: Ic07c62593d63190b523efcc3f020cba12b5001f3",
+        "cmtr": "ZhongShengping",
+        "date": "2016-11-08 10:05:42+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "6e8ef404833b9baf11f98db5b40ea222c60e041e",
+        "msg": "Don't default metadata server URLs to localhost\n\nThese settings are all legacy, as for some time heat has instead supported\nderiving the URLs internally using the endpoints from the keystone catalog.\n\nDefaulting these to localhost seems like a bad default, as in\nmost cases heat will caclulate a more reasonable default (e.g something\nderived from the actual heat public endpoint in keystone), and it's somewhat\nsurprising when you don't pass a value and get localhost instead of the heat\ndefaults.\n\nThey can still be used to override the keystone endpoint, which is sometimes\nuseful, but in most cases these should no longer be set IMO.\n\nNote the relevant heat commits which make these settings optional are\nId402664e38e3da071ad634233b3a1f8e13af152d and\nIf8a2d3f37d87c26228e709c20f61969b397f2da0 (present in all Heat releases\nsince Mitaka)\n\nCloses-Bug: #1641873\nChange-Id: I90ccdd881a41d803e28064f44b821ab48a6fa8ea",
+        "cmtr": "Steven Hardy",
+        "date": "2016-11-15 22:23:37+00:00",
+        "files": ["engine.pp"]
+      },
+      {
+        "hash": "da7bc4620371ae0bbad1772755b9037aefd34c2a",
+        "msg": "Remove old authtoken options\n\nSince we are in ocata lets remove all old parameters in api\nto configure the keystone_authtoken section\n\nChange-Id: I7f18b79b9107baad78129b098246bd9c931420dc",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-11-16 00:02:12-03:00",
+        "files": ["init.pp", "authtoken.pp", "remove_old_authtoken_options-25efe0cb4abcbd2b.yaml", "heat_api_cfn_spec.rb", "heat_api_cloudwatch_spec.rb", "heat_api_spec.rb", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "edf6623d8c035b5a6ad6cf1f9e5da63d8305d06c",
+        "msg": "Expose heat::engine::max_nested_stack_depth\n\nThis is required for TripleO to use a value other than the default 5.\n\nChange-Id: I998f3a1a89ce4bc4c3926a83adec1929addeab24",
+        "cmtr": "Steve Baker",
+        "date": "2016-11-21 15:41:32+13:00",
+        "files": ["engine.pp", "max_nested_stack_depth-792ebd0ccab481eb.yaml", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "b865dffaa68602f520d3b6fe6bfbe8f6f8a30cf1",
+        "msg": "Deprecate rabbitmq connection parameters\n\nThe rabbitmq connection parameters have been deprecated in favor of the\ntransport_url setting.\n\nChange-Id: I7ae5c5a2584eab063b8e647dc34008ac71bd04e0\nRelated-Bug: #1625198",
+        "cmtr": "Alex Schultz",
+        "date": "2016-11-21 16:48:59-07:00",
+        "files": ["init.pp", "rabbit-connection-params-deprecation-d3d5fdcbcc1f4c5d.yaml", "basic_heat_spec.rb"]
+      },
+      {
+        "hash": "739a15ffb2c1da2f2293d07377b92fbffda37d09",
+        "msg": "Set trusts_delegated_roles to os_service_default in engine.pp\n\nchange trusts_delegated_roles to $::os_service_default,\nmodified heat_engine_spec.rb and added releasenote.\n\nChange-Id: Ib07a546da74218056bb55f15df1b6114e9f67c45\nCloses-Bug: #1634361",
+        "cmtr": "zhangdetong",
+        "date": "2016-11-23 10:56:49+00:00",
+        "files": ["engine.pp", "fix_trusts_delegated_roles-708642a94898d65a.yaml", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "b5b48d98634da23a1a4eaaa4444c818481b53e23",
+        "msg": "Fix heat user dependencies\n\nWith the heat::deps implementation, we should ensure that the users are\ncreated in before the heat::service::end anchor rather than the service\nitself. This can lead to issues when we move the service to httpd and it\nis colocated with keystone. Additionally the authtoken class needs to\ninclude the ::heat::deps class.\n\nChange-Id: I0c2b5e0e3671d37fb0450cd25dd6287bebda4dcb",
+        "cmtr": "Alex Schultz",
+        "date": "2016-11-23 16:10:37+00:00",
+        "files": ["auth.pp", "auth_cfn.pp", "authtoken.pp"]
+      },
+      {
+        "hash": "0540b5c98fea6fad77636ff6d831e4f2855e2f92",
+        "msg": "Deprecate signing_dir option\n\nThe signing_dir is deprecated for removel because of PKI token format\nis no longer supported.\nUpdate warning message and release note.\n\nChange-Id: I42b35c3cadde3bb22463c82e83168addfd4da99f\nCloses-Bug: #1652700",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-28 14:00:55+08:00",
+        "files": ["authtoken.pp", "deprecate_signing_dir_parameter-1734561a234013ef.yaml", "heat_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "12a328d74f389c36638179d784260c6b447a36e9",
+        "msg": "Allow python-memcache install from authtoken class\n\nThe python-memcache package is required if using memcached. By\ndefault the package is not installed and the define has it set to\nfalse. This change allows managing the python-memcache package\ninstall from the authtoken class.\n\nChange-Id: I3a6f847e4d5ff64e09b664dc58b17db4094c814c",
+        "cmtr": "Matthew J. Black",
+        "date": "2017-01-11 17:37:45-05:00",
+        "files": ["authtoken.pp", "authtoken_manage_memcache_package-21f43bca9d7ff620.yaml", "heat_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "241615025072d3ec83a20d5f50ea27616f3420a8",
+        "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should be\ninstalled before dbsync starts.\n\nChange-Id: Iec6254f654afbbe1ababb150b47ff5e99b8032b5",
+        "cmtr": "ZhongShengping",
+        "date": "2017-01-22 21:43:05+08:00",
+        "files": ["deps.pp"]
+      },
+      {
+        "hash": "40bfe5ac4a6ab4f5923b487c97bec62ad496611d",
+        "msg": "Add control_exchange option\n\nAdd control_exchange to configure an exchange name for message.\n\nChange-Id: Iac2f30b5a4a70cd44dce9385256339d67d0f40da",
+        "cmtr": "ZhongShengping",
+        "date": "2017-01-28 14:08:11+08:00",
+        "files": ["init.pp", "add_messaging_default_parameters-2a93e87145f8978d.yaml", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "7c86b14059c707631994aaba82a20fb44cffa557",
+        "msg": "Add ability to configure cache\n\nChange-Id: I01155b6bc6ad2618a2337c951120ef377cfacf2f",
+        "cmtr": "Mykyta Karpin",
+        "date": "2017-02-16 10:26:03+02:00",
+        "files": ["cache.pp", "add_cache_configuration-3fb65deac4c9ea42.yaml", "heat_cache_spec.rb"]
+      },
+      {
+        "hash": "bf2d2fe504be9bad7c7881290a4b5c16d3b1de14",
+        "msg": "Add notification_topics option\n\nAdd notification_topics to configure AMQP topic used for OpenStack\nnotifications.\n\nChange-Id: Ib441d091b87685f3da77e18b7062fa0fdf116751",
+        "cmtr": "ZhongShengping",
+        "date": "2017-02-20 20:45:43+08:00",
+        "files": ["init.pp", "add_messaging_notification_parameters-451a35e983534287.yaml", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "fe394add6f2a8e1ef87dc4288aefa899b437a82b",
+        "msg": "Add manifests to deploy APIs over httpd\n\nThis includes a resource that will generically create the vhost for\nthe specified API.\n\nCo-Authored-By: Thomas Herve <therve@redhat.com>\nDepends-On: I9a9246522810de546a7c460ab1133d6bf9081a15\nChange-Id: I253f46f5ad943971dd9ea6995591c72a36953bdb",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-03-02 14:15:18+02:00",
+        "files": ["api.pp", "api_cfn.pp", "api_cloudwatch.pp", "params.pp", "apache.pp", "apache_api.pp", "apache_api_cfn.pp", "apache_api_cloudwatch.pp", "basic_heat_spec.rb", "heat_api_cfn_spec.rb", "heat_api_cloudwatch_spec.rb", "heat_wsgi_apache_api_cfn_spec.rb", "heat_wsgi_apache_api_cloudwatch_spec.rb", "heat_wsgi_apache_api_spec.rb", "heat_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "f24b39c73a7fb2283945a1f1d590c4d1bc25e450",
+        "msg": "Enforce content type in CFN WSGI\n\nThis works around a bug in the config tools, not sending a type\nproperly.\n\nChange-Id: I79b7b19d8c1af6cc34875fc05800dc9da5ac7cad\nRelated-Bug: #1641589",
+        "cmtr": "Thomas Herve",
+        "date": "2017-03-04 15:39:39+01:00",
+        "files": ["apache.pp", "apache_api_cfn.pp"]
+      },
+      {
+        "hash": "b865f447d906f0572b0a8f588c525c908cd0fa7b",
+        "msg": "Add support for clients/endpoint_type\n\nAdd support for clients/endpoint_type parameter.\n\nNote: Default to False now, because TripleO already sets this resource.\n      and we don't want duplicated resource.\n      Once we switch TripleO to use this new option, the default will\n      become os_service_default.\n\nChange-Id: If707c5623c0e34e9219eeafdafaf0ac42daf5c8d\nCloses-Bug: #1675409",
+        "cmtr": "Emilien Macchi",
+        "date": "2017-03-23 09:20:08-04:00",
+        "files": ["init.pp", "heat_clients_endpoint_type-8952f02d7fb18828.yaml", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "27a4d8a0cc0867aa3ed31a33179592e63e661f6d",
+        "msg": "Set endpoint_type to <SERVICE DEFAULT>\n\nNow TripleO sets this value, we can use os_service_default for\nthe default value and we won't have duplicated resource.\n\nChange-Id: I00a47d6dae5be6ea18d93ac8b47c0c0cc58fe43f",
+        "cmtr": "Emilien Macchi",
+        "date": "2017-03-29 13:46:29+00:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "1b5eab2809304c4d696743a6d33c8059e79e5f04",
+        "msg": "Add support for reauthentication_auth_method\n\nThis adds support for setting reauthentication_auth_method\nflag in heat.conf.\n\nChange-Id: I247b02a50bb46ce16ca120961dd9c3df3e6026fd\nPartial-Bug: #1683983",
+        "cmtr": "rabi",
+        "date": "2017-04-19 12:42:47+05:18",
+        "files": ["engine.pp", "add_reauthentication_config-64e6d3c7a5f8d261.yaml", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "6fde1a69d3fe9cd6729f8d154d46811728e78630",
+        "msg": "Remove deprecated keystone authtoken signing_dir option\n\nChange-Id: Ie89e4385628cd5bfd0b43d7c00124c25dee17936",
+        "cmtr": "ZhongShengping",
+        "date": "2017-07-07 09:59:10+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_signing_dir_option-9ea35421940bc8d6.yaml"]
+      },
+      {
+        "hash": "a28c18cc0012dc32ead9e217f0dd8162ba135979",
+        "msg": "Deprecate oslo.messaging rpc_backend option parameter\n\nOslo.messaging uses the transport_url to represent the rpc and\nnotification messaging driver to use and its full configuration. The\nrpc_backend configuration option is deprecated for removal and\nshould not gate oslo.messaging driver configuration options.\n\nThis patch:\n* deprecate rpc_backend\n* remove conditional check\n* update spec tests\n* add release note\n\nChange-Id: I1537c9e0db956d4271c8334a0aa543cd20c57e67",
+        "cmtr": "Andrew Smith",
+        "date": "2017-07-26 20:52:06-04:00",
+        "files": ["init.pp", "deprecate_rpc_backend_parameter-46ffa292fb2502eb.yaml", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "9fb1ab941484c97e6cc138d1edf7385b079b5a4b",
+        "msg": "Param rabbit_heartbeat_timeout_threshold should not be 0\n\nParam heartbeat_timeout_threshold by default is set to 60 in oslo module.\nWe shouldn't set hardcoded value, but take default one.\n\nChange-Id: Id572fd98846f640d88cbb46c4a74f9fd43813d8b",
+        "cmtr": "Daniel Pawlik",
+        "date": "2017-08-22 12:13:27+00:00",
+        "files": ["init.pp", "change_rabbit_timeout_threshold-8ca404e050a733f1.yaml", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "2d78f9253d7dce4e1a49aedcd394b3b1e626a95f",
+        "msg": "Changed keystone_ec2_uri to be optional\n\nParam keystone_ec2_uri was providing default value. It was raising an\nengine service error on ifras where ec2 endpoint was not created.\n\nChange-Id: I48c47a2c59ec89212a45125b373844e340731fd9",
+        "cmtr": "Daniel Pawlik",
+        "date": "2017-08-22 12:20:46+00:00",
+        "files": ["init.pp", "drop_keystone_ec2_uri_default_value-c6925ba650861456.yaml", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "10a7db8463892c5a33495228c1a0d09fa2e8bbb0",
+        "msg": "add parameter to overwrite/add wsgi process options\n\nAdd parameter to apache_wsgi to allow overwrite and/or\nadd additional wsgi process options.\n\nThis possibility was added to openstacklib\nwith Change-Id: I41914ce3361988d5db1695f09d21209772fdf548\n\nChange-Id: I3df74ddc4a258083ccfe4e47180f022742655ba6",
+        "cmtr": "Benedikt Trefzer",
+        "date": "2017-09-04 18:38:40+02:00",
+        "files": ["apache.pp", "apache_api.pp", "apache_api_cfn.pp", "apache_api_cloudwatch.pp", "heat_wsgi_apache_api_cfn_spec.rb", "heat_wsgi_apache_api_cloudwatch_spec.rb", "heat_wsgi_apache_api_spec.rb"]
+      },
+      {
+        "hash": "ece5e90fddab233b97072ce9912753a702ce064a",
+        "msg": "Add support for default_user_data_format\n\nAllows specify the value of default_user_data_format\nparameter in configuration\n\nChange-Id: I0536b5efd0e1389b05ffdd29acf75f1fa748babb",
+        "cmtr": "Jose Luis Franco Arza",
+        "date": "2017-09-13 10:24:31+02:00",
+        "files": ["engine.pp", "add_default_user_data_format-712df91a3f826e51.yaml", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "3c5f67488dc3e4fa0bb25cae8371726760dc88a9",
+        "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: I2c340522a696c3e436404e1b1403d6cf072d56d3\nCloses-Bug: #1717144",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-14 11:31:44+08:00",
+        "files": ["authtoken.pp", "deprecate_revocation_cache_time_parameter-715bec6808d3036b.yaml", "heat_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "f12aea21453eb38492c052328e7decf4f9250a50",
+        "msg": "Accept empty strings for log_dir\n\nAn empty string is an acceptable value of this entry, and it forces\nlogging to stdout/stderr, which is useful when running on containers.\n\nChange-Id: I8c3a635688ef98e6038c2bee33cd253da8d3baf0",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-10-06 13:00:15+03:00",
+        "files": ["logging.pp"]
+      },
+      {
+        "hash": "781c75cebca7de5d0890c345cbd6424db239748c",
+        "msg": "Allow setting log files for apache vhost\n\nThis allows the setting of the error and access file logs, as well as\nthe access log format. This was done in a similar fashion as one can\nconfigure these ones in the keystone wsgi manifest.\n\nChange-Id: Ic2ffef73f6a12d6225f87d285003c3deb7541126",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-10-06 14:23:53+03:00",
+        "files": ["apache.pp", "heat_wsgi_apache_api_cfn_spec.rb", "heat_wsgi_apache_api_spec.rb"]
+      },
+      {
+        "hash": "7a137e23557cf9111dfec35c1c44c082d461eebc",
+        "msg": "apache wsgi: Exchange defaults for workers and threads\n\nDue to Python's GIL [1], we can't use multiple threads for running\nOpenStack services without a performance penalty, since the execution\nends up serialized, which defeats the purpose.\n\nInstead, we should use several processes, since this approach doesn't\nhave this limitation.\n\n[1] https://wiki.python.org/moin/GlobalInterpreterLock\n\nChange-Id: I116df85f259528d547a958850b9c3793d01e2a45",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-10-13 08:49:12+03:00",
+        "files": ["apache.pp", "apache_api.pp", "apache_api_cfn.pp", "apache_api_cloudwatch.pp", "heat_wsgi_apache_api_cfn_spec.rb", "heat_wsgi_apache_api_cloudwatch_spec.rb", "heat_wsgi_apache_api_spec.rb"]
+      },
+      {
+        "hash": "248de177dd5c05a2e1d20a1d1c6ea8d8bb65d885",
+        "msg": "Expose allowing setting log files for apache vhost\n\nBeing able to set the log files for the apache vhost was done in a\nrecent commit [1]. However, that commit missed exposing the\nconfiguration in the service-specific manifests. This adds that.\n\n[1] Ic2ffef73f6a12d6225f87d285003c3deb7541126\n\nChange-Id: Iae6a86cb93305cb3307e058cfd31e0fca3b1be8e",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-10-30 07:33:38+02:00",
+        "files": ["apache_api.pp", "apache_api_cfn.pp", "apache_api_cloudwatch.pp", "apache-logs-5943a8910ff54db5.yaml"]
+      },
+      {
+        "hash": "8befe4fb09becbad024b52017d8f57604be77ab0",
+        "msg": "Add customization for wsgi process display name\n\nChange-Id: I952b51508d5ec6ad6d0aab7e19df14f4dcd96ba3\nCloses-Bug: #1626550",
+        "cmtr": "ZhongShengping",
+        "date": "2017-11-01 15:54:54+08:00",
+        "files": ["apache.pp", "apache_api.pp", "apache_api_cfn.pp", "apache_api_cloudwatch.pp", "add_wsgi_process_display_name-1359813a235ef934.yaml", "heat_wsgi_apache_api_cfn_spec.rb", "heat_wsgi_apache_api_cloudwatch_spec.rb", "heat_wsgi_apache_api_spec.rb"]
+      },
+      {
+        "hash": "50d7c113f880806936c9fc7856cefb403e87dfbe",
+        "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: I57eaa1209e6942a9e76e7988761fea854c838dc5",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-11-27 14:54:23+02:00",
+        "files": ["logging.pp", "log-json-9c7061b9e42a3d20.yaml", "heat_logging_spec.rb"]
+      },
+      {
+        "hash": "fd952e2a843ea2b31549be53c11e36ebc569e6b0",
+        "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nChange-Id: I748ed0cba392d783e75b2cf16833a687d6152a22\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2018-01-11 15:54:59+00:00",
+        "files": ["params.pp", "policy.pp", "heat_policy_spec.rb"]
+      },
+      {
+        "hash": "befa77c07955b3e5633470bc1b6f3fcebcc4aa6a",
+        "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: Iff58d247fe90fa8d81769599d7ce994077c032d9",
+        "cmtr": "ZhongShengping",
+        "date": "2018-01-15 15:50:08+08:00",
+        "files": ["logging.pp", "add-use_journal-option-for-logging-b152b982a916e35e.yaml", "heat_logging_spec.rb"]
+      },
+      {
+        "hash": "7870a0f8ff78fddb0990889c91988a3b08a6f221",
+        "msg": "Add a parameter to be able to override clients_keystone/auth_uri.\n\nIt is usually the same as auth_url which is defined there\n$::heat::keystone::authtoken::auth_url.  We can now point this to\nanother part of the catalog (ie, public vs internal for instance).\n\nCo-Authored-By: Sergii Golovatiuk <sgolovat@redhat.com>\nChange-Id: I4429d86d831f49f1bc0fef04379a81ada20b6ab6",
+        "cmtr": "Sergii Golovatiuk",
+        "date": "2018-01-19 00:35:05+01:00",
+        "files": ["init.pp", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "56cbd7c89bfc99f6a962319f478d75dbf35e8335",
+        "msg": "Make heat parameter plugin_dirs configurable\n\nHeat has an additional configuration for plugin_dirs\nparameter. This parameter provides a list of directories\nto search for plug-ins. This change allows configuration\nof plugin_dirs parameter in heat.conf file. This change\nwill allow a user to set this value, if required. Else\n$::os_service_default will be used and the parameter will\nnot be added to the config file, as it is done today.\n\nChange-Id: I636d52f867ee447eaf0e1e80bf9fdc30c91f4ec1",
+        "cmtr": "Lokesh Jain",
+        "date": "2018-01-22 18:49:20-05:00",
+        "files": ["engine.pp", "add_plugin_dirs_parameter-20c755fbdb22c58d.yaml", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "a17104c6ad6993d73ffa0d72edb7a7a6e6cce14d",
+        "msg": "Remove support for heat-api-cloudwatch service\n\nIn 6d55417f80384ead56e176beec9e2fc4eb162d61 cloudwatch api\nhas been removed from heat.\n\nChange-Id: I155c92edd5d6959ac23d99804fd95dfb99c7042e",
+        "cmtr": "rabi",
+        "date": "2018-02-06 09:39:36+05:18",
+        "files": ["README.md", "api_cloudwatch.pp", "params.pp", "apache.pp", "apache_api_cloudwatch.pp", "remove-heat-api-cloudwatch-6f18e6eafce8932f.yaml", "basic_heat_spec.rb", "heat_api_cloudwatch_spec.rb", "heat_wsgi_apache_api_cloudwatch_spec.rb", "heat_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "635bbc2a475c9b9b12a625abaf24a6081ee2e92e",
+        "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: I869ed64d19d82c64d6370a6b42c3016087f5760d\nCloses-Bug: #1755102",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-12 16:33:08+08:00",
+        "files": ["sync.pp", "openstack_db_tag-a3f0e6426366c25d.yaml", "heat_db_sync_spec.rb"]
+      },
+      {
+        "hash": "6fd473247164bf54a14a78e8930ce57b843ee843",
+        "msg": "Add oslo::cache to dependency chain\n\nPackage installation for cache backend is being migrated to oslo module.\nFor proper keystone installation dependency sequence should be preserved.\n\nChange-Id: I285cb3ca7e6d6a5d1e6ba68cd12863dca67af151\nCloses-Bug: #1756215",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-16 09:10:42+08:00",
+        "files": ["deps.pp"]
+      },
+      {
+        "hash": "1f34a436dce17f2da830c169f2cd521a9c4851be",
+        "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: I96157ad65fb96dfe56bae9c92d0fd7f74b62df62\nCloses-Bug: #1757581",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-22 11:09:50+08:00",
+        "files": ["db.pp", "add-pool_timeout-option-for-db-b86bd074bc517dbc.yaml", "heat_db_spec.rb"]
+      },
+      {
+        "hash": "e3da95861d0b9e3d388066d08ac91358889c51b6",
+        "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: I30e921ef378ea76dc9fd6bce14fd85f4663fac99",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-27 10:33:21+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-944844ef4b1be580.yaml"]
+      },
+      {
+        "hash": "cea5d3c5b687815e3d86703b3311d6c9279fc812",
+        "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: I680e8060f6a8bf3befd4aa5d39f2b01ddeb5e859\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
+        "cmtr": "ZhongShengping",
+        "date": "2018-04-03 16:55:01+08:00",
+        "files": ["authtoken.pp", "deprecate_auth_uri_parameter-b120146a866256dc.yaml", "heat_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "0ea6d3d65135950d9b9470a115744212aeaaa1c7",
+        "msg": "Remove useless code for sync.pp\n\nIn order to improve efficiency, remove useless code.\n\nChange-Id: I4517bc2c8386c19e06744d1d155aab8c067322b8",
+        "cmtr": "ZhongShengping",
+        "date": "2018-04-08 09:08:42+08:00",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "da6e5c65a8e22889d2ddea78a30465a0e3391de2",
+        "msg": "Debian is using Python 3\n\nChange-Id: I115e40289781801f40a5cf489e2cc1a43a35da1c",
+        "cmtr": "Thomas Goirand",
+        "date": "2018-04-10 11:52:40+02:00",
+        "files": ["params.pp", "heat_client_spec.rb"]
+      },
+      {
+        "hash": "8adb596e33de96422ab9858aa5d4984378dce601",
+        "msg": "Switch heat-engine workers to use os_workers_heat_engine\n\nPreviously the default value for the heat-engine workers setting was set\nto $::os_service_default. We usually use our specific facts for the\nworker settings so this change switches it to use the\n$::os_worker_heat_engine fact.\n\nChange-Id: I6a8d745b76afca1b1958816fa10a3f1dd30face6\nRelated-Bug: #1763671",
+        "cmtr": "Emilien Macchi",
+        "date": "2018-04-13 14:47:32+00:00",
+        "files": ["engine.pp", "heat-engine-workers-8ef3960a29c21a57.yaml", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "564b1a7234d32dcb0c31656b67069a3e0b9a6c87",
+        "msg": "Change clients_keystone/auth_uri default to public Keystone URL\n\nBy default, the ::heat class configures clients_keystone/auth_uri to the\nvalue of ::heat::keystone::authtoken::auth_url, which is generally the\nadmin endpoint on port 35357.\n\nHowever, since this URI can be used by non-admin clients running inside\ninstances, such as os-collect-config, a better default value would be to\nuse either the public or internal Keystone endpoint, depending on the\ndeployment. This commit changes the default to the public Keystone\nendpoint defined in ::heat::keystone::authtoken::www_authenticate_uri.\n\nIt is still possible to provide a custom value using the\nheat_clients_keystone_uri parameter.\n\nChange-Id: Idb0f408776ef27f16a522e4443531fd97276669b\nCloses-Bug: #1763700",
+        "cmtr": "Pierre Riteau",
+        "date": "2018-04-14 16:30:55+01:00",
+        "files": ["init.pp", "change_clients_keystone_auth_uri_default-72ba554b846f2193.yaml", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "fb395a3fbb1954a74c6dd0ecab9ab8e606ddb3dd",
+        "msg": "Fix backwards incompatibility with auth_uri\n\nIdb0f408776ef27f16a522e4443531fd97276669b switches to use\nwww_authenticate_uri but it is not backwards incompatible for folks who\nhave yet to switch to use www_authenticate_uri. We should still support\nauth_uri for the time beaing.\n\nChange-Id: I132fa8ebf91e932cd7fbc610dccd332348d52d49\nCloses-Bug: #1764598",
+        "cmtr": "Alex Schultz",
+        "date": "2018-04-16 20:24:04-06:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "b8bb27afc9a57a6a83fe33fe1443c7c77f9633b1",
+        "msg": "neat: missing : in $::os_service_default\n\nChange-Id: I0b11fbe6228ca9e11de1d5f0038f48841e5e6c26",
+        "cmtr": "zhubingbing",
+        "date": "2018-05-11 14:02:39+08:00",
+        "files": ["authtoken.pp"]
+      },
+      {
+        "hash": "016e2634c98404517f2f5caf5d87f3e4b147d553",
+        "msg": "Replace port 35357 with 5000\n\nNow that the v2.0 API has been removed, we don't have a reason to\ninclude deployment instructions for two separate applications on\ndifferent ports.\n\nChange-Id: Ia81c354ea593954e79a0779f222208c027fcdede",
+        "cmtr": "ZhijunWei",
+        "date": "2018-05-13 15:05:52+08:00",
+        "files": ["README.md", "authtoken.pp", "heat_init_spec.rb", "heat_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "4e6d5bff115f3277d00e8e6e5093214986976f34",
+        "msg": "Remove deprecated rabbit params\n\nRemove the deprecated rabbit params which has been deprecated for\ntwo years. The default_transport_url has been present for a while\nnow and should be used.\n\nChange-Id: I9c95be8843e51ac69c95d141507d767aa017afbf",
+        "cmtr": "ZhongShengping",
+        "date": "2018-05-24 14:07:25+08:00",
+        "files": ["init.pp", "remove-deprecated-rabbit-params-a7c25dc7022fc7c5.yaml", "heat_init_spec.rb"]
+      },
+      {
+        "hash": "24cbbd517a997a192619e89de28cfad60ea4f264",
+        "msg": "Make auth_encryption_key a secret\n\nauth_encryption_key is used to encrypt autentication info in the\ndatabase, it must be a secret.\n\nChange-Id: Ib15db2632d087b91ca4923a64fa9923daa6b2c85",
+        "cmtr": "Spyros Trigazis",
+        "date": "2018-06-14 12:57:12+02:00",
+        "files": ["engine.pp"]
+      },
+      {
+        "hash": "a077c07360e450e0fea73622b7856af6382ec405",
+        "msg": "Fix annotations\n\nChange-Id: I2c9bd5e928d300f6793074501072feaa35d7e84b",
+        "cmtr": "zhubingbing",
+        "date": "2018-06-15 15:07:37+08:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "f10256ae3e2bb3a78f480f775f30c011da7b1c1a",
+        "msg": "Notify not only heat-api service but also apache\n\nNot only the heat-api and heat-api-cfn services are notified, but also\nthe apache service if the API is run using apache. This ensures apache\nis restarted on config changes.\n\nChange-Id: I68feb50a466b56b027573cda099191f6b26ddbfd",
+        "cmtr": "Andreas Jaekel",
+        "date": "2018-07-10 17:55:37+02:00",
+        "files": ["api.pp", "api_cfn.pp", "restart-apache-fa203227fefc67f8.yaml"]
+      },
+      {
+        "hash": "6ede9b460667075abf57e9149cf866fa60e15ced",
+        "msg": "Fix wrong default value in doc\n\nChange-Id: I2325257e052a2f05b75ea506eda675cb2de4b2f9",
+        "cmtr": "Matthias Lisin",
+        "date": "2018-07-11 10:04:15+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "ae564bbd7c1f94c95c7a0ddbda26219d4f2f8a13",
+        "msg": "Deprecate parameter heat_watch_server_url\n\nWhen support for heat-api-cloudwatch was removed in\nI155c92edd5d6959ac23d99804fd95dfb99c7042e the parameter,\nheat_watch_server_url, was forgotten. This change marks the\nforgotten parameter as deprecated and removes it from the\nspec tests and heat config.\n\nChange-Id: Icb9fa01cb37dd15b66fc6f1de183149ff884363d\nDepends-On: https://review.openstack.org/581629",
+        "cmtr": "schegi",
+        "date": "2018-07-12 12:32:52+02:00",
+        "files": ["engine.pp", "deprecate-heat_watch_server_url-parameter-e26c07a99bd90b94.yaml", "heat_engine_spec.rb"]
+      },
+      {
+        "hash": "742f0e2d54e4785d77c8c55ed927aa18daff1658",
+        "msg": "Fix bug introduced by notify apache for heat-api\n\nThe change [1] was wrong since it uses the wrong resource\nname for the puppetlabs-apache Service defintion [2].\n\nInstead of the revert this fixes it by changing it back to\nthe proper variable which has the value 'httpd'.\n\n[1] https://review.openstack.org/#/c/581411/\n[2] https://github.com/puppetlabs/puppetlabs-apache/blob/master/manifests/service.pp#L43\n\nChange-Id: Ic943293d1ff9aa33c8095feb2b14d96a30a37914",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-07-14 13:40:26+02:00",
+        "files": ["api.pp", "api_cfn.pp"]
+      },
+      {
+        "hash": "9e98fa3cec32bc992c59dc0f8853496ac18ba23e",
+        "msg": "Improve restarting Apache\n\nThe previous approach could lead to restarting Apache after\nAnchor['heat::service::end']. The new approach is already used in other\nPuppet modules and guarantees restarting Apache between the service\nanchors.\n\nChange-Id: Ia4ccc8a6477f490f42b588b3e6a9d5c0f7ff6d88",
+        "cmtr": "Matthias Bastian",
+        "date": "2018-08-14 16:58:08+02:00",
+        "files": ["api.pp", "api_cfn.pp"]
+      }]
+    }

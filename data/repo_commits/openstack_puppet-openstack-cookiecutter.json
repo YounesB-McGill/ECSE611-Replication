@@ -1,0 +1,364 @@
+    {
+      "url": "https://github.com/openstack/puppet-openstack-cookiecutter",
+      "pp_files": ["logging.pp", "authtoken.pp", "config.pp", "policy.pp", "db.pp", "init.pp", "sync.pp", "auth.pp", "postgresql.pp", "deps.pp", "mysql.pp", "params.pp"],
+      "pp_cmtrs": ["Denis Egorenko", "Yanis Guenane", "Emilien Macchi", "ZhongShengping", "Iury Gregory Melo Ferreira", "iberezovskiy", "Alex Schultz", "Matthew J. Black", "huang.zhiping", "Swapnil Kulkarni (coolsvap)", "Sebastien Badia", "zhubingbing"],
+      "num_pp_commits": 51,
+      "num_tot_commits": 165,
+      "commits": [{
+        "hash": "6d7a7ccd6d6e66f2b3698e2bbc71b81a1b2950e3",
+        "msg": "Initial Commit",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-05-21 21:13:03+02:00",
+        "files": ["README.md", "cookiecutter.json", ".fixtures.yml", ".gitreview", "CHANGELOG", "LICENSE", "README.markdown", "ini_setting.rb", "ini_setting.rb", "{{cookiecutter.project_name}}_api_paste_ini.rb", "{{cookiecutter.project_name}}_config.rb", "config.pp", "mysql.pp", "postgresql.pp", "sync.pp", "init.pp", "logging.pp", "policy.pp", "metadata.json", "init.pp"]
+      },
+      {
+        "hash": "8891ae825a3242b1c66734e352ca916884b283b8",
+        "msg": "Add the configuration of api-paste-ini",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-05-21 21:24:34+02:00",
+        "files": ["config.pp"]
+      },
+      {
+        "hash": "a7a0c55da6e6bc8511ec9db00ef7d0d010b2c0c9",
+        "msg": "keystone: Add also keystone auth template + spec tests",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-05-22 09:40:03-07:00",
+        "files": ["auth.pp", "{{cookiecutter.project_name}}_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "ebff7f900fe4888b184c726912ac15e3b08c7442",
+        "msg": "types: Fix type/provider Capitalization",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-05-22 11:17:40-07:00",
+        "files": ["sync.pp", "ini_setting_spec.rb"]
+      },
+      {
+        "hash": "23d20fa574286d9b44ecd9d15ed0b22993de25d8",
+        "msg": "drop api_paste_ini support\n\nThis is not used in OpenStack modules anymore.",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-05-22 13:34:20-07:00",
+        "files": ["ini_setting.rb", "config.pp"]
+      },
+      {
+        "hash": "0a7eefc8c20dbd2bfeb602490666c3fe27e2e6c0",
+        "msg": "Implement the MODULE::db and MODULE::params class\n\nThis review aims to update the puppet-openstack compliant module\nskeleton to add :\n\n * MODULE::db: This class allow to configure the database connection\nfor the service. It offers the same parameters (ie. level of\ncustomization) across all our modules\n\n * MODULE::params: This class allow to specify class' specific param.\nThey can be conditioned by the osfamily type\n\nChange-Id: I0c0c104fb2126f5d163fe64660f11a8b89cfe848",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-09-16 10:58:07+02:00",
+        "files": ["db.pp", "init.pp", "params.pp"]
+      },
+      {
+        "hash": "854d983be6297f05244690b81ee87dbd6605853a",
+        "msg": "manifest/db: fix lint WARNINGS\n\nmanifests/db.pp:37:WARNING: double quoted string containing no variables\nmanifests/db.pp:76:WARNING: double quoted string containing no variables\n\nThis patch aims to fix that.\n\nChange-Id: I7190badc168faa1140cb2956cd0b7a4188391416",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-09-18 08:34:39-04:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "52eef62e2ff57d7df9e3a89c6935b5dcf2f7bf4b",
+        "msg": "Allow customization of db sync command line\n\nAdd  parameter to MODULE::db::sync class to allow\nend-users to add command line parameters to the db_sync command.\n\nChange-Id: I957f12cc83fd227591a4d840b7f7de436745215c",
+        "cmtr": "Denis Egorenko",
+        "date": "2015-09-21 20:26:07+03:00",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "602433c4b93b64df90a1d4ed496348e8ffff20fd",
+        "msg": "update keystone/auth bits\n\nUse *_url parameters instead of deprecated ones and update unit tests.\n\nChange-Id: I32063d8b17d3cc675f9e2fbe65e90252c04e59b8",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-10-01 08:33:22-04:00",
+        "files": ["auth.pp", "{{cookiecutter.project_name}}_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "5ddfe282d6730397edbb111a71e68972ef2d27d9",
+        "msg": "Extend the logging class capabilities.\n\nThis commit aims to extend the logging class to match what is currently\npresent on the upstream modules[1]\n\n[1]\nhttps://review.openstack.org/#/q/branch:master+topic:logging_parameter_centralization,n,z\n\nChange-Id: I802921f6f6902ad88f8a4751a9aef4b2c0280a74",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-10-01 16:06:10+02:00",
+        "files": ["logging.pp", "{{cookiecutter.project_name}}_logging_spec.rb"]
+      },
+      {
+        "hash": "3e9ae8bafcdce007c36d68440e56527db7b4807e",
+        "msg": "db::sync: drop User dependency\n\nWe want to get rid of User POSIX dependency, let's fix it here.\n\nChange-Id: Ic55b06b5bcaec5edd55faf190b2b2d326726d160",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-10-02 08:51:32-04:00",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "64456c663a097ef367b660a09e97724f3803525a",
+        "msg": "db: Use postgresql lib class for psycopg package\n\nThis patch introduce the same design than mysql for postgresql\nby requiring dedicated lib::python class instead of declaring\na new resource package within cookiecutter.project_name module.\n\nChange-Id: Ide20504a8804ccda1698dbb477661db8af610423",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-10-20 17:53:36+02:00",
+        "files": ["db.pp", "params.pp", "{{cookiecutter.project_name}}_db_spec.rb"]
+      },
+      {
+        "hash": "6f71b22e35b236260c10781ed09a43c2d011c123",
+        "msg": "Puppet cookiecutter with $::os_service_default\n\nNew projects should be have logging and db with\nos_service_default fact.\n\nChange-Id: Ic2eb50a1c151bce06a94040b0b76b0fe47834933",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2015-12-11 02:04:56+00:00",
+        "files": ["db.pp", "logging.pp", "{{cookiecutter.project_name}}_db_spec.rb", "{{cookiecutter.project_name}}_logging_spec.rb"]
+      },
+      {
+        "hash": "fdb68e45895376f7f26c14fa00bb71eed2b2b071",
+        "msg": "remove real reference from variables\n\nRemove all real references to variables\n\nChange-Id: Ieda95ecba655b64b5fb8032052624bd91c9fb057",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2015-12-12 14:28:34+00:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "d5849a3839463369deb27b9b8992403f766d53a0",
+        "msg": "Support hiera and non-hiera deployment\n\nIn https://review.openstack.org/#/c/256570/ we removed\nreal from varibles, this will break non-hiera deployment.\nWe should support both type of deployments.\n\nChange-Id: I4d6d162ebd2d147046e3f7547e51136dde3977ee",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2015-12-16 14:04:11+00:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "a91247e9d0ce361e30b24ca86018bd5d024964c8",
+        "msg": "Make Keystone_endpoint match service by name/type\n\nSince a chance in puppet-keystone (1], we now match an endpoint with a\nservice name/type.\n)\n[1] http://git.openstack.org/cgit/openstack/puppet-keystone/commit/?id=0a4e06abb0f5b3f324464ff5219d2885816311ce\n\nChange-Id: I69098f001feb45c10e6e604cc58f60d8485da5cc\nCloses-Bug: #1528308",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-12-21 19:33:54+01:00",
+        "files": ["auth.pp", "{{cookiecutter.project_name}}_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "2bb56cd1eb8d3d6ccad1f00e320ebab9b93bcf3e",
+        "msg": "Fix some errors\n\n* logging: drop _real suffix (wrong copy paste)\n* db_spec.rb: add missing ')'\n* config_spec.rb: fix common package name\n\nChange-Id: I7b43d251089c6667e4ca5d9152eddb11c2491942",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-01-02 08:36:10-05:00",
+        "files": ["logging.pp", "{{cookiecutter.project_name}}_db_spec.rb", "{{cookiecutter.project_name}}_config_spec.rb"]
+      },
+      {
+        "hash": "c3a913d73e45830feee40d9d7841ef9c5b9fc4c5",
+        "msg": "Update typos\n\nChange-Id: I1b0ad5f230c8bb99042fd08662a7ad533f4d3575",
+        "cmtr": "Swapnil Kulkarni (coolsvap)",
+        "date": "2016-01-04 14:44:49+05:18",
+        "files": ["bootstrap.sh", "mysql.pp", "{{cookiecutter.project_name}}_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "5da2f888267a9e1554c3959ee9ac274b1779e23f",
+        "msg": "Support of PyMySQL driver for MySQL backend\n\nThis change adds the ability to use the python-pymsql library as a\nbackend for MySQL connections.\n\nChange-Id: I6d33a6afb7c35c75093270ffefb333b974e04021\nCo-Authored-By: Ivan Berezovskiy <iberezovskiy@mirantis.com>",
+        "cmtr": "Alex Schultz",
+        "date": "2016-01-04 17:08:14-07:00",
+        "files": ["db.pp", "params.pp", "{{cookiecutter.project_name}}_db_spec.rb"]
+      },
+      {
+        "hash": "e497aee1773261943b487461a853825c2409e8b0",
+        "msg": "Fix typo\n\nThe mysql.pp file contains a typo\n\nChange-Id: I55bdefc95e8b9cb1bdeeea0fad7735d5d5e4ae5e",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-01-05 13:26:51+00:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "d1e1b6d9e05ae65fd781e01517aaea804935c652",
+        "msg": "Fix missing log_file parameter\n\nThis change adds the log_file parameter to the logging class where it\nwas previously being set but never defined.  By default we are setting\nit to /var/log/<project>/<project>.log\n\nChange-Id: Ic03b85a5e9ae75a96d426a52ecb90fcc8b8c97d4",
+        "cmtr": "Alex Schultz",
+        "date": "2016-01-28 21:33:58-07:00",
+        "files": ["logging.pp", "{{cookiecutter.project_name}}_logging_spec.rb"]
+      },
+      {
+        "hash": "a2abb0f08ebb50dad7ace38b88d54f90a8b55650",
+        "msg": "Fix db logic and tests\n\nThis change fixes some errors with the cookiecutter db class which was\nresulting in failed spec tests when a new module is created.\n\nChange-Id: Ifac7b4fa74ac6d2020a54c575ee409b0ee79e6e7",
+        "cmtr": "Alex Schultz",
+        "date": "2016-01-28 22:07:05-07:00",
+        "files": ["db.pp", "{{cookiecutter.project_name}}_db_spec.rb"]
+      },
+      {
+        "hash": "2a82f631f97e425d6531e2422d8c82f78f574154",
+        "msg": "db.pp: fix lint issue\n\nChange-Id: I785f7e5f92905e0def83397fdedb4911a7b7a391",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-03-09 18:10:53-05:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "fe8df61f24d03d28b8813136bb8cc0583b24a8fe",
+        "msg": "Update cookiecutter to use puppet-oslo module\n\nUpdate logging, db and policy classes to use oslo defines.\n\nChange-Id: Iae438c3d80044ed25faf0a3424fe3edefc1e6336",
+        "cmtr": "iberezovskiy",
+        "date": "2016-04-12 19:38:23+03:00",
+        "files": ["db.pp", "logging.pp", "policy.pp", "metadata.json", "{{cookiecutter.project_name}}_db_spec.rb"]
+      },
+      {
+        "hash": "c4807e6cfa6f1bcd1974c5bb51f4cb3717e1c908",
+        "msg": "Fix logging and osfamily name\n\nFix correct name in logging :osfamily for RedHat\nAdd missing syslog_log_facility\n\nAlso fixed logic for creating a new module, during tests\non CI\n\nChange-Id: Idffdd65ca89a837a5e856e2f1294a8dfb925aa64",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-04-13 20:38:36+03:00",
+        "files": ["bootstrap.sh", "logging.pp", "{{cookiecutter.project_name}}_logging_spec.rb"]
+      },
+      {
+        "hash": "af56fc70bf94d677c441f536af915966c9ed1275",
+        "msg": "Update auth.pp\n\n*Add service_description parameter.\n*Fix alignment\n\nFor reference please see [1]\n\n[1] https://review.openstack.org/#/c/305279/6/manifests/keystone/auth.pp\n\nChange-Id: I7d2440f95eaa9a459826a56edbb4385a9570b11c",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-04-18 10:41:09-03:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "900a85aa8490fb103fbc752e0559ea3ebb985ee8",
+        "msg": "Remove verbose option\n\nverbose does not have any usage anymore.\n\nChange-Id: I4d0e54035b0099780b64db870ae7ea57f6140831",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-05-18 12:27:46-03:00",
+        "files": ["logging.pp", "{{cookiecutter.project_name}}_logging_spec.rb"]
+      },
+      {
+        "hash": "5d83aff5dbe16ceaeffd4b6463b458469a8ac862",
+        "msg": "Update cookiecutter\n\n- remove real from db.pp\n- remove unused variables in params.pp,\nbecause we are usinig oslo to manage db.\n- change log_facility to syslog_log_facility,\nupdate tests.\n\nChange-Id: If2154a8d2ae114aec568ccd3d82760c94d2c495f",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-06-02 00:48:02-03:00",
+        "files": ["db.pp", "logging.pp", "params.pp", "{{cookiecutter.project_name}}_logging_spec.rb"]
+      },
+      {
+        "hash": "ddfa8b583c6c34ca5354cfab47d899e31daf7787",
+        "msg": "Update keystone::auth service name parameter\n\nTo be consistent and allow for username changes for services that may\nnot have the service name itself in, we need to provide the default\nservice name as a parameter when configuring the keystone information.\nThis change updates the cookiecutter keystone auth class to set the\nservice_name to the project name by default.\n\nChange-Id: I542fcb873250f10cd003fe3d981ea63efa729c1b\nRelated-Bug: #1590040",
+        "cmtr": "Alex Schultz",
+        "date": "2016-06-07 13:47:04-06:00",
+        "files": ["auth.pp", "{{cookiecutter.project_name}}_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "d5c99e33f5257a1a5ad930d4fd155212477ffa7e",
+        "msg": "Fix requirements in metadata.json\n\n9.0.0 versions of puppet modules was already released\nso we need to fix requirements in metadata.json.\n\nFix quotes in docs for database_connection parameter.\n\nChange-Id: I6433c5b63cea0ee65bfb936953058b66fed58431",
+        "cmtr": "iberezovskiy",
+        "date": "2016-06-22 12:32:39+03:00",
+        "files": ["db.pp", "metadata.json"]
+      },
+      {
+        "hash": "d71f3de9df4a0c8f2e3783d31be7cdf91d14d66c",
+        "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: Ifd80332d86633db8ef48a8eb9f132a5328bcfdf7\nRelated-Bug: 1599113",
+        "cmtr": "Alex Schultz",
+        "date": "2016-07-19 21:05:05+00:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "d21e72b18b1c83a0ab1037f10c5674c6d107d77d",
+        "msg": "Add authtoken class\n\nAdd authtoken class like we do in all other modules, to configure\n[authtoken] section.\n\nChange-Id: I5bc4df614ae78d665156c7afeb443169c24be533",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-08-04 09:04:01-04:00",
+        "files": ["authtoken.pp", "{{cookiecutter.project_name}}_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "c9943227cb4ee487199f1180884f29271ac57228",
+        "msg": "Fix authtoken\n\n- Fix documentation in class\n- Fix metadata dependencies\n\nChange-Id: Icb1b9551a73d2d5d895e121422ccf87cadcf30e2",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-08-27 02:43:32-03:00",
+        "files": ["authtoken.pp", "metadata.json"]
+      },
+      {
+        "hash": "4794c261c9aa16bbba465ad07f782862be30d102",
+        "msg": "Add retries to db-sync\n\nIf db-sync fails, it will not be rerun until a configuration change or a\npackage update. This can lead to misconfigured databases, so we should\nat least attempt to retry the sync process.\n\nChange-Id: Ife69fb88e300c82214add575bc16e7227de641f1\nRelated-Bug: #1628580",
+        "cmtr": "Alex Schultz",
+        "date": "2016-09-29 09:03:18-06:00",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "a786f819c6d5467093699b0bc9e59d6f38623bc2",
+        "msg": "Added ensure parameter to pass to service identity\n\nPass ensure to service identity so resources can be created\nor removed based on class ensure parameter.\n\nChange-Id: Id34672a07e1b8669ae73008f48509d9fe4463c70\nDepends-On: I51b75baa84058779ca2c00f3ac2657c42831e51d",
+        "cmtr": "Alex Schultz",
+        "date": "2016-10-20 15:05:46-06:00",
+        "files": ["auth.pp", "{{cookiecutter.project_name}}_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "18f96de90f61c5ba2e028dc727e82166d0e4ccd2",
+        "msg": "Add support for db_max_retries param\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: Ibba3dbea13eb055582e6f0c2f4e1d3a6afe105ff\nRelated-Bug: 1579718",
+        "cmtr": "Alex Schultz",
+        "date": "2016-10-28 15:55:36-06:00",
+        "files": ["db.pp", "{{cookiecutter.project_name}}_db_spec.rb"]
+      },
+      {
+        "hash": "cc2d70ffcc102bc1f7cd0167ee801bb7193c4114",
+        "msg": "Add unit tests for db_sync class\n\nAdd unit tests for db_sync class.\nAlso add logoutput => on_failure which is something our operators want\nwhen deploying.\n\nChange-Id: Ibe81058160287771d7f7994790ee66bdaa515144",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-11-03 11:16:40-04:00",
+        "files": ["sync.pp", "{{cookiecutter.project_name}}_db_sync_spec.rb"]
+      },
+      {
+        "hash": "cd82ac01ef713bbb7216fd5ca1109be28c2ce333",
+        "msg": "Add python-memcache package parameter to authtoken\n\nThis change adds to cookiecutter the parameter for authtoken\nto allow python-memcache to be installed from the module\nauthtoken class.\n\nRemoved signing dir parameter as it was removed.\n\nChange-Id: I06215e20fb1632500c4228f648ecdd8fb7256dc2",
+        "cmtr": "Matthew J. Black",
+        "date": "2017-01-11 19:13:20-05:00",
+        "files": ["authtoken.pp", "{{cookiecutter.project_name}}_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "90617bf12cc475c90df77bf35409526cfef69966",
+        "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nDepends-On: Ibaf5f73edef980d83bb02d1e969912f33cf056fa\nChange-Id: I482801397d316e332ca18d0325b553491b1dedaf",
+        "cmtr": "Alex Schultz",
+        "date": "2017-07-05 15:38:11-06:00",
+        "files": ["config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "init.pp", "auth.pp", "authtoken.pp", "logging.pp", "params.pp", "policy.pp"]
+      },
+      {
+        "hash": "173b0961a70dd32c825358f256866a8605328354",
+        "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message.\n\nChange-Id: Iec28b6bf0d11f723924833d35791153dbce92ed7\nCloses-Bug: #1717144",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-19 09:52:21+08:00",
+        "files": ["authtoken.pp", "{{cookiecutter.project_name}}_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "4cbb48893e39ec84438a849928c9cf0c0ebbe098",
+        "msg": "Configure *_domain_name to Default by default\n\nKeystone v2.0 API was removed so we have no choice but configuring\nuser_domain_name and project_domain_name otherwise it fallbacks to\nKeystone v2.0 and it fails. This patch sets the default value so we make\nsure Keystone v3 will be used out of the box for our users.\n\nChange-Id: Icaac286dc98d4df6146b5124dc66b703c8e5086a",
+        "cmtr": "ZhongShengping",
+        "date": "2017-10-13 14:39:00+08:00",
+        "files": ["authtoken.pp", "{{cookiecutter.project_name}}_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "6878317d561ce1684a2a5dc423216e1f0e650774",
+        "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: I34bdf6683d612dc1d2a4455cb98bfc8393a09082",
+        "cmtr": "ZhongShengping",
+        "date": "2017-11-28 09:38:14+08:00",
+        "files": ["logging.pp", "{{cookiecutter.project_name}}_logging_spec.rb"]
+      },
+      {
+        "hash": "ed2f4a5a20d84d140f179c2c989356f7ec93138f",
+        "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nChange-Id: I7fe60657ee054524ffb69a6999b71267d3775890\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2018-01-11 18:32:08+00:00",
+        "files": ["params.pp", "policy.pp", "{{cookiecutter.project_name}}_policy_spec.rb"]
+      },
+      {
+        "hash": "5a7d8bf80923271acb25ed88401d69d483f4a19e",
+        "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: I4bf2426797ecd099b36a9ed32676cca83003d221",
+        "cmtr": "ZhongShengping",
+        "date": "2018-01-15 17:41:55+08:00",
+        "files": ["logging.pp", "{{cookiecutter.project_name}}_logging_spec.rb"]
+      },
+      {
+        "hash": "608f061be67e9d85fcf4467bd917af5b1fb1d4cf",
+        "msg": "Drop all qpid related explanations\n\nQpid was removed in Mitaka from Oslo Messaging, so we\ncan remove all qpid related explanations.\n\nChange-Id: I4010189065bbbad448ca3747e3cfc35e0d4e5da7",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-09 15:04:23+08:00",
+        "files": ["logging.pp"]
+      },
+      {
+        "hash": "ed4fbd34da9bbb6d047148e38c5a656799f03c7d",
+        "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: Ic20686247bc865ee5c8bcc16ac166b193aa071dc\nCloses-Bug: #1755102",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-12 16:33:09+08:00",
+        "files": ["sync.pp", "{{cookiecutter.project_name}}_db_sync_spec.rb"]
+      },
+      {
+        "hash": "edd2a60976021f59a851d6759dd98df5da410924",
+        "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: Id441806ab886984fbba4ebfa180f0b935fec6249\nCloses-Bug: #1757581",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-22 11:09:51+08:00",
+        "files": ["db.pp", "{{cookiecutter.project_name}}_db_spec.rb"]
+      },
+      {
+        "hash": "4d06dfecb303129aac2f3416314684c1e6db0641",
+        "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: Id49bdfc04d7f938955aeaeb4c24fc53af1a26d4e\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
+        "cmtr": "ZhongShengping",
+        "date": "2018-04-03 17:41:58+08:00",
+        "files": ["authtoken.pp", "{{cookiecutter.project_name}}_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "432582ef842b9f3ac8e6a2bd1ea32bf9e0d11f60",
+        "msg": "neat: missing : in $::os_service_default\n\nChange-Id: I9c6b418c5bc440f7a1159cfd11dde54facb852f3",
+        "cmtr": "zhubingbing",
+        "date": "2018-05-11 14:27:43+08:00",
+        "files": ["authtoken.pp"]
+      },
+      {
+        "hash": "2853731401791f56883de5a086deb16322d7e8b5",
+        "msg": "Replace port 35357 with 5000 for \"auth_url\"\n\nBased on the change in Keystone Install Guide [1],\nthis patch replace port 35357 with 5000 for \"auth_url\".\n\nFor more details, please check similar changes which have been done\non other projects: Nova [2], Neutron [3], Cinder [4], Glance [5].\n\n[1] https://review.openstack.org/#/c/541857\n[2] https://review.openstack.org/#/c/562812\n[3] https://review.openstack.org/#/c/566491\n[4] https://review.openstack.org/#/c/565464\n[5] https://review.openstack.org/#/c/558932\n\nChange-Id: I485342b98b8c8d832a5deed2d287e375fccc349a",
+        "cmtr": "huang.zhiping",
+        "date": "2018-05-26 18:04:08+08:00",
+        "files": ["authtoken.pp", "{{cookiecutter.project_name}}_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "a7a5c0a073a3f751b1be989d7f05857b90b16750",
+        "msg": "Fix annotations\n\nChange-Id: I33a28e3553d2899977e51b0bdf2728e3474b2899",
+        "cmtr": "zhubingbing",
+        "date": "2018-06-15 15:07:37+08:00",
+        "files": ["mysql.pp"]
+      }]
+    }

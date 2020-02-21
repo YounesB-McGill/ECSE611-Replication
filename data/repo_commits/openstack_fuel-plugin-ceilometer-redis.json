@@ -1,0 +1,70 @@
+    {
+      "url": "https://github.com/openstack/fuel-plugin-ceilometer-redis",
+      "pp_files": ["primary-controller.pp", "main.pp", "sentinel.pp", "create_redis_ocf.pp", "sentinel_params.pp", "init.pp", "params.pp", "controller.pp"],
+      "pp_cmtrs": ["Mykyta Karpin", "iberezovskiy", "Nadya Shakhat", "Ilya Tyaptin"],
+      "num_pp_commits": 9,
+      "num_tot_commits": 24,
+      "commits": [{
+        "hash": "6a9a83d0d9da73a094bd29e5629b4c4b93d151bd",
+        "msg": "Add Redis puppet module\n\nAdd upstream Redis puppet module which will be used\nas base module for Ceilometer-Redis plugin:\nhttps://github.com/fsalum/puppet-redis\n\nPartially implements: blueprint ceilometer-central-agent-ha\n\nChange-Id: Icbd879623790bf96e54b6dad7435594f107cb650",
+        "cmtr": "iberezovskiy",
+        "date": "2015-07-28 13:18:36+03:00",
+        "files": [".travis.yml", "CHANGELOG", "Gemfile", "LICENSE", "Modulefile", "README.md", "Rakefile", "Vagrantfile", "redis_version.rb", "init.pp", "params.pp", "sentinel.pp", "sentinel_params.pp", "metadata.json", "spec_helper.rb", "logrotate.erb", "redis.conf.erb", "sentinel-init.conf.erb", "sentinel.conf.erb", "Puppetfile", "init.pp", "sentinel.pp"]
+      },
+      {
+        "hash": "a53478afe9d379403392a912a9b0134955b539d8",
+        "msg": "Implement Ceilometer-Redis plugin\n\nIn details:\n  * Adapt Redis puppet module for plugin usage:\n    - update tests\n    - improvements for sentinel installation\n    - uncomment CentOS params for plugin usage on next Fuel releases\n  * Prepare main puppet script for:\n    - Redis and sentinel installation\n    - Work with ceilometer-agent-central service as pacemaker resource\n     (remove old one and configure new with clone set)\n    - Configure redis under pacemaker\n    - Add ocf scripts for redis-server\n  * Add tasks for plugin\n  * Add metadata for plugin\n  * Add Redis packages (2.8 version) and their dependencies\n  * Use existing ceilometer network role for redis\n\nPartially implements: blueprint ceilometer-central-agent-ha\n\nChange-Id: I77c75e05b28f3ff4690e89034e345cc9c64af5e5",
+        "cmtr": "iberezovskiy",
+        "date": "2015-08-18 16:23:57+03:00",
+        "files": ["controller.pp", "primary-controller.pp", "Rakefile", "redis-server", "check_mode.rb", "redis_backend_url.rb", "sentinel_confs.rb", "init.pp", "main.pp", "sentinel.pp", "sentinel_params.pp", "environment_config.yaml", "metadata.yaml", "pre_build_hook", "jemalloc-3.6.0-1.el6.x86_64.rpm", "redis-2.8.18-2.el6.remi.x86_64.rpm", "libjemalloc1_3.5.1-2_amd64.deb", "redis-server_2%3a2.8.4-2_amd64.deb", "redis-tools_2%3a2.8.4-2_amd64.deb", "tasks.yaml"]
+      },
+      {
+        "hash": "7cf2fd4387c9e4784e2130c0f3439b0f9be98c93",
+        "msg": "Refactor redis tasks for controller nodes\n\n* Remove duplication of starting manifests\n* Remove excess lines from metadata\n\nChange-Id: I1ad0b69150d21e54ef107d49ee0d9245f062b849",
+        "cmtr": "iberezovskiy",
+        "date": "2015-11-05 20:13:48+03:00",
+        "files": ["controller.pp", "primary-controller.pp", "metadata.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "5adb4d407b665d0ac4fc660e68b9c9f8022ab803",
+        "msg": "Add alarms and notification agents coordination\n\nIn this patch next features have been implemented:\n\n1. Set a notification workload_partitioning to True, for turning on\nnotification agents partitioning\n2. Change alarm evaluator resource configuration in pacemaker to run\nit on each controller node\n\nChange-Id: Id74094d64b6c24aa4c4f4ff5d9a5cd2610425c60",
+        "cmtr": "Ilya Tyaptin",
+        "date": "2016-01-29 10:38:08+00:00",
+        "files": ["main.pp"]
+      },
+      {
+        "hash": "7aca0c5f1c2b4dbd6b56b762c0bde69f24cf0881",
+        "msg": "Fix idempotency for Ceilometer Redis plugin\n\nChange-Id: I4acf9f2fc86a3d00345ce5a0dcde227f77106bfb\nCloses-Bug: #1528827",
+        "cmtr": "Mykyta Karpin",
+        "date": "2016-02-29 17:18:35+02:00",
+        "files": ["main.pp"]
+      },
+      {
+        "hash": "39bd25c060ba5a20f5318a2b78662818050e3452",
+        "msg": "fix name for master of redis cluster\n\nvalue of master name should be the same as in\nceilometer redis backend url\n\nCo-Authored-By: alexey-mr <Alexey.Morlang@gmail.com>\n\nChange-Id: Ic9f6399950597db399718b4e607c6586db5647e3\nCloses-Bug: #1553229",
+        "cmtr": "Mykyta Karpin",
+        "date": "2016-03-08 17:46:56+02:00",
+        "files": ["controller.pp", "redis_backend_url.rb", "sentinel_confs.rb", "main.pp", "sentinel.pp"]
+      },
+      {
+        "hash": "b19cbd4d5f31ea6c2b06ddc18198932993b2efc3",
+        "msg": "Update package version to 3.0.0\n\nThis change is required to fix different issues\nrelated to order in which plugin tasks are launched\non controller nodes\n\nCloses-Bug: #1558580\n\nChange-Id: I8d26ca82e70ef80d509203366457779d6a3291a8",
+        "cmtr": "Mykyta Karpin",
+        "date": "2016-03-18 14:02:07+02:00",
+        "files": ["main.pp", "deployment_tasks.yaml", "metadata.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "f7a306221ae99b2ae750fa9f15f5d11d59ed1c57",
+        "msg": "Remove notification agent support from the plugin\n\nChange-Id: I3f3332efb59d27f08368c5d0571cdbd9750b96b5",
+        "cmtr": "Nadya Shakhat",
+        "date": "2016-06-21 11:23:37+03:00",
+        "files": ["main.pp", "description.rst", "guide.rst"]
+      },
+      {
+        "hash": "6e4d9213d24d14b06ac6dc65084e46b3b7ed837e",
+        "msg": "Update plugin for MOS 9.0\n\nChange-Id: I6fc0573ec1519a4cd3b4b9d3c6536910485dd66c",
+        "cmtr": "Nadya Shakhat",
+        "date": "2016-07-13 14:59:09+03:00",
+        "files": ["create_redis_ocf.pp", "main.pp", "deployment_tasks.yaml", "metadata.yaml"]
+      }]
+    }

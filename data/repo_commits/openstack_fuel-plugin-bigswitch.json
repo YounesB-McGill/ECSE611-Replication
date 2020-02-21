@@ -1,0 +1,175 @@
+    {
+      "url": "https://github.com/openstack/fuel-plugin-bigswitch",
+      "pp_files": ["controller-network-config.pp", "compute-config.pp", "compute.pp", "openstack.pp", "init.pp", "purge-os.pp", "params.pp", "controller.pp", "network-config.pp", "reconfigure-neutron.pp", "restart_cluster_services.pp", "compute_network_config.pp", "controller-network.pp", "controller-config.pp", "common-repo.pp", "openstack-cleanup.pp", "compute-network-config.pp", "general-network-config.pp", "restart-cluster-services.pp", "reconfigure_neutron.pp", "network.pp", "ceph-config.pp", "ceph.pp", "reconfigure-services.pp", "reconfigure-keystone.pp"],
+      "pp_cmtrs": ["Kanzhe Jiang"],
+      "num_pp_commits": 24,
+      "num_tot_commits": 30,
+      "commits": [{
+        "hash": "fb272b15819d8c9412b3f0061b7a282ab6a025be",
+        "msg": "first draft p-only plugin\n\nP-only bigswitch Neutron fuel plugin.\nToDo: discover the uplinks of compute, controller, and ceph nodes.\n\nChange-Id: I433d370c761b8070be2cea27ace1651926b9e37c",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2015-12-03 15:21:16-08:00",
+        "files": ["README.md", "deploy.sh", "ceph-config.pp", "compute-config.pp", "controller-config.pp", "AUTHORS.txt", "ceph.pp", "compute.pp", "controller.pp", "init.pp", "params.pp", "openstack.pp", "send_lldp", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml"]
+      },
+      {
+        "hash": "acb28c48d15f853f2b8084a47fab06e7ce53dc6e",
+        "msg": "p-only compute is ok\n\nChange-Id: I4289d992f3675ad9233924b37d4c3f9d1a8794e8",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2015-12-07 16:25:25-08:00",
+        "files": ["compute.pp", "controller.pp", "init.pp", "params.pp", "openstack.pp", "deployment_tasks.yaml", "metadata.yaml"]
+      },
+      {
+        "hash": "9c91afaf6c0f3fdb0b3d584104a7f3a458f650c5",
+        "msg": "support ceph node\n\nChange-Id: I088bc4c59cbf16956e74bb12076012184e560741",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2015-12-07 20:17:32-08:00",
+        "files": ["ceph.pp", "compute.pp", "init.pp"]
+      },
+      {
+        "hash": "97913db098a53ccddea803388f09c7a4313d7a2f",
+        "msg": "update controller script\n\nChange-Id: I0dc9b1ba89c754e252f57f3aa582274755078f70",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2015-12-08 16:16:59-08:00",
+        "files": ["controller.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "97932c7bd7b0e7261d338c9a643da13a6762916d",
+        "msg": "split deployment scripts into p-only and p_v\n\nAdd structural support for p_only and p_v modes,\nadd LACP support for controller nodes\n\nChange-Id: Idd46aa0a34c890ce77c784eeebfa88602b5c6b03",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2015-12-09 13:38:44-08:00",
+        "files": ["ceph-config.pp", "compute-config.pp", "controller-config.pp", "ceph.pp", "compute.pp", "controller.pp", "ceph.pp", "compute.pp", "controller.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "d3fc73cadbb1a0350a01349f357e53a82e8a3d27",
+        "msg": "class name correction\n\nChange-Id: Ic64240c5e225ccda7217b5c5e1a40a7a5c4122a8",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2015-12-09 20:01:39-08:00",
+        "files": ["ceph.pp", "compute.pp", "controller.pp", "ceph.pp", "compute.pp", "controller.pp"]
+      },
+      {
+        "hash": "737b80d3e441dc09a59391e623e63e665c545dc8",
+        "msg": "plugin UI update patch novnc proxy base url\n\nChange-Id: Ida35b2e652ec96cd9d7eae54fd3283b69bb43153",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2015-12-11 14:49:16-08:00",
+        "files": ["init.pp", "compute.pp", "controller.pp", "openstack.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "7b97cd8fc064389b5fa5be3f23dc12c917460331",
+        "msg": "separate lacp config and repo from main scripts\n\nChange-Id: If2385b9f29e996f596154557f5a820a850f68d36",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2015-12-16 06:30:14-08:00",
+        "files": ["common-repo.pp", "controller-network-config.pp", "purge-os.pp", "purge_all.sh", "controller-network.pp", "controller.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "f2f2b3f58bcd2de2c783da31035efde8e3d8e5a9",
+        "msg": "restart services under pacemaker on controller nodes\n\nChange-Id: I91fdbb9f3d0dab345cb9e29bc76fdbf5b10399f4",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2015-12-18 14:07:26-08:00",
+        "files": ["common-repo.pp", "compute.pp", "controller.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "7cab8ed596d15d986105ef6ec12f530bb26e296c",
+        "msg": "fix novnc issue\n\nChange-Id: I3ac472447201209ddc3bfc6186ac3020d0bf93e8",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2015-12-19 01:15:07-08:00",
+        "files": ["compute.pp", "controller.pp"]
+      },
+      {
+        "hash": "357d34c0cc1706afaeaa1d939f90eb26da6b886c",
+        "msg": "p-only, restart cluster services separately.\n\nChange-Id: Ib000203bd5378fa4655eba6c26f0de1fb99019a0",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2016-01-04 22:14:38-08:00",
+        "files": ["network-config.pp", "reconfigure-services.pp", "restart-cluster-services.pp", "network.pp", "reconfigure-services.pp", "restart-cluster-services.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "1b054d29be1e76fe0b2300433f4cae8f56f391bc",
+        "msg": "set novnc protocol depending on is ssl is enabled on horizon\n\nChange-Id: Iaacc2c9e48e4fd70c87965395545624d42dee95a",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2016-01-05 13:20:02-08:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "129e675a7a9763a06846449e975c14a3c49c59f2",
+        "msg": "apply novnc protocol\n\nChange-Id: If4aba9f88e02ca179b33f2867bfd484568d5aff2",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2016-01-05 17:59:52-08:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "511e7fd6c631ac9854dc46fa17208e265ab9deb6",
+        "msg": "switch the task order to restart cluster services after configuring all controllers\n\nChange-Id: I68b06cf11e1b51a9cce261f2b9345c38c3a7838b",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2016-01-06 21:27:03-08:00",
+        "files": ["reconfigure-keystone.pp", "reconfigure-neutron.pp", "reconfigure-neutron.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "13f66c0ecf4571f7440f564ada77312ba0801422",
+        "msg": "name consistency change\n\nChange-Id: I6a858fc9248a76bf3a31907e8bcc0a4c1a1f61c3",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2016-01-07 09:57:11-08:00",
+        "files": ["openstack-cleanup.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "efd4d00ab4fe318bd01e8e047d8a9fe3ba740ad8",
+        "msg": "format cleanup with puppet lint\n\nChange-Id: I2e3626ec01f76a6ce0873cc1595eadce27cedef6",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2016-01-09 08:30:33-08:00",
+        "files": ["ceph-config.pp", "common-repo.pp", "compute-config.pp", "network-config.pp", "openstack-cleanup.pp", "reconfigure-keystone.pp", "reconfigure-neutron.pp", "restart-cluster-services.pp", "init.pp", "ceph.pp", "compute.pp", "network.pp", "reconfigure_neutron.pp", "restart_cluster_services.pp", "ceph.pp", "compute.pp", "controller.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "10f4965473d5590f22f3e55123b28749fd5fc3dc",
+        "msg": "P-only cleanup, p+v prep\n\nChange-Id: I3f7c56023e65547276aaf617d22eb4f771e0a309",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2016-01-11 12:39:20-08:00",
+        "files": ["ceph.pp", "compute.pp", "network.pp", "reconfigure_neutron.pp", "restart_cluster_services.pp"]
+      },
+      {
+        "hash": "ec0604dbb2f3415f92caef7c7af09ce93bb6db15",
+        "msg": "Add IVS package and not install lldp for P+V compute nodes\n\nChange-Id: I1a00370e55e645c0a07593d39da47f5ac678a249",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2016-02-21 00:25:35-08:00",
+        "files": ["ivs-dbg_3.5.0_amd64.deb", "ivs_3.5.0_amd64.deb", "compute-network-config.pp", "general-network-config.pp", "compute-network-config.pp", "params.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "a62bff2b66924d983a37cc61825f7e0aac901990",
+        "msg": "Support DVR in p-only mode and stop lacp on compute for P+V mode\n\nChange-Id: I7709f9fc3767209ef5a78ff06e25ac37303f2288",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2016-02-24 11:36:06-08:00",
+        "files": ["compute-network-config.pp", "general-network-config.pp", "init.pp", "compute.pp", "compute_network_config.pp", "openstack.pp", "puppet-lint.conf"]
+      },
+      {
+        "hash": "de7743ea55ffb7e1566e8f970a83537139c24d96",
+        "msg": "BCF P+V support\n\nChange-Id: Idcd208188402e77b832021bb47b71a8b140b5209",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2016-04-10 10:23:21-07:00",
+        "files": ["reconfigure-keystone.pp", "reconfigure-neutron.pp", "restart-cluster-services.pp", "bcf_rest_client.py", "bridge-cleanup.sh", "ivs-setup.sh", "ubuntu_compute.sh", "init.pp", "compute.pp", "reconfigure_neutron.pp", "restart_cluster_services.pp", "openstack.pp", "send_lldp", "deployment_tasks.yaml", "environment_config.yaml"]
+      },
+      {
+        "hash": "16d52b315840e7c781e40481f80e4dc5f8fe167e",
+        "msg": "make internal interface name consistent\n\nChange-Id: Id65c88fb1e59d252d447aa57f49b8da75c0d9722",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2016-04-12 00:50:51-07:00",
+        "files": ["ivs-dbg_3.6.0_amd64.deb", "ivs_3.6.0_amd64.deb", "bcf_rest_client.py", "ivs-setup.sh", "api-metadata.filters", "baremetal-compute-ipmi.filters", "baremetal-deploy-helper.filters", "compute.filters", "network.filters", "reconfigure_neutron.pp", "compute.pp", "reconfigure_neutron.pp", "openstack.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "7abb3f723336e7688e847f313144c7c85be939fe",
+        "msg": "fix exec path\n\nChange-Id: I6f5aa3f98660cc139ec1da7a84fabaa9dcf5cb41",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2016-04-12 09:25:03-07:00",
+        "files": ["ivs-setup.sh", "compute.pp"]
+      },
+      {
+        "hash": "5250aff27a2d98e90aea9e4891fa5030d50820ff",
+        "msg": "separate ivs setup into install and setup steps\n\nChange-Id: Ibf64278a33eeac36d8a915aa5cd30ce8486ca5fa",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2016-04-13 09:12:54-07:00",
+        "files": ["ivs-install.sh", "ivs-setup.sh", "compute.pp"]
+      },
+      {
+        "hash": "832d4b234bf9cbe59b0a5fb3b0eeab912af538b2",
+        "msg": "make sure to create /etc/bigswitch directory\n\nChange-Id: I82128737b91613dac4a9cbc15d986a09cb2a3dde",
+        "cmtr": "Kanzhe Jiang",
+        "date": "2016-04-14 16:21:52-07:00",
+        "files": ["compute-network-config.pp", "reconfigure_neutron.pp"]
+      }]
+    }

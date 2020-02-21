@@ -1,0 +1,637 @@
+    {
+      "url": "https://github.com/openstack/puppet-mistral",
+      "pp_files": ["keystone_config_listener.pp", "logging.pp", "db.pp", "init.pp", "sync.pp", "postgresql.pp", "event_engine.pp", "params.pp", "cors.pp", "authtoken.pp", "config.pp", "policy.pp", "deps.pp", "notifier.pp", "client.pp", "api.pp", "workflow.pp", "engine.pp", "mysql.pp", "executor.pp", "apache.pp", "auth.pp", "services.pp", "cron_trigger.pp"],
+      "pp_cmtrs": ["Emilien Macchi", "Xing Zhou", "Juan Antonio Osorio Robles", "jacky06", "Tobias Urdin", "ZhongShengping", "Limor Stotland", "Andrew Smith", "Brad P. Crochet", "Maksym Yatsenko", "Swapnil Kulkarni (coolsvap)", "Marcos Fermin Lobo", "Dougal Matthews", "zhubingbing", "Carlos Camacho", "Sharat Sharma", "Alex Schultz", "qiaomin", "Sofer Athlan-Guyot", "Venkata Mahesh Jonnalagadda", "Martin Andr\u00e9", "Mike Fedosin", "zhulingjie", "Matt Fischer", "Pierre Gaxatte", "Denis Egorenko", "Iury Gregory Melo Ferreira", "tshtilma", "Dan Prince"],
+      "num_pp_commits": 90,
+      "num_tot_commits": 283,
+      "commits": [{
+        "hash": "3b0bc55c5b80529198666f4cdc36d5f2ae9cbbd7",
+        "msg": "puppet-mistral: initial commit\n\nChange-Id: I07c22568ca6c6d1155626fff7cf1d3ca3c6fd5c5\nImplements: blueprint add-puppet-mistral",
+        "cmtr": "Limor Stotland",
+        "date": "2015-08-09 10:00:45+00:00",
+        "files": [".fixtures.yml", ".gitignore", "Gemfile", "LICENSE", "README.md", "Rakefile", "ini_setting.rb", "mistral_config.rb", "client.pp", "config.pp", "mysql.pp", "postgresql.pp", "sync.pp", "init.pp", "auth.pp", "keystone_config_listener.pp", "logging.pp", "params.pp", "policy.pp", "services.pp", "metadata.json", "centos-70-x64.yml", "default.yml", "nodepool-centos7.yml", "nodepool-trusty.yml", "ubuntu-server-1404-x64.yml", "mistral_config_spec.rb", "mistral_db_mysql_spec.rb", "mistral_db_postgresql_spec.rb", "mistral_keystone_auth_spec.rb", "mistral_logging_spec.rb", "mistral_policy_spec.rb", "shared_examples.rb", "spec_helper.rb", "spec_helper_acceptance.rb", "ini_setting_spec.rb", "mistral_config_spec.rb", "openstack-mistral-api.service.erb", "openstack-mistral-engine.service.erb", "openstack-mistral-executor.service.erb", "init.pp"]
+      },
+      {
+        "hash": "5914d2f941c445a99c5910daf676170d96bd9a59",
+        "msg": "Correct Default spelling in init.pp\n\nChange-Id: I889626600ddb26236a5080414bda53eaa93ead68",
+        "cmtr": "Dan Prince",
+        "date": "2015-11-21 17:41:48-05:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "636104b0bbbe1f3ddab3ebee8077271b5acbd539",
+        "msg": "Fix keystone configuration.\n\nThis patch updates the mistral keystone_authtoken configuration\nto be inline with other OpenStack puppet modules. Specifically\nit adds a unique setting for identity_uri so that it can\nbe set correctly rather than re-using auth_uri for both\nsettings.\n\nIncludes some new tests for these settings.\n\nChange-Id: I092516aa07f6dec4cb26e44182f125d27c8ff334",
+        "cmtr": "Dan Prince",
+        "date": "2015-12-07 13:34:21-05:00",
+        "files": ["init.pp", "mistral_init_spec.rb"]
+      },
+      {
+        "hash": "90837cd2ec4d4e8e422792d7e546abf5ae1bc901",
+        "msg": "Allow distro packages to install dependencies, etc\n\nThis patch updates init.pp so that it only attempts to\ninstall the mistral package (which should create the\nuser, group, and install all the required dependencies\nitself).\n\nIncludes tests for each supported OS Family.\n\nChange-Id: I3f996cddb5ff31431545e2f8e4a376fccc2eda61",
+        "cmtr": "Dan Prince",
+        "date": "2015-12-07 13:34:21-05:00",
+        "files": ["init.pp", "params.pp", "mistral_init_spec.rb"]
+      },
+      {
+        "hash": "a0ba55a34bfaeb8201b8775ebf98f8482a6ad621",
+        "msg": "Remove qpid messaging support\n\nQpid messaging driver is removed from Oslo.messaging [1]\nTherefore, we cannot support it anymore.\n\n[1] I4a9cba314c4a2f24307504fa7b5427424268b114\n\nChange-Id: I87f9e1ee9d8190a2fec6fc5c72885a5c52121cd9",
+        "cmtr": "Dan Prince",
+        "date": "2015-12-07 17:14:06-05:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "a28b2a3765ced628e8d06f23b69e22ab87c42720",
+        "msg": "Default Rabbit port to 5672\n\nThe default port for rabbitmq is 5672.\n\nThis patch makes puppet-mistral use the same\ndefaults as other puppet openstack modules.\n\nChange-Id: I80d897c8c88158de2cd7ac8c3e88c92395188615",
+        "cmtr": "Dan Prince",
+        "date": "2015-12-07 17:14:07-05:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "f46814e9a74990bab2b5c2781924b74dceac73a4",
+        "msg": "Add mistral::api class\n\nAdds a new class to manage the mistral-api package/service.\n\nChange-Id: I678fa32183cf9f3a2116e61ff5fd800ad1600d03",
+        "cmtr": "Dan Prince",
+        "date": "2015-12-09 10:28:49-05:00",
+        "files": ["api.pp", "params.pp", "mistral_api_spec.rb"]
+      },
+      {
+        "hash": "ad7109f348953ffe2f516b298aa37901bd703e19",
+        "msg": "Add mistral::engine class\n\nAdds a new class to manage the mistral-engine package/service.\n\nChange-Id: I8ea961a8f70edf50f69e7fa8c74016e6adbb861c",
+        "cmtr": "Dan Prince",
+        "date": "2015-12-09 10:28:50-05:00",
+        "files": ["engine.pp", "params.pp", "mistral_engine_spec.rb"]
+      },
+      {
+        "hash": "368d53e24f43057fe7969da4911c26971b8c10d5",
+        "msg": "Add mistral::executor class\n\nAdds a new class to manage the mistral-executor package/service.\n\nChange-Id: Ide01de8c761ccd099b7a8469bff34316ff5c04f2",
+        "cmtr": "Dan Prince",
+        "date": "2015-12-09 10:28:50-05:00",
+        "files": ["executor.pp", "params.pp", "mistral_executor_spec.rb"]
+      },
+      {
+        "hash": "16a00799a9adc19b71359a5b9b0eba1030ad08b4",
+        "msg": "Update mistral::db::sync to run 'update head'\n\nThis patch modifies mistral::db::sync so that it\nruns 'update head' in addition to 'populate'.\n\nThis brings the mistral \"db_sync\" class more inline\nwith other Puppet Openstack modules that run DB sync\nand fixes issues in bootstrapping mistral in that\nrunning populate without first having an 'upgrade head'\nwould always fail. Both actions appear to be idempotent\nso re-running them should be fine.\n\nChange-Id: I13f037c3eea944d5f41ced904623e38ce3fcae44",
+        "cmtr": "Dan Prince",
+        "date": "2015-12-09 10:28:50-05:00",
+        "files": ["postgresql.pp", "sync.pp", "params.pp", "mistral_db_sync_spec.rb"]
+      },
+      {
+        "hash": "c044a73a8e3db06a59034073dd4b2f24e9fcceeb",
+        "msg": "Drop keystone_config_listener.pp\n\nDrop keystone_config_listener.pp file which has no reason to exist.\nIt was introduced during the first commit of puppet-mistral.\n\nChange-Id: If5a5893f21b53c52a8713fbebde24b0f42698278",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-12-21 20:18:32+01:00",
+        "files": ["keystone_config_listener.pp"]
+      },
+      {
+        "hash": "eb75d332d838f7006a6c8711d91072ef37423c5c",
+        "msg": "Update typo\n\nChange-Id: Ia70783801b2ff4f8e3c5c98432a1ea81520d8917",
+        "cmtr": "Swapnil Kulkarni (coolsvap)",
+        "date": "2016-01-04 14:42:26+05:18",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "b18ff85e3faed00709de15b95bd46550490906a5",
+        "msg": "Split log file of mistral services\n\nAdding the option to configure different log files for\nmistral services in order to have clearer log files\nseperated to engine,api and executor\n\nChange-Id: Ie1106e01206f7c618e5b2ed5a55666718b3e7ec8\nSigned-off-by: tshtilma <tomer.shtilman@nokia.com>",
+        "cmtr": "tshtilma",
+        "date": "2016-01-21 10:54:10+02:00",
+        "files": ["params.pp", "services.pp", "openstack-mistral-api.service.erb", "openstack-mistral-engine.service.erb", "openstack-mistral-executor.service.erb"]
+      },
+      {
+        "hash": "9dae948df8b3807bbc47a11f296ceb71d746c6c7",
+        "msg": "The workflow service type should be workflowv2\n\nThe default upstream service type for Mistral\nshould now be 'workflowv2'.\n\nSee mistralclient here:\nhttp://git.openstack.org/cgit/openstack/python-mistralclient/tree/mistralclient/shell.py#n208\n\nChange-Id: Ifdf713da12d8e327835b176a9da6ca786fa2d61f",
+        "cmtr": "Dan Prince",
+        "date": "2016-01-22 12:50:05-05:00",
+        "files": ["auth.pp", "mistral_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "9f19d11c16532b6caa79b68ffc99f5a03210238c",
+        "msg": "Refactor puppet-mistral\n\nThe module was written in a way that was not consistent with other\nPuppet OpenStack modules, the interface was very different.\n\nThis patch:\n* add db.pp\n* update logging.pp with usual parameters\n* drop useless parameters in keystone/auth.pp\n* cleanup params.pp\n* drop services.pp, which is useless\n* Update unit tests\n* Add coordination support in init.pp\n* Some alignment issues\n* Add more doc in README\n* Stop including ::mistral in all classes\n* Include mistral::policy in mistral::api\n\nThis is a non-backward compatible change, but since the module has no\nrelease and no stable branch, also very new, this is not something we\nneed to care at this stage.\nPeople using this module at this stage will have to update their\nmanifests otherwise their Puppet catalog will fail.\n\nChange-Id: I979e21caa71ee35337dc01b225878701868e966a",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-02-09 07:34:50-05:00",
+        "files": ["README.md", "api.pp", "db.pp", "engine.pp", "executor.pp", "init.pp", "auth.pp", "logging.pp", "params.pp", "services.pp", "mistral_api_spec.rb", "mistral_db_spec.rb", "mistral_engine_spec.rb", "mistral_executor_spec.rb", "mistral_init_spec.rb", "mistral_keystone_auth_spec.rb", "mistral_logging_spec.rb"]
+      },
+      {
+        "hash": "d76505767390fabdb98885c5454ca0a68c1d180d",
+        "msg": "Implement WSGI support for mistral-api\n\n* Allow to deploy mistral-api in WSGI with apache.\n* Switch beaker tests to deploy WSGI by default.\n* Check if 8041 port is listening on apache\n\nChange-Id: I031198958fdd4147121fbd64b6510bdd564e03c3",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-02-12 11:50:22-05:00",
+        "files": ["api.pp", "params.pp", "apache.pp", "metadata.json", "basic_mistral_spec.rb", "mistral_api_spec.rb", "mistral_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "fb8fd8a01c1239fff9280d1a1d2a06fc882156c7",
+        "msg": "Switch mistral to use puppet-oslo module\n\nrabbit messaging, db, logging parameters were\nconfigured by puppet-oslo module:\n\n* switch messaging related parameters to $::os_service_default\n  as they are used in oslo::messaging_rabbit define\n* update unit test\n\nChange-Id: Id9c820f446b040625611223cb0fd778a3f7a2203",
+        "cmtr": "Maksym Yatsenko",
+        "date": "2016-04-18 13:51:35+03:00",
+        "files": ["db.pp", "init.pp", "logging.pp", "params.pp", "metadata.json", "switch_to_oslo_messaging-70e92a6709162b1e.yaml", "mistral_db_spec.rb", "mistral_init_spec.rb"]
+      },
+      {
+        "hash": "2043789f6f9dd4b1739e4e0210b12cfd68455c09",
+        "msg": "Totally drop Qpid support\n\nQpid was removed in Mitaka from Oslo Messaging, so now we can\ndrop it in manifests.\n\nChange-Id: I9cc052bd0119f83e656582f442f2865b5ee62918",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-04-18 14:19:20+03:00",
+        "files": ["logging.pp", "drop_qpid-9384d349ee594f57.yaml", "mistral_logging_spec.rb"]
+      },
+      {
+        "hash": "3e614e49083f482eb47818b8ad933a4c3a536c08",
+        "msg": "Use oslo module for policy configuration\n\nChange-Id: I14eca815d87d94278abdba5294bb427a9fe14e31",
+        "cmtr": "ZhongShengping",
+        "date": "2016-05-06 15:02:16+08:00",
+        "files": ["policy.pp", "mistral_policy_spec.rb"]
+      },
+      {
+        "hash": "5836d3d382993b6b8b019604791a138b00352c55",
+        "msg": "Use oslo module for configuration\n\nOslo module has the control_exchange parameters,\nso use oslo module to configure it.\n\nChange-Id: I7dcb01c0353ecc6100b3e20da946341e5a01c5bd",
+        "cmtr": "ZhongShengping",
+        "date": "2016-05-07 12:33:30+08:00",
+        "files": ["init.pp", "mistral_init_spec.rb"]
+      },
+      {
+        "hash": "7e68c28e538f1b592ef843f7daf32af26475fc20",
+        "msg": "Add support for the oslo db_max_retries parameter\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: If29c9758aa901ccf836934f88c61ccb1f09205c1\nCloses-Bug: 1579718",
+        "cmtr": "ZhongShengping",
+        "date": "2016-05-10 21:23:35+08:00",
+        "files": ["db.pp", "mistral_db_spec.rb"]
+      },
+      {
+        "hash": "a252b8b5f4bceabccc4de231d5e5ead40d98b575",
+        "msg": "Deprecate verbose parameter\n\nOption \"verbose\" from group \"DEFAULT\" is deprecated for removal.\nThe parameter has no effect.\n-Deprecated verbose for logging and init\n-Remove verbose in README\n-Remove verbose from tests.\nIf this option is not set explicitly, there is no such warning\n\nChange-Id: Ib9cddc4f1b1b03e85118fa3c8390b69b02e7dd7f",
+        "cmtr": "ZhongShengping",
+        "date": "2016-05-19 10:07:24+08:00",
+        "files": ["README.md", "init.pp", "logging.pp", "deprecate_verbose_parameter-ad43da49125142de.yaml", "basic_mistral_spec.rb", "mistral_logging_spec.rb"]
+      },
+      {
+        "hash": "5b1eaad3d5ea4c9e461669527fde4fefacefe7c8",
+        "msg": "Fix WSGI app path on Ubuntu system\n\nLooking at [1], WSGI app is located here:\n/usr/lib/python2.7/dist-packages/mistral/api/wsgi.py\n\nThis patch aims to fix it.\n\n[1] http://packages.ubuntu.com/xenial/all/python-mistral/filelist\n\nChange-Id: Ibf504f919389fd1317ed9c0f0693490db2e1a6f8",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-05-25 10:54:10-04:00",
+        "files": ["params.pp", "mistral_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "f104fccd64a02962a8a232a909a4ad8b29756ed6",
+        "msg": "Different default value for auth_uri in docs\n\nAbout the auth_uri parameter, the documentation says:\n\n[*auth_uri*]\n(optional) Specifies the public Identity URI for Mistral to use.\n Default 'http://localhost:5000/v2.0/'.\n....\n\nBut the default value set is 'http://localhost:5000/'\n\nChange-Id: I5d5c5de3019f04e11ce10f13b59d171074e2f881\nCloses-Bug: #1586008",
+        "cmtr": "Marcos Fermin Lobo",
+        "date": "2016-05-27 09:39:34+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "9b995058ff2b0d1d3302cfc749b7818fa3b3baf7",
+        "msg": "Move evaluation_interval and older_than to engine\n\nThe evaluation_interval and older_than settings apply\nto the Mistral engine process (not executor). So it makes\nsense to manage them within engine.pp.\n\nChange-Id: I79ffd637ebb8094c27f42270b2c14ee77c861297",
+        "cmtr": "Dan Prince",
+        "date": "2016-05-31 20:31:01-04:00",
+        "files": ["engine.pp", "executor.pp", "mistral_engine_spec.rb", "mistral_executor_spec.rb"]
+      },
+      {
+        "hash": "7c80360361a0112a46e08f2536c465790bc23d6a",
+        "msg": "Add purge_config option\n\nAdd the option in order to facilitate management.\nUser can ensure that only the options they hoped\nare configured.\n\nChange-Id: I56816b0fc55566a5a74dc6c1a770081372b520f3",
+        "cmtr": "ZhongShengping",
+        "date": "2016-06-08 12:00:44+08:00",
+        "files": ["init.pp", "mistral_init_spec.rb"]
+      },
+      {
+        "hash": "87c7e5d22f3628fc2e9fdbd0cecd5ca2b2ea07c5",
+        "msg": "Provide default service_name for keystone endpoint\n\nThis change updates the mistral::keystone::auth class to include a default\nservice_name of 'mistral' so that if a user changes the auth_name, the\nservice is still created as being related to 'mistral'. This improves the\nuser experiance when they want to customize the usernames for services.\n\nCloses-bug: #1590040\n\nChange-Id: I94d5429a21acea5d9fe8812f85fb65cfeb3094a3",
+        "cmtr": "Venkata Mahesh Jonnalagadda",
+        "date": "2016-06-10 07:03:58-04:00",
+        "files": ["auth.pp", "keystone-auth-name-6717f5018361ef99.yaml", "mistral_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "2d7524428b3b555e5f500236664686461d8ef4e2",
+        "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: If3f543957064c3d240df664666baa4b56557ad00\nRelated-Bug: 1599113",
+        "cmtr": "Sofer Athlan-Guyot",
+        "date": "2016-07-11 11:18:38+02:00",
+        "files": ["params.pp", "mistral_db_mysql_spec.rb", "mistral_engine_spec.rb", "mistral_executor_spec.rb"]
+      },
+      {
+        "hash": "c36ae89ed43d7cf1bbca4b35f3fdb8a54efb1417",
+        "msg": "Add missing tag on python-mistralclient package.\n\nChange-Id: I271f23fa40d40ebd11c36ddb4cb8ec68d6942aae",
+        "cmtr": "Sofer Athlan-Guyot",
+        "date": "2016-07-25 15:48:30+02:00",
+        "files": ["client.pp", "mistral_client_spec.rb"]
+      },
+      {
+        "hash": "2cd2a93cb08bf9600881fc76f661a1d58997ff08",
+        "msg": "puppet4: make sure database is created before db_sync run\n\nIn Puppet4, ordering does matter a lot, and this patch is required to\nrun Mistral db_sync, otherwise, database will be managed after the\ndb_sync and it will fail\n\nChange-Id: I2b8beb456ca2e93fa0f25fff1f3512f02272b22e",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-08-04 17:00:58-04:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "ccc911a29bd68417e4b896dcf00d50ffbe034d8f",
+        "msg": "Add api_workers to puppet-mistral\n\nCurrently composable mistral is suffering OOM issues\nThis param will be used in composable mistral and CI\nhopefully reducing OOM issues.\n\nNumber of workers for Mistral API service\ndefault is equal to the number of CPUs available if that can\nbe determined, else a default worker count of 1 is returned.\n\nAlso sorted alphabetically this api manifest parameters\n\nChange-Id: I5c3474ebbe0a0296ee24ee66c4d29845ff951cd4",
+        "cmtr": "Carlos Camacho",
+        "date": "2016-08-11 13:42:37+02:00",
+        "files": ["api.pp", "mistral_api_spec.rb"]
+      },
+      {
+        "hash": "bfabd4e2aee8a6d9aad9ec4cfa9b1e8aa87b8172",
+        "msg": "Add CORS settings\n\nAllow configuring CORS settings.\n\nChange-Id: I566ca5d472acbf1d3fa6eb4e4750820dd03fd701",
+        "cmtr": "Martin André",
+        "date": "2016-08-12 17:26:56+02:00",
+        "files": ["cors.pp", "mistral_cors-744479c133f69360.yaml", "mistral_cors_spec.rb"]
+      },
+      {
+        "hash": "c82e95d42afaa3bf114bd212443037ff9159c78d",
+        "msg": "Fix puppet-lint before upgrading gem\n\nRemoving 140 chars limit exeeded in favor\nof upgrading puppet-lint\n\n2016-09-13 21:04:30.494270 | manifests/api.pp:105:WARNING: line has more than 140 characters\n\n Please enter the commit message for your changes. Lines starting\n\nChange-Id: I4b2ee79bea0d1e64380e4a85f67f73c0b4dac504",
+        "cmtr": "Carlos Camacho",
+        "date": "2016-09-14 10:47:23+02:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "da23831e59c2825074d87aade8b76f5451c1dd2f",
+        "msg": "Add rpc_response_timeout option for Oslo Messaging\n\nAllow to configure rpc_response_timeout option.\n\nChange-Id: I0ab00e0522fade9a982ea406784c3573d09987b7",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-09-15 09:06:17-04:00",
+        "files": ["init.pp", "mistral_init_spec.rb"]
+      },
+      {
+        "hash": "35f3fe083a8e769b47ef112d4edb553a80d8c12c",
+        "msg": "Add os_actions_endpoint_type parameter\n\nThis is used by mistral to determine the endpoint that it'll use to\nperform actions for services. It is useful if you want to use\nsomething other than the public endpoints to perform action, for\ninstance, using the internal endpoints instead.\n\nDepends-On: I5a27488c83c998ffb604a673fc1024bcbaed52d2\nChange-Id: I809c88d92e24231c2b5e23230e1b006b538382ac",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2016-09-17 12:15:21+03:00",
+        "files": ["init.pp", "mistral_init_spec.rb"]
+      },
+      {
+        "hash": "7f5709bc223122a1c3ceb2e461a47e1e38fb08a2",
+        "msg": "Remove unnecesary spaces in log messages.\n\nSpaces added by mistake in some log messages.\n\nChange-Id: I006c76439222ecade89bb27b8dbee8fb81f709ab",
+        "cmtr": "Carlos Camacho",
+        "date": "2016-09-26 14:26:16+02:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "337bbc82de249d6b8b3ab578c33433d00b0cbc4c",
+        "msg": "Remove verbose\n\nSince we are in Ocata we should remove the\nverbose option that was deprecated\n\nChange-Id: I05856b25247280249d47918e70cdc8eb8890beeb",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-09-27 20:19:01-03:00",
+        "files": ["init.pp", "logging.pp", "remove_verbose-b6ae287286f00640.yaml"]
+      },
+      {
+        "hash": "51b2044a34a5dbb45baf0bcd05b0c2971b8f4ef4",
+        "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: Iba2b099c917762ed45192f374d8b67e26ec3664a\nCloses-Bug: #1628580",
+        "cmtr": "Sharat Sharma",
+        "date": "2016-09-29 06:47:36+00:00",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "18befb19452523cea80fcd9a8e74b21064767dac",
+        "msg": "Change worker defaults to ::os_workers\n\nThis patch changes the default worker count from ::processorcount to the\nnew ::os_workers fact. ::os_workers is based on the number of processors\n(currently cpu/4) but is capped at a maximum of 8 worker processors.\nThis is a much more reasonable default in general and prevents excessive\nresource consumption on systems with a large number of CPUs.\n\nChange-Id: I3d198132ab50f686e1921bfeaa73188ea7d67116",
+        "cmtr": "Maksym Yatsenko",
+        "date": "2016-10-07 13:41:15+03:00",
+        "files": ["apache.pp", "os_workers_for_worker_count-6deab8168bc940c2.yaml", "mistral_api_spec.rb", "mistral_db_postgresql_spec.rb", "mistral_db_sync_spec.rb", "mistral_logging_spec.rb", "mistral_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "3b8015fee2e9c0f25c8f907be2d64e1af9d94a4f",
+        "msg": "Switch mistral api to use os_workers\n\nWhen not runing mistral under apache, we should use os_workers for the\nnumber of workers to run by default. This change updates the api\nconfiguration to use os_workers which is the larger of\n(number of cpus/4) or 2 but is capped at 8.\n\nChange-Id: I9ddb72c0424cfda539fcddf3c67f8f4b729a7ccb",
+        "cmtr": "Alex Schultz",
+        "date": "2016-10-14 11:26:17-06:00",
+        "files": ["api.pp", "os_workers_for_worker_count-6deab8168bc940c2.yaml"]
+      },
+      {
+        "hash": "a891cba1aee83321c0f2ef5a6a184e0b740f05d1",
+        "msg": "Add enable_proxy_headers_parsing option\n\nThe patch enables paste middleware to handle SSL requests through\nHTTPProxyToWSGI middleware.\n\nChange-Id: Ifbed564e234303a4abbc5d2a90266c8c34e6516c",
+        "cmtr": "ZhongShengping",
+        "date": "2016-10-28 20:19:16+08:00",
+        "files": ["api.pp", "add_enable_proxy_header_parsing-8613ae19724ef119.yaml", "mistral_api_spec.rb"]
+      },
+      {
+        "hash": "0fec267d079d48e0e0dcb257d32fe6d7fade0177",
+        "msg": "Deprecate rabbitmq connection parameters\n\nThe rabbitmq connection parameters have been deprecated in favor of the\ntransport_url setting.\n\nChange-Id: I43ac3079da9e52179457ca1a34f4faee60d5617b\nRelated-Bug: #1625198",
+        "cmtr": "Alex Schultz",
+        "date": "2016-11-09 07:50:37-07:00",
+        "files": ["init.pp", "rabbit-connection-params-deprecation-8f2abf8d3cb0594d.yaml", "basic_mistral_spec.rb", "mistral_init_spec.rb"]
+      },
+      {
+        "hash": "a617112364794559394cdad056ac98d3eaa5907c",
+        "msg": "Mistral external dependency management\n\nMove all dependency tracking to an external class which simplifies the\nrelationships and allows managing Mistral without necessarily using\npackages.\n\nChange-Id: If83638c6cdabc4256cd775d7a0187a5668e4d2c9",
+        "cmtr": "Matt Fischer",
+        "date": "2016-12-07 20:37:27+00:00",
+        "files": ["api.pp", "client.pp", "config.pp", "cors.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "engine.pp", "executor.pp", "init.pp", "auth.pp", "logging.pp", "policy.pp", "apache.pp", "external_dependency_management-8d3dea7e8ac36c51.yaml", "mistral_deps_spec.rb"]
+      },
+      {
+        "hash": "9b69a6d8ce1051bcbc49c3676463776219fd6194",
+        "msg": "Fix name of the mistral-common package on Debian\n\nThe name is mistral-common, not mistral.\n\nChange-Id: Ic7ed1d9b9b94d099fe7c4a487d4635620f854179",
+        "cmtr": "Matt Fischer",
+        "date": "2016-12-08 19:33:04-07:00",
+        "files": ["params.pp", "fix_debian_common_package_name-3268b0e603bd292f.yaml"]
+      },
+      {
+        "hash": "a9c31d3a57ef28d4d25e3b73d4228a8c8116cad1",
+        "msg": "Include mistral::db::sync by default\n\nThis is done in most other modules and it doesn't make much sense to\nsetup mistral without it.\n\nChange-Id: I2f8b6ad7ae3e4defefe58ac749b2268d067167b1",
+        "cmtr": "Matt Fischer",
+        "date": "2016-12-09 15:12:39+00:00",
+        "files": ["init.pp", "db_sync_class_default-40f42cf762187f17.yaml", "include_db_sync-c5e9c2c5cef49eb1.yaml", "basic_mistral_spec.rb", "mistral_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "bf3625d5af5aabd5b2d3679f2ae61d63153cb2a4",
+        "msg": "Move Mistral to authtoken\n\nSwitch keystone_authtoken parameters for the new class\nmistral::keystone::authtoken to configure the keystone_authtoken section\nin mistral.conf.\n\nSome deprecations:\n- mistral::auth_uri is deprecated in favor of\n  mistral::keystone::authtoken::auth_uri.\n- mistral::identity_uri is deprecated in favor of\n  mistral::keystone::authtoken::auth_url.\n- mistral::keystone_user is deprecated in favor of\n  mistral::keystone::authtoken::username.\n- mistral::keystone_tenant is deprecated in favor of\n  mistral::keystone::authtoken::project_name.\n- mistral::keystone_password is deprecated in favor of\n  mistral::keystone::authtoken::password.\n\nChange-Id: I71969ef09018f9daa5f81c4f3bcbdb0b0974446c\nCo-Authored-By: Iury Gregory Melo Ferreira <iurygregory@gmail.com>\nCloses-bug: #1604463",
+        "cmtr": "Alex Schultz",
+        "date": "2016-12-13 07:26:35-07:00",
+        "files": ["init.pp", "authtoken.pp", "authtoken-12e80654ed57f3fa.yaml", "basic_mistral_spec.rb", "mistral_api_spec.rb", "mistral_init_spec.rb", "mistral_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "f708a258a46bdb9a35b95bf3c7134cafa25ccfe1",
+        "msg": "Revert \"Move Mistral to authtoken\"\n\nIt breaks TripleO CI, where we run Ironic Introspection.\nIt sounds like we need to fix something.\n\nNote: I've proposed a patch to have more testing in puppet-mistral, so\nwe'll be able to test this feature later.\n\nThis reverts commit bf3625d5af5aabd5b2d3679f2ae61d63153cb2a4.\nPartial-Bug: #1609688\n\nChange-Id: I0d237081d257417314016158c4f207a81e2948b6",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-12-19 19:56:35+00:00",
+        "files": ["init.pp", "authtoken.pp", "authtoken-12e80654ed57f3fa.yaml", "basic_mistral_spec.rb", "mistral_api_spec.rb", "mistral_init_spec.rb", "mistral_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "a89c097b3c222bdcbd59e1a63f42ea2473e5c154",
+        "msg": "Add customization for wsgi process display name\n\nChange-Id: I802710d820e7ce919f23c195a345dd2183c214e5\nRelated-Bug: #1626550",
+        "cmtr": "Xing Zhou",
+        "date": "2016-12-22 17:12:49+08:00",
+        "files": ["apache.pp", "mistral_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "22afb8bb8480b27d8ebca889beb242348bc3a5e8",
+        "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should be\ninstalled before dbsync starts.\n\nChange-Id: If5615defe7f8cfb98237ce17c5a8ad538ea8c98e",
+        "cmtr": "ZhongShengping",
+        "date": "2017-01-22 21:48:41+08:00",
+        "files": ["deps.pp"]
+      },
+      {
+        "hash": "1defb964e6d34ce0b8f6407942ce2cc3f9aef4a6",
+        "msg": "Add notification transport_url to support dual oslo_messaging backends\n\nChange-Id: I757a4b24f83c30fb7d237961e752845e980f1db6",
+        "cmtr": "Andrew Smith",
+        "date": "2017-02-02 13:47:37-05:00",
+        "files": ["init.pp", "add-notification-transport-url-5a3e7f6d1630d14b.yaml", "mistral_init_spec.rb"]
+      },
+      {
+        "hash": "3552f67b6620420e52e654e9a4abf00b7f7b9847",
+        "msg": "Fix annotation of control_exchange option\n\nChange-Id: I1be6b9aae7ac03357441f4ce61435ead0de4dad3",
+        "cmtr": "ZhongShengping",
+        "date": "2017-02-06 16:53:23+08:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "86295465fa777b837c1f627261c6fcd4748ecf81",
+        "msg": "Add notification_driver and notification_topics options\n\nAdd notification_driver to configure driver or drivers to handle\nsending notifications.\nAdd notification_topics to configure AMQP topic used for OpenStack\nnotifications.\n\nChange-Id: I1d83bd7270eeebb27fa1c3794661f8a7fb9d91e7",
+        "cmtr": "ZhongShengping",
+        "date": "2017-03-01 11:05:41+08:00",
+        "files": ["init.pp", "add_messaging_notification_parameters-a569813623df3529.yaml", "mistral_init_spec.rb"]
+      },
+      {
+        "hash": "055a25e802a3c1d36cb048d9cda9b49b9d06c9c6",
+        "msg": "Move mistral wsgi source to generated script\n\nUse a pbr-generated script for the wsgi script. Also, set the defaults\nfor the threads and workers to sane values.\n\nChange-Id: I61199f53d7e32fcb3d068ccaf548a836b5bb58e9\nDepends-On: I953dbdab71029b392f8846c50fa3d801c293cc5a",
+        "cmtr": "Brad P. Crochet",
+        "date": "2017-04-13 20:15:37-04:00",
+        "files": ["params.pp", "apache.pp", "mistral_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "33c126e3943981b3284152cb018c21b948772898",
+        "msg": "Add support for event engine\n\nMistral now has an event engine used for triggering cron events. Let's\nuse it.\n\nChange-Id: Icaef5e5732f98e9cc39ed1f024d715cee371acac",
+        "cmtr": "Brad P. Crochet",
+        "date": "2017-05-22 10:27:41-04:00",
+        "files": ["event_engine.pp", "params.pp", "add_event_engine-4294e0fe85331fc6.yaml", "basic_mistral_spec.rb", "mistral_event_engine_spec.rb"]
+      },
+      {
+        "hash": "f669c687aae15cf9f3ebee3c6f207e2bb743042b",
+        "msg": "Fix lint issue\n\nChange-Id: I737a5de02f96ea10278e153b8183dde640490006",
+        "cmtr": "ZhongShengping",
+        "date": "2017-06-06 11:22:47+08:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "95680e0c5c81fc373d0d529535e0ab6ab9e75b6e",
+        "msg": "Use proper resource collector syntax for httpd service\n\nPrevious syntax (exported resource collector) was wrong.\n\nChange-Id: I5c5bdde3cc5ba8934092611fbb4722fb3ec880b5",
+        "cmtr": "ZhongShengping",
+        "date": "2017-06-08 09:47:52+08:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "841efecd6d9a910917347b8e9e6059c6b2d32692",
+        "msg": "Add support for Keystone authtoken\n\nLike other modules, add support to deploy authtoken options in a\nbackward compatible way.\n\nSee the release note for deprecations.\n\nChange-Id: I217b79709e1cc39c378266ffa70bed08e88566f7\nDepends-On: I884777826d6ed40d58f75ec5dfba93a876752dfe",
+        "cmtr": "Brad P. Crochet",
+        "date": "2017-06-20 21:08:04+00:00",
+        "files": ["init.pp", "authtoken.pp", "keystone_authtoken-4eefe6058143c876.yaml", "mistral_init_spec.rb", "mistral_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "7e88412f208c141c7c49002524ce0bdd36caa74c",
+        "msg": "Revert \"Add support for Keystone authtoken\"\n\nThis reverts commit 841efecd6d9a910917347b8e9e6059c6b2d32692.\nRelated-Bug: #1702651\n\nChange-Id: I6fc3bd6dd4f6fd447caeb6319cbe02ffc8c156e9",
+        "cmtr": "Emilien Macchi",
+        "date": "2017-07-06 13:21:39+00:00",
+        "files": ["init.pp", "authtoken.pp", "keystone_authtoken-4eefe6058143c876.yaml", "mistral_init_spec.rb", "mistral_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "15c77b67c122a2f57513125fbfcdf37d5957dd16",
+        "msg": "Remove un-used variable\n\nChange-Id: I4423d66bc6dba60cad04aabc60ded5576f8857a4",
+        "cmtr": "Alex Schultz",
+        "date": "2017-07-19 19:22:08+00:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "9e70a0c62bbb465a4621206141d6eae2e51dabd8",
+        "msg": "Fix lint issues to upgrade to puppet-lint 2.3\n\n2017-07-20 14:36:32.147635 | manifests/db/sync.pp:23:WARNING: arrow should be on the right operand's line\n\nChange-Id: Iae6545268c43952d067d1037a4d71dff6ba82bb7",
+        "cmtr": "Carlos Camacho",
+        "date": "2017-07-21 17:20:54+02:00",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "a7c72406fc6c8257db07d3d029c26bbd84e1f84e",
+        "msg": "Deprecate oslo.messaging rpc_backend option parameter\n\nOslo.messaging uses the transport_url to represent the rpc and\nnotification messaging driver to use and its full configuration. The\nrpc_backend configuration option is deprecated for removal and\nshould not gate oslo.messaging driver configuration options.\n\nThis patch:\n* deprecate rpc_backend\n* remove conditional check\n* add release note\n\nChange-Id: I4b6b2cf18928893978c88bf2f3db12e999c2457d",
+        "cmtr": "Andrew Smith",
+        "date": "2017-07-27 08:43:58-04:00",
+        "files": ["init.pp", "deprecate_rpc_backend_parameter-5f612bed0889238b.yaml"]
+      },
+      {
+        "hash": "7fa80b8a30347f7dec12ae3e8316522ad95ae711",
+        "msg": "Revert \"Revert \"Add support for Keystone authtoken\"\"\n\nThis reverts commit 7e88412f208c141c7c49002524ce0bdd36caa74c.\n\nChange-Id: I0640ec3d03f2918c1eeb57f197359fc511ee6d40\nDepends-On: I5f50ca6b773b61c35f93488e64a1b95d3ace9c2c",
+        "cmtr": "Brad P. Crochet",
+        "date": "2017-07-28 16:04:41-04:00",
+        "files": ["init.pp", "authtoken.pp", "keystone_authtoken-4eefe6058143c876.yaml", "mistral_init_spec.rb", "mistral_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "644c51fb2d8cf92035d8a1373e6b70cff02b5c46",
+        "msg": "Revert \"Revert \"Revert \"Add support for Keystone authtoken\"\"\"\n\nIt breaks TripleO introspection again.\n\nThis reverts commit 7fa80b8a30347f7dec12ae3e8316522ad95ae711.\n\nChange-Id: Ie9cc6da34764a8962738ee3016fa7ba5f8d57987",
+        "cmtr": "Emilien Macchi",
+        "date": "2017-08-03 23:19:49+00:00",
+        "files": ["init.pp", "authtoken.pp", "keystone_authtoken-4eefe6058143c876.yaml", "mistral_init_spec.rb", "mistral_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "940f03723eda62c55aaaf0666e91c47be25b50f0",
+        "msg": "Fix unit test\n\nThe rpc_backend option has been removed in puppet-oslo[0], so we should\nremove it.\n\n[0]https://review.openstack.org/#/c/489264/\n\nChange-Id: Ie2ef8ac697cfa7680f78b3067de17a8575fd80b3\nCloses-Bug: #1708976",
+        "cmtr": "ZhongShengping",
+        "date": "2017-08-07 14:10:30+08:00",
+        "files": ["init.pp", "mistral_init_spec.rb"]
+      },
+      {
+        "hash": "7c3d77d2c770a04326512c1e198b6f5b14d87c86",
+        "msg": "Revert \"Revert \"Revert \"Revert \"Add support for Keystone authtoken\"\"\"\"\n\nThis reverts commit 644c51fb2d8cf92035d8a1373e6b70cff02b5c46.\n\nChange-Id: Ibc600c16195816d90b817a96029845a2954ac809",
+        "cmtr": "Brad P. Crochet",
+        "date": "2017-09-06 18:42:29+00:00",
+        "files": ["init.pp", "authtoken.pp", "keystone_authtoken-4eefe6058143c876.yaml", "mistral_init_spec.rb", "mistral_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "a2c5b31b18e6a905b03de83b3612a623371aeff5",
+        "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: I35fdf9fd6f16cd6984d13711b1141ab5375ccf4b\nCloses-Bug: #1717144",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-14 11:43:04+08:00",
+        "files": ["authtoken.pp", "deprecate_revocation_cache_time_parameter-3e3ec8dd06f29c08.yaml", "mistral_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "048d47a8de42123c61098964de6c7f34909b026f",
+        "msg": "Set the now-deprecated auth params to undef\n\nWithout these being set to undef, pick in authtoken manifest won't\nwork properly. This should solve that.\n\nChange-Id: Id0d683037d232e7269e401d9b818aec09e5ed4ab\nCloses-Bug: #1717281",
+        "cmtr": "Brad P. Crochet",
+        "date": "2017-09-15 11:37:42-06:00",
+        "files": ["init.pp", "mistral_init_spec.rb"]
+      },
+      {
+        "hash": "acf4f4d80316df430b4d7176592df5f20c8c33a2",
+        "msg": "Accept empty strings for log_dir\n\nAn empty string is an acceptable value of this entry, and it forces\nlogging to stdout/stderr, which is useful when running on containers.\n\nChange-Id: I681d06ab30563dac2ff028c9e38e66ac9c6abae3",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-10-06 13:00:18+03:00",
+        "files": ["logging.pp"]
+      },
+      {
+        "hash": "fcfd1a7acd978414574ea5c3348b6f15ee714f3b",
+        "msg": "Allow setting log files for apache vhost\n\nThis allows the setting of the error and access file logs, as well as\nthe access log format. This was done in a similar fashion as one can\nconfigure these ones in the keystone wsgi manifest.\n\nChange-Id: Iff00271b2a965c3acc61db723ef30ef32e21fcc8",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-10-06 14:24:06+03:00",
+        "files": ["apache.pp", "mistral_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "8954f10b1db896a796c69cac3727fc20e6f0a248",
+        "msg": "add parameter to overwrite/add wsgi process options\n\nAdd parameter to apache_wsgi to allow overwrite\nand/or add additional wsgi process options.\n\nThis possibility was added to openstacklib\nwith Change-Id: I41914ce3361988d5db1695f09d21209772fdf548\nlease enter the commit message for your changes. Lines starting\n\nChange-Id: Id6eb711aef8dac6a855f96890c00917e4c169681",
+        "cmtr": "ZhongShengping",
+        "date": "2017-10-23 16:17:13+08:00",
+        "files": ["apache.pp", "wsgi_process_options-945733f0b0d9f355.yaml", "mistral_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "2b9f1467dd507221177db9c50b82fa4537166c08",
+        "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: Ib4837be7d899ed4698b39aac9da3736effaf1c40",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-11-27 14:35:53+02:00",
+        "files": ["logging.pp", "log-json-50d88f4669a867be.yaml", "mistral_logging_spec.rb"]
+      },
+      {
+        "hash": "3787106ef84fb3c79af635019ad9ec77ab304f63",
+        "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nChange-Id: I09942143b037a65627da17b8ffdaffc1e72a8c79\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2018-01-10 14:23:17-08:00",
+        "files": ["params.pp", "policy.pp", "mistral_policy_spec.rb"]
+      },
+      {
+        "hash": "5624001fbcf1ee7264062f08c57daf254243f010",
+        "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: I5388e5f39c6ef377bb5e7603305273de4f6566d0",
+        "cmtr": "ZhongShengping",
+        "date": "2018-01-15 15:56:02+08:00",
+        "files": ["logging.pp", "add-use_journal-option-for-logging-ba712fd13d62d609.yaml", "mistral_logging_spec.rb"]
+      },
+      {
+        "hash": "20b0db0d1ba92a457f12b237318f38c61328b33f",
+        "msg": "Add cron trigger settings\n\nAdd new parameters that allow configuring cron trigger\nsettings.\n\nChange-Id: I865ef2f6b7090d1b724f0084497362320aad90ea",
+        "cmtr": "Mike Fedosin",
+        "date": "2018-01-17 16:02:13+03:00",
+        "files": ["cron_trigger.pp", "add-cron-trigger-67fb843e4950eb16.yaml", "mistral_cron_trigger_spec.rb"]
+      },
+      {
+        "hash": "f0c834bf9ad6569253135efd88618f924d94833f",
+        "msg": "Add execution_interval to the Mistral manifest\n\nRelated-Bug: #1747386\nDepends-On: I9060253bc416be28af4ef81f3edf694059d92066\nChange-Id: I6445ff1b6691a098f15e8402ae9d971e751f5552",
+        "cmtr": "Dougal Matthews",
+        "date": "2018-02-07 11:29:19+00:00",
+        "files": ["cron_trigger.pp", "add-cron-trigger-interval-94df2eb3506cb7cb.yaml", "mistral_cron_trigger_spec.rb"]
+      },
+      {
+        "hash": "46b60d02fac0f2c4742c447fc560a7e59a97a208",
+        "msg": "Add kombu_failover_strategy option\n\nAdds the kombu_failover_strategy option for configuring\noslo.messaging.rabbit. This will determines how the next RabbitMQ node\nis chosen in case the one we are currently connected to becomes\nunavailable.\n\nChange-Id: I904e0bb50c12f94a21ad006c3435d94f0104ecf8\nCloses-Bug: #1748353",
+        "cmtr": "ZhongShengping",
+        "date": "2018-02-09 15:16:25+08:00",
+        "files": ["init.pp", "add_rabbit_kombu_options-8185738b6f0d8522.yaml", "mistral_init_spec.rb"]
+      },
+      {
+        "hash": "59cf993b60ef8ccdf25ed8bbbca517f0704031ce",
+        "msg": "Allow configuring the new notifier settings\n\nThis change adds four new parameters for the new notifier added in the\nMistral Rocky release.\n\nChange-Id: I005a49d21842661e944f45d44f08bf6bcec0a2a5",
+        "cmtr": "Dougal Matthews",
+        "date": "2018-03-03 17:05:34+00:00",
+        "files": ["notifier.pp", "add-notfier-support-1e0645068547f64f.yaml", "mistral_notifier_spec.rb"]
+      },
+      {
+        "hash": "f5078648eaec8954d4210c4c834c42495298998b",
+        "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: I0769f75d92e87d686387286041502261fad871e7\nCloses-Bug: #1755102",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-12 16:33:09+08:00",
+        "files": ["sync.pp", "openstack_db_tag-a79c0b390eeba4bb.yaml", "mistral_db_sync_spec.rb"]
+      },
+      {
+        "hash": "dcbb73830e0643b1818b7fe3021cf8ed0891caa1",
+        "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: Ie92ee25d8fb8c5e6952192e5db42b0810440606f\nCloses-Bug: #1757581",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-22 11:09:50+08:00",
+        "files": ["db.pp", "add-pool_timeout-option-for-db-ad535206b8ecf55d.yaml", "mistral_db_spec.rb"]
+      },
+      {
+        "hash": "e882c74ac598d0ac5ee7e12360320770ea185086",
+        "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: Ic8bb8e2e2ee6cd7161ff0cdcb78f651a27f787ee",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-27 10:33:22+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-86c386c2484fd9d8.yaml"]
+      },
+      {
+        "hash": "ec6a33fb52f9270db8cf77d980b02d3ab9857d89",
+        "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: I034f67b503bb1f579c18bc3b61208984e577d6ba\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
+        "cmtr": "ZhongShengping",
+        "date": "2018-04-05 09:59:48+08:00",
+        "files": ["authtoken.pp", "deprecate_auth_uri_parameter-8df63f76c70b0cba.yaml", "mistral_init_spec.rb", "mistral_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "5f39db147c87b75844bc5542071cf6a9619f24b8",
+        "msg": "neat: missing : in $::os_service_default\n\nChange-Id: I07920e5af367ac9ebb1b3156a703c98fdbc08070",
+        "cmtr": "zhubingbing",
+        "date": "2018-05-11 14:02:40+08:00",
+        "files": ["authtoken.pp"]
+      },
+      {
+        "hash": "dee7ac93b1b7cb4433cdc687d33a553c1a053710",
+        "msg": "Replace port 35357 with 5000\n\nNow that the v2.0 API has been removed, we don't have a reason to\ninclude deployment instructions for two separate applications on\ndifferent ports.\n\nChange-Id: I159c7ba3b158e1e6ca8fce8bf971f1138d058a46",
+        "cmtr": "qiaomin",
+        "date": "2018-05-13 00:44:10+08:00",
+        "files": ["authtoken.pp", "mistral_init_spec.rb", "mistral_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "97425d5b649c996b6f6994be4a5302e3b9e246f2",
+        "msg": "Remove deprecated rabbit params\n\nRemove the deprecated rabbit params which has been deprecated for\ntwo years. The default_transport_url has been present for a while\nnow and should be used.\n\nChange-Id: Iffed46781ef7c9daee5155dffa381c2a86dc8dcf",
+        "cmtr": "ZhongShengping",
+        "date": "2018-05-24 14:01:02+08:00",
+        "files": ["init.pp", "remove-deprecated-rabbit-params-987b59530e476762.yaml", "mistral_api_spec.rb", "mistral_init_spec.rb"]
+      },
+      {
+        "hash": "cc27c46f9977a8d3a6f43c6ad21a1cc6139634e4",
+        "msg": "Add provider and type to deploy workflows\n\nThe new type defines a minimal workflow object and the provider allows\nthe creation/update/deletion of a workflow.\nSince the creation command is a little different (because you can create\nmultiple workflows from a single definition file), the provider inherits\nfrom an intermediate class that only overrides the creation action.\n\nChange-Id: Ia22cfc031915fa56cdc2602a5746b2250a62963b",
+        "cmtr": "Pierre Gaxatte",
+        "date": "2018-06-11 12:02:10+02:00",
+        "files": ["README.md", "mistral.rb", "openstack.rb", "mistral_workflow_requester.rb", "mistral_workflow.rb", "workflow.pp"]
+      },
+      {
+        "hash": "6117cf1066b1f3b8eec7bdc4303872a56835d47f",
+        "msg": "Remove deprecated parameters\n\nRemoves deprecated parameters that has been\ndeprecated for one cycle or more.\n\nChange-Id: Ie6a6003d667c8c6045439ca3d35f0f121097bddc",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-06-14 17:08:03+02:00",
+        "files": ["executor.pp", "init.pp", "authtoken.pp", "remove-deprecated-9b4d20fce995e540.yaml", "mistral_api_spec.rb", "mistral_init_spec.rb"]
+      },
+      {
+        "hash": "78bb8e700d1faf20e64143f237d829a8f98561ab",
+        "msg": "Fix annotations\n\nChange-Id: Ic9a17a30ae7be1193057ebb77030eec806c94952",
+        "cmtr": "zhubingbing",
+        "date": "2018-06-15 15:07:37+08:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "b8612ad8d3b36f4657b3de15b7912a1a7b4f221d",
+        "msg": "Include authtoken configuration for api\n\nIe6a6003d667c8c6045439ca3d35f0f121097bddc removed the inclusion of\n::mistral::keystone::authtoken in the ::mistral class. This change adds\nit to the api configuration which matches what we have for other\nmodules. Additionally this change add auth_strategy to the api class to\nallow users to be able to disable it if they don't want to configuration\nkeystone.\n\nChange-Id: I68037d0a1f8f43ca40ef6faff119c3fb4b535a90\nCloses-Bug: #1777541",
+        "cmtr": "Alex Schultz",
+        "date": "2018-06-18 21:35:03-06:00",
+        "files": ["api.pp", "api-keystone-authtoken-5563be4c165b35fc.yaml", "mistral_api_spec.rb"]
+      },
+      {
+        "hash": "7dd767e0e40beb38068862b32b8b3a792b0f1b43",
+        "msg": "Fix the smoke testing link\n\nChange-Id: I1c685b12a950462eb61539838e642cff8ec8cb92",
+        "cmtr": "jacky06",
+        "date": "2018-07-30 12:31:32-04:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "4912a1783daa7b3b34cc61f074525a8fb928490d",
+        "msg": "Debian is using python3-mistralclient\n\nChange-Id: I1d90d7975d3b380bf1c4c4d4f11f40d4a1d30285\nCloses-Bug: #1792608",
+        "cmtr": "zhulingjie",
+        "date": "2018-09-15 15:57:46+00:00",
+        "files": ["params.pp", "mistral_client_spec.rb"]
+      }]
+    }

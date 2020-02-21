@@ -1,0 +1,952 @@
+    {
+      "url": "https://github.com/Mirantis/puppetlabs-openstack",
+      "pp_files": ["test_file.pp", "site.pp", "mysql.pp", "compute.pp", "split.pp", "horizon.pp", "all.pp", "keystone.pp", "proxy.pp", "cloudcontroller.pp", "diablo.pp", "params.pp", "glance.pp", "hosts.pp", "cinder.pp", "storage-node.pp", "controller.pp", "auth_file.pp"],
+      "pp_cmtrs": ["Zack Smith", "Joe Topjian", "Dan Bode", "Andy Edmonds", "Branan Purvine-Riley", "Robert Starmer", "Aimon Bustardo", "Wong Hoi Sing Edison", "Sebastien Badia", "Fran\u00e7ois Charlier", "Soren Hansen"],
+      "num_pp_commits": 135,
+      "num_tot_commits": 343,
+      "commits": [{
+        "hash": "3ac4dc51bf771b5ca661b20a74e57a449b1a2766",
+        "msg": "moved nova all test to manifest.",
+        "cmtr": "Dan Bode",
+        "date": "2011-06-18 23:54:29-07:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "b739538b330a0660567741449cb1d2984077534e",
+        "msg": "Added vagrant testing specific files.\n\n- Vagrantfile\n- added vagrant deploy host specfics",
+        "cmtr": "Dan Bode",
+        "date": "2011-06-21 10:40:42-07:00",
+        "files": ["Vagrantfile", "all.pp", "hosts.pp"]
+      },
+      {
+        "hash": "75851ad65a768ffbf2789eb059c41972412072cb",
+        "msg": "Added stuff related to my testing of multi-node",
+        "cmtr": "Dan Bode",
+        "date": "2011-06-22 19:09:43-07:00",
+        "files": ["Vagrantfile", "all.pp", "hosts.pp", "split.pp", "run-all.sh", "run-compute.sh", "run-controller.sh", "run-db.sh", "run-glance.sh", "run-rabbitmq.sh", "run.sh"]
+      },
+      {
+        "hash": "b3f664ac5c8a2a10742669b72ac934fdffbd005e",
+        "msg": "Added my additional test manifests",
+        "cmtr": "Dan Bode",
+        "date": "2011-06-23 13:21:46-07:00",
+        "files": ["hosts.pp", "site.pp"]
+      },
+      {
+        "hash": "8b1756a61ed839e1cec1f9f4c10bfdcd3824edb3",
+        "msg": "added glance params back\n\nfor backwards compat with stable nova version.",
+        "cmtr": "Dan Bode",
+        "date": "2011-06-23 16:31:03-07:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "4da89a34e99aa3bcde5e8cb6c36cf2f97b30ed43",
+        "msg": "updated submodules and site.pp",
+        "cmtr": "Dan Bode",
+        "date": "2011-06-24 15:43:42-07:00",
+        "files": ["site.pp", "mysql", "nova"]
+      },
+      {
+        "hash": "b94c5f92092361f1fb13b96ab23bcf8825577140",
+        "msg": "updating my vagrant file, manifests and scripts",
+        "cmtr": "Dan Bode",
+        "date": "2011-06-24 16:20:57-07:00",
+        "files": ["Vagrantfile", "site.pp", "run.sh"]
+      },
+      {
+        "hash": "1f0495a0daa4d70f961c7d58207d44c30d8908cf",
+        "msg": "updated image service.",
+        "cmtr": "Dan Bode",
+        "date": "2011-06-30 13:16:01-07:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "6a11f9ced1bce0de3900ac47fad0526c17dd8fa8",
+        "msg": "(#9874) Add openstack diablo ppa\n\nAdds class openstack::repo::diablo which sets up\nthe ppa to install openstack diablo.\n\nAlso added to the host setup manifest.",
+        "cmtr": "Dan Bode",
+        "date": "2011-10-03 21:47:17-07:00",
+        "files": ["hosts.pp", "diablo.pp", "run.sh"]
+      },
+      {
+        "hash": "322f8771fe808b9b4014a8b7540cc88c74f7277f",
+        "msg": "update modules\n\nadd vcsrepo\n\nUpdate .gitmodules\n\nremove openstack diablo repo class",
+        "cmtr": "Dan Bode",
+        "date": "2012-04-08 19:33:03-07:00",
+        "files": [".gitmodules", "diablo.pp", "vcsrepo"]
+      },
+      {
+        "hash": "4d76d701c92d75a340f481a32055dd3243852d08",
+        "msg": "Total rewrite of the openstack project\n\nConverts the entire project from submodules to\na single module with a rake task to manage its dependencies.\n\nThis has been done b/c there needs to be a module called openstack\nto contain all of the higher level openstack specifications.",
+        "cmtr": "Dan Bode",
+        "date": "2012-04-30 17:31:29-07:00",
+        "files": [".gitignore", ".gitmodules", "NOTES", "README", "README.dev.md", "README.md", "Rakefile", "Vagrantfile", "site.pp", "nova_test.sh", "all.pp", "compute.pp", "controller.pp", "hosts.pp", "site.pp", "split.pp", "apt", "concat", "glance", "horizon", "keystone", "memcached", "mysql", "nova", "rabbitmq", "rsync", "ssh", "stdlib", "swift", "vcsrepo", "xinetd", "other_repos.yaml", "blank.sh", "install-pe-master.sh", "run-all.sh", "run-compute.sh", "run-controller.sh", "run-db.sh", "run-glance.sh", "run-master.sh", "run-rabbitmq.sh", "run-swift-all.sh", "run-swift-multi.sh", "run.sh"]
+      },
+      {
+        "hash": "705817dab6c969275bd2687b419eb6eac013ae14",
+        "msg": "Remove avaiable_ips from nova-vm-net now that we have CIDR",
+        "cmtr": "Branan Purvine-Riley",
+        "date": "2012-05-01 16:19:59-07:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "386860cdd807a9daef3326a9e0bc7e14a7fc3302",
+        "msg": "Fi controller.pp for cidr",
+        "cmtr": "Branan Purvine-Riley",
+        "date": "2012-05-01 16:46:12-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "af5e539742c9344c7fd6cae7eac4ed973073cd2a",
+        "msg": "Ensure vncproxy is enabled.\n\nCurrently, the service is not ensures to be running for the all\nin one installation.\n\nThis commit resolves the issue.",
+        "cmtr": "Dan Bode",
+        "date": "2012-05-01 18:27:11-07:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "6004ceae3f1497d3de7699b43c7e70f43ae4dda4",
+        "msg": "Add openstack::auth_file class\n\nThis commit adds a class called openstack::auth_file\nthat creates the file openrc with admin credentials\nthat can be used to authenticate.",
+        "cmtr": "Dan Bode",
+        "date": "2012-05-08 00:57:20-07:00",
+        "files": ["nova_test.sh", "auth_file.pp"]
+      },
+      {
+        "hash": "525b3fbf7976a709ff84846b55a0696eb470a11d",
+        "msg": "Update bindhost to 0.0.0.0\n\nThe bindhost for keystone in the nova::controller\nwas accidentally set to 127.0.0.1.\n\nThis did not allow for remote connections for multi-host\ncompute nodes.\n\nThis commit updates keystone to use 0.0.0.0",
+        "cmtr": "Dan Bode",
+        "date": "2012-05-08 01:00:56-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "8a10508cfe42db60ed5ceb3291d43f61041da78c",
+        "msg": "Ensure that verbose can be set for nova\n\nPreviously, this config param was not exposed in all\nof the openstack interfaces.",
+        "cmtr": "Dan Bode",
+        "date": "2012-05-08 01:03:58-07:00",
+        "files": ["compute.pp", "controller.pp"]
+      },
+      {
+        "hash": "935ae8af9cbcba9c395f4c0a28357f384241d101",
+        "msg": "Ensure that libvirt type can be overridden\n\nThis commit ensures that libvirt type can be\noverridden for all of the openstack classes.",
+        "cmtr": "Dan Bode",
+        "date": "2012-05-08 01:07:45-07:00",
+        "files": ["all.pp", "compute.pp"]
+      },
+      {
+        "hash": "3916873f8165b4fc68e98d0f65e5b89615658062",
+        "msg": "Refactor network code\n\nThis commit completely refactors all of the network\nrelated code.\n\n- adds the ability to configure multi-host networks.\n- removes explicitly created bridge\n- refactors code to work with nova network refactor.",
+        "cmtr": "Dan Bode",
+        "date": "2012-05-08 01:09:48-07:00",
+        "files": ["all.pp", "compute.pp", "controller.pp"]
+      },
+      {
+        "hash": "2b6b247188aa9a04966306360982403a20f6c4a6",
+        "msg": "Fix typo\n\nParam was called $export_resource, but when used it was expected to be\nnamed $export_resources.",
+        "cmtr": "Soren Hansen",
+        "date": "2012-05-10 06:26:45-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "f19f225f25a4c27bca0e119470e643f7949b0187",
+        "msg": "Remove network_host parameter\n\nnetwork_host has been removed upstream a while ago. It's no longer\nneeded at all.",
+        "cmtr": "Soren Hansen",
+        "date": "2012-05-10 06:26:45-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "3e419bc834751bc2625a7ff2df2d986a62dcb363",
+        "msg": "Use rabbit_host parameter\n\nopenstack::compute takes a rabbit_host parameter, but it's not getting\npassed to class[nova].",
+        "cmtr": "Soren Hansen",
+        "date": "2012-05-10 06:26:45-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "1c6c46fddbe92298ffad727d24468060db213b9c",
+        "msg": "Revert \"Use rabbit_host parameter\"\n\nThis reverts commit 3e419bc834751bc2625a7ff2df2d986a62dcb363.\n\nThis commit actually added a duplicate parameters that caused\nduplicate resource definitions.",
+        "cmtr": "Dan Bode",
+        "date": "2012-05-10 21:54:06-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "6c6439a459dd8317eb21ccfde48ea93eb3f3b417",
+        "msg": "Add LICENSE and inline documentation.\n\nThis commit adds an apache license and inline documentation for the\nmanifest.",
+        "cmtr": "Dan Bode",
+        "date": "2012-05-10 22:18:33-07:00",
+        "files": ["LICENSE", "compute.pp", "controller.pp"]
+      },
+      {
+        "hash": "db70dbea0214bd4236fe00cbd5dbfa2d7a4e8f32",
+        "msg": "Change verbose default to false\n\nThis commit changes the default of verbose to false\nfor openstack::all.",
+        "cmtr": "Dan Bode",
+        "date": "2012-05-22 10:04:14-07:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "83eccdfa7dea5830136f85cdcb87abfbbbc2b1e2",
+        "msg": "Ensure that verbose is set for nova class\n\nPreviously, the verbose option was not being passed\nto the nova class.\n\nThis commit resolves the issue.",
+        "cmtr": "Dan Bode",
+        "date": "2012-05-22 10:05:11-07:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "13f0c78b0cf3b62ce74bd8ee2107faba97c204a7",
+        "msg": "Add nova::volume:iscsi class to nova::all\n\nThis class adds nova::volume::iscsi to the nova::all\nclass. This ensures that volumes can be managed",
+        "cmtr": "Dan Bode",
+        "date": "2012-05-22 10:10:10-07:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "6e8f566cde37657b651ef96c4e50e19645b07cab",
+        "msg": "Change fixed_range default to /24\n\nHaving the default set to /16 was causing issues\non some versions of openstack that complained this\nrange was too big.\n\nThis commit decreases the size of the network being\ncreated.",
+        "cmtr": "Dan Bode",
+        "date": "2012-05-22 10:11:05-07:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "5eab169ec10655f8c35e06f265d177323663b7c0",
+        "msg": "Add volume management option for compute nodes\n\nThis commit adds an option that can be used to\nenable volume management on compute nodes.\n\nIt also adds a parameter that can be used to determine the name\nof the volume group where volumes should be allocated from.",
+        "cmtr": "Dan Bode",
+        "date": "2012-05-25 16:24:51-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "4f5d06396cd2a332d273edb05e5b3f4ab2ff8fb4",
+        "msg": "Allow nova volume vg name to be overridden in openstack::all\n\nAdds a class parameter that can be used to override the name of\nthe volume group used by nova-volumes.",
+        "cmtr": "Dan Bode",
+        "date": "2012-05-25 18:26:36-07:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "6d50c3f83948e1e46bbd23962e2c8c5ca08a4404",
+        "msg": "Write spec test for openstack::compute\n\n* Include the puppetlabs_spec_helper gem for autogeneration of the fixtures dir",
+        "cmtr": "Branan Purvine-Riley",
+        "date": "2012-06-01 14:04:44-07:00",
+        "files": [".fixtures.yml", "Rakefile", "openstack_compute_spec.rb", "site.pp", "spec_helper.rb"]
+      },
+      {
+        "hash": "498473097eb6171c6a62c3e6f5cbba43117190cf",
+        "msg": "Change admin_user_password to admin_password\n\nThis change is for consistency b/c this same class parameter is\ncalled admin_passeword in the nova::controller class.",
+        "cmtr": "Dan Bode",
+        "date": "2012-06-07 10:08:51-07:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "eb84da4e5966376b51f0e86916a84dba1b6e9390",
+        "msg": "Add inline documentation.\n\nTo document all of the classes parameters.",
+        "cmtr": "Dan Bode",
+        "date": "2012-06-07 11:02:03-07:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "8b9c670ed8925616a014e3d0b566fa11798e0edf",
+        "msg": "update examples/site.pp\n\nThis commit updates the examples site.pp in preparation for release.\n\n- explicitly sets more variables to provide a better example for the user\n- uses the openstack::auth_file class",
+        "cmtr": "Dan Bode",
+        "date": "2012-06-07 11:02:16-07:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "270973611e2c21703c00313c63345a7ab98be113",
+        "msg": "Update service user param names\n\nThis commit changes the names of the service user password\nto *_user_password.\n\nThis change has been made to make the controller interface more\nconsistent with the all interface.",
+        "cmtr": "Dan Bode",
+        "date": "2012-06-07 15:41:17-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "cfc99e1506e8d69b523bc7d26aac70516fda9fa6",
+        "msg": "Improvements to example site.pp\n\nThis commit contains some improvements to the example site.pp\nthat were made in preparation for release.\n\n- sets verbose, fixed_range and rabbit user/password in all in one example\n- refactos controller",
+        "cmtr": "Dan Bode",
+        "date": "2012-06-07 15:47:01-07:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "a749027801ca1a6c2790b64b08b578dfc8a3fd60",
+        "msg": "Fix syntax errors\n\nThis commit removes a couple of extraneous command introduced by\ncopy/past errors.",
+        "cmtr": "Dan Bode",
+        "date": "2012-06-07 16:04:55-07:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "13295cb720837b130596055f0396d40b9b852818",
+        "msg": "Clean up openstack::compute example manifest\n\nImplements a good compute example in the example manifest",
+        "cmtr": "Dan Bode",
+        "date": "2012-06-07 18:12:52-07:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "0ee4c8b1f7f0374f07f50a077541a9bdff8f5658",
+        "msg": "Style update\n\nAligns equal signs",
+        "cmtr": "Dan Bode",
+        "date": "2012-06-10 22:43:56-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "73c1ac6a97ef1a7d215fc6342b85a7d6460394c6",
+        "msg": "updated nova_test.sh to include floating IP and security_groups, and controller.pp to support a change in the horizon module (more horizon services)",
+        "cmtr": "Robert Starmer",
+        "date": "2012-06-12 05:34:59+00:00",
+        "files": ["nova_test.sh", "controller.pp"]
+      },
+      {
+        "hash": "e6c36084809a08f584efe15916e0c1494a62390b",
+        "msg": "updates based on pull request",
+        "cmtr": "Robert Starmer",
+        "date": "2012-06-12 07:40:09+00:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "fba5fdf45ef7e13370ce4e5a3b085fca3c6862ec",
+        "msg": "reversed nova_test.sh updates, fixed misspelling in controller.pp; added parameters needed to enable additional horizon services",
+        "cmtr": "Robert Starmer",
+        "date": "2012-06-12 22:25:26+00:00",
+        "files": ["nova_test.sh", "controller.pp"]
+      },
+      {
+        "hash": "5687d79bb03fe686b4efa27bd82703361acddd1e",
+        "msg": "Typo fixed_network_range",
+        "cmtr": "Sebastien Badia",
+        "date": "2012-06-13 17:35:04+02:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "83d38ec8a444feff4f32254fa95a832a7718ba59",
+        "msg": "Add missing  for openstack_compute.",
+        "cmtr": "Wong Hoi Sing Edison",
+        "date": "2012-06-19 21:38:43+08:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "69e46afb418dafe39930c93608d5d1936592b671",
+        "msg": "compute.pp's admin_password should sync with $nova_user_password of controller.pp.",
+        "cmtr": "Wong Hoi Sing Edison",
+        "date": "2012-06-19 21:43:54+08:00",
+        "files": ["site.pp", "compute.pp"]
+      },
+      {
+        "hash": "cb4ea70d8fe3b2881548f03bb7bf57bbc81a64d1",
+        "msg": "Add missing send_arp_for_ha for multi_host mode, reference from devstack.",
+        "cmtr": "Wong Hoi Sing Edison",
+        "date": "2012-06-20 09:18:03+08:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "b8c7b9a5563b2c681f58b9deae700411bb0f2ec5",
+        "msg": "Add optional auto_assign_floating_ip parameter.",
+        "cmtr": "Wong Hoi Sing Edison",
+        "date": "2012-06-20 11:41:23+08:00",
+        "files": ["site.pp", "all.pp", "controller.pp"]
+      },
+      {
+        "hash": "772168c1a0c9651ba7875cbfb914a1711c78641d",
+        "msg": "Also disable send_arp_for_ha when multi_host is false.",
+        "cmtr": "Wong Hoi Sing Edison",
+        "date": "2012-06-20 11:47:25+08:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "aa2b981aeaea9ebb209174df6ede609ad662447f",
+        "msg": "Add enabled parameter to nova::controller\n\nThis commit add the config param enabled to the nova::controller class.\n\nThis parameter is used to determine if the installation of the controller\nnode should be an active or passive installation for active-passive clustering.",
+        "cmtr": "Dan Bode",
+        "date": "2012-06-25 15:55:05-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "0ca48ee8320481c41a587f1ffc54ab183b08a954",
+        "msg": "Add template to create test file\n\nThis commit creates a template to manage the nova test file.\nIt was converted to a template to make it more configurable.\nIt deletes the old static file.",
+        "cmtr": "Dan Bode",
+        "date": "2012-06-25 17:44:04-07:00",
+        "files": ["site.pp", "nova_test.sh", "test_file.pp", "test_nova.sh.erb"]
+      },
+      {
+        "hash": "b611ed76e96587858551f535d4b37b476ae7870a",
+        "msg": "Fix rabbitmq connection when not exporting resources",
+        "cmtr": "Branan Purvine-Riley",
+        "date": "2012-06-26 19:31:20-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "36986a127b03295ad32c8cd99516ffe29b9ce81a",
+        "msg": "$auto_assign_floating_ip needs to be a boolean and not string",
+        "cmtr": "Andy Edmonds",
+        "date": "2012-06-27 13:36:57+03:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "ca379e003cab8784c9b1a089ce59475df40db6bb",
+        "msg": "$verbose should not be quoted",
+        "cmtr": "Andy Edmonds",
+        "date": "2012-06-29 11:05:17+03:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "b453c95ae587deb66606bfada678258dcf352907",
+        "msg": "Enable floating IP on all-in-one setup",
+        "cmtr": "Branan Purvine-Riley",
+        "date": "2012-06-29 15:57:39-07:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "1d7c391c849094b422ac998e84006515f8ba107d",
+        "msg": "Make public urls use public_address in all-in-one\n\nThe public url endpoints currently use 127.0.0.1 for their hostname, so\nit's impossible to use the all-in-one cloud from outside the host.\nChange this to public_address so that it can be tested from the outside.",
+        "cmtr": "Soren Hansen",
+        "date": "2012-07-02 16:32:39+02:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "a580de87a73d63c3601014e44393300b65eb94af",
+        "msg": "(#15205) Enable multihost by default in the example",
+        "cmtr": "Branan Purvine-Riley",
+        "date": "2012-07-10 10:13:58-07:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "4ddc4bc1b45ba5e24c88bb4a6a6f20e19b9bec78",
+        "msg": "Add the secret_key parameter to the Horizon class",
+        "cmtr": "François Charlier",
+        "date": "2012-07-10 20:01:45+02:00",
+        "files": ["all.pp", "controller.pp"]
+      },
+      {
+        "hash": "6771da8117d35ad6656b5f46803151712a9a197b",
+        "msg": "vnc_enabled should be a literal boolean value",
+        "cmtr": "Andy Edmonds",
+        "date": "2012-07-12 13:50:04+03:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "45534e2daf558285c0e3bc28cf6a0a387f96a993",
+        "msg": "Update keystone bind_host value to 0.0.0.0\n\nCurrently this is configured as 127.0.0.1 which disallows\nIdentity Service API calls from remote hosts. Updated to\n0.0.0.0 so as to allow remote connections but not break\nany 127.0.0.1 requests. This is actually the default value\nbut rather then undef the param I am just changing it.",
+        "cmtr": "Zack Smith",
+        "date": "2012-08-06 13:29:47-07:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "97d719f7e6946c9413549cdb6c9b2482dad4c728",
+        "msg": "Keystone admin tenant and mysql root password\n\nAdded ability to set the keystone admin tenant and the mysql root password.",
+        "cmtr": "Joe Topjian",
+        "date": "2012-08-20 11:57:31-06:00",
+        "files": ["all.pp", "controller.pp"]
+      },
+      {
+        "hash": "472dafd2140984814fc150d71707d3c366d5238d",
+        "msg": "Added swift manifests",
+        "cmtr": "Joe Topjian",
+        "date": "2012-08-21 02:13:37+00:00",
+        "files": ["proxy.pp", "storage-node.pp"]
+      },
+      {
+        "hash": "89beb232e4942a933f899f1f5ee1416d40d60123",
+        "msg": "Beginning cleanup/refactor of puppetlabs-openstack.\n\nStarted to create individual manifests for core openstack components such as\nGlance, keystone, nova, and horizon. Began to incorporate those\nmanifests into main manifests. Wrote some tests. Fixed some typos.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:20:01-07:00",
+        "files": ["README.md", "all.pp", "auth_file.pp", "compute.pp", "controller.pp", "mysql.pp", "glance.pp", "horizon.pp", "keystone.pp", "compute.pp", "controller.pp", "params.pp", "all.pp", "cloudcontroller.pp", "compute.pp"]
+      },
+      {
+        "hash": "7acaad1c54e3faeb22134c11066e75ae540e3d95",
+        "msg": "Began putting params in individual manifests instead of a single params.pp file.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:21:12-07:00",
+        "files": ["all.pp", "compute.pp", "controller.pp", "mysql.pp", "glance.pp", "horizon.pp", "keystone.pp", "compute.pp", "controller.pp", "params.pp", "all.pp", "cloudcontroller.pp", "compute.pp"]
+      },
+      {
+        "hash": "1e95338230adccef6b660a5f56a3e863037e3b85",
+        "msg": "temporary commit.\n\nThis commit contains changes and notes related to the initial\ncode review between joe topjian and myself.\n\nIt is not intended to be merged, but it part of an ongoing\ncollaboration for a refactor of this module.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:21:51-07:00",
+        "files": ["all.pp", "auth_file.pp", "controller.pp", "mysql.pp", "glance.pp", "horizon.pp", "keystone.pp", "compute.pp", "controller.pp", "test_file.pp"]
+      },
+      {
+        "hash": "55f7f2b01c4c4cefcfe66e70c2cdbdfff273baad",
+        "msg": "Further edits.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:35-07:00",
+        "files": ["all.pp", "auth_file.pp", "compute.pp", "controller.pp", "mysql.pp", "glance.pp", "horizon.pp", "keystone.pp", "compute.pp", "controller.pp", "compute.pp"]
+      },
+      {
+        "hash": "0f7f03284c8603e94b0d29548666c7106999b558",
+        "msg": "Further edits",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:35-07:00",
+        "files": ["controller.pp", "compute.pp", "controller.pp"]
+      },
+      {
+        "hash": "90a7a67becd4a03da45a643e7f7fb45984968a8b",
+        "msg": "Fix bug in variable naming\n\nThis commit fixes a bug in the naming of a variable.\n\nwas\n\n  enable_network-service\n\nhas been update to\n\n  enable_network_service",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:35-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "7f16726e57551eb8a7b8069e98f5e3ebe9e78666",
+        "msg": "Remove collection code from openstack::nova::compute\n\nThis commit removes the collection code from\nopenstack::nova::compute.\n\nHaving this class collect all nova_config entries\nseems incorrect (and dangerous). I prefer requiring\nusers to pass in all of their connection data.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:35-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "4e2684090fbddb2705af43fd2fca04b2ecb8a9c6",
+        "msg": "Pass enabled flag to nova::vncproxy\n\nThis commit passes the openstack::nova::controller\nparameter enabled to nova::vncproxy to allow\nnova controller to be built where this service is\ninstalled but not currently enabled.\n\nThis is intended to support active-passive HA.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:35-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "afafbd355fac0d57e01f28f1c31e01dec06b15fa",
+        "msg": "Always create nova class\n\nThis commit removes the defined statement that was\nused for conditionally creating the nova class\nin openstack::nova::compute.\n\nThis usage of ! defined introduced ordering issues\nthat would make it extremely difficult to understand\nhow nova would be configured.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:35-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "bb96698ab3688fc5a2ed656dce3012d9145de777",
+        "msg": "unset default for public_interface\n\nThis commit unsets the public_interface default.\n\nThis is to make the code behave more like the\nprevious iteration.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:35-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "c6dd87ec37e33f7e0b2dd91b4b9c87549cdf48a5",
+        "msg": "Always configure network\n\nThis network class is used to configure both\nnodes hosting the network service as well\nas compute nodes that are utilizing an external\nnetwork service.\n\nThis commit ensures that this class is always created.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:35-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "1a8a61aaa21185d13be628be738ef432a0bca6bf",
+        "msg": "Support enabled for keystone\n\nThis commit adds support for keystone servers\nrunning in passive mode.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:35-07:00",
+        "files": ["keystone.pp"]
+      },
+      {
+        "hash": "bcb75dda9ef590616c8d5f7126920f44d4dc9486",
+        "msg": "Add configuration for cache_server setting in horizon.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:35-07:00",
+        "files": ["horizon.pp"]
+      },
+      {
+        "hash": "f1e8a37300d5250efa39e1e99743471ac145ad7f",
+        "msg": "Support passive mysql servers\n\nAdds code to support passive mysql instances.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:35-07:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "c8895dcee34a4d180a76abd1098727431d48cc4e",
+        "msg": "Add openstack::compute\n\nThis commit adds openstack::compute for backwards\ncompatibility.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:35-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "67a317b82bb8cc81445ef34262ced845b1f66afa",
+        "msg": "change exported_resources param to export_resources\n\n\nfor backwards compatibility",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:35-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "f6085946b93ff317687930179081fa961bf4ef2d",
+        "msg": "Add conditional dependency\n\nAdd a conditional dependency that glance::registry\nshould be configured only after its database is\ncreated.\n\nThis code only needs to be created on active nodes.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:35-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "45eccb2a186339e52c4f6a32aad1149b103b0759",
+        "msg": "Refactor parameter defaults\n\nAdd more parameter defaults to support backwards\ncompatibility.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "92c80bd8ff0a3cd8a79377a2c298677fdabdef7b",
+        "msg": "Update class parameter documentation\n\nThis commit adds relevant class parameters to all\nclasses.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["all.pp", "compute.pp", "controller.pp", "mysql.pp", "glance.pp", "horizon.pp", "keystone.pp", "test_file.pp"]
+      },
+      {
+        "hash": "c1600bcab5d370bf6727dedf041f7cc926656dfe",
+        "msg": "Update default for keystone admin_address\n\nThis updates the default for the keystone admin\naddress to use internal_address.\n\nThis is a more reasonable default than using the\npublic_address.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["keystone.pp"]
+      },
+      {
+        "hash": "d85d6f23fac71c97853354e5010ef641859edecf",
+        "msg": "Remove auth_file\n\nThis commit removes the auth_file from the controller\nand all classes.\n\nFor backwards compatibility.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["all.pp", "controller.pp"]
+      },
+      {
+        "hash": "16cedd9642e8cf20c85c72137ddfadcb17b4d204",
+        "msg": "Remove unused public controller node.\n\nThis commit removes the unused parameter\ncontroller node.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["auth_file.pp"]
+      },
+      {
+        "hash": "e1392b36eef839f5e437db8bbada959ec19dbc1e",
+        "msg": "Set defaults in openstack::all class\n\nThis commit specifies defaults for the openstack::all\nclass.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "fd305d2bb71248b92e74cb9ce9b7e934d777eeed",
+        "msg": "change public_address back to controller_node\n\nTo avoid breaking backwards compatibility.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["auth_file.pp"]
+      },
+      {
+        "hash": "1a62606836d1969b5ccc25e73b783afc5d2d0a94",
+        "msg": "shorten names of keystone db class params\n\nremoved the extra keystone_ prefix.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["controller.pp", "keystone.pp"]
+      },
+      {
+        "hash": "c51463d66826311d008ab68ada4d44e51f511f2a",
+        "msg": "remove openstack::nova::compute\n\nit is the same as openstack::compute",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "f06d4d9f29845c8bcc943bbc94a11ae6e6fbe1f7",
+        "msg": "add keystone_host to the controller\n\nfor the case where they are not installed on the\nsame machine.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "eaf3d80f0f9dde38f1e79dfc70d406283bd37993",
+        "msg": "remove some class param default chains\n\nIt is not clear if puppet supports the ability to\nuse class param values as the defaults for other\nclass params.\n\nI am refactoring my code to assume this does not work.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["controller.pp", "glance.pp", "keystone.pp"]
+      },
+      {
+        "hash": "49173c6f403f254065ce21545389afffd1a96b3a",
+        "msg": "total refactor of openstack::compute",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "0ee00d71130643433468ab1d04e9310d80aab148",
+        "msg": "Add cinder support\n\nremove volume management from openstack::compute\nadd cinder server services to openstack::controller\nadd cinder db code",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["cinder.pp", "compute.pp", "controller.pp", "mysql.pp", "keystone.pp"]
+      },
+      {
+        "hash": "cca646e76d1b996a854aa78acbce7131730cf087",
+        "msg": "class params cannot be dep on other class params",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["keystone.pp"]
+      },
+      {
+        "hash": "c612934570ccc9988622486620ce4b46be080189",
+        "msg": "replaced nova::nework with quantum.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["compute.pp", "controller.pp", "mysql.pp", "keystone.pp", "controller.pp"]
+      },
+      {
+        "hash": "8200961537f14c3d035e8a6a656f07390e8cabed",
+        "msg": "set root_password",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "d8747ed6e7152a77ef3827b22031aa2d9ded0eb3",
+        "msg": "update test file to work with quantum",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:36-07:00",
+        "files": ["test_file.pp", "test_nova.sh.erb"]
+      },
+      {
+        "hash": "07d66ad8093d059ef2738d384d33b655d076dc3e",
+        "msg": "Removed unused network configs",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:37-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "c9e1ed4f9a9261bb7c3d1f81af511dab6562541e",
+        "msg": "Change log_verbose and log_debug to verbose and debug\n\nto make it compatible with the concurrent changes to keystone.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:37-07:00",
+        "files": ["keystone.pp"]
+      },
+      {
+        "hash": "346e51d9a92c2748afad1aeade781caf9d4bb873",
+        "msg": "update log_debug,log_verbose to debug,verbose",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:37-07:00",
+        "files": ["glance.pp", "openstack_controller_spec.rb"]
+      },
+      {
+        "hash": "6b84c12fa7e6cd457447e93ef787e12b27133b4a",
+        "msg": "update params",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:37-07:00",
+        "files": ["glance.pp"]
+      },
+      {
+        "hash": "03546bc90c0058c3654280a189aa455a10b0e5b0",
+        "msg": "nova-network work. cinder and quantum logic",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:37-07:00",
+        "files": ["auth_file.pp", "controller.pp", "mysql.pp", "controller.pp"]
+      },
+      {
+        "hash": "f001bfa157cb12753dc240fd68d014a86d80629c",
+        "msg": "removed trailing whitespace.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-16 11:24:37-07:00",
+        "files": ["controller.pp", "controller.pp"]
+      },
+      {
+        "hash": "7bba3d59a010129741de6d3cfe78f86c73cfade5",
+        "msg": "Add support for setting regions.\n\nThis commit adds a region parameter which can be\nused to set the region used for all keystone\nendpoints.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-24 11:56:09-07:00",
+        "files": ["controller.pp", "keystone.pp"]
+      },
+      {
+        "hash": "69e48a2ed27a619fee267f5963be23fd1404d2eb",
+        "msg": "re-add nova-network support\n\nThis commit adds nova network support for\nopenstack::compute, openstack::controller, and\nopenstack::nova::controller.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-24 11:56:26-07:00",
+        "files": ["compute.pp", "controller.pp", "controller.pp"]
+      },
+      {
+        "hash": "867b783b8a20a71466dc72c5be12cc195cb47814",
+        "msg": "Add cinder config to nova::compute\n\nembed logic for managing cinder in openstack::compute.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-24 11:57:43-07:00",
+        "files": ["compute.pp", "controller.pp"]
+      },
+      {
+        "hash": "ea22f02ab3b1cd9b6141d01221137c1d00d86e10",
+        "msg": "stop exporting resources.\n\nThis commit removes embedded logic that was\nexporting resources. Service discovery should be\nperformed from the site manifest using query\nagainst puppet db.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-24 11:57:47-07:00",
+        "files": ["compute.pp", "controller.pp", "controller.pp"]
+      },
+      {
+        "hash": "7f969c591853ac2b31dd705cdf816edff93b5bd4",
+        "msg": "Add live migration support",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-24 11:57:47-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "7254a339e31a37fe1e424d6267e693e85e2e29a0",
+        "msg": "style updates",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-24 11:57:47-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "89002ebfc5d61640fe1d380d74c9c102a297f87b",
+        "msg": "add vnc_enabled flag",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-24 11:57:47-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "7e9d20669b441ac0ba4a9cd47b2ae855cfbd7daf",
+        "msg": "reorganize class params for controller",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-24 11:57:49-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "94f5b516a607dde056d2a456e863c837128697c4",
+        "msg": "refactor all.pp\n\nMassive refactor for all in one installation\nfor folsom.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-24 11:57:53-07:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "da518f627c10c70545163cc8c45b6132a05f7e8f",
+        "msg": "remove unused compute params\n\nThe params public and admin address were not used\nby the openstack::compute class so I removed them.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-24 12:14:41-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "5463abbdf161519ac916b1135ee56ae5351ad3bc",
+        "msg": "remove defaults for controller passwords\n\nSetting default password for everything is setting\npeople up for accidentally insecure openstack\nenvironments.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-24 12:16:17-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "5b293a1970e01bf7191732e0b8c42b15d4639d0d",
+        "msg": "do not use other class param values as default\n\nThis commit removes examples where class params\nused the values of other params as their default.\nI recently learned that this does not work!",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-24 14:42:40-07:00",
+        "files": ["compute.pp", "controller.pp"]
+      },
+      {
+        "hash": "ecf1033c9e6aed711d37f37078edb394c4be0d9f",
+        "msg": "update cinder def in compute\n\nIt was out of date with the latest version of the\nmodules.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-25 16:09:30-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "d3645fecd171ff58bbfe305378fcf38a2a3291fb",
+        "msg": "update other repos for folsom\n\n- update other_repos.yaml\n- include apache for all in one",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-25 23:56:04-07:00",
+        "files": ["site.pp", "other_repos.yaml"]
+      },
+      {
+        "hash": "77262213df1b64a9e8db985e64737640b1c6b7ba",
+        "msg": "remove ref to invalid variable\n\nreplace refs to internal address with 127.0.0.1",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-25 23:56:22-07:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "6126c743b9c7981a3b4aae3515294af2d4af9c90",
+        "msg": "style updates",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-28 21:18:28-07:00",
+        "files": ["mysql.pp", "keystone.pp"]
+      },
+      {
+        "hash": "49e64884db4d86fdf4c9662abdcbc9f32940e0fc",
+        "msg": "change controller params\n\n- make cinder the default\n- reorganize params\n- have fewer default passwords",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-28 21:22:05-07:00",
+        "files": ["all.pp", "controller.pp"]
+      },
+      {
+        "hash": "c8a15dfc747db9989db969cbd82f5d2463150a6a",
+        "msg": "fix vncproxy_host\n\nin all.pp it was set to localhost, which broke\nhorizon's ability to use vnc.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-28 21:22:44-07:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "8da819bcf250844e3551f140bf14412d29bee546",
+        "msg": "fix minor compute issues\n\nThis commit resolves a few minor issues uncovered\nwhen fixing the spec tests.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-28 21:23:22-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "33f0fc17360a4a57c9392aa2bcd945e50dd72ad7",
+        "msg": "fail explicitly for unsupported db types\n\nin all.pp",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-28 21:23:44-07:00",
+        "files": ["all.pp"]
+      },
+      {
+        "hash": "728bbb6bb8b4fd3d45c3c8881d03115666098c38",
+        "msg": "remove trailing comma\n\nto fix 2.6.x support",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-28 21:47:00-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "d1054c68dd9dbe7bfdb1c3bee87aa0b5de4105f6",
+        "msg": "Add quantum to compute, all and controller\n\nThese commits add management of quantum to the\nopenstack compute, controller and all classes.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-29 18:28:14-07:00",
+        "files": ["all.pp", "compute.pp", "controller.pp"]
+      },
+      {
+        "hash": "cf70688b4f2a08e4d468d86cf3b3a4c3a220b993",
+        "msg": "Fix typo\n\nmissing '{' was breaking quantum.",
+        "cmtr": "Dan Bode",
+        "date": "2012-10-29 21:44:55-07:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "6f76b4f9794af32ab27125cf6fbd44710858cdac",
+        "msg": "quantum updates\n\n- do not make quantum the default config\n- update params to reflect latest quantum module",
+        "cmtr": "Dan Bode",
+        "date": "2012-11-01 23:31:23-07:00",
+        "files": ["all.pp", "compute.pp", "controller.pp", "controller.pp"]
+      },
+      {
+        "hash": "0a31e07d9ef2c36eca0be4ffc845c0b1b50411d2",
+        "msg": "Add rabbit_virtual_host support to openstack controller module .. feature exists in puppetlabs-nova already. Also Made installation of Horizon optional.",
+        "cmtr": "Aimon Bustardo",
+        "date": "2012-11-06 17:06:02-08:00",
+        "files": ["compute.pp", "controller.pp", "controller.pp"]
+      },
+      {
+        "hash": "843a2e0aef58dd2789852715fa9a73a76e6db130",
+        "msg": "Add rabbit_virtual_host support to openstack controller module .. feature exists in puppetlabs-nova already. Also Made installation of Horizon optional.",
+        "cmtr": "Aimon Bustardo",
+        "date": "2012-11-06 17:08:41-08:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "9b052cd5fe53745e32ba5f21e6645f68fc8bce91",
+        "msg": "revert optional horizon for separate pull requests",
+        "cmtr": "Aimon Bustardo",
+        "date": "2012-11-06 21:00:54-08:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "7d45133d37442e1bfee2666665203142f949d676",
+        "msg": "Make Horiuzon installation optional",
+        "cmtr": "Aimon Bustardo",
+        "date": "2012-11-06 21:23:46-08:00",
+        "files": ["all.pp", "controller.pp"]
+      },
+      {
+        "hash": "2283204d0ce8eac236b46117b31978e19f2b0b05",
+        "msg": "typo",
+        "cmtr": "Aimon Bustardo",
+        "date": "2012-11-06 21:26:25-08:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "e9d544721d00a1be346d0d16ebf7c56b8533dab3",
+        "msg": "typo",
+        "cmtr": "Aimon Bustardo",
+        "date": "2012-11-06 21:27:41-08:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "426236831fe3ba03c14e83be53905af94b15949a",
+        "msg": "Fixed bad variable name",
+        "cmtr": "Aimon Bustardo",
+        "date": "2012-11-06 22:15:50-08:00",
+        "files": ["compute.pp", "site.pp"]
+      },
+      {
+        "hash": "0a967ea68a4f7eac139550b3d877cd0c0f0add5a",
+        "msg": "Merge pull request #130 from bodepd/aimon_specs\n\nadd spec tests",
+        "cmtr": "Aimon Bustardo",
+        "date": "2012-11-07 22:43:29-08:00",
+        "files": ["controller.pp", "controller.pp", "openstack_compute_spec.rb", "openstack_controller_spec.rb"]
+      },
+      {
+        "hash": "2d4b7fbccf6fb13c087382dc89003f0b0a03eccc",
+        "msg": "FIX: add missing arg. ADD: tests",
+        "cmtr": "Aimon Bustardo",
+        "date": "2012-11-07 22:44:17-08:00",
+        "files": ["controller.pp"]
+      },
+      {
+        "hash": "c21ce0d07cb44038b42bcb2eb0694f1dd50d2e9a",
+        "msg": "add nova-volume class.",
+        "cmtr": "Aimon Bustardo",
+        "date": "2012-11-13 22:31:15-08:00",
+        "files": ["controller.pp"]
+      }]
+    }

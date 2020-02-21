@@ -1,0 +1,686 @@
+    {
+      "url": "https://github.com/Mirantis/solar-resources",
+      "pp_files": ["stages.pp", "db.pp", "ldap_identity.pp", "sync.pp", "init.pp", "postgresql.pp", "ini_setting.pp", "remove.pp", "apache_dropin.pp", "replicator.pp", "params.pp", "has_ip_address.pp", "backup.pp", "endpoint.pp", "java.pp", "config.pp", "host_access.pp", "update.pp", "client.pp", "password.pp", "ruby.pp", "has_interface_with.pp", "python.pp", "apache_with_paths.pp", "account_security.pp", "ini_subsetting.pp", "ldap_full.pp", "mysqltuner.pp", "mysql.pp", "site.pp", "file_line.pp", "server.pp", "install.pp", "admin.pp", "run.pp", "ldap.pp", "apache.pp", "has_ip_network.pp", "monitor.pp", "test.pp"],
+      "pp_cmtrs": ["Jedrzej Nowak", "Przemyslaw Kaminski", "Bogdan Dobrelya", "Dmitry Shulyak", "\u0141ukasz Ole\u015b"],
+      "num_pp_commits": 97,
+      "num_tot_commits": 951,
+      "commits": [{
+        "hash": "93d156e49e5006fc3b86af38a082277a07b75488",
+        "msg": "Keystone can now be deployed using Puppet",
+        "cmtr": "Przemyslaw Kaminski",
+        "date": "2015-06-18 12:57:36+02:00",
+        "files": ["remove.yml", "run.pp", "meta.yaml", "Gemfile", "LICENSE", "Modulefile", "README.md", "Rakefile", "apache_dropin.pp", "apache_with_paths.pp", "ldap_full.pp", "ldap_identity.pp", "keystone_test.rb", "keystone.py", "keystone.rb", "ini_setting.rb", "keystone.rb", "keystone.rb", "keystone.rb", "keystone.rb", "keystone.rb", "keystone.rb", "keystone_config.rb", "keystone_endpoint.rb", "keystone_role.rb", "keystone_service.rb", "keystone_tenant.rb", "keystone_user.rb", "keystone_user_role.rb", "client.pp", "config.pp", "mysql.pp", "host_access.pp", "postgresql.pp", "sync.pp", "install.pp", "endpoint.pp", "init.pp", "ldap.pp", "params.pp", "python.pp", "admin.pp", "apache.pp", "keystone_client_spec.rb", "keystone_db_mysql_spec.rb", "keystone_db_postgresql_spec.rb", "keystone_endpoint_spec.rb", "keystone_ldap_spec.rb", "keystone_python_spec.rb", "keystone_roles_admin_spec.rb", "keystone_spec.rb", "keystone_wsgi_apache_spec.rb", "shared_examples.rb", "spec.opts", "spec_helper.rb", "keystone_spec.rb", "keystone_spec.rb", "keystone_spec.rb", "keystone_spec.rb", "keystone_spec.rb", "keystone_spec.rb", "keystone_spec.rb", "keystone_endpoint_spec.rb", "site.pp", "remove.yml", "run.pp", "meta.yaml", "CHANGELOG.md", "CONTRIBUTING.md", "Gemfile", "LICENSE", "README.markdown", "Rakefile", "ruby.rb", "ruby.rb", "ini_setting.rb", "ini_subsetting.rb", "external_iterator.rb", "ini_file.rb", "section.rb", "setting_value.rb", "ini_setting_spec.rb", "ini_subsetting_spec.rb", "centos-510-x64.yml", "centos-59-x64.yml", "centos-64-x64-pe.yml", "centos-64-x64.yml", "centos-65-x64.yml", "debian-607-x64.yml", "debian-73-x64.yml", "default.yml", "fedora-18-x64.yml", "sles-11sp1-x64.yml", "ubuntu-server-10044-x64.yml", "ubuntu-server-12042-x64.yml", "ubuntu-server-1404-x64.yml", "windows-2003-i386.yml", "windows-2003r2-x86_64.yml", "windows-2008-x86_64.yml", "windows-2008r2-x86_64.yml", "windows-2012-x86_64.yml", "windows-2012r2-x86_64.yml", "inherit_test1_spec.rb", "spec.opts", "spec_helper.rb", "spec_helper_acceptance.rb", "inheritance_spec.rb", "ruby_spec.rb", "ruby_spec.rb", "external_iterator_spec.rb", "ini_file_spec.rb", "setting_value_spec.rb", "ini_setting.pp", "ini_subsetting.pp", "remove.yml", "run.pp", "meta.yaml", "CHANGELOG", "LICENSE", "Modulefile", "README.md", "Rakefile", "TODO", "site.pp", "test.pp", "mysql-single.init", "mysqltuner.pl", "ocf-mysql", "mysql_password.rb", "mysql.rb", "mysql.rb", "mysql.rb", "database.rb", "database_grant.rb", "database_user.rb", "backup.pp", "config.pp", "db.pp", "init.pp", "java.pp", "params.pp", "password.pp", "python.pp", "replicator.pp", "ruby.pp", "server.pp", "account_security.pp", "monitor.pp", "mysqltuner.pp", "mysql_backup_spec.rb", "mysql_config_spec.rb", "mysql_init_spec.rb", "mysql_java_spec.rb", "mysql_python_spec.rb", "mysql_ruby_spec.rb", "mysql_server_account_security_spec.rb", "mysql_server_monitor_spec.rb", "mysql_server_spec.rb", "mysql_db_spec.rb", "site.pp", "backup_spec.rb", "init_spec.rb", "java_spec.rb", "python_spec.rb", "ruby_spec.rb", "server_spec.rb", "spec_helper.rb", "spec_helper.rb", "mysql_password_spec.rb", "mysql_spec.rb", "my.cnf.binlog.erb", "my.cnf.erb", "my.cnf.pass.erb", "mysqlbackup.sh.erb", "repl_create.sql.erb", "Rakefile", "backup.pp", "init.pp", "java.pp", "python.pp", "ruby.pp", "server.pp", "remove.yml", "run.pp", "meta.yaml", "CHANGELOG.md", "CONTRIBUTING.md", "Gemfile", "LICENSE", "README.markdown", "README_DEVELOPER.markdown", "README_SPECS.markdown", "RELEASE_PROCESS.markdown", "Rakefile", "facter_dot_d.rb", "pe_version.rb", "puppet_vardir.rb", "root_home.rb", "puppet_settings.rb", "type_of.rb", "abs.rb", "any2array.rb", "assert_private.rb", "base64.rb", "basename.rb", "bool2num.rb", "bool2str.rb", "camelcase.rb", "capitalize.rb", "ceiling.rb", "chomp.rb", "chop.rb", "concat.rb", "count.rb", "deep_merge.rb", "defined_with_params.rb", "delete.rb", "delete_at.rb", "delete_undef_values.rb", "delete_values.rb", "difference.rb", "dirname.rb", "downcase.rb", "empty.rb", "ensure_packages.rb", "ensure_resource.rb", "flatten.rb", "floor.rb", "fqdn_rand_string.rb", "fqdn_rotate.rb", "get_module_path.rb", "getparam.rb", "getvar.rb", "grep.rb", "has_interface_with.rb", "has_ip_address.rb", "has_ip_network.rb", "has_key.rb", "hash.rb", "intersection.rb", "is_array.rb", "is_bool.rb", "is_domain_name.rb", "is_float.rb", "is_function_available.rb", "is_hash.rb", "is_integer.rb", "is_ip_address.rb", "is_mac_address.rb", "is_numeric.rb", "is_string.rb", "join.rb", "join_keys_to_values.rb", "keys.rb", "loadyaml.rb", "lstrip.rb", "max.rb", "member.rb", "merge.rb", "min.rb", "num2bool.rb", "parsejson.rb", "parseyaml.rb", "pick.rb", "pick_default.rb", "prefix.rb", "private.rb", "pw_hash.rb", "range.rb", "reject.rb", "reverse.rb", "rstrip.rb", "shuffle.rb", "size.rb", "sort.rb", "squeeze.rb", "str2bool.rb", "str2saltedsha512.rb", "strftime.rb", "strip.rb", "suffix.rb", "swapcase.rb", "time.rb", "to_bytes.rb", "type.rb", "type3x.rb", "union.rb", "unique.rb", "upcase.rb", "uriescape.rb", "validate_absolute_path.rb", "validate_array.rb", "validate_augeas.rb", "validate_bool.rb", "validate_cmd.rb", "validate_hash.rb", "validate_integer.rb", "validate_ipv4_address.rb", "validate_ipv6_address.rb", "validate_numeric.rb", "validate_re.rb", "validate_slength.rb", "validate_string.rb", "values.rb", "values_at.rb", "zip.rb", "ruby.rb", "anchor.rb", "file_line.rb", "init.pp", "stages.pp", "metadata.json", "abs_spec.rb", "any2array_spec.rb", "base64_spec.rb", "bool2num_spec.rb", "build_csv.rb", "capitalize_spec.rb", "ceiling_spec.rb", "chomp_spec.rb", "chop_spec.rb", "concat_spec.rb", "count_spec.rb", "deep_merge_spec.rb", "defined_with_params_spec.rb", "delete_at_spec.rb", "delete_spec.rb", "delete_undef_values_spec.rb", "delete_values_spec.rb", "difference_spec.rb", "dirname_spec.rb", "downcase_spec.rb", "empty_spec.rb", "ensure_packages_spec.rb", "ensure_resource_spec.rb", "flatten_spec.rb", "floor_spec.rb", "fqdn_rand_string_spec.rb", "fqdn_rotate_spec.rb", "get_module_path_spec.rb", "getparam_spec.rb", "getvar_spec.rb", "grep_spec.rb", "has_interface_with_spec.rb", "has_ip_address_spec.rb", "has_ip_network_spec.rb", "has_key_spec.rb", "hash_spec.rb", "intersection_spec.rb", "is_array_spec.rb", "is_bool_spec.rb", "is_domain_name_spec.rb", "is_float_spec.rb", "is_function_available_spec.rb", "is_hash_spec.rb", "is_integer_spec.rb", "is_ip_address_spec.rb", "is_mac_address_spec.rb", "is_numeric_spec.rb", "is_string_spec.rb", "join_keys_to_values_spec.rb", "join_spec.rb", "keys_spec.rb", "loadyaml_spec.rb", "lstrip_spec.rb", "max_spec.rb", "member_spec.rb", "merge_spec.rb", "min_spec.rb", "centos-59-x64.yml", "centos-6-vcloud.yml", "centos-64-x64-pe.yml", "centos-64-x64.yml", "centos-65-x64.yml", "default.yml", "fedora-18-x64.yml", "sles-11-x64.yml", "ubuntu-server-10044-x64.yml", "ubuntu-server-12042-x64.yml", "ubuntu-server-1404-x64.yml", "windows-2003-i386.yml", "windows-2003-x86_64.yml", "windows-2008-x86_64.yml", "windows-2008r2-x86_64.yml", "windows-2012-x86_64.yml", "windows-2012r2-x86_64.yml", "num2bool_spec.rb", "parsejson_spec.rb", "parseyaml_spec.rb", "pick_default_spec.rb", "pick_spec.rb", "prefix_spec.rb", "pw_hash_spec.rb", "range_spec.rb", "reject_spec.rb", "reverse_spec.rb", "rstrip_spec.rb", "shuffle_spec.rb", "size_spec.rb", "sort_spec.rb", "squeeze_spec.rb", "str2bool_spec.rb", "str2saltedsha512_spec.rb", "strftime_spec.rb", "strip_spec.rb", "suffix_spec.rb", "swapcase_spec.rb", "time_spec.rb", "to_bytes_spec.rb", "type_spec.rb", "union_spec.rb", "unique_spec.rb", "unsupported_spec.rb", "upcase_spec.rb", "uriescape_spec.rb", "validate_absolute_path_spec.rb", "validate_array_spec.rb", "validate_augeas_spec.rb", "validate_bool_spec.rb", "validate_cmd_spec.rb", "validate_hash_spec.rb", "validate_ipv4_address_spec.rb", "validate_ipv6_address_spec.rb", "validate_re_spec.rb", "validate_slength_spec.rb", "validate_string_spec.rb", "values_at_spec.rb", "values_spec.rb", "zip_spec.rb", "anchor_spec.rb", "abs_spec.rb", "any2array_spec.rb", "assert_private_spec.rb", "base64_spec.rb", "bool2num_spec.rb", "capitalize_spec.rb", "ceiling_spec.rb", "chomp_spec.rb", "chop_spec.rb", "concat_spec.rb", "count_spec.rb", "deep_merge_spec.rb", "defined_with_params_spec.rb", "delete_at_spec.rb", "delete_spec.rb", "delete_undef_values_spec.rb", "delete_values_spec.rb", "difference_spec.rb", "dirname_spec.rb", "downcase_spec.rb", "empty_spec.rb", "ensure_packages_spec.rb", "ensure_resource_spec.rb", "flatten_spec.rb", "floor_spec.rb", "fqdn_rand_string_spec.rb", "fqdn_rotate_spec.rb", "get_module_path_spec.rb", "getparam_spec.rb", "getvar_spec.rb", "grep_spec.rb", "has_interface_with_spec.rb", "has_ip_address_spec.rb", "has_ip_network_spec.rb", "has_key_spec.rb", "hash_spec.rb", "intersection_spec.rb", "is_array_spec.rb", "is_bool_spec.rb", "is_domain_name_spec.rb", "is_float_spec.rb", "is_function_available.rb", "is_hash_spec.rb", "is_integer_spec.rb", "is_ip_address_spec.rb", "is_mac_address_spec.rb", "is_numeric_spec.rb", "is_string_spec.rb", "join_keys_to_values_spec.rb", "join_spec.rb", "keys_spec.rb", "loadyaml_spec.rb", "lstrip_spec.rb", "max_spec.rb", "member_spec.rb", "merge_spec.rb", "min_spec.rb", "num2bool_spec.rb", "parsejson_spec.rb", "parseyaml_spec.rb", "pick_default_spec.rb", "pick_spec.rb", "prefix_spec.rb", "private_spec.rb", "pw_hash_spec.rb", "range_spec.rb", "reject_spec.rb", "reverse_spec.rb", "rstrip_spec.rb", "shuffle_spec.rb", "size_spec.rb", "sort_spec.rb", "squeeze_spec.rb", "str2bool_spec.rb", "str2saltedsha512_spec.rb", "strftime_spec.rb", "strip_spec.rb", "suffix_spec.rb", "swapcase_spec.rb", "time_spec.rb", "to_bytes_spec.rb", "type3x_spec.rb", "type_spec.rb", "union_spec.rb", "unique_spec.rb", "upcase_spec.rb", "uriescape_spec.rb", "validate_absolute_path_spec.rb", "validate_array_spec.rb", "validate_augeas_spec.rb", "validate_bool_spec.rb", "validate_cmd_spec.rb", "validate_hash_spec.rb", "validate_integer_spec.rb", "validate_ipv4_address_spec.rb", "validate_ipv6_address_spec.rb", "validate_numeric_spec.rb", "validate_re_spec.rb", "validate_slength_spec.rb", "validate_string_spec.rb", "values_at_spec.rb", "values_spec.rb", "zip_spec.rb", "compiler.rb", "database.rb", "files.rb", "fixtures.rb", "matchers.rb", "modules.rb", "pops.rb", "scope.rb", "settings.rb", "verbose.rb", "alias_should_to_must.rb", "publicize_methods.rb", "spec.opts", "spec_helper.rb", "spec_helper_acceptance.rb", "facter_dot_d_spec.rb", "pe_version_spec.rb", "root_home_spec.rb", "puppet_settings_spec.rb", "type_of_spec.rb", "basename_spec.rb", "bool2str_spec.rb", "camelcase_spec.rb", "ruby_spec.rb", "anchor_spec.rb", "file_line_spec.rb", "file_line.pp", "has_interface_with.pp", "has_ip_address.pp", "has_ip_network.pp", "init.pp"]
+      },
+      {
+        "hash": "70032fe11b0894c4e0067bfc5b9a3fdf30eecdad",
+        "msg": "Puppet: added port to keystone",
+        "cmtr": "Przemyslaw Kaminski",
+        "date": "2015-06-18 13:57:46+02:00",
+        "files": ["remove.pp", "remove.yml", "run.pp", "update.pp", "meta.yaml"]
+      },
+      {
+        "hash": "5c70cd66351a766f069d401c691779a498bcc8fd",
+        "msg": "Puppet: Keystone remove action is working now",
+        "cmtr": "Przemyslaw Kaminski",
+        "date": "2015-06-18 14:15:44+02:00",
+        "files": ["remove.pp", "remove.pp", "remove.yml", "remove.pp", "remove.yml", "remove.pp", "remove.yml"]
+      },
+      {
+        "hash": "2d5264305bc7e772c7bd5f98d39c471519085066",
+        "msg": "Hiera storage showoff",
+        "cmtr": "Przemyslaw Kaminski",
+        "date": "2015-06-18 16:06:25+02:00",
+        "files": ["run.pp"]
+      },
+      {
+        "hash": "9ebb1ac9122c002d764e423afcc1ad4e77d09fda",
+        "msg": "hiera-redis added, single-master redis cluster",
+        "cmtr": "Przemyslaw Kaminski",
+        "date": "2015-06-19 13:43:12+02:00",
+        "files": ["run.pp"]
+      },
+      {
+        "hash": "eec8bc18fefa9d8e6eba3ddd12f2966d789cedaa",
+        "msg": "Move Puppet resources to outside repos",
+        "cmtr": "Przemyslaw Kaminski",
+        "date": "2015-06-24 14:20:07+02:00",
+        "files": ["remove.pp", "run.pp", "update.pp", "meta.yaml", "Gemfile", "LICENSE", "Modulefile", "README.md", "Rakefile", "apache_dropin.pp", "apache_with_paths.pp", "ldap_full.pp", "ldap_identity.pp", "keystone_test.rb", "keystone.py", "keystone.rb", "ini_setting.rb", "keystone.rb", "keystone.rb", "keystone.rb", "keystone.rb", "keystone.rb", "keystone.rb", "keystone_config.rb", "keystone_endpoint.rb", "keystone_role.rb", "keystone_service.rb", "keystone_tenant.rb", "keystone_user.rb", "keystone_user_role.rb", "client.pp", "config.pp", "mysql.pp", "host_access.pp", "postgresql.pp", "sync.pp", "install.pp", "endpoint.pp", "init.pp", "ldap.pp", "params.pp", "python.pp", "admin.pp", "apache.pp", "keystone_client_spec.rb", "keystone_db_mysql_spec.rb", "keystone_db_postgresql_spec.rb", "keystone_endpoint_spec.rb", "keystone_ldap_spec.rb", "keystone_python_spec.rb", "keystone_roles_admin_spec.rb", "keystone_spec.rb", "keystone_wsgi_apache_spec.rb", "shared_examples.rb", "spec.opts", "spec_helper.rb", "keystone_spec.rb", "keystone_spec.rb", "keystone_spec.rb", "keystone_spec.rb", "keystone_spec.rb", "keystone_spec.rb", "keystone_spec.rb", "keystone_endpoint_spec.rb", "site.pp", "remove.pp", "run.pp", "meta.yaml", "CHANGELOG.md", "CONTRIBUTING.md", "Gemfile", "LICENSE", "README.markdown", "Rakefile", "ruby.rb", "ruby.rb", "ini_setting.rb", "ini_subsetting.rb", "external_iterator.rb", "ini_file.rb", "section.rb", "setting_value.rb", "ini_setting_spec.rb", "ini_subsetting_spec.rb", "centos-510-x64.yml", "centos-59-x64.yml", "centos-64-x64-pe.yml", "centos-64-x64.yml", "centos-65-x64.yml", "debian-607-x64.yml", "debian-73-x64.yml", "default.yml", "fedora-18-x64.yml", "sles-11sp1-x64.yml", "ubuntu-server-10044-x64.yml", "ubuntu-server-12042-x64.yml", "ubuntu-server-1404-x64.yml", "windows-2003-i386.yml", "windows-2003r2-x86_64.yml", "windows-2008-x86_64.yml", "windows-2008r2-x86_64.yml", "windows-2012-x86_64.yml", "windows-2012r2-x86_64.yml", "inherit_test1_spec.rb", "spec.opts", "spec_helper.rb", "spec_helper_acceptance.rb", "inheritance_spec.rb", "ruby_spec.rb", "ruby_spec.rb", "external_iterator_spec.rb", "ini_file_spec.rb", "setting_value_spec.rb", "ini_setting.pp", "ini_subsetting.pp", "remove.pp", "run.pp", "meta.yaml", "CHANGELOG", "LICENSE", "Modulefile", "README.md", "Rakefile", "TODO", "site.pp", "test.pp", "mysql-single.init", "mysqltuner.pl", "ocf-mysql", "mysql_password.rb", "mysql.rb", "mysql.rb", "mysql.rb", "database.rb", "database_grant.rb", "database_user.rb", "backup.pp", "config.pp", "db.pp", "init.pp", "java.pp", "params.pp", "password.pp", "python.pp", "replicator.pp", "ruby.pp", "server.pp", "account_security.pp", "monitor.pp", "mysqltuner.pp", "mysql_backup_spec.rb", "mysql_config_spec.rb", "mysql_init_spec.rb", "mysql_java_spec.rb", "mysql_python_spec.rb", "mysql_ruby_spec.rb", "mysql_server_account_security_spec.rb", "mysql_server_monitor_spec.rb", "mysql_server_spec.rb", "mysql_db_spec.rb", "site.pp", "backup_spec.rb", "init_spec.rb", "java_spec.rb", "python_spec.rb", "ruby_spec.rb", "server_spec.rb", "spec_helper.rb", "spec_helper.rb", "mysql_password_spec.rb", "mysql_spec.rb", "my.cnf.binlog.erb", "my.cnf.erb", "my.cnf.pass.erb", "mysqlbackup.sh.erb", "repl_create.sql.erb", "Rakefile", "backup.pp", "init.pp", "java.pp", "python.pp", "ruby.pp", "server.pp", "remove.pp", "run.pp", "meta.yaml", "CHANGELOG.md", "CONTRIBUTING.md", "Gemfile", "LICENSE", "README.markdown", "README_DEVELOPER.markdown", "README_SPECS.markdown", "RELEASE_PROCESS.markdown", "Rakefile", "facter_dot_d.rb", "pe_version.rb", "puppet_vardir.rb", "root_home.rb", "puppet_settings.rb", "type_of.rb", "abs.rb", "any2array.rb", "assert_private.rb", "base64.rb", "basename.rb", "bool2num.rb", "bool2str.rb", "camelcase.rb", "capitalize.rb", "ceiling.rb", "chomp.rb", "chop.rb", "concat.rb", "count.rb", "deep_merge.rb", "defined_with_params.rb", "delete.rb", "delete_at.rb", "delete_undef_values.rb", "delete_values.rb", "difference.rb", "dirname.rb", "downcase.rb", "empty.rb", "ensure_packages.rb", "ensure_resource.rb", "flatten.rb", "floor.rb", "fqdn_rand_string.rb", "fqdn_rotate.rb", "get_module_path.rb", "getparam.rb", "getvar.rb", "grep.rb", "has_interface_with.rb", "has_ip_address.rb", "has_ip_network.rb", "has_key.rb", "hash.rb", "intersection.rb", "is_array.rb", "is_bool.rb", "is_domain_name.rb", "is_float.rb", "is_function_available.rb", "is_hash.rb", "is_integer.rb", "is_ip_address.rb", "is_mac_address.rb", "is_numeric.rb", "is_string.rb", "join.rb", "join_keys_to_values.rb", "keys.rb", "loadyaml.rb", "lstrip.rb", "max.rb", "member.rb", "merge.rb", "min.rb", "num2bool.rb", "parsejson.rb", "parseyaml.rb", "pick.rb", "pick_default.rb", "prefix.rb", "private.rb", "pw_hash.rb", "range.rb", "reject.rb", "reverse.rb", "rstrip.rb", "shuffle.rb", "size.rb", "sort.rb", "squeeze.rb", "str2bool.rb", "str2saltedsha512.rb", "strftime.rb", "strip.rb", "suffix.rb", "swapcase.rb", "time.rb", "to_bytes.rb", "type.rb", "type3x.rb", "union.rb", "unique.rb", "upcase.rb", "uriescape.rb", "validate_absolute_path.rb", "validate_array.rb", "validate_augeas.rb", "validate_bool.rb", "validate_cmd.rb", "validate_hash.rb", "validate_integer.rb", "validate_ipv4_address.rb", "validate_ipv6_address.rb", "validate_numeric.rb", "validate_re.rb", "validate_slength.rb", "validate_string.rb", "values.rb", "values_at.rb", "zip.rb", "ruby.rb", "anchor.rb", "file_line.rb", "init.pp", "stages.pp", "metadata.json", "abs_spec.rb", "any2array_spec.rb", "base64_spec.rb", "bool2num_spec.rb", "build_csv.rb", "capitalize_spec.rb", "ceiling_spec.rb", "chomp_spec.rb", "chop_spec.rb", "concat_spec.rb", "count_spec.rb", "deep_merge_spec.rb", "defined_with_params_spec.rb", "delete_at_spec.rb", "delete_spec.rb", "delete_undef_values_spec.rb", "delete_values_spec.rb", "difference_spec.rb", "dirname_spec.rb", "downcase_spec.rb", "empty_spec.rb", "ensure_packages_spec.rb", "ensure_resource_spec.rb", "flatten_spec.rb", "floor_spec.rb", "fqdn_rand_string_spec.rb", "fqdn_rotate_spec.rb", "get_module_path_spec.rb", "getparam_spec.rb", "getvar_spec.rb", "grep_spec.rb", "has_interface_with_spec.rb", "has_ip_address_spec.rb", "has_ip_network_spec.rb", "has_key_spec.rb", "hash_spec.rb", "intersection_spec.rb", "is_array_spec.rb", "is_bool_spec.rb", "is_domain_name_spec.rb", "is_float_spec.rb", "is_function_available_spec.rb", "is_hash_spec.rb", "is_integer_spec.rb", "is_ip_address_spec.rb", "is_mac_address_spec.rb", "is_numeric_spec.rb", "is_string_spec.rb", "join_keys_to_values_spec.rb", "join_spec.rb", "keys_spec.rb", "loadyaml_spec.rb", "lstrip_spec.rb", "max_spec.rb", "member_spec.rb", "merge_spec.rb", "min_spec.rb", "centos-59-x64.yml", "centos-6-vcloud.yml", "centos-64-x64-pe.yml", "centos-64-x64.yml", "centos-65-x64.yml", "default.yml", "fedora-18-x64.yml", "sles-11-x64.yml", "ubuntu-server-10044-x64.yml", "ubuntu-server-12042-x64.yml", "ubuntu-server-1404-x64.yml", "windows-2003-i386.yml", "windows-2003-x86_64.yml", "windows-2008-x86_64.yml", "windows-2008r2-x86_64.yml", "windows-2012-x86_64.yml", "windows-2012r2-x86_64.yml", "num2bool_spec.rb", "parsejson_spec.rb", "parseyaml_spec.rb", "pick_default_spec.rb", "pick_spec.rb", "prefix_spec.rb", "pw_hash_spec.rb", "range_spec.rb", "reject_spec.rb", "reverse_spec.rb", "rstrip_spec.rb", "shuffle_spec.rb", "size_spec.rb", "sort_spec.rb", "squeeze_spec.rb", "str2bool_spec.rb", "str2saltedsha512_spec.rb", "strftime_spec.rb", "strip_spec.rb", "suffix_spec.rb", "swapcase_spec.rb", "time_spec.rb", "to_bytes_spec.rb", "type_spec.rb", "union_spec.rb", "unique_spec.rb", "unsupported_spec.rb", "upcase_spec.rb", "uriescape_spec.rb", "validate_absolute_path_spec.rb", "validate_array_spec.rb", "validate_augeas_spec.rb", "validate_bool_spec.rb", "validate_cmd_spec.rb", "validate_hash_spec.rb", "validate_ipv4_address_spec.rb", "validate_ipv6_address_spec.rb", "validate_re_spec.rb", "validate_slength_spec.rb", "validate_string_spec.rb", "values_at_spec.rb", "values_spec.rb", "zip_spec.rb", "anchor_spec.rb", "abs_spec.rb", "any2array_spec.rb", "assert_private_spec.rb", "base64_spec.rb", "bool2num_spec.rb", "capitalize_spec.rb", "ceiling_spec.rb", "chomp_spec.rb", "chop_spec.rb", "concat_spec.rb", "count_spec.rb", "deep_merge_spec.rb", "defined_with_params_spec.rb", "delete_at_spec.rb", "delete_spec.rb", "delete_undef_values_spec.rb", "delete_values_spec.rb", "difference_spec.rb", "dirname_spec.rb", "downcase_spec.rb", "empty_spec.rb", "ensure_packages_spec.rb", "ensure_resource_spec.rb", "flatten_spec.rb", "floor_spec.rb", "fqdn_rand_string_spec.rb", "fqdn_rotate_spec.rb", "get_module_path_spec.rb", "getparam_spec.rb", "getvar_spec.rb", "grep_spec.rb", "has_interface_with_spec.rb", "has_ip_address_spec.rb", "has_ip_network_spec.rb", "has_key_spec.rb", "hash_spec.rb", "intersection_spec.rb", "is_array_spec.rb", "is_bool_spec.rb", "is_domain_name_spec.rb", "is_float_spec.rb", "is_function_available.rb", "is_hash_spec.rb", "is_integer_spec.rb", "is_ip_address_spec.rb", "is_mac_address_spec.rb", "is_numeric_spec.rb", "is_string_spec.rb", "join_keys_to_values_spec.rb", "join_spec.rb", "keys_spec.rb", "loadyaml_spec.rb", "lstrip_spec.rb", "max_spec.rb", "member_spec.rb", "merge_spec.rb", "min_spec.rb", "num2bool_spec.rb", "parsejson_spec.rb", "parseyaml_spec.rb", "pick_default_spec.rb", "pick_spec.rb", "prefix_spec.rb", "private_spec.rb", "pw_hash_spec.rb", "range_spec.rb", "reject_spec.rb", "reverse_spec.rb", "rstrip_spec.rb", "shuffle_spec.rb", "size_spec.rb", "sort_spec.rb", "squeeze_spec.rb", "str2bool_spec.rb", "str2saltedsha512_spec.rb", "strftime_spec.rb", "strip_spec.rb", "suffix_spec.rb", "swapcase_spec.rb", "time_spec.rb", "to_bytes_spec.rb", "type3x_spec.rb", "type_spec.rb", "union_spec.rb", "unique_spec.rb", "upcase_spec.rb", "uriescape_spec.rb", "validate_absolute_path_spec.rb", "validate_array_spec.rb", "validate_augeas_spec.rb", "validate_bool_spec.rb", "validate_cmd_spec.rb", "validate_hash_spec.rb", "validate_integer_spec.rb", "validate_ipv4_address_spec.rb", "validate_ipv6_address_spec.rb", "validate_numeric_spec.rb", "validate_re_spec.rb", "validate_slength_spec.rb", "validate_string_spec.rb", "values_at_spec.rb", "values_spec.rb", "zip_spec.rb", "compiler.rb", "database.rb", "files.rb", "fixtures.rb", "matchers.rb", "modules.rb", "pops.rb", "scope.rb", "settings.rb", "verbose.rb", "alias_should_to_must.rb", "publicize_methods.rb", "spec.opts", "spec_helper.rb", "spec_helper_acceptance.rb", "facter_dot_d_spec.rb", "pe_version_spec.rb", "root_home_spec.rb", "puppet_settings_spec.rb", "type_of_spec.rb", "basename_spec.rb", "bool2str_spec.rb", "camelcase_spec.rb", "ruby_spec.rb", "anchor_spec.rb", "file_line_spec.rb", "file_line.pp", "has_interface_with.pp", "has_ip_address.pp", "has_ip_network.pp", "init.pp"]
+      },
+      {
+        "hash": "ccaadaf5f7638013ff01a17c943a44d7be10ef93",
+        "msg": "Puppet: lots of fixes & improvements\n\n- resource_provider became a general provider for git/zip/whatever data\n- library-puppet is used to install & manage all dependencies\n- keystone_puppet resource is added, with manifests from openstack git",
+        "cmtr": "Przemyslaw Kaminski",
+        "date": "2015-07-09 12:36:36+02:00",
+        "files": ["remove.pp", "run.pp", "update.pp", "meta.yaml"]
+      },
+      {
+        "hash": "c592016be77e47ca51714fc369564a988687a651",
+        "msg": "neutron_puppet works now with upstream openstack manifests",
+        "cmtr": "Przemyslaw Kaminski",
+        "date": "2015-07-09 13:30:44+02:00",
+        "files": ["remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "072f42b34b88dc7b5071f2c90b8e70d7c1ad71a5",
+        "msg": "Fix remove",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-07-13 14:39:48+00:00",
+        "files": ["remove.yaml", "remove.pp"]
+      },
+      {
+        "hash": "ef7a0002a716dc236f7eecbae72daa31a1ec259f",
+        "msg": "Use FACTER_resource_name in shell variables\n\nAlso, use_sudo added to _scp_command.",
+        "cmtr": "Przemyslaw Kaminski",
+        "date": "2015-07-14 19:18:44+02:00",
+        "files": ["run.pp"]
+      },
+      {
+        "hash": "2db3e8126a27490bb9d4934cccb98aa5db30192e",
+        "msg": "Fix bools in puppet manifests\n\nCapitalized bools ending up in wrong config values,\nlike 'fooparam=True[]'. Use the lower case instead.\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-07-16 14:09:19+02:00",
+        "files": ["run.pp", "update.pp"]
+      },
+      {
+        "hash": "0faf63559c7473fbc35d8de869996357cf887883",
+        "msg": "Rabbimtq service from puppet",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-07-16 23:19:51+00:00",
+        "files": ["remove.pp", "remove.yml", "run.pp", "run.yml", "meta.yaml", "erlang.cookie", "test.py", "remove.yml", "run.yml", "meta.yaml", "remove.yml", "run.yml", "meta.yaml"]
+      },
+      {
+        "hash": "e4f734665f88d13c314b9343daca884ba942f44d",
+        "msg": "Rabbitmq remove action and fixes",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-07-17 00:37:18+00:00",
+        "files": ["remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "7564788f7bd180401d0394886c7c5262ac4dc025",
+        "msg": "Fix rabbitmq startup\n\nRabbitmq start with the default node name. Puppet tries to change nodename.\nAfter this start stop status stops to work",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-07-17 11:53:30+00:00",
+        "files": ["run.pp", "remove.yml", "run.yml", "meta.yaml", "remove.yml", "run.yml", "meta.yaml"]
+      },
+      {
+        "hash": "58bd845f907c44abab12cec57d545c481ec873f8",
+        "msg": "Add cinder puppet resource\n\nPopulate from autogenerated parameters\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-07-20 09:53:15+02:00",
+        "files": ["remove.pp", "run.pp", "meta.yaml", "test.py"]
+      },
+      {
+        "hash": "6f7338e914aa67d30d6bffd3b1e4a6853a49ce72",
+        "msg": "Fix undef db conneciton for cinder\n\nDo not pass deprecated param for cinder\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-07-20 09:53:15+02:00",
+        "files": ["run.pp"]
+      },
+      {
+        "hash": "a05e49b1d21d3ab107341428a35a391056f92b77",
+        "msg": "nova-api resource",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-07-20 09:36:17+00:00",
+        "files": ["remove.yml", "run.yml", "meta.yaml", "remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "768eaf0d455d998cc713f99b53638bd19ad82df2",
+        "msg": "change path",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-07-20 09:36:18+00:00",
+        "files": ["remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "c3b8ed0d038a713012da5d6e8ad82c919f95ca4b",
+        "msg": "Remove nodename",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-07-20 10:07:02+00:00",
+        "files": ["remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "5d2cdb25c1fda4b4bb829cfb1906c8a8c5062555",
+        "msg": "Use default nodename when removing",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-07-20 21:48:32+00:00",
+        "files": ["remove.pp"]
+      },
+      {
+        "hash": "03f955d8897823d1fb9c7dea58ada1cf1a6cd52f",
+        "msg": "Neutron fixes\n\n- use correct role name\n- use correct rabbitmq user/password\n- set vhost name",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-07-20 22:30:33+00:00",
+        "files": ["run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "02a32c12b6198ef7bf7c6dbe18c09e5c31d46488",
+        "msg": "Fix remove and resource name ref for cinder\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-07-21 14:19:46+02:00",
+        "files": ["remove.pp", "run.pp"]
+      },
+      {
+        "hash": "d658be3b05493451ed4229d50156e1e1e8758bdb",
+        "msg": "Update virtual resource for current branch",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-07-21 13:38:49+00:00",
+        "files": ["run.pp", "meta.yaml", "controller.yml", "keystone_api.yml", "openstack_base.yml"]
+      },
+      {
+        "hash": "157c975d72a89fb1bb4d20e923655bd639d0b8a3",
+        "msg": "Add cinder api puppet resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-07-23 14:58:56+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml", "test.py"]
+      },
+      {
+        "hash": "2e3f784f814e67c0c43fe872cdca7a1c1af97f77",
+        "msg": "Fix indentation and parameters\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-07-23 15:00:00+02:00",
+        "files": ["run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "3ba0930aa06d05e3da2d64af30a18f9b9c9dea5e",
+        "msg": "Fix package cinder dependency for cinder api\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-07-23 15:00:00+02:00",
+        "files": ["remove.pp", "run.pp"]
+      },
+      {
+        "hash": "4555c6b3a851a5e0e449f569b83e6bd2500a01a6",
+        "msg": "Fix undeploy and resource_name ref at cinder api\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-07-23 15:00:00+02:00",
+        "files": ["remove.pp", "run.pp"]
+      },
+      {
+        "hash": "00427f9aedd749d82feb6db15d78b4345ad90e5f",
+        "msg": "Remove enabled and manage_service for c-api\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-07-23 15:00:00+02:00",
+        "files": ["README.md", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "6616bccec5a7235273b4d9a593b8c3ce13b88fbe",
+        "msg": "Add cinder scheduler puppet resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-07-23 15:50:32+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml", "test.py"]
+      },
+      {
+        "hash": "6bcda5125b87bb7c2f85f6991641a43c7dfa03c6",
+        "msg": "Fix cinder scheduler puppet params\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-07-23 15:51:24+02:00",
+        "files": ["run.pp"]
+      },
+      {
+        "hash": "f35d1e2569e110739af8d1103effcaa0bd3b3b4a",
+        "msg": "Remove enabled and manage_service for c-scheduler\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-07-23 15:51:24+02:00",
+        "files": ["README.md", "run.pp", "meta.yaml", "test.py"]
+      },
+      {
+        "hash": "44d58478b7b76d1e48c3ed3f9a62136e5bf3c250",
+        "msg": "Add cinder volume puppet resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-07-24 10:27:50+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml", "test.py"]
+      },
+      {
+        "hash": "25df204e56da86d77fc29f74e5b82700b4adc11c",
+        "msg": "Remove enabled and manage_services params for c-volume\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-07-24 10:27:50+02:00",
+        "files": ["run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "41f8e9c409d1208e41c13d718c25b17a87803340",
+        "msg": "Add compostion layer for c-volume puppet\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-07-24 10:28:40+02:00",
+        "files": ["run.pp", "test.py"]
+      },
+      {
+        "hash": "dff1ada9e92084ce0db40101b00e53972fba7d6a",
+        "msg": "Glance-puppet, not fully working yet",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 11:56:02+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "update.pp", "meta.yaml", "test.py", "glance.yml", "glance_db.yml"]
+      },
+      {
+        "hash": "bebf6e2856f7d5760dc42e358bcda30f9c74c769",
+        "msg": "Align glance_puppet with cinder_puppet and upstream\n\nInstall glance base and API as the base class\ndoes nothing but glance packages install.\nRemove registry to be implemented as separate resource.\nUpdate parameters to match upstream ones.\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 11:56:16+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "update.pp", "meta.yaml", "test.py"]
+      },
+      {
+        "hash": "1985565edf7df125470992a2be9f2d6ca2d2c292",
+        "msg": "Fix glance puppet classes dependencies\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 11:57:04+02:00",
+        "files": ["run.pp"]
+      },
+      {
+        "hash": "aefc796760a83a7aa4664f90364c4de48075da39",
+        "msg": "Add glance registry puppet resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 11:57:04+02:00",
+        "files": ["README.md", "README.md", "remove.pp", "run.pp", "update.pp", "meta.yaml", "test.py"]
+      },
+      {
+        "hash": "ba2ee11785aec050b721e567bf9e7e364b9da044",
+        "msg": "Fix remove actions for glance puppet resources\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 11:57:47+02:00",
+        "files": ["remove.pp", "remove.pp"]
+      },
+      {
+        "hash": "f80698281b99ba6eceff3209e8c546c8e24c4b9a",
+        "msg": "Create nova base puppet resource\n\nAlso align composition layer:\n- rename nova_api to nova_puppet\n- adjust connections\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 16:37:39+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "c61536c1c41c7ba63000a4774ce18d4a60206b3f",
+        "msg": "Fix schema for nova puppet\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 16:37:39+02:00",
+        "files": ["run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "ec00e04af36b59714c02cbe3a89bd768719c8b23",
+        "msg": "Del nova_api after moved to nova_puppet resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 16:37:39+02:00",
+        "files": ["remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "840074ab40dc6023d7749101c2cac703422d45c1",
+        "msg": "Add nova api puppet resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 16:37:39+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml", "README.md"]
+      },
+      {
+        "hash": "f785ac25bf55bff168a3bf7db5babb989b94b137",
+        "msg": "Fix typo\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 16:37:39+02:00",
+        "files": ["run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "962ab6f58e8fe61c7cadf39de7b96a900edfe23d",
+        "msg": "Add missed admin_password for nova api resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 16:37:39+02:00",
+        "files": ["run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "ec4515efd39d7ff53b2f461dc4a9c2c91a2648d6",
+        "msg": "Add missing post-config and nova-common\n\nRequired for decoupling usage of nova and\nnova api classes in separate catalog runs\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 16:37:39+02:00",
+        "files": ["remove.pp", "run.pp"]
+      },
+      {
+        "hash": "8ed672a8eec21e95df71547017a4e9781de280c3",
+        "msg": "Fix schema and db-sync condition\n\nDb sync should always be run once we\ndecoupled nova api from nova, unless we\nhave a proper notification system\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 16:37:40+02:00",
+        "files": ["run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "ce6db69711cf9f1e8c6f37c4a914717af90e29bc",
+        "msg": "Fix remove nova api resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 16:37:40+02:00",
+        "files": ["remove.pp"]
+      },
+      {
+        "hash": "6ca7a3e62109f8efc821ac98e1c54f5dd31f3f4c",
+        "msg": "Add nova conductor resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 16:37:40+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "4c8e99ff8bb4e6b651ff23756d8f9b65508265a3",
+        "msg": "Add nova compute resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 16:37:40+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "c02055cc20900879400570d0db703f23cfe2c8bd",
+        "msg": "Add exec post config and network refresh to n-compute\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 16:38:39+02:00",
+        "files": ["remove.pp", "run.pp"]
+      },
+      {
+        "hash": "09b3bd147b0e3ca53bb5882f0a7f91874fdd20f3",
+        "msg": "Add nova comp libvirt resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 16:38:39+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "087b2b7c62d46692526f4c437a21c19539631c6f",
+        "msg": "Add nova_neutron resource.\n\nIncludes configuration only classes for nova compute:\nnova::network::neutron and nova::compute::neutron\nCombined into the single resource as the latter one\nis too small (it has only 2 conf params)\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 16:38:39+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "a2ad4c1f15d7b8ea28e175d2264cc9249472ccef",
+        "msg": "Fix glance api servers for nova compute\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-03 16:38:39+02:00",
+        "files": ["run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "6c7e34679ce49fa29dc809d256790f61e94fee2a",
+        "msg": "Add cinder_glance resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-04 10:09:46+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "5d5960190badf35ba8232863fae75b5f4509c402",
+        "msg": "Add cinder volume ISCSI resource\n\nAdd ISCSI backend as enabled default for the\ncinder_volume resource. Note, cannot be decoupled\nas a separate resource because of the external\npuppet class reference hardcoded upstream.\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-04 10:09:46+02:00",
+        "files": ["README.md", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "4b3f883c4c64f1105845b1ae618a351cef1db620",
+        "msg": "Decompose glance_api_servicers input\n\nBecause of existing limitations for resource inputs\nconnections, the glance_api_servicers upstream parameter\nwas decomposed to host and port.\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-04 13:44:08+02:00",
+        "files": ["README.md", "run.pp", "meta.yaml", "run.pp"]
+      },
+      {
+        "hash": "6e5f7895ec4844cb9ccd34068d873e812d4f53f7",
+        "msg": "Refactor example-puppet.py actions",
+        "cmtr": "Przemyslaw Kaminski",
+        "date": "2015-08-04 14:54:46+02:00",
+        "files": ["remove.pp"]
+      },
+      {
+        "hash": "dc400bf9d9815f2117a2d213fb86092ad4eb2c25",
+        "msg": "Add apache puppet resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-05 10:31:11+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml", "test.py"]
+      },
+      {
+        "hash": "2841ba046af549243c0dc4256191c5a010d04a9f",
+        "msg": "Decouple neutron resource\n\n* Use neutron base and API(server) resources\n* Add db and db user for neutron composition layer\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-05 10:36:43+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml", "README.md", "remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "ea6354b134a4e99f64b48eb24323fad20bedafe3",
+        "msg": "Remove external class ref for neutron server resource\n\n* Fix rabbit inputs for neutron\n* Decouple service neutron-server from neutron class\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-05 10:36:43+02:00",
+        "files": ["run.pp"]
+      },
+      {
+        "hash": "52ba02e5eb5a78d10be9e31c4adfcb5db1efbecd",
+        "msg": "Add neutron ovs plugin resource\n\n* Add compostion layer for OVS plugin with GRE\n* Fix neutron tags, use_ssl input\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-05 10:37:50+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml", "meta.yaml", "meta.yaml"]
+      },
+      {
+        "hash": "487126310c985da78218b8d9c2226e5f7e0cce43",
+        "msg": "Add neutron OVS agent resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-05 14:54:57+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml", "meta.yaml"]
+      },
+      {
+        "hash": "71605ea6353cfded3af479d540c67ec5f238b6b6",
+        "msg": "Remove deprecated/unused sql conn inputs\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-05 14:55:17+02:00",
+        "files": ["run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "bd8cf685ff5d2dcd82b2655c9e8edada4261176d",
+        "msg": "Add composition for OVS plugin/agent\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-05 14:55:26+02:00",
+        "files": ["run.pp"]
+      },
+      {
+        "hash": "b9045e09939fba302ccc49142f3bfd91372a9434",
+        "msg": "Fix removed sql_con\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-05 16:22:18+02:00",
+        "files": ["run.pp", "README.md"]
+      },
+      {
+        "hash": "c746ecbb7aa89466250d5f6881983d0dec5494f1",
+        "msg": "Fix core plugin, remove external class ref for neutron\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-05 16:22:27+02:00",
+        "files": ["run.pp", "run.pp"]
+      },
+      {
+        "hash": "b3c68cd47ffb7b77fadf8e5d35d0fe1fd657f111",
+        "msg": "Fix neutron stamp/upgrade head\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-06 13:40:57+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "run.pp", "remove.pp"]
+      },
+      {
+        "hash": "5934f203338c6c7e5c57219a1478fa9e6f74c294",
+        "msg": "Add neutron DHCP agent resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-06 14:05:48+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "f3414701573e4d882d9cc8bf860b618bab11aa13",
+        "msg": "Add neutron L3 agent resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-06 15:35:29+02:00",
+        "files": ["README.md", "README.md", "remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "34bbdc774040215a2c2c15ef57d7cde2b1690635",
+        "msg": "Add neutron metadata agent resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-06 17:50:14+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "aedc1b5be6d8289c5cd0d8dd20889e538d8110ca",
+        "msg": "Fix neutron db stamp head\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-24 13:26:19+02:00",
+        "files": ["run.pp"]
+      },
+      {
+        "hash": "bb80096ed35477c54eb20200f92cb87420131bf1",
+        "msg": "Fix neutron conf for compute and nova_neutron resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-25 12:50:40+02:00",
+        "files": ["README.md", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "0b46904f779383cb5a3876e661d5fa5e71de39ea",
+        "msg": "Add neutron ml2 plugin resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-28 16:04:47+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "585ec95d26aadeb528a6311732a7d1f9d15e59db",
+        "msg": "Add neutron agent ovs with ml2 plugin resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-28 16:32:51+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "e6d8a8ba11a420706f491bfc6ed3b5e88fa0e22b",
+        "msg": "Remove ovs plugin and agent\n\nThose aren't exist since Juno\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-28 16:34:37+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml", "README.md", "remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "aacb5bbe25bdf62256776eff63c4c8a510cc3f00",
+        "msg": "W/a LP1490438 for ml2 plugin resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-31 11:02:14+02:00",
+        "files": ["run.pp"]
+      },
+      {
+        "hash": "6650ef8e12c1a6c1468126c7af4c276e086b7a9a",
+        "msg": "Fix ml2 agent resource and compostion\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-08-31 12:12:26+02:00",
+        "files": ["run.pp"]
+      },
+      {
+        "hash": "6d54c0360b488dcc9702b713a142037cf0f85cfa",
+        "msg": "Del duplicated puppet parameter\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-09-01 12:31:03+02:00",
+        "files": ["run.pp"]
+      },
+      {
+        "hash": "7814a8bba5543a776669df2178c651b8a420517c",
+        "msg": "Add nova generic service resource\n\n* The generic service resource may be used\nto deploy multiple nova services like vncproxy,\nscheduler, consoleauth etc.\n* Add composition layer for the scheduler service\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Przemyslaw Kaminski",
+        "date": "2015-09-03 08:02:47+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "50d780c1a398a8593b88dfaddffdd022f5cc7b3c",
+        "msg": "Fix nova_generic_service resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Przemyslaw Kaminski",
+        "date": "2015-09-03 08:02:47+02:00",
+        "files": ["README.md", "README.md", "remove.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "48752c9816aa15ddb53d1d80df2308da21365596",
+        "msg": "Graph DB: upload hiera yaml configs for puppet",
+        "cmtr": "Przemyslaw Kaminski",
+        "date": "2015-09-14 16:04:24+02:00",
+        "files": ["run.pp"]
+      },
+      {
+        "hash": "c39cfa156703f98bb7ae3c1eede11fe79e39ad8d",
+        "msg": "Bring back 'value' in input data, fix ansible_template .value\n\n'value' is artificial here, but it's easier to do than change all\nPuppet run.pp/remove.pp files.",
+        "cmtr": "Przemyslaw Kaminski",
+        "date": "2015-09-14 16:24:06+02:00",
+        "files": ["run.pp"]
+      },
+      {
+        "hash": "cd1dfdad501fb0c96521ffa72efe68f15a698005",
+        "msg": "Add node_network puppet resource\n\nWIP\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-10-09 11:32:50+02:00",
+        "files": ["README.md", "remove.pp", "run.pp", "meta.yaml", "test.py"]
+      },
+      {
+        "hash": "dd654eac1d9069e55b0bdc678c70faa10d468d65",
+        "msg": "Update node_network resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-10-09 11:32:51+02:00",
+        "files": ["README.md", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "0cb4b088082c954277191fb0bc28d7ad2ef160a3",
+        "msg": "Workaround l23network module issue\n\n* W/a https://github.com/xenolog/l23network/issues/105\n* Set use_ovs to true\n* Use kind of a \"stable\" commit of l23network module\n  as there is no yet any tags exist\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "cmtr": "Bogdan Dobrelya",
+        "date": "2015-10-09 11:38:58+02:00",
+        "files": ["remove.pp", "meta.yaml", "nodes_network.yml"]
+      },
+      {
+        "hash": "8dfc414bc37155b049fbbd68274badeac0c00fb5",
+        "msg": "Add ceph_mon resource and example",
+        "cmtr": "Dmitry Shulyak",
+        "date": "2015-10-09 14:22:53+03:00",
+        "files": ["ceph.py", "run.pp", "test.pp", "meta.yaml"]
+      },
+      {
+        "hash": "3c13783921cd116c9b9f94914a261bebe181644a",
+        "msg": "Use default token backend. KVS seems to be broken",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-10-17 01:21:57+02:00",
+        "files": ["run.pp"]
+      },
+      {
+        "hash": "2463212a99be61ae1dd7238f096e1bd6dba8e661",
+        "msg": "Copy action run to update",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-10-19 23:41:37+02:00",
+        "files": ["update.pp"]
+      },
+      {
+        "hash": "427dbd1100698a395b876c39b755d81bcc68dfbb",
+        "msg": "Add and fix update actions. changing db_port should work now",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-10-21 14:32:13+02:00",
+        "files": ["update.pp", "update.pp", "update.pp", "update.pp", "update.pp", "update.pp", "update.pp", "update.yaml", "update.yaml", "update.pp", "update.pp", "update.pp", "update.pp", "update.pp"]
+      },
+      {
+        "hash": "4eb19f80802a27376515af3945851af41566fd13",
+        "msg": "Do not use hardcoded db port",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-10-21 14:41:44+02:00",
+        "files": ["openstack.py", "run.pp", "meta.yaml", "run.pp", "meta.yaml", "run.pp", "meta.yaml", "run.pp", "meta.yaml", "remove.yaml", "run.yaml", "run.pp", "meta.yaml", "run.pp", "run.pp", "meta.yaml"]
+      },
+      {
+        "hash": "a37e71128d9399c35dc4713b1ffccc4865ffceb6",
+        "msg": "Run and remove are the same",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-10-22 16:15:40+02:00",
+        "files": ["update.pp", "meta.yaml"]
+      },
+      {
+        "hash": "c596ce670457a3dafe6426dde1b6bdd7e56f2f0f",
+        "msg": "Run and remove are the same",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-10-22 16:21:09+02:00",
+        "files": ["update.yaml", "meta.yaml", "update.yaml", "meta.yaml", "update.pp", "meta.yaml", "update.pp", "meta.yaml"]
+      },
+      {
+        "hash": "4e034b41fe04cd640657d9eed105e5d2083ab933",
+        "msg": "Add update action for nova_compute",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-10-23 14:16:30+02:00",
+        "files": ["update.pp"]
+      },
+      {
+        "hash": "7278f92ac235bc25bf0385c7fe0f45e8ada88a40",
+        "msg": "Added update action to nova_compute_libvirt_puppet",
+        "cmtr": "Jedrzej Nowak",
+        "date": "2015-10-23 16:54:00+02:00",
+        "files": ["update.pp"]
+      },
+      {
+        "hash": "ceb2e70d89ebd13e2cffc0593fd676b9dde2cae6",
+        "msg": "Make puppet run on the new_db",
+        "cmtr": "Łukasz Oleś",
+        "date": "2015-11-09 14:52:54+01:00",
+        "files": ["run.pp", "run.pp", "update.pp", "run.pp", "run.pp", "run.pp", "update.pp", "run.pp", "update.pp", "run.pp", "update.pp", "run.pp", "update.pp", "run.pp", "update.pp", "run.pp", "run.pp", "run.pp", "run.pp", "run.pp", "run.pp", "run.pp", "run.pp", "run.pp", "update.pp", "run.pp", "update.pp", "run.pp", "update.pp", "run.pp", "update.pp", "remove.pp", "run.pp", "update.pp", "run.pp", "run.pp", "run.pp"]
+      },
+      {
+        "hash": "1b28b8f3c4b5ad4b74d6a11d44319d2d8a036b44",
+        "msg": "Change resources structure to match repository one\n\nChange-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76",
+        "cmtr": "Jedrzej Nowak",
+        "date": "2015-12-18 18:01:20+01:00",
+        "files": ["README.md", "run.yaml", "main.yaml", "main.yaml", "meta.yaml", "run.yaml", "meta.yaml", "README.md", "remove.pp", "run.pp", "meta.yaml", "test.py", "remove.yaml", "run.yaml", "meta.yaml", "preferences", "source", "run.sh", "meta.yaml", "run.pp", "test.pp", "meta.yaml", "README.md", "remove.pp", "run.pp", "update.pp", "meta.yaml", "test.py", "README.md", "remove.pp", "run.pp", "meta.yaml", "README.md", "remove.pp", "run.pp", "meta.yaml", "test.py", "README.md", "remove.pp", "run.pp", "update.pp", "meta.yaml", "test.py", "README.md", "remove.pp", "run.pp", "update.pp", "meta.yaml", "test.py", "run.yaml", "meta.yaml", "echo.yaml", "remove.yaml", "run.yaml", "meta.yaml", "exclude_mac_pxe.yaml", "run.yaml", "meta.yaml", "run.yaml", "meta.yaml", "remove.yaml", "run.yaml", "update.yaml", "meta.yaml", "manager.py", "meta.yaml", "remove.sh", "run.sh", "meta.yaml", "run.sh", "meta.yaml", "remove.yaml", "run.yaml", "meta.yaml", "test.py", "remove.yaml", "run.yaml", "meta.yaml", "exports", "glance-api-paste.ini", "glance-api.conf", "glance-cache.conf", "glance-registry-paste.ini", "glance-registry.conf", "glance-scrubber.conf", "policy.json", "schema-image.json", "README.md", "remove.pp", "run.pp", "update.pp", "meta.yaml", "test.py", "README.md", "remove.pp", "run.pp", "update.pp", "meta.yaml", "test.py", "remove.yaml", "run.yaml", "meta.yaml", "README.md", "remove.yaml", "run.yaml", "update.yaml", "meta.yaml", "haproxy.cfg", "README.md", "apply_config.yaml", "install.yaml", "remove.yaml", "run.yaml", "update.yaml", "meta.yaml", "test.py", "README.md", "meta.yaml", "remove.yaml", "run.yaml", "update.yaml", "meta.yaml", "remove.yaml", "run.yaml", "meta.yaml", "default_catalog.templates", "exports", "keystone.conf", "logging.conf", "policy.json", "README.md", "remove.pp", "run.pp", "update.pp", "meta.yaml", "test.py", "remove.yaml", "run.yaml", "meta.yaml", "README.md", "remove.yaml", "run.yaml", "meta.yaml", "test.py", "remove.yaml", "run.yaml", "meta.yaml", "test.py", "remove.yaml", "run.yaml", "meta.yaml", "remove.yaml", "run.yaml", "meta.yaml", "test.py", "remove.yaml", "run.yaml", "meta.yaml", "Puppetfile", "run.yaml", "meta.yaml", "run.yaml", "meta.yaml", "run.yaml", "meta.yaml", "remove.yaml", "run.yaml", "meta.yaml", "remove.yaml", "run.yaml", "meta.yaml", "remove.yaml", "run.yaml", "update.yaml", "meta.yaml", "README.md", "remove.pp", "run.pp", "meta.yaml", "README.md", "remove.pp", "run.pp", "meta.yaml", "README.md", "remove.pp", "run.pp", "meta.yaml", "README.md", "remove.pp", "run.pp", "meta.yaml", "README.md", "remove.pp", "run.pp", "meta.yaml", "README.md", "remove.pp", "run.pp", "meta.yaml", "README.md", "remove.pp", "run.pp", "meta.yaml", "README.md", "remove.pp", "run.pp", "meta.yaml", "test.py", "provision.sh", "reboot.sh", "run.sh", "meta.yaml", "agent.config", "boothook_centos.jinja2", "boothook_ubuntu.jinja2", "cloud_config_centos.jinja2", "cloud_config_ubuntu.jinja2", "meta-data_centos.jinja2", "meta-data_ubuntu.jinja2", "provisioning.json.jinja", "README.md", "remove.pp", "run.pp", "update.pp", "meta.yaml", "test.py", "README.md", "remove.pp", "run.pp", "update.pp", "meta.yaml", "README.md", "remove.pp", "run.pp", "update.pp", "meta.yaml", "README.md", "remove.pp", "run.pp", "update.pp", "meta.yaml", "README.md", "remove.pp", "run.pp", "update.pp", "meta.yaml", "README.md", "remove.pp", "run.pp", "meta.yaml", "README.md", "remove.pp", "run.pp", "meta.yaml", "remove.yaml", "run.yaml", "meta.yaml", "openrc.template", "remove.yaml", "run.yaml", "meta.yaml", "rabbitmq.conf", "remove.pp", "run.pp", "meta.yaml", "remove.yaml", "run.yaml", "meta.yaml", "remove.yaml", "run.yaml", "meta.yaml", "run.sh", "meta.yaml", "join.yaml", "meta.yaml", "commit.yaml", "join.yaml", "remove.yaml", "run.yaml", "update.yaml", "meta.yaml", "riak.conf.jinja", "meta.yaml", "run.yaml", "meta.yaml", "meta.yaml", "run.yaml", "meta.yaml", "meta.yaml", "run.yaml", "update.yaml", "meta.yaml", "meta.yaml", "run.yaml", "meta.yaml", "solar_torrent.py", "meta.yaml", "remove.yaml", "run.yaml", "meta.yaml", "run.yaml", "meta.yaml"]
+      }]
+    }

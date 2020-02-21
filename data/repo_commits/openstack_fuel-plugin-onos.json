@@ -1,0 +1,14 @@
+    {
+      "url": "https://github.com/openstack/fuel-plugin-onos",
+      "pp_files": ["preliminary.pp", "service.pp", "ovs.pp", "neutron.pp", "config.pp", "init.pp", "onos-service.pp", "install.pp"],
+      "pp_cmtrs": ["dongfeng"],
+      "num_pp_commits": 1,
+      "num_tot_commits": 2,
+      "commits": [{
+        "hash": "d4fb381a207c964cd288e62b46c90d2a13e62eec",
+        "msg": "fuel plugin onos\n\nChange-Id: I030d45d6655a58c2a79b61ee8e2cb10dfe85a945",
+        "cmtr": "dongfeng",
+        "date": "2015-11-13 16:50:44+08:00",
+        "files": ["LICENSE", "README.md", "install.pp", "neutron.pp", "onos-service.pp", "ovs.pp", "preliminary.pp", "install_jdk8.tar", "networking-onos.tar", "onos_config.sh", "config.pp", "init.pp", "install.pp", "service.pp", "onos.erb", "cluster.json.erb", "onos.conf.erb", "tablets.json.erb", "environment_config.yaml", "metadata.yaml", "pre_build_hook", ".gitkeep", ".gitkeep", "tasks.yaml"]
+      }]
+    }

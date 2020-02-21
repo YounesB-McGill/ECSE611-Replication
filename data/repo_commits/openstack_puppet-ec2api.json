@@ -1,0 +1,315 @@
+    {
+      "url": "https://github.com/openstack/puppet-ec2api",
+      "pp_files": ["api.pp", "metadata.pp", "logging.pp", "authtoken.pp", "config.pp", "db.pp", "policy.pp", "init.pp", "sync.pp", "auth.pp", "postgresql.pp", "s3.pp", "deps.pp", "mysql.pp", "params.pp"],
+      "pp_cmtrs": ["Carlos Camacho", "Ivan Berezovskiy", "Sven Anderson", "Mykyta Karpin", "ZhongShengping", "yatin", "Iury Gregory Melo Ferreira", "Emilien Macchi", "melissaml", "Andrey Pavlov", "iberezovskiy", "Alex Schultz", "Sharat Sharma", "Matthew J. Black", "zhangbailin", "Sofer Athlan-Guyot", "Marcos Fermin Lobo", "zhubingbing"],
+      "num_pp_commits": 44,
+      "num_tot_commits": 159,
+      "commits": [{
+        "hash": "925228ec9045e8eb9f4ccd7b06d440358c4925b5",
+        "msg": "puppet-ec2api: Initial commit\n\nThis is the initial commit for puppet-ec2api.\nIt has been automatically generated using cookiecutter[1] and msync[2]\n\n[1] https://github.com/openstack/puppet-openstack-cookiecutter\n[2] https://github.com/openstack/puppet-modulesync-configs\n\nChange-Id: Id1b33d137596b94b09b6731e55c7f81e7838deb2",
+        "cmtr": "Marcos Fermin Lobo",
+        "date": "2016-04-15 17:45:05+02:00",
+        "files": [".gitignore", "Gemfile", "LICENSE", "README.md", "Rakefile", "ini_setting.rb", "ec2api_config.rb", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "init.pp", "auth.pp", "logging.pp", "params.pp", "policy.pp", "metadata.json", "centos-70-x64.yml", "default.yml", "nodepool-centos7.yml", "nodepool-trusty.yml", "ubuntu-server-1404-x64.yml", "ec2api_db_mysql_spec.rb", "ec2api_db_postgresql_spec.rb", "ec2api_db_spec.rb", "ec2api_keystone_auth_spec.rb", "ec2api_logging_spec.rb", "ec2api_policy_spec.rb", "shared_examples.rb", "spec_helper.rb", "spec_helper_acceptance.rb", "ini_setting_spec.rb", "ec2api_config_spec.rb", "init.pp"]
+      },
+      {
+        "hash": "3c5d1a3f97df890e4a302d831e02b3bf3cea39db",
+        "msg": "Changing default params for db/* and init.pp\n\nChange-Id: I5fbc0693eed14cab2f1105fa374346ac8d239ede",
+        "cmtr": "Marcos Fermin Lobo",
+        "date": "2016-04-21 14:46:00+02:00",
+        "files": ["mysql.pp", "postgresql.pp", "init.pp", "params.pp"]
+      },
+      {
+        "hash": "35e81a731e7eb92a15e4f7b218c94d344d6dc425",
+        "msg": "Add basic unit tests + beaker\n\nThis patch adds basic unit, beaker tests, and fixes the package name\nto be used when installing ec2api.\n\nChange-Id: Ief9b9e440f38ba1c6bd6d148df13f9238d71bbb2",
+        "cmtr": "Alex Schultz",
+        "date": "2016-04-26 23:19:22-05:00",
+        "files": ["init.pp", "params.pp", "basic_ec2api_spec.rb", "ec2api_init_spec.rb"]
+      },
+      {
+        "hash": "02547a399ce9ec887b23277ab3b168c7fc413da6",
+        "msg": "Add the capability to configure api-paste.ini with config.pp\n\nAlready added type/provider for paste configs,\nbut it wouldn't to patch ec2api::config.\n\nChange-Id: Id1f9a537a73c9cb1d038ce9015bb5da76f827878",
+        "cmtr": "ZhongShengping",
+        "date": "2016-04-27 22:49:17+08:00",
+        "files": ["config.pp", "ec2api_config_spec.rb"]
+      },
+      {
+        "hash": "6ba14d194ade96e2fc5eb0a8f672cb11a5b02dd7",
+        "msg": "Fix package version and remove useless arguments\n\nModify version dependencies of the openstacklib package.\nRemove useless arguments in params.pp file\n\nChange-Id: Id034fe35e12559e3f5f7b91ed57efb1afd0ea66f",
+        "cmtr": "ZhongShengping",
+        "date": "2016-05-06 13:52:19+08:00",
+        "files": ["params.pp", "metadata.json"]
+      },
+      {
+        "hash": "de16acd5bc7943c50ad8e40823c56ce3fe6386f3",
+        "msg": "Add 3 api classes and params\n\n* ec2api_init_spec.rb\n* ec2api_logging_spec.rb\n\nWere removed temporary and\nwill be returned by other commits.\n\nChange-Id: I23c74441388246cd4c43e031ed1a322345f62b89",
+        "cmtr": "iberezovskiy",
+        "date": "2016-06-29 12:48:21+03:00",
+        "files": ["api.pp", "metadata.pp", "params.pp", "s3.pp", "nodepool-xenial.yml", "ec2api_api_spec.rb", "ec2api_init_spec.rb", "ec2api_logging_spec.rb", "ec2api_metadata_spec.rb", "ec2api_s3_spec.rb"]
+      },
+      {
+        "hash": "ad894b5ec2bf82054ff242a53c6bfa406495e38e",
+        "msg": "Add db related classes\n\nChange-Id: Ifd913a7ed4f55e41a11da99bdfbc293a53f1614f",
+        "cmtr": "Ivan Berezovskiy",
+        "date": "2016-06-29 09:48:48+00:00",
+        "files": ["db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "ec2api_db_mysql_spec.rb", "ec2api_db_postgresql_spec.rb", "ec2api_db_spec.rb", "ec2api_db_sync_spec.rb"]
+      },
+      {
+        "hash": "9ca1795b78ba593959e3bb9f0143883f8ef8c607",
+        "msg": "Add all other classes\n\nChange-Id: I7579decd91a02dd7fb0785078d72ed7fe014b52e",
+        "cmtr": "Ivan Berezovskiy",
+        "date": "2016-06-29 09:48:55+00:00",
+        "files": ["init.pp", "auth.pp", "logging.pp", "policy.pp", "ec2api_init_spec.rb", "ec2api_keystone_auth_spec.rb", "ec2api_logging_spec.rb", "ec2api_policy_spec.rb"]
+      },
+      {
+        "hash": "ff506caf5506a6340db38e30161278fb0cf2ef2b",
+        "msg": "Add purge_config option\n\nAdd the option in order to facilitate management.\nUser can ensure that only the options they hoped\nare configured.\n\nChange-Id: I1baa0f31d22fe0f4ed5f50a5ad292185c57b0ad4",
+        "cmtr": "ZhongShengping",
+        "date": "2016-06-30 14:42:36+08:00",
+        "files": ["init.pp", "ec2api_init_spec.rb"]
+      },
+      {
+        "hash": "7baa60f6788697c8ea19122aba076ed4f82af2d8",
+        "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: I6ee9b2c1ec993f81739bf51f3c8cd3b587c0a390\nRelated-Bug: 1599113",
+        "cmtr": "Sofer Athlan-Guyot",
+        "date": "2016-07-07 12:08:38+02:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "5987c2312c76858830d52b0e4565c83eb9af0153",
+        "msg": "Move Ec2Api to authtoken\n\nIn ec2api::api, use keystone::resource::authtoken\nto configure keystone_authsection in the configuration\nfile.\n\nUpdate parameters to have all parameters from the resource.\n\nChange-Id: I8832cd537720a18bb7171c555107f3b6a9dd5b6f\nRelated-Bug: #1604463",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-07-21 13:31:23-03:00",
+        "files": ["api.pp", "ec2api_api_spec.rb"]
+      },
+      {
+        "hash": "2f00a822b15f7c8f2c891c0df3d31dc2b2761884",
+        "msg": "Change authtoken to class\n\nAuthtoken will be configure by a new class\ninstead of api class.\n\nSince ec2api does not have release we remove\nparameters in api.pp\n\nChange-Id: I5867e2e1d06a4ef2a1c4dcf3d19deb51c14c70a7\nRelated-Bug: #1604463",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-08-04 12:16:32-03:00",
+        "files": ["api.pp", "authtoken.pp", "ec2api_api_spec.rb", "ec2api_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "8274047f52ccd518e1027943423ae61f94944c2d",
+        "msg": "beaker: test more classes\n\nThis patch aims to improve coverage of Beaker tests and test more\nclasses.\nIt will help us to determine if we can at least start ec2api services\nwith the current state of puppet-ec2api.\n\nAlso fix debug duplicated option.\n\nChange-Id: I607a1652468b105543aa3a36dc66b1ec2276ca57",
+        "cmtr": "Sven Anderson",
+        "date": "2016-08-12 15:30:46+02:00",
+        "files": ["api.pp", "basic_ec2api_spec.rb", "ec2api_api_spec.rb"]
+      },
+      {
+        "hash": "5af4c6a727d9b9c667a30fcd395a526066db7467",
+        "msg": "Remove S3 service\n\nThe S3 service in ec2api is and will always be purly for testing purposes\nand should never be deployed in productive environments.  This change\nremoves the manifest for S3 to manage expectations.\n\nChange-Id: I7c3e8584a258dd3dab7839a40df1e178272a1f75",
+        "cmtr": "Sven Anderson",
+        "date": "2016-08-12 18:10:18+02:00",
+        "files": ["auth.pp", "params.pp", "s3.pp", "ec2api_s3_spec.rb"]
+      },
+      {
+        "hash": "7344155a5b3d8f84d16540cfa7a1c526af12e1c5",
+        "msg": "Fix authtoken\n\n- Fix doc in authtoken class\n- Fix metadata dependencies\n\nChange-Id: I8a9c664b8de3f831efe5cf6890e51e8c9616941c",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-08-27 00:54:45-03:00",
+        "files": ["authtoken.pp", "metadata.json"]
+      },
+      {
+        "hash": "f52c48bf6ebccc80b57e34715cf26806944ee499",
+        "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: I435ff4ce72e36a53f06a6300d66baf202175ca95\nCloses-Bug: #1628580",
+        "cmtr": "Sharat Sharma",
+        "date": "2016-09-29 14:17:03+00:00",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "8d86f56a551876e35e1988af7622ca04a44bc6ab",
+        "msg": "remove duplicated lines. fix script name\n\nChange-Id: I49b21b93f6f6ef1ffec022c998a3546c2ca7fda5",
+        "cmtr": "Andrey Pavlov",
+        "date": "2016-10-08 22:47:28+03:00",
+        "files": ["mysql.pp", "postgresql.pp", "sync.pp", "ec2api_db_sync_spec.rb"]
+      },
+      {
+        "hash": "d00fa25163cdfd870f75ded06c4a71c1fb31e503",
+        "msg": "Fix documentation for log_dir parameter\n\nChange-Id: I0fe878f16507324e03fe4b052b5607e58294e27f\nPartial-Bug: #1600294",
+        "cmtr": "Mykyta Karpin",
+        "date": "2016-10-10 18:23:39+03:00",
+        "files": ["logging.pp"]
+      },
+      {
+        "hash": "327033ac20d55ffe7af03fb815f32a96012e8c79",
+        "msg": "Change worker defaults to ::os_workers\n\nThis patch changes the default worker count from ::processorcount to the\nnew ::os_workers fact. ::os_workers is based on the number of processors\n(currently cpu/4) but is capped at a maximum of 8 worker processors.\nThis is a much more reasonable default in general and prevents excessive\nresource consumption on systems with a large number of CPUs.\n\nChange-Id: I150ddc7e18640881ac68cd82bb8393151c6b3e73",
+        "cmtr": "Alex Schultz",
+        "date": "2016-10-13 16:54:30-06:00",
+        "files": ["api.pp", "metadata.pp", "ec2api_api_spec.rb", "ec2api_metadata_spec.rb"]
+      },
+      {
+        "hash": "ed101406505ca17da0e9c1144af85824c39a2e0f",
+        "msg": "Add support for db_max_retries param\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: Ie38148a1826a75327de61b91007ce7cc825c2b80\nCloses-Bug: 1579718",
+        "cmtr": "ZhongShengping",
+        "date": "2016-10-25 14:53:46+08:00",
+        "files": ["db.pp", "ec2api_db_spec.rb"]
+      },
+      {
+        "hash": "313139aeaa1632af941d3c5b1131225577e1f7de",
+        "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nChange-Id: Id42ab0d5ff332f169e2843a78c53694836d638fd",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-06 10:02:54+08:00",
+        "files": ["api.pp", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "init.pp", "auth.pp", "authtoken.pp", "logging.pp", "metadata.pp", "policy.pp", "external_install_mgmt_hook-191a29a3391d1821.yaml", "ec2api_api_spec.rb", "ec2api_db_sync_spec.rb", "ec2api_init_spec.rb", "ec2api_keystone_auth_spec.rb", "ec2api_metadata_spec.rb"]
+      },
+      {
+        "hash": "3f1b3a64d3b5419a5aed293ed5abf7c56bc7b0d0",
+        "msg": "Remove keystone_url option\n\nThe keystone_url parameter is removed, please switch to common\nsection \"keystone_authtoken\" to config.\n\nChange-Id: Iad8d33423f5fe206f5bd40e01ef57ee30e1579de\nCloses-Bug: #1651634",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-23 08:59:24+08:00",
+        "files": ["api.pp", "basic_ec2api_spec.rb", "ec2api_api_spec.rb"]
+      },
+      {
+        "hash": "a6f198abd3ca8da1a417fdab18df52c590aeb94c",
+        "msg": "Remove signing_dir option\n\nThe signing_dir is deprecated for removel because PKI token format\nis no longer supported.\n\nChange-Id: I7707c9e44b3d6ab63e10385f6549c30e2880daf4\nCloses-Bug: #1652700",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-28 08:55:08+08:00",
+        "files": ["authtoken.pp", "ec2api_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "34e3c963201b2a6fe0d11929658194263875d80e",
+        "msg": "Allow python-memcache install from authtoken class\n\nThe python-memcache package is required if using memcached. By\ndefault the package is not installed and the define has it set to\nfalse. This change allows managing the python-memcache package\ninstall from the authtoken class.\n\nChange-Id: I020f00b4de2535c72ee459af91058fb15c00daeb",
+        "cmtr": "Matthew J. Black",
+        "date": "2017-01-11 18:46:46-05:00",
+        "files": ["authtoken.pp", "authtoken_manage_memcache_package-b7bc1bf8ccd8f03f.yaml", "ec2api_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "24e1e538d108a74a2c70a521b34a51226a6ec608",
+        "msg": "Update test-requirements.txt\n\nThis patch brings it in line with the latest global requirements.\nBy being in line with global requirements, this is a more accurate\nlist with respect to how things are actually tested in the gate.\nThe following links[0][1][2] show the latest reno, oslosphinx, sphinx\npackages.\n\n[0]https://github.com/openstack/requirements/blob/master/global-requirements.txt#L263\n[1]https://github.com/openstack/requirements/blob/master/global-requirements.txt#L372\n[2]https://github.com/openstack/requirements/blob/master/global-requirements.txt#L395\n\nChange-Id: Id8155c6879599ce6b6440475c8fc6985374d9799",
+        "cmtr": "ZhongShengping",
+        "date": "2017-03-23 14:41:42+08:00",
+        "files": ["deps.pp", "test-requirements.txt"]
+      },
+      {
+        "hash": "25bb4407f448a570fdd96dffd2f11d43109d8c2a",
+        "msg": "Password should be secured\n\nChange-Id: I48648c648ffcab4785d7747649a3222f8d7d5ceb\nCloses-Bug: #1676708",
+        "cmtr": "ZhongShengping",
+        "date": "2017-03-28 17:05:12+08:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "f982e6e24bc7fedd63be8b847b019fe90d5487e4",
+        "msg": "Add the setting log level\n\nIncrease the setting log level in the synchronization database.\n\nChange-Id: I893489766108c0dd246504a5138e1bbc243284fd\nCloses-Bug: #1683567",
+        "cmtr": "ZhongShengping",
+        "date": "2017-04-18 11:11:48+08:00",
+        "files": ["sync.pp", "ec2api_db_sync_spec.rb"]
+      },
+      {
+        "hash": "d1ab8b7e0551edd8725eef1e35a66fbc53aa2bea",
+        "msg": "Fix lint issues to upgrade to puppet-lint 2.3\n\n2017-07-20 14:30:25.290766 | manifests/keystone/auth.pp:89:WARNING: arrow should be on the right operand's line\n\nChange-Id: I930a4e97b759798e6efb565ba18898f7023cd570",
+        "cmtr": "Carlos Camacho",
+        "date": "2017-07-20 20:01:35+02:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "4045d67e59cc1625280e28a7526be23d9a0f4aea",
+        "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: I8924ac7b09add0dd81c5df698e9fa46072e8c573\nCloses-Bug: #1717144",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-14 13:48:40+08:00",
+        "files": ["authtoken.pp", "deprecate_revocation_cache_time_parameter-0c26d5fe7baa3e43.yaml", "ec2api_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "e0e5e4f99d93ad831ce814c9396c07adb5edf01e",
+        "msg": "Fix outdated links and a spelling mistakes\n\nFix typos and update outdated links:\n1)http://docs.openstack.org/infra/bindep/\n  --> https://docs.openstack.org/infra/bindep/\n2)http://docs.puppetlabs.com/guides/tests_smoke.html\n  --> https://docs.puppet.com/puppet/latest/tests_smoke.html\nCloses-Bug:#1717188\n\nChange-Id: I97098bad5a505a913fafab84ab008a985e3bb221",
+        "cmtr": "zhangbailin",
+        "date": "2017-09-14 00:30:31-07:00",
+        "files": ["bindep.txt", "setup.cfg", "init.pp"]
+      },
+      {
+        "hash": "43615b4d4a36f640fd3cb0cdf42971eaa090fe91",
+        "msg": "Set *_domain_name vars to 'Default' by default\n\nKeystone v2 api's are removed in [1], so it's required\nto set user_domain_name and project_domain_name otherwise\nall requests fallbacks to keystone v2.0 and fails.\n\n[1] https://review.openstack.org/#/c/499783/\n\nChange-Id: I820ffe3601733d7e7ea95f09ba0e3c1034a9d44a",
+        "cmtr": "yatin",
+        "date": "2017-10-06 12:25:43+05:18",
+        "files": ["authtoken.pp", "keystone_default_domain-db4c0623d909bfc3.yaml", "ec2api_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "4b38a412b88ba5ba4a1560904dbc43aa443a13da",
+        "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: I7fb99ebe2eb24458c738dbcda1df239c4509454e",
+        "cmtr": "ZhongShengping",
+        "date": "2017-11-28 11:27:01+08:00",
+        "files": ["logging.pp", "log-json-a17613e1234f8713.yaml", "ec2api_logging_spec.rb"]
+      },
+      {
+        "hash": "f2f9bbed54de8fc542323dcc4db935de45502af9",
+        "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nChange-Id: Id85a83be1845062120adecf7a8ba476f8165f078\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2018-01-11 06:55:54+00:00",
+        "files": ["params.pp", "policy.pp", "ec2api_policy_spec.rb"]
+      },
+      {
+        "hash": "e53a02236d4f47f83ae2c829f98b26c7628cdd48",
+        "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: Ie8805ce4b130d46e1690ed5cb8ea170241038cdb",
+        "cmtr": "ZhongShengping",
+        "date": "2018-01-15 15:40:22+08:00",
+        "files": ["logging.pp", "add-use_journal-option-for-logging-b69770b4233c9c60.yaml", "ec2api_logging_spec.rb"]
+      },
+      {
+        "hash": "bcce641d2f91218db31fc542229c26a8ec726727",
+        "msg": "Drop all qpid related explanations\n\nQpid was removed in Mitaka from Oslo Messaging, so we\ncan remove all qpid related explanations.\n\nChange-Id: I6b00c3b817530bfd4fb2b3d965d0e54d782da866",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-09 15:04:24+08:00",
+        "files": ["logging.pp"]
+      },
+      {
+        "hash": "74561c32007ee4a4cfd56c687e788f704aeb80d8",
+        "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: I63198ad06c1ce0ed4e6580582b269fe69842fed8\nCloses-Bug: #1755102",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-12 16:33:07+08:00",
+        "files": ["sync.pp", "openstack_db_tag-bdc29046cc947ea5.yaml", "ec2api_db_sync_spec.rb"]
+      },
+      {
+        "hash": "8c8263117df48c993003fcba2df127db35fcdf02",
+        "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: I58760e6cfee299c6d5aef48810484a59b03003ca\nCloses-Bug: #1757581",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-22 11:09:50+08:00",
+        "files": ["db.pp", "add-pool_timeout-option-for-db-9ba34699d922a1fe.yaml", "ec2api_db_spec.rb"]
+      },
+      {
+        "hash": "6ed038b1cdb46a8956d66b80082ee372b5864ab8",
+        "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: Iebec88eb35f6cd53d1a0b8b421c5dd97f31887a7",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-27 10:33:21+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-b70c2bd307f9fa37.yaml"]
+      },
+      {
+        "hash": "c5697efc43965b2bed0ff2b4fccc7f69f173be3f",
+        "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: Ie7a5a791f7fafaf9bd60aea2e6bd84e5f9c3f68f\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
+        "cmtr": "ZhongShengping",
+        "date": "2018-04-03 16:55:00+08:00",
+        "files": ["authtoken.pp", "deprecate_auth_uri_parameter-8c31ce05b70ef0d6.yaml", "ec2api_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "6078f871b743b40e5d995145119eb5c4591601c8",
+        "msg": "Remove useless code for sync.pp\n\nIn order to improve efficiency, remove useless code.\n\nChange-Id: I54c1f965641d2dbb6f583d1e9c5ff0798014cd6f",
+        "cmtr": "ZhongShengping",
+        "date": "2018-04-08 09:07:00+08:00",
+        "files": ["sync.pp", "ec2api_db_sync_spec.rb"]
+      },
+      {
+        "hash": "814ae8df60ee842a126c2ecced47c42b0528ad4d",
+        "msg": "Configure metadata_proxy_shared_secret as secret\n\nParameter metadata/metadata_proxy_shared_secret should be\nconfigured as a secret.\n\nChange-Id: I5214b3859e74c60cbc82571125ce38718f589545\nCloses-Bug: #1761060",
+        "cmtr": "ZhongShengping",
+        "date": "2018-04-10 10:52:26+08:00",
+        "files": ["metadata.pp", "ec2api_metadata_spec.rb"]
+      },
+      {
+        "hash": "3b296efc89dde09995d6ef4e997d0c3e3fb4db3b",
+        "msg": "neat: missing : in $::os_service_default\n\nChange-Id: If004ddb1ed6567374f843bd3a71d81fab761d69b",
+        "cmtr": "zhubingbing",
+        "date": "2018-05-11 14:02:39+08:00",
+        "files": ["authtoken.pp"]
+      },
+      {
+        "hash": "b81a91f2d84a8e908c1bf0a71dcbfdd330fe228f",
+        "msg": "Replace port 35357 with 5000 for \"auth_url\"\n\nBased on the change in Keystone Install Guide [1],\nthis patch replace port 35357 with 5000 for \"auth_url\".\n\nFor more details, please check similar changes which have been done\non other projects: Nova [2], Neutron [3], Cinder [4], Glance [5].\n\n[1] https://review.openstack.org/#/c/541857\n[2] https://review.openstack.org/#/c/562812\n[3] https://review.openstack.org/#/c/566491\n[4] https://review.openstack.org/#/c/565464\n[5] https://review.openstack.org/#/c/558932\n\nChange-Id: Id1253df00293fe3b2827cc115bce25c91d924d67",
+        "cmtr": "melissaml",
+        "date": "2018-05-21 14:36:00+08:00",
+        "files": ["authtoken.pp", "ec2api_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "79f69fb45b013ae596361b6b70063f1d5f044661",
+        "msg": "Fix annotations\n\nChange-Id: I3923d6b1ae0a59d8066fe34b1306f2e733707383",
+        "cmtr": "zhubingbing",
+        "date": "2018-06-15 15:07:37+08:00",
+        "files": ["mysql.pp"]
+      }]
+    }

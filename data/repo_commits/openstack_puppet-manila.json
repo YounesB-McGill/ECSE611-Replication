@@ -1,0 +1,1127 @@
+    {
+      "url": "https://github.com/openstack/puppet-manila",
+      "pp_files": ["dellemc_vnx.pp", "solidfire.pp", "logging.pp", "db.pp", "init.pp", "sync.pp", "postgresql.pp", "qpid.pp", "cinder.pp", "manila_volume_with_pacemaker.pp", "backends.pp", "params.pp", "backup.pp", "setup_test_volume.pp", "ganesha.pp", "neutron.pp", "authtoken.pp", "config.pp", "host_access.pp", "policy.pp", "nova_single_network.pp", "hitachi_hnas.pp", "deps.pp", "rbd.pp", "nexenta.pp", "glance.pp", "client.pp", "type.pp", "neutron_single_network.pp", "glusternative.pp", "api.pp", "type_set.pp", "netapp.pp", "setup_test_share.pp", "dellemc_vmax.pp", "vmdk.pp", "san.pp", "rabbitmq.pp", "iscsi.pp", "share.pp", "glusterfs.pp", "dellemc_unity.pp", "cephfsnative.pp", "generic.pp", "mysql.pp", "dellemc_isilon.pp", "ceilometer.pp", "swift.pp", "quota.pp", "cinder_volume_with_pacemaker.pp", "glusternfs.pp", "cephfs.pp", "standalone.pp", "ceph.pp", "service_instance.pp", "volume.pp", "auth.pp", "nova_network.pp", "apache.pp", "nova.pp", "nfs.pp", "eqlx.pp", "vmware.pp", "scheduler.pp"],
+      "pp_cmtrs": ["Lukas Bezdicka", "Yanis Guenane", "Emilien Macchi", "Mykyta Karpin", "Ivan Chavero", "daiki kato", "Marcus Furlong", "Matthew J. Black", "Martin M\u00e1gr", "Sebastien Badia", "Jan Provaznik", "Juan Antonio Osorio Robles", "Goutham Pacha Ravi", "Bob Callaway", "Harry Rybacki", "Javier Pena", "Mauricio Lima", "Athlan-Guyot sofer", "Tobias Urdin", "ZhongShengping", "Thomas Goirand", "Andrew Smith", "Gael Chamoulaud", "Xingchao Yu", "wangqi", "zhubingbing", "Carlos Camacho", "Yong Huang", "Ryan Hefner", "ZhijunWei", "Mathieu Gagne\u0301", "Sharat Sharma", "Trevor McCasland", "Alex Schultz", "rajinir", "Arne Wiebalck", "nanhai.liao", "Denis Egorenko", "David Moreau-Simard", "Joe Topjian", "Sachidananda Urs", "Simon Fowler", "Iury Gregory Melo Ferreira", "Erno Kuvaja", "Tom Barron", "cdelatte", "Xiaohua Yuan"],
+      "num_pp_commits": 160,
+      "num_tot_commits": 430,
+      "commits": [{
+        "hash": "eb60ddbfeb0ed769561cf83a2872dde299d1e85d",
+        "msg": "Initial commit of new configuration",
+        "cmtr": "Joe Topjian",
+        "date": "2012-09-09 22:24:59+00:00",
+        "files": ["api.pp", "mysql.pp", "sync.pp", "init.pp", "auth.pp", "params.pp", "scheduler.pp", "volume.pp", "iscsi.pp"]
+      },
+      {
+        "hash": "3d0f6025573de163ebdabab678a334823b7a395a",
+        "msg": "Initial commit of puppet-cinder",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-06-10 16:18:30-04:00",
+        "files": [".fixtures.yml", ".gitignore", ".gitreview", "Gemfile", "LICENSE", "Modulefile", "README.md", "Rakefile", "cinder_volume_with_pacemaker.pp", "ini_setting.rb", "ini_setting.rb", "cinder_api_paste_ini.rb", "cinder_config.rb", "api.pp", "eqlx.pp", "glusterfs.pp", "iscsi.pp", "netapp.pp", "nexenta.pp", "nfs.pp", "rbd.pp", "san.pp", "solidfire.pp", "vmdk.pp", "backends.pp", "backup.pp", "ceph.pp", "swift.pp", "ceilometer.pp", "client.pp", "config.pp", "mysql.pp", "host_access.pp", "postgresql.pp", "sync.pp", "glance.pp", "init.pp", "auth.pp", "params.pp", "qpid.pp", "quota.pp", "rabbitmq.pp", "scheduler.pp", "setup_test_volume.pp", "type.pp", "type_set.pp", "vmware.pp", "volume.pp", "eqlx.pp", "glusterfs.pp", "iscsi.pp", "netapp.pp", "nexenta.pp", "nfs.pp", "rbd.pp", "san.pp", "solidfire.pp", "vmdk.pp", "cinder_api_spec.rb", "cinder_backends_spec.rb", "cinder_backup_ceph_spec.rb", "cinder_backup_spec.rb", "cinder_backup_swift_spec.rb", "cinder_ceilometer_spec.rb", "cinder_client_spec.rb", "cinder_db_mysql_spec.rb", "cinder_db_postgresql_spec.rb", "cinder_db_sync_spec.rb", "cinder_glance_spec.rb", "cinder_keystone_auth_spec.rb", "cinder_params_spec.rb", "cinder_qpid_spec.rb", "cinder_quota_spec.rb", "cinder_rabbitmq_spec.rb", "cinder_scheduler_spec.rb", "cinder_setup_test_volume_spec.rb", "cinder_spec.rb", "cinder_vmware_spec.rb", "cinder_volume_eqlx_spec.rb", "cinder_volume_glusterfs_spec.rb", "cinder_volume_iscsi_spec.rb", "cinder_volume_netapp_spec.rb", "cinder_volume_nexenta_spec.rb", "cinder_volume_nfs_spec.rb", "cinder_volume_rbd_spec.rb", "cinder_volume_san_spec.rb", "cinder_volume_solidfire_spec.rb", "cinder_volume_spec.rb", "cinder_volume_vmdk_spec.rb", "cinder_backend_eqlx_spec.rb", "cinder_backend_glusterfs_spec.rb", "cinder_backend_iscsi_spec.rb", "cinder_backend_netapp_spec.rb", "cinder_backend_nexenta_spec.rb", "cinder_backend_nfs_spec.rb", "cinder_backend_rbd_spec.rb", "cinder_backend_san_spec.rb", "cinder_backend_solidfire_spec.rb", "cinder_backend_vmdk_spec.rb", "cinder_type_set_spec.rb", "cinder_type_spec.rb", "shared_examples.rb", "spec_helper.rb"]
+      },
+      {
+        "hash": "ceea6ea69fc54e9b047ae57cbf39d5dee0cb69d8",
+        "msg": "cinder -> manila filename replace",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-06-13 13:32:14-04:00",
+        "files": ["manila_volume_with_pacemaker.pp", "manila_api_paste_ini.rb", "manila_config.rb", "manila_api_spec.rb", "manila_backends_spec.rb", "manila_backup_ceph_spec.rb", "manila_backup_spec.rb", "manila_backup_swift_spec.rb", "manila_ceilometer_spec.rb", "manila_client_spec.rb", "manila_db_mysql_spec.rb", "manila_db_postgresql_spec.rb", "manila_db_sync_spec.rb", "manila_glance_spec.rb", "manila_keystone_auth_spec.rb", "manila_params_spec.rb", "manila_qpid_spec.rb", "manila_quota_spec.rb", "manila_rabbitmq_spec.rb", "manila_scheduler_spec.rb", "manila_setup_test_volume_spec.rb", "manila_spec.rb", "manila_vmware_spec.rb", "manila_volume_eqlx_spec.rb", "manila_volume_glusterfs_spec.rb", "manila_volume_iscsi_spec.rb", "manila_volume_netapp_spec.rb", "manila_volume_nexenta_spec.rb", "manila_volume_nfs_spec.rb", "manila_volume_rbd_spec.rb", "manila_volume_san_spec.rb", "manila_volume_solidfire_spec.rb", "manila_volume_spec.rb", "manila_volume_vmdk_spec.rb", "manila_backend_eqlx_spec.rb", "manila_backend_glusterfs_spec.rb", "manila_backend_iscsi_spec.rb", "manila_backend_netapp_spec.rb", "manila_backend_nexenta_spec.rb", "manila_backend_nfs_spec.rb", "manila_backend_rbd_spec.rb", "manila_backend_san_spec.rb", "manila_backend_solidfire_spec.rb", "manila_backend_vmdk_spec.rb", "manila_type_set_spec.rb", "manila_type_spec.rb"]
+      },
+      {
+        "hash": "aeb3c00fc5c75a2ba3e3f46836e9191965b1c37d",
+        "msg": "cinder -> manila text replace",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-06-13 13:34:10-04:00",
+        "files": [".fixtures.yml", ".gitreview", "Modulefile", "README.md", "manila_volume_with_pacemaker.pp", "ini_setting.rb", "ini_setting.rb", "manila_api_paste_ini.rb", "manila_config.rb", "api.pp", "eqlx.pp", "glusterfs.pp", "iscsi.pp", "netapp.pp", "nexenta.pp", "nfs.pp", "rbd.pp", "san.pp", "solidfire.pp", "vmdk.pp", "backends.pp", "backup.pp", "ceph.pp", "swift.pp", "ceilometer.pp", "client.pp", "config.pp", "mysql.pp", "host_access.pp", "postgresql.pp", "sync.pp", "glance.pp", "init.pp", "auth.pp", "params.pp", "qpid.pp", "quota.pp", "rabbitmq.pp", "scheduler.pp", "setup_test_volume.pp", "type.pp", "type_set.pp", "vmware.pp", "volume.pp", "eqlx.pp", "glusterfs.pp", "iscsi.pp", "netapp.pp", "nexenta.pp", "nfs.pp", "rbd.pp", "san.pp", "solidfire.pp", "vmdk.pp", "manila_api_spec.rb", "manila_backends_spec.rb", "manila_backup_ceph_spec.rb", "manila_backup_spec.rb", "manila_backup_swift_spec.rb", "manila_ceilometer_spec.rb", "manila_client_spec.rb", "manila_db_mysql_spec.rb", "manila_db_postgresql_spec.rb", "manila_db_sync_spec.rb", "manila_glance_spec.rb", "manila_keystone_auth_spec.rb", "manila_params_spec.rb", "manila_qpid_spec.rb", "manila_quota_spec.rb", "manila_rabbitmq_spec.rb", "manila_scheduler_spec.rb", "manila_setup_test_volume_spec.rb", "manila_spec.rb", "manila_vmware_spec.rb", "manila_volume_eqlx_spec.rb", "manila_volume_glusterfs_spec.rb", "manila_volume_iscsi_spec.rb", "manila_volume_netapp_spec.rb", "manila_volume_nexenta_spec.rb", "manila_volume_nfs_spec.rb", "manila_volume_rbd_spec.rb", "manila_volume_san_spec.rb", "manila_volume_solidfire_spec.rb", "manila_volume_spec.rb", "manila_volume_vmdk_spec.rb", "manila_backend_eqlx_spec.rb", "manila_backend_glusterfs_spec.rb", "manila_backend_iscsi_spec.rb", "manila_backend_netapp_spec.rb", "manila_backend_nexenta_spec.rb", "manila_backend_nfs_spec.rb", "manila_backend_rbd_spec.rb", "manila_backend_san_spec.rb", "manila_backend_solidfire_spec.rb", "manila_backend_vmdk_spec.rb", "manila_type_set_spec.rb", "manila_type_spec.rb"]
+      },
+      {
+        "hash": "39486d44ca4572e2562eeb6e384eb433d2b6989f",
+        "msg": "A few questions to review later",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-06-18 11:51:33-04:00",
+        "files": ["Modulefile", "README.md", "manila_volume_with_pacemaker.pp", "ini_setting.rb", "ini_setting.rb", "backends.pp"]
+      },
+      {
+        "hash": "a7776cb556567061357adfd26904e1eaf9bbddf0",
+        "msg": "Removed backup service",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-06-26 11:49:40-04:00",
+        "files": ["backends.pp", "backup.pp", "params.pp"]
+      },
+      {
+        "hash": "5c163d12b15eb7b31f637a99916a0de62641bc98",
+        "msg": "volume -> share",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-06-26 11:55:50-04:00",
+        "files": ["README.md", "api.pp", "eqlx.pp", "glusterfs.pp", "iscsi.pp", "netapp.pp", "nexenta.pp", "nfs.pp", "rbd.pp", "san.pp", "solidfire.pp", "vmdk.pp", "backends.pp", "ceph.pp", "swift.pp", "ceilometer.pp", "init.pp", "auth.pp", "params.pp", "quota.pp", "setup_test_share.pp", "setup_test_volume.pp", "share.pp", "eqlx.pp", "glusterfs.pp", "iscsi.pp", "netapp.pp", "nexenta.pp", "nfs.pp", "rbd.pp", "san.pp", "solidfire.pp", "vmdk.pp", "type.pp", "type_set.pp", "volume.pp", "manila_api_spec.rb", "manila_backends_spec.rb", "manila_backup_swift_spec.rb", "manila_keystone_auth_spec.rb", "manila_quota_spec.rb", "manila_setup_test_share_spec.rb", "manila_setup_test_volume_spec.rb", "manila_share_eqlx_spec.rb", "manila_share_glusterfs_spec.rb", "manila_share_iscsi_spec.rb", "manila_share_netapp_spec.rb", "manila_share_nexenta_spec.rb", "manila_share_nfs_spec.rb", "manila_share_rbd_spec.rb", "manila_share_san_spec.rb", "manila_share_solidfire_spec.rb", "manila_share_spec.rb", "manila_share_vmdk_spec.rb", "manila_backend_eqlx_spec.rb", "manila_backend_glusterfs_spec.rb", "manila_backend_iscsi_spec.rb", "manila_backend_netapp_spec.rb", "manila_backend_nexenta_spec.rb", "manila_backend_nfs_spec.rb", "manila_backend_rbd_spec.rb", "manila_backend_san_spec.rb", "manila_backend_solidfire_spec.rb", "manila_backend_vmdk_spec.rb", "manila_type_spec.rb"]
+      },
+      {
+        "hash": "1f1b9d897b578669cf0eadcd0775a7c13f465802",
+        "msg": "Cosmetic changes and removed deprecated params",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-07-07 10:43:52-04:00",
+        "files": ["backends.pp", "init.pp", "auth.pp", "params.pp", "glusterfs.pp", "iscsi.pp", "netapp.pp", "nexenta.pp", "nfs.pp", "rbd.pp", "san.pp", "solidfire.pp", "vmdk.pp"]
+      },
+      {
+        "hash": "57f12709b1a6096b0fcbbbaf4e338278cc44415c",
+        "msg": "Removed share and backend drivers",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-07-18 10:58:04-04:00",
+        "files": ["eqlx.pp", "glusterfs.pp", "nexenta.pp", "rbd.pp", "san.pp", "solidfire.pp", "vmdk.pp", "ceilometer.pp", "glance.pp", "eqlx.pp", "glusterfs.pp", "nexenta.pp", "rbd.pp", "san.pp", "solidfire.pp", "vmdk.pp"]
+      },
+      {
+        "hash": "90eb2845ac65c5731d58d1ff9e274872c5ee7034",
+        "msg": "Generic driver fixes",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-07-24 13:14:10-04:00",
+        "files": ["generic.pp", "nfs.pp", "init.pp", "auth.pp", "params.pp", "generic.pp"]
+      },
+      {
+        "hash": "11a9b082594d83cfba80d0b2094edb0f5d216290",
+        "msg": "added support for configuring nova, neutron, cinder",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-07-28 17:25:25-04:00",
+        "files": ["nova.pp", "neutron.pp", "cinder.pp"]
+      },
+      {
+        "hash": "9164eada05c53e268f7a326ab88ab1e737d1ea55",
+        "msg": "add generic driver support",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-07-28 17:26:02-04:00",
+        "files": ["generic.pp", "generic.pp"]
+      },
+      {
+        "hash": "dd3651abc527a655040c1c30c2292fc30c6facea",
+        "msg": "add rootwrap config lines",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-07-28 17:26:29-04:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "e2d9bc4756aaae8d9ad294bf75e1a447c8c7c6fc",
+        "msg": "Remove nfs module",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-07-28 17:26:37-04:00",
+        "files": ["nfs.pp", "nfs.pp"]
+      },
+      {
+        "hash": "5a33f8a950b43f8cc80abeb58a933a49abb660b6",
+        "msg": "first pass at netapp driver support",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-07-29 16:01:40-04:00",
+        "files": ["netapp.pp", "netapp.pp"]
+      },
+      {
+        "hash": "6c9abae6db70f26902ecbc62a7714ea587d8ae1f",
+        "msg": "Added ntap deps",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-08-01 10:45:46-04:00",
+        "files": ["netapp.pp", "backends.pp"]
+      },
+      {
+        "hash": "6fa8bce168a4c300676a74e0bd2c1a66c919f2f0",
+        "msg": "delete irrelevant tests",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-08-23 19:51:46-04:00",
+        "files": ["iscsi.pp", "ceph.pp", "swift.pp", "mysql.pp", "iscsi.pp", "vmware.pp", "manila_backup_ceph_spec.rb", "manila_backup_spec.rb", "manila_backup_swift_spec.rb", "manila_ceilometer_spec.rb", "manila_glance_spec.rb", "manila_share_eqlx_spec.rb", "manila_share_iscsi_spec.rb", "manila_share_nexenta_spec.rb", "manila_share_nfs_spec.rb", "manila_share_rbd_spec.rb", "manila_share_san_spec.rb", "manila_share_solidfire_spec.rb", "manila_share_vmdk_spec.rb", "manila_vmware_spec.rb", "manila_backend_eqlx_spec.rb", "manila_backend_iscsi_spec.rb", "manila_backend_nexenta_spec.rb", "manila_backend_nfs_spec.rb", "manila_backend_rbd_spec.rb", "manila_backend_san_spec.rb", "manila_backend_solidfire_spec.rb", "manila_backend_vmdk_spec.rb"]
+      },
+      {
+        "hash": "0734865e2798b68a31cc4bb1f4e54476e1891b24",
+        "msg": "edit tests for share drivers",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-08-23 19:52:20-04:00",
+        "files": ["glusterfs.pp", "glusterfs.pp", "manila_share_generic_spec.rb", "manila_share_glusterfs_spec.rb", "manila_backend_generic_spec.rb"]
+      },
+      {
+        "hash": "afe75add12a1c5ad7975dc287dc7a2268b3f2d63",
+        "msg": "bring files up to date with cinder master",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-08-23 19:52:45-04:00",
+        "files": ["type.pp", "manila_backends_spec.rb", "manila_db_mysql_spec.rb", "manila_keystone_auth_spec.rb", "manila_setup_test_share_spec.rb"]
+      },
+      {
+        "hash": "d412f40e2c1f0e4a9b9b2cdf81cbd050bbfe4665",
+        "msg": "edit the share testing .pp\n\nnot confirmed to work",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-08-23 19:53:14-04:00",
+        "files": ["setup_test_share.pp"]
+      },
+      {
+        "hash": "d6151bd582cb5707cdeaaeda538f0f33851eed88",
+        "msg": "Changed database_connection to sql_connection",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-08-27 20:03:01-04:00",
+        "files": ["init.pp", "manila_share_spec.rb", "manila_spec.rb"]
+      },
+      {
+        "hash": "3fb439e342fbf1606ec48da40166498f6d72273f",
+        "msg": "change enabled_backends to enabled_share_backends",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-08-27 20:06:07-04:00",
+        "files": ["backends.pp"]
+      },
+      {
+        "hash": "0d85fba2e305c29586eefe8c58eee60969bb0b0f",
+        "msg": "Cleaned up netapp driver",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-09-03 18:01:34-04:00",
+        "files": ["netapp.pp", "netapp.pp", "manila_share_netapp_spec.rb", "manila_backend_netapp_spec.rb"]
+      },
+      {
+        "hash": "178b80449d3a30bef4f208c6d772c73e9bb21d94",
+        "msg": "Cleaned up gluster driver",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-09-03 18:01:44-04:00",
+        "files": ["glusterfs.pp", "glusterfs.pp", "manila_share_glusterfs_spec.rb", "manila_backend_glusterfs_spec.rb"]
+      },
+      {
+        "hash": "97272d852ccfdf4cb207fe641916a595aebc0136",
+        "msg": "Cleaned up generic driver",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-09-03 18:01:54-04:00",
+        "files": ["generic.pp", "generic.pp", "manila_share_generic_spec.rb", "manila_backend_generic_spec.rb"]
+      },
+      {
+        "hash": "dd54948a7b91061d32eb4192606e1272b6b51c81",
+        "msg": "manila volume types",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-09-03 18:02:17-04:00",
+        "files": ["type.pp", "type_set.pp", "manila_type_spec.rb"]
+      },
+      {
+        "hash": "3d219a5759eaa3c0a716518500d5a7aadb058de2",
+        "msg": "Remove deprecated params, add new",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-09-03 18:03:53-04:00",
+        "files": ["api.pp", "init.pp", "manila_api_spec.rb", "manila_backends_spec.rb", "manila_spec.rb"]
+      },
+      {
+        "hash": "3217135c1ea7255847e51437388e20a39ea950e1",
+        "msg": "rename database_ to sql_",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-09-03 23:40:42-04:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "1ad29028faf416ce841ae2f0794ed750fc9531f5",
+        "msg": "Revert mysql back to 0.9\n\nspecifying 2.2 still loaded version 0.9, but would try to use the new\nversion's api. caused issues.",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-09-04 01:58:59-04:00",
+        "files": ["mysql.pp", "init.pp"]
+      },
+      {
+        "hash": "0a2d9c083d98253db9d1a1a800056f8fb0459289",
+        "msg": "Added support for service instance",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-09-06 16:12:55-04:00",
+        "files": ["service_instance.pp", "generic.pp"]
+      },
+      {
+        "hash": "a9ba1cfe9d0651f6bf495d5dee31fa4dc9919b88",
+        "msg": "Drop support for MySQL 0.9 (2.2 only)",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-09-10 00:32:25-04:00",
+        "files": ["Modulefile", "mysql.pp", "host_access.pp", "init.pp", "manila_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "93c3094aeb5c59c6f929ba02519c691994651763",
+        "msg": "Fixed typo",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-09-10 00:32:31-04:00",
+        "files": ["service_instance.pp"]
+      },
+      {
+        "hash": "8c3b2dfcab03143822d9f174a79c33d4f53e7431",
+        "msg": "Changed service_instance back to a class (oops)",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-09-10 14:41:46-04:00",
+        "files": ["service_instance.pp"]
+      },
+      {
+        "hash": "64d2e9328cdb662f6163abea6ddafee2b3cf2d69",
+        "msg": "Fixed auth.pp comments",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-09-10 15:12:20-04:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "5627ec6f32ac9f287028994eaee8883a3c412165",
+        "msg": "Address #NTAP comments",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-09-11 15:51:54-04:00",
+        "files": ["Modulefile", "glusterfs.pp", "netapp.pp", "setup_test_share.pp", "manila_client_spec.rb"]
+      },
+      {
+        "hash": "fb8ed334876ffeefa80e9d6d48db0127375a717f",
+        "msg": "aesthetic changes",
+        "cmtr": "Ryan Hefner",
+        "date": "2014-09-12 01:39:38-04:00",
+        "files": ["generic.pp", "glusterfs.pp", "netapp.pp", "nova.pp", "neutron.pp", "quota.pp", "service_instance.pp", "generic.pp", "netapp.pp", "cinder.pp"]
+      },
+      {
+        "hash": "944979530e922b8d415b721f4cd189d9e990f9ef",
+        "msg": "Update README to indicate being on Stackforge\n\nThis change updates the reference to Stackforge and also fixes\ncapitalization of OpenStack in the README. It also fixes a few minor\nissues that were failing check tests.\n\nChange-Id: I3bc4fc8515c1b3d56d789f1bb199e2cd512e6dbe",
+        "cmtr": "Bob Callaway",
+        "date": "2014-09-26 06:47:14-04:00",
+        "files": ["README.md", "generic.pp", "netapp.pp", "init.pp", "service_instance.pp", "type_set.pp", "manila_backends_spec.rb", "manila_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "a8d176a0b400f802e14b807fc2809243cc029e5d",
+        "msg": "Package for share service\n\nPackage for manila-share service is available also for RedHat derivatives\nas can be seen at http://koji.fedoraproject.org/koji/buildinfo?buildID=581039\n\nChange-Id: Iac260d9e00803be61ead607e44383af0e19b69f7",
+        "cmtr": "Martin Mágr",
+        "date": "2014-10-01 14:17:37+02:00",
+        "files": ["params.pp", "manila_share_spec.rb"]
+      },
+      {
+        "hash": "915acf658d037a4bcd3745f9cce696b2f8b2919b",
+        "msg": "Re-factorise Keystone resources management\n\nRe-factorise the code of Keystone resources management with backward\ncompatibility since we don't modify the unit tests.\n\nChange-Id: I3ae63eff002d8a08007e797c46471b3e2ca21ef5\nImplements: blueprint common-openstack-identity-resource",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-11-27 01:11:43+01:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "21444f860f10328b927652543e9b14620d0aaf95",
+        "msg": "Migrate postgresql backend to use openstacklib::db::postgresql\n\nLet migrate to the new openstacklib::db::postgresql helper for\npostgresql backend. This commit also unpin postgresql fixture\n(openstacklib support now the latest version of postgre module).\n\nChange-Id: I632aa31dd664032b7d0bf7bed44a3c89f6981d10\nImplements: blueprint commmon-openstack-database-resource",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-12-30 22:00:16+01:00",
+        "files": [".fixtures.yml", "postgresql.pp", "manila_db_postgresql_spec.rb"]
+      },
+      {
+        "hash": "2ff97375ba9eb3c8cadce63774c7576ba119c1c3",
+        "msg": "Makes kombu_ssl_* parameters optional when rabbit_use_ssl => true\n\nThe kombu_ssl_* parameters should not be required when rabbit_use_ssl => true\nRather, rabbit_use_ssl must be set to true if the kombu_ssl_* parameters are\nused.\n\nCloses-Bug: 1356083\nChange-Id: I95689b19d6bd8b5e7499a89ff0890f688a3c08b3",
+        "cmtr": "Lukas Bezdicka",
+        "date": "2015-01-12 18:07:52+01:00",
+        "files": ["init.pp", "manila_spec.rb"]
+      },
+      {
+        "hash": "97557784240c78ecdf051f9741daf353f83ea6cc",
+        "msg": "Fix manila::service_instance type\n\nAccord to the definition, manila::service_instance\nshould not be class type, it should be define type.\n\nChange-Id: I28f216936d6b52efdcc179ebb7fc6775053fd33b",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-01-25 17:58:18+08:00",
+        "files": ["service_instance.pp"]
+      },
+      {
+        "hash": "8e6969a38a9547a4bc960c62f3a288a85e1127b0",
+        "msg": "Switch to TLSv1 as SSLv3 is considered insecure and is disabled by default\n\nRabbitmq won't talk to us anymore if we try to use SSLv3 as it disabled\nsupport for SSLv3. Openstack components use python's openssl\nimplementation which does not support TLSv1.1 and TLSv1.2 yet so we\njust switch to TLSv1. Support for newer TLS should come with python\n2.7.9+\n\nCloses-Bug: #1409667\nChange-Id: I0f044e2812dea305287120526af42d894b7e895c",
+        "cmtr": "Lukas Bezdicka",
+        "date": "2015-01-27 16:48:30+01:00",
+        "files": ["init.pp", "manila_spec.rb"]
+      },
+      {
+        "hash": "aedf303176ff117d9047b20b94a88a239ef82c6a",
+        "msg": "Write share_helpers to config as CSV\n\nCurrently, the share_helpers parameter is implemented\nin the manifest as a list, but the list is written\ndirectly to the config file.  It needs to be written\nas a comma-separated list instead.\n\nChange-Id: Ic57c4e78567712397aff9550036f8feb772ad4d5",
+        "cmtr": "Ryan Hefner",
+        "date": "2015-02-08 00:14:28-05:00",
+        "files": ["generic.pp", "generic.pp", "manila_share_generic_spec.rb", "manila_backend_generic_spec.rb"]
+      },
+      {
+        "hash": "7be3b62bc68e6c257f959b0949af5ec4a7bec65c",
+        "msg": "Remove enabled_share_backends param from NetApp backend\n\nInstead of using this flag directly, the user should\nuse manila::backends to manage it.\n\nChange-Id: Icc35d343c00b86d0182dc684e4306d5db7ac75a2",
+        "cmtr": "Ryan Hefner",
+        "date": "2015-02-12 08:36:38-05:00",
+        "files": ["netapp.pp"]
+      },
+      {
+        "hash": "46ba0607b678b3ba76cd5f5245d381f8712201b8",
+        "msg": "Change share server config details\n\nUpdate the generic driver service instance\nconfiguration details, such as allowing a user\nto specify a Glance image to automatically import.\n\nChange-Id: I86f748b770e34c0d0db46cca2c1c7e0d3edb5948",
+        "cmtr": "Ryan Hefner",
+        "date": "2015-02-13 12:03:46-05:00",
+        "files": [".fixtures.yml", "service_instance.pp", "metadata.json", "manila_service_instance_spec.rb"]
+      },
+      {
+        "hash": "a0951a2b6ce4605925d6a8b567d89c994b7e1e1d",
+        "msg": "Add Puppet 4.x lint checks\n\n- This changes the puppet-lint requirement to 1.1.x, so that we can use\n  puppet-lint plugins. Most of these plugins are for 4.x compat, but some just\n  catch common errors.\n\nChange-Id: Ie7e1f8b4d4cdd5d058b95cdf2c29c80dc73b954c\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-03-02 15:30:40+01:00",
+        "files": ["Gemfile", "api.pp", "client.pp", "sync.pp", "init.pp", "qpid.pp", "scheduler.pp", "share.pp", "generic.pp", "netapp.pp", "type.pp"]
+      },
+      {
+        "hash": "0d8dc6f0953898784444efbc969276c85b86a2fd",
+        "msg": "Add puppet-lint-param-docs plugins to puppet-lint\n\n- This puppet-lint plugin checks if all parameters are documented\n- Fix all the undocumented parameters.\n\nChange-Id: Id9a9d11a972f6db46ed047b0a1f223995193476a\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-03-05 09:02:53+01:00",
+        "files": ["Gemfile", "api.pp", "backends.pp", "client.pp", "config.pp", "mysql.pp", "init.pp", "qpid.pp", "scheduler.pp", "share.pp", "type_set.pp"]
+      },
+      {
+        "hash": "e6793157aef4d108682cbf40354d07a44b0ec8c9",
+        "msg": "Use versioncmp for '::operatingsystemmajrelease' comparison\n\nUse the builtin versioncmp() function for comparisons of the\n'::operatingsystemmajrelease' fact. If that fact evaluates to a string,\nregular arithmetric comparisons will fail under the Puppet 4.x\nlanguage.\n\nChange-Id: I9ef21e97413b3ef2a375a80fe32b072a47d37a22\nCloses-bug: 1425300\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-03-29 16:36:52+02:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "256134fd5998afa57980db9f9eba41ff6cfa57fc",
+        "msg": "Update share driver parameters\n\nUpdating share driver parameters to support upstream changes:\n - New NetApp driver options (single and multi-SVM)\n - Share servers in both NetApp and generic drivers\n\nChange-Id: I1d4b4a9e82a7fa187b87a761a07bb5bf75f23951",
+        "cmtr": "Ryan Hefner",
+        "date": "2015-04-13 19:11:00+00:00",
+        "files": ["generic.pp", "netapp.pp", "init.pp", "generic.pp", "netapp.pp", "manila_share_generic_spec.rb", "manila_share_netapp_spec.rb", "manila_spec.rb", "manila_backend_generic_spec.rb", "manila_backend_netapp_spec.rb"]
+      },
+      {
+        "hash": "728a0e586da8b2ff4afa09b82a2db86621be3f0e",
+        "msg": "Support network plugin model\n\nSupports configuration parameters for the following new network\nplugins:\n - Neutron (formerly the only option)\n - Neutron single network\n - Nova networking\n - Standalone network\n\nDocumentation for these plugins is in review here:\nhttps://review.openstack.org/#/c/171166/\n\nChange-Id: Ida57ae5551c962791eaddacb695996cf4e8dec23",
+        "cmtr": "Ryan Hefner",
+        "date": "2015-04-14 01:18:40+00:00",
+        "files": ["neutron.pp", "neutron_single_network.pp", "nova_network.pp", "nova_single_network.pp", "standalone.pp", "service_instance.pp", "manila_network_neutron_spec.rb", "manila_network_neutron_single_network_spec.rb", "manila_network_nova_network_spec.rb", "manila_network_nova_single_network_spec.rb", "manila_network_standalone_spec.rb", "manila_service_instance_spec.rb"]
+      },
+      {
+        "hash": "6fa0931083c96e1b66e8ce3bfba84c20c850c34a",
+        "msg": "MySQL: change default MySQL collate to utf8_general_ci\n\nInstall & configure MySQL database by using utf8_general_ci collation\nwhich is the way documented in OpenStack [1] and already the default\nin puppetlabs-mysql [2].\n\n[1] http://goo.gl/GA5gyZ\n[2] https://github.com/puppetlabs/puppetlabs-mysql/blob/master/manifests/db.pp#L7\n\nChange-Id: Ia62e6acb4eab5539a6525e89d0a82081c16613f4\nCloses-bug: #1446375",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-04-21 18:55:24-04:00",
+        "files": ["mysql.pp", "manila_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "ec38853e15c24814c72c46463b214f7936c228ff",
+        "msg": "Add notification_driver and state_path option\n\nThis patch just add two frequently use options into manila::init.\n\nChange-Id: I3c154c1cac66579b500628f1bbc013c32089839b\nCloses-Bug: 1447880",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-04-24 11:04:48+08:00",
+        "files": ["init.pp", "manila_spec.rb"]
+      },
+      {
+        "hash": "6cc30e79f21635349804e966a9d7bbd250cb3ff3",
+        "msg": "Move rabbit/kombu settings to oslo_messaging_rabbit section\n\nKilo oslo-messaging deprecates rabbit/kombu settings in the\nDEFAULT section.\n\nMove these settings to proper oslo_messaging_rabbit section.\n\nChange-Id: I0b61bacd19c3dbb7db5f27716c0aa2a1f1941d21\nCloses-bug: 1444161\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-06-08 17:27:51+00:00",
+        "files": ["init.pp", "manila_spec.rb"]
+      },
+      {
+        "hash": "9f9b269e40b588ffff77fd541a628aaaf51b8dff",
+        "msg": "Introduce public_url, internal_url and admin_url\n\nThis change deprecates the following parameters:\n- share_version (replaced by public/internal/admin_url)\n- port (replaced by public/internal/admin_url)\n- public_protocol (replaced by public_url)\n- public_address (replaced by public_url)\n- internal_protocol (replaced by internal_url)\n- internal_address (replaced by internal_url)\n- admin_protocol (replaced by admin_url)\n- admin_address (replaced by admin_url)\n\nAdd deprecation warnings if any of those values are provided\nwhile maintaining full backward compatibility.\n\nChange-Id: Ie4e96f90f9c0d47b252666cae403bc7fab4f63b7\nCloses-bug: #1274979",
+        "cmtr": "Mathieu Gagné",
+        "date": "2015-06-11 16:50:13-04:00",
+        "files": ["auth.pp", "manila_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "72bf83071a901b4719295781c3dcc4005d7974c6",
+        "msg": "Move lock_path into oslo_concurrency section\n\n[DEFAULT]/lock_path is deprecated, it has moved into [oslo_concurrency].\n\nSee more info:\n  https://github.com/openstack/manila/blob/master/etc/manila/README.manila.conf\n\nChange-Id: I1984d3b9b39ad5c66113fd19c3e5486e44f88780\nCloses-Bug: 1447889",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-06-25 15:57:27+08:00",
+        "files": ["init.pp", "manila_spec.rb"]
+      },
+      {
+        "hash": "b2fae35db5b6b1bb9d41a99cde04c657ec716681",
+        "msg": "keystone/auth: make service description configurable\n\nThis commit adds the service description as a class parameter in order to allow\nusers to update from a previous version if the service description is changed\n(incorrectly spelled or wrong description)\n\nChange-Id: I86dcdb118a229cfdf7b0cde8010eb26b71a0ab32\nCloses-Bug: #1468407",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-06-25 08:44:39+00:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "835fd75b242fefd65a491a584367e65c1f6a9d66",
+        "msg": "Add manila share manager parameters\n\nThis patch adds following parameters from manila.share.manager\nto manila::backend::generic:\n  - delete_share_server_with_last_share\n  - unmanage_remove_access_rules\n  - automatic_share_server_cleanup\n\nChange-Id: Id9b06e107d4cc3848afad0a3ddecac7c616cbe0e",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-06-25 19:05:39+08:00",
+        "files": ["generic.pp", "generic.pp", "manila_share_generic_spec.rb"]
+      },
+      {
+        "hash": "17c4e995e5509c0488a02d2f77da1258c5d8e292",
+        "msg": "Add related parameters to manila::quota\n\nThis patch is aim to following params in manila::quota:\n  - quota_snapshot_gigabytes\n  - quota_share_networks\n  - reservation_expire\n  - until_refresh\n  - max_age\n\nChange-Id: Ic28c6115a7c07554c6d333e491a2f1dd252c9520\nCloses-Bug: #1469583",
+        "cmtr": "Xiaohua Yuan",
+        "date": "2015-07-01 00:18:28-07:00",
+        "files": ["quota.pp", "manila_quota_spec.rb"]
+      },
+      {
+        "hash": "fe2430007a9700686eeb6c335b82a13bacfff09c",
+        "msg": "Add options to enable Manila to run with NFS-Ganesha backend.\n\nChange-Id: I44c3e49089fd8d5a1ee30ed84dc20944ba92461a",
+        "cmtr": "Sachidananda Urs",
+        "date": "2015-07-03 18:00:40+05:18",
+        "files": ["ganesha.pp", "basic_manila_spec.rb", "manila_ganesha_spec.rb"]
+      },
+      {
+        "hash": "6df3f3fee0fe7855d8f6b2213d8d060aeef34e93",
+        "msg": "Move rabbit/amqp_durable_queues setting to oslo_messaging_rabbit section\n\nKilo oslo-messaging deprecates rabbit/amqp_durable_queues setting in the\nDEFAULT section.\n\nMove the setting to oslo_messaging_rabbit section.\n\nChange-Id: I5a5d84e3bfa39126fe12feef03953e295e715850\nCloses-Bug: #1472847",
+        "cmtr": "Xiaohua Yuan",
+        "date": "2015-07-08 19:51:00-07:00",
+        "files": ["init.pp", "manila_spec.rb"]
+      },
+      {
+        "hash": "0811f05d12bdba1a5a39f1e62bf508f84b6fb0b3",
+        "msg": "Move qpid settings to oslo_messaging_qpid section\n\nKilo oslo-messaging deprecates qpid settings in the\nDEFAULT section.\n\nMove these settings to proper oslo_messaging_qpid section.\n\nChange-Id: I342f8e503884662139db8b8d245d14a88ca5fa96\nCloses-Bug: #1472039",
+        "cmtr": "Xiaohua Yuan",
+        "date": "2015-07-15 05:16:51-07:00",
+        "files": ["init.pp", "manila_spec.rb"]
+      },
+      {
+        "hash": "f5442428a70d6684b0907313122ef6bb8efd4c0a",
+        "msg": "Add support to configure GlusterFS drivers with Manila shares.\n\nChange-Id: Ief4f80d6dc9f49bd66a269c3560beac82a57081f",
+        "cmtr": "Sachidananda Urs",
+        "date": "2015-07-22 12:25:42+05:18",
+        "files": ["glusternative.pp", "glusternfs.pp", "params.pp", "manila_backend_glusternative_spec.rb", "manila_backend_glusternfs_spec.rb"]
+      },
+      {
+        "hash": "0ed300aecc3a529d983c043efa0af397352e3678",
+        "msg": "Add tag to package and service resources\n\nIn order to be able to take an action after all the packages of the\nmodule have been installed/updated or all the services have been\nstarted/restarted, we set a 'manila-package' and 'manila-service' tag\nfor each package and service of this module.\n\nAt the moment, there is a generic openstack tag that is not specific\nenough if one wants to take action upon a single module change.\n\nUse case :\n\nIf an action needs to be taken after all the packages have been\ninstalled or updated : Package <| tag == 'manila-package' |> -> X\n\nChange-Id: If5158088e38be1f86d81c5100f600a1fa9a24bac",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-07-22 21:28:30+02:00",
+        "files": ["api.pp", "init.pp", "scheduler.pp", "share.pp", "manila_api_spec.rb", "manila_scheduler_spec.rb", "manila_share_spec.rb"]
+      },
+      {
+        "hash": "3aa063160d02b6200599d4c2276fa3ad71017354",
+        "msg": "Add related parameters to oslo_messaging_amqp section\n\nThis patch is aim to following params in manila class:\n  - amqp_server_request_prefix\n  - amqp_broadcast_prefix\n  - amqp_group_request_prefix\n  - amqp_container_name\n  - amqp_idle_timeout\n  - amqp_trace\n  - amqp_allow_insecure_clients\n  - amqp_ssl_ca_file\n  - amqp_ssl_cert_file\n  - amqp_ssl_key_file\n  - amqp_ssl_key_password\n\nChange-Id: I54fc972b793ba0b6bbbef2c5be19319aead65916\ncloses-Bug: #1476449",
+        "cmtr": "Xiaohua Yuan",
+        "date": "2015-07-31 19:46:06-07:00",
+        "files": ["init.pp", "manila_spec.rb"]
+      },
+      {
+        "hash": "32f9ff5d28fb948bf9c0e30d1e7e9225237e26e1",
+        "msg": "api: require ::keystone::python\n\nBecause we need Keystone up and running (with its resources) before\ntrying to start Manila API service, let's require ::keystone::python in\napi.pp manifest.\nThis is how it's done in other modules (see Nova, Neutron, Swift,\nGlance, Trove, Tuskar, Gnocchi and Ceilometer).\n\nChange-Id: I1116a097aac3632397e2a05e799e9d7afa16f77d\nCloes-Bug: #1484620",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-08-13 13:43:31-04:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "734f59be829c227619d62791d3bb5fc3d6dbed9e",
+        "msg": "Rely on autorequire for config resource ordering\n\nCurrently we specify the ordering of config resources wherever it is\nnecessary based on the presence of the file it will write to, or the\npresence of the package in charge of providing the file it will write\nto\n\nThose kind of ordering can be specified directly at the resource level\nusing the autorequire mechanism. With this patch, any config resource\nwill make sure the package in charge of providing the file will be\ninstalled first.\n\nChange-Id: Id40b1ccb705699876da23f0f7324c369ecbc71a5",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-08-19 12:25:34+02:00",
+        "files": ["manila_api_paste_ini.rb", "manila_config.rb", "api.pp", "init.pp", "scheduler.pp", "share.pp", "ini_setting_spec.rb", "manila_config_spec.rb"]
+      },
+      {
+        "hash": "23862a28f21a898c4e42cef228f7864137ca372e",
+        "msg": "rabbitmq: do not manage rabbitmq service anymore\n\nrabbitmq_class was deprecated in the previous release, this patch drop it.\n\nThat means:\n\n  * we are not installing rabbitmq service anymore.\n  * rabbitmq_class parameter is deleted\n  * port, cluster_disk_nodes and enabled parameters are deprecated for\n    backward compatibility but port and cluster_disk_nodes have no effect\n    since we don't install rabbitmq anymore.\n  * unit tests are updated\n\nChange-Id: I01b1dcaeef55c2a5c07f7c2c4b0ad7433eceee7b\nCo-Authored-By: Emilien Macchi <emilien@redhat.com>",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-10-09 18:02:43+02:00",
+        "files": ["rabbitmq.pp", "manila_rabbitmq_spec.rb"]
+      },
+      {
+        "hash": "f62694fad2b618c3643f46777c9313e0da598f69",
+        "msg": "Simplify rpc_backend parameter\n\nIt is no longer necessary to specify the whole python namespace\nfor the backends, and\nhttp://docs.openstack.org/developer/oslo.messaging/opts.html lists\nthe short versions.\n\nThis patch maintains backwards compatibility with the previous\ndefault value in case it is explicitly used.\n\nChange-Id: Ie8f298c86266aec249071dc25ce2263c17e65a57",
+        "cmtr": "Javier Pena",
+        "date": "2015-10-09 18:49:11+02:00",
+        "files": ["init.pp", "manila_spec.rb"]
+      },
+      {
+        "hash": "0fa8d193d4b3ea8a6bf7ce379f6d703e01210960",
+        "msg": "Put all the logging related parameters to the logging class\n\nCurrently logging configuration is splitted in two distinct classes,\nthe init.pp and the logging.pp classes. This review aims to centralize\nall logging related parameters in a single class, the logging.pp one.\n\nThe impacted parameters are :\n\n  * use_syslog\n  * use_stderr\n  * log_facility\n  * verbose\n  * debug\n  * log_dir\n\nThis change remains backward compatible with what is currently in place.\n\nChange-Id: Ibb75be575420d49f99c9841b957e2b12cdedea41",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-10-12 14:04:27+02:00",
+        "files": ["init.pp", "logging.pp", "manila_logging_spec.rb", "manila_spec.rb"]
+      },
+      {
+        "hash": "6d52d91754a1c53825511b589c3079ddbc275050",
+        "msg": "Introduce manila::db class\n\nCurrent modules[1][2][3] implements a\n<component>::db class that is not implemented in manila.\n\nThis commit aims to apply here the same logic.\n\n[1] https://github.com/openstack/puppet-nova/blob/master/manifests/db.pp\n[2] https://github.com/openstack/puppet-designate/blob/master/manifests/db.pp\n[3] https://github.com/openstack/puppet-ceilometer/blob/master/manifests/db.pp\n\nChange-Id: I803a5eacc7a81854e2bdd715785886c0f6cfbc33",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-10-14 09:32:03+02:00",
+        "files": ["db.pp", "init.pp", "params.pp", "manila_db_spec.rb", "manila_spec.rb"]
+      },
+      {
+        "hash": "a3c0b49a512d5f0902a1e3372f04c72599d63cfd",
+        "msg": "db: Use postgresql lib class for psycopg package\n\nThis patch introduce the same design than mysql for postgresql\nby requiring dedicated lib::python class instead of declaring\na new resource package within manila module.\n\nChange-Id: I441f5ca6f9d5cbaa7705f5b72e48528dcff67f8d",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-10-20 16:37:09+02:00",
+        "files": ["db.pp", "params.pp", "manila_db_spec.rb"]
+      },
+      {
+        "hash": "e6ab8881eee1bae28a465f9ab51311eae8674f6e",
+        "msg": "Manila $::os_service_default for db and log\n\nSwitch to $::os_service_default all params in logging and db.\nChanges: logging.pp, db.pp and tests.\n\nRelated-bug: #1515273\n\nChange-Id: Idf7bc36d321328391a1b361add965c53627124a4",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2015-11-25 13:57:58+00:00",
+        "files": ["db.pp", "logging.pp", "manila_api_spec.rb", "manila_backends_spec.rb", "manila_client_spec.rb", "manila_db_mysql_spec.rb", "manila_db_postgresql_spec.rb", "manila_db_spec.rb", "manila_db_sync_spec.rb", "manila_ganesha_spec.rb", "manila_logging_spec.rb", "manila_params_spec.rb", "manila_qpid_spec.rb", "manila_rabbitmq_spec.rb", "manila_scheduler_spec.rb", "manila_share_glusterfs_spec.rb", "manila_share_spec.rb", "manila_spec.rb", "manila_backend_glusterfs_spec.rb", "manila_backend_glusternative_spec.rb", "manila_backend_glusternfs_spec.rb", "spec_helper.rb"]
+      },
+      {
+        "hash": "cf8041398f5f99eba06cf6dedc61be887595517c",
+        "msg": "enable sharev2 API capacity\n\n* With the same interface as puppet-nova and puppet-cinder, create *_v2\n  parameters.\n* Keep v1 enabled by default for backward compatibility.\n* Enable v2 by default because that's the new API since Juno release.\n\nChange-Id: I81a5c6696708732a0de34225200f1242e988d0aa\nCloses-Bug: #1512577",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-11-26 08:37:36+00:00",
+        "files": ["auth.pp", "basic_manila_spec.rb", "manila_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "5cd02fea7867db2519822ac3c0f71a600cd8901d",
+        "msg": "Remove qpid messaging support\n\nQpid messaging driver is removed from Oslo.messaging [1]\nTherefore, we cannot support it anymore.\n\n[1] I4a9cba314c4a2f24307504fa7b5427424268b114\n\nChange-Id: I65ccf6feeaad548c8f11660318c20499ef3602ac",
+        "cmtr": "Denis Egorenko",
+        "date": "2015-12-07 20:36:08+03:00",
+        "files": ["init.pp", "qpid.pp", "manila_qpid_spec.rb", "manila_spec.rb"]
+      },
+      {
+        "hash": "b3667a28e570e3889bb5a8a3859808dd3ca88f30",
+        "msg": "Support of PyMySQL driver for MySQL backend\n\nAdd the ability to use python-pymysql library as backend for MySQL\nconnections.\n\nUpdate acceptance tests to use pyMySQL.\n\nChange-Id: Ia47aa99ade73ae63da0e00e32a4f87cefaaa9bda\nDocs: https://wiki.openstack.org/wiki/PyMySQL_evaluation",
+        "cmtr": "Javier Pena",
+        "date": "2015-12-09 10:14:59+01:00",
+        "files": ["db.pp", "params.pp", "basic_manila_spec.rb", "manila_db_spec.rb", "manila_spec.rb"]
+      },
+      {
+        "hash": "a66da349ea6a01c0dc53f961525e9a07d41224ba",
+        "msg": "Add rabbit_ha_queues option\n\nThere are two ways for setting up RabbitMQ HA:\n\n 1. Configure rabbit_hosts to multi rabbit hosts.\n 2. Setting up a loadbalancer in front of RabbitMQ cluster,\n    provide a unique address in rabbit_host\n\nIn current, rabbit_ha_queues option is controled by rabbit_hosts if\nconditional statement. But when users try to use the second method:\nchanging rabbit_ha_queues to true, but they don't use rabbit_hosts\noption, then this logic will not work.\n\nThis patch adds an rabbit_ha_queues option, set it to undef by\ndefault for forward compatbility.\n\nChange-Id: Ie849085fbbd9e1478e28945ea213ac4eb7b4afdb\nClose-Bug: #1485287",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-12-15 15:51:25+08:00",
+        "files": ["init.pp", "manila_spec.rb"]
+      },
+      {
+        "hash": "a733d3cc15532f349f2aca6daadae98df0be27f4",
+        "msg": "fix type definition on liberty\n\nCloses-Bug: #1543437\n\nChange-Id: If68bb0a9f0685449506c22ee067fd85ff02e1144",
+        "cmtr": "Marcus Furlong",
+        "date": "2016-02-10 21:57:17+11:00",
+        "files": ["type.pp", "type_set.pp", "manila_type_set_spec.rb", "manila_type_spec.rb"]
+      },
+      {
+        "hash": "8687450542b4cc993b066876485f517a7bb2b7f6",
+        "msg": "remove POSIX users, groups and file modes\n\nChange-Id: I782c5e428f9234bd0fff6cb3af217f051944fd7f\nCloses-Bug: #1458915",
+        "cmtr": "ZhongShengping",
+        "date": "2016-02-16 10:14:04+08:00",
+        "files": ["init.pp", "manila_spec.rb"]
+      },
+      {
+        "hash": "91167074beb903d94154d0a4bfe7e98653e95d62",
+        "msg": "Fix typos\n\nThis patch fixes several typos.\n\nTrivialFix\n\nChange-Id: I924aac9c56e842bf447d28f45a9ac5bdcf8b870a",
+        "cmtr": "daiki kato",
+        "date": "2016-03-18 12:00:50+09:00",
+        "files": ["backends.pp", "nova.pp", "init.pp", "manila_logging_spec.rb"]
+      },
+      {
+        "hash": "5f9176a00eef84358cb561d5c00f16975afe1410",
+        "msg": "Deprecate managing of rabbitmq resources\n\nWe stopped to manage rabbitmq resources from openstack puppet\nmodules a long time ago, but manila module still contains\nrabbitmq class for its managing. This patch deprecates it.\n\nChange-Id: Ica717e76374359f8eb3a4e2f0c06fff48fd05b2d",
+        "cmtr": "Trevor McCasland",
+        "date": "2016-04-14 11:16:34-05:00",
+        "files": ["rabbitmq.pp", "deprecate_managing_rabbit_resources-4e72b17c47efacb1.yaml"]
+      },
+      {
+        "hash": "db45910bde51a8b5a4ee4c1660c02dbbc0073a7d",
+        "msg": "Totally drop Qpid support\n\nQpid was removed in Mitaka from Oslo Messaging, so now we can\ndrop it in manifests.\n\nChange-Id: I354d192f6ae16ade0f7b991541896e5819b8168c",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-04-18 14:02:43+03:00",
+        "files": ["init.pp", "logging.pp", "qpid.pp", "metadata.json", "drop_qpid-6f04f70e84cc0711.yaml", "manila_logging_spec.rb"]
+      },
+      {
+        "hash": "29b678861f20f5001843bc06cf67d0274521f44b",
+        "msg": "Add support for db_max_retries param\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: I62a8ae71d3f041020596f844ea93e06136e31448\nCloses-Bug: 1579718",
+        "cmtr": "nanhai.liao",
+        "date": "2016-05-16 21:45:29+08:00",
+        "files": ["db.pp", "add_db_max_retries-0rt56db43fderty6.yaml", "manila_db_spec.rb"]
+      },
+      {
+        "hash": "45b2984732752d579b7b81b9c07019df02990757",
+        "msg": "Switch manila to oslo\n\nThe messaging and logging options are configured\nusing puppet oslo module.\n\nAdditional changes:\n\n* add dependencies and version of oslo package in\n  metadata.json file\n* add a release note for switching manila to use\n  puppet oslo module\n* update related unit test\n* switch messaging parameters to os service default\n\nChange-Id: I5e5141b3eb277ca7faf7cc26e15c8bc04fd31901",
+        "cmtr": "ZhongShengping",
+        "date": "2016-05-17 14:38:27+08:00",
+        "files": ["init.pp", "logging.pp", "metadata.json", "switch_to_oslo-d134ad3134697ef2.yaml", "manila_spec.rb"]
+      },
+      {
+        "hash": "472d4db4ce281c6fd24013e79428cf39640f3f99",
+        "msg": "Remove useless parameters\n\nSwitch db related parameters to oslo, the pymysql_package_name\nand sqlite_package_name parmaters are useless, so delete them.\n\nChange-Id: I687fb9b9edcaec4e11518a5c96f76bb588a5ab41",
+        "cmtr": "ZhongShengping",
+        "date": "2016-05-19 09:06:29+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "a7fb105c8a606aa73ee38d73b063bb41e9aa1a6a",
+        "msg": "Deprecate verbose option in logging\n\nOption \"verbose\" from group \"DEFAULT\" is deprecated for removal.\nThe parameter has no effect.\n-Deprecated verbose for logging and init\n-Remove verbose in README Remove verbose from tests.\n\nIf this option is not set explicitly, there is no such warning.\n\nChange-Id: I2e769bf5de97552dcd361d0c01011d39eee960d9",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-05-19 00:17:29-03:00",
+        "files": ["README.md", "init.pp", "logging.pp", "verbose-deprecation-2a79546d0949ec91.yaml", "basic_manila_spec.rb", "manila_logging_spec.rb", "manila_spec.rb"]
+      },
+      {
+        "hash": "9bc8e9fbcbff5f5202d41bcdd09b3b61876e1943",
+        "msg": "Add SASL and username oslo.messaging amqp parameters\n\nThis patch:\n* use oslo::messaging::amqp resource\n* add remaining amqp parameters\n* update spec test\n* add releast note\n\nChange-Id: I6e3fb79e6c63b2c68e79ddefb169ba1341f765ff",
+        "cmtr": "Andrew Smith",
+        "date": "2016-05-19 13:32:06-04:00",
+        "files": ["init.pp", "add_oslo_amqp_parameters-aeceadad34451e8a.yaml", "manila_spec.rb"]
+      },
+      {
+        "hash": "b64b13cc7cc5b64b968952d856d711e4cb98c8a7",
+        "msg": "Deprecate use_syslog\n\n[DEFAULT/use_syslog] was deprecated in Mitaka [1]\ndeprecate use_syslog, add warning, remove reference tests\n\n[1]\nhttp://docs.openstack.org/mitaka/config-reference/tables/conf-changes/manila.html\n\nChange-Id: I1aa1a8658c395a79bbb00071b18c3ff3c71e942c",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-05-28 15:01:15-03:00",
+        "files": ["init.pp", "logging.pp", "use_syslog-7e6b4391602b74fa.yaml", "manila_logging_spec.rb"]
+      },
+      {
+        "hash": "e95a95324ceb6d32b1c4a860328cc991da7dba4c",
+        "msg": "Revert \"Deprecate use_syslog\"\n\nThis option is not deprecated and still actual.\n\nThis reverts commit b64b13cc7cc5b64b968952d856d711e4cb98c8a7.\n\nChange-Id: If64b0e1fe22f636e12a9ff842e04af0001af8137",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-05-31 13:39:49+00:00",
+        "files": ["init.pp", "logging.pp", "use_syslog-7e6b4391602b74fa.yaml", "manila_logging_spec.rb"]
+      },
+      {
+        "hash": "68494cfa06aca3b6d2aa092d4c1a1d88ba88b9b4",
+        "msg": "Add transport_url parameters for oslo.messaging\n\nThis commit adds the transport_url parameters for oslo.messaging. The\nurl is of the form:\n\n  transport://user:pass@host1:port[,hostN:portN]/virtual_host\n\nWhere the transport scheme specifies the rpc or notification backend\nas one of rabbit, amqp, zmq, etc. Oslo.messaging is deprecating the\nhost, port, and auth configuration options [1]. All drivers will get\nthese options via the transport_url.\n\nThis patch:\n* use oslo::messaging::default resource\n* use oslo::messaging::notifications resource\n* add parameters for transport_url(s)\n* update spec tests\n* add feature release note\n\n[1] https://review.openstack.org/#/c/317285/\n\nChange-Id: I6f58a4da46a44ec20b256f08108b3b045f1c55ee",
+        "cmtr": "Andrew Smith",
+        "date": "2016-05-31 16:43:56-04:00",
+        "files": ["init.pp", "add_transport_url_parameters-675ef5f76fc5e8d2.yaml", "manila_spec.rb"]
+      },
+      {
+        "hash": "3b4d5707a4d24799ffb3db63b5c463908111c093",
+        "msg": "Remove deprecated keystone::auth options\n\nChange-Id: I442a7f76e28baaaa44e4197afae0460df46a99e8",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-06-03 01:36:54-03:00",
+        "files": ["auth.pp", "remove_deprecated_keystone_auth_options-24de43e2bff17004.yaml", "manila_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "e790517f7619267e2014f7d8af107f4d6692d9f6",
+        "msg": "Add purge_config option\n\nAdd the option in order to facilitate management.\nUser can ensure that only the options they hoped\nare configured.\n\nChange-Id: Id7c8b169b8bbb41a85b202ed9e2e97da18a368d2",
+        "cmtr": "ZhongShengping",
+        "date": "2016-06-08 11:07:10+08:00",
+        "files": ["init.pp", "manila_spec.rb"]
+      },
+      {
+        "hash": "4b9b42d80025e1fd60253929a224c294e094f062",
+        "msg": "Provide default service_name for keystone endpoint\n\nThis change updates the manila::keystone::auth class to include a default\nservice_name of 'manila' so that if a user changes the auth_name, the\nservice is still created as being related to 'manila'.  This improves the\nuser experiance when they want to customize the usernames for services.\n\nChange-Id: I8c6240473213b107de862edf359834b5494e9f74\nCloses-Bug: #1590040",
+        "cmtr": "ZhongShengping",
+        "date": "2016-06-20 23:51:43+08:00",
+        "files": ["auth.pp", "keystone-auth-name-c4651935ac341481.yaml", "manila_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "4cad04906bcbc5d10edd90f9116057e509d10167",
+        "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: Ib474afea23ccaf254f9aed54cb21d2c1a1442cf9\nRelated-Bug: 1599113",
+        "cmtr": "Athlan-Guyot sofer",
+        "date": "2016-07-08 08:57:03+00:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "b56df2a8a5e89537d3469f5f91a357597a3e9850",
+        "msg": "Don't always try to create the service image.\n\nThis patch makes it possible to create a service_instance resource\nwithout also attempting to upload the image to glance.\n\nThis is required because the glance_image resource must be run on the\nsame host as the glance api service, meaning that it will fail when\ntrying to create a stand alone manila host.\n\nDefaults to true in order to retain backwards compatibility.\n\nChange-Id: Id863272652db2b01e8d86b94cfd417fa78f7ea1b",
+        "cmtr": "Simon Fowler",
+        "date": "2016-07-18 21:10:40+10:00",
+        "files": ["service_instance.pp", "manila_service_instance_spec.rb"]
+      },
+      {
+        "hash": "a9fffcb0df1b9f9220a746e6929a41d20ec44684",
+        "msg": "Fix share_helpers default value.\n\nManila commit 401c8d982e8b6a95f01784cf647a7ac16513d61a moved the share helpers\ninto a separate module and changed the name of the CIFSHelper. This\nchange set updates the defaults used by puppet to match the new helper\nmodule names.\n\nChange-Id: I66b73858512ee5aed416aae840946f26c4cdc223",
+        "cmtr": "Simon Fowler",
+        "date": "2016-07-20 15:20:18+10:00",
+        "files": ["generic.pp", "generic.pp", "manila_share_generic_spec.rb", "manila_backend_generic_spec.rb"]
+      },
+      {
+        "hash": "bb1c4d36dd41c05bab213ebd65caa7d7ce93163e",
+        "msg": "Make enable_proxy_headers parsing configurable\n\nThis is needed if you deploy manila behind a TLS proxy.\n\nChange-Id: I49b7abb370188bcadb4b1f2fc3e4c4011c8942ca\nDepends-On: Id33a0f7eeb8ced77d09f9edd6b1d65697d8bcfe7",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2016-07-20 15:17:55+03:00",
+        "files": ["api.pp", "manila_api_spec.rb"]
+      },
+      {
+        "hash": "963c013a39b3fe790b384688087e94dff7755bab",
+        "msg": "Make an automated db sync conditional.\n\nAs per other OpenStack puppet modules enable the user to disable the\nautomated db sync, separate from the choice whether to enable or disable\nthe api service.\n\nChange-Id: Id3c9d2e1e48d3c515dab73c8eac220cfe826a880",
+        "cmtr": "Simon Fowler",
+        "date": "2016-07-21 20:59:01+10:00",
+        "files": ["api.pp", "sync.pp", "manila_api_spec.rb"]
+      },
+      {
+        "hash": "a33e4337be164829faac15932ab082b99028e1ed",
+        "msg": "Add authtoken class\n\nAdd authtoken class like we do in all other modules, to configure\n[keystone_authtoken] section.\n\ndeprecations:\n- manila::api::keystone_user is deprecated in favor of\nmanila::keystone::authtoken::username\n- manila::api::keystone_tenant is deprecated in favor of\nmanila::keystone::authtoken::project_name\n- manila::api::keystone_password is deprecated in favor of\nmanila::keystone::authtoken::password\n- manila::api::keystone_auth_uri is deprecated in favor of\nmanila::keystone::authtoken::auth_uri\n- manila::api::keystone_auth_admin_prefix is deprecated and will be removed\nin a future release\n- manila::api::keystone_auth_host is deprecated and will be removed\nin a future release\n- manila::api::keystone_auth_port is deprecated and will be removed\nin a future release\n\nChange-Id: I3b124eb1d8c5d4e21811d0ec11c2e92f4088a90c\nCloses-Bug: #1604463",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-08-15 11:18:27-03:00",
+        "files": ["api.pp", "authtoken.pp", "authtoken-4c9708f4e3b9605d.yaml", "basic_manila_spec.rb", "manila_api_spec.rb", "manila_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "2a13d46a43b0719e13af41914a92fb14f5ac9634",
+        "msg": "Add CephFSNative driver logic\n\nAdds the manifest for CephFSNative driver.\n\nChange-Id: Ie97b1eb5fbb96417310fbfeb83bca67a96a01881",
+        "cmtr": "Erno Kuvaja",
+        "date": "2016-08-18 10:40:19+01:00",
+        "files": ["api.pp", "cephfsnative.pp", "add-cephfsnative-3126f053d9618a3d.yaml", "manila_api_spec.rb", "manila_backend_cephfsnative_spec.rb"]
+      },
+      {
+        "hash": "e75661405676529a094969a7bfc98a8b0219d975",
+        "msg": "Tag manilaclient package with 'openstack' to inherit openstacklib defaults\n\nThe openstacklib defaults provides an \"allow_virtual\" parameter in\norder for Puppet to pick up virtual packages through yum.\nThe real package name is \"python2-manilaclient\" but since allow_virtual\nis not enabled, installing python-manilaclient doesn't work through\npuppet.\n\nChange-Id: Ie86e00abbdc0b50433d6cd9fd90fc872af5ac768",
+        "cmtr": "David Moreau-Simard",
+        "date": "2016-08-26 13:26:48-04:00",
+        "files": ["client.pp", "manila_client_spec.rb"]
+      },
+      {
+        "hash": "634720c573b1615d922bfb258076289d112da6a0",
+        "msg": "Add more info for deprecated parameters documentation.\n\nSome parameters where missing their equivalent for\nmanila::keystone::authtoken in the documentation section.\n\nChange-Id: I0d7f7757e9de6b9c89c95d7a51c82556629189c6",
+        "cmtr": "Ivan Chavero",
+        "date": "2016-08-30 10:30:00-06:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "1c31c4b33b1b9b7fbe8e0fdcc72dd3a48988b4e6",
+        "msg": "Remove verbose\n\nSince we are in Ocata we should remove the\nverbose option that was deprecated\n\nChange-Id: Ib513949f7d6fd627cc3a128e845f1135e67db14f",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-09-27 20:22:57-03:00",
+        "files": ["init.pp", "logging.pp", "remove_verbose-13ab0dedad9cad36.yaml"]
+      },
+      {
+        "hash": "71619fbfc17540a641ca8f1d793607bfbc1350ab",
+        "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: I64e011820591796168cafa4e0a93d5e2157ce445\nCloses-Bug: #1628580",
+        "cmtr": "Sharat Sharma",
+        "date": "2016-09-29 12:25:38+05:18",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "010ff086e4447eaa4d8a4e5b6593449534f88291",
+        "msg": "Fix documentation for log_dir parameter\n\nChange-Id: Iefd3f0e0138ceb73e299bd55fb22ad2f4ab4caa2\nPartial-Bug: #1600294",
+        "cmtr": "Mykyta Karpin",
+        "date": "2016-10-10 18:16:52+03:00",
+        "files": ["init.pp", "logging.pp", "fix_log_dir_documentation-fec12bba690f7ac9.yaml"]
+      },
+      {
+        "hash": "5b720d66d6c4bd3069cba8436b2d9e2952b09f2a",
+        "msg": "Manila hooks support\n\nThis code moves all deps to an external class so that Manila can be\ninstalled with mechanisms besides packages (like venv or docker). This\nalso cleans-up the dependency tree by removing false or confusing\ndependencies.\n\nChange-Id: I053dbef10d51664d99e633abb714b3520a681e96",
+        "cmtr": "cdelatte",
+        "date": "2016-10-28 11:29:34+02:00",
+        "files": ["manila_api_paste_ini.rb", "manila_config.rb", "api.pp", "cephfsnative.pp", "generic.pp", "glusterfs.pp", "glusternative.pp", "glusternfs.pp", "netapp.pp", "backends.pp", "client.pp", "config.pp", "db.pp", "deps.pp", "ganesha.pp", "init.pp", "logging.pp", "params.pp", "quota.pp", "rabbitmq.pp", "scheduler.pp", "service_instance.pp", "share.pp", "type.pp", "type_set.pp", "external_hooks_support-1d50aedc98ae3509.yaml", "manila_client_spec.rb", "manila_scheduler_spec.rb", "manila_type_set_spec.rb", "manila_api_paste_ini_spec.rb", "manila_config_spec.rb"]
+      },
+      {
+        "hash": "116f08855935c5c2b15e7c3cdb0334a2f0d74275",
+        "msg": "Remove old authtoken options\n\nSince we are in ocata lets remove all old parameters in api\nto configure the keystone_authtoken section\n\nChange-Id: Ie6c09e8d31c93f9fe2df0dad010f768e2498d1a2",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-11-06 14:07:49-03:00",
+        "files": ["api.pp", "authtoken.pp", "remove_old_authtoken_options-dc165736e2e8f177.yaml", "manila_api_spec.rb"]
+      },
+      {
+        "hash": "9c77159ce611fe775d058f777bfbcda33e54d14b",
+        "msg": "Deprecate rabbitmq connection parameters\n\nThe rabbitmq connection parameters have been deprecated in favor of the\ntransport_url setting.\n\nChange-Id: I528e7db15803388f8799b6e188569354cf93fc8a\nRelated-Bug: #1625198",
+        "cmtr": "Alex Schultz",
+        "date": "2016-11-09 14:58:58-07:00",
+        "files": ["init.pp", "rabbit-connection-params-deprecation-2a546f72e4fe090d.yaml", "basic_manila_spec.rb"]
+      },
+      {
+        "hash": "1c374835c1d4ebed4730ba0dac4a4c7a1d4ccf8a",
+        "msg": "Fix common options position and remove unused parameters\n\nSome parameters are common for both systems,\nthey could be moved out from 'case'.\nSome parameters have not been used, so reomve them.\n\nChange-Id: I100720a4dc6e6f8b9c8e2322fc58d7646e39b8d6",
+        "cmtr": "ZhongShengping",
+        "date": "2016-11-10 08:32:31+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "73c3b42a5cfceb709554c796897b613a75daa04d",
+        "msg": "Fix the annotation\n\nChange-Id: Id626dc7ed06b8b1492793805bfe034fdcf5bc981",
+        "cmtr": "ZhongShengping",
+        "date": "2016-11-29 11:58:14+08:00",
+        "files": ["nova.pp", "cinder.pp"]
+      },
+      {
+        "hash": "b4640fbc9d420c417a9aa4e85027ffa50f119619",
+        "msg": "Fix duplicate declaration between manila/tripleO\n\nThere is a outside case where a user may use triple-O to stand up a\ncontrol node that has manila, cinder, and an nfs server.  This causes\na duplicate declaration of Package[nfs-utils].\n\naddresses bug: https://bugzilla.redhat.com/show_bug.cgi?id=1400557\n\nChange-Id: Ie89331396285a181f21a4d55715fd522965bd142",
+        "cmtr": "cdelatte",
+        "date": "2016-12-08 14:45:28-05:00",
+        "files": ["netapp.pp"]
+      },
+      {
+        "hash": "4c6eb6ad9a95cfb2ca81f3dae88c0cc2e5b9f8ba",
+        "msg": "Deprecate signing_dir option\n\nThe signing_dir is deprecated for removel because of PKI token format\nis no longer supported.\nUpdate warning message and release note.\n\nChange-Id: Ib747adfa6b49b8b57f53ffaf374618cf3c5b32db\nCloses-Bug: #1652700",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-28 14:14:53+08:00",
+        "files": ["authtoken.pp", "deprecate_signing_dir_parameter-3491335a3f8135ef.yaml", "manila_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "dd1528f65a9ab551a9e6530321f196ed6292789b",
+        "msg": "Allow setting default_share_type config option\n\nThis config option is needed for setting up default\nshare type. Note that setting this option does not\ncreate the share type itself (this still has to be\ndone manually and will be addressed in a future patch).\n\nPartial-Bug: #1654204\nChange-Id: Ic58fadccd6dd8fb824b941e0c591d05bd5f731f2",
+        "cmtr": "Jan Provaznik",
+        "date": "2017-01-09 08:27:35+01:00",
+        "files": ["api.pp", "manila_api_spec.rb"]
+      },
+      {
+        "hash": "5bd17207d5cc0d05dea1631f221b76c6fb2db089",
+        "msg": "Add support to configure Hitachi NAS Platform driver with Manila shares.\n\nChange-Id: I56c87e9b91cebcfc7c95976fb613a1c57f6569e1",
+        "cmtr": "Mauricio Lima",
+        "date": "2017-01-10 10:50:13-03:00",
+        "files": ["hitachi_hnas.pp", "hitachi_hnas.pp", "add-hitachihnas-3925789fa9c30ab5.yaml", "manila_share_hitachi_hnas_spec.rb", "manila_backend_hitachi_hnas_spec.rb"]
+      },
+      {
+        "hash": "a1d96a7753641ac2cc530501747c6c5c0155c42e",
+        "msg": "Allow python-memcache install from authtoken class\n\nThe python-memcache package is required if using memcached. By\ndefault the package is not installed and the define has it set to\nfalse. This change allows managing the python-memcache package\ninstall from the authtoken class.\n\nChange-Id: I2ea7122e71d41a5b8e82ac4361464dbe0e559a36",
+        "cmtr": "Matthew J. Black",
+        "date": "2017-01-11 18:15:02-05:00",
+        "files": ["authtoken.pp", "authtoken_manage_memcache_package-4b61e2686c38d698.yaml", "manila_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "d8a73b14a9e459a591490a193c60cc20de82ec45",
+        "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should be\ninstalled before dbsync starts.\n\nChange-Id: Ibd972deda629d52ef00a02504157d438f29bc177",
+        "cmtr": "ZhongShengping",
+        "date": "2017-01-22 21:46:11+08:00",
+        "files": ["deps.pp"]
+      },
+      {
+        "hash": "82d86edccbcd5a045dc61b0a14603238ac4b7e19",
+        "msg": "Add rpc_response_timeout option\n\nAdd rpc_response_timeout to configure seconds time for waiting\nfor a response from a call.\n\nChange-Id: Ica730b0b857b81a9c05463ca048cc4f0cc05e2c8",
+        "cmtr": "ZhongShengping",
+        "date": "2017-02-06 14:06:18+08:00",
+        "files": ["init.pp", "add_messaging_default_parameters-3a3498137813a8d6.yaml", "manila_init_spec.rb"]
+      },
+      {
+        "hash": "afb36bf81c979dccdc1bb7fc7363988e08d56c20",
+        "msg": "Add notification_topics options\n\nAdd notification_topics to configure AMQP topic used for OpenStack\nnotifications.\n\nChange-Id: Ia725d7ce0ce9ab7c47e2a68906777996bc4ba4d6",
+        "cmtr": "ZhongShengping",
+        "date": "2017-03-01 11:11:15+08:00",
+        "files": ["init.pp", "add_messaging_notification_parameters-71a4983f237e3199.yaml", "manila_init_spec.rb"]
+      },
+      {
+        "hash": "10fcc319555fe998e4a9372adea9c11010073d7a",
+        "msg": "Add service workers API config option\n\nAdd a service_workers config option to set the number of Manila API\nprocesses. By default, the value is set to ::os_workers.\n\nChange-Id: I6c5a843b0ef84aecd1262613551a4b4ea933a0ab",
+        "cmtr": "Arne Wiebalck",
+        "date": "2017-03-06 19:10:02+01:00",
+        "files": ["api.pp", "add_service_workers_option-1c0728975b024eac.yaml", "manila_api_spec.rb"]
+      },
+      {
+        "hash": "8529eaa97d1fc640c42cd55ac3954a2125840f77",
+        "msg": "Password should be secured\n\nChange-Id: Iee879506b769294639b80a1ba64e93ae3a37ae0a\nCloses-Bug: #1676708",
+        "cmtr": "ZhongShengping",
+        "date": "2017-03-29 08:49:42+08:00",
+        "files": ["netapp.pp", "nova.pp", "neutron.pp", "hitachi_hnas.pp", "netapp.pp", "cinder.pp", "manila_share_hitachi_hnas_spec.rb"]
+      },
+      {
+        "hash": "58a729465633c1bb58df738bb4d9d9c2169e03be",
+        "msg": "Add deps to all that is needed\n\nChange-Id: If0e939e567f179e95201c538446ae0c4d180fab8",
+        "cmtr": "ZhongShengping",
+        "date": "2017-04-18 11:24:14+08:00",
+        "files": ["mysql.pp", "postgresql.pp", "sync.pp", "manila_db_sync_spec.rb"]
+      },
+      {
+        "hash": "97e89fc14741f824128ead481024d523018e5277",
+        "msg": "Add cephfs class and deprecate cephfsnative class\n\nManila cephfsnative driver was renamed to cephfs driver and\nsupports both direct cephfs access or through ganesha-nfs server.\nThis patch deprecates the older cephfsnative class and adds\ncephfs class which is compatible with current manila cephfs driver.\n\nChange-Id: I1bf6ead3b6290ebf927bacb21e57f2897ce34605\nRelated-To: bp cephfs-nfs-support",
+        "cmtr": "Jan Provaznik",
+        "date": "2017-06-16 09:42:21+02:00",
+        "files": ["cephfs.pp", "cephfsnative.pp", "deprecate-cephfsnative-add-cephfs-8ea802ec233c7618.yaml", "manila_backend_cephfs_spec.rb"]
+      },
+      {
+        "hash": "402b1dc1f3a6927ce0a18abcbaf0ce9ab5bc1b18",
+        "msg": "Remove deprecated keystone authtoken signing_dir option\n\nChange-Id: I55d918f409b316decb2cf65ec38cfa8fbc7d1248",
+        "cmtr": "ZhongShengping",
+        "date": "2017-07-07 09:59:31+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_signing_dir_option-a2cbd7fdd9f8fa19.yaml"]
+      },
+      {
+        "hash": "a981c38c160362ab7f1079e8e08c2dbe2b1e90ca",
+        "msg": "Fix dependency references\n\nWith the deps migration, we left some of the dependency references in\nplace which was previously ignored by puppet unit tests. The latest\nversion of puppet now reports these as catalog failures so this change\nremoves the unnecessary Package and Service references since those are\nalready handled by manila::deps and fixes the invalid anchor reference\nfor the manila::type and manila::type_set resources.\n\nChange-Id: Ie4dc0ae559e8f9bc9657fa6ed8ecf53ccda7852d\nCloses-Bug: #1702964",
+        "cmtr": "Alex Schultz",
+        "date": "2017-07-07 15:20:47-06:00",
+        "files": ["api.pp", "type.pp", "type_set.pp", "manila_type_set_spec.rb", "manila_type_spec.rb"]
+      },
+      {
+        "hash": "38e5a1914f4c84c077a282bb5ee020c1238f7383",
+        "msg": "Fix lint issues to upgrade to puppet-lint 2.3\n\n2017-07-20 14:36:24.858199 | manifests/type.pp:77:WARNING: arrow should be on the right operand's line\n\nChange-Id: I2636acbb7d320a24924f11322df6b3dcbd5a04a1",
+        "cmtr": "Carlos Camacho",
+        "date": "2017-07-21 17:28:19+02:00",
+        "files": ["type.pp"]
+      },
+      {
+        "hash": "03caee7a99ae674265efba3f5ca67460df56a2bc",
+        "msg": "Add support for Dell EMC Isilon backend\n\nThis change adds a new define for manila::backend::dellemc_isilon,\nallowing users to create multiple backend definitions within their puppet\nmanifests for use with Manila.\n\nChange-Id: Iad810afb8ce0f42ee0ab200557483db4f0cff912\nCloses-Bug: #1705330",
+        "cmtr": "rajinir",
+        "date": "2017-07-24 10:49:24-05:00",
+        "files": ["dellemc_isilon.pp", "isilon-driver-1409cf7661e3438.yaml", "manila_backend_dellemc_isilon_spec.rb"]
+      },
+      {
+        "hash": "c1c6e24b0f179830da4dc0aa625ea70309457529",
+        "msg": "Add support for Dell EMC VMAX backend\n\nThis change adds a new define for manila::backend::dellemc_vmax,\nallowing users to create multiple backend definitions within their puppet\nmanifests for use with Manila.\n\nChange-Id: I0a6dc8f5895dfa9ab8dbca71bd4c9efe99ade3dc\nCloses-Bug: #1706105",
+        "cmtr": "rajinir",
+        "date": "2017-07-24 14:04:04-05:00",
+        "files": ["dellemc_vmax.pp", "vmax_driver_76239462709d11e7.yaml", "manila_backend_dellemc_vmax_spec.rb"]
+      },
+      {
+        "hash": "86e791329492768eddee31d0257da7772015fa72",
+        "msg": "Add support for Dell EMC VNX backend\n\nThis change adds a new define for manila::backend::dellemc_vnx,\nallowing users to create multiple backend definitions within their puppet\nmanifests for use with Manila.\n\nChange-Id: I388ed5f9182fe1c595ef992b1aea0f466724916f\nCloses-Bug: #1706104",
+        "cmtr": "rajinir",
+        "date": "2017-07-24 14:06:25-05:00",
+        "files": ["dellemc_vnx.pp", "vnx_driver_67236f6670a011e7.yaml", "manila_backend_dellemc_vnx_spec.rb"]
+      },
+      {
+        "hash": "2c3e830b73bdaf1a7e8c72a6896ab9da67416b15",
+        "msg": "Add support for Dell EMC Unity backend\n\nThis change adds a new define for manila::backend::dellemc_unity,\nallowing users to create multiple backend definitions within their puppet\nmanifests for use with Manila.\n\nChange-Id: I72d5361e20969ad3f4393dd7e93d9c6386681331\nCloses-Bug: #1705331",
+        "cmtr": "rajinir",
+        "date": "2017-07-24 14:08:10-05:00",
+        "files": ["dellemc_unity.pp", "unity_driver_b1c2e3ec708e11e7.yaml", "manila_backend_dellemc_unity_spec.rb"]
+      },
+      {
+        "hash": "a2ec2cbf0b4d3ed63810ca68c0e0a9a4ebd175a4",
+        "msg": "Deprecate oslo.messaging rpc_backend option parameter\n\nOslo.messaging uses the transport_url to represent the rpc and\nnotification messaging driver to use and its full configuration. The\nrpc_backend configuration option is deprecated for removal and\nshould not gate oslo.messaging driver configuration options.\n\nThis patch:\n* deprecate rpc_backend\n* remove conditional check\n* update spec tests\n* add release note\n\nChange-Id: Ia8f531ebb4a33ae1a5f73e212d06be1e41a6ead5\nCloses-Bug: #1708976",
+        "cmtr": "ZhongShengping",
+        "date": "2017-08-07 14:06:05+08:00",
+        "files": ["init.pp", "deprecate_rpc_backend_parameter-2aed9dd1387a910f.yaml", "manila_init_spec.rb"]
+      },
+      {
+        "hash": "6ee1fc25f5e552b97c22bd8aeae05b4824f2b152",
+        "msg": "Add \"host\" parameter for manila.conf\n\nThis parameter \"names\" the node but can be an opaque identifier\nthat is not necessarily a host name, FQDN, or IP address.  The\nsame \"host\" may be used for multiple nodes in an HA cluster.\n\nChange-Id: Ie31f2d5ccf458f5fcfe8bec5f2c37f45070cfde2\nPartial-Bug: #1712842",
+        "cmtr": "Tom Barron",
+        "date": "2017-08-24 12:26:15-04:00",
+        "files": ["init.pp", "add_host_parameter-1a16fb834cc3ff98.yaml", "manila_init_spec.rb"]
+      },
+      {
+        "hash": "da6e9b2707b9d905bc3cc1c2b4afd32b5f1d6da8",
+        "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: Icbefecf43d25248a6d647ff853ad1df3822c667c\nCloses-Bug: #1717144",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-14 11:41:25+08:00",
+        "files": ["authtoken.pp", "deprecate_revocation_cache_time_parameter-364888537fa13493.yaml", "manila_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "047e7707a491ad510ff132a82269b6e559caf7f2",
+        "msg": "Remove useless variables in params.pp\n\nChange-Id: I7272b01e5292f280c95860cc343ae5f9ff1127b4",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-18 15:09:50+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "04f0ebf30a6d4ff383489362707f33ea6a82aca0",
+        "msg": "Add deps to all that is needed\n\nChange-Id: I68b2c5d4485987211603991470a328f0cc82638f",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-21 09:15:25+08:00",
+        "files": ["nova.pp", "auth.pp", "authtoken.pp", "cinder.pp"]
+      },
+      {
+        "hash": "773c72ea00fa8eb48a4e697eb3915aeaafe16fd1",
+        "msg": "Accept empty strings for log_dir\n\nAn empty string is an acceptable value of this entry, and it forces\nlogging to stdout/stderr, which is useful when running on containers.\n\nChange-Id: Idbe00cc844f9d1d088d5b55c9c0cf76647de10ab",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-10-06 13:00:17+03:00",
+        "files": ["logging.pp"]
+      },
+      {
+        "hash": "40368e08896a1f4ffbb14fd18130b3d2cf562e35",
+        "msg": "Configure *_domain_name to Default by default\n\nKeystone v2.0 API was removed so we have no choice but configuring\nuser_domain_name and project_domain_name otherwise it fallbacks to\nKeystone v2.0 and it fails. This patch sets the default value so we make\nsure Keystone v3 will be used out of the box for our users.\n\nChange-Id: I14f08ef757a9dff2e376665f55554250a7fa89ba",
+        "cmtr": "Harry Rybacki",
+        "date": "2017-10-06 10:34:29-04:00",
+        "files": ["authtoken.pp", "default-domain-58d9ea68fa468e75.yaml", "manila_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "5955b37b9b640e6ffdd7d4f4fa20677187b26ad7",
+        "msg": "Deprecate service_instance_network_helper_type\n\nparameter.  It was removed from manila proper in Ocata when\nnova network support was removed [1].\n\n[1] I846b760fa7c01f7f86768399a2bfad9ced7e57cd\n\nChange-Id: I6553c8064650d220b6cde472a8488e64b5f378eb",
+        "cmtr": "Tom Barron",
+        "date": "2017-10-30 15:22:04-04:00",
+        "files": ["service_instance.pp", "deprecate_service_instance_network_helper_type_parameter-781ea3e658e9c535.yaml", "manila_service_instance_spec.rb"]
+      },
+      {
+        "hash": "9efdbe9cb38f4a893f98d8c2df7fc129186ce6f3",
+        "msg": "Remove nova network plugins\n\nsince support for nova network in manila proper was removed\nback in ocata [1] [2].\n\n[1] 0f33dcf62b61547e54011e831f3af939e472e5bc\n\n[2] I8b9a559fbea61979f01737ed1dc272276c4f1269\n\nChange-Id: I740736e0af43488d745ccfaaa4dc689e95e539e0",
+        "cmtr": "Tom Barron",
+        "date": "2017-10-30 16:39:27-04:00",
+        "files": ["nova_network.pp", "nova_single_network.pp", "remove_nova_network_plugins-ad288a6664b2b40b.yaml", "manila_network_nova_network_spec.rb", "manila_network_nova_single_network_spec.rb"]
+      },
+      {
+        "hash": "1c8b2e0cd2e1e1bf10b037594539a23f867d85a0",
+        "msg": "Deprecate standalone_network_plugin_ip_version\n\nparameter.  It was deprecated for removal in manila proper in\nPike [1] when IPv6 support was added for network plugins.\n\n[1] I96d3389262e9829b8b4344870cdf5c76abd22828\n\nNeeded-By: Ic7e5b5351e429755ba48613ab89d1b7e7d6e2d34\nChange-Id: Id36fe900ddf10aacbf06dfe5b27e8cf8982c8e30",
+        "cmtr": "Tom Barron",
+        "date": "2017-11-02 05:47:59-04:00",
+        "files": ["standalone.pp", "deprecate_standalone_network_plugin_ip_version-4df7ff7851f72c2b.yaml", "manila_network_standalone_spec.rb"]
+      },
+      {
+        "hash": "1b25889f3da04bb8bbf78d1b490abab8789ca367",
+        "msg": "Fix typos: Remove \"native\" from cephfs backend driver\n\nTrivialFix\n\nChange-Id: I45fab14ffeb6e1a8516fc65215258f3356e900e8",
+        "cmtr": "Arne Wiebalck",
+        "date": "2017-11-16 08:24:37+01:00",
+        "files": ["cephfs.pp"]
+      },
+      {
+        "hash": "41ce833c7345567b1411331c718625b15d24f488",
+        "msg": "Add support for address family parameters\n\nin the network plugins.  Support for these in manila\nitself was added in Pike [1].\n\n[1] I96d3389262e9829b8b4344870cdf5c76abd22828\n\nNeeded-By: Ia895d7190f0fb8e97c87b3178461d9fc26393b9b\nChange-Id: Ic7e5b5351e429755ba48613ab89d1b7e7d6e2d34",
+        "cmtr": "Tom Barron",
+        "date": "2017-11-22 16:18:04+00:00",
+        "files": ["neutron.pp", "neutron_single_network.pp", "standalone.pp", "add_network_plugin_addr_family_parameters-7cca69252e71083f.yaml", "manila_network_neutron_spec.rb", "manila_network_neutron_single_network_spec.rb"]
+      },
+      {
+        "hash": "d362f4d31cf09a999071751062748dd769de1a66",
+        "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: Ia19c0418349b8b81eab9e208729e5c1376a7cff0",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-11-27 14:56:01+02:00",
+        "files": ["logging.pp", "log-json-ef010cef78941896.yaml", "manila_logging_spec.rb"]
+      },
+      {
+        "hash": "5353144f71ed8fe43c1ca67c3455c985498ce0a1",
+        "msg": "Deprecate os_region_name option\n\nThe os_region_name parameter is deprecated and will be removed in a\nfuture release[1].\n\n[1]http://git.openstack.org/cgit/openstack/manila/tree/releasenotes/notes/remove-os-region-name-82e3cd4c7fb05ff4.yaml\n\nChange-Id: I4a4263b1373df9e6642a2e16fe8a0059914748aa\nCloses-Bug: #1734800",
+        "cmtr": "ZhongShengping",
+        "date": "2017-11-29 10:15:24+08:00",
+        "files": ["api.pp", "deprecate-os-region-name-a8713ef980135d13.yaml", "manila_api_spec.rb"]
+      },
+      {
+        "hash": "f668a735b579ff012eb99ef8255b596a51fb3b29",
+        "msg": "Add support for Manila policy.json\n\nChange-Id: Idcd042913e33c65641aa0a1874811fe9f2efb793",
+        "cmtr": "Emilien Macchi",
+        "date": "2018-01-11 16:59:11-08:00",
+        "files": ["api.pp", "params.pp", "policy.pp", "policy-json-50a35d8dcfd6e5a9.yaml", "manila_api_spec.rb", "manila_policy_spec.rb"]
+      },
+      {
+        "hash": "6c0762e86586958a3aa6790a2717cfd986089556",
+        "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: I3c6ca40c0ebfbe69de391c8b3173d1ad000a64eb",
+        "cmtr": "ZhongShengping",
+        "date": "2018-01-15 15:54:35+08:00",
+        "files": ["logging.pp", "add-use_journal-option-for-logging-b646bbb366ef8438.yaml", "manila_logging_spec.rb"]
+      },
+      {
+        "hash": "dd721c2e252a5e9464aa17169b859045fdb199e8",
+        "msg": "Add kombu_failover_strategy option\n\nAdds the kombu_failover_strategy option for configuring\noslo.messaging.rabbit. This will determines how the next RabbitMQ node\nis chosen in case the one we are currently connected to becomes\nunavailable.\n\nChange-Id: I2ec87a9649143548847c46110ef1ad9353a71feb\nCloses-Bug: #1748353",
+        "cmtr": "ZhongShengping",
+        "date": "2018-02-09 14:46:35+08:00",
+        "files": ["init.pp", "add_rabbit_kombu_options-a3b52f3aec9b3a48.yaml", "manila_init_spec.rb"]
+      },
+      {
+        "hash": "627b5a1ba40439c7cc924883cf359404ae03697b",
+        "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: I4e520669894ae44b6fe29db5f4c5e87ed4e2c9b6\nCloses-Bug: #1755102",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-12 16:33:08+08:00",
+        "files": ["sync.pp", "openstack_db_tag-b328cfe24b29b287.yaml", "manila_db_sync_spec.rb"]
+      },
+      {
+        "hash": "309d4a6153646bf946a6420a586d9d5f11ae2f19",
+        "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: Id43266952a32346eb106890fd8aeb28840486e1a\nCloses-Bug: #1757581",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-22 11:09:50+08:00",
+        "files": ["db.pp", "add-pool_timeout-option-for-db-931acdebaa940b48.yaml", "manila_db_spec.rb"]
+      },
+      {
+        "hash": "c122e1ebb5c968ee5eb5d1fa7d749204d3bc47c9",
+        "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: I89547d318211ea2fb787cf3a198d4a30db6dd9ff",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-27 10:33:22+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-8dfc4bf34bd28386.yaml"]
+      },
+      {
+        "hash": "f7f8cb0298a9ed8ac28de8ab0c17659854a44f27",
+        "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: I480fac61dfef991a98e75966c8cc741c07292cc9\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
+        "cmtr": "ZhongShengping",
+        "date": "2018-04-03 16:55:02+08:00",
+        "files": ["authtoken.pp", "deprecate_auth_uri_parameter-a62f029d62db64d6.yaml", "manila_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "244bf7fcb50261c21f9fe9a056fb03a73e109df3",
+        "msg": "Fix class description\n\nChange-Id: I3470c49806ef8116774d64217ae6c9abedf34ef6",
+        "cmtr": "ZhongShengping",
+        "date": "2018-04-07 20:51:06+08:00",
+        "files": ["nova.pp", "cinder.pp"]
+      },
+      {
+        "hash": "54545cc4ffb06a419d64bcf764f1e8d85b761c75",
+        "msg": "Update DellEMC Manila VNX driver\n\nThis patch adds following 3 options:\n\n* network_plugin_ipv6_enabled\n* emc_ssl_cert_verify\n* emc_ssl_cert_path\n\nChange-Id: I46cc7a43c66391f9b4a10866ccc6da44315c9a82",
+        "cmtr": "Yong Huang",
+        "date": "2018-04-09 14:29:13+08:00",
+        "files": ["dellemc_vnx.pp", "dellemc-vnx-support-238ddf33cccfb73c.yaml", "manila_backend_dellemc_vnx_spec.rb"]
+      },
+      {
+        "hash": "9f65ebefb74a4e0cec2a2fa02c188d383f0837fd",
+        "msg": "Update DellEMC Manila Unity driver\n\nThis patch adds following 3 options:\n\n* network_plugin_ipv6_enabled\n* emc_ssl_cert_verify\n* emc_ssl_cert_path\n\nChange-Id: Idd67c5cc598e4d01e349660db7722ac3594eca1b",
+        "cmtr": "Yong Huang",
+        "date": "2018-04-09 14:32:02+08:00",
+        "files": ["dellemc_unity.pp", "dellemc-unity-support-13151e66bae44974.yaml", "manila_backend_dellemc_unity_spec.rb"]
+      },
+      {
+        "hash": "ca0953a22e814e421ed94a2bf996f4cdd3c3a2fc",
+        "msg": "Debian is using Python 3\n\nChange-Id: I4a32824613ff50a5d620f78d2a637669d537bfab",
+        "cmtr": "Thomas Goirand",
+        "date": "2018-04-10 20:58:42+02:00",
+        "files": ["params.pp", "manila_client_spec.rb"]
+      },
+      {
+        "hash": "a5141abb507f7afd3a9814ba8aac72a01cd6159d",
+        "msg": "fix a typo: s/allowd/allowed/\n\nChange-Id: I9b3bea33c08ab71361b011af266b81f0b47790a2",
+        "cmtr": "wangqi",
+        "date": "2018-04-19 10:54:33+00:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "c8111a1e915ab06339ce14d436bc09a5c6c7b8d7",
+        "msg": "Replace port 35357 with 5000\n\nNow that the v2.0 API has been removed, we don't have a reason to\ninclude deployment instructions for two separate applications on\ndifferent ports.\n\nChange-Id: Id402260c57d38e1420a5c6ecefcdd56ea0f06753",
+        "cmtr": "ZhijunWei",
+        "date": "2018-05-13 14:55:42+08:00",
+        "files": ["authtoken.pp", "manila_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "d2c79417c5a40174d0d51564b0197a50db73b5ab",
+        "msg": "Remove deprecated rabbit params\n\nRemove the deprecated rabbit params which has been deprecated for\ntwo years. The default_transport_url has been present for a while\nnow and should be used.\n\nChange-Id: I26c6c76a0e3b39a5973bb66d9ca0670874748d84",
+        "cmtr": "ZhongShengping",
+        "date": "2018-05-24 14:15:03+08:00",
+        "files": ["init.pp", "remove-deprecated-rabbit-params-8f24b9cfcc592596.yaml", "manila_init_spec.rb", "manila_share_spec.rb"]
+      },
+      {
+        "hash": "beb5f3c174dc7369dee729c72980cfd2be4eed06",
+        "msg": "Fix annotations\n\nChange-Id: I49494ead36960528ea51cfca1c9e367b6df79906",
+        "cmtr": "zhubingbing",
+        "date": "2018-06-15 15:08:11+08:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "2052a79a285a4ceb7087ebfdb82f1288c9c5aa5f",
+        "msg": "Remove manila::backend::cephfsnative\n\nThis class was deprecated in favor of\nmanila::backend::cephfs, providing the same\nset of configuration options with the ability\nto configure nfs-ganesha opts as well.\n\nChange-Id: Ib13dfc6ffa77e96f5738c2ca3f9646a80aded659",
+        "cmtr": "Goutham Pacha Ravi",
+        "date": "2018-06-18 06:20:23-07:00",
+        "files": ["cephfsnative.pp", "remove-cephfsnative-fd796d36cc8ebb38.yaml", "manila_backend_cephfsnative_spec.rb"]
+      },
+      {
+        "hash": "0a2687ab87649e5d6d511fe3c5b39e6ed15863fe",
+        "msg": "Support manila-api deployment with Apache\n\nChange-Id: Ib596f462592566683a5d84a8edf39ff7afe7fac0",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-08-15 19:05:53+02:00",
+        "files": ["api.pp", "auth.pp", "params.pp", "apache.pp", "metadata.json", "manila-wsgi-893b66e84d4a9133.yaml", "basic_manila_spec.rb", "manila_api_spec.rb", "manila_wsgi_apache_spec.rb"]
+      }]
+    }

@@ -1,0 +1,616 @@
+    {
+      "url": "https://github.com/openstack/puppet-murano",
+      "pp_files": ["mysql_cfapi.pp", "logging.pp", "db.pp", "init.pp", "sync.pp", "postgresql.pp", "params.pp", "postgresql_cfapi.pp", "application.pp", "config.pp", "policy.pp", "deps.pp", "cfapi_auth.pp", "client.pp", "api.pp", "engine.pp", "mysql.pp", "dashboard.pp", "cfapi.pp", "sync_cfapi.pp", "logging_cfapi.pp", "db_cfapi.pp", "auth.pp"],
+      "pp_cmtrs": ["Ivan Berezovskiy", "Xing Zhou", "Mykyta Karpin", "Emilien Macchi", "Sebastien Badia", "Andy Botting", "Tobias Urdin", "ZhongShengping", "yatin", "Thomas Goirand", "Xingchao Yu", "Nikolay Starodubtsev", "Carlos Camacho", "Colleen Murphy", "iberezovskiy", "Alex Schultz", "Sharat Sharma", "qiaomin", "Sofer Athlan-Guyot", "Venkata Mahesh Jonnalagadda", "Rocky", "zhulingjie", "Matt Fischer", "Denis Egorenko", "Alfredo Moralejo", "Shi Yan", "Iury Gregory Melo Ferreira", "Alexey Deryugin"],
+      "num_pp_commits": 87,
+      "num_tot_commits": 283,
+      "commits": [{
+        "hash": "bc0362b3df8911abeac2d1e92b1555afc00efd60",
+        "msg": "Initial module implementation\n\n - Add parameters class\n - Add openstack policy class\n - Add database sync class\n - Add basic murano class\n - Add tests\n\nChange-Id: If34c3b12afb2fe7a64b24a8660d6e8d1806bb8fd\nCloses-Bug: #1475628\nRelated-Bug: #1496397",
+        "cmtr": "Alexey Deryugin",
+        "date": "2015-09-16 17:45:22+03:00",
+        "files": ["db.pp", "sync.pp", "init.pp", "params.pp", "policy.pp", "murano_db_spec.rb", "murano_db_sync_spec.rb", "murano_init_spec.rb", "murano_policy_spec.rb"]
+      },
+      {
+        "hash": "0860bc269dd36c1e49a2a125e4e3c77e8824981d",
+        "msg": "Implementation of api and engine classes\n\nMurano API & Engine services provide the core of Murano.\nThis patch adds implementation of murano service manifests:\n * murano::api installs and manages Murano API service\n   which processes user requests;\n * murano::engine installs and manages Murano Engine service\n   which handles background request processing.\n\nChange-Id: I6430544eda4fc6b1b16aa53ff9e6c127c62a2e5d\nDepends-On: If34c3b12afb2fe7a64b24a8660d6e8d1806bb8fd",
+        "cmtr": "Alexey Deryugin",
+        "date": "2015-09-25 15:12:12+00:00",
+        "files": ["api.pp", "engine.pp", "murano_api_spec.rb", "murano_engine_spec.rb", "shared_examples.rb"]
+      },
+      {
+        "hash": "b0665e8a42f58b680d5c6f82bf368ba25bbd6b7a",
+        "msg": "MySQL and PostreSQL class implementation\n\nChange-Id: Ib7decde6d03047d91bc50e9441c741ba132642ae",
+        "cmtr": "Alexey Deryugin",
+        "date": "2015-09-28 14:24:04+00:00",
+        "files": ["mysql.pp", "postgresql.pp", "murano_db_mysql_spec.rb", "murano_db_postgresql_spec.rb"]
+      },
+      {
+        "hash": "de0c10deacb0f13e721bd5742bf13429eca575bc",
+        "msg": "Keystone auth class implementation\n\nChange-Id: I065ed692b568ec534e52691ab43fdc6b9c861f8b",
+        "cmtr": "Alexey Deryugin",
+        "date": "2015-09-28 14:24:27+00:00",
+        "files": ["auth.pp", "murano_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "26319fc72e8272b55a64c96262989cb5e16e9745",
+        "msg": "Fix keystone::auth class example\n\nThe documented example omitted the password parameter, which is\nrequired. This patch fixes the documentation.\n\nChange-Id: If95d821cd59ab62f573147a7c25c7bc93d2f9b76",
+        "cmtr": "Colleen Murphy",
+        "date": "2015-10-06 09:41:31-07:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "0e2d0275f449d0c1aa74a62f2ac45e19b548908c",
+        "msg": "comment cleanup\n\nNo code changes.\n\nChange-Id: I3e5ac18d63579229c36ada8e3f5b9d2b2daabfc4",
+        "cmtr": "Matt Fischer",
+        "date": "2015-10-13 12:22:09-06:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "4dd4fd5a13c65d2a1b21c72d70578f27c7517e5c",
+        "msg": "Use 'python-murano-dashboard' for dashboard_package_name\n\nNeed to fix Murano dashboard package name\naccording to its naming in Debian and Ubuntu:\nhttps://packages.debian.org/experimental/python-murano-dashboard\nhttp://packages.ubuntu.com/wily/python-murano-dashboard\n\nChange-Id: Ie3394cd9a8675d7b00429f4721ba641979db5d4e",
+        "cmtr": "iberezovskiy",
+        "date": "2015-10-20 13:26:07+03:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "148b3da5ff06d80457a2cd258d6fea6922271a79",
+        "msg": "db: Use postgresql lib class for psycopg package\n\nThis patch introduce the same design than mysql for postgresql\nby requiring dedicated lib::python class instead of declaring\na new resource package within murano module.\n\nChange-Id: I827c58174f235c7e3fafd9701a5b2fad261f2c4f",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-10-20 18:28:00+02:00",
+        "files": ["db.pp", "params.pp", "murano_db_spec.rb"]
+      },
+      {
+        "hash": "b46a7b34c09fd434ad68ccf7b7df8817c7a2e46a",
+        "msg": "Introduce murano:config to manage custom options\n\nThis murano::config is aim to use murano config resources\nto manage custom configurations in murano config files.\n\nThis will make end user easy to add their own custom options\nin Hiera data.\n\nChange-Id: I256b52ad242d99114cf41637b4ff14170d7f4595",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-10-28 14:56:32+09:00",
+        "files": ["config.pp", "murano_config_spec.rb"]
+      },
+      {
+        "hash": "46e707148ee875dabcac10a16f352e8f2a390f83",
+        "msg": "Introduce Murano extended logging class\n\nThere is a range of extended logging options in Openstack services that use\nopenstack.common.logger (Ceilometer, Cinder, Heat, Keystone, Nova).\nAdding murano::logging to support them like it done for puppet-heat,\npuppet-ceilometer, puppet-cinder, etc.\n\nChange-Id: I0139cff7ae729381ffb2f9535fa74912d54fa4af",
+        "cmtr": "Alexey Deryugin",
+        "date": "2015-11-02 18:38:05+03:00",
+        "files": ["init.pp", "logging.pp", "murano_init_spec.rb", "murano_logging_spec.rb"]
+      },
+      {
+        "hash": "6beefeabd0a2e0ae93e2f934f9ececfc2046f92a",
+        "msg": "Client and dashboard class implementation\n\nChange-Id: Ie16be0d3707611279f0e782b33827de180143f14",
+        "cmtr": "Alexey Deryugin",
+        "date": "2015-11-09 20:08:19+03:00",
+        "files": ["client.pp", "dashboard.pp", "murano_client_spec.rb", "murano_dashboard_spec.rb", "local_settings.py.erb"]
+      },
+      {
+        "hash": "914a2d9c6962170a20db372301034ddcfc5ff310",
+        "msg": "Application resource implementation\n\nChange-Id: I5627f94d4fc0d0fa1a63968cfa7ed67350fcc769",
+        "cmtr": "Alexey Deryugin",
+        "date": "2015-11-18 15:55:26+03:00",
+        "files": ["murano.rb", "murano.rb", "murano_application.rb", "application.pp", "murano_application_spec.rb", "murano_spec.rb", "murano_spec.rb", "murano_application_spec.rb"]
+      },
+      {
+        "hash": "fafba4933742e4bf483c86ca55b471741e763efe",
+        "msg": "Switch Murano to use $::os_service_default fact\n\nThis patch switches Murano to use $::os_service_default fact as\ndefault value for params instead of using deplicated defaults from\nproject\n\nChange-Id: Ie5d669bffd34dc77191155623fab466481aede34\nRelated-bug: #1515273",
+        "cmtr": "Denis Egorenko",
+        "date": "2015-11-26 14:47:34+03:00",
+        "files": ["api.pp", "db.pp", "init.pp", "logging.pp", "murano_api_spec.rb", "murano_db_spec.rb", "murano_init_spec.rb", "murano_logging_spec.rb", "spec_helper.rb"]
+      },
+      {
+        "hash": "1fe809faaf7f9d4a01dc520eafa79588036cdc3f",
+        "msg": "Add ability to deploy Murano CloudFoundry service broker API\n\nSince Murano has new service CloudFoundry service broker API we need\nto have an ability to deploy it using puppets\n\n - add new class for CloudFoundry service broker API called murano::cfapi\n - add tests for murano::cfapi class\n\nChange-Id: I8e2993fabfe2cf59d982a0c58d0cfbc706a5309e\nCo-Authored-By: Alexey Deryugin <aderyugin@mirantis.com>",
+        "cmtr": "Nikolay Starodubtsev",
+        "date": "2015-12-02 15:24:43+03:00",
+        "files": ["cfapi.pp", "params.pp", "basic_murano_spec.rb", "murano_cfapi_spec.rb"]
+      },
+      {
+        "hash": "b822f4edf7f51cdadaf6a198bad864482da3cf78",
+        "msg": "Support of PyMySQL driver for MySQL backend\n\nAdd ability to use python-pymysql library\nas backend for MySQL connections.\nUpdate acceptance tests to use pyMySQL.\nDocs: https://wiki.openstack.org/wiki/PyMySQL_evaluation\nThe same implementation as it's done for keystone:\nhttps://review.openstack.org/#/c/242134/\n\nChange-Id: I730fa419d02ac3910143080121ba19f8be770198",
+        "cmtr": "iberezovskiy",
+        "date": "2015-12-02 21:16:34+03:00",
+        "files": ["db.pp", "params.pp", "basic_murano_spec.rb", "murano_db_spec.rb"]
+      },
+      {
+        "hash": "e036cba45bc6c0cef1adf703d7ea37605f59e6f1",
+        "msg": "Change default admin_user and admin_tenant_name\n\nTo be consistent with other modules we need to change\ndefault value of 'admin_user' to 'murano' and\ndefault value of 'admin_tenant_name' to 'service'.\n\nChange-Id: I92e23a381ae3e7a5490e72470b918a5a9c9a62b5",
+        "cmtr": "Alexey Deryugin",
+        "date": "2015-12-07 18:27:40+03:00",
+        "files": ["init.pp", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "b8f767d71cfbdb6b4ae642afa98970ced626b5ac",
+        "msg": "Fix service and package tags\n\nSync db class contains notification for murano services after\nexecuting db sync, but all services doesn't have proper tag.\n\nChange-Id: I4ac69bb021462250c149e183990c76e3a261c29a",
+        "cmtr": "Denis Egorenko",
+        "date": "2015-12-09 17:31:05+03:00",
+        "files": ["api.pp", "cfapi.pp", "engine.pp", "shared_examples.rb"]
+      },
+      {
+        "hash": "750d7806f78628257d7add6950c15ad58c601771",
+        "msg": "Run db sync only from main script\n\nCurrently Murano runs db sync from 3 classes: api, engine and main init.\nThat's wrong.\n\nChange-Id: Ia34fef731f7dfe9609b65f50138b645406bd13d5",
+        "cmtr": "Denis Egorenko",
+        "date": "2015-12-09 19:05:18+03:00",
+        "files": ["api.pp", "engine.pp"]
+      },
+      {
+        "hash": "3cf79f764b8e3f9a3bff5fea1024f0d1f31a1305",
+        "msg": "Fix incorrect default metadata_dir and api_url parameters\n\nAccording to murano-dashboard package murano::dashboard points\nto incorrect metadata_dir by default.\n\nAlso, since Murano dashboard can use Keystone to locate Murano API,\nmurano::dashboard parameter api_url should not be set by default.\n\nChange-Id: I9e121b6097afe471ad2914b1fc02624b3b36c1ca\nCloses-Bug: #1518981",
+        "cmtr": "Alexey Deryugin",
+        "date": "2015-12-17 17:25:45+03:00",
+        "files": ["dashboard.pp", "murano_dashboard_spec.rb", "local_settings.py.erb"]
+      },
+      {
+        "hash": "7a1f047b1e3d30eba044bcfbc079abe648e64af6",
+        "msg": "Make Horizon DB sync optional\n\nSince stable/liberty murano-dashboard doesn't always require call of\nHorizon DB sync script. In some cases this call produces an error\nmessage, so it needs to be executed only if Horizon uses database\nas session engine.\n\nChange-Id: I673f3d93d692e2eafcd14333d18b076606926a82\nCloses-Bug: #1529635",
+        "cmtr": "Alexey Deryugin",
+        "date": "2016-01-12 19:36:01+03:00",
+        "files": ["dashboard.pp", "murano_dashboard_spec.rb"]
+      },
+      {
+        "hash": "93f887e42904fc75087df8370970427f837f7177",
+        "msg": "Remove duplicate params and drop mock\n\nThis change removes the duplicate database_max_retries parameter from\nthe murano class.\n\nmock is not used anywhere in the module, let's drop it.\nThis patch will help to hit this bug:\nhttps://launchpad.net/bugs/1492636\n\nChange-Id: Iddf9f1287e4181e1a5348aa86505ca0abf14cb34\nCloses-Bug: #1537251\nCo-Authored-By: Emilien Macchi <emilien@redhat.com>",
+        "cmtr": "Alex Schultz",
+        "date": "2016-01-23 09:43:52-07:00",
+        "files": ["Gemfile", "init.pp", "spec_helper.rb"]
+      },
+      {
+        "hash": "de709c228874c16f72b55702318bd555a1442029",
+        "msg": "Fix incorrect configuration for Murano Service Broker API\n\n - add missing config parameters and change section\n - update acceptance tests\n - add service broker keystone endpoint\n\nChange-Id: Ib0c9bcf44d8b125089e17856b2fdb49bf1adebf9",
+        "cmtr": "Alexey Deryugin",
+        "date": "2016-02-01 12:11:24+00:00",
+        "files": ["cfapi.pp", "cfapi_auth.pp", "basic_murano_spec.rb", "murano_cfapi_spec.rb", "murano_keystone_cfapi_auth_spec.rb", "shared_examples.rb"]
+      },
+      {
+        "hash": "c90e2bda7e812cbd3b71b2057a60aa3d16e8eb96",
+        "msg": "Allow to configure Murano Engine workers\n\nChange-Id: I0f6f6caadebc2af6c6151ecf053a2291cb32fbc8\nDepends-On: I3cbc9dff9cc0e476a897af3f1931ff2a61eb72cc",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-02-16 16:53:42+03:00",
+        "files": ["engine.pp", "murano_engine_spec.rb"]
+      },
+      {
+        "hash": "519badee40e9541ed16aeab1e544eb4f2f3bb05b",
+        "msg": "Update Murano service_type for keystone\n\nCurrently we have outdated service_type for Murano: it was changed\nfrom application_catalog to application-catalog and from\nservice_broker to service-broker [1].\n\n[1] Id568c0a59b2e99dc946b1f2f55f6b233fd6a1b27\n\nChange-Id: Ib0059f7f35744c22b0fbd2be5917d8818d392422",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-02-25 15:58:33+03:00",
+        "files": ["auth.pp", "cfapi_auth.pp", "murano_keystone_auth_spec.rb", "murano_keystone_cfapi_auth_spec.rb"]
+      },
+      {
+        "hash": "c4fc5b2dd5b84faf3287ecec7c8a234f3d781e75",
+        "msg": "Switch murano to use keystone API v3 by default\n\nMurano has been supported keystone v3 for a while, and community\ndecide to make it a default authentication method. Murano itself has\nenchancements which provide it a possibility to use admin_user,\nadmin_tenant and admin_password instead of username, project and\npassword. These enchancements also makes parameters as domain_* and\nkeystone_auth_plugin unnescessary.\n\nChange-Id: I198f0388764605083e9272645d2b9cffd6fe5cfa",
+        "cmtr": "Nikolay Starodubtsev",
+        "date": "2016-03-04 15:02:27+03:00",
+        "files": ["cfapi.pp", "init.pp", "murano_cfapi_spec.rb", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "a4fddbb1dd74f1a783f23d5bce4d651d3f59cd52",
+        "msg": "Replace deprecated syncdb command on migrate\n\nDashboard manifest has deprecated django 'syncdb' command, which was\nreplaced on 'migrate' since Django 1.7.\n\nChange-Id: Id7ecb475555f87c09ccfa4d9e481834939f863e9\nCloses-bug: #1529649",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-03-04 18:13:38+03:00",
+        "files": ["dashboard.pp", "murano_dashboard_spec.rb"]
+      },
+      {
+        "hash": "6744e0ccde1469f05171c3ad297c86355ac4540f",
+        "msg": "Add new options related to Glare API\n\nThis commits add a few new options to Murano:\n* dashboard part - MURANO_USE_GLARE\n  which allow to use Glare API (ex Glance v3 API);\n* murano config - package_services\n  the service to store murano packages;\n\nChange-Id: I8e17fcf92d13ea4f8f7c50faa4d873e8c1f6bacd",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-03-11 16:50:08+03:00",
+        "files": ["dashboard.pp", "init.pp", "murano_dashboard_spec.rb", "murano_init_spec.rb", "local_settings.py.erb"]
+      },
+      {
+        "hash": "7b916720f90791690316936fa96f92fd46212115",
+        "msg": "Set notification_driver to messagingv2 by default\n\nMurano requires exactly messagingv2 driver for working with\nRabbitMQ [1]. Now this parameter is unset by default.\n\n[1] http://docs.openstack.org/developer/murano/install/manual.html#install-the-api-service-and-engine\n\nChange-Id: I76b041a35e7fb6feaf9c0541c7617e65301f397d\nRelated-bug: #1383360",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-03-30 16:01:06+03:00",
+        "files": ["init.pp", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "6c8a7a1ec69309a894fc35fa593b4cb1b257843c",
+        "msg": "Do not raise error when ca_file is not passed\n\nCa_file is using only to verify clients, we don't need that if we\nare not going to use them, so no need to raise error if it is not\npassed.\n\nChange-Id: Ifb13dbe891f65c63930bfd3ddc96b2581ba09783",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-04-04 19:56:06+03:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "c408cc73b5aacc20065cc6e1875539eeb4e3263b",
+        "msg": "Add ability use ssl for Rabbitmq and for Murano RabbitMQ\n\nAdd parameters for enabling ssl for Murano RabbitMQ and for main\nRabbitMQ.\n\nChange-Id: I416285866f70ee6764bf76540204c4be56a1ef30",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-04-04 20:50:32+03:00",
+        "files": ["init.pp", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "0215b8bc235f9dd90baf4467360cd093646bff9b",
+        "msg": "Update Murano for using puppet-oslo\n\nThis commit switches using of oslo options to a puppet-oslo module:\n* oslo messaging notifications;\n* oslo messaging rabbitmq;\n* oslo log;\n* oslo db;\n* oslo policy;\n\nAlso updates doc section and adds main parameters for rabbit configuration.\n\nChange-Id: I9d224368c207600d92ca00f19a101e755a5c2d77",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-04-13 14:25:04+03:00",
+        "files": ["db.pp", "init.pp", "logging.pp", "params.pp", "policy.pp", "metadata.json", "switch_to_oslo-1924a063b5008d56.yaml", "murano_db_spec.rb", "murano_init_spec.rb", "murano_policy_spec.rb"]
+      },
+      {
+        "hash": "0197a5bb0259e06dd3b94db07033040ddcf34c71",
+        "msg": "Totally drop Qpid support\n\nQpid was removed in Mitaka from Oslo Messaging, so now we can\ndrop it in manifests.\n\nChange-Id: Ifb363f23c31b7d4c0b4330dda7636df51c933aa5",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-04-18 13:43:58+03:00",
+        "files": ["logging.pp", "drop_qpid-2698a74b1e99757b.yaml", "murano_logging_spec.rb"]
+      },
+      {
+        "hash": "7332c45ae62c5d80111bdecca26265f8b093338f",
+        "msg": "Add support for the oslo db_max_retries parameter\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: I4544cccc340b673e722abe06ca7d219c0ee1ec81\nCloses-Bug: 1579718",
+        "cmtr": "ZhongShengping",
+        "date": "2016-05-10 22:55:38+08:00",
+        "files": ["db.pp", "murano_db_spec.rb"]
+      },
+      {
+        "hash": "a2f07094c343c5cf4e49c6987184add8329b7a53",
+        "msg": "Fix incorrect default auth_tenant value\n\nBy default class ::murano::keystone::auth creates Keystone user\nin 'services' tenant, but class ::murano sets auth_tenant config\nvalue to 'service', it should be fixed.\n\nChange-Id: I8d1a34f062fce9868a67a233e0016f7d5639d54f",
+        "cmtr": "Alexey Deryugin",
+        "date": "2016-05-11 13:00:56+00:00",
+        "files": ["init.pp", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "f20a8b8667ce2441272a6429edf28ad60defb673",
+        "msg": "Add some kombu options\n\nAdd kombu_reconnect_delay, kombu_failover_strategy\nand kombu_compression for murano.\n\nChange-Id: I1b8c2564d3d06099fe5410a8445291ea3379fe59",
+        "cmtr": "iberezovskiy",
+        "date": "2016-05-12 17:48:06+03:00",
+        "files": ["init.pp", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "5c543c7fc8e53be7be8237e1f859b79e25a46137",
+        "msg": "Deprecate verbose option in logging\n\nOption \"verbose\" from group \"DEFAULT\" is deprecated for removal.\nThe parameter has no effect.\nDeprecated verbose in all classes\nRemove verbose from tests.\nIf this option is not set explicitly, there is no such warning.\n\nChange-Id: Ie54817afda2b8f46aca970cc0b6aea3676d41df4",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-05-18 13:35:16-03:00",
+        "files": ["init.pp", "logging.pp", "verbose-deprecation-908824a98df8331c.yaml", "murano_logging_spec.rb"]
+      },
+      {
+        "hash": "24d769f674eb9e7cff3836df9baae84983c2cd65",
+        "msg": "Add purge_config option\n\nAdd the option in order to facilitate management.\nUser can ensure that only the options they hoped\nare configured.\n\nChange-Id: I4b2b0cd631d3d95fe8ec44a2e2e25b4095f4e13f",
+        "cmtr": "ZhongShengping",
+        "date": "2016-06-08 11:59:47+08:00",
+        "files": ["init.pp", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "65ece2453b24cfaebea77c436c448fd426fffada",
+        "msg": "Provide default service_name for keystone endpoint\n\nThis change updates the murano::keystone::auth class to include a default\nservice_name of 'murano' so that if a user changes the auth_name, the\nservice is still created as being related to 'murano'. This improves the\nuser experiance when they want to customize the usernames for services.\n\nCloses-bug: #1590040\nChange-Id: I031103fe611d176dcbddf665bd2e66e230610c91",
+        "cmtr": "Venkata Mahesh Jonnalagadda",
+        "date": "2016-06-10 07:41:02-04:00",
+        "files": ["auth.pp", "cfapi_auth.pp", "keystone-auth-name-1111e1b65d4522eb.yaml", "murano_keystone_auth_spec.rb", "murano_keystone_cfapi_auth_spec.rb"]
+      },
+      {
+        "hash": "a76fe7ce10848e563452ab7c675c4d032e0ace12",
+        "msg": "Remove deprecated parameters\n\nThose parameters was deprecated in begining and middle of Mitaka\ncycle hence we can remove them.\n\nChange-Id: I5ff106ba136994631c9eb69111a0b641891c9bb1",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-07-01 09:45:49+00:00",
+        "files": ["api.pp", "dashboard.pp", "engine.pp", "murano_dashboard_spec.rb", "local_settings.py.erb"]
+      },
+      {
+        "hash": "a62be189527f451edb1a13bcbc2af7d489578d4e",
+        "msg": "Add memcached_servers for keystone authtoken\n\nThis change adds the abiltity to manage the memcached servers for the\nkeystone authtoken configuration in murano\n\nChange-Id: Ia7e56b30ce88fb0e18173753c669fc844db2c7e4",
+        "cmtr": "Alex Schultz",
+        "date": "2016-07-01 07:05:34-06:00",
+        "files": ["init.pp", "keystone-authtoken-memcached-eb3dc3fa52ecc2f2.yaml", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "c75aec51f9b733c4b03691f0d2e91b675c3d9704",
+        "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: Ib0b58c6c5ae12c1cacf8224454bb867d552af3d2\nRelated-Bug: 1599113",
+        "cmtr": "Sofer Athlan-Guyot",
+        "date": "2016-07-08 11:01:19+02:00",
+        "files": ["params.pp", "murano_client_spec.rb", "murano_dashboard_spec.rb"]
+      },
+      {
+        "hash": "f934fab1b5fb23f9daddd5b79deeeeb8b111d3ad",
+        "msg": "Make Murano Dashboard log handler configurable\n\nSince https://review.openstack.org/#/c/298653/ is merged,\nMurano Dashboard deployment fails if Horizon doesn't use syslog\nhandler, so we should make it configurable and set default handler\nvalue same as Horizon.\n\nChange-Id: I47342da1212cc6ca6d8eebd6819aa51dcb81dbf5\nCloses-Bug: #1593654",
+        "cmtr": "Ivan Berezovskiy",
+        "date": "2016-07-18 09:20:16+00:00",
+        "files": ["dashboard.pp", "configurable_dashboard_log_handler-43513e7b29028b4e.yaml", "murano_dashboard_spec.rb", "local_settings.py.erb"]
+      },
+      {
+        "hash": "c86b851ac118deb47f57a38e9c50f13b3b5ab507",
+        "msg": "Allow override of dashboard label\n\nOverrides the default dashboard name (Murano) that is displayed\nin the main accordion navigation\n\nChange-Id: I49edfe483c87ccc537889609d7eefc11b53f29d2",
+        "cmtr": "Andy Botting",
+        "date": "2016-08-31 12:08:23+10:00",
+        "files": ["dashboard.pp", "dashboard-label-60e3afe5a9de0339.yaml", "murano_dashboard_spec.rb", "local_settings.py.erb"]
+      },
+      {
+        "hash": "ff0d1b76c349aac4bcfa36a040fcd06ced16e84b",
+        "msg": "Explicity set networking driver\n\nA new config option has been added to Murano to explicitly set the\nnetworking driver in\nhttps://bugs.launchpad.net/murano/+bug/1617096\n\nWe have a config option for using Neutron, so we should set the\nnetworking driver based on it.\n\nChange-Id: Ic5fd668fecf90497cff6c595152cb379002f8d1c",
+        "cmtr": "Andy Botting",
+        "date": "2016-09-01 10:30:51+10:00",
+        "files": ["init.pp", "network-driver-0ec3f27e3932f566.yaml", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "5e6d5d3233c27e7912182d8ff71ea19f2ba5939e",
+        "msg": "Change the way Murano dashboard collects static with UCA packages\n\nHorizon UCA packages collects static during installation\nand doesn't recollect it if we use '--clear' option. It leads\nto static absesnce. So we need to delete '--clear' option for\nMurano dashboard collectstatic script when we use UCA packages\n\nChange-Id: I9719208dff88ce4f3be1b038b8bb6a49a6ec387f\nRelated-Bug: #1603528",
+        "cmtr": "Alexey Deryugin",
+        "date": "2016-09-02 14:03:17+00:00",
+        "files": ["dashboard.pp", "murano_dashboard_spec.rb"]
+      },
+      {
+        "hash": "9f474b788ff865ae91d243a5fcf66dec36bb264e",
+        "msg": "Move Murano CFAPI configuration to separate config files\n\nSince [1] CFAPI configuration is in separate config files:\nas for main service configuration (murano-cfapi.conf) as for paste ini\nconfiguration (murano-cfapi-paste.ini).\n\n[1] https://blueprints.launchpad.net/murano/+spec/separate-service-broker-from-murano\n\nChange-Id: I3e12452680e85c88adf45c68605d13d00932c020",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-09-06 18:41:20+03:00",
+        "files": ["ini_setting.rb", "ini_setting.rb", "murano_cfapi_config.rb", "murano_cfapi_paste_ini_config.rb", "cfapi.pp", "config.pp", "murano_cfapi_separate_config_file-ca0d487f0606b154.yaml", "murano_cfapi_spec.rb", "murano_config_spec.rb", "ini_setting_spec.rb", "ini_setting_spec.rb", "murano_cfapi_config_spec.rb", "murano_cfapi_paste_ini_config_spec.rb"]
+      },
+      {
+        "hash": "02f15492a07f8d606dc0fca72898c40542680c1f",
+        "msg": "Make options 'exists-action' and 'is-public' configurable\n\nCurrently options 'is-public' and 'exists-action' are hardcoded in\nmurano_appllication provider. It can lead some problems, during\nuploading and updating action, so it make sense to make them\nconfigurable.\n\nRelated-Bug: #1624723\n\nChange-Id: I061cb64856e14d326dfa30851e427088e60f0a48",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-09-20 19:04:05+03:00",
+        "files": ["murano.rb", "murano_application.rb", "application.pp", "fix_murano_application_update-8dfd1c4fe7839af1.yaml", "murano_application_spec.rb", "murano_spec.rb", "murano_application_spec.rb"]
+      },
+      {
+        "hash": "8c67f03d21ff1485a88ca9eae460255e0dc7e69e",
+        "msg": "Remove verbose\n\nSince we are in Ocata we should remove the\nverbose option that was deprecated\n\nChange-Id: I65834fabd4455b74f87023a03edb6983bee2d779",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-09-27 20:16:13-03:00",
+        "files": ["init.pp", "logging.pp", "remove_verbose-9cf0281db23c507b.yaml"]
+      },
+      {
+        "hash": "e7db0e93f3edeb6d5857fbd5149a89a9b10f63a2",
+        "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: I1ee9f046284d8720447c02f0fbbbc4448eaaf4d9\nCloses-Bug: #1628580",
+        "cmtr": "Sharat Sharma",
+        "date": "2016-09-29 12:27:19+05:18",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "f28bdd2d12990ace6cb31527769d1a5fe4a609ab",
+        "msg": "Change section for setting package_service backend\n\nNow Murano has switched using package_service option from package_opts\nsection to new engine section. Hence we need to update puppets too.\n\nChange-Id: I20ad24b47b16287a385ce54d90bae18ddb4c7402\nCloses-bug: #1630209",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-10-04 15:33:28+03:00",
+        "files": ["murano.rb", "init.pp", "murano_init_spec.rb", "murano_spec.rb"]
+      },
+      {
+        "hash": "eb3158c8cc671592ae8f73e3db5d6b753efed8b2",
+        "msg": "Make configure_user and configure_user_role configurable\n\nMurano module should be compatible with all others modules,\nthat support configure_user and configure_user_role\nparams being configurable.\n\nChange-Id: Iba87b873410b6efa4d4802de0f903990bc8fa92f\nPartial-Bug: #1620758",
+        "cmtr": "Alexey Deryugin",
+        "date": "2016-10-05 14:26:14+00:00",
+        "files": ["auth.pp", "cfapi_auth.pp", "configurable_user_and_role-8e755bb0b27d267f.yaml", "murano_keystone_auth_spec.rb", "murano_keystone_cfapi_auth_spec.rb"]
+      },
+      {
+        "hash": "887083a4c4d99eec25065b2125390955e3ab356d",
+        "msg": "Fix documentation for log_dir parameter\n\nChange-Id: I901cf902415becc2918dd2ce175f9dfe0faf6462\nPartial-Bug: #1600294",
+        "cmtr": "Mykyta Karpin",
+        "date": "2016-10-10 17:50:59+03:00",
+        "files": ["logging.pp", "fix_log_dir_documentation-ff5af59dfab3cbbb.yaml"]
+      },
+      {
+        "hash": "7168404bb5055dcf06fc9d463473970771248f37",
+        "msg": "Fix common options position in params.pp\n\nThese parameters are common for both systems,\nthey could be moved out from 'case'.\n\nChange-Id: I91798798f5293a9fd13c2414c280f112eabc5a8b",
+        "cmtr": "ZhongShengping",
+        "date": "2016-11-08 11:10:39+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "e97cfb463ae323045549efc95ae1af8dca7635cc",
+        "msg": "Deprecate rabbitmq connection parameters\n\nThe rabbitmq connection parameters have been deprecated in favor of the\ntransport_url setting.\n\nChange-Id: Ie63457370ae37ef5af5878b1a97b8bafa80a8189\nRelated-Bug: #1625198",
+        "cmtr": "Alex Schultz",
+        "date": "2016-11-09 07:53:38-07:00",
+        "files": ["init.pp", "rabbit-connection-params-deprecation-776dbae440e204ba.yaml", "basic_murano_spec.rb", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "122498f1bf11d907dbceb475a2dc9dac011b8c9b",
+        "msg": "Fix default murano client package name error for RedHat platforms\n\nwhen install murano client package in RedHat platforms, the default\nmurano client package name: openstack-python-muranoclient is not found.\nso the client package name should be changed to python-muranoclient.\n\nChange-Id: Ib57998280762f9d6a9cf615bd0d5b3f558a39258\nCloses-Bug: #1644699",
+        "cmtr": "Xing Zhou",
+        "date": "2016-11-25 19:59:08+08:00",
+        "files": ["params.pp", "fix_client_package_name-897d4c0a7c9a7cbf.yaml", "murano_client_spec.rb"]
+      },
+      {
+        "hash": "230fe3cef488690cfbf49b54f92e46eda9a5060e",
+        "msg": "Fix murano-cfapi related options on RedHat\n\nThe default values of cfapi_service_name and cfapi_service_name on RHEL\nare wrong. This patch aims to setup the right values for them.\n\nChange-Id: Icc87286496e2d814fe8987647a7d4cf41b754c32\nCloses-Bug: #1645672",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-11-30 06:07:58+00:00",
+        "files": ["params.pp", "murano_cfapi_spec.rb"]
+      },
+      {
+        "hash": "9412a6f45a30d37ade9572823569172831712831",
+        "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nChange-Id: If27e91cee37d816bfc7b577a154c71a9e5a48324",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-07 10:51:35+08:00",
+        "files": ["api.pp", "application.pp", "cfapi.pp", "client.pp", "config.pp", "dashboard.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "engine.pp", "init.pp", "auth.pp", "cfapi_auth.pp", "logging.pp", "policy.pp", "external_install_mgmt_hook-ef172966391da942.yaml", "murano_cfapi_spec.rb", "murano_db_sync_spec.rb", "murano_init_spec.rb", "shared_examples.rb"]
+      },
+      {
+        "hash": "44900a04a490ca7a9ff18554125bf598257709a8",
+        "msg": "Generate separate db for murano service broker\n\nImplement some changes for murano-cfapi service, mainly\nincluding:\n1.Add separate murano-cfapi.conf for murano-cfapi service\n2.Add separate command murano-cfapi-db-manage for murano_cfapi db\n\nChange-Id: I2a675a30e84ce03cc3cd5fb6fb5a6318498ac913\nCloses-Bug: #1589445",
+        "cmtr": "Xing Zhou",
+        "date": "2016-12-10 11:19:54+08:00",
+        "files": ["cfapi.pp", "mysql_cfapi.pp", "postgresql_cfapi.pp", "sync_cfapi.pp", "db_cfapi.pp", "logging.pp", "logging_cfapi.pp", "params.pp", "murano_cfapi_separate_db-550f9d1efc49e31b.yaml", "murano_cfapi_spec.rb", "murano_db_cfapi_spec.rb", "murano_db_mysql_cfapi_spec.rb", "murano_db_postgresql_cfapi_spec.rb", "murano_db_spec.rb", "murano_db_sync_cfapi_spec.rb", "murano_logging_cfapi_spec.rb"]
+      },
+      {
+        "hash": "49ab8921cad07f5cc5121435b86459e9453c65ed",
+        "msg": "Add deps to all that is needed\n\n1) Add deps to all that is needed.\n2) Remove useless hooks\n3) Update releated spec tests.\n\nChange-Id: Ic69d8af5f28f5ccb6d0439ef3189522b8ab40b92",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-16 09:39:15+08:00",
+        "files": ["mysql_cfapi.pp", "postgresql_cfapi.pp", "sync_cfapi.pp", "db_cfapi.pp", "logging_cfapi.pp", "murano_db_sync_cfapi_spec.rb"]
+      },
+      {
+        "hash": "7712ba32df6fe90095510fa4009b21b41d2a78d9",
+        "msg": "Deprecate signing_dir option\n\nThe signing_dir is deprecated for removel because of PKI token format\nis no longer supported.\nUpdate warning message and release note.\n\nChange-Id: I3fbbd11e42e0e4b1113da3ec1fdc651df0f60bde\nCloses-Bug: #1652700",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-28 14:18:19+08:00",
+        "files": ["init.pp", "deprecate_signing_dir_parameter-6135a343f233de98.yaml", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "6b3cb50cdea57ec20aeb06a924d7c1fc45d48f9a",
+        "msg": "Unknown variable: '::murano::params::default_external_network'\n\nAdd inheritance to refer to this parameter.\n\nChange-Id: Ia25c5f13d8d8cefff2ed1a763f5d1478321104f4\nCloses-Bug: #1653605",
+        "cmtr": "ZhongShengping",
+        "date": "2017-01-04 10:54:59+08:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "f10834efbba53f550091f79532f8b5e0f559ac71",
+        "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should be\ninstalled before dbsync starts.\n\nChange-Id: I5b6440e39dbbb4c0462c3719f1a16e7d7a8686fa",
+        "cmtr": "ZhongShengping",
+        "date": "2017-01-22 21:49:00+08:00",
+        "files": ["deps.pp"]
+      },
+      {
+        "hash": "bf49b6e306196bc401a06d54dc5ae20c4dc2a8d3",
+        "msg": "Add control_exchange and rpc_response_timeout options\n\nAdd control_exchange to configure an exchange name for message.\nAdd rpc_response_timeout to configure seconds time for waiting\nfor a response from a call.\n\nChange-Id: I3d0ae4d5a65b73f4db918c18521c6d7288cef136",
+        "cmtr": "ZhongShengping",
+        "date": "2017-02-07 09:20:49+08:00",
+        "files": ["init.pp", "add_messaging_default_parameters-9175a1238d4615f7.yaml", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "1bd7a7b18cdaf05de2f18eb30c12ce79b54020cf",
+        "msg": "Add notification_transport_url and notification_topics options\n\nAdd notification_transport_url to configure a URL representing the\nmessaging driver to use for notifications.\nAdd notification_topics to configure AMQP topic used for OpenStack\nnotifications.\n\nChange-Id: I62302ec433385174679a78bc104bbf5f56ae9f6c",
+        "cmtr": "ZhongShengping",
+        "date": "2017-03-09 09:50:04+08:00",
+        "files": ["init.pp", "add_messaging_notification_parameters-a23983453ad76fe1.yaml", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "d290751edc965b930dc409741a4db66c3eef2530",
+        "msg": "Set use_neutron to 'true' by default\n\nSet \"use_neutron\" to 'true'. If \"use_neutron\" is set to 'false'\n'networking/driver' is set to nova which is deprecated.\nAlso added releasenote for this.\n\nChange-Id: I90315e2c1477392439bf293c0cda6453d587396e",
+        "cmtr": "yatin",
+        "date": "2017-05-04 18:09:10+05:18",
+        "files": ["init.pp", "fix_use_neutron-281638824d52ff8d.yaml", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "541cb4f9c46de739e1bf9e8502a63e2c90ee3e8e",
+        "msg": "Remove deprecated keystone authtoken signing_dir option\n\nChange-Id: Ie6ef63b2ae980c14ffbebd7874a3dcd296a1379b",
+        "cmtr": "ZhongShengping",
+        "date": "2017-07-07 10:02:07+08:00",
+        "files": ["init.pp", "remove_deprecated_keystone_signing_dir_option-983d3a3003b50ce3.yaml"]
+      },
+      {
+        "hash": "693bdff8d53182e7d104d23b651f04e99997c2a9",
+        "msg": "Fix lint issues to upgrade to puppet-lint 2.3\n\n2017-07-20 14:37:44.947507 | manifests/dashboard.pp:129:WARNING: arrow should be on the right operand's line\n2017-07-20 14:37:44.947643 | manifests/dashboard.pp:130:WARNING: arrow should be on the right operand's line\n2017-07-20 14:37:44.947700 | manifests/dashboard.pp:134:WARNING: arrow should be on the right operand's line\n2017-07-20 14:37:44.947735 | manifests/dashboard.pp:135:WARNING: arrow should be on the right operand's line\n2017-07-20 14:37:44.947766 | manifests/dashboard.pp:136:WARNING: arrow should be on the right operand's line\n2017-07-20 14:37:44.947796 | manifests/dashboard.pp:139:WARNING: arrow should be on the right operand's line\n2017-07-20 14:37:44.947825 | manifests/dashboard.pp:140:WARNING: arrow should be on the right operand's line\n2017-07-20 14:37:44.947854 | manifests/dashboard.pp:141:WARNING: arrow should be on the right operand's line\n\nChange-Id: I5b98b9e88f50a19054d3cad5694b2b580a664b8f",
+        "cmtr": "Carlos Camacho",
+        "date": "2017-07-20 20:21:24+02:00",
+        "files": ["dashboard.pp"]
+      },
+      {
+        "hash": "675d9c7a5b4b73e5632d44391e911994ce71261f",
+        "msg": "Update engine workers default number\n\nChange the default number of engine workers to ::os_workers\n\nChange-Id: Icfafa529020cd894f224ce66ee524b7b44abb36c",
+        "cmtr": "Shi Yan",
+        "date": "2017-08-28 14:40:45+00:00",
+        "files": ["engine.pp", "murano_engine_spec.rb"]
+      },
+      {
+        "hash": "02b84aa91836dd4a9b7a7d76df46ff903f7b673d",
+        "msg": "Fix amqp_durable_queues missing issue\n\nChange-Id: I41f836cffaadf0c41c163d2431284d36b1b74a51",
+        "cmtr": "Shi Yan",
+        "date": "2017-08-31 00:43:30+00:00",
+        "files": ["init.pp", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "f2870f353933c1b510bedeb47a8f1c5aad2cddab",
+        "msg": "Add api_workers into config and change to use engine_workers\n\nChange-Id: I989487609a8f95b152e5b122ec75d7c59e49cf52",
+        "cmtr": "Rocky",
+        "date": "2017-09-15 15:50:28+10:00",
+        "files": ["api.pp", "engine.pp", "add_api_workers_parameter-dbbc244aa5fe35f0.yaml", "murano_api_spec.rb", "murano_engine_spec.rb"]
+      },
+      {
+        "hash": "bc7db847f399b3553f53ad0220225384d322caf6",
+        "msg": "Add parameters for keystone API v3\n\nKeystone API v2.0 has been removed and domain parameters\nare needed in keystone_authtoken section to work properly\nwith v3.\n\nAlso configuration of keystone_authtoken has been moved to\nkeystone::resources::authtoken instead of setting it directly\nwith murano_config.\n\nChange-Id: I394a176291bd3ab4466aeb49794e700451f139e5",
+        "cmtr": "Alfredo Moralejo",
+        "date": "2017-10-06 13:14:01+02:00",
+        "files": ["init.pp", "add-parameters-for-v3-56157ca2c4993bc1.yaml", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "fd696ed925d81b84a6b5c701cd2e0006f3473585",
+        "msg": "Accept empty strings for log_dir\n\nAn empty string is an acceptable value of this entry, and it forces\nlogging to stdout/stderr, which is useful when running on containers.\n\nChange-Id: Ieb9d0116f8f8489e6603a5a5dc31be948cfe905e",
+        "cmtr": "ZhongShengping",
+        "date": "2017-10-12 09:19:08+08:00",
+        "files": ["logging.pp"]
+      },
+      {
+        "hash": "d1adc5f029efb384d28a773ac5745bd1758eadf9",
+        "msg": "Add service_url parameter for url override\n\nChange-Id: Ib1066441a85c91d071c4136a475c117a122875c4",
+        "cmtr": "Rocky",
+        "date": "2017-10-12 13:07:28+11:00",
+        "files": ["init.pp", "add_service_url_parameter-769ae4ab5064c053.yaml", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "c4eec07f1ce20c478e13b162963b9591c964549e",
+        "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: I734df852f2efe4cc8b4098b906900ccdd23f086e",
+        "cmtr": "ZhongShengping",
+        "date": "2017-11-28 09:34:48+08:00",
+        "files": ["logging.pp", "logging_cfapi.pp", "log-json-713a8355598d1345.yaml", "murano_logging_cfapi_spec.rb", "murano_logging_spec.rb"]
+      },
+      {
+        "hash": "40de925e9e613bd15c4071f8a898dbfb7f90e212",
+        "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nChange-Id: Ie828ad4859dc901926b1420dcfc305b243c93904\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2018-01-11 15:55:48+00:00",
+        "files": ["params.pp", "policy.pp", "murano_policy_spec.rb"]
+      },
+      {
+        "hash": "cfd0d5b9d5d604347de4a688dbc5848063fd1c4e",
+        "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: If018b692b47c3830d2febfc694129066da8f1219",
+        "cmtr": "ZhongShengping",
+        "date": "2018-01-15 15:58:51+08:00",
+        "files": ["logging.pp", "logging_cfapi.pp", "add-use_journal-option-for-logging-b316ff864308e755.yaml", "murano_logging_cfapi_spec.rb", "murano_logging_spec.rb"]
+      },
+      {
+        "hash": "f509a5fa17ca4a1587ae3952972368df8663a49c",
+        "msg": "Add new image_filter_project_id param for dashboard\n\nA new parameter MURANO_IMAGE_FILTER_PROJECT_ID was added to the\ndashboard configuration in review:\nhttps://review.openstack.org/#/c/504833/\n\nThis commit adds a new class parameter 'image_filter_project_id' to\nthe dashboard class to set this parameter.\n\nChange-Id: I0055c8941f14e5b6c3338689ec15f6b260b31229",
+        "cmtr": "Andy Botting",
+        "date": "2018-01-29 03:49:35+00:00",
+        "files": ["dashboard.pp", "images-filter-project.yaml-23fcc5ea964e2599.yaml", "murano_dashboard_spec.rb", "local_settings.py.erb"]
+      },
+      {
+        "hash": "f2b71b1adbba9433f8aee48d340fd34aa105ae4c",
+        "msg": "Fix mysql connection\n\nURL mysql://scott:***@some_host/some_db does not contain a '+drivername'\nportion, and will make use of a default driver. A full dbname+drivername://\nprotocol is recommended. For MySQL, it is strongly recommended that\nmysql+pymysql:// be specified for maximum service compatibility.\n\nChange-Id: I4249b1593bd39fa2c25b7c24189d2eaad90b3124\nCloses-Bug: #1753342",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-05 08:58:51+08:00",
+        "files": ["db.pp", "murano_db_spec.rb"]
+      },
+      {
+        "hash": "9ff14c13a9da11e61e6afd3183851c899811cb9a",
+        "msg": "Murano needs explicit v3 in auth_uri\n\nMurano fails to create an environment because it still uses v2\nkeystone authentication.\n\nFor more detials information, please refer to:\nhttps://docs.openstack.org/murano/latest/configuration/configure_cloud_foundry_service_broker.html\n\nChange-Id: I45c61547480d5890f4648f3c229af5d9d188c2dc\nCloses-Bug: #1754203",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-08 09:02:08+08:00",
+        "files": ["init.pp", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "75732ff4e3ad36935c090a9440e118e48115bcb6",
+        "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: Ic7eeccc651d8b9f8c7884e6cfc765c3d4adb650c\nCloses-Bug: #1755102",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-12 16:33:09+08:00",
+        "files": ["sync.pp", "sync_cfapi.pp", "openstack_db_tag-809258d24c1d3b46.yaml", "murano_db_sync_cfapi_spec.rb", "murano_db_sync_spec.rb"]
+      },
+      {
+        "hash": "ca7f7657acac8a9efe1943929a1e38a8a8921af8",
+        "msg": "Package openstack-murano-dashboard not found on Redhat\n\npackage openstack-murano-dashboard not found on Redhat. It should be\nopenstack-murano-ui.[1]\n\n[1]https://trunk.rdoproject.org/centos7-master/puppet-passed-ci/openstack-murano-ui-5.0.0-0.20180314092433.27daadd.el7.centos.noarch.rpm\n\nChange-Id: I3e41ba755f0d5ba54f3814b601fcab6bbb5b3f32\nCloses-Bug: #1757034",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-20 10:49:42+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "3ae0e129f627cd4d327a7723c632ff892662e0c4",
+        "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: Ia600a4d30565e8c48e2275ebfad87b181cb72405\nCloses-Bug: #1757581",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-23 17:00:14+08:00",
+        "files": ["db.pp", "add-pool_timeout-option-for-db-e14f111a41b4b2af.yaml", "murano_db_spec.rb"]
+      },
+      {
+        "hash": "9df0b757dcd7c8ef61c0a324917727018aec5ba1",
+        "msg": "Debian is using Python 3\n\nChange-Id: Icef08409686e0df07f7b99cf289097d201292fe9",
+        "cmtr": "Thomas Goirand",
+        "date": "2018-04-10 21:00:40+02:00",
+        "files": ["params.pp", "murano_client_spec.rb"]
+      },
+      {
+        "hash": "3f2c9c17c9524d3235e036e7e1d9da475186e63b",
+        "msg": "Replace port 35357 with 5000\n\nNow that the v2.0 API has been removed, we don't have a reason to\ninclude deployment instructions for two separate applications on\ndifferent ports.\n\nChange-Id: I98d5acb9ebc3f6d2dfe04fcaaf3c273968c99291",
+        "cmtr": "qiaomin",
+        "date": "2018-05-13 00:53:49+08:00",
+        "files": ["init.pp", "murano_init_spec.rb", "murano_spec.rb"]
+      },
+      {
+        "hash": "c779e5d87867ebd29ca6b5488930cf48b019da81",
+        "msg": "Remove deprecated parameters\n\nRemoves deprecated parameters that has been\ndeprecated for one cycle or more.\n\nChange-Id: Ib9773ebe2771f41bcc9ada3805865a93794706b5",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-06-13 22:22:43+02:00",
+        "files": ["init.pp", "remote-deprecated-rabbit-a8e5c93bdc9dac4d.yaml", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "567ea6183c6fbfd0c855aa437c45e44406638b57",
+        "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated [1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\nDoes not change auth_uri for providers because [2] will change\nthat to auth_url.\n\n[1] https://review.openstack.org/#/c/508522/\n[2] https://review.openstack.org/#/c/588504/\n\nChange-Id: I134f6318f3d409f9aa3368e93e9ef55a82ab6788",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-08-11 11:40:19+02:00",
+        "files": ["init.pp", "deprecate_auth_uri_parameter-cfceae167839a4af.yaml", "murano_init_spec.rb"]
+      },
+      {
+        "hash": "d6ad75c3b6d07fd7186b82a124d4051914d9891b",
+        "msg": "Optimise the client vars defined\n\nNo need to defined the client vars twice.\n\nChange-Id: I53aee569b2eceb0c9002514d55d6493d30a80653\nCloses-Bug: #1792606",
+        "cmtr": "zhulingjie",
+        "date": "2018-09-13 17:34:46-04:00",
+        "files": ["params.pp"]
+      }]
+    }

@@ -1,0 +1,126 @@
+    {
+      "url": "https://github.com/Mirantis/puppet-ssh",
+      "pp_files": ["service.pp", "hostkeys.pp", "configline.pp", "knownhosts.pp", "ssh_configline.pp", "config.pp", "init.pp", "params.pp", "sshd_configline.pp", "client.pp", "server.pp", "install.pp"],
+      "pp_cmtrs": ["Derek Higgins", "Dan Bode", "Steffen Zieger", "Spirit", "euer", "Saz"],
+      "num_pp_commits": 17,
+      "num_tot_commits": 30,
+      "commits": [{
+        "hash": "62331c2f04ea91913fbcb2b9d069689fa54e051c",
+        "msg": "Initial version of puppet-ssh module",
+        "cmtr": "Saz",
+        "date": "2011-06-09 13:18:54+02:00",
+        "files": ["README", "sshd_config", "config.pp", "hostkeys.pp", "init.pp", "install.pp", "knownhosts.pp", "params.pp", "service.pp"]
+      },
+      {
+        "hash": "dc5c22467aba47920ecd9a803edc4e5ae5a7c7dc",
+        "msg": "Removed wrong set comma after variables",
+        "cmtr": "Saz",
+        "date": "2011-06-09 13:22:02+02:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "e428a507e00ad22403aa0755f50659e44cfa5c3a",
+        "msg": "add client support to module (needs improvement)",
+        "cmtr": "Saz",
+        "date": "2011-11-07 19:14:51+01:00",
+        "files": ["client.pp", "init.pp", "params.pp", "ssh_configline.pp", "sshd_configline.pp"]
+      },
+      {
+        "hash": "ea1ca38651727d48cce39ed202af313f856f6c3c",
+        "msg": "module name was missing",
+        "cmtr": "Saz",
+        "date": "2011-11-07 19:16:50+01:00",
+        "files": ["client.pp"]
+      },
+      {
+        "hash": "d3c4b2e6446fd68a134eed035e4e18e64ff25e8b",
+        "msg": "remove useless curly bracket",
+        "cmtr": "Saz",
+        "date": "2011-11-07 19:18:52+01:00",
+        "files": ["ssh_configline.pp", "sshd_configline.pp"]
+      },
+      {
+        "hash": "cbc0f890be072480d4c63e42de0b9ff407d0c1fa",
+        "msg": "manage ssh client, too.",
+        "cmtr": "Saz",
+        "date": "2011-11-08 10:22:50+01:00",
+        "files": ["client.pp", "config.pp", "install.pp", "config.pp", "init.pp", "install.pp", "params.pp", "server.pp", "config.pp", "configline.pp", "install.pp", "service.pp", "ssh_configline.pp"]
+      },
+      {
+        "hash": "83473709e09f1afdd10e3c2141407c884d3ab541",
+        "msg": "fix namespace for service.pp",
+        "cmtr": "Saz",
+        "date": "2011-11-08 10:24:07+01:00",
+        "files": ["service.pp"]
+      },
+      {
+        "hash": "2050ef74a8b54081a45f917212a13f93f4eec99d",
+        "msg": "add missing comma at line ending",
+        "cmtr": "Saz",
+        "date": "2011-11-08 10:25:40+01:00",
+        "files": ["config.pp"]
+      },
+      {
+        "hash": "972bfdd778d7e1d293863bcd366b5b5323dddd4c",
+        "msg": "wrong variable for service name",
+        "cmtr": "Saz",
+        "date": "2011-11-08 10:28:47+01:00",
+        "files": ["service.pp"]
+      },
+      {
+        "hash": "f4849c69d5ebc355f50eda11071f58c92e32f1d8",
+        "msg": "add required files for forge.puppetlabs.com",
+        "cmtr": "Saz",
+        "date": "2011-11-08 10:51:13+01:00",
+        "files": ["Modulefile", "metadata.json", "spec.opts", "spec_helper.rb", "init.pp"]
+      },
+      {
+        "hash": "236f52c33603840f9ea8f22efc443d8609123812",
+        "msg": "fixes http://projects.reductivelabs.com/issues/2014",
+        "cmtr": "Saz",
+        "date": "2011-11-16 16:21:30+01:00",
+        "files": ["Modulefile", "config.pp", "params.pp"]
+      },
+      {
+        "hash": "90c506963e74c2ea0a152cfc396b2eaa89483136",
+        "msg": "Add include ssh::params to ssh::server::install\n\nThis commit adds an include ssh::params to\nthe ssh::server::install class so that it can be\nincluded independently from the ssh::server class",
+        "cmtr": "Dan Bode",
+        "date": "2012-01-19 16:53:30-08:00",
+        "files": ["install.pp"]
+      },
+      {
+        "hash": "d68eb42c2060384977809c34d017d4636b4f7bda",
+        "msg": "do not replace sshd config",
+        "cmtr": "Steffen Zieger",
+        "date": "2012-02-23 18:56:55+01:00",
+        "files": ["config.pp"]
+      },
+      {
+        "hash": "e62841ebb249c4793d7e1d55bc1da8e6e44a30f8",
+        "msg": "make it possible to remove an entry in sshd config",
+        "cmtr": "Steffen Zieger",
+        "date": "2012-02-23 18:57:23+01:00",
+        "files": ["configline.pp"]
+      },
+      {
+        "hash": "e273c0d56012467cf2968ddf90518e85fa38b9de",
+        "msg": "Adding Fedora support",
+        "cmtr": "Derek Higgins",
+        "date": "2012-03-05 23:12:43+00:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "9f4afa11e9cadfe0615f31addf275c87d9e1e837",
+        "msg": "Added ability to add multiple instances of same option,\nlike 'Port' or 'Listen' in next maner:\n\nssh::server::configline {\n 'Port' :\n  ensure => 'add',\n  value => '5190'\n}",
+        "cmtr": "Spirit",
+        "date": "2012-05-15 11:46:37+04:00",
+        "files": ["configline.pp"]
+      },
+      {
+        "hash": "cfd7bc0b4594824b3e2abd73888f0dc614fc068e",
+        "msg": "add support for CentOS and RHEL\n\nthese systems are basically the same as the already provided fedora OS",
+        "cmtr": "euer",
+        "date": "2012-05-30 14:52:58+02:00",
+        "files": ["params.pp"]
+      }]
+    }

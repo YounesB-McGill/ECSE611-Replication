@@ -1,0 +1,70 @@
+    {
+      "url": "https://github.com/Mirantis/fuel-plugin-vxlan-vlan-7",
+      "pp_files": ["configure-ml2-controller.pp", "configure-ml2-compute.pp"],
+      "pp_cmtrs": ["Oleksandr Vlasov", "Dmitriy Stremkovskiy"],
+      "num_pp_commits": 9,
+      "num_tot_commits": 26,
+      "commits": [{
+        "hash": "f26d7716d2e399c48f33bb044725ba077353be46",
+        "msg": "first commit",
+        "cmtr": "Oleksandr Vlasov",
+        "date": "2016-04-11 16:10:38+03:00",
+        "files": [".gitignore", "LICENSE", "README.md", "configure-ml2-compute.pp", "configure-ml2-controller.pp", "deployment_tasks.yaml", "environment_config.yaml", "lnx-br-bond.yaml", "metadata.yaml", "pre_build_hook", ".gitkeep", ".gitkeep", "volumes.yaml"]
+      },
+      {
+        "hash": "1167e277b8db91ecfd2764a2105c562c9f979945",
+        "msg": "Refactoring #1\n\n1) Cosmetic metadata changes\n2) Functional fixes for puppet manifests.\n\nThis refactoring step provides minimal changes from original version.\nRight way to change values in ml2_conf.ini is to make hiera override.\nThis step will be proposed later.\n\nType: refactor\nTask: MOSS-331",
+        "cmtr": "Dmitriy Stremkovskiy",
+        "date": "2016-08-15 18:48:13+03:00",
+        "files": ["README.md", "TODO", "configure-ml2-compute.pp", "configure-ml2-controller.pp", "deployment_tasks.yaml", "environment_config.yaml", "lnx-br-bond.yaml", "metadata.yaml", "pre_build_hook"]
+      },
+      {
+        "hash": "7745a7227499b6190ffc30962652aa3c02936d36",
+        "msg": "Refactoring #1\n\n1) Cosmetic metadata changes\n2) Functional fixes for puppet manifests.\n\nThis refactoring step provides minimal changes from original version.\nRight way to change values in ml2_conf.ini is to make hiera override.\nThis step will be proposed later.\n\nType: refactor\nTask: MOSS-331",
+        "cmtr": "Dmitriy Stremkovskiy",
+        "date": "2016-08-15 19:00:57+03:00",
+        "files": ["README.md", "TODO", "configure-ml2-compute.pp", "configure-ml2-controller.pp", "deployment_tasks.yaml", "environment_config.yaml", "lnx-br-bond.yaml", "metadata.yaml", "pre_build_hook"]
+      },
+      {
+        "hash": "3a958d45ad9023e21478bb505d2b38d83c35d4e8",
+        "msg": "Metadata extraction fix\n\nType: fix\nTask: MOSS-331",
+        "cmtr": "Dmitriy Stremkovskiy",
+        "date": "2016-08-16 15:02:29+03:00",
+        "files": ["configure-ml2-compute.pp", "configure-ml2-controller.pp"]
+      },
+      {
+        "hash": "8a8a318d5316dd52b0d774e0ed4fd6cc98a1b9fb",
+        "msg": "Puppet lint checks\n\nType: style\nTask: MOSS-331",
+        "cmtr": "Dmitriy Stremkovskiy",
+        "date": "2016-08-18 15:02:10+03:00",
+        "files": ["configure-ml2-compute.pp", "configure-ml2-controller.pp"]
+      },
+      {
+        "hash": "02a6e31edbc122eb52590750e1d4708cbd0ab13d",
+        "msg": "Services names fix.\n\nEach release could use different names for openvswitch and neutron\nservices.\nThat names are already stored in ::neutron::params\nThis patchset fixes names collisions between MOS8 and MOS9\n\nType: fix\nTask: MOSS-331",
+        "cmtr": "Dmitriy Stremkovskiy",
+        "date": "2016-08-19 13:37:48+03:00",
+        "files": ["configure-ml2-compute.pp", "configure-ml2-controller.pp"]
+      },
+      {
+        "hash": "3fa2cbe4236843e0ad1c892fc10afa81fb0d9b84",
+        "msg": "Fixing path for ini_subsetting resource\n\nDue to path change in mitaka, plugin configures wrong file.\nThis patchset fixes this issue.\n\nType: fix\nTask: MOSS-331",
+        "cmtr": "Dmitriy Stremkovskiy",
+        "date": "2016-08-19 18:41:16+03:00",
+        "files": ["configure-ml2-compute.pp", "configure-ml2-controller.pp"]
+      },
+      {
+        "hash": "7474e01e4c9bbb06e4395d0da8ef1d8b102961e4",
+        "msg": "Fixing ml2 plugin ini path for liberty-8.0",
+        "cmtr": "Dmitriy Stremkovskiy",
+        "date": "2016-09-19 17:10:20+03:00",
+        "files": ["configure-ml2-compute.pp", "configure-ml2-controller.pp"]
+      },
+      {
+        "hash": "291ed2da1424f11c398cc1a89de61a9df88f0f31",
+        "msg": "Fix for bug in selector. Default setting should not be quoted.\n\nTwo manifests contains faulty selectors. This patch fixes selectors.\n\nType: fix\nTask: MOSS-331",
+        "cmtr": "Dmitriy Stremkovskiy",
+        "date": "2016-10-19 15:08:39+03:00",
+        "files": ["configure-ml2-compute.pp", "configure-ml2-controller.pp"]
+      }]
+    }

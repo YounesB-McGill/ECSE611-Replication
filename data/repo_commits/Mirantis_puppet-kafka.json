@@ -1,0 +1,308 @@
+    {
+      "url": "https://github.com/Mirantis/puppet-kafka",
+      "pp_files": ["mirror.pp", "jmxtrans.pp", "consumer.pp", "init.pp", "defaults.pp", "kafka.pp", "client.pp", "server.pp"],
+      "pp_cmtrs": ["Keith Mosher", "Patrick Lucas", "Andrew Otto", "Erick Cantwell"],
+      "num_pp_commits": 43,
+      "num_tot_commits": 58,
+      "commits": [{
+        "hash": "b36f7d38c303e636954ab9d05194c4088c771808",
+        "msg": "Initial commit of Kafka Puppet module for Apache Kafka 0.8\n\nChange-Id: Ibfa23af7c61dc5f1b5176c92a835460646d6bd26",
+        "cmtr": "Andrew Otto",
+        "date": "2013-06-21 11:13:16-07:00",
+        "files": ["README.md", "TODO.md", "defaults.pp", "init.pp", "server.pp", "consumer.properties.erb", "kafka.default.erb", "log4j.properties.erb", "producer.properties.erb", "server.properties.erb", "Makefile", "kafka.pp", "server.pp"]
+      },
+      {
+        "hash": "ee8667d98f4bf0beba135535619f3236cefcb1c2",
+        "msg": "Adding custom Zookeeper chroot support.\n\nChange-Id: Ia3e34bfa7f836b2f7add5e9259bd4b5ac397df8b",
+        "cmtr": "Andrew Otto",
+        "date": "2013-08-12 10:56:44-04:00",
+        "files": ["README.md", "defaults.pp", "init.pp", "server.pp", "consumer.properties.erb", "server.properties.erb"]
+      },
+      {
+        "hash": "b24bcb72a5a4063803b985ccc9f86af35bdcf716",
+        "msg": "Updating comments for $zookeeper_chroot.  Supporting array for $log_dir\n\nChange-Id: I652c70410d993323ecc6197741ebc70c0d7248da",
+        "cmtr": "Andrew Otto",
+        "date": "2013-09-05 17:15:44-04:00",
+        "files": ["defaults.pp", "init.pp", "server.pp", "server.properties.erb"]
+      },
+      {
+        "hash": "f3a41e27cf0bbd57b129469c0e617cc214367d65",
+        "msg": "Matching kafka.default.erb with updated /etc/default/kafka in latest 0.8 deb.\n\nNow supporting $heap_opts for configuring min and max JVM heap sizes\n\nChange-Id: I946fecf9f8f177b7c9a3648834dd9652a8d273a0",
+        "cmtr": "Andrew Otto",
+        "date": "2013-09-12 12:31:54-07:00",
+        "files": ["defaults.pp", "server.pp", "kafka.default.erb"]
+      },
+      {
+        "hash": "8526276c14d3a801298628f3abe42e34ceadbf43",
+        "msg": "Supporting arbitrary Kafka metrics_properties, rather than only the Kafka CSV metrics reporter.\n\nChange-Id: I5c3fbfd931475f2a6c73a5cf142797da82691005",
+        "cmtr": "Andrew Otto",
+        "date": "2013-09-16 16:21:36-07:00",
+        "files": ["defaults.pp", "server.pp", "server.properties.erb"]
+      },
+      {
+        "hash": "e713546f60be95b8946e089964013bb2afc4ac6e",
+        "msg": "Refactoring kafka::server and adding kafka::mirror support.\n\nRecent builds of the 0.8 package do not include client configs\nor commands that use client configs by default.  This makes it\nmostly useless to try to configure consumer and producer property files\nfor Kafka client setup.  Installing the kafka package is enough,\nas the /usr/sbin/kafka client commands take in a full list of\nCLI opts, rather than relying on property files.\n\nMore likely, you are puppetizing a Kafka Broker.  kafka::server\nhas been slightly refactored with some of the required parameters\nthat were previously on the base kafka class.\n\nKafka MirrorMaker daemons can now be puppetized.  Use the kafka::mirror\nclass in conjunction with one or more kafka::mirror::consumer defines.\nSee README.md for more info.\n\nChange-Id: Ic3d1eb24ca645e582c0d836e0a03c12541072ba8",
+        "cmtr": "Andrew Otto",
+        "date": "2013-09-19 20:29:30-04:00",
+        "files": ["README.md", "TODO.md", "defaults.pp", "init.pp", "mirror.pp", "consumer.pp", "server.pp", "kafka-mirror.default.erb", "producer.properties.erb", "server.properties.erb", "kafka.pp", "server.pp"]
+      },
+      {
+        "hash": "7b39da613d910b5f8e4f8ed21c787941d5e4ed8c",
+        "msg": "Adding kafka::server::jmxtrans support for jmxtrans Kafka broker metrics\n\nChange-Id: I0896eed96492efb1da438d1a260f14aa9dab9bc3",
+        "cmtr": "Andrew Otto",
+        "date": "2013-11-05 11:13:54-05:00",
+        "files": ["jmxtrans.pp"]
+      },
+      {
+        "hash": "8e1cf81e66813d53c05ccd9c5840137cfa7ea544",
+        "msg": "Fixing up Kafka object queries.  Many MBeans had to include escaped double quotes.\n\nChange-Id: I9154271abbb5373d3edccf5b257f330209508eb6",
+        "cmtr": "Andrew Otto",
+        "date": "2013-11-05 15:38:32-05:00",
+        "files": ["jmxtrans.pp"]
+      },
+      {
+        "hash": "6323ba41f910110da191d58449351f407d914ce6",
+        "msg": "Cleaning up kafka::server::jmxtrans and adding some more metrics\n\nChange-Id: I56e53b99e6daf6d21d2729dc98158f883140bcfa",
+        "cmtr": "Andrew Otto",
+        "date": "2013-11-05 18:40:58-05:00",
+        "files": ["jmxtrans.pp"]
+      },
+      {
+        "hash": "c695ab6ffbb30eea5300e8d279c167a486bd20f5",
+        "msg": "Being consistent with ISRExpands capitalization in jmxtrans resultAlias\n\nChange-Id: I5dea2aebcaa41a94306cb9b64a337a5773e87211",
+        "cmtr": "Andrew Otto",
+        "date": "2013-11-05 18:48:33-05:00",
+        "files": ["jmxtrans.pp"]
+      },
+      {
+        "hash": "5b54f7660201f8a3b7febfb46cadc8048033540b",
+        "msg": "Adding auto_create_topics_enable parameter\n\nAlso adding  documentation about heap_opts\n\nChange-Id: Iee8f0117e9d5c170a747729e0e75471948366d09",
+        "cmtr": "Andrew Otto",
+        "date": "2013-12-18 17:20:53-05:00",
+        "files": ["defaults.pp", "server.pp", "server.properties.erb"]
+      },
+      {
+        "hash": "67f419ae97f05ea6d1741980c246554d703fb6d8",
+        "msg": "Using more frequent run_interval and log_level of info for jmxtrans\n\nChange-Id: Ib643260c2c097fd8d47ea375ff988b57d4fdb2f7",
+        "cmtr": "Andrew Otto",
+        "date": "2013-12-24 15:07:41-05:00",
+        "files": ["jmxtrans.pp"]
+      },
+      {
+        "hash": "f7b6606c617a53a47bce46a755da12fe87a114cb",
+        "msg": "Adding parameterization for open file descriptor ulimit\n\nChange-Id: I0029d48f593117e71237ba11d403d4bb6b2769a9",
+        "cmtr": "Andrew Otto",
+        "date": "2014-01-31 12:30:19-05:00",
+        "files": ["defaults.pp", "server.pp", "kafka.default.erb"]
+      },
+      {
+        "hash": "e18f734ec0446c7f2f1221f3b97e1edaddcaded8",
+        "msg": "Parameterizing num.replica.fetchers and replica.fetch.max.bytes\n\nChange-Id: I1e8726a094fb930c8fc2b04687c24bb703d013c7",
+        "cmtr": "Andrew Otto",
+        "date": "2014-02-06 11:25:01-05:00",
+        "files": ["defaults.pp", "server.pp", "server.properties.erb"]
+      },
+      {
+        "hash": "b35bc1771686a6e939e075c94c33e6d447675987",
+        "msg": "Adding more Kafka network request stats to jmxtrans monitoring\n\nAlso fixing resultAlias for FetchRequestPurgatory stats\n\nChange-Id: I01b5f7b453a3d992fb197ad92aa6a4d0ba531f6c",
+        "cmtr": "Andrew Otto",
+        "date": "2014-02-18 12:02:48-05:00",
+        "files": ["jmxtrans.pp"]
+      },
+      {
+        "hash": "e907aa2865f7d57b66d4a273b888415086ad2048",
+        "msg": "Parameterizing 4 more replica server settings\n\nChange-Id: I07e0c127f948aada1c7439e1bb379e1811cbd1fe",
+        "cmtr": "Andrew Otto",
+        "date": "2014-02-19 14:56:20-05:00",
+        "files": ["defaults.pp", "server.pp", "server.properties.erb"]
+      },
+      {
+        "hash": "5145dee364f2184f5fe5bd66c1f3993a062591c2",
+        "msg": "Default for log.flush.interval.ms has changed to 3000\n\nChange-Id: I6a6f2003fec290e0864543855f8fd5b336604eca",
+        "cmtr": "Andrew Otto",
+        "date": "2014-03-03 17:53:13-05:00",
+        "files": ["defaults.pp"]
+      },
+      {
+        "hash": "98bc81d81eb3c687e187e182861ed1a94b6daad9",
+        "msg": "Change default num.network.threads and num.io.threads\n\nThese defaults have changed in later versions of Kafka.\nnum.io.threads now defaults to the number of configured $log_dirs.\n\nChange-Id: I5df3c6a0c1501e5be402e4d2d7225f3c980fe11b",
+        "cmtr": "Andrew Otto",
+        "date": "2014-06-13 15:41:55-04:00",
+        "files": ["defaults.pp", "server.pp"]
+      },
+      {
+        "hash": "72f63f2366eae370d28808a6b284f5f65a021736",
+        "msg": "Set num.io.threads to configuration default\n\nChange-Id: Ie4386cb78789f24f95380b3a65afdd388253d715",
+        "cmtr": "Andrew Otto",
+        "date": "2014-06-16 12:28:14-04:00",
+        "files": ["defaults.pp", "server.pp"]
+      },
+      {
+        "hash": "70b4e9206d4b18436402e0fbbdd2c0b082b88ae2",
+        "msg": "Allow specifying default replication factor\n\nChange-Id: I2a735617be0bac356833eaa4ee6330a6b92d0eba",
+        "cmtr": "Keith Mosher",
+        "date": "2014-06-20 01:47:35-07:00",
+        "files": ["server.pp", "server.properties.erb"]
+      },
+      {
+        "hash": "7efacaeac49c1ab8227d4cecfd2a6606873c8819",
+        "msg": "Parameterize jvm_performance_opts in order to modify GC settings\n\nChange-Id: I5765b91f2e66090352faafab5ebfc3125b2be307",
+        "cmtr": "Andrew Otto",
+        "date": "2014-06-24 15:49:43-04:00",
+        "files": ["defaults.pp", "server.pp", "kafka.default.erb"]
+      },
+      {
+        "hash": "c986741e51c9adb9ac9228cdb7e3252588720254",
+        "msg": "Parameterize zookeeper.session.timeout.ms\n\nAlso set zookeeper_connection_timeout_ms to proper configuration default\n\nChange-Id: I20ed0ee2a7c18a523498db1239521a129743fc74",
+        "cmtr": "Andrew Otto",
+        "date": "2014-07-03 13:23:09-04:00",
+        "files": ["defaults.pp", "consumer.pp", "server.pp", "consumer.properties.erb", "server.properties.erb"]
+      },
+      {
+        "hash": "5cb33f04819a41653ec48becdc3817ef57cdf582",
+        "msg": "Small fixups\n\nFix kafka::server comment spacing\n\nUse new-style variables in template\n\nChange-Id: I75e03826adfe3b3423f575ac2cb6535232cdcd90",
+        "cmtr": "Keith Mosher",
+        "date": "2014-07-16 18:27:05-07:00",
+        "files": ["server.pp", "server.properties.erb"]
+      },
+      {
+        "hash": "a94ac84a9447004ceab2e45de37678508200b25b",
+        "msg": "Add $java_home and $num_partitions parameters\n\nChange-Id: I33ba6c628b94dcae4afed0baff327be800821107",
+        "cmtr": "Keith Mosher",
+        "date": "2014-07-16 18:27:12-07:00",
+        "files": ["defaults.pp", "server.pp", "kafka.default.erb", "server.properties.erb"]
+      },
+      {
+        "hash": "890d5eeb57c703a9f08a7456005f0d55fb44a2fc",
+        "msg": "Update for kafka 0.8.1.1-2 packaging\n\nChange-Id: I31f2974e1e67a208896a6e07e8c657ea3e0517eb",
+        "cmtr": "Andrew Otto",
+        "date": "2014-08-04 12:07:04-04:00",
+        "files": ["TODO.md", "client.pp", "init.pp", "mirror.pp", "server.pp", "producer.properties.erb"]
+      },
+      {
+        "hash": "ce9af14d97d2c7b58114283e7771c1945d6f6e26",
+        "msg": "Add java_opts option\n\nChange-Id: I8dc008c791c8cda730c396069d506fcdb0d7b79b",
+        "cmtr": "Patrick Lucas",
+        "date": "2014-09-22 15:39:37-07:00",
+        "files": ["defaults.pp", "server.pp", "kafka.default.erb"]
+      },
+      {
+        "hash": "266aca07bd9ea01b0473adfcded1b7105e3ea4ab",
+        "msg": "server::jmxtrans: add namespacing option\n\nSpecifying $group_prefix will namespace metrics emitted by jmxtrans in\nganglia and graphite in the same manner as jmxtrans::metrics::jvm.\n\nChange-Id: I7bdcdc13a94fda85a7c2b2c807d4a5227d2e40eb",
+        "cmtr": "Patrick Lucas",
+        "date": "2014-09-23 11:42:46-07:00",
+        "files": ["jmxtrans.pp"]
+      },
+      {
+        "hash": "a33e529a3f204bd7998b42fcb093f54ab557b0d3",
+        "msg": "Add option for extra classpath entries\n\nChange-Id: I671527f349c8317e07b1a4ba67ee02d37d9913a4",
+        "cmtr": "Patrick Lucas",
+        "date": "2014-09-30 11:20:42-07:00",
+        "files": ["defaults.pp", "server.pp", "kafka.default.erb"]
+      },
+      {
+        "hash": "de24c49f405716a53fc58338bb894796a1cc486b",
+        "msg": "Add statsd parameters to kafka::server::jmxtrans\n\nChange-Id: I7618b0ecd195f64536153f9926edd2e2321bdc82",
+        "cmtr": "Andrew Otto",
+        "date": "2014-12-03 09:44:34-05:00",
+        "files": ["jmxtrans.pp"]
+      },
+      {
+        "hash": "a4c6e32989d7148d73aa91cb2baea4b8938d75f9",
+        "msg": "Send jvm stats to statsd as well\n\nChange-Id: If2bc1ab7433aa26575fb15d7e0ce82f924c038ff",
+        "cmtr": "Andrew Otto",
+        "date": "2014-12-03 09:54:09-05:00",
+        "files": ["jmxtrans.pp"]
+      },
+      {
+        "hash": "bd3c5454fdd4932d11f9a80fcf7abc2aefd67d56",
+        "msg": "Set bucketType for gauge metrics for statsd usage\n\nChange-Id: I2bdbcb4e69075a76320acd45752b23ee08b9e89b",
+        "cmtr": "Andrew Otto",
+        "date": "2014-12-03 15:32:11-05:00",
+        "files": ["jmxtrans.pp"]
+      },
+      {
+        "hash": "dc805f546fdba2dde6fffc7cd5a88b822693377c",
+        "msg": "Use bucketType 'g' for all Kafka jmxtrans metrics sent to statsd\n\nNone of these are the default statsd 'counter' type.\n\nChange-Id: Id947b4dd9dba64eb44dcbd8096ef7e381de83512",
+        "cmtr": "Andrew Otto",
+        "date": "2014-12-04 13:57:16-05:00",
+        "files": ["jmxtrans.pp"]
+      },
+      {
+        "hash": "ba99cba34dfc1a34c25eccabd3a95c08f36863e2",
+        "msg": "Update JMX metrics names for Kafka 0.8.2+\n\nJMX metrics names have changed in Kafka 0.8.2.  This updates\nthem to that.  If you are using an older version of Kafka and\nneed the old metric names, set legacy_jmx => true when you include\nthe kafka::server::jmxtrans class.\n\nBug: T106581\nChange-Id: I39ac37125dd67f7f68502021f9b34eadc11b4b50",
+        "cmtr": "Andrew Otto",
+        "date": "2015-08-12 11:23:09-04:00",
+        "files": ["jmxtrans.pp"]
+      },
+      {
+        "hash": "306aa069d200d33b176e0900d4596efdb9ade405",
+        "msg": "List ReplicaManager JMX Kafka metrics individually\n\nChange-Id: I698441291a9ce48a61a04522fb27886a343532f8",
+        "cmtr": "Andrew Otto",
+        "date": "2015-08-12 13:57:15-04:00",
+        "files": ["jmxtrans.pp"]
+      },
+      {
+        "hash": "6167fe8221c0fd3d14f9639ffc0af48a7b52f403",
+        "msg": "Add param for auto.leader.rebalance.enable\n\nChange-Id: I3981f51d45b2b9e6422f50f6892d46d1c0c97005",
+        "cmtr": "Andrew Otto",
+        "date": "2015-08-15 11:51:48-04:00",
+        "files": ["defaults.pp", "server.pp", "server.properties.erb"]
+      },
+      {
+        "hash": "b75128da275503c9523e7ec718e2003c8106da63",
+        "msg": "Puppetize systemd override for Kafka LimitNOFILE\n\n/etc/default/kafka's KAFKA_NOFILES_ULIMIT is not useable\nby the systemd service file installed by the latest WMF\nKafka package, so we need to puppetized a custom systemd\noverride file to set this.\n\nBug: T106581\nChange-Id: I10f41d0d3a19b15374ded800f0d6cd12573c9fa9",
+        "cmtr": "Andrew Otto",
+        "date": "2015-08-18 15:53:02-04:00",
+        "files": ["defaults.pp", "server.pp", "kafka.default.erb", "kafka.systemd.override.conf.erb"]
+      },
+      {
+        "hash": "49afdd01355fda6679f39ee7a66188a6a99e4c5a",
+        "msg": "There is no specific kafka-common package, so just use the kafka package",
+        "cmtr": "Erick Cantwell",
+        "date": "2015-10-20 15:19:21-06:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "12bd1948d52ab0257890c0da37eb4d50e248fc21",
+        "msg": "We don't have a separate kafka-server package, so we don't need to ensure a new package",
+        "cmtr": "Erick Cantwell",
+        "date": "2015-10-20 15:20:49-06:00",
+        "files": ["server.pp"]
+      },
+      {
+        "hash": "a4f9e80a928269d5268b884bd9d82b927a34b46e",
+        "msg": "Change file locations to /opt, since that is where we install kafka.  Create symlink from /etc/kafka to /opt/kafka for ease of use, though",
+        "cmtr": "Erick Cantwell",
+        "date": "2015-10-20 15:25:26-06:00",
+        "files": ["server.pp"]
+      },
+      {
+        "hash": "f35faca971d0a7691667154ca24afc4f11bcf3c6",
+        "msg": "Change all references of kafka-server to kafka, since that is what the package is named",
+        "cmtr": "Erick Cantwell",
+        "date": "2015-10-21 10:32:56-06:00",
+        "files": ["server.pp"]
+      },
+      {
+        "hash": "158483d607508938fed07164533b6f6fd818ff09",
+        "msg": "Actually use the $kafka_enabled variable",
+        "cmtr": "Erick Cantwell",
+        "date": "2015-10-21 11:04:21-06:00",
+        "files": ["server.pp"]
+      },
+      {
+        "hash": "961d55efa3895c7ed88e209a1df4fe4af6a72f0a",
+        "msg": "Add the ability to create base directories for the log dirs",
+        "cmtr": "Erick Cantwell",
+        "date": "2015-10-21 13:03:57-06:00",
+        "files": ["server.pp"]
+      },
+      {
+        "hash": "24b04f4f87be4e3b22cdacb2e7f3bf10a0040374",
+        "msg": "Change broker id assignment from fqdn to hostname.  TODO: Make this\nconfigurable in the future",
+        "cmtr": "Erick Cantwell",
+        "date": "2015-10-23 11:36:56-06:00",
+        "files": ["server.pp"]
+      }]
+    }

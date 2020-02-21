@@ -1,0 +1,644 @@
+    {
+      "url": "https://github.com/openstack/fuel-plugin-influxdb-grafana",
+      "pp_files": ["service.pp", "hiera-override.pp", "cluster.pp", "check_environment_configuration.pp", "init.pp", "configure.pp", "influxdb_configuration.pp", "cluster-haproxy.pp", "params.pp", "validate_certificate.pp", "hiera.pp", "enable_quorum.pp", "influxdb.pp", "grafana_mysql.pp", "configure_default_route.pp", "grafana.pp", "setup_influxdir.pp", "grafana_dashboards.pp", "netconfig.pp", "firewall.pp", "setup_disks.pp", "install.pp", "influxdb_database.pp", "haproxy.pp", "influxdb_user.pp", "grafana_configuration.pp"],
+      "pp_cmtrs": ["Guillaume Thouvenin", "Swann Croiset", "Simon Pasquier"],
+      "num_pp_commits": 91,
+      "num_tot_commits": 436,
+      "commits": [{
+        "hash": "6edcae150a722a6b49e950814711ebb20c17909a",
+        "msg": "Install InfluxDB.\n\nCurrently the server is not bound to specific IP but the nodes has no public\nIP.\n\nChange-Id: Iee1919efda6d8f7e83c02c454faa24369d42a55d",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2015-03-25 12:29:39+01:00",
+        "files": ["influxdb.pp", "pre_build_hook", "tasks.yaml"]
+      },
+      {
+        "hash": "eeabe0a706f738a528707801a5456050da74553a",
+        "msg": "Install Grafana with nginx.\n\n- Install and configure Grafana with nginx.\n- Use port 8000 if port 80 is already used by Elasticsearch-Kibana.\n- Modify the default root password in InfluxDB.\n- Add a new DB, user and password to store analytics in InfluxDB.\n- Add a new DB to be used by Grafana.\n\nChange-Id: I26a82ba6c9e1efcfb3ad46cdf581693d0c66538a",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2015-03-26 11:35:47+01:00",
+        "files": ["grafana.pp", "LICENSE", "README.md", "lma.json", "init.pp", "params.pp", "metadata.json", "configure_influxdb.sh.erb", "config.js.erb", "environment_config.yaml", "pre_build_hook", "tasks.yaml"]
+      },
+      {
+        "hash": "024960c1a9633b5506446b13efe13bc69d982366",
+        "msg": "Use hiera instead of fuel_settings.\n\nChange-Id: I4ab61bf634196b229e858b801ae3c03d1f1e2952",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2015-03-26 11:35:55+01:00",
+        "files": ["influxdb.pp"]
+      },
+      {
+        "hash": "5bebbb6975868858134711f9d2c82e6f17de0614",
+        "msg": "Add Apache license headers to Puppet manifests\n\nThis change fixes the text of the LICENSE file too.\n\nChange-Id: Ie8457f109a18b02bc171f17ee817044490b1bed6",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-04-20 15:20:30+02:00",
+        "files": ["LICENSE", "grafana.pp", "influxdb.pp", "init.pp", "params.pp"]
+      },
+      {
+        "hash": "9472f8543d2db3ebca931c6d2093a1ef494fb7e3",
+        "msg": "Store Grafana dashboard to InfluxDB\n\nInstead of storing the Grafana dashboard on the server's file system,\nit gets saved to InfluxDB. This will enable us to upload several\ndashboards and have them available in the Grafana UI.\n\nThis change also fixes a bug in the Grafana configuration that\nprevented dashboards from being saved to InfluxDB.\n\nChange-Id: If961c5da643ba125253cb9eb299abfb20bd23575",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-04-21 16:48:26+02:00",
+        "files": ["init.pp", "params.pp", "configure_influxdb.sh.erb", "config.js.erb", "main_dashboard.json"]
+      },
+      {
+        "hash": "d125f8c81c4217c967ee1ab7eb8d09cd28ae0c4d",
+        "msg": "Manage the size of the partition\n\nNow we can choose the size of the partition. Currently you can only use\nthree disks and the size is in GB. If the size of the disk is not\nprovided we use all the remaining free space available on the disk. If\nyou are asking for a size that doesn't fit, installation will fail.\n\nCurrently we create a volume and we mount it on /opt/influxdb.\n\nChange-Id: I3db2ad4f2fff874bcacccb3a27df2686d30ac9b1",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2015-04-21 14:48:51+00:00",
+        "files": ["README.md", "setup_disks.pp", "setup_influxdir.pp", "environment_config.yaml", "influxdb-grafana-plugin.png", "pre_build_hook", "tasks.yaml"]
+      },
+      {
+        "hash": "8bb03d5bafdba0a8d98a2d1ac9bb4f301553df6f",
+        "msg": "Upload Grafana dashboards to InfluxDB\n\nThe Grafana dashboards that were located in the contrib/ directory are\nnow uploaded by Puppet to the InfluxDB database. This change also\nrefactors the existing code to split the configuration of InfluxDB and\nGrafana into separate manifests.\n\nChange-Id: I3df69ed84f754d36f0206a2d3b3d1238e791e398",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-04-22 13:08:54+00:00",
+        "files": ["README.md", "grafana.pp", "influxdb.pp", "grafana.pp", "influxdb.pp", "params.pp", "main_dashboard.json", "Apache.json", "Ceph.json", "Cinder.json", "Glance.json", "HAProxy.json", "Keystone.json", "Main.json", "Memcached.json", "MySQL.json", "Neutron.json", "Nova.json", "RabbitMQ.json", "System.json"]
+      },
+      {
+        "hash": "533a28358ff8e8608526277837a426569d2b6c80",
+        "msg": "Add Ceph OSD grafana dashboard\n\nChange-Id: If8654aff8617132a2c7353e67509eec872e6c619",
+        "cmtr": "Swann Croiset",
+        "date": "2015-04-29 09:39:51+02:00",
+        "files": ["grafana.pp", "Ceph_OSD.json"]
+      },
+      {
+        "hash": "b2002a6b3776de61ea1a19361fe90179da746aa0",
+        "msg": "Import Heat dashboard\n\nChange-Id: Ifdc2de29d980e371024885e8a8777404c6479982",
+        "cmtr": "Swann Croiset",
+        "date": "2015-05-19 18:38:06+02:00",
+        "files": ["grafana.pp"]
+      },
+      {
+        "hash": "f561af73c01c811be954810eb1ce46c47d1ca0ee",
+        "msg": "Configure firewall rules\n\nThis change configures explicitly the firewall rules for the node\nrunning the InfluxDB-Grafana plugin. This is needed because otherwise\nthe node becomes unavailable on CentOS after a reboot.\n\nChange-Id: Ifb69ff5456708a303f30f595d8ae4bc8a229b17d",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-05-27 09:20:06+02:00",
+        "files": ["firewall.pp", "tasks.yaml"]
+      },
+      {
+        "hash": "08299966a3b27238e38466a6dbc2b277a11a435c",
+        "msg": "Fail early when the settings aren't valid\n\nThis change adds a post-deployment task that verifies that the plugin\nconfiguration matches with the configuration of the environment.\n\nThe checks are:\n\n  - The plugin is deployed on a bare base-os node.\n  - The disk configuration is valid.\n\nChange-Id: I48152a38e89415b6bfc7d1a598de67896c5869e2",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-06-04 13:17:10+02:00",
+        "files": ["check_environment_configuration.pp", "tasks.yaml"]
+      },
+      {
+        "hash": "7cbe34e78f787e88e2839b58e3291e9baa20788b",
+        "msg": "Add missing license headers\n\nChange-Id: I67e751d74decd3dbd0c8575bfa3758c4e063218a",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-06-18 16:30:20+02:00",
+        "files": ["setup_disks.pp", "setup_influxdir.pp", "influxdb.rb", "grafana_dashboard.rb"]
+      },
+      {
+        "hash": "43ea955aad52580c01cac8063f39a27c062f631f",
+        "msg": "Add dashboard for LMA self-monitoring\n\nWe display information about processes related to LMA like collectd,\nhekad, influxdb and elasticsearch. We display the number of messages\nper filter and per decoder and the average duration for processing\nthese messages.\n\nChange-Id: I4342247a428c214aefdaa59fe791eb4efac47357",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2015-07-10 12:25:07+00:00",
+        "files": ["grafana.pp", "LMA.json"]
+      },
+      {
+        "hash": "6735c57291d79e0625aec9eb1896551a5379f090",
+        "msg": "Update the name of LMA dashboard\n\nCurrently the dashboard is known as \"LMA\" and if you save it the name\nproposed is \"LMA self-monitoring\". With this patch the initial\ndashboard will be \"LMA self-monitoring\".\n\nChange-Id: Ia1751be4bbd5aceac8ba72b822c36ab0bdd216b4",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2015-07-16 09:06:33+00:00",
+        "files": ["grafana.pp"]
+      },
+      {
+        "hash": "1fbf797868ddc2b4175c93c8a1e654d11a4256ac",
+        "msg": "Upgrade InfluxDB to 0.9.2\n\nThis patch adds a new Puppet module to install and configure InfluxDB\nversion 0.9.x.\n\nBlueprint: upgrade-influxdb-grafana\nChange-Id: I4e4af9f25e615f4b39d411cd42acd964c8399ad3",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-07-29 09:33:30+00:00",
+        "files": ["influxdb.pp", "LICENSE", "README.md", "logrotate.conf", "configure.pp", "init.pp", "install.pp", "params.pp", "service.pp", "metadata.json", "influxdb.pp", "params.pp", "configure_influxdb.sh.erb", "pre_build_hook"]
+      },
+      {
+        "hash": "1ce76eac0ecb9ea4c12775664a8880f3dc30a33b",
+        "msg": "Upgrade Grafana to 2.1\n\nIt downloads nightly build and uses the Puppet module of \"bfraser\"\nto install and configure Grafana.\nIt also adds two new parameters in the UI that are the username and the\npassword of the Grafana admin user.\n\nBlueprint: upgrade-influxdb-grafana\nChange-Id: Ibb6fc7bb523800d6a14ed659d2fa02b726742984",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2015-07-29 09:46:02+00:00",
+        "files": ["README.md", "firewall.pp", "grafana.pp", "grafana.pp", "params.pp", "config.js.erb", "environment_config.yaml", "pre_build_hook"]
+      },
+      {
+        "hash": "ec9842ce4e0fd1a41a2e761e534fa7612ed2758f",
+        "msg": "Add a grafana_datasource resource\n\nThis change adds a grafana_datasource resource that configures\ndatasources for Grafana. For now, it only supports InfluxDB v0.9 but it\ncould be easily extended to other backends.\n\nThis change also configures the local InfluxDB server as the default\ndatasource for the Grafana service.\n\nChange-Id: I1c20f932f91753c78cb7049abcca420ed37d337e\nBlueprint: upgrade-influxdb-grafana",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-08-04 11:58:47+02:00",
+        "files": ["grafana.pp", "grafana.rb", "grafana_dashboard.rb", "grafana_datasource.rb", "grafana.pp", "params.pp"]
+      },
+      {
+        "hash": "80a9d2864da61f3902339f8ba6755ad04d6c3201",
+        "msg": "Update the System dashboard\n\nThis change updates the System dashboard for InfluxDB v0.9.\n\nChange-Id: I13dbdada4154fcb72c5f88a2bee4b169d90ae8b5\nBlueprint: upgrade-influxdb-grafana",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-08-04 11:58:47+02:00",
+        "files": ["grafana.pp", "System.json"]
+      },
+      {
+        "hash": "2cb7fec2ff738f7e533d3ee39a732ccbbfd53ab9",
+        "msg": "Fix typo in the InfluxDB password parameter\n\nChange-Id: Ie748b4d87e3ea8b61271fc32d9bbc5cb549d5a38",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-08-06 11:40:59+02:00",
+        "files": ["grafana.pp"]
+      },
+      {
+        "hash": "f61ba0ae0a6bdb505f7b3a27c1693670f3a7ca4d",
+        "msg": "Install the LMA self monitoring dashboard\n\nChange-Id: I914ec17f1a5e82c971c3c285375dae806861e73a",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-08-06 16:29:55+02:00",
+        "files": ["grafana.pp"]
+      },
+      {
+        "hash": "d9b46eed255bca46aef14c267fbc1664d9b023e0",
+        "msg": "Update the main dashboard for InfluxDB 0.9\n\nChange-Id: I331acc335830b909abe5482133e6e21da42ffc4b\nBlueprint: upgrade-influxdb-grafana",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-08-07 11:05:10+02:00",
+        "files": ["grafana.pp", "Main.json"]
+      },
+      {
+        "hash": "69da2766a4ceaf02f7071d75925889c3d1e9aaf0",
+        "msg": "Add support for retention policy\n\nThis changes adds the support for configuring the retention policy in\nInfluxDB. Only the retention period is exposed to the end-user, the\nreplication factor will be exposed once the plugin supports clustering\nwith multiple nodes.\n\nChange-Id: I365ece96fabc72bb55feb0969c1c452a8febc895",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-08-10 09:24:18+02:00",
+        "files": ["influxdb.pp", "influxdb.pp", "params.pp", "configure_influxdb.sh.erb", "environment_config.yaml"]
+      },
+      {
+        "hash": "b284aad7baf47a565a4737275536f9de534baaf9",
+        "msg": "Update Grafana dashboards for InfluxDB 0.9\n\nChange-Id: I3321deb179027186fdc878094af475b0e5d473d9\nBlueprint: upgrade-influxdb-grafana",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-08-13 08:18:13+02:00",
+        "files": ["grafana.pp", "Apache.json", "Cinder.json", "Glance.json", "HAProxy.json", "Heat.json", "Keystone.json", "LMA.json", "Main.json", "Memcached.json", "MySQL.json", "Neutron.json", "Nova.json", "RabbitMQ.json", "System.json"]
+      },
+      {
+        "hash": "d281efab1c4430e9ccb748d224602d9a2b578ad5",
+        "msg": "Refactor grafana custom types\n\nThis change modifies the grafana_dashboard and grafana_datasource\ntypes to support the management of existing resources.\n\nThis change also removes the 'tags' property from grafana_dashboard.\nSince tags are an attribute of the dashboard data itself, managing them\nseparately doesn't sound right and is cumbersome.\n\nChange-Id: I0bbfe4c6bdd2ecad3933595fb8059ac8e2fb9ded",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-08-13 17:06:51+02:00",
+        "files": ["grafana.rb", "grafana.rb", "grafana.rb", "grafana_dashboard.rb", "grafana_datasource.rb", "grafana.pp", "grafana_dashboard_type_spec.rb", "grafana_datasource_type_spec.rb", "Glance.json"]
+      },
+      {
+        "hash": "0bb4225e968dd6b1841af8c2cbd1c6a77b7193e5",
+        "msg": "Update Ceph dashboards\n\nThis change updates the Ceph dashboards to comply with the new InfluxDB\nschema.\n\nChange-Id: Icb1b39b90d0e38c31e7024a20804aca339b7efbd\nBlueprint: upgrade-influxdb-grafana",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-08-24 11:51:02+02:00",
+        "files": ["grafana.pp", "Ceph.json", "Ceph_OSD.json", "Main.json"]
+      },
+      {
+        "hash": "3aa63eda058d74140fcb207442ec6e27658a046b",
+        "msg": "Update Grafana version to 2.1.3\n\nChange-Id: Icb93670213ec1dc20a708a4eda154365cff7e08e",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-08-28 13:39:14+02:00",
+        "files": ["grafana.pp", "pre_build_hook"]
+      },
+      {
+        "hash": "c08cf3006380980152f7131a12c5e2ac67d4b720",
+        "msg": "Run netconfig task only on InfluxDB-Grafana node\n\nChange-Id: I67af06a5b2fefb42811ef107e4ccd3272c6cda29\nCloses-Bug: #1489885",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-08-28 15:34:26+02:00",
+        "files": ["netconfig.pp", "tasks.yaml"]
+      },
+      {
+        "hash": "c916c62eeb3c02857a293cdf5358facec4c45e9d",
+        "msg": "Switch to custom role influxdb_grafana\n\n- Use plugin version 3.0.0 and remove compatibility with MOS 6.1\n- Leverage common tasks to configure disk and network\n\nChange-Id: I5175c577e54e0b41b5e60e136d025f1781a2a45b",
+        "cmtr": "Swann Croiset",
+        "date": "2015-09-07 18:03:03+02:00",
+        "files": ["check_environment_configuration.pp", "firewall.pp", "grafana.pp", "influxdb.pp", "netconfig.pp", "setup_disks.pp", "setup_influxdir.pp", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "node_roles.yaml", "tasks.yaml", "volumes.yaml"]
+      },
+      {
+        "hash": "7d850acdd841c4851d1772e1de6e5d068a6b587d",
+        "msg": "Upgrade to InfluxDB 0.9.4\n\nChange-Id: I06fcd4ec61f81c156acc44e206d52dae7e11c095",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-09-16 12:58:23+02:00",
+        "files": ["init.sh", "install.pp", "pre_build_hook"]
+      },
+      {
+        "hash": "81ac4137e268b752fa0e5b6753c3471bfc515ed2",
+        "msg": "Configure domain for Grafana\n\nThis change configures the domain configuration parameter for Grafana.\nOtherwise it defaults to localhost which leads to bad links for user\ninvites.\n\nChange-Id: If7de99cfd78558ae01fefc75318b24de391a17a4",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-11-03 12:35:44+01:00",
+        "files": ["grafana.pp", "grafana.pp", "params.pp"]
+      },
+      {
+        "hash": "838dcf62aa699f5ff48f0dfb0d40d158d3cd6a84",
+        "msg": "Replace $internal_address determination logic\n\nThe hiera('internal_address') is no longer available with MOS 8.0,\nthis change uses the Fuel way to retrieve the management IP address.\n\nChange-Id: I7b28eecfce8a7f244ab83d3ed09a440d195a5ee9",
+        "cmtr": "Swann Croiset",
+        "date": "2015-11-25 17:22:50+01:00",
+        "files": ["grafana.pp", "pre_build_hook"]
+      },
+      {
+        "hash": "ad85fdacc27779ff115d01d9f8c2e38688be2815",
+        "msg": "Fix nologin path\n\nChange-Id: Ic6ff1764fb8c7de91044b16147c368ff63bb2839\nCloses-Bug: #1523579",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-12-07 21:39:51+01:00",
+        "files": ["influxdb.pp"]
+      },
+      {
+        "hash": "53f4cda5d1ebec624f0885b7284220d99755f0b7",
+        "msg": "Add libvirt dashboard\n\nChange-Id: I6dfd4408f598f439cd195809da0c9add17fc1f39\nDepends-On: If2a8884877592ab5cd7706c41d28a6731e649143",
+        "cmtr": "Simon Pasquier",
+        "date": "2015-12-16 11:05:37+01:00",
+        "files": ["grafana.pp", "Libvirt.json", "releases.rst"]
+      },
+      {
+        "hash": "9b84bc5b1d4904a5519e35f0e4411c7ece9f7b54",
+        "msg": "Upgrade InfluxDB to version 0.9.6.1\n\nInfluxDB uses the /var/lib/influxdb directory to store its data instead\nof /opt/influxdb previously.\n\nImplements: blueprint influxdb-clustering\nChange-Id: I090298bcbd37e5bd0be876d39525a995f08c2b78",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2015-12-17 16:20:53+01:00",
+        "files": ["init.sh", "configure.pp", "init.pp", "install.pp", "params.pp", "service.pp", "influxdb.pp", "params.pp", "LMA.json", "environment_config.yaml", "pre_build_hook", "volumes.yaml"]
+      },
+      {
+        "hash": "322fd4a1d157f325375670d8e47b323c462777e8",
+        "msg": "Install InfluxDB in HA mode\n\n- Allow to deploy three influxdb_grafana nodes at most\n- Add firewall rule to allow traffic between the nodes of the raft\n  cluster\n- Create a VIP\n- Create a file /etc/hiera/plugins/influxdb_grafana.yaml that contains\n  information about nodes that belong to the raft cluster and the VIP\n- Install and configure HAProxy\n\nImplements: blueprint influxdb-clustering\nChange-Id: I0852da40d709563adc8b89bbad240ae89dfa862e",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-01-15 11:07:25+01:00",
+        "files": ["firewall.pp", "haproxy.pp", "hiera-override.pp", "influxdb.pp", "init.pp", "install.pp", "influxdb_configure_spec.rb", "influxdb_install_spec.rb", "influxdb_service_spec.rb", "influxdb_spec.rb", "influxdb_variables.erb", "influxdb.pp", "deployment_tasks.yaml", "environment_config.yaml", "network_roles.yaml", "node_roles.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "93588e55ad997d0f599a7a4574c4c3f4b17232a7",
+        "msg": "Install Grafana with a MySQL database\n\nThis change adds an option to use a MySQL cluster that is either\ndeployed in the local environment or provisioned beforehand.\n\nChange-Id: I25aaae3160ae2344454ad4585660a1ee3cfffb71\nImplements: blueprint influxdb-clustering",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-01-15 11:07:25+01:00",
+        "files": ["grafana.pp", "haproxy.pp", "grafana.pp", "lma_monitoring_analytics_grafana_spec.rb", "environment_config.yaml", "pre_build_hook"]
+      },
+      {
+        "hash": "a876bbc80e7cac63f4d18f2522bc560708196d77",
+        "msg": "Separate InfluxDB administration from configuration\n\nThis change adds a class to be able to create an admin user and it also\ncreates a defined type to create database and its associated user.\nThis allows the creation of the LMA database when InfluxDB cluster is\nup and ready.\n\nImplements: blueprint influxdb-clustering\nChange-Id: I5e40ff510385f867d26b77a2af5ed278a0f9cc15",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-01-15 16:21:18+01:00",
+        "files": ["hiera-override.pp", "influxdb.pp", "influxdb_configuration.pp", ".fixtures.yml", "influxdb.pp", "influxdb_database.pp", "influxdb_user.pp", "params.pp", "lma_monitoring_analytics_grafana_spec.rb", "lma_monitoring_analytics_influxdb_spec.rb", "lma_monitoring_analytics_influxdb_database_spec.rb", "lma_monitoring_analytics_influxdb_user_spec.rb", "configure_influxdb.sh.erb", "create_db.sh.erb", "create_user.sh.erb", "deployment_tasks.yaml", "network_roles.yaml", "node_roles.yaml", "tasks.yaml"]
+      },
+      {
+        "hash": "8bf667b4ae97eff31e448fa6ddfd761d0de2052e",
+        "msg": "Configure Grafana only once\n\nThis change adds grafana dashboards and datasource only on\nthe primary node.\n\nImplements: blueprint influxdb-clustering\nChange-Id: I5eb93ee01ab8fc6e4bb6d3ad88299293ac1cd85d",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-01-15 16:21:24+01:00",
+        "files": ["grafana.pp", "grafana_configuration.pp", "grafana.pp", "grafana_dashboards.pp", "lma_monitoring_analytics_grafana_dashboards_spec.rb", "lma_monitoring_analytics_grafana_spec.rb", "tasks.yaml"]
+      },
+      {
+        "hash": "e72c29f24df549eef8a887fdf7b722ed25f2e50c",
+        "msg": "Use lma::corosync_roles to configure corosync\n\nThis change uses lma::corosync_roles to configure corosync/pacemaker\ncluster and it renames hiera-override.pp to hiera.pp to be consistent\nwith other plugins.\n\nChange-Id: Ic1100d5766c9d85774962abd9a1369f95238308c",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-01-15 16:21:24+01:00",
+        "files": ["cluster.pp", "hiera.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "df4fa55ce2a9693a753da401d7a7f7c4b6c952e6",
+        "msg": "Notify the Grafana URL to the Fuel API\n\nOnce the plugin deployment has completed, it uses the Fuel API to\nregister the Grafana URL. The end-users will get the information in\nthe Fuel UI.\n\nChange-Id: I7ba31b3ee2e68fbeb5b69fd25f6536c926148f21",
+        "cmtr": "Simon Pasquier",
+        "date": "2016-01-18 13:33:38+00:00",
+        "files": ["grafana_configuration.pp"]
+      },
+      {
+        "hash": "93fbb005e7d98159b2eeb9a47e07eeba93483960",
+        "msg": "Update self-monitoring dashboard\n\nSeparate Elasticsearch part into a new dashboard:\n* the dashboard is imported only if Elasticsearch is deployed locally\n* the dashboard is composed of 2 rows 'Cluster' and 'Instance' with\n  'Status' annotations\n* the Instance row remains identical (system metrics of the Java process)\n* the Cluster row displays:\n   - the cluster health (single stat)\n   - number of nodes (single stat)\n   - number of shards breakdowns by state\n   - number of pendding tasks\n\nChange-Id: I5ece41b73199eeecbf2cfd0ba2511a02a57a037c",
+        "cmtr": "Swann Croiset",
+        "date": "2016-01-22 14:41:19+01:00",
+        "files": ["grafana_configuration.pp", "grafana_dashboards.pp", "Elasticsearch.json", "LMA.json"]
+      },
+      {
+        "hash": "78c5810c49efbb5257a747f2545db10330edf832",
+        "msg": "Update the Libvirt dashboard\n\nThis change renames the Libvirt dashboard as Hypervisor and adds several\nitems to it:\n\n- a new row called 'Host' with panels displaying the system metrics of\n  the selected compute node (CPU, RAM and disk).\n- a new row called 'Virtual Resources' with panels displaying the Nova\n  metrics such as the number of used/free virtual CPUs, used/free RAM\n  and used/free disk.\n\nChange-Id: I160015ea904aa961039df52ae9441ff008669282\nDepends-On: I6d6b45525822d944e2d1850010c0ac9c4ee75b17",
+        "cmtr": "Simon Pasquier",
+        "date": "2016-01-22 15:29:40+01:00",
+        "files": ["grafana_dashboards.pp", "Hypervisor.json", "Libvirt.json", "releases.rst"]
+      },
+      {
+        "hash": "b92fbf67172fe477abf972250814caf2a6c00775",
+        "msg": "Reduce HAProxy logs to the minimum\n\nChange-Id: I38727d40ab92c7996e74af48806dbf3117c18c31",
+        "cmtr": "Swann Croiset",
+        "date": "2016-01-25 14:03:41+01:00",
+        "files": ["haproxy.pp"]
+      },
+      {
+        "hash": "8ffd7c02a566ef602f9ddc21e120ab3255bb3086",
+        "msg": "Configure no-quorum-policy for Pacemaker\n\nThis change makes sure that the no-quorum-policy parameter is 'stop'\nwhen there are at least 3 nodes and 'ignore' otherwise.\n\nChange-Id: If65beaa9dbff0f52b3b369d9763d8b52ff110bfd",
+        "cmtr": "Simon Pasquier",
+        "date": "2016-01-25 16:38:47+01:00",
+        "files": ["enable_quorum.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "fcd99f5f9fe782b201b45a592cd96cf50e1964db",
+        "msg": "Provision MySQL only from the primary node\n\nThis change adds a new task that provisions the MySQL database and user\nwhen using the local mode. This task is only executed from the primary\nnode because it can run only once.\n\nChange-Id: I06c4ab32fbc6aa418504278d553e0fc1c5b1f858",
+        "cmtr": "Simon Pasquier",
+        "date": "2016-01-26 15:30:50+00:00",
+        "files": ["grafana.pp", "grafana_mysql.pp", "tasks.yaml"]
+      },
+      {
+        "hash": "b8fa135328b078de1761e0a4500a1d23bd57f62c",
+        "msg": "Enable HAProxy httplog option\n\nWithout 'httplog' option, the 'dontlog-normal' option doesn't works.\nThis leads to log all requests without any relevant information:\n<134>Feb  2 12:17:34 node-3 haproxy[17852]: Connect from 10.109.31.1:58788 to 10.109.31.4:8000 (grafana/HTTP)\n<134>Feb  2 12:17:34 node-3 haproxy[17852]: Connect from 10.109.31.1:58790 to 10.109.31.4:8000 (grafana/HTTP)\n<134>Feb  2 12:17:34 node-3 haproxy[17852]: Connect from 10.109.31.1:58789 to 10.109.31.4:8000 (grafana/HTTP)\n<134>Feb  2 12:17:34 node-3 haproxy[17852]: Connect from 10.109.31.7:36269 to 10.109.31.4:8086 (influxdb/HTTP)\n<134>Feb  2 12:17:34 node-3 haproxy[17852]: Connect from 10.109.31.7:36271 to 10.109.31.4:8086 (influxdb/HTTP)\n<134>Feb  2 12:17:34 node-3 haproxy[17852]: Connect from 10.109.31.7:36281 to 10.109.31.4:8086 (influxdb/HTTP)\n\nChange-Id: I743cace0a5c2dc4f385eae4ac9b5816f31a5e014",
+        "cmtr": "Swann Croiset",
+        "date": "2016-02-02 13:21:35+01:00",
+        "files": ["haproxy.pp"]
+      },
+      {
+        "hash": "2313064dc2a73155995d2702aa68f8ccc97e5f18",
+        "msg": "Add a new dashboard for InfluxDB\n\nThis change adds a new dashboard for InfluxDB. It also moves\ninformation about InfluxDB and Grafana from the LMA self-monitoring\ndashboard to the new one.\n\nDepends-on: Ib72f50343f3d1eff05f62445198ed1e385a2b677\nChange-Id: I5b4d0a6abedf3a77ff69a813e7e3a565d752ff46",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-02-03 16:17:33+01:00",
+        "files": ["grafana_configuration.pp", "grafana_dashboards.pp", "InfluxDB.json", "LMA.json"]
+      },
+      {
+        "hash": "00652329ecc2502dec968f6a0c4fe6b19197ef78",
+        "msg": "Upgrade InfluxDB to 0.10\n\n- Allow traffic on port 8091\n- Update configuration parameters\n- Install InfluxDB in two steps:\n    - Install the primary node that will be the leader of the Raft\n      cluster\n    - Install other nodes\n\nChange-Id: I4c28d8da73bd51cb7e558a7a4121fc3220c3344f",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-02-08 14:14:47+01:00",
+        "files": ["firewall.pp", "influxdb.pp", "influxdb_configuration.pp", "configure.pp", "init.pp", "install.pp", "influxdb_install_spec.rb", "influxdb_variables.erb", "influxdb.pp", "pre_build_hook", "tasks.yaml"]
+      },
+      {
+        "hash": "948dcec103d2dc7bb3e03cc510a281c2879e8fe9",
+        "msg": "Set the leader of the Raft as the first node to join\n\nWith InfluxDB 0.10 we are deploying the cluster in two steps:\n  - start the leader of the Raft cluster without parameters\n  - start others nodes with the '-join' parameter starting with the leader\n\nThis changes puts the leader at the start of the list. It also\nadds a new entry in influxdb_grafana.yaml called 'backends' that is\nused by HAProxy.\n\nChange-Id: I85c0ff041fb084ef680db0819c41ba2a42a7dae3\nCloses-Bug: #1543500",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-02-10 12:46:30+00:00",
+        "files": ["haproxy.pp", "hiera.pp", "influxdb.pp", "influxdb_variables.erb"]
+      },
+      {
+        "hash": "ce330166379590844ee792671ffc17349ace78a3",
+        "msg": "Enable snapshots for InfluxDB\n\nThis change allows the operator to backup the InfluxDB database using\nthe 'influxd backup' command.\n\nChange-Id: Id23eb027de719b5f4fb44cac39d5eaf3dc8ae775",
+        "cmtr": "Simon Pasquier",
+        "date": "2016-02-10 14:03:48+01:00",
+        "files": ["configure.pp", "init.pp", "params.pp", "influxdb_configure_spec.rb", "influxdb.pp"]
+      },
+      {
+        "hash": "f36f371d6cd7b3781041ee629107fe7bad0ad9fb",
+        "msg": "Disable sending anonymous statistics by InfluxDB\n\nFixes-bug: #1551228\n\nChange-Id: I77cbcec09b0ec059ab0b45f3d56b72d519d9af74",
+        "cmtr": "Swann Croiset",
+        "date": "2016-02-29 14:50:57+01:00",
+        "files": ["configure.pp", "influxdb_configure_spec.rb"]
+      },
+      {
+        "hash": "66e9419deac2cb934aff089a3511c2ac2d250df0",
+        "msg": "Disable HTTP logs for InfluxDB\n\nChange-Id: Ib8d4ef17612394bc0fc4217b74cf0295b1e1e87a\nFixes-bug: #1561605",
+        "cmtr": "Swann Croiset",
+        "date": "2016-03-30 11:41:38+02:00",
+        "files": ["configure.pp"]
+      },
+      {
+        "hash": "82f1b8b6967e50b0e1874a9117b8d5fa494e867b",
+        "msg": "Fix corosync_nodes usage\n\nIn Fuel 9.0 corosync module interface has been changed.\nWe need to adjust our modules accordingly.\n\nChange-Id: I2dd103f00f347d3277edbfa7388485b5b787c066",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-04-06 14:18:05+02:00",
+        "files": ["cluster.pp", "enable_quorum.pp"]
+      },
+      {
+        "hash": "01897193c4945db7bf976d1535c65376d3b10a3b",
+        "msg": "Remove dependency on cluster-haproxy.pp from osnailyfacter\n\nThis patch adds a new manifest to replace the one that is used from\nosnailyfacter. We cannot use the manifest provided by fuel-library\nbecause it has been rewritten and it is not compatible with our\ndeployment: it assumes a fixed VIP naming schema that is specific\nto the controllers.\n\nPartial-Bug: #1554521\nChange-Id: Ibcac60dc89787500b931296e94739e692b544cdd",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-04-11 10:05:09+02:00",
+        "files": ["cluster-haproxy.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "8976c4869ea5ec464e5d19b387c1a7309bed33f4",
+        "msg": "Add notice to identify StackLight manifests in puppet logs\n\nChange-Id: I5ffeb00cf1e2fb032512099666dc4e313047ea2d",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-04-15 14:36:06+00:00",
+        "files": ["cluster-haproxy.pp", "cluster.pp", "enable_quorum.pp", "firewall.pp", "grafana.pp", "grafana_configuration.pp", "grafana_mysql.pp", "haproxy.pp", "hiera.pp", "influxdb.pp", "influxdb_configuration.pp"]
+      },
+      {
+        "hash": "dca830b7a4bad8600ddeb7fbd853eb7fc136139a",
+        "msg": "Fix deployment in a dedicated env with detach-database plugin\n\nThis patch fixes several issues when deploying detach_database and\ninfluxdb_grafana plugins on the same nodes:\n - it uses hiera_hash to get data from mysql keyword\n - it prevents the installation of mysql_client if it is already\n   installed\n - it manages the existence of a file /root/.my.cnf\n\nChange-Id: I2237b905861fbdca4a37caf0e48ee1f71fedfc33\nCloses-Bug: #1558562",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-05-04 14:49:43+02:00",
+        "files": ["grafana_mysql.pp"]
+      },
+      {
+        "hash": "8528e5ae47b75dd5fc54d0ed076e074b94c384a3",
+        "msg": "Fix deployment when using network templates\n\nInfluxDB and Grafana can be deployed on any network thanks to network\ntemplates. This change removes all the hard-coded dependencies on the\nmanagement network. All port numbers for InfluxDB and Grafana are also\nmoved to Hiera to make it easier to customize if needed.\n\nCloses-Bug: #1577358\nRelated-Bug: #1514365\nChange-Id: I9b8f692151dec28963f1acbc93bc7d92925cbeae",
+        "cmtr": "Simon Pasquier",
+        "date": "2016-05-04 17:35:57+02:00",
+        "files": ["firewall.pp", "grafana.pp", "grafana_configuration.pp", "haproxy.pp", "hiera.pp", "influxdb.pp", "influxdb_configuration.pp", "grafana.pp", "grafana_dashboards.pp", "params.pp"]
+      },
+      {
+        "hash": "b4ac048b5c47b6452caa2c44b942aa551a2a6628",
+        "msg": "Use hiera_hash for network data\n\nChange-Id: I3959b8a8a279e20a4b4c26e6c9490d4eaa55b44f\nPartial-Bug: #1585350",
+        "cmtr": "Simon Pasquier",
+        "date": "2016-05-25 10:24:30+02:00",
+        "files": ["enable_quorum.pp", "hiera.pp"]
+      },
+      {
+        "hash": "7550e8ed21b9a55a00034fd3c9f48c4a368eade3",
+        "msg": "Install explicit package version of Grafana\n\nThis has the advantage to control the exact version that the plugin installs\nand this avoids to use the \"latest\" option which is broken with the last\nversion of Puppet 'apt_fuel' package provider.\n\nFixes-bug: #1590013\n\nChange-Id: I8b38047209a5a60cba0e9752e43453ae8612233c",
+        "cmtr": "Swann Croiset",
+        "date": "2016-06-08 16:42:53+02:00",
+        "files": ["grafana.pp", "grafana.pp"]
+      },
+      {
+        "hash": "f1c68cb8cc9f56a956ef91d9c82306b3c6cbcb4f",
+        "msg": "Rotate Grafana logs\n\nFixes-bug: #1572930\n\nChange-Id: I73eac6720c3e5d006b018c5d13c5c64267adb175",
+        "cmtr": "Swann Croiset",
+        "date": "2016-06-08 16:49:07+02:00",
+        "files": ["grafana.pp", "lma_monitoring_analytics_grafana_spec.rb", "logrotate.conf.erb"]
+      },
+      {
+        "hash": "a8a1c08aeb90a4de3f1c9f016db5e58db82a6d39",
+        "msg": "Remove hidden parameter in the UI\n\nThis patch moves parameter hidden in the UI into hiera. Hidden parameter\nin the UI is not used anymore and it is the old way to pass parameter to\npuppet manifests.\n\nChange-Id: I4531543c36ec8780657536363c3cceb1a0a41300",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-06-16 12:11:15+00:00",
+        "files": ["hiera.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "9c77c2f5fe837b631c3dd7155e358a5a38f226a3",
+        "msg": "Enable secure communication over HTTPS for Grafana\n\nThis patch configures HAProxy to terminate SSL connection when the\nsupport for SSL/TLS is enabled in StackLight.\n\nDocImpact Add support for TLS\nChange-Id: Idf59f92f00ed58f3ebce2e0421694ad7c2010fe9\nImplements: blueprint support-secure-communication",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-06-21 14:16:50+02:00",
+        "files": ["grafana_configuration.pp", "haproxy.pp", "hiera.pp", "validate_certificate.pp", "validate_ssl_certificate.rb", "grafana.rb", "grafana_dashboards.pp", "params.pp", "deployment_tasks.yaml", "environment_config.yaml"]
+      },
+      {
+        "hash": "af5c89997070890df08e838e3e62fa279469faaa",
+        "msg": "Don't configure HAProxy stats over HTTP\n\nThis breaks the deployment of the detach-database plugin and isn't\nrequired for the InfluxDB-Grafana plugin.\n\nChange-Id: Iebf29286077a2c6ded3d68c0e015b45a97727ab1\nCloses-Bug: #1593270",
+        "cmtr": "Simon Pasquier",
+        "date": "2016-06-22 17:20:53+02:00",
+        "files": ["haproxy.pp"]
+      },
+      {
+        "hash": "7bf3b415729d4a2bf9d10f125d39db1749618de2",
+        "msg": "Enable support for LDAP authentication\n\nThis patch allows to authenticate Grafana users against LDAP. It also\nsupports a group-based authorization mapping to the admin and viewers\nroles. In this implementation we only support POSIX LDAP schemas.\nAll options are disabled by default.\n\nDocImpact Add support for LDAP\nImplements: blueprint ldap-integration-in-stacklight\n\nChange-Id: I7e836d0cd8a5f7df3d934e29bfae337abd90da3c",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-06-24 07:21:00+00:00",
+        "files": ["grafana.pp", "hiera.pp", "grafana.pp", "lma_monitoring_analytics_grafana_spec.rb", "ldap.toml.erb", "environment_config.yaml"]
+      },
+      {
+        "hash": "92cb85943443b38bd42d7c698097a3c2b579c45a",
+        "msg": "Remove calls to hiera('influxdb_grafana') in manifests but hiera.pp\n\nChange-Id: I39e5c2c7e4427195a4a54c9135e1c30c1cf0b5e7",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-06-24 09:42:17+02:00",
+        "files": ["grafana.pp", "grafana_configuration.pp", "grafana_mysql.pp", "hiera.pp", "influxdb_configuration.pp", "grafana.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "9593e74a792d3fb358e0e1b742d450a2236f3a0c",
+        "msg": "Ensure that the Grafana API is ready\n\nChange-Id: I8aaa702dacb3494488ec1196026fd52191f5d5a7\nCloses-Bug: #1595929",
+        "cmtr": "Simon Pasquier",
+        "date": "2016-06-24 13:49:48+02:00",
+        "files": ["grafana.pp", "haproxy.pp", "hiera.pp"]
+      },
+      {
+        "hash": "55a5b67cf8fa590fe5edebcf90214f49c780c6cd",
+        "msg": "Fix ldap_server_port parameter input\n\nChange-Id: I5d885f4ba8dbfb0582e2f73afc884df647ca22f1",
+        "cmtr": "Swann Croiset",
+        "date": "2016-06-24 17:41:35+02:00",
+        "files": ["hiera.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "9cdc55c6c08723cd29078d0a91fd2765971f048d",
+        "msg": "MySQL password must be a string representation\n\nCloses-bug: #1596438\n\nChange-Id: Iab233d9babb980fbd810692976ccaa0a90a1eb11",
+        "cmtr": "Swann Croiset",
+        "date": "2016-06-27 15:52:39+02:00",
+        "files": ["grafana.pp", "grafana_mysql.pp", "hiera.pp"]
+      },
+      {
+        "hash": "63bc3897161a9939c9afcd6bb2a584b99640f5ea",
+        "msg": "Fix lma::grafana::ldap::admin_group_dn YAML format\n\nChange-Id: I6c3d2520d768fdc6ac94104800766c96417a12a7",
+        "cmtr": "Swann Croiset",
+        "date": "2016-06-28 13:15:24+02:00",
+        "files": ["hiera.pp"]
+      },
+      {
+        "hash": "e1d7c350782bb6f94b3d9cbf6b4a5d27306ac588",
+        "msg": "Disable group parameters if authorization is disabled\n\nParameters \"Group search base DN\" and \"Group search filter\" are not\nneeded if authorization is disabled.\n\nChange-Id: I7399987c695305bae7f6029de110d591ab053963",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-06-28 15:09:21+02:00",
+        "files": ["grafana.pp", "ldap.toml.erb", "environment_config.yaml"]
+      },
+      {
+        "hash": "4e2d74d3c0d29c94fe663573d47ce379d11efb0d",
+        "msg": "Display port in the link shown in Fuel UI\n\nChange-Id: I308db6e56a77db89e4eacf8da0893c697497a105",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-07-04 13:16:30+00:00",
+        "files": ["grafana_configuration.pp"]
+      },
+      {
+        "hash": "8081acf234274bd23a861b9e690b89ccd44b6d20",
+        "msg": "Use standard HTTP ports\n\nDepends-On: Id94cae82b2bea92e049975ccc9e91e4383f52931\n\nChange-Id: I32c65d039edf1cb625189bb92837b6e6e647dc86",
+        "cmtr": "Swann Croiset",
+        "date": "2016-07-07 17:33:55+02:00",
+        "files": ["grafana_configuration.pp", "haproxy.pp", "hiera.pp"]
+      },
+      {
+        "hash": "5ef7a53504bc37bf1b97dac8428efd2da3162b4a",
+        "msg": "Install the version that is coming with the plugin\n\nVersion 0.11.1-1 is provided by the plugin, so to avoid problems with\npriorities or conflicts with other version we need to fix the version to\nthe one that we are shippping.\n\nChange-Id: I22923a6bbccb0f1b43ebfd6fece9891081cbb30c",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-07-18 07:38:58+00:00",
+        "files": ["influxdb.pp", "init.pp", "install.pp", "influxdb_install_spec.rb", "influxdb.pp"]
+      },
+      {
+        "hash": "c60b906c5b73b5c16f4691bcb10150c4ba37b216",
+        "msg": "Enable IP forwarding for HAProxy\n\nThis is required for multi-rack environments where the nodes are\nlocated on different subnets.\n\nChange-Id: I1f22cfefbc25d4093b4c84f68a863835a23b0149\nCloses-Bug: #1604432",
+        "cmtr": "Simon Pasquier",
+        "date": "2016-07-20 10:03:16+00:00",
+        "files": ["cluster-haproxy.pp"]
+      },
+      {
+        "hash": "c940a1e806d0d67b070df5e0db05e281f5f1c28e",
+        "msg": "Configure the management gateway on the nodes\n\nWithout this change, the nodes are configured to use the Fuel node as\ntheir default gateway. Note that the code path is different between MOS\n8 and MOS 9 because of this bug fix [1] that hasn't been backported on\nMOS 8.\n\n[1] https://bugs.launchpad.net/fuel/+bug/1541309\n\nChange-Id: I1529b35a4e3e3cff59360da983a4866f8b74ba70\nCloses-Bug: #1583994",
+        "cmtr": "Simon Pasquier",
+        "date": "2016-07-27 11:58:49+02:00",
+        "files": ["configure_default_route.pp", "hiera.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "a4b0e0d2f7fc16ed32dd893b23da9b555540b55f",
+        "msg": "Configure Grafana to use its own VIP\n\nThis change modifies the deployment manifests to use the Grafana VIP\naddress instead of the one allocated for InfluxDB. It allows then the\ndeployer to expose the Grafana dashboard on the public network using\nnetwork templates if needed.\n\nChange-Id: I2b5e55c9b68d5894dc95b94a049415c30471f9a3\nDocImpact: document the Grafana VIP address\nImplements-blueprint: kibana-grafana-public-ip-access\nDepends-On: Icdf9315239a8fde8b0528f555a89adf0374c408f",
+        "cmtr": "Simon Pasquier",
+        "date": "2016-07-27 15:27:54+00:00",
+        "files": ["grafana_configuration.pp", "haproxy.pp", "hiera.pp"]
+      },
+      {
+        "hash": "3f5b22c2212924c1b28e260c6b64534becfcd5bd",
+        "msg": "Fix issue with LDAP protocol radio button\n\nThis patch modifies the label of the radio button used for selecting\nthe LDAP protocol to make it unique across all the StackLight plugins.\n\nChange-Id: Iafe43b4d0fc0b4b72bbf43e88575018618c750c8\nPartial-Bug: #1599778",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-08-09 16:20:36+02:00",
+        "files": ["hiera.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "2c8b6c5e0b33cc9178d93bf82acaca64b6e61ea8",
+        "msg": "Add the option to store the InfluxDB WAL in memory\n\nThis change adds a new option to the Fuel UI to store the InfluxDB WAL\nfiles in memory. This greatly improves write performances but it may\nlead to data loss in case of server crash.\n\nThe WAL partition will use 10% of the total RAM (but no more than 4GB).\n\nDocImpact\n\nChange-Id: I6153cd24322ef3eab53505bf4cb1f72d9594ec04",
+        "cmtr": "Simon Pasquier",
+        "date": "2016-09-30 10:56:02+02:00",
+        "files": ["hiera.pp", "influxdb.pp", "influxdb.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "4f4dc5abb8c88dc7cf1a1f99bcb4fe83f4560edf",
+        "msg": "Force WAL size to be an integer\n\nChange-Id: I56b520109dbe061a7331ea178f3131537dc04b44",
+        "cmtr": "Guillaume Thouvenin",
+        "date": "2016-10-06 12:25:34+02:00",
+        "files": ["hiera.pp"]
+      },
+      {
+        "hash": "bbe8ee7550832c8830d7200f01e74ee4d96e23f8",
+        "msg": "Fix WAL size\n\nThis patch fixes the calculation of the size of the WAL in bytes.\n\nChange-Id: Ibdb19c30cec01a5c704f337e69eb51d08f25ed9a",
+        "cmtr": "Simon Pasquier",
+        "date": "2016-10-07 12:57:37+00:00",
+        "files": ["hiera.pp"]
+      },
+      {
+        "hash": "c6193a22165d2d69aac447da2ee7150306254054",
+        "msg": "Enforce string type for passwords in hiera data\n\nRelated-Bug: #1634461\nChange-Id: I203c2b0719d7ca2464bd034c6fea2404d693e1f1",
+        "cmtr": "Swann Croiset",
+        "date": "2016-10-24 14:26:16+02:00",
+        "files": ["grafana.pp", "grafana_configuration.pp", "hiera.pp", "influxdb_configuration.pp"]
+      },
+      {
+        "hash": "5f57e8dbe81e49ee51e1b022345965a503de6785",
+        "msg": "Fix InfluxDB install when systemd is present\n\nThe influxdb package fails to install on Trusty machines because\nwhile systemd is now installed, it isn't running as the init system.\nThis change installs the systemd-shim package to get rid of the issue.\n\nChange-Id: I571f923c877e723f74a39691e69df8957d21e95d\nCloses-Bug: #1652640",
+        "cmtr": "Simon Pasquier",
+        "date": "2017-01-06 11:24:10+01:00",
+        "files": ["hiera.pp", "pre_build_hook"]
+      },
+      {
+        "hash": "e8b18384e5dc763d80ece5abd5f80f7d79d73617",
+        "msg": "Don't rstrip() literal strings from Hiera\n\nChange-Id: I20d36eb8eea6111d9d1052f8690925a2ec82a0e7",
+        "cmtr": "Simon Pasquier",
+        "date": "2017-01-10 09:47:05+01:00",
+        "files": ["grafana.pp", "hiera.pp", "influxdb_configuration.pp"]
+      },
+      {
+        "hash": "387ce3ee4c53f76ee854b25ec4d1bbad7d68f9fa",
+        "msg": "Enforce strings in the Hiera YAML file\n\nChange-Id: I0fe4c06a7e766f1c70a6f7331b53c8aee8df442f",
+        "cmtr": "Simon Pasquier",
+        "date": "2017-01-10 10:52:25+01:00",
+        "files": ["hiera.pp"]
+      },
+      {
+        "hash": "4e0cfb19cd855c2cb0ffd7fc8c5c6795a2b3437c",
+        "msg": "Remove InfluxDB cluster and upgrade to 1.1.1\n\nInfluxDB is deployed and configured on each node but only one instance\nreceives datapoints at a time while other nodes are used for failover.\n\nDocImpact\nChange-Id: Ie0e927f12643951fc3688a321cca6d7225441248",
+        "cmtr": "Swann Croiset",
+        "date": "2017-01-17 15:03:17+00:00",
+        "files": ["haproxy.pp", "influxdb.pp", "deployment_tasks.yaml", "pre_build_hook"]
+      },
+      {
+        "hash": "a943c6ee688937b450ee23566907ee6b1535ebd4",
+        "msg": "Upgrade Grafana to 4.1.1\n\nDocImpact\nChange-Id: I7b0bb5d0bf33270bd88be8c9f7675b1ca54d77bc",
+        "cmtr": "Swann Croiset",
+        "date": "2017-01-18 10:34:53+00:00",
+        "files": ["grafana.pp", "pre_build_hook"]
+      },
+      {
+        "hash": "a26c42fd31bfdd6c0bd4f04f38d540a054b6a682",
+        "msg": "Create the dashboard link when upgrading from 0.10.x\n\nChange-Id: Ia142b1ab1456df9c4e4d5dd09231897db6fbd695",
+        "cmtr": "Swann Croiset",
+        "date": "2017-01-27 13:48:31+01:00",
+        "files": ["grafana_configuration.pp"]
+      },
+      {
+        "hash": "3fe1fff6a26fc0fd1593b983db3cd0bb3a6ad44f",
+        "msg": "Remove rstrip() calls\n\nThese calls aren't needed anymore since the YAML data has been fixed.\n\nChange-Id: I5a37da0176d439d0fd133734b67a6cb084ed99eb",
+        "cmtr": "Simon Pasquier",
+        "date": "2017-01-31 10:18:50+00:00",
+        "files": ["grafana_configuration.pp", "grafana_mysql.pp"]
+      },
+      {
+        "hash": "6baddedafefee43380d7d391b8d5ffd304760c2a",
+        "msg": "Support fuel-mirror\n\nThe patch forces mysql-client-5.6 package to be installed instead of\nthe upstream one.\n\nChange-Id: I6f3091da03e4712b51ec60f7946f8481f6394ce1\nRelated-bug: #1663498",
+        "cmtr": "Swann Croiset",
+        "date": "2017-02-14 08:20:06+00:00",
+        "files": ["grafana_mysql.pp"]
+      },
+      {
+        "hash": "c2154c2c32fd6ab35f232011a4994a1c58520d3e",
+        "msg": "Fix deprecated firewall resource parameters\n\nThe firewall module has deprecated the 'port' parameter. Instead,\n'sport' and 'dport' should be used.\n\nChange-Id: I856327e6a1504c7386a34ed0ab43c99d2f0dfc02",
+        "cmtr": "Simon Pasquier",
+        "date": "2017-02-14 08:34:44+00:00",
+        "files": ["firewall.pp"]
+      },
+      {
+        "hash": "e0b6b025f74721add77f894b8559b2598d666b5b",
+        "msg": "Disable SSLv3 in HAProxy\n\nChange-Id: I1f81cc5700f76c90f2c8cbbcf5ec67d0559c2ed5\nPartial-Bug: #1667356",
+        "cmtr": "Simon Pasquier",
+        "date": "2017-03-16 08:16:36+00:00",
+        "files": ["cluster-haproxy.pp"]
+      }]
+    }

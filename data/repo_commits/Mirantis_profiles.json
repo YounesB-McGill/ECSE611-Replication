@@ -1,0 +1,28 @@
+    {
+      "url": "https://github.com/Mirantis/profiles",
+      "pp_files": ["post.pp", "compute.pp", "keystone.pp", "db.pp", "init.pp", "pre.pp", "purge.pp", "sudo.pp", "proxy.pp", "cinder.pp", "controller.pp", "hiera.pp", "default.pp", "redis.pp", "foreman.pp", "master.pp", "lldp.pp", "client.pp", "puppet.pp", "ca.pp", "bootstrap_ca.pp", "agent.pp", "packages.pp", "gitlab.pp", "deploy.pp", "server.pp", "install.pp", "shells.pp", "ldap.pp", "users.pp"],
+      "pp_cmtrs": ["Scott Brimhall"],
+      "num_pp_commits": 3,
+      "num_tot_commits": 5,
+      "commits": [{
+        "hash": "c9a683d3586083a4aedf723bec72e9f21a3ad1e1",
+        "msg": "Initial commit",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-27 09:42:55-07:00",
+        "files": [".fixtures.yml", ".gitignore", ".travis.yml", "CHANGELOG.md", "Gemfile", "README.md", "Rakefile", "packages.pp", "sudo.pp", "users.pp", "install.pp", "shells.pp", "deploy.pp", "default.pp", "deploy.pp", "foreman.pp", "gitlab.pp", "ldap.pp", "post.pp", "pre.pp", "puppet.pp", "purge.pp", "proxy.pp", "server.pp", "server.pp", "hiera.pp", "init.pp", "install.pp", "lldp.pp", "client.pp", "cinder.pp", "keystone.pp", "client.pp", "server.pp", "compute.pp", "controller.pp", "agent.pp", "bootstrap_ca.pp", "ca.pp", "db.pp", "master.pp", "redis.pp", "server.pp", "default.pp", "foreman.pp", "metadata.json", "init_spec.rb", "spec_helper.rb", "pre-receive.erb", "autosign-policy.rb.erb", "csr_attributes.yaml.erb", "init.pp"]
+      },
+      {
+        "hash": "72df64c51fea549fe559977ca8713613138706a9",
+        "msg": "remove version parameter",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-27 12:47:29-07:00",
+        "files": ["agent.pp"]
+      },
+      {
+        "hash": "07b3ef55d7ce1445b0b523b861dc442079581b50",
+        "msg": "Set ordering",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-27 19:21:10-07:00",
+        "files": ["sudo.pp"]
+      }]
+    }

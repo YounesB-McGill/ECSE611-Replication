@@ -1,0 +1,154 @@
+    {
+      "url": "https://github.com/Mirantis/puppet-concat",
+      "pp_files": ["site.pp", "setup.pp", "fragment.pp", "init.pp"],
+      "pp_cmtrs": ["Andreas Jaggi", "Paul Belanger", "Gildas Le Nadan", "R.I.Pienaar", "Reid Vandewiele", "Erik Dal\u00e9n", "Peter Meier", "Sharif Nassar", "Dustin J. Mitchell", "Christian G. Warden", "Jonathan Boyett"],
+      "num_pp_commits": 21,
+      "num_tot_commits": 61,
+      "commits": [{
+        "hash": "ee1fe7a0236e5fd100bbc229ea034bf7d2b530aa",
+        "msg": "Pull in work from private Subversion repository",
+        "cmtr": "R.I.Pienaar",
+        "date": "2010-05-06 22:55:02+01:00",
+        "files": ["README", "concatfragments.sh", ".gitignore", "fragment.pp", "init.pp", "setup.pp"]
+      },
+      {
+        "hash": "d09acb4a426da691e2fccbed7bb26b1679fa141e",
+        "msg": "Improve error message and documentation",
+        "cmtr": "R.I.Pienaar",
+        "date": "2010-05-07 19:15:21+01:00",
+        "files": ["fragment.pp"]
+      },
+      {
+        "hash": "86f1837c702b32e1426351326930e63ca90a782b",
+        "msg": "improve documentation",
+        "cmtr": "R.I.Pienaar",
+        "date": "2010-05-22 11:09:47+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "18a78979923c6284562fd31fc4a080995fd364f8",
+        "msg": "Make the filebucket behavior of files configurable",
+        "cmtr": "R.I.Pienaar",
+        "date": "2010-07-14 13:01:45+01:00",
+        "files": ["CHANGELOG", "fragment.pp", "init.pp"]
+      },
+      {
+        "hash": "af63a0b3eb0a528e39992e1f10c07d8a78a84e77",
+        "msg": "Parametrize warning message\n\nThe concat warn parameter can now be any string (and needs to include\nthe appropriate commenting character) and will then override the default\n(which still gets printed when warn=>true).\n\nSigned-off-by: martin f. krafft <madduck@madduck.net>",
+        "cmtr": "R.I.Pienaar",
+        "date": "2010-10-04 22:46:18+01:00",
+        "files": ["concatfragments.sh", "fragment.pp", "init.pp", "setup.pp"]
+      },
+      {
+        "hash": "fa80fc2b311b689c41b4ee2913f6bfb9f7c159c6",
+        "msg": "add a -g flag to concatfragments.sh to disable GNU extensions to find, sort and xargs; makes concat work on Solaris.\n\nAdd a $gnu parameter to make use of the aforementioned -g flag, and a $order parameter to make use of the -n flag in concatfragments.sh",
+        "cmtr": "Jonathan Boyett",
+        "date": "2010-12-03 12:35:23-08:00",
+        "files": ["concatfragments.sh", "init.pp"]
+      },
+      {
+        "hash": "031bf261289dcbb32e63b053ed5b3a82117698c0",
+        "msg": "- make the root group configurable in the concat::setup class for portability\n- use sh and not bash",
+        "cmtr": "R.I.Pienaar",
+        "date": "2011-02-03 18:01:36+00:00",
+        "files": ["CHANGELOG", "concatfragments.sh", "fragment.pp", "init.pp", "setup.pp"]
+      },
+      {
+        "hash": "96936d9efb49c39ea1cd8d1f5811f10990d9286c",
+        "msg": "Make sure interesting data in the concatdir is only available to root",
+        "cmtr": "Sharif Nassar",
+        "date": "2011-06-20 13:31:25-07:00",
+        "files": ["setup.pp"]
+      },
+      {
+        "hash": "45dfa6984cb185afc85c183152fbc6c2837e1345",
+        "msg": "don't use a hardcoded concatdir\n\nGet the concat base directory from a fact -> makes it useable if\nPuppet's :vardir is not /var/lib/puppet/. This fixes problems with\nPE and makes the module also useable for puppet runs as\nunpriviledged user.",
+        "cmtr": "Peter Meier",
+        "date": "2011-06-23 11:05:43+02:00",
+        "files": ["concat_basedir.rb", "setup.pp"]
+      },
+      {
+        "hash": "b9e33c4e6b42c9e35e0db6c1494dafc4a4c5f07e",
+        "msg": "finish work for unpriviledged user\n\nTo be able to use the module as an unprivileged user we need to\nadjust certain things:\n\n* only enforce the run user and group if we are root and can\n  actually change the user\n* set owner/group of our files and directories to our own user/group\n* place the concat script in a location we can write -> use the\n  concat dir for that.",
+        "cmtr": "Peter Meier",
+        "date": "2011-06-23 13:57:09+02:00",
+        "files": ["fragment.pp", "init.pp", "setup.pp"]
+      },
+      {
+        "hash": "772241575315a4881ec0e01ac12ee6549970ef30",
+        "msg": "Fix use of unqualified variable names\n\nFully qualify $::id, $::puppetversion, and $::concat_basedir.",
+        "cmtr": "Christian G. Warden",
+        "date": "2011-12-05 16:19:24-08:00",
+        "files": ["fragment.pp", "init.pp", "setup.pp"]
+      },
+      {
+        "hash": "30c96286c9760259bc654ebde9f330bf68c0ed6d",
+        "msg": "Fix comments to match actual behavior, clean up old script.\n\n* Zap the old copy of /usr/local/bin/concatfragments.sh.\n* Fix comments to point at new location of script.\n* Delete trailing whitespace.",
+        "cmtr": "Sharif Nassar",
+        "date": "2011-12-14 13:45:46-08:00",
+        "files": ["setup.pp"]
+      },
+      {
+        "hash": "81d5ee80f3d505ad3f9a5acd0c221c0817cdfc2c",
+        "msg": "Remove the gnu parameter from concat\n\nPreviously, the concatfragments.sh script was would default to using\nGNU-specific flags for find, sort, and xargs. This necessitated\nexplicit passing of a \"gnu = false\" parameter to the concat define in\norder to successfully run the script without GNU-specific flags when\nworking with systems that do not by default include GNU versions of the\nutilities (solaris, for example).\n\nThis commit modifies the concatfragments script such that GNU versions\nof the utilities are not needed at all. It does this while preserving\nthe original use case for the GNU flags, which was to allow special\ncharacters (like spaces) in the filenames, which it accomplished by\nusing GNU flags to separate fields using null characters instead of\nnewlines.\n\nIn order to preserve backwards-compatibility with existing puppet\ninstallations that make use of the \"gnu = false\" parameter, the\nparameter list for the concat define has not been changed. Rather, the\ngnu parameter is now deprecated and ignored.",
+        "cmtr": "Reid Vandewiele",
+        "date": "2012-04-17 12:02:38-07:00",
+        "files": ["concatfragments.sh", "init.pp"]
+      },
+      {
+        "hash": "800bec11aeacd64dac18935c6b6074ea6be14be9",
+        "msg": "Style guideline fixes\n\nComply better with puppet community style guidelines.\n\nChange-Id: Ie1782d266539b1a8f9890b2ade77280011aa22aa",
+        "cmtr": "Erik Dalén",
+        "date": "2012-04-24 16:53:20+02:00",
+        "files": ["fragment.pp", "init.pp", "setup.pp"]
+      },
+      {
+        "hash": "0bbbe320ccd6df0b8e51b9b9dfc9debdf1e2654a",
+        "msg": "add information about concat_basedir and the need for pluginsync = true at least once",
+        "cmtr": "Gildas Le Nadan",
+        "date": "2012-05-20 20:24:22+02:00",
+        "files": ["README.markdown", "init.pp", "setup.pp"]
+      },
+      {
+        "hash": "21d0d2abf2542aaf2f60c9028a8f6653351af0e1",
+        "msg": "Fail with helpful advice if $::concat_basedir is not yet set\n\nBuilding on the new docs in https://github.com/ripienaar/puppet-concat/pull/20",
+        "cmtr": "Sharif Nassar",
+        "date": "2012-05-23 14:35:08-07:00",
+        "files": ["setup.pp"]
+      },
+      {
+        "hash": "7d0b5709c9bd3c5dfce30abf58e5637258ac54c4",
+        "msg": "Lets use puppetlabs_spec_helper\nSigned-off-by: Paul Belanger <paul.belanger@polybeacon.com>",
+        "cmtr": "Paul Belanger",
+        "date": "2012-06-23 17:13:08-04:00",
+        "files": [".fixtures.yml", "Rakefile", "init_spec.rb", "site.pp", "spec_helper.rb"]
+      },
+      {
+        "hash": "534fd8b7a4793aed7a2f85d88772ce542785c6d0",
+        "msg": "Reformatting for puppet-lint\nSigned-off-by: Paul Belanger <paul.belanger@polybeacon.com>",
+        "cmtr": "Paul Belanger",
+        "date": "2012-06-23 17:45:57-04:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "092afd419326fd33b221ab3f6ec5167b3059668e",
+        "msg": "Remove spurious 'e' character.",
+        "cmtr": "Dustin J. Mitchell",
+        "date": "2012-07-11 16:46:12-05:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "0ba071858db5c4e9c698fd2b67694ba63f40a076",
+        "msg": "Include concat::setup from concat, so users don't need to",
+        "cmtr": "Dustin J. Mitchell",
+        "date": "2012-07-11 16:54:05-05:00",
+        "files": ["README.markdown", "init.pp"]
+      },
+      {
+        "hash": "721ef012e29767847c3e209c22c9805b8b58ac92",
+        "msg": "Remove trailing whitespace in comment\n\npuppet-lint does not like trailing whitespaces",
+        "cmtr": "Andreas Jaggi",
+        "date": "2012-08-14 17:13:25+02:00",
+        "files": ["fragment.pp"]
+      }]
+    }

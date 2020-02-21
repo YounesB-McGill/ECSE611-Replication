@@ -1,0 +1,133 @@
+    {
+      "url": "https://github.com/openstack/fuel-plugin-murano",
+      "pp_files": ["murano_logging.pp", "import_murano_package.pp", "murano_rabbitmq.pp", "update_openrc.pp", "murano_hiera_override.pp", "murano_dashboard.pp", "murano_db.pp", "murano_cfapi.pp", "murano_disable_old.pp", "murano.pp", "pin_murano_plugin_repo.pp", "murano_haproxy.pp", "murano_keystone.pp"],
+      "pp_cmtrs": ["Nikolay Starodubtsev", "Kirill Zaitsev", "Denis Egorenko"],
+      "num_pp_commits": 18,
+      "num_tot_commits": 61,
+      "commits": [{
+        "hash": "53745ecb4d7a597cccfabd7e534f480c82c0a74b",
+        "msg": "Initial commit for Murano plugin\n\nThis commit adds:\n\n* deployment tasks;\n* UI settings;\n* plugin metadata;\n* deployment manifests;\n\nblueprint murano-fuel-plugin\n\nChange-Id: I077a6e16222bc33d0488af19e0789cc7c7308dfa",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-04-04 13:00:16+03:00",
+        "files": [".gitignore", "LICENSE", "README.md", "components.yaml", "murano.pp", "murano_cfapi.pp", "murano_dashboard.pp", "murano_db.pp", "murano_haproxy.pp", "murano_hiera_override.pp", "murano_keystone.pp", "murano_logging.pp", "murano_rabbitmq.pp", "update_openrc.pp", "deployment_tasks.yaml", "environment_config.yaml", "functions.sh", "metadata.yaml", "node_roles.yaml", "pre_build_hook", ".gitkeep", ".gitkeep", "volumes.yaml"]
+      },
+      {
+        "hash": "5bac6365ad62d509701aee5ed28d7baae2253adf",
+        "msg": "Use unversioned keystone endpoint in manifests\n\nMurano use unversioned keystone endpoints since mitaka. This was not\nconsidered during implementation of Fuel plugin.\n\nChange-Id: I9b345a5ae5d1dfafbf3761107c66801fb4530c52",
+        "cmtr": "Nikolay Starodubtsev",
+        "date": "2016-04-06 14:10:54+03:00",
+        "files": ["murano.pp"]
+      },
+      {
+        "hash": "a1a510e0ce6dca909235b65cce9be075065d7535",
+        "msg": "Update plugin for using with base Murano\n\nNow Murano plugin can be used with Murano installed from ISO.\nAlso add YAQL syntax and minor typo syntax fixes.\n\nChange-Id: I96ed7c2632e989d5ee3dfac7a102e2be62f8de43",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-06-30 17:13:52+00:00",
+        "files": ["components.yaml", "murano.pp", "murano_cfapi.pp", "murano_dashboard.pp", "murano_haproxy.pp", "murano_hiera_override.pp", "murano_logging.pp", "murano_rabbitmq.pp", "pin_murano_plugin_repo.pp", "deployment_tasks.yaml", "environment_config.yaml", "functions.sh", "node_roles.yaml", "pre_build_hook"]
+      },
+      {
+        "hash": "05a64c606e78918d809e75cb50d320c8a1fa24bb",
+        "msg": "Fix some issues for murano plugin\n\n- create separate task for uploading murano package;\n- add firewall for murano rabbit;\n\nCloses-bug: #1593214\nCloses-bug: #1593208\n\nChange-Id: If268bc8414bfc72574c8aebdf75466ddfef7a9de",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-06-30 17:14:30+00:00",
+        "files": ["import_murano_package.pp", "murano.pp", "murano_rabbitmq.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "20a674e7fb326e634e8632449c9575c5b220e466",
+        "msg": "Fix wrong repo label for pinning\n\nActual repo labes is 'detach-murano'\n\nChange-Id: I37dd9200df970e32680f758fb46bc27c7147b1bb",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-07-01 16:14:25+03:00",
+        "files": ["pin_murano_plugin_repo.pp"]
+      },
+      {
+        "hash": "f44e7081fa647bd8903e8a69b96c34c738538391",
+        "msg": "Rename murano hash to murano_plugin hash\n\nCurrent murano hash name intersects with base Fuel murano hash name.\nAs a result base fuel task globals update base hiera yaml file\nwith wrong data, that can lead problems, for example, during downscale\ncluster.\n\nChange-Id: I8b4b95b1706c277b4ee0606ce0420c0024a3e271\nCloses-bug: #1598177",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-07-01 17:13:53+03:00",
+        "files": ["murano.pp", "murano_cfapi.pp", "murano_dashboard.pp", "murano_db.pp", "murano_haproxy.pp", "murano_hiera_override.pp", "murano_keystone.pp", "murano_rabbitmq.pp", "update_openrc.pp"]
+      },
+      {
+        "hash": "b07c41f76cefd2ad18819696a5d517d6ba687325",
+        "msg": "Change murano rabbit username and password\n\nCurrently murano rabbit uses same credentials that uses main cluster\nrabbit. Although user for murano uses different rabbitmq instance,\nbetter to use another credentials, that are different from main infra.\n\nChange-Id: I42423f2c2b0333167244a4c17886325f4e629b12\nCloses-bug: #1609355",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-08-05 13:58:30+03:00",
+        "files": ["murano.pp", "murano_hiera_override.pp", "murano_rabbitmq.pp"]
+      },
+      {
+        "hash": "89f742ed20ca9c6cc29ad500b2761f9df996d364",
+        "msg": "Add ability to install App Catalog UI plugin\n\nAdd ability to install Application Catalog UI plugin for Horizon\nwith Murano plugin.\n\nChange-Id: I1952d5f88d377c1b29785b13b5f8ff2ffe190362",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-08-11 12:43:26+00:00",
+        "files": ["murano_dashboard.pp", "murano_hiera_override.pp", "environment_config.yaml"]
+      },
+      {
+        "hash": "eeedffd8836b06616fb8aad5b3b9bbaaf7bdd343",
+        "msg": "Add import for murano application package\n\nImport io.murano.application package along with main murano core library.\n\nChange-Id: Ica47016fb89ee7d8162678a6190bad9e23abbac9\nCloses-bug: #1623594",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-09-14 17:09:33+00:00",
+        "files": ["import_murano_package.pp"]
+      },
+      {
+        "hash": "17c4f46b6e639c813aca0a5aaeae731c9cfd7bf7",
+        "msg": "Use latest package for engine and client\n\nCurrentl engine and client package resource uses ensure 'present',\nthat means no any update if package already installed. So, we need\nto change it to 'latest' - use latest available version.\n\nChange-Id: I991e4be2090bd3437fdfa9d5be36bc47aaa09161\nCloses-bug: #1624723",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-09-19 18:57:41+03:00",
+        "files": ["murano.pp", "murano_dashboard.pp"]
+      },
+      {
+        "hash": "68557690970f2e05fce0886d85c60a1ea0bddf5a",
+        "msg": "ALways upload latest package version\n\nDepends-on: I061cb64856e14d326dfa30851e427088e60f0a48\nCloses-bug: #1624723\nChange-Id: Ic34d872441144ba5f1149a0d9c30f130edee4d1e",
+        "cmtr": "Kirill Zaitsev",
+        "date": "2016-09-20 16:00:37+00:00",
+        "files": ["import_murano_package.pp"]
+      },
+      {
+        "hash": "6fe8c8dda666320383904178c88dacfb0d5fe86d",
+        "msg": "Disable old Murano services when used old Murano and Murano standalone\n\nWhen used Murano standalone node with enabled old Murano, we should\nstop old Murano services on controllers, to prevent race condition\nfor murano-engine services.\n\nChange-Id: Id9741713a8ef510b9837929256dd7d15d04ee797\nCloses-bug: #1626286",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-09-27 11:53:08+03:00",
+        "files": ["murano_disable_old.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "02e93767ab8389148161a6632b5e40d82e8e3df2",
+        "msg": "Set package_service as glare\n\nOption package_service now should be set to 'glare' because 'glance'\nis deprecated and will not be used in future.\n\nChange-Id: Ie5854608b9de37e21b2d260477c71b1d095f2837\nCloses-bug: #1630209",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-10-04 15:26:02+03:00",
+        "files": ["murano.pp"]
+      },
+      {
+        "hash": "fbea8b781cf9a5ce551edc41f5ae272fd530e85d",
+        "msg": "Disable cfapi service provided by old plugin version\n\nIn case when cfapi was deployed by old murano plugin version, we\nalso need to disable it in case of moving murano services on\nstandalone node.\n\nRelated-bug: #1620619\nChange-Id: Iea23f6d21e1691e739d1dc4efde67733c5ab01ba",
+        "cmtr": "Kirill Zaitsev",
+        "date": "2016-10-10 10:02:02+00:00",
+        "files": ["murano_disable_old.pp"]
+      },
+      {
+        "hash": "9def9882279e575faa21d1f8c6646fd25cf67240",
+        "msg": "Use proper murano package backend in openrc\n\nUse only 'glare' as package backend, because 'glance' is deprecated.\nAlso leave backward compatibility with 'glance' on removing it from\nopenrc file in case of changing package backend.\n\nChange-Id: I9182d62897d3f214d7d2b45e22de2d97031e0984\nCloses-bug: #1638296",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-11-01 18:03:21+03:00",
+        "files": ["update_openrc.pp"]
+      },
+      {
+        "hash": "4adad7a9844c687677dbe7197d3ec3a698b31a28",
+        "msg": "Restart glance-glare service after installing murano-glance plugin\n\nAfter installing package murano-glance-artifacts-plugin Glare service\nmust be restarted, otherwise Murano will not work correctly with Glare.\n\nChange-Id: I773a1d778c33d66fed8a1f9cf6f5123ba90e9315\nCloses-bug: #1637508\nRelated-bug: #1597368",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-11-03 15:53:24+03:00",
+        "files": ["murano_dashboard.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "93f6141107eccd47bade8826d19e9b09ca95c0ed",
+        "msg": "Fix disabling of old murano services\n\nBecause of bug in fuel-yaql there is no other way as using\nsome hardcoded ps-similar constructions.\n\nChange-Id: Ifcbe44c77f2266753b2916bcf2a06a9d37ee87d5",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-11-24 15:34:27+00:00",
+        "files": ["murano_disable_old.pp", "deployment_tasks.yaml"]
+      },
+      {
+        "hash": "3ae7afa171b23e7c11212d8224a4540f0f94d7a3",
+        "msg": "Do not split hosts for rabbit_os_hosts in murano.pp\n\nFixed murano manifest which turned rabbit_hosts string into an array.\nThis set wrong rabbit_hosts setting in murano.conf\n\nCloses-Bug: #1651748\nChange-Id: I2b0b8650b588913d52881ddc374ea5e7abb32aff",
+        "cmtr": "Kirill Zaitsev",
+        "date": "2017-05-31 08:36:50+00:00",
+        "files": ["murano.pp"]
+      }]
+    }

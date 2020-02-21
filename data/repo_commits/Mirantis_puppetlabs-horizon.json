@@ -1,7 +1,7 @@
     {
       "url": "https://github.com/Mirantis/puppetlabs-horizon",
-      "pp_files": ["params.pp", "init.pp", "site.pp"],
-      "pp_cmtrs": ["root", "Branan Purvine-Riley", "Robert Starmer", "Derek Higgins", "Sebastien Badia", "Eugene Kirpichov", "Dan Bode", "Fran\u00e7ois Charlier"],
+      "pp_files": ["site.pp", "params.pp", "init.pp"],
+      "pp_cmtrs": ["Derek Higgins", "Dan Bode", "Eugene Kirpichov", "Branan Purvine-Riley", "Robert Starmer", "Sebastien Badia", "root", "Fran\u00e7ois Charlier"],
       "num_pp_commits": 16,
       "num_tot_commits": 29,
       "commits": [{

@@ -1,0 +1,2324 @@
+    {
+      "url": "https://github.com/openstack/puppet-ceilometer",
+      "pp_files": ["evaluator.pp", "compute.pp", "logging.pp", "db.pp", "init.pp", "sync.pp", "ceilometer_with_gnocchi.pp", "postgresql.pp", "central.pp", "params.pp", "polling.pp", "authtoken.pp", "config.pp", "host_access.pp", "policy.pp", "collector.pp", "deps.pp", "agent-compute.pp", "notifier.pp", "client.pp", "api.pp", "rabbitmq.pp", "expirer.pp", "site.pp", "agent-central.pp", "mysql.pp", "central-agent.pp", "notification.pp", "apache.pp", "auth.pp", "gnocchi.pp"],
+      "pp_cmtrs": ["Ivan Berezovskiy", "Sergey Kolekonov", "Lukas Bezdicka", "Yanis Guenane", "Emilien Macchi", "Mark T. Voelker", "Mykyta Karpin", "emilienm", "Xing Zhou", "Pradeep Kilambi", "Benedikt Trefzer", "Benedikt von St. Vieth", "John Eckersberg", "Mehdi Abaakouk", "Matthew J. Black", "Giulio Fidente", "zhongshengping", "David Moreau Simard", "Martin M\u00e1gr", "Ian Wienand", "Sebastien Badia", "Chris Dent", "Fran\u00e7ois Charlier", "Soren Hansen", "Juan Antonio Osorio Robles", "Luis Pigueiras", "Harry Rybacki", "Endre Karlson", "Javier Pena", "Derek Higgins", "Athlan-Guyot sofer", "Tobias Urdin", "ZhongShengping", "Andrew Smith", "Aimon Bustardo", "Nate Potter", "Gael Chamoulaud", "Chris Hoge", "Xav Paice", "Matthew J Black", "Xingchao Yu", "wangqi", "Matthias Bastian", "zhubingbing", "Carlos Camacho", "Lars Kellogg-Stedman", "Stefano Zilli", "Paul Belanger", "Mathieu Gagne\u0301", "Colleen Murphy", "Jake Yip", "iberezovskiy", "Alex Schultz", "Sharat Sharma", "Francesco Vollero", "Dmitry Ilyin", "qiaomin", "Sofer Athlan-Guyot", "luyuan", "Maksim Malchuk", "nanhai.liao", "Matt Fischer", "Hunter Haugen", "Denis Egorenko", "Alfredo Moralejo", "Mike Dorman", "Iury Gregory Melo Ferreira", "Liao Penghui", "Martin Magr", "Chris Ricker", "Dan Prince", "Johannes Grassler", "Michael Chapman"],
+      "num_pp_commits": 331,
+      "num_tot_commits": 751,
+      "commits": [{
+        "hash": "ff053ee175f306be686d7a86b575350d20adecd0",
+        "msg": "First Commit",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 09:43:55+01:00",
+        "files": ["LICENSE", "Modulefile", "README", "Rakefile", "api.pp", "agent-compute.pp", "api.pp", "central-agent.pp", "client.pp", "collector.pp", "mysql.pp", "host_access.pp", "init.pp", "rabbitmq.pp", "params.pp", "spec_helper.rb", "init.pp"]
+      },
+      {
+        "hash": "b24af7fa00fcb851c87e24251232d423538e0432",
+        "msg": "Fix architecture & README",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 09:50:49+01:00",
+        "files": ["README", "api.pp"]
+      },
+      {
+        "hash": "9e411800305dac8bb749db29af3b54e93a939f88",
+        "msg": "Add tests",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 10:10:13+01:00",
+        "files": ["central-agent.pp", "agent-central.pp", "agent-compute.pp", "collector.pp"]
+      },
+      {
+        "hash": "92050c58a4883052cd7b54427e8139b124268e2a",
+        "msg": "Add Manifests",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 10:11:06+01:00",
+        "files": ["agent-central.pp"]
+      },
+      {
+        "hash": "68b960a245ff1923b7c98743fac3526b2dee65a0",
+        "msg": "Fix Typos",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 11:52:05+01:00",
+        "files": ["mysql.pp", "init.pp"]
+      },
+      {
+        "hash": "32b2f5faabdc985b3f44d0f7bc78fd03a831b54a",
+        "msg": "Add  in the class",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 14:42:33+01:00",
+        "files": ["agent-central.pp", "agent-compute.pp", "api.pp", "collector.pp"]
+      },
+      {
+        "hash": "79f525a01f4c2d6e78d812d2f25cc26792108dfc",
+        "msg": "Fix service class",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 14:45:35+01:00",
+        "files": ["agent-central.pp", "agent-compute.pp", "api.pp", "collector.pp"]
+      },
+      {
+        "hash": "00b244024727abae762b58c1ff17c6d675fab39f",
+        "msg": "Fix a typo",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 14:48:21+01:00",
+        "files": ["agent-central.pp"]
+      },
+      {
+        "hash": "bd14917597f3b25888c8f59d807fdb821b5fc4a3",
+        "msg": "Add Services Section",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 14:57:13+01:00",
+        "files": ["init.pp", "params.pp"]
+      },
+      {
+        "hash": "98a22dea28f4848fbb12b4e3bba80b31d2a372cc",
+        "msg": "Add Services Section",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 15:00:13+01:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "8c97ba71037cfb98499a1a9991dc71fa40789f1b",
+        "msg": "Delete Notify Manifest",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 15:06:13+01:00",
+        "files": ["rabbitmq.pp"]
+      },
+      {
+        "hash": "6f99e6911eadbc4916037c16d4912947a03d8827",
+        "msg": "Fix ceilometer::db::mysql class",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 15:18:57+01:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "1e813a57aa2760c328adcc4144b59e689213b8d3",
+        "msg": "Fix ceilometer::db::mysql class",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 15:20:47+01:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "4708b420088702e503fede8f229bdeb56ce57299",
+        "msg": "Add auth.pp for keystone",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 15:23:14+01:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "f027660469449d1dfe1cda443a9fbfdb54982e79",
+        "msg": "Add mysql::python",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 15:24:01+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "b8365277298efac3a52bc14ee71b43401628b899",
+        "msg": "Move Settings to init.pp",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 15:44:52+01:00",
+        "files": ["agent-central.pp", "api.pp", "init.pp"]
+      },
+      {
+        "hash": "d0699f88f09d0db6f522c7f3e62056886c2a2b97",
+        "msg": "Move ceilometer.conf file to init.pp",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 15:46:47+01:00",
+        "files": ["agent-central.pp", "init.pp"]
+      },
+      {
+        "hash": "481bfb303d91dbbd908312aafa43aa8ab868e131",
+        "msg": "Fix a typo",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 15:48:21+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "625cb53464a18ff139ae2badd109b64f231ebbfe",
+        "msg": "Move settings to init.pp",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 15:52:50+01:00",
+        "files": ["agent-compute.pp", "api.pp", "collector.pp"]
+      },
+      {
+        "hash": "4dd16804578998dcb690133349ac8301f06d65d6",
+        "msg": "Delete []",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 16:04:09+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "9cd1b264aff869acbbf1a44401955682218a404c",
+        "msg": "Fix files stuffs",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 16:11:12+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "0e63d69c8e1652ab335d3f25f8e355e85aa253a7",
+        "msg": "The ceilometer.conf file needs the directory",
+        "cmtr": "François Charlier",
+        "date": "2012-12-07 16:24:44+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "14274a136eee72eb235b40d4b61b3a64457e5b31",
+        "msg": "Remove useless test manifests",
+        "cmtr": "François Charlier",
+        "date": "2012-12-07 16:49:55+01:00",
+        "files": ["agent-central.pp", "agent-compute.pp", "api.pp", "collector.pp", "init.pp"]
+      },
+      {
+        "hash": "928507584754e604c7d283e165911f0ce84344ed",
+        "msg": "Fix tabs",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 17:31:58+01:00",
+        "files": ["agent-compute.pp", "agent-central.pp", "agent-compute.pp", "api.pp", "collector.pp", "init.pp"]
+      },
+      {
+        "hash": "1f3d092ad388942629aa7894bb68c629094f43ba",
+        "msg": "Add dependency",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 18:01:08+01:00",
+        "files": ["agent-compute.pp"]
+      },
+      {
+        "hash": "01b143340c072b9a79a64e361da1997a6d872c29",
+        "msg": "Add dependency",
+        "cmtr": "emilienm",
+        "date": "2012-12-07 18:03:41+01:00",
+        "files": ["agent-central.pp", "api.pp", "collector.pp"]
+      },
+      {
+        "hash": "faafa4257e3c77f3958ce2ccc26d2f9085ff256c",
+        "msg": "Move Keystone Auth from init.pp to api.pp",
+        "cmtr": "Emilien Macchi",
+        "date": "2012-12-10 13:56:51+01:00",
+        "files": ["api.pp", "init.pp"]
+      },
+      {
+        "hash": "a29182c983e4bcd349ef9c069aba312575071132",
+        "msg": "Finish moving Keystone Auth from init.pp to api.pp",
+        "cmtr": "François Charlier",
+        "date": "2012-12-10 15:58:50+01:00",
+        "files": ["api.pp", "init.pp"]
+      },
+      {
+        "hash": "e2b0c7fca1d663d4ffa7cc280ff48a0901fb41df",
+        "msg": "Move database settings to a different class",
+        "cmtr": "François Charlier",
+        "date": "2012-12-10 16:55:38+01:00",
+        "files": ["api.pp", "collector.pp", "init.pp"]
+      },
+      {
+        "hash": "b240ef55ce00fcce8c4e1503b777b6804b84e01d",
+        "msg": "Refactoring/Style updates",
+        "cmtr": "François Charlier",
+        "date": "2012-12-10 16:55:38+01:00",
+        "files": ["agent-compute.pp", "central.pp", "compute.pp", "api.pp", "client.pp", "collector.pp", "init.pp", "params.pp"]
+      },
+      {
+        "hash": "4ae12d7905a6ea43e9c97a40b56fe5a6e13a3565",
+        "msg": "Add ceilometer-dbsync and fix some db-related deps",
+        "cmtr": "François Charlier",
+        "date": "2012-12-10 17:22:46+01:00",
+        "files": ["api.pp", "collector.pp", "db.pp", "params.pp"]
+      },
+      {
+        "hash": "bdbf474489de7af020733a364b7f74f40d3f916c",
+        "msg": "Create ceilometer user/group",
+        "cmtr": "François Charlier",
+        "date": "2012-12-10 17:23:37+01:00",
+        "files": ["init.pp", "params.pp"]
+      },
+      {
+        "hash": "54582bbbde3ae4f79a21b270c930590c3cbcc2a5",
+        "msg": "Fix the name of the ceilometer config provider",
+        "cmtr": "François Charlier",
+        "date": "2012-12-10 17:29:37+01:00",
+        "files": ["api.pp", "db.pp", "init.pp"]
+      },
+      {
+        "hash": "76e656de2f7bfac988d0c8413997dcb3d37fd745",
+        "msg": "Fix user (group → gid)",
+        "cmtr": "François Charlier",
+        "date": "2012-12-10 17:31:18+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "81657c5a1e472edd5a4b391ca194c3943231451c",
+        "msg": "Fix incomplete subscribe declaration",
+        "cmtr": "François Charlier",
+        "date": "2012-12-10 17:56:10+01:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "9665551a5f87d4ab9fd762e5307549e80ced2367",
+        "msg": "Remove wrong requirement for ceilometer-dbsync",
+        "cmtr": "François Charlier",
+        "date": "2012-12-10 18:00:20+01:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "530a91160acd224ffbe99e60f2b5f0a1a723c0ec",
+        "msg": "Add admin user/tenant/password to authtoken config",
+        "cmtr": "François Charlier",
+        "date": "2012-12-10 18:19:02+01:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "304785e08dffe4ed75fa9bcb57110fa046a43de1",
+        "msg": "Default keystone_password to false to ensure error if not set",
+        "cmtr": "François Charlier",
+        "date": "2012-12-10 18:33:33+01:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "899003aa46b5d2cf63435a784761d6db5481b979",
+        "msg": "Add the metering_secret parameter",
+        "cmtr": "François Charlier",
+        "date": "2012-12-11 17:04:07+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "5c9f72f96db3cf4b4e84c97707cf1feca8fcd53e",
+        "msg": "Add the dbsync file, it's not yet in the packages",
+        "cmtr": "François Charlier",
+        "date": "2012-12-11 18:14:37+01:00",
+        "files": ["dbsync", "db.pp"]
+      },
+      {
+        "hash": "46ea311e85d2169004b45380696e883f9a600b42",
+        "msg": "Update the dbsync_command",
+        "cmtr": "François Charlier",
+        "date": "2012-12-11 18:18:16+01:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "100a8b3bb60561555cd901619cbb023b392dc091",
+        "msg": "Add an example",
+        "cmtr": "François Charlier",
+        "date": "2012-12-11 18:35:54+01:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "1fa87a383678092d681fc102c263232169dba80e",
+        "msg": "Ensure the ceilometer user has ResellerAdmin role\n\nRequired to poll swift usage",
+        "cmtr": "François Charlier",
+        "date": "2012-12-14 11:12:13+01:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "d3a07cc1ef0a3a65e4dde6b348d351677c0f2f34",
+        "msg": "Fix style",
+        "cmtr": "François Charlier",
+        "date": "2012-12-14 11:13:44+01:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "28617fbd594e05f1f49e3587045973ca17f3a7c8",
+        "msg": "Fix ownership/permissions on /etc/ceilometer/*",
+        "cmtr": "François Charlier",
+        "date": "2012-12-14 11:54:09+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "604c02e676d1ea7f28631c9a64b6f83c0338f741",
+        "msg": "Add authentication config opts",
+        "cmtr": "Endre Karlson",
+        "date": "2012-12-17 02:33:38+01:00",
+        "files": ["central.pp", "compute.pp"]
+      },
+      {
+        "hash": "0460de348cdae58b9a931386bf6184839b338f0a",
+        "msg": "Fix duplicate opt",
+        "cmtr": "Endre Karlson",
+        "date": "2012-12-17 02:38:13+01:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "4a3b5cdc693a3272ba28234dc0585461815b7602",
+        "msg": "Only bother setting tenant_id if it's passed",
+        "cmtr": "Endre Karlson",
+        "date": "2012-12-17 02:43:31+01:00",
+        "files": ["central.pp", "compute.pp"]
+      },
+      {
+        "hash": "e643f23b4da21b5a27a70d9a4b30967125e8fcef",
+        "msg": "Forgot to pass the password also",
+        "cmtr": "Endre Karlson",
+        "date": "2012-12-17 02:45:58+01:00",
+        "files": ["central.pp", "compute.pp"]
+      },
+      {
+        "hash": "ecdc9667d25e2ae5d98970ff410ae0d92a9907b8",
+        "msg": "Fix $auth_user var name",
+        "cmtr": "François Charlier",
+        "date": "2012-12-17 17:13:00+01:00",
+        "files": ["central.pp", "compute.pp"]
+      },
+      {
+        "hash": "c32c3ef345297c0898bd3052e798208822431454",
+        "msg": "Add user to localhost",
+        "cmtr": "François Charlier",
+        "date": "2012-12-17 17:14:57+01:00",
+        "files": ["db.pp", "mysql.pp"]
+      },
+      {
+        "hash": "1a484f01e2a3326f18d6c112e7267b522ef43acf",
+        "msg": "Ceilometer_config requires package ceilometer-common",
+        "cmtr": "François Charlier",
+        "date": "2012-12-17 17:15:27+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "e2231ffa662005c9d2ab8d1a074968c819dc8adc",
+        "msg": "Rename default tenant to 'services' instead of 'service'",
+        "cmtr": "François Charlier",
+        "date": "2012-12-17 17:31:19+01:00",
+        "files": ["central.pp", "compute.pp"]
+      },
+      {
+        "hash": "646907f87988f2581246e255047dfccc0f52ebf4",
+        "msg": "Restart services when config file changes",
+        "cmtr": "François Charlier",
+        "date": "2012-12-17 17:31:49+01:00",
+        "files": ["central.pp", "compute.pp", "api.pp", "collector.pp"]
+      },
+      {
+        "hash": "d16e6661ea82f852377bc256e2baca1c379dd8b0",
+        "msg": "Update ceilometer user requirements",
+        "cmtr": "François Charlier",
+        "date": "2012-12-18 18:58:37+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "d8f6d59d5de4cdd3745268e109e0b110c0e581fb",
+        "msg": "Ensure services are started\n\n… or not, depending on the parameter",
+        "cmtr": "François Charlier",
+        "date": "2012-12-20 00:33:36+01:00",
+        "files": ["central.pp", "compute.pp", "api.pp", "collector.pp"]
+      },
+      {
+        "hash": "a77b099b073fe516f55074fb0f9dffc7f84896d9",
+        "msg": "The ceilometer user must be in the libvirt group",
+        "cmtr": "François Charlier",
+        "date": "2012-12-20 00:34:27+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "d40335f4be8d365b7ca49fd7d9f2b07225d829d3",
+        "msg": "Add “log_dir” parameter",
+        "cmtr": "François Charlier",
+        "date": "2012-12-20 00:34:45+01:00",
+        "files": ["init.pp", "params.pp"]
+      },
+      {
+        "hash": "3ce24a5561b2b48018b7325e30ec60d4b11cd488",
+        "msg": "Agents, Api, Db & Collector classes inherit from ceilometer",
+        "cmtr": "François Charlier",
+        "date": "2012-12-20 15:09:08+01:00",
+        "files": ["central.pp", "compute.pp", "api.pp", "collector.pp", "db.pp"]
+      },
+      {
+        "hash": "d42456cef041e83250a71f2a76e8142cde347ea2",
+        "msg": "Fix groups memberships for the ceilometer user\n\nThe ceilometer  user must be  member of  libvirt group when  the compute\nagent is installed",
+        "cmtr": "François Charlier",
+        "date": "2012-12-20 15:09:55+01:00",
+        "files": ["compute.pp", "init.pp"]
+      },
+      {
+        "hash": "b841d54fdab8817ed1f4906e1fda360935ee2dd3",
+        "msg": "Fix glance exchange/topic to read notifications\n\nOne is a bad default value in ceilometer, waiting for the fix to be\nmerged.\nThe other is a bad value in Glance, fixed in Grizzly (maybe in 2012.2.3).",
+        "cmtr": "François Charlier",
+        "date": "2012-12-21 23:42:06+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "6c8b6630b0f671a055070c658e0e0d51350f8353",
+        "msg": "Fix nova notifications\n\nApply nova commit 670b3882 to get notifications on the right\ncontrol_exchange",
+        "cmtr": "François Charlier",
+        "date": "2012-12-21 23:42:06+01:00",
+        "files": ["670b3882-fix-rpc-control_exchange-regression.patch", "init.pp"]
+      },
+      {
+        "hash": "c68a36d34147ca949a3ba38b46f082d50606d542",
+        "msg": "Fix order dependencies",
+        "cmtr": "François Charlier",
+        "date": "2012-12-21 23:42:06+01:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "a9c8517710d44614242264717a809039316b9249",
+        "msg": "Revert \"Fix nova notifications\"\n\nThis reverts commit 6c8b6630b0f671a055070c658e0e0d51350f8353.\nThis has been fixed in the 2012.2.2 nova packages",
+        "cmtr": "François Charlier",
+        "date": "2013-01-10 16:53:55+01:00",
+        "files": ["670b3882-fix-rpc-control_exchange-regression.patch", "init.pp"]
+      },
+      {
+        "hash": "05f5e6c7a953ccc00c8232489ab42b40b1e932a6",
+        "msg": "Fix the auth_protocol keystone_authtoken parameter name",
+        "cmtr": "François Charlier",
+        "date": "2013-01-10 16:54:31+01:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "c3e2cc6c26abdf8505c66cb35d2036f5d7d01318",
+        "msg": "Add required parameters to nova.conf",
+        "cmtr": "François Charlier",
+        "date": "2013-02-18 14:32:06+01:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "ad09c746cc7052bcbe22cc0651a2f0b4ceea060a",
+        "msg": "Fix adding notification_driver parameters to the nova.conf",
+        "cmtr": "François Charlier",
+        "date": "2013-02-18 18:33:02+01:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "f3d57b9e402182315e63acf461520b9ba1da7285",
+        "msg": "Remove version from endpoint.\n\nThe client has to specify it.",
+        "cmtr": "François Charlier",
+        "date": "2013-03-18 14:56:49+01:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "938d647ac733ee7170109cb3d437bd1aeea36923",
+        "msg": "Remove ceilometer-dbsync override",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-03 19:22:32-04:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "49a63ed390863557d2ca71d50fc8de0ecb349ae4",
+        "msg": "Add rspec tests for ceilometer and ceilometer::api",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-04 17:40:02-04:00",
+        "files": [".fixtures.yml", ".travis.yml", "Gemfile", "init.pp", "ceilometer_api_spec.rb", "ceilometer_init_spec.rb", "spec_helper.rb"]
+      },
+      {
+        "hash": "44d74d5742db685aeb68b3922a5c01e97ad2e647",
+        "msg": "Add keystone_tenant parameter for api",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-04 17:53:52-04:00",
+        "files": ["api.pp", "ceilometer_api_spec.rb"]
+      },
+      {
+        "hash": "921cb3e64ed85874fcc351f683b7ec55f3bdc91a",
+        "msg": "Partially add support for RedHat plateform",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-04 19:37:25-04:00",
+        "files": ["api.pp", "init.pp", "params.pp", "ceilometer_api_spec.rb", "ceilometer_init_spec.rb", "spec_helper.rb"]
+      },
+      {
+        "hash": "a530fe11004b5878ac5a8a977c7fae0623b68042",
+        "msg": "Remove inheritance from ceilometer",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-04 19:51:49-04:00",
+        "files": ["central.pp", "compute.pp", "api.pp", "client.pp", "collector.pp", "db.pp"]
+      },
+      {
+        "hash": "d167ce22274db0396b00f5c1ded6e50efa7766cd",
+        "msg": "Add rspec tests for ceilometer::collector",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-04 20:19:10-04:00",
+        "files": ["collector.pp", "ceilometer_collector_spec.rb"]
+      },
+      {
+        "hash": "dc36fde835d835fa48b946518fc49fdd0b80ca98",
+        "msg": "Fix dependencies and various typos",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-04 20:44:41-04:00",
+        "files": ["central.pp", "compute.pp", "api.pp", "collector.pp", "ceilometer_api_spec.rb", "ceilometer_collector_spec.rb"]
+      },
+      {
+        "hash": "b84a26f6c03da2656cbddf0814332e76bcbc45a8",
+        "msg": "Use implicit dependencies\n\nPuppet has implicit dependencies:\n- Users and Groups have an implicit dependency\n- Implicitly orders users and groups\n- Implicitly recognizes file hierarchy\n- Implicitly creates relationship between file ownership and user resources",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-04 21:34:15-04:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "3c60ed1f88e49f98a765a7708bd703fa36affc2f",
+        "msg": "Remove useless params",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-04 21:50:37-04:00",
+        "files": ["init.pp", "params.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "c17a0b26840a51aefc7796ccd670c1044885e1a3",
+        "msg": "Fix service dependencies and add inheritance from ceilometer\n\nInheritance is required to modify User[ceilometer]",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-05 12:01:38-04:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "220d2e6b5986547d0205d146dd1abe7fc5e2b4bd",
+        "msg": "Fix Ubuntu support for ceilometer::agent::compute\n\nThe libvirt group is libvirtd on Ubuntu and libvirt on Debian.",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-08 16:45:25-04:00",
+        "files": [".fixtures.yml", "compute.pp", "params.pp", "ceilometer_agent_compute_spec.rb"]
+      },
+      {
+        "hash": "04ba91c789ad35127bb7077cdefe85bdd3480fac",
+        "msg": "Fix notification relationship with Service[nova-compute]\n\nWas getting an error when applying ceilometer::agent::compute:\n\n  Could not find resource 'File_line[nova-notification-driver-common]\n  File_line[nova-notification-driver-ceilometer]' for relationship\n  on 'Service[nova-compute]'",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-08 17:09:04-04:00",
+        "files": ["compute.pp", "ceilometer_agent_compute_spec.rb"]
+      },
+      {
+        "hash": "7b02742d4bffe7200c60da97fc681f3f79378a53",
+        "msg": "Add rabbit_hosts parameter\n\nPreserve rabbit_host parameter for backward compatibility",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-11 13:49:07-04:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "4c0368917412fcc740cdb1b560a3bd8e440a8ff7",
+        "msg": "Remove rabbit_host/rabbit_port config when rabbit_hosts is provided",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-11 14:50:54-04:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "715956f35a28e34f17631d34d9b6a7eaba558a1a",
+        "msg": "inifile module now requires a section\n  * Added DEFAULT where missing is compute class",
+        "cmtr": "Aimon Bustardo",
+        "date": "2013-04-19 01:00:37-07:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "015ccb78ad22c03dc0e522d667b2209908ebdff0",
+        "msg": "Add DEFAULT section to nova_config\n\nnova_config now requires a section, add DEFAULT section.",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-19 11:25:46-04:00",
+        "files": ["compute.pp", "ceilometer_agent_compute_spec.rb"]
+      },
+      {
+        "hash": "1c806d0bc2d8208d6426bbb5c6db8c085f253bbd",
+        "msg": "Fix ceilometer client package name for Debian\n\nThe package name is python-ceilometerclient, not python-ceilometer.\npython-ceilometer is a package providing python libraries required\nby ceilometer to work.",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-19 11:45:13-04:00",
+        "files": ["params.pp", "ceilometer_client_spec.rb"]
+      },
+      {
+        "hash": "f63fde7ab363ab6b0eeae3db022f7a8efab54074",
+        "msg": "Fix lint errors, add some documentation",
+        "cmtr": "François Charlier",
+        "date": "2013-04-20 04:28:44+02:00",
+        "files": ["compute.pp", "api.pp", "mysql.pp", "host_access.pp", "init.pp", "auth.pp", "params.pp"]
+      },
+      {
+        "hash": "8e97414369d2284a2163d72f6cd461aa792a2db0",
+        "msg": "Ensure passwords/secrets are specified by user",
+        "cmtr": "François Charlier",
+        "date": "2013-04-20 05:50:29+02:00",
+        "files": ["mysql.pp", "init.pp", "auth.pp", "ceilometer_api_spec.rb", "ceilometer_db_mysql_spec.rb", "ceilometer_init_spec.rb", "ceilometer_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "83be2ff7da0e0291b7db9129b43b03e361c930d6",
+        "msg": "Fix the ceilometer::client class\n\nthe client python library is python-ceilometerclient\n• fix package name on Debian platforms\n• fix Package resource name",
+        "cmtr": "François Charlier",
+        "date": "2013-04-20 08:29:06+02:00",
+        "files": ["client.pp", "params.pp", "ceilometer_client_spec.rb"]
+      },
+      {
+        "hash": "7ac5982b5c3697951435e82dbeb6030d5915fa51",
+        "msg": "Fix various puppet-lint errors and warnings",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-21 17:29:06-04:00",
+        "files": ["mysql.pp", "host_access.pp"]
+      },
+      {
+        "hash": "4e4b00a58ac8a0a529f8ce876401e18aba93ead3",
+        "msg": "Update puppetdoc for ceilometer::keystone::auth",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-21 17:45:32-04:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "f2ff304078152980052b4cdf7bca4cd0d135332d",
+        "msg": "Fix notification relationship\n\nRelationship was referring to Service[ceilometer] which does not exist.",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-04-21 17:46:58-04:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "50c802f37100cc71ea1959e6e0e5a5bb4e7dc4c1",
+        "msg": "Update existing puppetdoc & add missing puppetdoc",
+        "cmtr": "François Charlier",
+        "date": "2013-04-23 11:22:31+02:00",
+        "files": ["central.pp", "compute.pp", "client.pp", "collector.pp", "db.pp", "init.pp", "params.pp"]
+      },
+      {
+        "hash": "3a2b7e1acabdbb35292329f941b37f8bb9580c5a",
+        "msg": "Add auth_admin_prefix support for ceilometer::api\n\nTo support keystone urls like http://host:80/keystone/admin\n\nImplements blueprint serve-keystone-from-wsgi\n\nChange-Id: I68c17a5b76ed61b18337ee580fba63200d874792",
+        "cmtr": "François Charlier",
+        "date": "2013-06-06 15:41:45+02:00",
+        "files": ["api.pp", "ceilometer_api_spec.rb"]
+      },
+      {
+        "hash": "bc6873041c5952910cf3522c9ce4fecb22278d25",
+        "msg": "Switch deprecated rabbit_notifier to rpc_notifier\n\nThe 'nova.openstack.common.notifier.rabbit_notifier' is deprecated since\nthe G release of Openstack, it has to be replaced with\n'nova.openstack.common.notifier.rpc_notifier'.\n\nChange-Id: I2174bc1b6504bacfeb427b2f5b8f8dc19c167dcb",
+        "cmtr": "François Charlier",
+        "date": "2013-06-08 11:45:31+02:00",
+        "files": ["compute.pp", "ceilometer_agent_compute_spec.rb"]
+      },
+      {
+        "hash": "9ad650ececf13158a7952a4cd889d7ad5b9d05f3",
+        "msg": "Adding support for qpid in ceilometer, rspec for qpid part in ceilometer\n\nChange-Id: I45396d3175b7984d47dbdb626c1729e0b2fdc105",
+        "cmtr": "Francesco Vollero",
+        "date": "2013-08-02 10:32:32+02:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "10107796ff2751da858a4616f97e6e3166ec40a8",
+        "msg": "Update mysql allowed_hosts conditional statement\n\nIn the origin ceilometer::db::mysql, if the value of $allowed_hosts\ncontains or equals to $host, then puppet will complain duplicate\ndeclaration error. This patch is aim to update the allowed_hosts\nconditonal statement in ceilometer::db::mysql.\n\nThere are two cases to pass $allowed_hosts to $real_allowed_hosts:\n\n   - If $allowed_hosts is array,then remove $host from $allowed_hosts;\n   - elsif $allowed_hosts is string and not equivalent to $host;\n\nAt last, if $real_allowed_hosts is not undef, then run\nceilometer::db::mysql::host_access\n\nFix bug 1206444\n\nChange-Id: Ib6c33e6a27113d01326bee32c105fea4003059ce",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-08-04 17:38:44+08:00",
+        "files": ["mysql.pp", "ceilometer_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "55f17d53f2f90fb019d35af8a27d57544fd581c0",
+        "msg": "Use Puppet boolean for better consistency\n\nChange-Id: I894af9499f1ea2fc255aa62fa6522c04a32d8a7c",
+        "cmtr": "Mathieu Gagné",
+        "date": "2013-08-09 15:50:41-04:00",
+        "files": ["init.pp", "auth.pp"]
+      },
+      {
+        "hash": "e6835a2872a7f64b085e5ed0e27cb43e5541ce87",
+        "msg": "Add support for CA authentication in Keystone\n\n* Add os_cacert flag support in manifests\n* Add all required tests for Agent Central\n\nPatch in Ceilometer: https://review.openstack.org/#/c/38448/\n\nChange-Id: I6689143daddfac71ca5dcc2c6fd55cd14a4455e3",
+        "cmtr": "Emilien Macchi",
+        "date": "2013-08-12 22:04:50+02:00",
+        "files": ["central.pp", "compute.pp", "ceilometer_agent_central_spec.rb", "ceilometer_agent_compute_spec.rb"]
+      },
+      {
+        "hash": "80e2816e0eddb3feb94c20b0a9d194064f4f356e",
+        "msg": "Clean all warnings for puppet-lint gate\n\nChange-Id: I292adf43bd434ca38d71baae6144e6ac4fea94a9",
+        "cmtr": "Emilien Macchi",
+        "date": "2013-08-13 16:30:23+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "60b0ff4786d4ef7b24fd03d5310cd6c9e7683ad8",
+        "msg": "Handle Centos/RHEL pymongo packages\n\nRHEL/Centos has a different name for pymongo packages.  Fedora doesn't\nprovide python-sqlite2 so we undef that.\n\nFixes bug 1194141\n\nChange-Id: If03f420c41e518227a1422882842661dfc8edd7e",
+        "cmtr": "Ian Wienand",
+        "date": "2013-08-29 15:26:37+10:00",
+        "files": ["db.pp", "params.pp", "ceilometer_db_spec.rb"]
+      },
+      {
+        "hash": "17711d8230432a883753b2f2ebece4fb1cf7ab16",
+        "msg": "Add default auth_uri setting for auth token.\n\nThe latest keystoneclient code now gives a Warning if auth_uri\nisn't explicitly specified.\n\nChange-Id: I0feb52f7a9140ea750254f80b6a3e6855b25f1d3",
+        "cmtr": "Dan Prince",
+        "date": "2013-08-29 10:41:48-04:00",
+        "files": ["api.pp", "ceilometer_api_spec.rb"]
+      },
+      {
+        "hash": "a3b324dba249f5db38a4ff71b9bb5bc0f7d68147",
+        "msg": "Inline a custom file_line provider to fix agent.\n\nFixes an issue in the ceilometer::agent::compute manifest\nwhere nova.conf config values for the notification_driver\nwould get added to the wrong section (always to the end of\nthe file).\n\nAs part of the fix a custom file_line 'after' provider which\nsupports a new after option has been added.\nThis allows us to have some control over which section *new*\nfile lines go into. If there are any pre-existing matching\nlines in the file the assumption is that they are already in\nthe correct section and can be edited in place.\n\nNOTE: I've submitted a pull request to the upstream stdlib repo here\nto add the new 'after' option:\n\n  https://github.com/puppetlabs/puppetlabs-stdlib/pull/174\n\nOnce this (or something better) lands in stdlib we can update\npuppet-ceilometer to use it.\n\nFixes LP Bug #1217867\n\nChange-Id: Ic09f5232b322cde687d663d1ef38ef0fd12f32ff",
+        "cmtr": "Dan Prince",
+        "date": "2013-09-03 13:17:29-04:00",
+        "files": ["ruby.rb", "file_line_after.rb", "compute.pp", "ceilometer_agent_compute_spec.rb"]
+      },
+      {
+        "hash": "b7f74dfe9628c07a8c92df3d3778c241b5ed6ecc",
+        "msg": "Use connection to replace deprecated database_connection\n\nThis patch is aim to use new param connection in [database]\nsection to replace the deprecated option database_connection\nin [DEFAULT].\n\nFixes bug #1222744\n\nChange-Id: I82082b791a4c16eb50092b3a96fb8ae439af4e5b",
+        "cmtr": "Xingchao Yu",
+        "date": "2013-09-10 09:22:53+08:00",
+        "files": ["db.pp", "ceilometer_db_spec.rb"]
+      },
+      {
+        "hash": "caf96f5395fc79203a1b53c6b54dd9707469930f",
+        "msg": "Add ceilometer::agent::auth.\n\nAdds a new agent::auth manifest to hold common auth\nparameters used by the Ceilometer compute and central agents.\n\nThis fixes a deployment issue where you would get duplicate\nauth parameter errors when trying to configure the compute\nand central agent on the same machine.\n\nFixes Bug #1220810.\n\nChange-Id: I167c6c570bdebb4be2ef99cd0b9cf81f37856d9f",
+        "cmtr": "Dan Prince",
+        "date": "2013-09-11 22:28:03-04:00",
+        "files": ["site.pp", "auth.pp", "central.pp", "compute.pp", "ceilometer_agent_auth_spec.rb", "ceilometer_agent_central_spec.rb", "ceilometer_agent_compute_spec.rb"]
+      },
+      {
+        "hash": "ebe908365c280d8cd8d976136c63fedb18c445ea",
+        "msg": "Allow to set full url for endpoints\n\nThis changeset allows to set full url for endpoints. The default is\nstill to use the {public,admin,internal}_{protocol,host} and port\nvariables. The {public,admin,internal}_url parameters override the\n_protocol, _host & port parameters.\n\nThere were previously one parameter for each {public,admin,internal}\nendpoint url component (protocol, host), but not port.\nAdding more parameters to allow different port would add too much\nparameters and still missing the path part.\n\nFixes Bug#1227742\n\nChange-Id: I834be8ab0f160b24348d218197711e8ecc392f5b",
+        "cmtr": "François Charlier",
+        "date": "2013-09-23 10:24:13+02:00",
+        "files": ["auth.pp", "ceilometer_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "b4294d2939129d6503aeeede21766069ac40e35f",
+        "msg": "Added alarm-notifier and alarm-evaluator services\n\nThis patch add the two services to the current puppet module to\nbe in line with the havana release.\n\nChange-Id: Idfd422078d73aaee6da28cef35d825dd24e8afb8",
+        "cmtr": "Francesco Vollero",
+        "date": "2013-10-15 20:09:16+02:00",
+        "files": ["evaluator.pp", "notifier.pp", "params.pp", "ceilometer_alarm_evaluator_spec.rb", "ceilometer_alarm_notifier_spec.rb"]
+      },
+      {
+        "hash": "8dd62be47be7e12c2c80d9971ad205e904ee6d35",
+        "msg": "Updated site.pp and added alarm manifests\n\nChange-Id: Ic9e8f977984bda02f60028b2ae18605df52a9205",
+        "cmtr": "Francesco Vollero",
+        "date": "2013-10-29 18:47:17+01:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "24a712516bb721bd62ead06cabadc631b8b7f060",
+        "msg": "Alarm: record history support\n\nCeilometer Alarm is able to record alarm change events.\nThis patch add this support in manifest.\n\nChange-Id: Id8ece03dfd3491cd2886a345771df9622d702190\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2013-11-02 00:50:54+01:00",
+        "files": ["evaluator.pp", "ceilometer_alarm_evaluator_spec.rb"]
+      },
+      {
+        "hash": "bfece45c001de44b727b0b2441db25fc9b45024c",
+        "msg": "changed rabbit_virtualhost(wrong) to rabbit_virtual_host\n\nthe puppet module configures a rabbit_virtualhost, there is a missing underscore (rabbit_virtual_host). changed this for manifest and tests.\n\nChange-Id: I02b34eb6531cfa0071a7e52f5a97f0e952f8ea85",
+        "cmtr": "Benedikt von St. Vieth",
+        "date": "2013-11-06 09:26:41+01:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "0bd24d09a84fdc5b38fc2deed2e87a989e90d174",
+        "msg": "fix postgresql connection string\n\nChange-Id: I55fab1b9256df92cd521141a9d04a2aa2feb08c9",
+        "cmtr": "Benedikt Trefzer",
+        "date": "2013-11-06 10:32:59+01:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "0fb3b8f693ba4cc24bdcfb1f61de843343a13e75",
+        "msg": "Updates to params.pp for mongo and postgres packages\n\n*) Removed the hardcoded postgres package from db.pp\n*) Changed the mongo package to python-pymongo for RHEL\n\nChange-Id: Ib975f9ce03ee8ffa423e75b62b595bcdefdd1eed\nSigned-off-by: Francesco Vollero <fvollero@redhat.com>",
+        "cmtr": "Francesco Vollero",
+        "date": "2013-11-14 17:49:10+01:00",
+        "files": ["db.pp", "params.pp", "ceilometer_db_spec.rb"]
+      },
+      {
+        "hash": "0af224916f085166d5ccd104e90cbc680039063d",
+        "msg": "TTL mechanism support with expirer service\n\nAims to support a TTL mechanism for data entering Ceilometer\ncollector database.\nTTL is very useful to configure when getting a lot of meters.\n\nimplement blueprint ttl-support\nChange-Id: I9d98e8b833ad94fd79722dee7226e7f4f03aaa2e\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2013-12-07 12:37:59+01:00",
+        "files": ["site.pp", "expirer.pp", "params.pp", "ceilometer_expirer_spec.rb"]
+      },
+      {
+        "hash": "f8eea90cd9f1652ba927bfcc9bf8234af8983c11",
+        "msg": "Add API binding options\n\nCeilometer is able to bind API server to both an IP address and a port.\nThis patch aims to add support for both configuration flags.\n\nChange-Id: I83164a925cf115d091cb04d14922ee7bbdd0ac63\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-01-02 15:50:34+01:00",
+        "files": ["api.pp", "ceilometer_api_spec.rb"]
+      },
+      {
+        "hash": "5bc33119dfc2adb8abdd0c475422d0e8559513c1",
+        "msg": "Fix package ceilometer-alarm type error on Debian\n\nThis commit:\n  - Fix type error about ceilometer-alarm package name\n    - See bug #1263946\n  - Fix indentation on Debian params.pp\n  - Fix spec warnings (partition_rpc_topic,record_history)\n\nCloses-bug: #1263946\n\nChange-Id: I1ad19af429f2787d58837e51da95e981bdd66b40",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-01-04 12:30:37+01:00",
+        "files": ["evaluator.pp", "notifier.pp", "params.pp", "ceilometer_alarm_evaluator_spec.rb", "ceilometer_alarm_notifier_spec.rb"]
+      },
+      {
+        "hash": "d064997cd4c50d9b5365fe2ffca60e14a86b08e1",
+        "msg": "Only add ceilometer user to nova group if using compute agent\n\nWhen using ceilometer outside of the compute context (ex: with the\nswift middleware), puppet-ceilometer attempts to add the user to\nthe nova group which does not (and probably should not) exist on\nthe swift nodes.\n\nChange-Id: I6cc68152325a967c024ce611f92a90ce0afba8cc",
+        "cmtr": "David Moreau Simard",
+        "date": "2014-01-07 16:44:03-05:00",
+        "files": ["compute.pp", "init.pp", "ceilometer_agent_compute_spec.rb", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "3685997f0ed4a88d0ccacd0415b210a948c66910",
+        "msg": "Remove log_dir from params and make logs configurable in init\n\nlog_dir does not seem to be used in other classes. In the use case where\nit can be necessary to specify the location of ceilometer logs, this\npatch makes it possible to do so while maintaining the default for\nbackwards compatibility. This patch also adds the possibility of\nsending logs to syslog/rsyslog in the same way as implemented in\npuppet-nova.\n\nChange-Id: I1f970d5e3cc947308221fb2b2cdfb34f89c64314\nPartial-Bug: #1269482",
+        "cmtr": "David Moreau Simard",
+        "date": "2014-01-23 15:21:24-05:00",
+        "files": ["init.pp", "params.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "89c9ea591e842da59d0ebbde2a9ea7137eae396f",
+        "msg": "Move metering_secret to publisher section\n\nIn Icehouse, metering_secret has been moved to [publisher]:\nhttp://git.io/11NwNw\n\nChange-Id: I96c70781902e927c0295af78c93b400d7b4684bb\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-01-24 14:19:42+01:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "924f18ffae174847d4c3d5ec5d5ae4241c9dd897",
+        "msg": "Remove glance_notifications from notification_topic\n\nThe default notification_topic in Glance has been changed from\n'glance_notifications' to 'notifications' in grizzly-2.\n\nCeilometer was configured to also listen on the\n'glance_notifications' notification_topic in addition to\n'notifications' to patch this bug. It shouldn't anymore.\n\nChange-Id: I3d797c7e849319a1e20ef3ecbf158e8b8579d450\nCloses-bug: #1273876",
+        "cmtr": "Mathieu Gagné",
+        "date": "2014-01-28 18:13:01-05:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "85d46894cca6ba80e8cb57243dde57e44cffa443",
+        "msg": "Do not enforce glance_control_exchange\n\nThe default glance_control_exchange in Ceilometer has been changed\nfrom 'glance_notifications' to 'glance' in grizzly-2. Glance always\nhad 'glance' for its control_exchange.\n\nThis was a bug in Ceilometer and puppet-ceilometer patched it.\nIt shouldn't anymore.\n\nChange-Id: I217515c91f092fb3e8039dde2d14a7ab4cbb7245\nCloses-bug: #1273878",
+        "cmtr": "Mathieu Gagné",
+        "date": "2014-01-28 18:18:00-05:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "a46bbc4c5179d4988f4beec0fc548c91300008a2",
+        "msg": "Don't match commented [DEFAULT]\n\nClass ceilometer::agent::compute fails when there are [DEFAULT] sections\ncommented. This patch is fixing this issue. For more info check\nhttps://bugzilla.redhat.com/show_bug.cgi?id=1060712\n\nChange-Id: I6d13f780f63af8798d94b49246576d1e144a4540",
+        "cmtr": "Martin Magr",
+        "date": "2014-02-03 14:31:26+01:00",
+        "files": ["compute.pp"]
+      },
+      {
+        "hash": "2b35c1a04ce6f28f700971c31d18af88b65a089e",
+        "msg": "Allow log_dir to be set to false in order to disable file logging\n\nThis backward compatible commit allows a user to disable logging to\na directory for example if using syslog logging.\n\nChange-Id: I8b496c311b9f26cab64c38d1cfd545784dfc7cab\nRelated-bug: #1269482",
+        "cmtr": "David Moreau Simard",
+        "date": "2014-02-14 11:47:19-05:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "1aa1d795f0c06bb5266886b8599814e61fbef3f3",
+        "msg": "Allow db fields configuration without doing the dbsync\n\nThis commit allows one to configure the db fields without running the actual\ndbsync command. It remains compliant with the current implementation, leaving\nexec {'ceilometer-dbsync': in the catalog. One, now, can decide if it wants\nthe dbsync to take place or not.\n\nThis is useful when one picks mongodb as a backend and wants to use replicaset\nThis way it can scale horizontally and painlessly using the initSync feature\nof mongodb. With this pattern one can add new member of the replica set\neasily.\n\nChange-Id: I8618bb385147176512fbda1540ba75ac95fccbf1",
+        "cmtr": "Yanis Guenane",
+        "date": "2014-02-20 10:03:28-05:00",
+        "files": ["db.pp", "ceilometer_db_spec.rb"]
+      },
+      {
+        "hash": "e6c191194312935ea01c97ae667bf3ea1a912f81",
+        "msg": "Define $user referenced in db.pp\n\nIn db.pp, in the exec 'ceilometer dbsync' ressource the user\nis supposed to be $::ceilometer::params::user, but it was\nnot defined.\n\nChange-Id: I812b6ba2877faddfce86d3c97b95772b0d22d368",
+        "cmtr": "Yanis Guenane",
+        "date": "2014-02-21 14:26:06-05:00",
+        "files": ["db.pp", "params.pp", "ceilometer_db_spec.rb"]
+      },
+      {
+        "hash": "da165d422a3e5deef9af20d22f5fc33deff7d58a",
+        "msg": "Add ability to override notification_topics\n\nThe notification_topics value was hard-coded to 'notifications'.\n\nThis adds the ability to configure its value.\n\nChange-Id: Ifa831dcc558d41f0de967e5c787ba349a06469d0\nCloses-bug: #1273883",
+        "cmtr": "Mathieu Gagné",
+        "date": "2014-02-26 10:52:23-05:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "db81d776f1e0b3e7ecbb8ae98d74e55e6d773bb1",
+        "msg": "Implement notification agent service\n\nIn Icehouse, ceilometer-agent-notification is a new service which splits\nceilometer-collector responsibilites.\n\nimplement blueprint ceilometer-agent-notification\nChange-Id: Iccc660814991e30b12a884a6e6ffd4f581c768c4\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-03-03 11:40:10+01:00",
+        "files": ["site.pp", "notification.pp", "collector.pp", "params.pp", "ceilometer_agent_notification_spec.rb", "ceilometer_collector_spec.rb"]
+      },
+      {
+        "hash": "160b5ed239e996e6c18de3f6158c8b0a4e66c175",
+        "msg": "Move service polling credentials to service_credentials\n\nChange-Id: I74a523bcc1acd18532bb9353b70da63c70e8e325\nCloses-bug: #1287939",
+        "cmtr": "Mathieu Gagné",
+        "date": "2014-03-04 16:57:42-05:00",
+        "files": ["auth.pp", "ceilometer_agent_auth_spec.rb"]
+      },
+      {
+        "hash": "18f6a9d164c53e955a34efc5a3c19ebc37ef8492",
+        "msg": "Fix region name configuration\n\nThe configuration name is os_region_name, not os_auth_region.\n\nChange-Id: I0849c18c35b39335edda0cbc64c7fb4c5b145d44\nCloses-bug: #1291030",
+        "cmtr": "Mathieu Gagné",
+        "date": "2014-03-11 15:58:37-04:00",
+        "files": ["auth.pp", "ceilometer_agent_auth_spec.rb"]
+      },
+      {
+        "hash": "555df8b3a9b4ea12398bef21aa8d986fdbc2faa6",
+        "msg": "Fix ensure_packages error\n\nThe ceilometer::collector class calls ensure_packages()\non a single package name, but the package name is provided\nas a string rather than a one-element array.  This causes an\nerror of the form:\n\nError: ensure_packages(): Requires array given (String) at\n/usr/share/puppet/modules/ceilometer/manifests/collector.pp:16\n\nThis patch corrects the error by passing an array instead\nof a string.\n\nChange-Id: I96cedf7561af29d92924746881c52bdd1502365f\nCloses-Bug: #1292775",
+        "cmtr": "Mark T. Voelker",
+        "date": "2014-03-15 01:17:55-04:00",
+        "files": ["collector.pp"]
+      },
+      {
+        "hash": "addaf5179d228fa571fdcb0e5017c99a4727bb2a",
+        "msg": "Add support for puppetlabs-mysql 2.2\n\nThis patch adds support for the new version of\npuppetlabs-mysql via a parameter that will change\nwhich types and classes to depend on from the\nmysql module. No spec tests are included since any\ntests relying on the new module will fail until\nthe fixtures are updated.\n\nChange-Id: I3f76cc600ef8d6e0c88c988f96aadbf18d81f7f1",
+        "cmtr": "Michael Chapman",
+        "date": "2014-03-16 21:24:10+11:00",
+        "files": ["README", "db.pp", "mysql.pp", "host_access.pp", "ceilometer_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "bea61ade60e87375c44d242ae196292776332d6c",
+        "msg": "Remove duplicate instance_usage_audit\n\nnova.conf parameters for ceilometer notifications are defined in both\npuppet-ceilometer and puppet-nova due to change I9e10dfb2. Remove the\nredundant definition from puppet-ceilometer.\n\nChange-Id: I7f27a731b68359b22785e3807beaf94a39f185bf\nCloses-Bug: #1304017",
+        "cmtr": "Chris Ricker",
+        "date": "2014-04-07 13:50:35-07:00",
+        "files": ["compute.pp", "ceilometer_agent_compute_spec.rb"]
+      },
+      {
+        "hash": "f444fc8937a6bc05d0257c1a935e742491e94b02",
+        "msg": "Add table to mysql_grant call\n\nWhen using puppetlabs-mysql 2.2 with the ceilometer module, an\nerror occurs due to a call to mysql_grant not specifying a table.\nThis patch corrects the error by rectifying the mysql_grant call.\n\nChange-Id: I0619446907c5fb51dcdb6e5717faeb61442c699b\nCloses-Bug: #1308884",
+        "cmtr": "Mark T. Voelker",
+        "date": "2014-04-17 03:17:35-04:00",
+        "files": ["host_access.pp"]
+      },
+      {
+        "hash": "c9cadc53529ffc2028929292d1ce496b1a2777d2",
+        "msg": "Introduce ceilometer:config to manage custom options\n\nThis ceilometer::config is aim to use ceilometer_config resource\nto manage custom configurations in ceilometer.conf.\n\nThis will make end user easy to add their own custom options\nin Hiera data.\n\nFully implements blueprint ceilometer-custom-config\n\nChange-Id: I82b38ca26d4d99471a74b2c116e4c4133262187c",
+        "cmtr": "Xingchao Yu",
+        "date": "2014-04-22 11:39:24+08:00",
+        "files": ["config.pp", "ceilometer_config_spec.rb"]
+      },
+      {
+        "hash": "76423fd42a1136279ab2aa51f53adbee477062b0",
+        "msg": "Add RabbitMQ SSL support\n\nChange-Id: I6efe4819fb703ea815de259cb91b2ee50f51a0e3",
+        "cmtr": "John Eckersberg",
+        "date": "2014-05-05 16:23:24-04:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "615b6463ba04af34b810a358e106da25f208b080",
+        "msg": "ensure_packages needs array in agent::notification\n\nChange-Id: I7029a2e60228bc5014c9008d794493452c822826",
+        "cmtr": "Benedikt Trefzer",
+        "date": "2014-05-06 13:36:10+02:00",
+        "files": ["notification.pp"]
+      },
+      {
+        "hash": "fe9e463fa7d9b74d91c95f0f95140f4894e57020",
+        "msg": "notification agent: fix dependency cycle\n\nFix the loop on ceilometer-agent-notification package.\n\nChange-Id: I8e8663fd51f58d419896aa531d49f8e5fc57cdcd",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-05-07 22:53:09+02:00",
+        "files": ["notification.pp"]
+      },
+      {
+        "hash": "55cbdace1730a3cb0af780ab9f7be703ac873eab",
+        "msg": "Fail when ssl parameters are missing and rabbit_use_ssl is set to true\n\nThis commit causes the run to fail is rabbit_use_ssl parameter is set\nto true but the ssl related parameters remains undef.\n\nChange-Id: Idd40601fe4a632204fdde120b857d0e22b6a2aed",
+        "cmtr": "Yanis Guenane",
+        "date": "2014-05-16 12:23:39-04:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "166b00a773bb2830175bd61a451294d757453eb3",
+        "msg": "Default to utf8 for MySQL\n\nChange default charset to utf8 and default collation order to\nutf8_unicode_ci to align with upstream defaults.\n\nChange-Id: I0fb57f14a0d30226c840a6e920f2b3807b90080a\nCloses-Bug: #1322715",
+        "cmtr": "Chris Ricker",
+        "date": "2014-05-23 15:14:48-04:00",
+        "files": ["mysql.pp", "ceilometer_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "00bfaa1fa4709cec6a03e2772445dc8f27a89224",
+        "msg": "Fixes agent_notification_service_name\n\nThis patch corrects the service name of the ceilometer notification\nagent, which was 'ceilometer-agent-notification' in pre-release RPMs but\nwas later changed to 'ceilometer-notification'.\n\nChange-Id: Ie2703a028ce154efa7fa1d0da58914230adfc7db",
+        "cmtr": "Lars Kellogg-Stedman",
+        "date": "2014-06-02 21:56:52-04:00",
+        "files": ["params.pp", "ceilometer_agent_notification_spec.rb"]
+      },
+      {
+        "hash": "b10f1af5b0576ad6926d6dbd5e5a0e4a8eab32d4",
+        "msg": "Hide secrets from puppet logs\n\nCurrently secrets like rabbit_password or os_password are displayed in\npuppet logs when changed. This commit changes ceilometer_config type\nadding a new parameter that triggers obfuscation of the values in\npuppet logs.\n\nChange-Id: I9eb6504220c5337c154bf5ad86c7d22bea64df51\nCloses-Bug: #1328448",
+        "cmtr": "Stefano Zilli",
+        "date": "2014-06-10 15:24:30+02:00",
+        "files": ["ceilometer_config.rb", "auth.pp", "api.pp", "db.pp", "init.pp", "ceilometer_agent_auth_spec.rb", "ceilometer_api_spec.rb", "ceilometer_db_spec.rb", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "0d0eda813ecc7968570bc6652815e9f1a3622b55",
+        "msg": "Use 2.2 as the default mysql_module\n\nChange-Id: I91c87fa0b4d5871aa936a5b4842b47f4cfee4ca8",
+        "cmtr": "Soren Hansen",
+        "date": "2014-07-16 18:32:55+05:18",
+        "files": [".fixtures.yml", "db.pp", "mysql.pp", "host_access.pp"]
+      },
+      {
+        "hash": "8c9f4fcd53e4ef0fb7694de6dce6e001c7e8cf7d",
+        "msg": "Add ability to disable ceilometer-collector without db\n\nYou are no longer required to include ceilometer::db when\ndisabling ceilometer-collector using the enabled parameter.\n\nThe relationships with any database resources are now only enforced\nwhen the service is enabled.\n\nCloses-bug: #1352958\nChange-Id: I00a5e651184788acdd30de1908e2bf38566f78e1",
+        "cmtr": "Mathieu Gagné",
+        "date": "2014-08-05 12:11:53-04:00",
+        "files": ["collector.pp", "ceilometer_collector_spec.rb"]
+      },
+      {
+        "hash": "3c38c6522de80d53a8b0b7d0621f222c12928295",
+        "msg": "Fix ceilometer agent notification package error\n\nceilometer-notification package name should be\nopenstack-ceilometer-notification in RHEL.\nSee more info in related bug tracker record.\n\nChange-Id: If64f1ea641c5d99c0adf2104a308c2d5442c3324\nCloses-Bug: #1353844",
+        "cmtr": "Xingchao Yu",
+        "date": "2014-08-07 15:12:01+08:00",
+        "files": ["params.pp", "ceilometer_agent_notification_spec.rb"]
+      },
+      {
+        "hash": "15ab1a6e27f27bd973971efd71d3c8c47ad9a4cf",
+        "msg": "Migrate mysql backend to use openstacklib::db::mysql\n\nImplements: blueprint commmon-openstack-database-resource\nChange-Id: Iaa4f1cfb6a26795112117e2d3230b4a11250e2df",
+        "cmtr": "Colleen Murphy",
+        "date": "2014-08-13 11:13:44-07:00",
+        "files": [".fixtures.yml", "Modulefile", "db.pp", "mysql.pp", "host_access.pp", "ceilometer_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "078deea6169bb148e3d31743c2060a19f20e0fcc",
+        "msg": "Add extended logging options.\n\nThere is a range of extended logging options in Openstack services that use\nopenstack.common.logger (Ceilometer, Cinder, Heat, Keystone, Nova). Adding\nceilometer::logging to support them.\n\nNo blueprint/spec, as discussed in the IRC meeting on 08-11-2014.\n\nChange-Id: I910e2f9e4f3ad1991d58ba6df16adfbc85e20131",
+        "cmtr": "Johannes Grassler",
+        "date": "2014-08-19 15:24:29+00:00",
+        "files": ["logging.pp", "ceilometer_logging_spec.rb"]
+      },
+      {
+        "hash": "ed031af7bf3a6dd4f883f9dba37f85fae91a25bf",
+        "msg": "Adds ability to override service name for service catalog\n\nInstead of forcing the name of the service in the service catalog to\nmatch auth_name, this allows the ability to explicitly set the service\nname, spearately from auth_name.\nIf service_name is not specified, it's value defaults to the value\nof auth_name (which maintains the current behavior.)\n\nCloses-bug: #1359755\nChange-Id: I66dadaebb526cfae2b6c250b2bef97e1e6d6aafe",
+        "cmtr": "Mathieu Gagné",
+        "date": "2014-08-21 09:53:34-04:00",
+        "files": ["auth.pp", "ceilometer_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "957c2120d0ee0b9db08bfddcce996686ba61d97d",
+        "msg": "Makes kombu_ssl_* parameters optional when rabbit_use_ssl => true\n\nThe kombu_ssl_* parameters should not be required when rabbit_use_ssl => true\nRather, rabbit_use_ssl must be set to true if the kombu_ssl_* parameters are\nused.\n\nChange-Id: I7664dda2c66ffb34ceb56ada722574ae0e490f8f\nCloses-Bug: 1356083",
+        "cmtr": "Mike Dorman",
+        "date": "2014-09-04 14:03:47-06:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "7719ceaff07b933006b34aa04e568b4db206bea1",
+        "msg": "Make user creation optional when creating service.\n\nIn some cases it is useful to be able to just configure\nthe service in Keystone and not the service user. This\nis the case when e.g. a read only LDAP backend is used.\nAdded a parameter configure_user (defaults to true).\nCloses-Bug: 1360232\n\nChange-Id: I541224b9bf431da957b9de31909e0aad5c9be187",
+        "cmtr": "Mike Dorman",
+        "date": "2014-09-11 18:11:51-05:00",
+        "files": ["auth.pp", "ceilometer_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "10d38bd8191fc82f4087731ea6932583dd66db8d",
+        "msg": "Add manage_service feature\n\npuppet-ceilometer lacks of disabling service managing. This patch adds\n$manage_service parameter to all relevant classes.\n\nCloses-bug: #1359823\nChange-Id: Iee545b46ef5d7cf92859356ae84b8103564bf047",
+        "cmtr": "Martin Mágr",
+        "date": "2014-09-19 12:29:53+02:00",
+        "files": ["central.pp", "compute.pp", "notification.pp", "evaluator.pp", "notifier.pp", "api.pp", "collector.pp", "ceilometer_agent_central_spec.rb", "ceilometer_agent_compute_spec.rb", "ceilometer_agent_notification_spec.rb", "ceilometer_alarm_evaluator_spec.rb", "ceilometer_alarm_notifier_spec.rb", "ceilometer_api_spec.rb", "ceilometer_collector_spec.rb"]
+      },
+      {
+        "hash": "a4f20d069ef002fe22b51cd954fec196954caa89",
+        "msg": "Stringify $evaluation_interval for validate_re call\n\nUnder Puppet 3.7.x, calls to validate_re fail if the parameter is not\nstrictly a string.  This change creates a string from\n$evaluation_interval when passing to validate_re, so the call will\npass regardless of if the parameter to the class is specified as\nstring or an integer.\n\nChange-Id: I17b82977f21483acf134837a66c5ecebe346cfdf\nCloses-Bug: 1371235",
+        "cmtr": "Mike Dorman",
+        "date": "2014-09-23 11:33:53-07:00",
+        "files": ["Rakefile", "evaluator.pp"]
+      },
+      {
+        "hash": "08fc9d9159cd9eb0830d550abb1058bc2b9b5759",
+        "msg": "Ensure nova-common is installed before ceilometer\n\nCeilometer depends on the nova user and group being\npresent. This change adds a dependency to nova-common\nto ensure that packging will handle the user before\nthe ceilometer compute agent tries to add user ceilometer\nto the nova group.\n\nFixes bug 1350980\n\nChange-Id: Iaf950c4a487b4b25c9053d59cab4fa45a1f7390b",
+        "cmtr": "Chris Hoge",
+        "date": "2014-10-01 20:11:09-05:00",
+        "files": ["compute.pp", "ceilometer_agent_compute_spec.rb"]
+      },
+      {
+        "hash": "d077ad297e7686574653d430c834bb16f4920f88",
+        "msg": "policy.json: Allow one to manage them from the puppet module\n\nThis commit allow a deployer to manage the policies via this module\nIt relies on augeas to change only the policy needed. The init takes\na hash of policies and apply them.\n\nChange-Id: I413702d5baa0e96c43f9a599e1e06ed23ab23993",
+        "cmtr": "Yanis Guenane",
+        "date": "2014-10-22 11:20:16-04:00",
+        "files": ["api.pp", "policy.pp", "ceilometer_api_spec.rb", "ceilometer_policy_spec.rb"]
+      },
+      {
+        "hash": "2743465bdcc51a5fe17320abbb365302f598bf5f",
+        "msg": "Add package_ensure where missing\n\nThis adds package_ensure parameter to:\n* ceilometer::agent::central\n* ceilometer::agent::compute\n* ceilometer::agent::notification\n* ceilometer::api\n* ceilometer::collector\n\nChange-Id: I3a982882c37a24737d71f9af93d7aa0d7200bdf4",
+        "cmtr": "Xav Paice",
+        "date": "2014-10-24 11:07:37+13:00",
+        "files": ["central.pp", "compute.pp", "notification.pp", "api.pp", "collector.pp", "ceilometer_agent_central_spec.rb", "ceilometer_agent_compute_spec.rb", "ceilometer_agent_notification_spec.rb", "ceilometer_api_spec.rb", "ceilometer_collector_spec.rb"]
+      },
+      {
+        "hash": "1d78470e5023e2ca6adef47c904d14d046dd87d1",
+        "msg": "policy.pp : Fix duplicate ressource issue openstacklib::policy\n\nCurrently, in the policy.pp file the class openstacklib::policy\nis called. The same apply for all components resulting in a\nDuplicate Ressource issue. Using directly the underlying ressource\nopenstacklib::policy::base we prevent this issue.\n\nChange-Id: Ia384a42365056317ca14031081f8c6e134f266aa",
+        "cmtr": "Yanis Guenane",
+        "date": "2014-11-10 14:45:07-05:00",
+        "files": ["policy.pp", "ceilometer_policy_spec.rb"]
+      },
+      {
+        "hash": "fade72deab0c52f7ea71b2891acb3785e1682a6b",
+        "msg": "Add support for configuring coordination/backend_url\n\nIf 'coordination_url' argument and value is provided to the central agent\nor alarm evaluator classes, they will try to set 'backend_url' in the\n'[coordination]' section of the ceilometer_config. This allows group\nmembership handling coordinated by tooz.\n\nensure_resource is used to avoid duplicate resources while still allowing\nthe central agent and alarm evaluator to be configured separately if\non different machines.\n\nNote that this change does not include support for enabling coordination\nof the compute agent.\n\nChange-Id: I707a8b70ad742cc9f8fdc62c196d0e75574a50b2",
+        "cmtr": "Chris Dent",
+        "date": "2014-11-14 12:40:13+00:00",
+        "files": ["central.pp", "evaluator.pp", "ceilometer_agent_central_spec.rb", "ceilometer_alarm_evaluator_spec.rb"]
+      },
+      {
+        "hash": "c0318f0e1b86fa5d6f40942fd1b9a1f6842a5c60",
+        "msg": "Refactorise Keystone resources management\n\nRefactorise the code of Keystone resources management with backward\ncompatibility since we don't modify the unit tests.\n\nChange-Id: Iafbe248ef0314b8abc31d22a7631df51e23f2c48\nImplements: blueprint common-openstack-identity-resource",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-11-21 10:12:40-05:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "a83673c3bae7d560680cb77f2a2cc8c998fac2b7",
+        "msg": "crontab: ensure the script is run with shell\n\nSome distros does not provide a default shell for Ceilometer user.\nWe can run the crontab by force shell usage and avoid running\nissues.\n\nCloses-bug: #1400523\nChange-Id: I3a4d5c958a4620335d062baecfc362fd758768b6",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-12-09 13:46:54-05:00",
+        "files": ["expirer.pp", "ceilometer_expirer_spec.rb"]
+      },
+      {
+        "hash": "a4cac0d56bf2d29a137cc264071b0a20949be6a9",
+        "msg": "db: Added postgresql backend using openstacklib helper\n\nStandardize ceilometer module, and add postgresql backend.\n\nChange-Id: I6603304cab680185d289e6b284e55deaef437b61\nImplements: blueprint commmon-openstack-database-resource",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-12-30 18:55:06+01:00",
+        "files": [".fixtures.yml", "postgresql.pp", "ceilometer_db_postgresql_spec.rb"]
+      },
+      {
+        "hash": "9edcfeeeab683c7159441a1534046afcba3d89f7",
+        "msg": "Fix syntax error with postgresql database string\n\nChange-Id: Icc93b18218de57403c1f5d9793dfdd74dcb623d9\nSigned-off-by: Paul Belanger <paul.belanger@polybeacon.com>",
+        "cmtr": "Paul Belanger",
+        "date": "2015-01-05 23:54:05-05:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "a3fbf2e8cb9ef76d2ee960cc8087c62736f7de6c",
+        "msg": "Implement Ceilometer-API as a WSGI process support\n\nCeilometer API can be run as a WSGI process.\nLet's use openstacklib to run this service under WSGI process by using\nApache2.\n\nChange-Id: I004d7e7a9bfccc4677d5d629503a92a15b6263c6",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-01-07 19:06:51-05:00",
+        "files": [".fixtures.yml", "params.pp", "apache.pp", "metadata.json", "ceilometer_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "90247cf8cd0eac760d5b8eb986ceacf0db3fcc7f",
+        "msg": "Switch to TLSv1 as SSLv3 is considered insecure and is disabled by default\n\nRabbitmq won't talk to us anymore if we try to use SSLv3 as it disabled\nsupport for SSLv3. Openstack components use python's openssl\nimplementation which does not support TLSv1.1 and TLSv1.2 yet so we\njust switch to TLSv1. Support for newer TLS should come with python\n2.7.9+\n\nCloses-Bug: #1409667\nChange-Id: I00cfa06030b84ae23cb8548b74cf5684562377aa",
+        "cmtr": "Lukas Bezdicka",
+        "date": "2015-01-12 16:36:44+00:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "a0b8d10f2628bd0212d3de54e7ebf7a05f0c8333",
+        "msg": "Deprecate support for Fedora 18\n\nAlso fixes error on Rawhide: Error: comparison of String with 18.\nPackage python-sqlite2 is deprecated since F18. F19 is also EOL.\nhttps://fedoraproject.org/wiki/End_of_life\n\nChange-Id: Id59fd02af92c6d77d49195001fc4f983d66d29dd",
+        "cmtr": "Lukas Bezdicka",
+        "date": "2015-01-12 18:19:01+01:00",
+        "files": ["params.pp", "ceilometer_db_spec.rb"]
+      },
+      {
+        "hash": "bc443c3248ec755539ab6e1d0a8b069057a0fdd1",
+        "msg": "Fix lint issues (doc, metadata, manifests)\n\nAdd puppet parameters lint (with puppet-lint-param-docs gem) and fix\nmissing documentations, this commit also fix manifest lint issues (due\nto puppet-lint upgrade) and metadata.json file (SPDX license, and open\ndependencies).\n\nChange-Id: If0cfefec6b2c6865a3078d91a40326082825f8ec",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-02-23 11:09:20+01:00",
+        "files": ["Gemfile", "api.pp", "init.pp", "apache.pp", "metadata.json"]
+      },
+      {
+        "hash": "85c742cd830a16a597b81816215ca387d12a9d54",
+        "msg": "Add support for ceilometer-polling agent\n\nAdd ability to use new ceilometer-polling agent\ninstead of ceilometer-central, ceilometer-compute or\nceilometer-ipmi. Specify central_namespace, compute_namespace\nand ipmi_namespace parameters to set namespaces\n\nChange-Id: I066f601a5234cb689c98e8eea2b5790bdaa5b8b5",
+        "cmtr": "Ivan Berezovskiy",
+        "date": "2015-02-25 11:10:44+00:00",
+        "files": ["site.pp", "compute.pp", "polling.pp", "params.pp", "ceilometer_agent_polling_spec.rb"]
+      },
+      {
+        "hash": "565c78cc7faf636fb1f224a295c6c0c907dbc22a",
+        "msg": "Add Puppet 4.x lint checks\n\nThis changes the puppet-lint requirement to 1.1.x, so that we can use\npuppet-lint plugins.  Most of these plugins are for 4.x compat, but some\njust catch common errors.\n\nThis commit also remove custom metadata rake task (this task is now\nprovided by puppetlabs_spec_helper).\n\nConflicts:\n Gemfile\n\nChange-Id: I22369948db6a2f8ddab9b8c93c3a047ff2e229ca",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-03-11 09:03:59+01:00",
+        "files": ["Gemfile", "Rakefile", "site.pp", "central.pp", "compute.pp", "notification.pp", "polling.pp", "evaluator.pp", "notifier.pp", "api.pp", "client.pp", "collector.pp", "db.pp", "expirer.pp", "init.pp", "auth.pp", "apache.pp"]
+      },
+      {
+        "hash": "70faac7cfe4dafedea034dab81a32c758a524b61",
+        "msg": "Add support for identity_uri.\n\nThis patch adds the ability to set a new keystone_identity_uri\nparameter.  It also deprecates the old keystone_host, keystone_port,\nkeystone_protocol, and keystone_auth_admin_prefix parameters. Logic\nis in place so that users of the deprecated settings should have a\nsmooth upgrade process and get deprecation warnings until they adopt\nthe new settings.\n\nChange-Id: Ideefb4d824cbd5b4b83f9eb773a75e536e3458fb",
+        "cmtr": "Dan Prince",
+        "date": "2015-03-12 09:51:27-04:00",
+        "files": ["api.pp", "ceilometer_api_spec.rb"]
+      },
+      {
+        "hash": "8d17c36818d99231a64d20f50ea708d59306fe22",
+        "msg": "Tag all Ceilometer packages\n\nSome users wish to override the default package provider by their own.\n\nTag all packages with the 'openstack' to allow mass resource attributes\noverride using resource collectors.\n\nCloses-bug: #1391209\n\nChange-Id: If43101b9974d26c88f8612da64c5356a644f892e\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-03-31 10:19:24+02:00",
+        "files": ["central.pp", "compute.pp", "notification.pp", "polling.pp", "evaluator.pp", "notifier.pp", "api.pp", "client.pp", "db.pp", "init.pp", "ceilometer_agent_central_spec.rb", "ceilometer_agent_compute_spec.rb", "ceilometer_agent_notification_spec.rb", "ceilometer_agent_polling_spec.rb", "ceilometer_alarm_evaluator_spec.rb", "ceilometer_alarm_notifier_spec.rb", "ceilometer_api_spec.rb", "ceilometer_client_spec.rb", "ceilometer_db_spec.rb", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "2405adff7d8b08681ed0d97ca5391be5404c5fd2",
+        "msg": "Add udp_address/udp_port parameters for collector.\n\nChange-Id: Ib776ecda9185caca9ea5c95525f0ffe4487b6a56\nCloses-Bug: rhbz/1185652",
+        "cmtr": "Sofer Athlan-Guyot",
+        "date": "2015-04-03 14:20:43-04:00",
+        "files": ["collector.pp", "ceilometer_collector_spec.rb"]
+      },
+      {
+        "hash": "441fe25bfe6b3992436fef9f5691fecce08a51e1",
+        "msg": "MySQL: change default MySQL collate to utf8_general_ci\n\nInstall & configure MySQL database by using utf8_general_ci collation\nwhich is the way documented in OpenStack [1] and already the default\nin puppetlabs-mysql [2].\n\n[1] http://goo.gl/GA5gyZ\n[2] https://github.com/puppetlabs/puppetlabs-mysql/blob/master/manifests/db.pp#L7\n\nChange-Id: I9fb58a749436873b60b51bb67127ae9524f944db\nCloses-bug: #1446375",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-04-21 13:05:47-04:00",
+        "files": ["mysql.pp", "ceilometer_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "4cc03d183c753f7fcbb9560cfcd80fe8e5f5db45",
+        "msg": "Ensure python-mysqldb is installed  before MySQL db_sync\n\nWhen running MySQL for storage backend, we need to make sure\npython-mysqldb is installed *before* the db_sync command, otherwise it\nwill fail:\n\"ImportError: No module named MySQLdb\".\n\nThis patch ensure the ordering to ensure puppetlabs-mysql installed the\npackage before puppet-ceilometer tries to synchronize the MySQLdatabase.\n\nChange-Id: Iae7c8f24fda32357a61ffa3b8597dd3413c303cb",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-04-26 06:48:24-04:00",
+        "files": ["db.pp"]
+      },
+      {
+        "hash": "264ea1b19155bb2f34a95858b18442c14504ddf2",
+        "msg": "Fix dependency on nova-common package\n\n  Nova module could be not included or imported directly\n  and this can lead to failure with missing dependency\n  on 'nova-common' package. More safe is to use\n  Package <| title == nova-common |>\n\nChange-Id: Idac8d52955ff6f3f1c62a538b197eeac6f281a1f",
+        "cmtr": "iberezovskiy",
+        "date": "2015-05-22 12:43:51+03:00",
+        "files": ["compute.pp", "polling.pp"]
+      },
+      {
+        "hash": "208cee770447b06add82707d28ed616794b1d759",
+        "msg": "Move rabbit/kombu settings to oslo_messaging_rabbit section\n\nKilo oslo-messaging deprecates rabbit/kombu settings in the\nDEFAULT section.\n\nMove these settings to proper oslo_messaging_rabbit section.\n\nChange-Id: I0b822c37b81e9bcbb7f51959300167ff7ff3eb68\nCloses-bug: 1444161\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-06-08 17:27:04+00:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "e984d28464487d8fc53df6f7424fda36aa505266",
+        "msg": "Deprecate old public, internal and admin parameters\n\nThis change deprecates the following parameters:\n- port (replaced by public/internal/admin_url)\n- public_protocol (replaced by public_url)\n- public_address (replaced by public_url)\n- internal_protocol (replaced by internal_url)\n- internal_address (replaced by internal_url)\n- admin_protocol (replaced by admin_url)\n- admin_address (replaced by admin_url)\n\nAdd deprecation warnings if any of those values are provided\nwhile maintaining full backward compatibility.\n\nCloses-bug: #1274979\nChange-Id: Ia20f9d032fada10979383446f78ff57035b9c763",
+        "cmtr": "Mathieu Gagné",
+        "date": "2015-06-11 16:48:19-04:00",
+        "files": ["auth.pp", "ceilometer_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "ff77b8736b78236f1ef02aba037730d774e28241",
+        "msg": "Correct the name of the auth param deprecation msg\n\nThis corrects the name of the parameters in the auth parameters\ndeprecation message.\n\nChange-Id: Ie0f500c9623fb0709852f74c245ce551a0153bbd",
+        "cmtr": "Dan Prince",
+        "date": "2015-06-21 08:09:40-04:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "e7dfcc85deee36633e8cdfeea1fc8707c3690019",
+        "msg": "keystone/auth: make service description configurable\n\nThis commit adds the service description as a class parameter in order to allow\nusers to update from a previous version if the service description is changed\n(incorrectly spelled or wrong description)\n\nChange-Id: Ia0ddf657991db1dd82ca063a944132643054d514\nCloses-Bug: #1468407",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-06-24 17:51:15+02:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "f612d92bfb88bede54d9d2f44ae8686b0d0a5dc8",
+        "msg": "make crontab for expirer optional\n\nThis adds an 'enable_cron' switch to ceilometer::expirer, defaults to\ntrue, so that if we want to configure the TTL but don't want to run the\nexpiry job via cron we don't have to.\n\nCloses-Bug: 1468937\n\nChange-Id: I7fd89e58f70ae41628e769ed24f1ef5c15af51f9",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-06-29 12:49:05+02:00",
+        "files": ["expirer.pp", "ceilometer_expirer_spec.rb"]
+      },
+      {
+        "hash": "f9cd34f8a7457e05f28caeb9e1ba637f1a174b59",
+        "msg": "Add support for RabbitMQ connection heartbeat\n\nKilo oslo.messaging added heartbeating support for RabbitMQ\nconnections.  This patch adds support for this in Puppet modules\nby managing the oslo_messaging_rabbit/heartbeat_timeout_threshold\nand oslo_messaging_rabbit/heartbeat_rate settings.\n\nCloses-bug: 1467667\nChange-Id: I985d081c86975c5b216f6346cbd9a368dd0d33d3",
+        "cmtr": "Mike Dorman",
+        "date": "2015-07-07 11:31:07-06:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "56cacb4a65ffa1bd795cbdbffef4c2071a54a411",
+        "msg": "Simplify parameters for rpc_backend\n\nIt is not needed anymore to specify the whole python namespace\nfor the backends, and in Liberty this option is completely removed\n(see https://review.openstack.org/189201).\n\nThis patch keeps backwards compatibility with the previous default\nparameters.\n\nChange-Id: I5c84def51bcda593c89c3897c52fb4e8e663e121",
+        "cmtr": "Javier Pena",
+        "date": "2015-07-13 09:51:54+02:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "a5353006efee3b3af38b161c9e9c5f79ce93f4b0",
+        "msg": "Add tag to package and service resources\n\nIn order to be able to take an action after all the packages of the\nmodule have been installed/updated or all the services have been\nstarted/restarted, we set a 'ceilometer-package' and 'ceilometer-service'\ntag for each package and service of this module.\n\nAt the moment, there is a generic openstack tag that is not specific\nenough if one wants to take action upon a single module change.\n\nUse case :\n\nIf an action needs to be taken after all the packages have been\ninstalled or updated : Package <| tag == 'ceilometer-package' |> -> X\n\nChange-Id: I5e96d99e4ee10bbac73678c85eb1e8db390774b8",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-07-22 21:00:51+02:00",
+        "files": ["central.pp", "compute.pp", "polling.pp", "api.pp", "init.pp", "ceilometer_agent_central_spec.rb", "ceilometer_agent_compute_spec.rb", "ceilometer_agent_polling_spec.rb", "ceilometer_api_spec.rb", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "cf846dc5324f023a19eddc7ea292895b9a747a8b",
+        "msg": "Enable support for memcached_servers\n\nCloses-Bug #1469652\n\nChange-Id: I955899f37d5337634d1a33712850f7c16b77113b",
+        "cmtr": "Matt Fischer",
+        "date": "2015-07-23 20:10:21+00:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "2ff489103bf401983c27aa6523c01bbd950c768f",
+        "msg": "Add ability to specify ttl and timeout parameters\n\nAllow to override following ceilometer parameters:\n * time to live for events\n * time to live for meters\n * timeout for HTTP requests\n\nChange-Id: I083ac1ed90db96e69e2287acc9ec62956be0ae58",
+        "cmtr": "iberezovskiy",
+        "date": "2015-08-04 16:48:10+03:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "985c48951b42810cbfcf3a077c8773a8787fa6d2",
+        "msg": "Add an ability to manage use_stderr parameter\n\nWhen logging is already set up, it can be useful to disable this option\nto avoid logs duplication (collected by Upstart, for example)\n\nChange-Id: I6c3e33e8ac3b018941eb0a1c584701c4483a3a11\nCloses-bug: #1482564",
+        "cmtr": "Sergey Kolekonov",
+        "date": "2015-08-07 19:46:24+03:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "e729f2d91177a64db52476b4e3b3c2d361b1cf47",
+        "msg": "Rely on autorequire for config resource ordering\n\nCurrently we specify the ordering of config resources wherever it is\nnecessary based on the presence of the file it will write to, or the\npresence of the package in charge of providing the file it will write\nto.\n\nThose kind of ordering can be specified directly at the resource level\nusing the autorequire mechanism. With this patch, any config resource\nwill make sure the package in charge of providing the file will be\ninstalled first.\n\nChange-Id: Ie99aec47f9bf334336e9cd87106c9f47d6e5abfa",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-08-12 18:45:28+02:00",
+        "files": ["ceilometer_config.rb", "api.pp", "init.pp", "ceilometer_config_spec.rb"]
+      },
+      {
+        "hash": "257a60ce79f00f96239d06d84c9660f14a31bd68",
+        "msg": "WSGI: make it work, and test it with acceptance\n\n* Finalize httpd service name support in API class following\n  puppet-keystone model.\n* Implement unit tests.\n* Implement separated acceptance tests that deploy Ceilometer API in\n  WSGI.\n\nThis patch aims to finalize and validate we can deploy Ceilometer API in\nWSGI with puppet-ceilometer.\nAlso that we can update from eventlet to WSGI (it's tested in our beaker jobs).\n\nCloses-bug: #1481532\nChange-Id: I3695acf5522457837e079c36d68a0e35dbf6b72c",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-08-13 13:31:59-04:00",
+        "files": ["api.pp", "params.pp", "ceilometer_wsgi_apache_spec.rb", "ceilometer_api_spec.rb", "ceilometer_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "a0fe2020da5cedcbed87bfbc4ffba6f527047c84",
+        "msg": "wsgi: fix typos in comments\n\nFix minor typos in comments & messages.\n\nChange-Id: I5cf1fa9b24fa764ae27ac19a32fc14571b141741",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-08-14 15:53:22-04:00",
+        "files": ["api.pp", "apache.pp"]
+      },
+      {
+        "hash": "7b920066e1aeb7f4201bb74ecf4c31f1efb9cafe",
+        "msg": "Creation of ceilometer::db::sync\n\nIn order to standardize the way dbsync are run across our modules,\nwe create a new class ceilometer::db::sync.\nThis class will be included if sync_db is enabled.\n\nBy making this transition the ceilometer::db::sync can be returned\nby the ENC.\n\nA use case would be in an highly available environment, with 3 galera\nnodes, include ceilometer::db on every node with sync_db set to false\nand have the ENC return ceilometer::db::sync just for one node.\n\nChange-Id: I410f41fb4e61be848372820cdeb2110efc327161",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-08-17 10:09:41+02:00",
+        "files": ["api.pp", "collector.pp", "db.pp", "sync.pp", "ceilometer_api_spec.rb", "ceilometer_collector_spec.rb", "ceilometer_db_spec.rb", "ceilometer_db_sync_spec.rb"]
+      },
+      {
+        "hash": "a4a12b2612c1e54579c79fa6faef91b684b9aff1",
+        "msg": "Disable lint warning check\n\nThis variable is cast to a string to avoid validate_re() breaking, but\npuppet-lint gives a warning for a string containing only a variable.\nThis disables the warning for this line only.\n\nChange-Id: I8faadf0194b61fd9fc709c7287f46b003b92e7e4",
+        "cmtr": "Hunter Haugen",
+        "date": "2015-09-04 11:28:00-07:00",
+        "files": ["evaluator.pp"]
+      },
+      {
+        "hash": "2d669a5d6ed2a51f2f842e165ba50422c4d9954f",
+        "msg": "Make 'alarm_history_time_to_live' parameter configurable\n\nalarm_history_time_to_live is new ceilometer parameter:\nhttp://specs.openstack.org/openstack/ceilometer-specs/specs/liberty/delete-alarmhistory.html\n\nMake time_to_live parameter deprecated in favor of metering_time_to_live\n\nChange-Id: Ifd16853779101202c4d6ea5a7237aeceeb0ade7c",
+        "cmtr": "iberezovskiy",
+        "date": "2015-09-16 15:57:55+03:00",
+        "files": ["expirer.pp", "init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "4d72c6ceec902596586509d77e9cf833c2428803",
+        "msg": "Update ceilometer::db class to match other module pattern\n\nThis review aims to update the ceilometer::db class to standardize it with the\nother modules db classes[1][2]. It now offers the same parameters to customize database\nconnection behavior.\n\n[1] https://github.com/openstack/puppet-neutron/blob/master/manifests/db.pp\n[2]\nhttps://github.com/openstack/puppet-sahara/blob/master/manifests/db.pp\n\nChange-Id: Ic5ca33f862da300f4f429524ba488568d0608cf3",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-09-24 10:39:14+02:00",
+        "files": ["db.pp", "ceilometer_db_spec.rb"]
+      },
+      {
+        "hash": "44fb7ff3b35d35727eb67314cd7fbca05ede16fa",
+        "msg": "compute agent: do not try to configure nova.conf\n\nBack in history, we tried to configure something in nova.conf which is\nnow managed by puppet-nova. It causes the module conflicting with\npuppet-nova and makes Puppet runs not idempotent and nova.conf with\nwrong parameters.\n\nnova_notifier plugin was removed in Kilo (ceilometer commit eed463659f2e6f7018b5db1fcae9931ae1d60a00).\n\nChange-Id: I2b8d55613f0a962662d67b9fd82db17b758af80f",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-09-24 18:38:15+00:00",
+        "files": ["ruby.rb", "file_line_after.rb", "compute.pp", "polling.pp", "ceilometer_agent_compute_spec.rb", "ceilometer_agent_polling_spec.rb"]
+      },
+      {
+        "hash": "31879eeac45e8a24449cd09b085c6f856328ad1e",
+        "msg": "agent/auth: bring consistent how we manage empty parameters\n\nReplace '' by undef for auth_tenant_id paramater.\nUsing undef follow Puppet best practice.\n\nChange-Id: I2b10cbec7d469aed4da95f7a51a67ec63bf96d71",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-09-24 19:07:26+00:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "22723cce88a65a44afac3065ad800b4c0008f75d",
+        "msg": "Implement auth_endpoint_type parameter\n\nAdd auth_endpoint_type which is the type of endpoint in Identity service\ncatalog to use for communication with OpenStack services. Default to\nundef.\n\nChange-Id: Ia62186b3a4520e1f323a4fa96d8a925874b3604a",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-09-24 19:07:39+00:00",
+        "files": ["auth.pp", "ceilometer_agent_auth_spec.rb"]
+      },
+      {
+        "hash": "409e35a77671e3b129ad387f5e03f57cbe91872c",
+        "msg": "stop managing File resources\n\nDrop any 'File' resource that is already managed by upstream packaging.\n\nPartial-bug: #1458915\n\nChange-Id: I47b12069362a9ec707df71d41f91dcccfa318c13",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-09-28 15:35:21-04:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "492544aa5a5140cfd2b6d83b91106ec70f9ce669",
+        "msg": "Remove the api service subscription on db sync\n\nThis already exists in the db::sync class for all services tagged\nwith ceilometer-service. Removing it from here will allow the api\nservice on a HA controller where the dbsync isn't run.\n\nChange-Id: I722bd4b1d4f8536c97afac14b916e9253458bb3b",
+        "cmtr": "Derek Higgins",
+        "date": "2015-09-30 00:31:55+01:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "b0ee27206d0e0de22986f0cfd266a19937d88b87",
+        "msg": "wsgi: make sure eventlet process is stopped before httpd\n\nWhen stopping Ceilometer API running eventlet (ceilometer-api service),\nwe need to make sure it's done *before* starting Apache.\n\nOtherwise, there is a race condition where Apache could be started before\nstopping the service, and what would lead to:\n\nAH00072: make_sock: could not bind to address [::]:8777\nAH00072: make_sock: could not bind to address 0.0.0.0:8777\nno listening sockets available, shutting down\n\nApache fails to start.\n\nThis patch make sure we have the right orchestration in place.\n\nChange-Id: Ieec365b9eed2a13d132005118f93089ac9885e58",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-09-30 13:30:42-04:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "577593222a31f6948d13f2408a0bab017a0305cd",
+        "msg": "Put all the logging related parameters to the logging class\n\nCurrently logging configuration is splitted in two distinct classes, the init.pp and the\nlogging.pp classes.\n\nThis review aims to centralize all logging related parameters in a\nsingle class, the logging.pp one.\n\nThe impacted parameters are :\n\n  * use_syslog\n  * use_stderr\n  * log_facility\n  * verbose\n  * debug\n  * log_dir\n\nThis change remains backward compatible with what is currently in place\n\nChange-Id: I1132395295f542f4ba5459769a5b4b829a9cd7a7",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-10-02 10:06:17+02:00",
+        "files": ["init.pp", "logging.pp", "ceilometer_init_spec.rb", "ceilometer_logging_spec.rb"]
+      },
+      {
+        "hash": "183b62b35a32390285c454cc35dbfc7721150944",
+        "msg": "auth: drop service dependency for Keystone_user_role\n\nDrop service dependency for Keystone_user_role.\n\nWithout that patch, Ceilometer & Keystone running in WSGI will fail to compile\nthe catalog because a dependency cycle:\nAnchor[keystone_started] => Keystone_user_role[ceilometer@services] =>\nService[ceilometer-api] => Service[httpd] => Anchor[keystone_started]\n\nThe dependency is not really useful because it does not prevent the\nservice to start.\n\nChange-Id: Id8366cd5d2ddf6da468ecc7adb7d55eb8be4c8d8",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-10-02 16:17:25-04:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "0edd1257040a793cc3f16dffd29595f68d69c446",
+        "msg": "db: Use postgresql lib class for psycopg package\n\nThis patch introduce the same design than mysql for postgresql\nby requiring dedicated lib::python class instead of declaring\na new resource package within ceilometer module.\n\nChange-Id: Id01849badb4ed5aeae541d0ae7e0d47af5d1f245",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-10-20 15:37:09+02:00",
+        "files": ["db.pp", "params.pp", "ceilometer_db_spec.rb"]
+      },
+      {
+        "hash": "677f0fbfc39de4bb8a8c272b2d07d41cfba0636f",
+        "msg": "Change section name for AMQP qpid parameters\n\nAccording to docs for liberty and kilo [1,2] should be\nsection 'oslo_messaging_qpid' instead of 'DEFAULT'.\n\n[1] http://docs.openstack.org/liberty/config-reference/content/configuring-rpc.html\n[2] http://docs.openstack.org/kilo/config-reference/content/configuring-rpc.html\n\nChange-Id: I9207f2edc91cfd3e3553971e00e1510c83d0f7b9",
+        "cmtr": "Denis Egorenko",
+        "date": "2015-10-21 14:48:10+03:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "fb936e540962e613a1edc60b0cf2effa1603c62d",
+        "msg": "Remove deprcated mysql_module\n\nThis has been deprecated and non-functional for awhile, remove it.\n\nChange-Id: Ibca25bf41e9bf7979f67829683f02611d537235d",
+        "cmtr": "Matt Fischer",
+        "date": "2015-10-21 21:18:24-06:00",
+        "files": ["db.pp", "mysql.pp"]
+      },
+      {
+        "hash": "1c651fe9870aaa218c52fc66ab244f009c239a0d",
+        "msg": "add mongodb_replica_set option to ceilometer module\n\n   This option sets name of the replica set\n   which is used to connect to MongoDB database.\n\nChange-Id: I6e5149d4f830677fc4bf3e363f7b999c0b06e399",
+        "cmtr": "Mykyta Karpin",
+        "date": "2015-10-28 11:05:01+02:00",
+        "files": ["db.pp", "ceilometer_db_spec.rb"]
+      },
+      {
+        "hash": "fa33bb0ad6e2481146d4341725556e6bdab1938b",
+        "msg": "Allow customization of db sync command line\n\nAdd parameter to ceilometer::db::sync class to allow end\nusers to add command line parameters to the db sync command.\n\nChange-Id: I664a822ef2962d5cb32bef7573e13f0b57ee6057\nPartial-bug: #1472740",
+        "cmtr": "Nate Potter",
+        "date": "2015-11-03 16:50:23+00:00",
+        "files": ["sync.pp", "ceilometer_db_sync_spec.rb"]
+      },
+      {
+        "hash": "6156cb49f29b13321bb719de57e4e4cd08838a3d",
+        "msg": "Ceilometer $::os_service_default for db and log\n\nSwitch to $::os_service_default all params in logging and db.\nChanges: logging.pp, db.pp and tests.\n\nRelated-bug: #1515273\n\nChange-Id: I412104bf46c4b40fdbd366e3a8a9dc9de5abb5fd",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2015-11-24 18:49:06+00:00",
+        "files": ["db.pp", "logging.pp", "ceilometer_agent_auth_spec.rb", "ceilometer_agent_central_spec.rb", "ceilometer_agent_compute_spec.rb", "ceilometer_agent_notification_spec.rb", "ceilometer_agent_polling_spec.rb", "ceilometer_alarm_evaluator_spec.rb", "ceilometer_alarm_notifier_spec.rb", "ceilometer_api_spec.rb", "ceilometer_client_spec.rb", "ceilometer_collector_spec.rb", "ceilometer_db_mysql_spec.rb", "ceilometer_db_postgresql_spec.rb", "ceilometer_db_spec.rb", "ceilometer_db_sync_spec.rb", "ceilometer_expirer_spec.rb", "ceilometer_init_spec.rb", "ceilometer_keystone_auth_spec.rb", "ceilometer_logging_spec.rb", "ceilometer_policy_spec.rb", "ceilometer_wsgi_apache_spec.rb", "spec_helper.rb"]
+      },
+      {
+        "hash": "f47c52f26dadc767728ebc8cba5cdfe251d94c2d",
+        "msg": "Implement Gnocchi dispatcher\n\n* Add dispatcher options to ceilometer::collector.\n* Create ceilometer::dispatcher::gnocchi class, with current upstream options.\n* Add an example of manifest.\n* Unit & functional tests.\n\nNote:\nThis patch implement os_service_defaults only for the new class.\nFor collector, it will be updated in one patch in another patchset.\n\nChange-Id: Id9364e1e1337708b1e0254b4c6268f1a0b1a42ad",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-12-01 11:45:04-05:00",
+        "files": ["ceilometer_with_gnocchi.pp", "collector.pp", "gnocchi.pp", "ceilometer_with_mysql_spec.rb", "ceilometer_wsgi_apache_spec.rb", "ceilometer_collector_spec.rb", "ceilometer_dispatcher_gnocchi_spec.rb"]
+      },
+      {
+        "hash": "ae60c149f299c7e623726906bdc7b25856061233",
+        "msg": "Support of PyMySQL driver for MySQL backend\n\nAdd ability to use python-pymysql library\nas backend for MySQL connections.\nUpdate acceptance tests to use pyMySQL.\nDocs: https://wiki.openstack.org/wiki/PyMySQL_evaluation\nThe same implementation as it's done for keystone:\nhttps://review.openstack.org/#/c/242134/\n\nChange-Id: If41a86abc3090dfb439d09cd63ae2ecb9a0b9598",
+        "cmtr": "iberezovskiy",
+        "date": "2015-12-03 13:06:57+03:00",
+        "files": ["db.pp", "params.pp", "ceilometer_with_mysql_spec.rb", "ceilometer_wsgi_apache_spec.rb", "ceilometer_db_spec.rb"]
+      },
+      {
+        "hash": "2659b510a432327bc614021f5a5202a168c22215",
+        "msg": "Configure disable_non_metric_meters for notification agent\n\nChange-Id: I17ca231e1f7760cdea347b5466a9fbbe84aa9585",
+        "cmtr": "Ivan Berezovskiy",
+        "date": "2015-12-07 14:24:37+00:00",
+        "files": ["notification.pp", "ceilometer_agent_notification_spec.rb"]
+      },
+      {
+        "hash": "8c5cfdd2ea0c4ec76b4bd19331fb93c4265d3715",
+        "msg": "Remove qpid messaging support\n\nQpid messaging driver is removed from Oslo.messaging [1]\nTherefore, we cannot support it anymore.\n\n[1] I4a9cba314c4a2f24307504fa7b5427424268b114\n\nChange-Id: I46f3681963b4a365f2c5cdd7f5f6168adb751551",
+        "cmtr": "Denis Egorenko",
+        "date": "2015-12-07 20:26:02+03:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "dcfdc059463982615a2d6121cff40e26ad82795b",
+        "msg": "Update example to deploy Ceilometer with Gnocchi dispatcher\n\nGive a real example of data that you can use to deploy Ceilometer with\nGnocchi dispatcher.\n\nChange-Id: I6fa215e00d59df909e1069132423e30e4d948797",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-12-08 14:45:24-05:00",
+        "files": ["ceilometer_with_gnocchi.pp"]
+      },
+      {
+        "hash": "89e31e9ad8ef081c57dacef973998b25446e9de0",
+        "msg": "Ability to configure api, collector and notification workers\n\nWe've been missing ability to configure two options:\n - collector_workers, number of workers for collector service.\n - notification_workers, number of workers for notification service.\n - api_workers, number of workers for api service.\n\nCo-Authored-By: Ivan Berezovskiy <iberezovskiy@mirantis.com>\n\nChange-Id: Ifc1f1623289560f873442a702a23a5cc1c831c72",
+        "cmtr": "iberezovskiy",
+        "date": "2015-12-14 14:19:25+03:00",
+        "files": ["notification.pp", "api.pp", "collector.pp", "ceilometer_agent_notification_spec.rb", "ceilometer_api_spec.rb", "ceilometer_collector_spec.rb"]
+      },
+      {
+        "hash": "51fdead1dcd257314af1ae4941557221f7150aa5",
+        "msg": "deprecate mongodb_replica_set parameter\n\nmongodb_replica_set parameter has been dropped in Mitaka [1] and has no\neffect anymore.\nThis patch deprecated our interface by sending a warning if the param is\nset. If set, it has no effect though, since the param does not exist\nanymore upstream.\n\n[1] https://github.com/openstack/ceilometer/commit/a6d608a33235dfa0d4ef91e3a3d69359ceb0263f\n\nCloses-Bug: #1528612\nChange-Id: I49123b0f1353e24b217ea6f16f556ab25a6c86b0",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-12-23 11:54:41+01:00",
+        "files": ["db.pp", "ceilometer_db_spec.rb"]
+      },
+      {
+        "hash": "782eeda90bbf54756130c2db9412321a0ac39d5c",
+        "msg": "Drop time_to_live parameter\n\ntime_to_live was deprecated in liberty, let's drop it so we don't have\nthe warning anymore.\n\nChange-Id: If36dc4ec2435aa8229b4efa6123fff9bdf668b37",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-12-23 23:38:23+01:00",
+        "files": ["site.pp", "expirer.pp", "ceilometer_expirer_spec.rb"]
+      },
+      {
+        "hash": "dd09f26048492dbc6cc19b6053cec50f87ce7602",
+        "msg": "Use identity_uri and auth_uri by default\n\nChange-Id: If7cf7412df7666e0787dfc01abe48fddabdcb5ef\nCloses-bug: #1528963",
+        "cmtr": "nanhai.liao",
+        "date": "2015-12-30 16:46:41+08:00",
+        "files": ["api.pp", "ceilometer_api_spec.rb"]
+      },
+      {
+        "hash": "27654f3e170a0d20199e6f125796086cd2cad643",
+        "msg": "Improve format of the documentations.\n\nThis patch is aim to unify format of the documentations in all\nceilometer classes.\n\nChange-Id: I8b617a14146a90758fa6b8898637206bff6d2f29",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-01-11 22:33:42+08:00",
+        "files": ["auth.pp", "central.pp", "compute.pp", "notification.pp", "polling.pp", "evaluator.pp", "notifier.pp", "api.pp", "client.pp", "collector.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "gnocchi.pp", "init.pp", "auth.pp", "logging.pp", "params.pp", "policy.pp", "apache.pp"]
+      },
+      {
+        "hash": "540b456c86b45aff5c33313fa163b6ff2d99d8d8",
+        "msg": "Set auth_region to $::os_service_default\n\nThis patch:\n    * sets auth_region to the default value in OpenStack using\n      $::os_service_default\n\nChange-Id: I347ecf1f4c7a09c4e59927086a4808463c05f5c7",
+        "cmtr": "luyuan",
+        "date": "2016-01-13 07:04:20+08:00",
+        "files": ["auth.pp", "ceilometer_agent_auth_spec.rb"]
+      },
+      {
+        "hash": "6941231059b868e32db72e640d04dcd3b8183f96",
+        "msg": "Move workers options into specific sections.\n\nThe notification_workers/api_workers/collector_workers options are\ndeprecated and should be set in [notification]/[api]/[collector]\nsections separately.\n\nCloses-Bug: #1533276\n\nChange-Id: If1816830affd9de71ae5ee7bc2869eee7eaf8473",
+        "cmtr": "Liao Penghui",
+        "date": "2016-01-15 10:00:56+08:00",
+        "files": ["notification.pp", "api.pp", "collector.pp", "ceilometer_agent_notification_spec.rb", "ceilometer_api_spec.rb", "ceilometer_collector_spec.rb"]
+      },
+      {
+        "hash": "83e6993ab314073e6bcb2513a926eb49266f21d1",
+        "msg": "Add rabbit_ha_queues option\n\nThere are two ways for setting up RabbitMQ HA:\n\n 1. Configure rabbit_hosts to multi rabbit hosts.\n 2. Set up a loadbalancer in front of RabbitMQ cluster,\n    provide a unique address in rabbit_host\n\nBut rabbit_ha_queues option is controled by rabbit_hosts if conditional\nstatement. When users try the second method: changing rabbit_ha_queues to true.\nIf they don't set rabbit_hosts, then current logic will not work.\n\nThis patch aims to add an rabbit_ha_queues option, set to undef by\ndefault for backward compatbility.\n\nChange-Id: Id1245002dfbb6f314c6082f554221ee247be630c",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-01-16 21:05:31+08:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "60301b4972c4b2bfe24f05836285c00bb225d9c5",
+        "msg": "Adding amqp_durable_queues parameter to ceilometer\n\namqp_durable_queues is an important param for configuring\nRabbitmq HA, When rabbitmq service quits or crashes,it\nwill forget the queues and messages. To make sure those\nmessages aren't lost, amqp_durable_quesesneed to added in\nceilometer.\n\nChange-Id: I35b3897bb56ebcc955bb15d19465493549dec69b\nCloses-Bug: #1537354",
+        "cmtr": "luyuan",
+        "date": "2016-01-24 15:05:04+08:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "0659e509fd4c1d7ca0a67ea24bddd65050a1559a",
+        "msg": "collector: fix dispatcher config\n\nIt's not *_dispatcher but *_dispatchers. It's a typo from a previous\ncommit.\n\nChange-Id: I63709c05597e7b5e1410c2815f43cece90127975",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-01-27 16:24:40-05:00",
+        "files": ["collector.pp", "ceilometer_collector_spec.rb"]
+      },
+      {
+        "hash": "e7ed2b8f9cc1aa49d3d9b512d7f7ae45b2318c3b",
+        "msg": "Consistent with other core module, auth_uri,identity_uri\n\n  keystone_auth_ui and keystone_identity_uri parameters are inconsistent\n  with other modules, change keystone_auth_ui,keystone_identity_uri to\n  auth_uri,identity_uri\n\nChange-Id: I0c606b62678c3c293dc0e15c47825909f0c64ee0\nCloses-Bug: #1532920",
+        "cmtr": "nanhai.liao",
+        "date": "2016-01-28 09:05:55+08:00",
+        "files": ["api.pp", "ceilometer_api_spec.rb"]
+      },
+      {
+        "hash": "f897c0c6c6dce6a90f454ff94fc7b32e23246663",
+        "msg": "Deprecate ceilometer alarm classes\n\nAlarming services (evaluator and notifier) in Mitaka\nwere moved to Aodh OpenStack project. Now Ceilometer\ndoesn't contain any code related to alarms,\nso we need to stop usage of Ceilometer alarm classes.\n\nChange-Id: I087545f0e97050521275c8eb096c8e33b71d1a69",
+        "cmtr": "iberezovskiy",
+        "date": "2016-03-04 19:28:29+03:00",
+        "files": ["README.md", "site.pp", "evaluator.pp", "notifier.pp", "gnocchi.pp", "init.pp", "params.pp", "ceilometer_alarm_evaluator_spec.rb", "ceilometer_alarm_notifier_spec.rb", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "2e0affcd93c566452a5d381cff4a5a76634d93e6",
+        "msg": "Add api_paste type/provider for Ceilometer\n\nAdd ceilometer_api_paste_ini type/provider for Ceilometer.\nAlso add the capability to configure api-paste.ini with config.pp.\nCloses-bug: #1483371\n\nChange-Id: I7a5ce9629b9069495e233a4576742aeb171a09c1",
+        "cmtr": "ZhongShengping",
+        "date": "2016-03-08 22:25:49+08:00",
+        "files": ["ini_setting.rb", "ceilometer_api_paste_ini.rb", "config.pp", "ini_setting_spec.rb", "ceilometer_api_paste_ini_spec.rb"]
+      },
+      {
+        "hash": "9ac7d218d5935e8830bf0dd0bc585f58937bccd5",
+        "msg": "fix filter_project param values\n\nCurrent examples and tests make it look like\nfilter_project param is a boolean, which its not,\nIts a string instead.\n\nChange-Id: If5dbb0b1edd122a76dcc10d75f67d8f3a3fd0a7b",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-03-09 00:06:54+00:00",
+        "files": ["ceilometer_with_gnocchi.pp", "ceilometer_dispatcher_gnocchi_spec.rb"]
+      },
+      {
+        "hash": "497aad5423733aabff6d588b1817ffe42dfc175e",
+        "msg": "Add 'ceilometer-service' tag to collector and agent/notification\n\nSet the 'ceilometer-service' tag for the collector and the\nnotification services as it happens already for the others.\n\nChange-Id: I4c6fe871a1d55ea4dfdfc33edafdcf57bbd91e5e",
+        "cmtr": "Giulio Fidente",
+        "date": "2016-03-29 15:11:20+02:00",
+        "files": ["notification.pp", "collector.pp", "ceilometer_agent_notification_spec.rb", "ceilometer_collector_spec.rb"]
+      },
+      {
+        "hash": "01668bfd32c821c13186a89620be3ce4a42850a1",
+        "msg": "Configure oslo related parameters using puppet-oslo\n\nAdditonal changes:\n\n  * switch oslo related parameters to $::os_service_default\n    as they are used in oslo defines\n  * update unit tests\n  * update docs for oslo parameters\n\nChange-Id: I4f813444fbf141abe7f10b3aef7d1aa314ac0ac4",
+        "cmtr": "iberezovskiy",
+        "date": "2016-04-11 18:11:08+03:00",
+        "files": ["db.pp", "init.pp", "logging.pp", "policy.pp", "metadata.json", "switch_to_oslo_everywhere-7412fe9a4dffdf71.yaml", "ceilometer_db_spec.rb", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "e3c649f0877e2deb594864b2aacf5fc480cd4ffa",
+        "msg": "Totally drop Qpid support\n\nQpid was removed in Mitaka from Oslo Messaging, so now we can\ndrop it in manifests.\n\nChange-Id: I1c2682c1650fac8fab492be496ea242f0ed53597",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-04-18 13:51:40+03:00",
+        "files": ["init.pp", "logging.pp", "drop_qpid-9951a68b9e35f1c2.yaml", "ceilometer_logging_spec.rb"]
+      },
+      {
+        "hash": "c853fc65013ee8ce78c42e822df98b423d25bd48",
+        "msg": "Correct service_credentials section\n\nThe service_credential section variables were renamed at some point\nbefore Mitaka. They are broken in Mitaka and Newton, and possibly\nearlier. Additionally some critical variables for dealing with domains\nand keystone v3 are missing. This corrects those issues.\n\nA later commit should deprecate some of the naming for things\nthat have totally different names, like the endpoint_type and\ntenant_name, but we need to cleanly (and minimally) backport this to\nMitaka.\n\nChange-Id: I8de5e42102fed2de6bea7bbdd788e86a88f0354c\nCloses-Bug: #1581691",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-05-15 08:39:00+00:00",
+        "files": ["auth.pp", "ceilometer_agent_auth_spec.rb"]
+      },
+      {
+        "hash": "35ca4c173b5ebdf06d60a9c7821462a06815bb08",
+        "msg": "Add support for db_max_retries param\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: Iaf0d5ada30e0ea57d454ab1850cc61ee658cef64\nCloses-Bug: 1579718\nCo-Authored-By: Giulio Fidende <gfidente@redhat.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-05-15 08:39:17+00:00",
+        "files": ["db.pp", "ceilometer_db_spec.rb"]
+      },
+      {
+        "hash": "4600d4135ac1bef01f7a7dd4b12582a0c8db6b50",
+        "msg": "metering_secret was renamed to telemetry_secret\n\nAnnoyingly upstream renamed this variable which is used in about two\ndozen places. In addition to this we'll need to fix the integration\ntests once this lands.\n\nChange-Id: I8c01fac2c984f39e63b116c4a6433b2009a4943c",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-05-15 11:31:58+02:00",
+        "files": ["README.md", "ceilometer_with_gnocchi.pp", "site.pp", "init.pp", "metering_secret_renamed_to_telemetry_secret-f056f07ae9f1b23e.yaml", "ceilometer_wsgi_apache_spec.rb", "ceilometer_agent_auth_spec.rb", "ceilometer_agent_central_spec.rb", "ceilometer_agent_compute_spec.rb", "ceilometer_agent_notification_spec.rb", "ceilometer_agent_polling_spec.rb", "ceilometer_api_spec.rb", "ceilometer_collector_spec.rb", "ceilometer_dispatcher_gnocchi_spec.rb", "ceilometer_expirer_spec.rb", "ceilometer_init_spec.rb", "ceilometer_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "bd50e452c1eb1e0404b0f4e66f263760bf1ad21c",
+        "msg": "Introduce support for oslo.messaging amqp driver configuration\n\nThis commit adds support for the oslo.messaging amqp rpc_backend which enables\nthe AMQP 1.0 driver. A proposed feature for the Newton oslo.messaging release is an\nupdate to the AMQP 1.0 driver to support a stateless messaging interconnect for\nRPC traffic[1].\n\nThis patch:\n* use oslo::messaging::amqp resource\n* add new parameters for the oslo_messaging_amqp driver\n* update spec tests for amqp as alternate rpc_backend\n* add feature release note\n\n[1] https://blueprints.launchpad.net/oslo.messaging/+spec/amqp-dispatch-router\n\nChange-Id: I2095cee083c9ca2390df703ad6e3216e428989f9",
+        "cmtr": "Andrew Smith",
+        "date": "2016-05-16 12:31:54-04:00",
+        "files": ["init.pp", "add_oslo_messaging_amqp-4ae1ae4234921ad3.yaml", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "fd4485d64ea9a0648620756bf871e1ceee79ede0",
+        "msg": "Added support for messaging urls\n\nCeilometer supports multiple notifications. The config\nentry in ceilometer.conf allows for a multi-value for\nnotification/messaging_urls.\n\nChange-Id: Ic1791c7021bf2dbb06269317b8495eebc8d6e7ed\nCloses-Bug: 1564061",
+        "cmtr": "Matthew J Black",
+        "date": "2016-05-17 14:17:08-04:00",
+        "files": ["ini_setting.rb", "openstackconfig.rb", "ceilometer_config.rb", "notification.pp", "config.pp", "added_messaging_urls-fbf1309bf1bfafa4.yaml", "ceilometer_notifications_messaging_urls-62b27d617a49c609.yaml", "ceilometer_agent_notification_spec.rb", "openstackconfig_spec.rb", "ceilometer_config_spec.rb"]
+      },
+      {
+        "hash": "8febdc37c24763d7bbcd4b8761c21a477cc7f832",
+        "msg": "Deprecate verbose option in logging\n\nOption \"verbose\" from group \"DEFAULT\" is deprecated for removal.\nThe parameter has no effect.\n-Deprecated verbose for logging and init\n-Remove verbose in README\n-Remove verbose from tests.\nIf this option is not set explicitly, there is no such warning\n\nChange-Id: I67f69fb01e748f64015774d58ac7a8057e79a547",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-05-18 01:42:06-03:00",
+        "files": ["README.md", "init.pp", "logging.pp", "verbose-deprecation-49b680241facb7c3.yaml", "ceilometer_init_spec.rb", "ceilometer_logging_spec.rb"]
+      },
+      {
+        "hash": "79aef841af8ea502031d105ce7cf04818ed54a61",
+        "msg": "Fix syntax error\n\n'True' becomes a string in puppet3\nand is a syntax error in puppet4.\n\nChange-Id: I9b0be57f0889f22ccc5baf214eca3affc71ecb9e",
+        "cmtr": "Dmitry Ilyin",
+        "date": "2016-05-23 20:33:47+03:00",
+        "files": ["expirer.pp"]
+      },
+      {
+        "hash": "40b84c310e6b78226a08e7c04865c037542dfc54",
+        "msg": "Deprecate use_syslog\n\n[DEFAULT/use_syslog] was deprecated in Mitaka [1]\ninit.pp logging.pp - deprecate use_syslog, add warning, remove reference\ntests - remove use_syslog and [DEFAULT/use_syslog] verification.\n\n[1]\nhttp://docs.openstack.org/mitaka/config-reference/tables/conf-changes/ceilometer.html\n\nChange-Id: I352e55586bfb9a030665175dc73a27db35a21fcf",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-05-25 12:39:51+00:00",
+        "files": ["init.pp", "logging.pp", "use_syslog-fc032531ad65d9d2.yaml", "ceilometer_logging_spec.rb"]
+      },
+      {
+        "hash": "d82c232b5e7c782803844826fde9f4242dd6437f",
+        "msg": "Use 'password' auth_type by default\n\nIt's better to use 'password' keystone auth plugin by default\nfor the supporting v2 and v3 keystone API instead of ceilometer\nlegacy keystone loader which supports only v2.\nRemove hard-coded API version from auth_url as well.\n\nActually this legacy loader has been deprecated in Mitaka and\nhas been already removed in Newton:\nhttps://review.openstack.org/#/c/307053/\n\nChange-Id: Iad68b6c1c29f9d9cd1b41ecc2898732fa030d401",
+        "cmtr": "Ivan Berezovskiy",
+        "date": "2016-05-25 14:44:59+00:00",
+        "files": ["auth.pp", "password_auth_type-810a86921a846b2f.yaml", "ceilometer_agent_auth_spec.rb"]
+      },
+      {
+        "hash": "39076721e14af645c4d7f1b6590498ef3bedee79",
+        "msg": "Add transport_url parameters for oslo.messaging\n\nThis commit adds the transport_url parameters for oslo.messaging. The\nurl is of the form:\n\n  transport://user:pass@host1:port[,hostN:portN]/virtual_host\n\nWhere the transport scheme specifies the rpc or notification backend\nas one of rabbit, amqp, zmq, etc. Oslo.messaging is deprecating the\nhost, port, and auth configuration options [1]. All drivers will get\nthese options via the transport_url.\n\nThis patch:\n* use oslo::messaging::default resource\n* use oslo::messaging::notifications resource\n* add parameters for transport_url(s)\n* update spec tests\n* add feature release note\n\n[1] https://review.openstack.org/#/c/317285/\n\nChange-Id: Iaaae758ffc6866e94c63251d2c9bd4af086f32cc",
+        "cmtr": "Andrew Smith",
+        "date": "2016-05-30 12:09:59-04:00",
+        "files": ["init.pp", "add_transport_url_parameters-8c4c520e5cce0edc.yaml", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "5ca2819480a168fba15e84821320769284d0c8fc",
+        "msg": "Remove useless parameters\n\nSwitch db related parameters to oslo, the pymongo_package_name,\npymysql_package_name and sqlite_package_name parmaters are\nuseless, so delete them.\n\nChange-Id: I67a11f38b2998ee0f29a4aaa179c7d41c10a70cd",
+        "cmtr": "ZhongShengping",
+        "date": "2016-05-31 00:45:30+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "e971cd0aeb26c48ddf9ab0aeafeda92d60324dee",
+        "msg": "Revert \"Deprecate use_syslog\"\n\nThis option is not deprecated and still actual.\n\nThis reverts commit 40b84c310e6b78226a08e7c04865c037542dfc54.\n\nChange-Id: Ief1c393e2466ca3ff08d67dcacefc0d1c7dd8121",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-05-31 13:41:17+00:00",
+        "files": ["init.pp", "logging.pp", "use_syslog-fc032531ad65d9d2.yaml", "ceilometer_logging_spec.rb"]
+      },
+      {
+        "hash": "01caa03b573f346552e2a596be83906953c61efa",
+        "msg": "Remove deprecated keystone::auth options\n\nChange-Id: Ic1764835e9c06623b1aef788485c9cfd9a01284f",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-06-03 01:33:33-03:00",
+        "files": ["auth.pp", "remove_deprecated_keystone_auth_options-7702c56e6cc49f3c.yaml", "ceilometer_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "0b9bee9ffd94e9d98b192de6f31be2430aadf4f2",
+        "msg": "Add purge_config option\n\nAdd the option in order to facilitate management.\nUser can ensure that only the options they hoped\nare configured.\n\nChange-Id: I149224f4035888e6bd2aca16c36af7ab9055a3a1",
+        "cmtr": "ZhongShengping",
+        "date": "2016-06-07 11:20:37+08:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "8363e51b3ca8721bb092932728ba3833bfb42a7f",
+        "msg": "Provide default service_name for keystone endpoint\n\nThis change updates the ceilometer::keystone::auth class to include a\ndefault service_name of 'ceilometer' so that if a user changes the\nauth_name, the service is still created as being related to\n'ceilometer'.  This improves the user experiance when they want to\ncustomize the usernames for services.\n\nChange-Id: I472dd78c1b4fd8d3d4667aede56358cf6254617d\nCloses-Bug: #1590040",
+        "cmtr": "Alex Schultz",
+        "date": "2016-06-07 10:53:43-06:00",
+        "files": ["auth.pp", "keystone-auth-name-6deb28333b29657e.yaml", "ceilometer_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "dbaa9e6db36181e1ec6d1c00b086fc6fb45e90e2",
+        "msg": "fix variable name in comment\n\nChange-Id: I09a9267640c2f673d732792fd103ff850ff0945f",
+        "cmtr": "Benedikt Trefzer",
+        "date": "2016-06-09 09:31:05+02:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "1ae57a6e789b0bb2f4abe01c8d2314cca776edb9",
+        "msg": "Add memcached_servers for keystone authtoken\n\nThis change adds the abiltity to manage the memcached servers for the\nkeystone authtoken configuration in ceilometer::api\n\nChange-Id: I5fe1ec35630a67fe08b5c7b475593c34044110e8",
+        "cmtr": "Alex Schultz",
+        "date": "2016-06-30 11:09:01-06:00",
+        "files": ["api.pp", "keystone-authtoken-memcached-ab13c488a438804d.yaml", "ceilometer_api_spec.rb"]
+      },
+      {
+        "hash": "652c497fe3822dc3d6f5cbf2d9884af0fd84e8aa",
+        "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting defaults across all modules.\n\nChange-Id: Id894a58c11112a65e3dcaaa829ecef8ee7e2ff5f\nRelated-Bug: 1599113\nDepends-On: I9d0a10d48124ee71ea80134ceef96436c8ee196e",
+        "cmtr": "Athlan-Guyot sofer",
+        "date": "2016-07-08 08:55:09+00:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "0148969bafe1423a802119934eaf1700ced7469c",
+        "msg": "Add event_pipeline.yaml management\n\nAllow event_pipeline.yaml to have publishers specified. This is\nrequired to support aodh event alarms by pushing notifications\nto an alarm queue as described here:\n\nhttp://docs.openstack.org/developer/aodh/event-alarm.html\n\nChange-Id: If367192f9c0214b3b4462788024dd9222dff558e\nSigned-off-by: Michael Chapman <woppin@gmail.com>",
+        "cmtr": "Michael Chapman",
+        "date": "2016-08-09 15:52:18+10:00",
+        "files": ["notification.pp", "params.pp", "event-pipeline-d49e4bb90fddbb0b.yaml", "ceilometer_agent_notification_spec.rb", "event_pipeline.yaml.erb"]
+      },
+      {
+        "hash": "4833a7abe6cd51aa690a3f8b90bfff114c2ef64b",
+        "msg": "puppet4: fix ordering for compute agent\n\nWhen managing the POSIX user for Ceilometer, we need to make sure\nceilometer-common and libvirt are installed before, otherwise catalog\nwill fail on Puppet4 with:\n\nError: Could not set groups on user[ceilometer]: Execution of\n'/usr/sbin/usermod -G libvirtd,nova ceilometer' returned 6: usermod:\ngroup 'libvirtd' does not exist\n\nIt's an orchestration issue, fixed by this patch.\n\nChange-Id: I31daa60fa110bed68a30e576500f82ed69d30904",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-08-15 08:11:56-04:00",
+        "files": ["compute.pp", "polling.pp"]
+      },
+      {
+        "hash": "8742b6fad902837b2be3c9eb16c861e195b8257a",
+        "msg": "Move ceilometer to authtoken\n\nIn ceilometer::api, use keystone::resource::authtoken to configure\nkeystone_authsection in the configuration file.\n\nSome deprecations:\n- ceilometer::api::identity_uri is deprecated in favor of\nceilometer::api::auth_url\n- ceilometer::api::keystone_tenant is deprecated in favor of\nceilometer::api::project_name.\n- ceilometer::api::keystone_user is deprecated in favor of\nceilometer::api::username.\n- ceilometer::api::keystone_password is deprecated in favor of\nceilometer::api::password.\n\n-Remove deprecated parameters\n\nChange-Id: Iebfb4caf7d4675e17b866142292d421dcf62f63b\nRelated-Bug: #1604463",
+        "cmtr": "Maksim Malchuk",
+        "date": "2016-08-19 08:16:15+00:00",
+        "files": ["ceilometer_with_gnocchi.pp", "site.pp", "api.pp", "authtoken.pp", "authtoken_resource-be94146ce8104cea.yaml", "ceilometer_wsgi_apache_spec.rb", "ceilometer_api_spec.rb", "ceilometer_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "6a8beb15d47cc39f5a01046c388d04becf76329a",
+        "msg": "Fix puppet-lint before upgrading gem\n\nRemoving puppet-lint warnings\nin favor of upgrading to latest gem\n\n2016-09-13 21:09:56.710873 | manifests/api.pp:164:WARNING: line has more than 140 characters\n2016-09-13 21:09:56.711049 | manifests/policy.pp:9:WARNING: line has more than 140 characters\n\nChange-Id: If2cbb71b07c1fd8a6c98562671ed409e08573c17",
+        "cmtr": "Carlos Camacho",
+        "date": "2016-09-14 13:40:42+02:00",
+        "files": ["api.pp", "policy.pp"]
+      },
+      {
+        "hash": "ff327ffa3a9c5a712cea73654fc1e07ac97de105",
+        "msg": "fix broken join that stops polling service from starting\n\nCloses-Bug: 1620449\n\nChange-Id: Ice57bcf767d243729a08af790c1597972dd9cb5c",
+        "cmtr": "Alex Schultz",
+        "date": "2016-09-16 19:52:01+00:00",
+        "files": ["polling.pp", "ceilometer_agent_polling_spec.rb"]
+      },
+      {
+        "hash": "4e576d3f5393cb58b2d19b940d9a3c3d81144417",
+        "msg": "Remove blank values in namespaces array.\n\nThe inline template is using compact which is not removing\nthe blank values. A call to delete function from stdlib is\nneeded to remove the blank values.\n\nChange-Id: I7cf3ca383572d569a7e89431dcc39385605cf820",
+        "cmtr": "Matthew J. Black",
+        "date": "2016-09-23 19:27:04-04:00",
+        "files": ["polling.pp", "fix_polling_agent_namespaces-6a79b7e42601f950.yaml"]
+      },
+      {
+        "hash": "f4db1547513e871b90dd545119b8800ffc445443",
+        "msg": "Remove unnecesary spaces in log messages.\n\nSpaces added by mistake in some log messages.\n\nChange-Id: If7621a4f10d969da282d0da045bcf124b945965b",
+        "cmtr": "Carlos Camacho",
+        "date": "2016-09-26 14:28:01+02:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "b7d3c18b2a094be683138a3743480f83f48c5add",
+        "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: I6117fc818c44ac31ae656c18ed7fe5434fa73b77\nCloses-Bug: #1628580",
+        "cmtr": "Sharat Sharma",
+        "date": "2016-09-29 07:00:43+00:00",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "d4aa3e5cad9b66044d31f0c885458aac7cfbc792",
+        "msg": "Add option to enable Ceilometer's SSL middleware\n\nCeilometer is now using the HTTPProxyToWSGI middleware from\noslo.middlware in its default api-paste configuration [1]. This commit\ngives us the ability to enable/disable that middlware.\n\n[1] I24f16dda49bd9e7930ca9f0d32bf0793463aff03\n\nChange-Id: I1812a27202ba3714b354aeb27611d38def87a7fc",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2016-10-11 13:11:32+03:00",
+        "files": ["api.pp", "Adds-enable-proxy-header-parsing-64b78b56d8787e1d.yaml", "ceilometer_api_spec.rb"]
+      },
+      {
+        "hash": "51f5519f11ba212e9d9c68ca51929db2b405ab77",
+        "msg": "Change worker defaults to ::os_workers\n\nThis patch changes the default worker count from ::processorcount to the\nnew ::os_workers fact. ::os_workers is based on the number of processors\n(currently cpu/4) but is capped at a maximum of 8 worker processors.\nThis is a much more reasonable default in general and prevents excessive\nresource consumption on systems with a large number of CPUs.\n\nChange-Id: I6b994becf8963020a56902785e2c569553c95a14",
+        "cmtr": "Alex Schultz",
+        "date": "2016-10-13 13:44:37-06:00",
+        "files": ["apache.pp", "os_workers_for_worker_count-05563e8178495993.yaml", "ceilometer_api_spec.rb", "ceilometer_db_postgresql_spec.rb", "ceilometer_db_sync_spec.rb", "ceilometer_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "765557b9dc4a42cbe901ff73794344a8f1f899a2",
+        "msg": "Fix documentation for log_dir parameter\n\nChange-Id: I283453057845af1ec8e4e1e0419db2e9d5893abf\nPartial-Bug: #1600294",
+        "cmtr": "Mykyta Karpin",
+        "date": "2016-10-18 15:06:50+00:00",
+        "files": ["init.pp", "logging.pp", "fix_log_dir_documentation-6f0c7311a8678413.yaml"]
+      },
+      {
+        "hash": "a1b8f3b3317d52f71ff58d20c07ed5d311df37ba",
+        "msg": "Remove verbose\n\nSince we are in Ocata we should remove the\nverbose option that was deprecated\n\nChange-Id: Ie34e021c8a9f1d61be0cc9c6f2f05af76fac24e6",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-10-25 19:59:23-03:00",
+        "files": ["init.pp", "logging.pp", "remove_verbose-bc90fdffa0a9c0cc.yaml"]
+      },
+      {
+        "hash": "d77e7067de5f020d4ffeabc8d0439463f936940f",
+        "msg": "Deprecate rabbitmq connection parameters\n\nThe rabbitmq connection parameters have been deprecated in favor of the\ntransport_url setting.\n\nChange-Id: I04d9e09d30d4636773b2d64e7be27885cdb8775a\nRelated-Bug: #1625198",
+        "cmtr": "Alex Schultz",
+        "date": "2016-11-01 07:41:11-06:00",
+        "files": ["init.pp", "rabbit-connection-params-deprecation-62caee6af8c19d29.yaml", "ceilometer_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "9dbbf98385b9e2dc488c652853000cb37596e42e",
+        "msg": "Define libvirt_group for RHEL family\n\nWe use the ceilometer::params::libvirt_group in the ceilometer agents\nbut since we do not define it for the RHEL family, it results in an\nwarning about an undefined variable. This change defines it as undef to\ncleanup the warnings.\n\nChange-Id: I6d768df0b7f3353171e90ca30b7f0d94fdc5d8dc",
+        "cmtr": "Alex Schultz",
+        "date": "2016-11-01 14:27:57-06:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "b39fa37eaeec5199cbc9de273572260b2627ba74",
+        "msg": "Remove old authtoken options\n\nSince we are in ocata lets remove all old parameters\nin api to configure the keystone_authtoken section\n\nChange-Id: I101d1d38ad405dd8a418cb63f7345f7fd700cebe",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-11-05 13:27:25-03:00",
+        "files": ["api.pp", "authtoken.pp", "remove_old_authtoken_options-8dc42a864cc1d9eb.yaml", "ceilometer_api_spec.rb"]
+      },
+      {
+        "hash": "af4af189eaa83bbc2d5dc43a7eb19dd17a3afc6e",
+        "msg": "Replace ceilometer-dbsync by ceilometer-upgrade\n\nhttps://review.openstack.org/#/c/388688/ has removed ceilometer-dbsync\nand ceilometer-upgrade must be used instead.\n\nAdditionally, ceilometer-dbsync enabled option --skip-gnocchi-resource-types\nand ceilometer-upgrade doesn't, so i'm setting it by default to\nensure backwards compatibility.\n\nCloses-Bug: #1641076\n\nChange-Id: I383fb7922e7984b067742e10a370b0d2f574dbe9",
+        "cmtr": "Alfredo Moralejo",
+        "date": "2016-11-11 10:50:33-05:00",
+        "files": ["db.pp", "sync.pp", "params.pp", "replace-deprecated-ceilometer-dbsync-ddf62d90341731d7.yaml", "ceilometer_db_sync_spec.rb"]
+      },
+      {
+        "hash": "e885bafe5789be7ea57c40320183178f9e24d9e0",
+        "msg": "Fix common options position in params.pp\n\nThese parameters are common for both systems,\nthey could be moved out from 'case'.\n\nChange-Id: I7ff0caf6330a96cff8cbb58427ae2219293d2760",
+        "cmtr": "ZhongShengping",
+        "date": "2016-11-14 11:42:27+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "fc4a0fd5100128280703dbb3f8e109fb9393a2d0",
+        "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nChange-Id: I0d18ec6ffe6b54c85773a6dabb0ed7b6f59a12f4",
+        "cmtr": "ZhongShengping",
+        "date": "2016-11-29 17:32:37+08:00",
+        "files": ["auth.pp", "central.pp", "notification.pp", "polling.pp", "api.pp", "client.pp", "collector.pp", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "gnocchi.pp", "expirer.pp", "init.pp", "auth.pp", "authtoken.pp", "logging.pp", "policy.pp", "apache.pp", "external_install_mgmt_hook-676123a45de9237f.yaml", "ceilometer_agent_central_spec.rb", "ceilometer_agent_compute_spec.rb", "ceilometer_agent_notification_spec.rb", "ceilometer_agent_polling_spec.rb", "ceilometer_api_spec.rb", "ceilometer_client_spec.rb", "ceilometer_db_sync_spec.rb", "ceilometer_expirer_spec.rb", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "29e54fbb8d16cc241f8f100293e11675422b574a",
+        "msg": "Add customization for wsgi process display name\n\nChange-Id: I86495b73f386ff69bacd972947d702ea6861f94c\nRelated-Bug: #1626550",
+        "cmtr": "Xing Zhou",
+        "date": "2016-12-21 12:56:30+08:00",
+        "files": ["apache.pp", "ceilometer_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "776f73c32c24e857cd75429eee3de719e8ca0001",
+        "msg": "Deprecate signing_dir option\n\nThe signing_dir is deprecated for removel because of PKI token format\nis no longer supported.\nUpdate warning message and release note.\n\nChange-Id: I9adf3d2a0301c717321a09240a15352f8712b9d9\nCloses-Bug: #1652700",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-27 17:06:18+08:00",
+        "files": ["authtoken.pp", "deprecate_signing_dir_parameter-1985128741a23f23.yaml", "ceilometer_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "6e7688e2e1de035307744edacc2fb565d3ffc0e9",
+        "msg": "Add deprecation warning to ceilo api\n\nChange-Id: Ie16ddfe87ad75bb1f2c84a2aead6cd1d406a1bfc",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-01-03 17:47:57-05:00",
+        "files": ["api.pp", "warn-deprecated-ceilometer-api-77c2744e31644c5e.yaml"]
+      },
+      {
+        "hash": "3bda006e6e40a3581f4f0893600066312ab027e3",
+        "msg": "Allow python-memcache install from authtoken class\n\nThe python-memcache package is required if using memcached. By\ndefault the package is not installed and the define has it set to\nfalse. This change allows managing the python-memcache package\ninstall from the authtoken class.\n\nChange-Id: If8fea78f01e1bf54689f9ac9cb69ae4ca6be19dc",
+        "cmtr": "Matthew J. Black",
+        "date": "2017-01-11 17:19:23-05:00",
+        "files": ["authtoken.pp", "authtoken_manage_memcache_package-56ab9dcc6745492c.yaml", "ceilometer_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "14a4c1262fde01a8930ccc0a12ef741cf0e07063",
+        "msg": "Deprecate ceilometer::agent::central\n\nceilometer::agent::central is deprecated and will me removed in a future\nrelease. Users should declare ceilometer::agent::polling with central\nnamespace activated.\n\nChange-Id: I52e83ecc3ba2f39a671b2b18a7a9a1c167375088",
+        "cmtr": "Emilien Macchi",
+        "date": "2017-01-16 15:53:20-05:00",
+        "files": ["README.md", "ceilometer_with_gnocchi.pp", "site.pp", "central.pp", "ceilo-central-agent-2bf1f73f088290ad.yaml"]
+      },
+      {
+        "hash": "306c6d660d49ed71419cae534e52935e1e1069c5",
+        "msg": "Fix Ubuntu Ocata issues\n\nThe Ubuntu libvirt package has been updated for Ocata and includes\nthe Debian name for the libvirt group now. This change updates the\nlibvirt group to be 'libvirt' and not 'libvirtd' as it was previously.\n\nAdditionally, we are not properly waiting for the ceilometer packages to\nbe installed before attempting to configure apache which under Ubuntu\ncan lead to a non-idempotent 2nd run if the apache configuration file\nis installed after we've already run our apache configuration.\n\nChange-Id: Id191d1a12c84a2bdb305630fd7b10516ac2ba0c2\nCloses-Bug: #1657291\nCloses-Bug: #1657309",
+        "cmtr": "Alex Schultz",
+        "date": "2017-01-18 12:57:56-07:00",
+        "files": ["params.pp", "apache.pp", "ubuntu-libvirt-name-change-8300176528a59f3d.yaml", "ceilometer_agent_compute_spec.rb", "ceilometer_agent_polling_spec.rb"]
+      },
+      {
+        "hash": "9cf46cbf926cc0db197d61305f93ac938df25464",
+        "msg": "Configure compute params in config\n\nAdd a way to pass instance_discovery_method param to\noverride in the ceilo compute agent config.\n\nChange-Id: Id7bd49510c0be76ed3f940c91108659beb440afb",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-01-19 13:29:03-05:00",
+        "files": ["compute.pp", "polling.pp", "add-instance-discovery-methods-5d4dde0ebf4cec28.yaml", "ceilometer_agent_compute_spec.rb", "ceilometer_agent_polling_spec.rb"]
+      },
+      {
+        "hash": "0d0b20f5a84e245b0d8e084401e0ec3a1c344364",
+        "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should be\ninstalled before dbsync starts.\n\nChange-Id: I5194e34d0ffdde335b9f3e242c8924658bdebbd6",
+        "cmtr": "ZhongShengping",
+        "date": "2017-01-22 21:29:52+08:00",
+        "files": ["deps.pp"]
+      },
+      {
+        "hash": "895a8eaa87561e6801b477a7db25fd92417f1fff",
+        "msg": "Add control_exchange and rpc_response_timeout options\n\nAdd control_exchange to configure an exchange name for message.\nAdd rpc_response_timeout to configure seconds time for waiting\nfor a response from a call.\n\nChange-Id: I0d54accfea048fa394dac18e141a620d127579cf",
+        "cmtr": "ZhongShengping",
+        "date": "2017-01-28 12:59:08+08:00",
+        "files": ["init.pp", "add_messaging_default_parameters-813a34e99f22d134.yaml", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "c3d330eeb5c90a5d284522e4677aaf8a8b5a8b81",
+        "msg": "Add notification_driver option\n\nAdd notification_driver to configure driver or drivers for handling\nsending notifications.\n\nChange-Id: Id6450967f8efd30597b0b3a23602fa8d673aec8a",
+        "cmtr": "ZhongShengping",
+        "date": "2017-02-13 17:39:44+08:00",
+        "files": ["init.pp", "add_messaging_notification_parameters-34197a234ef9871d.yaml", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "8190fba40affa3fcb3177319c24975d19050fe04",
+        "msg": "Deprecate meter_dispatcher and event_dispatcher options\n\n1) meter_dispatcher and event_dispatcher options are now deprecated,\nplease use meter_dispatchers and event_dispatchers options instead.\n2) Switch meter_dispatchers and event_dispatchers parameters to\n$::os_service_default fact.\n\nChange-Id: I32dcbf34160906d15c871272e5ce0eba46c02b5e\nCloses-Bug: #1668817",
+        "cmtr": "ZhongShengping",
+        "date": "2017-03-03 15:22:19+08:00",
+        "files": ["ceilometer_with_gnocchi.pp", "collector.pp", "fix_dispatcher_parameters-781af23459348731.yaml", "ceilometer_collector_spec.rb"]
+      },
+      {
+        "hash": "643c2836061e64bb011c9aa9af0050dde2edb1da",
+        "msg": "Deprecate ceilometer collector\n\nChange-Id: I038e346d602552c449642c71bc30d2b7d2d1b54d",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-03-08 12:00:22-05:00",
+        "files": ["collector.pp", "deprecate-collector-55d615ff6cfff86a.yaml"]
+      },
+      {
+        "hash": "96040df940c22c989a20012a68a5c4c378ff331a",
+        "msg": "Make skip gnocchi option overridable\n\nSince gnocchi is the default backend, We might want to be able to\noverride this option and let it skip by default for compatibility.\nlet user set it via extra_params.\n\nChange-Id: I23e43552e14ced5a7da5e16ef323df3b1ec6722d",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-03-15 17:51:06+00:00",
+        "files": ["sync.pp", "params.pp", "replace-dbsync-command-74f9157fe81ddc4c.yaml", "ceilometer_wsgi_apache_spec.rb", "ceilometer_db_sync_spec.rb"]
+      },
+      {
+        "hash": "1ef6b0b7f6c38d155f1ccf7daf7a8027f13860e6",
+        "msg": "deprecate ceilometer::dispatcher::gnocchi::url\n\nThe url option of ceilometer::dispatcher::gnocchi doesn't exists anymore\nsince a while in Ceilometer.\n\nSo this change deprecate it for removal.\n\nChange-Id: I2b87de910b73d65111d609b8722183c1852f9c35",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-03-22 12:31:28-04:00",
+        "files": ["gnocchi.pp", "gnocchi-dispatcher-url-63964185ca71e228.yaml", "ceilometer_dispatcher_gnocchi_spec.rb"]
+      },
+      {
+        "hash": "015fd676e45095d38ff3a0b0050aab96bafe7c94",
+        "msg": "Password should be secured\n\nAs messaging_urls option contains rabbit_password value, it should\nbe secured.\n\nChange-Id: I503180280a5558d27c00368e9949aaed52151e79\nCloses-Bug: #1676708",
+        "cmtr": "ZhongShengping",
+        "date": "2017-03-28 16:24:10+08:00",
+        "files": ["notification.pp", "ceilometer_agent_notification_spec.rb"]
+      },
+      {
+        "hash": "1a4bdd359d8b52989435440dd4629b598489bf59",
+        "msg": "deprecate dispatcher::gnocchi::archive_policy\n\nThe archive_policy option of ceilometer::dispatcher::gnocchi is\ndeprecated and should be removed.\n\nSo this change deprecate it for removal.\n\nDepends-On: Ide510f355361737230efcd89ff78ff974bc96134\nChange-Id: Ic60b7189c3bfc01f59889ffbd35adaba9c00f559",
+        "cmtr": "Mehdi Abaakouk",
+        "date": "2017-03-28 14:12:05+02:00",
+        "files": ["gnocchi.pp", "gnocchi-dispatcher-archive-policy-a5b4101fe7c33532.yaml", "ceilometer_dispatcher_gnocchi_spec.rb"]
+      },
+      {
+        "hash": "5d63e7bc79440a2b2ee712c2931251fa80fc37fb",
+        "msg": "Fix strict variable errors in ceilometer::agent::polling\n\nMake sure all variables are defined.\n\nChange-Id: Iaa352f73986be4f79ffac0838bedc0f2eaae01d3",
+        "cmtr": "Mathieu Gagné",
+        "date": "2017-03-30 12:19:04-04:00",
+        "files": ["polling.pp"]
+      },
+      {
+        "hash": "a791baa616668e8b7ce12e49d7f918a52293b74f",
+        "msg": "Fix dispatcher params\n\nCurrently we join the params and pass in a string to the dispatcher\nsettings. This wont work as ceilometer config expects separate\nlines for each value.\n\nChange-Id: I3813f0918c8394ef14959be7580bf026314ba82e",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-04-04 17:26:49-04:00",
+        "files": ["collector.pp", "fix-dispatcher-params-fe916b43ffa5aeab.yaml", "ceilometer_collector_spec.rb"]
+      },
+      {
+        "hash": "64903dc23d39c4dc0f25263dce2a26528216356b",
+        "msg": "Update default event publisher\n\nIn pike, the default publisher is gnocchi. Lets use that\nas the default. If you are using collector the override\nthis to notifier:// instead.\n\nChange-Id: Ic6ba909c873bee801843718cc25974abeda9f857",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-04-06 17:53:33-04:00",
+        "files": ["notification.pp", "update-default-event-publisher-623aff98f426e60f.yaml", "ceilometer_agent_notification_spec.rb"]
+      },
+      {
+        "hash": "347140eca06a3ffa282d710f4599856b984c676f",
+        "msg": "Add support to configure publisher in pipeline.yaml\n\npipeline yaml defaults to gnocchi publisher. This wont work\nif collector(which is deprecated) is still being used. This\nshould be set to notifier:// instead. So lets make this\nconfigurable.\n\nChange-Id: I242642035c3d3d6e814f54bcd2d1e15c3a53120b",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-04-11 13:56:33-04:00",
+        "files": ["notification.pp", "params.pp", "configure-pipeline-8cc371e4af193f1d.yaml", "ceilometer_agent_notification_spec.rb", "pipeline.yaml.erb"]
+      },
+      {
+        "hash": "e016a4bb234fc4ae2d6a0e6ea9665e1a83832867",
+        "msg": "Expose snmpd auth params\n\nChange-Id: I55ac06e1a561d29d7e1c928a1684989c9654b95d",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-05-03 12:30:19-04:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "36b2ecdd7c38abb023edf9aa47d37439d12bdf79",
+        "msg": "Allow to configure the polling interval\n\nThis change allows the management of polling.yaml. This allow\nto configure the polling interval.\n\nChange-Id: I4e63d48e57700146ccfb6685cc1e3ad1c9e6102f",
+        "cmtr": "Mehdi Abaakouk",
+        "date": "2017-05-10 14:28:41+02:00",
+        "files": ["polling.pp", "params.pp", "ceilometer_agent_polling_spec.rb", "polling.yaml.erb"]
+      },
+      {
+        "hash": "3d45585f8fb15776c9372b2a8adaaa7f074bcb2f",
+        "msg": "Fix dependencies of yaml files\n\nNot all yaml files are part of the configuration step.\n\nThis fixes that.\n\nChange-Id: I5cc0a4eb36d94c63bd58c8d50930dcfa189e3a47",
+        "cmtr": "Mehdi Abaakouk",
+        "date": "2017-05-10 14:28:41+02:00",
+        "files": ["notification.pp", "polling.pp", "deps.pp"]
+      },
+      {
+        "hash": "f7d5a712dccdd8a519b951519743211cd1e40c81",
+        "msg": "Deprecate memcached_servers parameter\n\nIt is 'memcache_servers' in group [cache], not 'memcached_servers'.\nFor better understanding, deprecate memcached_servers option and\nuse memcahce_servers instead.\n\nChange-Id: I57d7b45438904387176200c0062b7f33f4268006\nCloses-Bug: #1690981",
+        "cmtr": "Alex Schultz",
+        "date": "2017-05-17 16:27:41+00:00",
+        "files": ["init.pp", "deprecate_memcached_servers-819a35d8991621f7.yaml", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "76c872007f1abbfe03dc064eb1ce28813be7df37",
+        "msg": "Add deprecate warning to ceilometer::client\n\nWith ceilometer api deprecated, we dont need client anymore.\nWe should encourage using gnocchi, aodh and panko clients\ninstead.\n\nChange-Id: I53b8fe3c300d3539da2de4a29e9b2b8e432eadc6",
+        "cmtr": "Alex Schultz",
+        "date": "2017-05-17 16:31:28+00:00",
+        "files": ["client.pp", "deprecate-ceilo-client-9613505a11df867b.yaml"]
+      },
+      {
+        "hash": "1ef657da0ed3dcb073fabbd72d65516e7a57a76e",
+        "msg": "expirer: remove the crontab if enable_cron is False\n\nAllow to let Puppet removing the crontab when\nceilometer::expirer::enable_cron is set to False.\nIt's useful when you want to upgrade from Ocata to Pike and you want the\ncrontab to be removed, since ceilometer-expirer is deprecated in Pike.\n\nChange-Id: I1eb243be7bbc38ab5977bcf6a649e98eb6ff77f7",
+        "cmtr": "Emilien Macchi",
+        "date": "2017-05-18 16:16:40-04:00",
+        "files": ["expirer.pp", "ceilo-expirer-3b86bfc71c21aa08.yaml", "ceilometer_expirer_spec.rb"]
+      },
+      {
+        "hash": "6170a18bf5c7bb37afc218bbe42edfafcd0729a7",
+        "msg": "Fix filename of api_paste.ini\n\nThe default filename is api_paste.ini, not api-paste.ini. Since we do\nnot have an option to set the file name using\n[DEFAULT]/api_paste_config, we should fix the default to make sure it\nworks.\n\nChange-Id: I054af2663a376b5ec2a0606437ff3fb90c00934a",
+        "cmtr": "Jake Yip",
+        "date": "2017-06-16 10:39:56+10:00",
+        "files": ["ini_setting.rb", "ceilometer_api_paste_ini.rb", "config.pp"]
+      },
+      {
+        "hash": "cf96476c22e8af7b4fcb2640d358466fc1279e91",
+        "msg": "Add ensure value for user and group resources\n\n'ensure' property for user and group type resource has no default value;\nif we are managing ceilometer user and group we should set ensure to\n'present' so that the resources get created.\n\nAlso make user depend on group resource being created first.\n\nChange-Id: Ie5b2704b3ea9a7727c6ff4f06efcbea201e6314a",
+        "cmtr": "Jake Yip",
+        "date": "2017-06-22 17:18:30+10:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "7da50571cf98d215c8551b52cacb4f891d5f4207",
+        "msg": "Add rabbit_qos_prefetch_count to oslo_messaging_rabbit options\n\nDepends-On: Ib301df384d271da27094376389e981fe51e39e5f\nChange-Id: I7dabc2379cbbdfd1fb2fb5d05a6f1f7c6df400e4",
+        "cmtr": "Jake Yip",
+        "date": "2017-06-27 16:21:08+10:00",
+        "files": ["init.pp", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "abf547dca0e6c431a46bbfd8280fbc85e5e9c871",
+        "msg": "Ensure pipeline yamls are created with correct permissions\n\nRight now when you try to manage the `pipeline.yaml` or\n`event_pipeline.yaml` via Puppet, notification-agent can't start\nbecause it can't read the file because it has by default root:root\npermissions. This enforces to have root:ceilometer and mode rw-r-----\nto allow the daemon read the pipeline files\n\nChange-Id: Ia97821135a2d51377514f2bcf389126254209e76",
+        "cmtr": "Luis Pigueiras",
+        "date": "2017-07-03 11:57:59+02:00",
+        "files": ["notification.pp", "ceilometer_agent_notification_spec.rb"]
+      },
+      {
+        "hash": "d86e1f57fd8898f7e205967bc1dbc9dfb1e7b0a3",
+        "msg": "Deprecate store_events config option\n\nThe store_events option has been removed since Newton\n\nDepends-On: I5a906684f6371b0548ac08cacc13aa238f780f78\nChange-Id: I0a997d0c7076d2133d20b268b47f0c867a15f106",
+        "cmtr": "Jake Yip",
+        "date": "2017-07-04 17:03:10+10:00",
+        "files": ["notification.pp", "remove_store_events_option-b8158e3c03ec5190.yaml", "ceilometer_agent_notification_spec.rb"]
+      },
+      {
+        "hash": "df37477dbdb49e962c8d20800a31772ffe2a04ff",
+        "msg": "Remove deprecated keystone authtoken signing_dir option\n\nChange-Id: Ib5569de793dd9922c8f723eaadd96aaec8d34beb",
+        "cmtr": "ZhongShengping",
+        "date": "2017-07-07 09:58:16+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_signing_dir_option-954249754dbb64ab.yaml"]
+      },
+      {
+        "hash": "138c320c893bb8a8958a90609dea9d84ccdc6a5f",
+        "msg": "Deprecate oslo.messaging rpc_backend option parameter\n\nOslo.messaging uses the transport_url to represent the rpc and\nnotification messaging driver to use and its full configuration. The\nrpc_backend configuration option is deprecated for removal and\nshould not gate oslo.messaging driver configuration options.\n\nThis patch:\n* deprecate rpc_backend\n* remove conditional check\n* update spec tests\n* add release note\n\nChange-Id: Ib58f85348920459f6ae0445379ddcb50185b8518",
+        "cmtr": "Andrew Smith",
+        "date": "2017-07-27 06:34:27-04:00",
+        "files": ["init.pp", "deprecate_rpc_backend_parameter-db1075d3cd5d657f.yaml", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "c9174849f91bda2d6194c584a7b156670707e5b7",
+        "msg": "Revert \"deprecate dispatcher::gnocchi::archive_policy\"\n\nThe upstream change has been reverted so lets revert this as well. See I4ee646088f7bc370ed7ffd1eb3b98e66bae6782e \n\nThis reverts commit 1a4bdd359d8b52989435440dd4629b598489bf59.\n\nChange-Id: I017e8b4f7a064bc6cd3c283d1c115f3ecf1499fe",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-08-23 14:51:17+00:00",
+        "files": ["gnocchi.pp", "gnocchi-dispatcher-archive-policy-a5b4101fe7c33532.yaml", "ceilometer_dispatcher_gnocchi_spec.rb"]
+      },
+      {
+        "hash": "58e125774bf015d31b1502bb02b8e44a255ca7a2",
+        "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: I8fea10159dfd4a8c1cee2242a2dbf9abc86b4686\nCloses-Bug: #1717144",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-14 11:00:03+08:00",
+        "files": ["authtoken.pp", "deprecate_revocation_cache_time_parameter-12d9e4e797f0f033.yaml", "ceilometer_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "560b82e9ae36d52f8eaca2e07d5d6ba58c61a3dc",
+        "msg": "add parameter to overwrite/add wsgi process options\n\nAdd parameter to apache_wsgi to allow overwrite\nand/or add additional wsgi process options.\n\nThis possibility was added to openstacklib\nwith Change-Id: I41914ce3361988d5db1695f09d21209772fdf548\n\nChange-Id: I1a2f1a28200d362b7918a458e8f885873062e98b",
+        "cmtr": "Benedikt Trefzer",
+        "date": "2017-09-18 10:51:30+02:00",
+        "files": ["apache.pp", "wsgi_process_options-6ff05b70409dc49e.yaml", "ceilometer_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "2d02f8924ea9c0e2423ad99cbe1f9ecc55206018",
+        "msg": "Accept empty strings for log_dir\n\nAn empty string is an acceptable value of this entry, and it forces\nlogging to stdout/stderr, which is useful when running on containers.\n\nChange-Id: I392d113c13cb6ba77e1bbcaf1b37c54c8b0eb1a5",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-10-06 13:00:04+03:00",
+        "files": ["logging.pp"]
+      },
+      {
+        "hash": "240169cd55ef1b48a3b6906ec4503286f20ebbc5",
+        "msg": "Allow setting log files for apache vhost\n\nThis allows the setting of the error and access file logs, as well as\nthe access log format. This was done in a similar fashion as one can\nconfigure these ones in the keystone wsgi manifest.\n\nChange-Id: I000ecd05a4ca3b21970b4fa9ca49362c90b072e1",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-10-06 14:23:31+03:00",
+        "files": ["apache.pp", "ceilometer_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "ead9b824543f7f2a47daf6df6516461d134c59a3",
+        "msg": "Configure *_domain_name to Default by default\n\nKeystone v2.0 API was removed so we have no choice but configuring\nuser_domain_name and project_domain_name otherwise it fallbacks to\nKeystone v2.0 and it fails. This patch sets the default value so we make\nsure Keystone v3 will be used out of the box for our users.\n\nChange-Id: I6949b5e00ec26ddc66cbe08de7420468d6b34954\nCo-Authored-By: Juan Antonio Osorio Robles <jaosorior@redhat.com>",
+        "cmtr": "Harry Rybacki",
+        "date": "2017-10-06 09:33:55-04:00",
+        "files": ["authtoken.pp", "default-domain-185c103320f29f94.yaml", "ceilometer_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "4a249ae38c62d2670a37990c7cb44abd77ae3aa4",
+        "msg": "Add support to set host param\n\nLets expose this param so we can override the host param in\nceilometer config. Without this, some metrics from nova wont\nmake it as in some cases the fqdn might not match hostname.\n\nPartial-bug: #1721054\n\nChange-Id: I421a61dc31bd10fec0a10bf7e867001cf4dd3f02",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-11-01 20:52:00+00:00",
+        "files": ["init.pp", "set-ceilometer-host-1e3d3f9de3642cd0.yaml", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "e2928d2d4c11d0c534f99f37d8e3dce8bf5223d4",
+        "msg": "Remove deprecated collector classes\n\nCollector has been deprecated in the previous release and is\ntargeted to be remvoed in Queens release. The code for this\nis already removed upstream[1]. Let drop this class now.\n\n[1] https://review.openstack.org/#/c/504244/\n\nChange-Id: I626d50677255b9668ddec30131f6214f18d42fd7",
+        "cmtr": "Pradeep Kilambi",
+        "date": "2017-11-06 13:50:18+00:00",
+        "files": ["collector.pp", "params.pp", "remove-collector-9547e7929e1a139f.yaml", "ceilometer_collector_spec.rb"]
+      },
+      {
+        "hash": "78b9e1d743d6b62369c3277d6770319b65095888",
+        "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: Ifc742e16748195c3cb699ac1e1dc6a36b3861d02",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2017-11-27 14:57:17+02:00",
+        "files": ["logging.pp", "log-json-19a16ad82e22fd82.yaml", "ceilometer_logging_spec.rb"]
+      },
+      {
+        "hash": "cec993b71360000e7c0e1335dd5e6d039a32fc96",
+        "msg": "Remove ceilometer client class\n\nThe ceilometer client has been retired upstream and the class has been\npreviously deprecated. Since the package may be going away, we need to\nremove the client class.\n\nhttps://review.openstack.org/#/c/522183/\n\nChange-Id: I3e10b80d5115b32bb4aa480276303ac6136f175f",
+        "cmtr": "Alex Schultz",
+        "date": "2017-11-28 14:14:06-07:00",
+        "files": ["README.md", "ceilometer_with_gnocchi.pp", "client.pp", "ceilometer-client-removal-e36598e0e1d66231.yaml", "ceilometer_wsgi_apache_spec.rb", "ceilometer_client_spec.rb"]
+      },
+      {
+        "hash": "24085e979fe6b73fbfa773c1471c5d23d1925e7d",
+        "msg": "Remove client_package_name in params.pp\n\nThe ceilometer client has been removed[1].\n\n[1]https://review.openstack.org/#/c/523537/\n\nChange-Id: I60808bc2e8fa652d251b955a6544c2ab9b441cd3",
+        "cmtr": "ZhongShengping",
+        "date": "2017-12-12 08:50:37+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "f03bc45b99366698796add77046464146ecf65b3",
+        "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nChange-Id: I3b4d162e4ba79f1dcc9e98e7a600b3b3203018f3\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2018-01-11 15:55:12+00:00",
+        "files": ["params.pp", "policy.pp", "ceilometer_policy_spec.rb"]
+      },
+      {
+        "hash": "994e23c29784ed03b0fa1e871f365860e0d6ed9e",
+        "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: Ie7d9deff5d6934f60d4c396520089836bd661767",
+        "cmtr": "ZhongShengping",
+        "date": "2018-01-15 17:20:08+08:00",
+        "files": ["logging.pp", "add-use_journal-option-for-logging-9563deb9e59d2cb1.yaml", "ceilometer_logging_spec.rb"]
+      },
+      {
+        "hash": "0aee614a7e2f7e2068e707e526e09dfccd274258",
+        "msg": "Remove url option\n\nChange-Id: Ie312a86e5c87c6dc02bf25228d530a25b132555e",
+        "cmtr": "ZhongShengping",
+        "date": "2018-01-17 16:57:22+08:00",
+        "files": ["gnocchi.pp", "remove_url-9a82fc5b9f88cc39.yaml"]
+      },
+      {
+        "hash": "7ecb339928afd0c6e17960b2561c73f552e5189b",
+        "msg": "Remove ceilometer api class\n\nThe ceilometer api has been retired upstream and the class has been\npreviously deprecated. Since the package may be going away, we need to\nremove the api class.\n\nhttps://review.openstack.org/#/c/512286/\n\nChange-Id: Idfffa36b17543968c14dfbc60eb1d9ff3286841b\nCloses-Bug: #1747841",
+        "cmtr": "ZhongShengping",
+        "date": "2018-02-07 14:29:36+08:00",
+        "files": ["README.md", "ceilometer_with_gnocchi.pp", "site.pp", "api.pp", "ceilometer-api-removal-1a35e07f23981735.yaml", "ceilometer_api_spec.rb"]
+      },
+      {
+        "hash": "a5b9a060eb57d9fd345b33c90d43205e9814e8f3",
+        "msg": "Add some kombu options\n\nAdds the kombu_failover_strategy option for configuring\noslo.messaging.rabbit. This will determines how the next RabbitMQ node\nis chosen in case the one we are currently connected to becomes\nunavailable.\n\nChange-Id: Ieb0b4c62e8e7b00b4f73ca793298fbf052b6fdb9\nCloses-Bug: #1748353",
+        "cmtr": "ZhongShengping",
+        "date": "2018-02-09 14:14:14+08:00",
+        "files": ["init.pp", "add_rabbit_kombu_options-946374c89c1f95ba.yaml", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "25f34eb492e6f6b98209c79a28452cf6558e7579",
+        "msg": "Remove ceilometer api class related parameters in params.pp\n\nThe patch[1] has been merged. So we can remove ceilometer api class\nrelated parameters.\n\n[1]https://review.openstack.org/#/c/541562/\n\nChange-Id: I94ef290609b0aa4ef0dfc715dd4b6ca0bab3a154",
+        "cmtr": "ZhongShengping",
+        "date": "2018-02-11 11:28:07+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "bc832afbfdc0dea61caebd1dbe8d5eecae84686a",
+        "msg": "Remove deprecated ceilometer alarm classes\n\nChange-Id: Iac6f69dec0abe66ce66ae8b9c82c5a7857a9dc28",
+        "cmtr": "zhongshengping",
+        "date": "2018-02-27 00:35:27+00:00",
+        "files": ["evaluator.pp", "notifier.pp", "remove_alarm_classes-8173e34fe223d980.yaml"]
+      },
+      {
+        "hash": "c53c5424e2fe4895ee9de1789e65b539169b8a43",
+        "msg": "Remove store_events option\n\nChange-Id: I31e8c17a011320cacd3a6f9480452886f8df714b",
+        "cmtr": "zhongshengping",
+        "date": "2018-02-27 00:35:38+00:00",
+        "files": ["notification.pp", "remove_store_events-18a34502fe2387d1.yaml"]
+      },
+      {
+        "hash": "e985087545cf116ea30a8d270e4adb11aa86f994",
+        "msg": "Do not skip gnocchi resource type creation by default in db::sync\n\nThe default command-line option for ceilometer-upgrade is to not\nskip gnocchi resource type creation. If we do not pass any extra_params\nto the ceilometer::db::sync class, we should keep defaults.\n\nThis has not failed before in CI because p-o-i was passing\n'--skip-metering-database' as extra_params, but now we are removing\nthat deprecated option in [1].\n\n[1] - https://review.openstack.org/548337\n\nChange-Id: I33c1667e19326ec67c5cf953daa1237175895c4f",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-02-28 23:33:56+00:00",
+        "files": ["sync.pp", "ceilometer_wsgi_apache_spec.rb", "ceilometer_db_sync_spec.rb"]
+      },
+      {
+        "hash": "76bce0ada4dbb0b59f4936ef4f9a6d76f82066f0",
+        "msg": "Fix mysql connection\n\nURL mysql://scott:***@some_host/some_db does not contain a '+drivername'\nportion, and will make use of a default driver. A full dbname+drivername://\nprotocol is recommended. For MySQL, it is strongly recommended that\nmysql+pymysql:// be specified for maximum service compatibility.\n\nChange-Id: Ib5cbfcc412c04381f2fce9f319a313eb86ea7fa8\nCloses-Bug: #1753342",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-05 08:57:27+08:00",
+        "files": ["db.pp", "ceilometer_db_spec.rb"]
+      },
+      {
+        "hash": "bdbf6614e1fe5f78e58786498956815e48890a27",
+        "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: I79c078e5945c45090cdb53959f3e87d2d7e18081\nCloses-Bug: #1755102",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-12 16:33:06+08:00",
+        "files": ["sync.pp", "openstack_db_tag-874ef77468c5d1f2.yaml", "ceilometer_db_sync_spec.rb"]
+      },
+      {
+        "hash": "c7b7671f973b7df8b7bc5fc10ba633010a726545",
+        "msg": "Add oslo::cache to dependency chain\n\nPackage installation for cache backend is being migrated to oslo module.\nFor proper keystone installation dependency sequence should be preserved.\n\nChange-Id: I57e8ef8d5e8d09277032d9f76548cbafb0bd67f8\nCloses-Bug: #1756215",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-16 09:12:39+08:00",
+        "files": ["deps.pp"]
+      },
+      {
+        "hash": "f28830d5aae8021215026bdf2f63a8713b7deeb1",
+        "msg": "Remove deprecated metering_secret option\n\nChange-Id: I2e3c781fe01b7e2d0eebdde61635362ccbcd749b",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-20 14:03:51+08:00",
+        "files": ["init.pp", "remove_deprecated_metering_secret_option-2a01c56c1c849f3c.yaml"]
+      },
+      {
+        "hash": "03db4e5145a5b554742ec6515dabda39cf1dac3c",
+        "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: Ib84d68f367c043b40f15ec50d45093467f11a4f4\nCloses-Bug: #1757581",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-22 11:09:50+08:00",
+        "files": ["db.pp", "add-pool_timeout-option-for-db-b8801b27b2caa1c9.yaml", "ceilometer_db_spec.rb"]
+      },
+      {
+        "hash": "ba978b8947df36ffb8a2c8fb10f950b0f23e878e",
+        "msg": "Remove wsgi\n\nThe ceilometer api class has been removed[1]. So the wsgi::apache\nclass is useless.\n\nhttps://review.openstack.org/#/c/541562/\n\nChange-Id: I2c6165dd3b007a2bae1d9934a773dddf32218b7b",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-26 15:15:51+08:00",
+        "files": ["params.pp", "apache.pp", "ceilometer_wsgi_apache_spec.rb"]
+      },
+      {
+        "hash": "ac9edcb172d2efae23f26703a3776e6574289eb3",
+        "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: I4164b0ed8e51249f7403fcde188a87e24f9e149f",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-27 10:33:20+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-9b8eafc537ba8281.yaml"]
+      },
+      {
+        "hash": "54aa99c544e0c1fb2ad813a92fbb5a61d2717391",
+        "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: I699fbb64d0e345f74751431e362620ce6c15ec88\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
+        "cmtr": "ZhongShengping",
+        "date": "2018-04-04 16:15:14+08:00",
+        "files": ["authtoken.pp", "deprecate_auth_uri_parameter-b847a5927a050526.yaml", "ceilometer_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "708aa692ddb78daf43a0191e6a889c3d5811524e",
+        "msg": "fix a typo: s/allowd/allowed/\n\nChange-Id: I3193933351412c2bc17688c6250be607afd4beac",
+        "cmtr": "wangqi",
+        "date": "2018-04-19 10:55:38+00:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "d99517b6b0ac53865d1297dce4da8876e849c6e7",
+        "msg": "neat: missing : in $::os_service_default\n\nChange-Id: I6c13b4500fd93d5229893443d2b829dc317912aa",
+        "cmtr": "zhubingbing",
+        "date": "2018-05-11 14:02:39+08:00",
+        "files": ["authtoken.pp"]
+      },
+      {
+        "hash": "5650855f4db7e8000bfc3b583f1beeab40b98dcf",
+        "msg": "Replace port 35357 with 5000\n\nNow that the v2.0 API has been removed, we don't have a reason to\ninclude deployment instructions for two separate applications on\ndifferent ports.\n\nChange-Id: Iec71def4bcff2dc5ff5227d0cbcc9f5da2352272",
+        "cmtr": "qiaomin",
+        "date": "2018-05-13 00:32:30+08:00",
+        "files": ["README.md", "site.pp", "authtoken.pp", "ceilometer_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "7ba0dd422fc9d06549a0fd3eba562357f56e1779",
+        "msg": "Remove deprecated parameters\n\nRemoves deprecated parameters that has been\ndeprecated for one cycle or more.\n\nDepends-On: https://review.openstack.org/#/c/569612/\nChange-Id: I643c7e690713e8860be30ea21c7d6632fe87e68d",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-06-12 09:58:48+02:00",
+        "files": ["init.pp", "ceilometer-remove-deprecated-45e4418b3b134ec2.yaml", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "da9e7085189d88bc9aca989157f2a914606a2686",
+        "msg": "Fix annotations\n\nChange-Id: I837942b96aa0be16ab03882ff36363b4b7eb2c30",
+        "cmtr": "zhubingbing",
+        "date": "2018-06-15 15:07:36+08:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "8bc3e823d9f06433027c128d521066926ac1f2da",
+        "msg": "Fix deprecation warning message\n\nChange-Id: I51c9f3b028af5bbd2746167806cfa51c62c97686",
+        "cmtr": "Matthias Bastian",
+        "date": "2018-06-25 09:57:46+02:00",
+        "files": ["central.pp"]
+      },
+      {
+        "hash": "5cbdc9e890035ff1940b7bbb69323b3a491fab8a",
+        "msg": "Deprecated ceilometer::dispatcher::gnocchi\n\nGnocchi dispatcher options will be removed upstream very soon [1].\n\nBut the depracted options are still used in puppet-ceilometer and tht.\n\nThis change marks the deprecation here.\n\nChange-Id: I7674e390c7c821ff9855c133b3594a1ad951ddeb",
+        "cmtr": "Mehdi Abaakouk",
+        "date": "2018-06-27 10:48:08+02:00",
+        "files": ["gnocchi.pp", "dispatcher-deprecation-8a86e99f11273738.yaml"]
+      },
+      {
+        "hash": "d54585f517052d1e322ece308cc864e682ef2f8d",
+        "msg": "Deprecate time_to_live options\n\nThese options no longer exists since 3 cycles.\n\nThis change deprecated them.\n\nChange-Id: I2ddf06368e47258ebae0769ce94485c2f1971d87",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-06-27 13:00:02+02:00",
+        "files": ["init.pp", "time-to-live-deprecation-c83a87e39ec082e2.yaml", "ceilometer_init_spec.rb"]
+      },
+      {
+        "hash": "9f670ce767b0c7a98c961c62e26dec51f4fa6e4a",
+        "msg": "use correct warning message for deprecation of agent::central\n\nChange-Id: Ic4c8593f46892e2adea631fe786de498a1d75f84",
+        "cmtr": "Benedikt Trefzer",
+        "date": "2018-06-28 10:38:13+02:00",
+        "files": ["central.pp"]
+      },
+      {
+        "hash": "f236f531df8f342c475973620e3f3913399dc2c0",
+        "msg": "Add support to customize polling meters\n\nThis adds a new parameter called polling_meters\nto the ceilometer::agent::polling class.\n\nIf you pass a array of strings this parameter\nwill then populate the meters in the polling.yaml\nfile by inserting them in the templated polling file.\n\nThe default values that was hardcoded in the template\nis still the same but has been moved to the params class\nas an array of strings.\n\nChange-Id: Iae2567b5a0f24b2aa80f9640ff10df96cd656922",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-07-24 12:16:05+02:00",
+        "files": ["polling.pp", "params.pp", "manage-polling-meters-e28386cd03c9d80d.yaml", "ceilometer_agent_polling_spec.rb", "polling.yaml.erb"]
+      }]
+    }

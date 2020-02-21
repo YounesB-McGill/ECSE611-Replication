@@ -1,0 +1,35 @@
+    {
+      "url": "https://github.com/Mirantis/pmlc_neutron",
+      "pp_files": ["service.pp", "config.pp", "init.pp", "params.pp", "client.pp", "server.pp", "install.pp"],
+      "pp_cmtrs": ["Scott Brimhall"],
+      "num_pp_commits": 4,
+      "num_tot_commits": 6,
+      "commits": [{
+        "hash": "1b4eac9c1ee16ccd4d27532d93612e60047ec142",
+        "msg": "Initial commit",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-27 09:54:16-07:00",
+        "files": [".fixtures.yml", ".gitignore", "Gemfile", "README.md", "Rakefile", "client.pp", "config.pp", "install.pp", "service.pp", "init.pp", "params.pp", "server.pp", "config.pp", "install.pp", "service.pp", "metadata.json", "init_spec.rb", "spec_helper.rb", "ml2_conf_cisco.ini.erb", "init.pp"]
+      },
+      {
+        "hash": "3bec102682dabfc5547f4bc00786ba2ab0fe5a69",
+        "msg": "Refactor module to use ini_setting rather than file_lines",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-28 18:56:46-07:00",
+        "files": ["config.pp", "service.pp", "config.pp", "service.pp", "metadata.json"]
+      },
+      {
+        "hash": "94c7334eeb3efbb1cf27372352aae74f2d37f2ac",
+        "msg": "Add certificate based authentication to APIC driver. Add agent poll interval of 60s rather than default 2s.",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-29 13:38:51-07:00",
+        "files": ["config.pp", "service.pp", "init.pp", "params.pp", "config.pp", "service.pp"]
+      },
+      {
+        "hash": "35b31d83f1428fd5e78209c47601fe5874962bf3",
+        "msg": "Fix typo in admin password setting",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-30 09:39:21-07:00",
+        "files": ["config.pp"]
+      }]
+    }

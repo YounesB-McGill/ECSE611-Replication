@@ -1,0 +1,21 @@
+    {
+      "url": "https://github.com/Mirantis/puppet-module-keepalived",
+      "pp_files": ["instance.pp", "service.pp", "variables.pp", "config.pp", "init.pp", "install.pp"],
+      "pp_cmtrs": ["Bruno L\u00e9on"],
+      "num_pp_commits": 2,
+      "num_tot_commits": 5,
+      "commits": [{
+        "hash": "8ebdb943fec9d3380479c05de09ffeb6db2dcd6a",
+        "msg": "Initial commit",
+        "cmtr": "Bruno Léon",
+        "date": "2012-06-08 03:18:06+02:00",
+        "files": ["LICENSE", "Modulefile", "README", "config.pp", "init.pp", "install.pp", "instance.pp", "service.pp", "variables.pp", "spec_helper.rb", "global_config.erb", "keepalived_instance.erb", "init.pp"]
+      },
+      {
+        "hash": "45c6d0fcb21c6b3f1912a3e6e77b43e02a20c9ff",
+        "msg": "Include keepalived::variables in keepalived::instance. Add require on keepalived::install.",
+        "cmtr": "Bruno Léon",
+        "date": "2012-06-14 22:59:45+02:00",
+        "files": ["instance.pp"]
+      }]
+    }

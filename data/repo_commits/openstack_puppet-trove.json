@@ -1,0 +1,1183 @@
+    {
+      "url": "https://github.com/openstack/puppet-trove",
+      "pp_files": ["logging.pp", "db.pp", "init.pp", "sync.pp", "postgresql.pp", "params.pp", "authtoken.pp", "config.pp", "host_access.pp", "policy.pp", "deps.pp", "conductor.pp", "client.pp", "api.pp", "taskmanager.pp", "site.pp", "mysql.pp", "quota.pp", "generic_service.pp", "guestagent.pp", "auth.pp"],
+      "pp_cmtrs": ["Lukas Bezdicka", "Yanis Guenane", "Emilien Macchi", "Arnoud de Jonge", "Mykyta Karpin", "Matthew J. Black", "Riccardo Pittau", "Sylvain Baubeau", "Sebastien Badia", "Marcellin Fom Tchassem", "Soren Hansen", "Andy Botting", "Javier Pena", "Solly Ross", "Athlan-Guyot sofer", "Tobias Urdin", "ZhongShengping", "Andrew Smith", "Maksym Yatsenko", "Gael Chamoulaud", "Xingchao Yu", "Yuan Xiaohua", "Shaik Apsar", "zhubingbing", "Carlos Camacho", "ZhijunWei", "Mathieu Gagne\u0301", "Colleen Murphy", "iberezovskiy", "Alex Schultz", "Sharat Sharma", "Tomasz Nowak", "Rico Lin", "zhulingjie", "Matt Fischer", "Denis Egorenko", "Praveen", "Alfredo Moralejo", "Iury Gregory Melo Ferreira", "Liao Penghui", "Alexey Deryugin", "Xiaohua Yuan"],
+      "num_pp_commits": 168,
+      "num_tot_commits": 455,
+      "commits": [{
+        "hash": "2de1f7cacb651c05f2020850dc9da18a4ab664dc",
+        "msg": "add trove::client class",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-05-30 18:01:24+02:00",
+        "files": ["client.pp", "trove_client_spec.rb"]
+      },
+      {
+        "hash": "2f4abc06c49fd1a14b6cb827089650f17d38ca8d",
+        "msg": "introduce trove::keystone::auth class",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-05-30 18:04:09+02:00",
+        "files": ["auth.pp", "trove_keystone_auth_spec.rb", "shared_examples.rb", "spec_helper.rb"]
+      },
+      {
+        "hash": "275ddcb4f3a539eb0a72cefbb553895d40f9df91",
+        "msg": "[client] Introduce trove::params classe and fix client_package_name\n\nSigned-off-by: Sebastien Badia <sebastien.badia@enovance.com>",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-06-17 18:08:00+02:00",
+        "files": ["client.pp", "params.pp"]
+      },
+      {
+        "hash": "fcd2c5a6a4efb6d807bf898a1c0f40dabba0337b",
+        "msg": "[params] Update trove::params class\n\nUpdate params class with corresponding packages names",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-06-17 18:09:05+02:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "25f3836186dd6765a180856a7082f10ceefbf9e6",
+        "msg": "[keystone/auth] Fix service type",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-06-17 18:10:18+02:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "24b23d05af84c0a5acd8a439e5df98d98072ea49",
+        "msg": "[keystone/auth] Fix port number (thanks @fghaas)",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-06-17 18:11:23+02:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "476f0d16db9637b28440fd7331a7e251a8636bfa",
+        "msg": "MySQL support\n\nAdd MySQL Support in the module:\n- manage user\n- manage database\n- manage db permissions\n- manage the db_sync to fill Trove schema\n\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-07-02 10:58:01+02:00",
+        "files": ["Modulefile", "mysql.pp", "host_access.pp", "sync.pp", "trove_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "a2c37013dfbb256703fbdcdd01bb095f49ead35c",
+        "msg": "Introduce init class\n\nFor now, init class only load params from trove::params.\n\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-07-02 11:17:21+02:00",
+        "files": ["init.pp", "trove_init_spec.rb"]
+      },
+      {
+        "hash": "01439a4f96ba4e9d7a28cbde5cc7274da802bd82",
+        "msg": "Fix trove_config provider name and introduce postgresql support",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-02 12:29:09+02:00",
+        "files": [".fixtures.yml", "mysql.pp", "host_access.pp", "postgresql.pp", "sync.pp", "trove_db_postgresql_spec.rb"]
+      },
+      {
+        "hash": "4d84d61d484b93baf2f5089f07eb753c19ce2c03",
+        "msg": "First implementation of trove::api\n\n- Add common parameters to init\n- Implement generic_service\n- Implement api\n\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-07-02 13:32:27+02:00",
+        "files": ["api.pp", "generic_service.pp", "init.pp"]
+      },
+      {
+        "hash": "bc884e0b26323f35a896d5d2a11c1304a4d49162",
+        "msg": "Fix api and init classes (trove)",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-02 14:06:23+02:00",
+        "files": ["api.pp", "init.pp"]
+      },
+      {
+        "hash": "1caefc79fc94f3fae87f90c3ca8ca6931c00f4e8",
+        "msg": "conductor: Introduce conductor support",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-02 14:15:31+02:00",
+        "files": ["conductor.pp", "params.pp", "trove_conductor_spec.rb", "shared_examples.rb"]
+      },
+      {
+        "hash": "dcef06f12dd5e087723f348e90bcc83249afee3a",
+        "msg": "Implement tests for trove::api",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-07-02 14:49:45+02:00",
+        "files": ["api.pp", "mysql.pp", "sync.pp", "generic_service.pp", "init.pp", "params.pp", "trove_api_spec.rb"]
+      },
+      {
+        "hash": "09074c34bc7e76bd3d80f75c17840a30734269ee",
+        "msg": "api: fix trove api rpc backend 'trove.openstack.common.rpc.impl_qpid'",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-02 15:05:39+02:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "6ac2d6bfb033b2ad4f4c946a6615edfbbcdd8285",
+        "msg": "api: fix spec tests and trove api rpc backend\n\ntrove-api package is managed by the generic service (for trove).",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-02 15:43:20+02:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "0b2ab24cf7d6753029cd84b7cc3863c4fe96b05d",
+        "msg": "api: fix unit test",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-02 15:52:48+02:00",
+        "files": ["api.pp", "trove_api_spec.rb"]
+      },
+      {
+        "hash": "7bf9375a85c74b1319a87437e4160fd7313e115f",
+        "msg": "Fix default sqlite path",
+        "cmtr": "Sylvain Baubeau",
+        "date": "2014-07-02 16:51:47+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "9549151dcf9067aa6bb4075f95c08ed4adaef177",
+        "msg": "api: fix tests",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-07-02 17:20:53+02:00",
+        "files": ["api.pp", "trove_api_spec.rb"]
+      },
+      {
+        "hash": "b2caa68930f1e0b3a1f9f373e590ddd44d7ed1ab",
+        "msg": "Configure api-paste.ini for trove-api",
+        "cmtr": "Sylvain Baubeau",
+        "date": "2014-07-03 14:15:39+02:00",
+        "files": ["api.pp", "trove_api_spec.rb"]
+      },
+      {
+        "hash": "5e7fa924654f8cbef27b9edd6dbbc4103ec21f8a",
+        "msg": "move nova_proxy_admin_* to init class\n\nSince the parameters are used on other class, it's smarter to have them\non init class to just reuse them.\n\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-03 15:12:38+02:00",
+        "files": ["api.pp", "init.pp", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_init_spec.rb"]
+      },
+      {
+        "hash": "0fdfe32a550efa5ee58985b6f4eed7b2e700f56c",
+        "msg": "trove: implement trove::taskmanager\n\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-03 15:12:38+02:00",
+        "files": ["taskmanager.pp", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "1156b47642bd861dc333ae96ecf82a9751e52f97",
+        "msg": "taskmanager: Fix typo and inherits from init (for exec post_config)",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-03 15:12:38+02:00",
+        "files": ["taskmanager.pp"]
+      },
+      {
+        "hash": "49fc05bbf950de6967ed5274ebd7088b8a727e01",
+        "msg": "taskmanager: reload taskmanager if config is updated",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-03 15:12:38+02:00",
+        "files": ["taskmanager.pp"]
+      },
+      {
+        "hash": "2097a2249f83b8625dc1c7aa245bbe202ea49b35",
+        "msg": "conductor: Update conductor support",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-03 15:12:38+02:00",
+        "files": ["conductor.pp", "trove_conductor_spec.rb"]
+      },
+      {
+        "hash": "86e238ee54487e35d456e848a02a4a176830153a",
+        "msg": "conductor: move rabbit notification to init classe (and fix enabled services)",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-03 15:12:38+02:00",
+        "files": ["conductor.pp", "init.pp", "taskmanager.pp"]
+      },
+      {
+        "hash": "3063b1903c2c923a3263bc9f3136ae9ab5da7da2",
+        "msg": "trove/api: fix spec tests (move to init classe)",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-03 15:21:24+02:00",
+        "files": ["api.pp", "trove_api_spec.rb"]
+      },
+      {
+        "hash": "e53fce5c92af38de83f8c6a67315eb0637390eb7",
+        "msg": "First implementation of trove::guestagent\n\nChange-Id: I26fe3bd55474e3e83e545d304abc77caf8942a0f",
+        "cmtr": "Sylvain Baubeau",
+        "date": "2014-07-04 14:46:20+02:00",
+        "files": ["guestagent.pp", "trove_guestagent_spec.rb"]
+      },
+      {
+        "hash": "e009fae96b74e87a565f980c0baede2f6fad3419",
+        "msg": "Generate injected guest agent configuration file\n\nChange-Id: I5488d8716331fe42b5d0aca6d3b93d8920eef13b",
+        "cmtr": "Sylvain Baubeau",
+        "date": "2014-07-09 13:36:44+02:00",
+        "files": ["conductor.pp", "init.pp", "taskmanager.pp", "trove-guestagent.conf.erb"]
+      },
+      {
+        "hash": "4fdc9f802a0047355c10f6db888783b9d09925bb",
+        "msg": "Fix eNovance domain name\n\nA new company « etrovence » :-) (or just a too quick sed)\n\nChange-Id: I95cc85908b79310ced5f19e96516293ca949b651",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-07-12 02:30:39+02:00",
+        "files": ["api.pp", "trove_api_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "c7a5df8623e05c5c3f2a3ffca8e7e13a581f5039",
+        "msg": "Use 2.2 as the default mysql_module\n\nChange-Id: Iecb6e484b28c489d3ed1e610a36bdadc1ad0a84a",
+        "cmtr": "Soren Hansen",
+        "date": "2014-07-16 18:35:36+05:18",
+        "files": [".fixtures.yml", "mysql.pp", "host_access.pp", "init.pp", "trove_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "8d37ba945115459c0961abc40f74846d5c64f558",
+        "msg": "Add trove_datastore and trove_datastore_version types\n\nChange-Id: If739b4b26ef98ae9ba09affd4f2eeef4ad1b55fd",
+        "cmtr": "Sylvain Baubeau",
+        "date": "2014-08-11 12:03:44+02:00",
+        "files": ["trove.rb", "trove.rb", "trove.rb", "trove_datastore.rb", "trove_datastore_version.rb", "init.pp", "trove_spec.rb", "trove_spec.rb", "trove_spec.rb"]
+      },
+      {
+        "hash": "4e15809e991a29bd8c1187faae60082338034086",
+        "msg": "Require Class['mysql::server'], not Service['mysqld'] when creating DB.\n\nWhen using version >= 2.2 of the MySQL module, setting up the database\nfor Trove depended on the MySQL service (Service['mysqld']). However,\nif the service is not managed by Puppet (e.g. it is managed through\nPacemaker instead), this would cause catalog compilation to fail because\nthere is no Service['mysqld']. This is the case when the MySQL module is\ncalled with service_manage => false. Requiring Class['mysql::server']\ninstead fixes this.\n\nChange-Id: I455d8e11d5ec18661fd18e797df9e5c7b654700d\nCloses-Bug: 1349316",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-08-12 15:39:44+02:00",
+        "files": ["mysql.pp", "trove_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "01caaff08121f6d0b22938f5f6d7d6307600680e",
+        "msg": "Add a site.pp for example\n\nAs a start of documentation, add an example of site.pp.\n\nChange-Id: Ia2b9c5fc4c6e5863e76b638a3d90860c7959a24f",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-08-19 13:56:25+02:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "34fe5b8a0f6431353403528def8031358bcdac68",
+        "msg": "Allow specifying Nova, Cinder and Swift endpoints\n\nIn Icehouse, Trove wasn't able to query Keystone for the\nendpoints for those services yet, they had to be set in the\nconfiguration files.\n\nChange-Id: Ia4464652e0e4b05e89011295855de0bfc5be1be1",
+        "cmtr": "Sylvain Baubeau",
+        "date": "2014-08-29 14:06:44+02:00",
+        "files": ["init.pp", "trove_init_spec.rb"]
+      },
+      {
+        "hash": "1fc6cd2619c89997ccb6dded548b333b2ad74f2b",
+        "msg": "Migrate mysql backend to use openstacklib::db::mysql\n\nImplements: blueprint commmon-openstack-database-resource\nChange-Id: I0bde4c8f6609c3d7cefdfffcc0e6cf48f5e35592",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-09-06 01:18:34+02:00",
+        "files": [".fixtures.yml", "Modulefile", "api.pp", "conductor.pp", "mysql.pp", "host_access.pp", "generic_service.pp", "init.pp", "taskmanager.pp", "trove_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "eda9844c01b2b007c91140443c13dba58bd5a5a1",
+        "msg": "keystone/auth: Fix puppetdoc typos\n\nUpdate puppetdoc to reference on Trove instead of Neutron\n\nChange-Id: If0bae23c536461edba3da08da4bb17cc09676b0b",
+        "cmtr": "Sebastien Badia",
+        "date": "2014-10-06 17:23:28+02:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "b9881559b137b76b0a156bb09e95c36a0ea83e7b",
+        "msg": "Fix db sync relationships\n\n- The trove module does not specify a 'trove' package resource, so use\n  the 'python-troveclient' package resource.\n- The trove module does not specify a 'DEFAULT/sql_connection'\n  keystone_config resource and has no need to manage keystone configs,\n  so use trove_config.\n- The trove module does not specify a 'trove' user. The trove user is\n  created by the trove client package, which is already related by the\n  subscribe metaparameter, so remove the require relationship.\n\nChange-Id: I4e9ae0403439a51889e5fb884e689f91b874ad4d",
+        "cmtr": "Colleen Murphy",
+        "date": "2014-10-23 16:00:49-07:00",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "4fe79ee6c333e74c8d3986185ef87c1d1720b5b3",
+        "msg": "Refactorise Keystone resources management\n\nRefactorise the code of Keystone resources management with backward\ncompatibility since we don't modify the unit tests.\n\nChange-Id: I34f0f55a9a4e3873d4f988c311bdcbd54b33e459\nImplements: blueprint common-openstack-identity-resource",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-11-21 11:07:34-05:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "2ef93e8e90978915d166ed21fd53dab67f820fe7",
+        "msg": "Fix trove-db-sync\n\nTrove db sync should use trove-manage db_sync, as described in\nhttp://docs.openstack.org/developer/trove/dev/manual_install.html\n\nAlso, it should not depend on the python-troveclient package.\n\nChange-Id: I4fca02a6e8d489f19617dd5bdf944ab8e146211d",
+        "cmtr": "Javier Pena",
+        "date": "2014-12-17 12:52:26+01:00",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "9e5b82fcdacc07b0f1028cb2928292f8d68ae075",
+        "msg": "Configure auth via conf file, not paste file\n\nThe paste file now lives in /usr/share, and shouldn't be\nmodified.  Configure the keystone auth token settings in\ntrove.conf instead.\n\nChange-Id: Ib2cc2211cc645ad71e9f57c1c52177074472afcb",
+        "cmtr": "Solly Ross",
+        "date": "2014-12-18 11:33:55-05:00",
+        "files": ["api.pp", "trove_api_spec.rb"]
+      },
+      {
+        "hash": "1b43832a1b022f92fb7001e624d1c85d01d1c3d6",
+        "msg": "Set control_exchange in the main config file\n\n`control_exchange = trove` should be set in the main config file.\n\nChange-Id: I559f440a2aed76968bcdce18384f8707febb1f21",
+        "cmtr": "Solly Ross",
+        "date": "2015-01-05 13:11:17-05:00",
+        "files": ["api.pp"]
+      },
+      {
+        "hash": "c345e128c7fec585acf00b5a275a78cd1ae89f03",
+        "msg": "Support Neutron\n\nThe network driver and network label regex need to be set properly\nfor neutron to work.\n\nChange-Id: I9e24ea252f434209ebc2fce89727db9bae2d1c1e",
+        "cmtr": "Solly Ross",
+        "date": "2015-01-15 16:17:05-05:00",
+        "files": ["init.pp", "taskmanager.pp", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "b946d3d24578e56b2b555d4db951aea737c6886a",
+        "msg": "Fix lint issues (doc, metadata, manifests)\n\nAdd puppet parameters lint (with puppet-lint-param-docs gem) and fix\nmissing documentations, this commit also fix manifest lint issues\n(due to puppet-lint upgrade) and metadata.json file (SPDX license,\nand open dependencies).\n\nChange-Id: Iab6f84f42e8874a10a5fcc886b4a6556fe3e1ed0",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-02-25 04:51:00+01:00",
+        "files": ["Gemfile", "api.pp", "postgresql.pp", "init.pp", "taskmanager.pp", "metadata.json"]
+      },
+      {
+        "hash": "feee104f7f150948f77f357c5708e87a080595c1",
+        "msg": "Add Puppet 4.x lint checks\n\nThis changes the puppet-lint requirement to 1.1.x, so that we can use\npuppet-lint plugins. Most of these plugins are for 4.x compat, but some\njust catch common errors.\n\nChange-Id: I34c2eedd78868687613c7f89ce9aef92197f6c69",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-03-16 18:41:48+00:00",
+        "files": ["Gemfile", "site.pp", "api.pp", "client.pp", "conductor.pp", "generic_service.pp", "guestagent.pp", "init.pp", "taskmanager.pp"]
+      },
+      {
+        "hash": "edde7da295d2a2c3544ea28694bb3e846f89a96d",
+        "msg": "Migrate postgresql backend to use openstacklib::db::postgresql\n\nLet migrate to the new openstacklib::db::postgresql helper for\npostgresql backend. This commit also unpin postgresql fixture\n(openstacklib support now the latest version of postgre module).\n\nChange-Id: I9bf307d758c112a9b458dab3dfba26281278e38f\nImplements: blueprint commmon-openstack-database-resource",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-03-17 11:58:45+01:00",
+        "files": [".fixtures.yml", "postgresql.pp", "trove_db_postgresql_spec.rb"]
+      },
+      {
+        "hash": "57755f18d0bdc8dc1869db92fc07ac729553b034",
+        "msg": "Adds ability to override service name for service catalog\n\nInstead of forcing the name of the service in the service catalog to\nmatch auth_name, this allows the ability to explicitly set the service\nname, spearately from auth_name.\nIf service_name is not specified, it's value defaults to the value\nof auth_name (which maintains the current behavior.)\n\nChange-Id: Ic1699df4bf562390bd8c3196df03c2483cdf6ff1\nCloses-bug: #1359755",
+        "cmtr": "Rico Lin",
+        "date": "2015-03-23 10:05:35+08:00",
+        "files": ["auth.pp", "trove_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "b032aca232c23f22d8324b03d146c0d19b03fa65",
+        "msg": "Change sql_connection to connection.\n\nSql connection parameter is now in database/connection not\nDEFAULT/sql_connection.\n\nChange-Id: I5f7b48a1a6e092b9629145b57795cba0c351a4eb",
+        "cmtr": "Lukas Bezdicka",
+        "date": "2015-03-31 09:10:07+00:00",
+        "files": ["api.pp", "conductor.pp", "sync.pp", "taskmanager.pp", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "bc197410acc13d8d85ebeca97c925068739ae622",
+        "msg": "MySQL: change default MySQL collate to utf8_general_ci\n\nInstall & configure MySQL database by using utf8_general_ci collation\nwhich is the way documented in OpenStack [1] and already the default\nin puppetlabs-mysql [2].\n\n[1] http://goo.gl/GA5gyZ\n[2] https://github.com/puppetlabs/puppetlabs-mysql/blob/master/manifests/db.pp#L7\n\nChange-Id: Iafdb875ce636aefd81e07861230e3a60b3cd22c7\nCloses-bug: #1446375",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-04-21 20:39:29+00:00",
+        "files": ["mysql.pp", "trove_db_mysql_spec.rb"]
+      },
+      {
+        "hash": "fead756a6c74bf939bd8d2faaf38892808963d37",
+        "msg": "Create Trove config before dbsync\n\nBecause packaging is trying to run dbsync while default config is\nbroken, as a woraround we manage Trove config *before* installing the\npackage so we can continue the installation with Puppet.\n\nAlso add a require to Package['trove-api'] on trove::db::sync class to\nmake sure trove-manage is installed before running the actual command.\n\nThis is a workaround and it could be reverted later when packaging issue\nis triaged.\n\nChange-Id: I82dc8b653bbbdc28bd165292649332310f252916\nPartial-bug: #1451134",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-05-04 23:13:15-04:00",
+        "files": ["api.pp", "conductor.pp", "sync.pp", "guestagent.pp", "init.pp"]
+      },
+      {
+        "hash": "c9ff84d3e4aed8f9d91ea12d704cec633e5bf2a0",
+        "msg": "Document requirement to use separate RabbitMQ\n\nFor production environments, the RabbitMQ server used by Trove\nshould be different from the one used by the rest of the\nOpenStack infrastructure, due to security concerns.\n\nChange-Id: Ibbe4ae1185c8c0e18e14687d6fb558ceabd15ec1\nCloses-bug: #1453194",
+        "cmtr": "Javier Pena",
+        "date": "2015-05-11 15:21:39+02:00",
+        "files": ["README.md", "init.pp"]
+      },
+      {
+        "hash": "16e82e68ea62efec3ec7e11d7b9887e16b773372",
+        "msg": "CentOS 7 compatibility\n\nThis patch fixes:\n  - invalid client package name for RH platform\n  - missing common package installation in init.pp\n  - package/group/directory creation order for CentOS,\n    but leaves invalid order for Ubuntu because without\n    it is not installable (see bug #1365561)\n  - exists_notification_transformer is disabled\n    to workaround bug #1402055\n\nChange-Id: I4354fb3a1e3f075070fa492420017b94241b3f60",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-05-22 10:15:57-07:00",
+        "files": ["init.pp", "params.pp", "taskmanager.pp", "trove_init_spec.rb"]
+      },
+      {
+        "hash": "df63776cec468578897bdac9a6d479266fdef742",
+        "msg": "Introduce public_url, internal_url and admin_url\n\nThis change deprecates the following parameters:\n- port (replaced by public/internal/admin_url)\n- public_protocol (replaced by public_url)\n- public_address (replaced by public_url)\n- public_port (replaced by public_url)\n- internal_protocol (replaced by internal_url)\n- internal_address (replaced by internal_url)\n- admin_protocol (replaced by admin_url)\n- admin_address (replaced by admin_url)\n\nAdd deprecation warnings if any of those values are provided\nwhile maintaining full backward compatibility.\n\nCloses-bug: #1274979\nChange-Id: I94f331877150df25e64bfb9bb6ceb6bdb8c15805",
+        "cmtr": "Mathieu Gagné",
+        "date": "2015-06-11 17:26:18-04:00",
+        "files": ["auth.pp", "trove_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "86b7d23f298426ce3c84ea6c7ab9afb682dffa69",
+        "msg": "Sync amqp support with other openstack modules\n\nKilo oslo-messaging deprecates rabbit/kombu settings in the\nDEFAULT section.\n\nRabbitmq won't talk to us anymore if we try to use SSLv3 as it disabled\nsupport for SSLv3. Openstack components use python's openssl\nimplementation which does not support TLSv1.1 and TLSv1.2 yet so we\njust switch to TLSv1. Support for newer TLS should come with python\n2.7.9+\n\nThe kombu_ssl_* parameters should not be required when rabbit_use_ssl => true\nRather, rabbit_use_ssl must be set to true if the kombu_ssl_* parameters are\nused.\n\nChange-Id: I327dc193d878cb1574b69d5f5b502c25fa203a66\nCloses-Bug: #1409667\nCloses-Bug: #1356083",
+        "cmtr": "Matt Fischer",
+        "date": "2015-06-12 04:40:07+00:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "init.pp", "taskmanager.pp", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "51d4624f36016148c650081780f837e5720fad2b",
+        "msg": "lint: Fix lint issues (missing documentation for define types)\n\nThe gem 'puppet-lint-param-docs' was bumped to 1.2.0 and now handle\nclass and define type. This patch fix lint issues (missing documentation).\n\nChange-Id: Id27fd3637b59bf51d7b06b5065c597421dab513f",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-06-25 11:41:14+02:00",
+        "files": ["generic_service.pp"]
+      },
+      {
+        "hash": "05f62bad89061cd1c8a131f191c12ce919b82892",
+        "msg": "Changed $::trove::rabbit_user to $::trove::rabbit_userid.\n\nChange-Id: I159cd7bc6071a6d29eaf40f1a9062b6b8b5d8ca4",
+        "cmtr": "Arnoud de Jonge",
+        "date": "2015-06-26 10:54:09+02:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "taskmanager.pp"]
+      },
+      {
+        "hash": "d1f751bcfd24940a6a069052615aedddf8e1b3a0",
+        "msg": "keystone/auth: make service description configurable\n\nThis commit adds the service description as a class parameter in order to allow\nusers to update from a previous version if the service description is changed\n(incorrectly spelled or wrong description)\n\nChange-Id: Id87939c9723fce5303182fff0c98dc4c2f3072b1\nCloses-Bug: #1468407",
+        "cmtr": "Sebastien Badia",
+        "date": "2015-06-26 17:58:23+00:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "cc138ca44540fbe9d800661d0a58d674cface464",
+        "msg": "Add trove::quota class\n\nThis patch is aim to add a specific class for managing trove quota\nrelated parameters.\n\nChange-Id: Id84e0ac02809f9adb6e5d3027a10eb1e2063e88f\nCloses-Bug: #1469577",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-06-29 03:11:13+08:00",
+        "files": ["quota.pp", "basic_trove_spec.rb", "trove_quota_spec.rb"]
+      },
+      {
+        "hash": "2a020fdf931332c4bd0f4ce2204572b22dab30c0",
+        "msg": "Complete qpid support\n\nThe puppet-trove module only had partial, non-working qpid support\nuntil now. The qpid_* parameters were documented and included in\nsome manifests, but not in init.pp, and rpc_backend was never set\nin the config files, so Trove would always use RabbitMQ.\n\nThe fix also includes moving qpid parameters from the DEFAULT\nsection to oslo_messaging_qpid in the config files, to avoid\ndeprecation warnings in Kilo and later releases.\n\nChange-Id: I12853f843f40e2312e7fe3bb81739be743641583\nCloses-bug: #1468312",
+        "cmtr": "Javier Pena",
+        "date": "2015-06-30 11:30:10+02:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "init.pp", "taskmanager.pp", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "ccad0d083b26123b27a4f22a6a7ce7e4395cb99c",
+        "msg": "Introduce trove:config to manage custom options\n\nClass trove::config is aim to use trove config resources\nto manage custom configurations in trove config files.\n\nThis will make end user easy to add their own custom options\nin Hiera data.\n\nChange-Id: I5d4b0aae8d5dddede1d56890f6f3e7b970b52bd0\nCloses-Bug: #1473316",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-07-09 13:58:23+08:00",
+        "files": ["config.pp", "trove_config_spec.rb"]
+      },
+      {
+        "hash": "843d1b80d29d803559067f9b06e2e9ea86136423",
+        "msg": "Add default_neutron_networks in trove::taskmanager\n\nThis patch is aim to manage default_neutron_networks option both\nin trove.conf and trove-taskmanager.conf.\n\nChange-Id: Ibeaba4d74ffe92c8374990bd92ef88be01fd217b",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-07-09 15:48:15+08:00",
+        "files": ["taskmanager.pp", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "0e3faace3c92b474fb01b9acca7b7e21868da07d",
+        "msg": "Add region and resource url related options\n\nThis patch is aim to add region and url related options in trove.conf:\n  - os_region_name\n  - nova_compute_service_type\n  - cinder_service_type\n  - swift_service_type\n  - heat_service_type\n  - neutron_service_type\n  - neutron_url\n\nCloses-Bug: #1473280\nChange-Id: Id9b57351b0fc3c81565310f4ce6ae2b8aa2564f2",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-07-20 09:59:59+08:00",
+        "files": ["api.pp", "guestagent.pp", "init.pp", "taskmanager.pp", "trove_api_spec.rb", "trove_guestagent_spec.rb", "trove_init_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "c9966f7d97d2b06867e8deffacd7edc252b087be",
+        "msg": "Add tag to package and service resources\n\nIn order to be able to take an action after all the packages of the\nmodule have been installed/updated or all the services have been\nstarted/restarted, we set a 'trove-package' and 'trove-service'\ntag for each package and service of this module.\n\nAt the moment, there is a generic openstack tag that is not specific\nenough if one wants to take action upon a single module change.\n\nUse case :\n\nIf an action needs to be taken after all the packages have been\ninstalled or updated : Package <| tag == 'trove-package' |> -> X\n\nChange-Id: I969fbe7405a3eb3fab5437293c0efe1da57c631c",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-07-22 21:36:10+02:00",
+        "files": ["generic_service.pp", "init.pp", "trove_init_spec.rb", "shared_examples.rb"]
+      },
+      {
+        "hash": "39867dcd31cacf6882ede22fb25d9cd62aaf1a40",
+        "msg": "Fix catalog compilation when not configuring endpoint\n\nPreviously when you set $configure_endpoint to false and did not have a\nkeystone_endpoint resource with the same name as is defined by\nneutron::keystone::auth, the catalog would not be compiled. This was\nbecause a relationship was being established where one resource in the\nrelationship didn't exist. This changes this so that the relationship\ninvolving the Keystone endpoint is only defined if $configure_endpoint\nis set to true.\n\nChange-Id: I1ee51f33ffd1bf20578cd56120ee5be8e6fa0133\nCo-Authored-By: Risto Laurikainen <risto.laurikainen@csc.fi>\nCo-Authored-By: Gael Chamoulaud <gchamoul@redhat.com>\nCloses-Bug: 1368686",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-07-23 18:30:29-04:00",
+        "files": ["auth.pp", "trove_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "b2a76998dff311a60153420d95b1a700741a881e",
+        "msg": "Add api ratelimit options\n\nThis patch is aim to add trove api rate limits related options.\n\nChange-Id: I34672d2309c4febacb73c6cfe7df7b3b51c59468\nCloses-Bug: #1473296",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-07-31 23:34:32+08:00",
+        "files": ["api.pp", "trove_api_spec.rb"]
+      },
+      {
+        "hash": "37b81a21509255e5344300283f62cb25e3338526",
+        "msg": "Make taskmanager_queue option configurable\n\nThis patch is aim to add taskmanager_queue option in taskmanager.conf.\n\nChange-Id: I2fd9392891dfea3c9b674fea6efc45914bcc0274\nClose-Bug: 1482495",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-08-12 06:11:06+08:00",
+        "files": ["taskmanager.pp", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "f5288e5d0ad8486b2f3ec19ec987041e178666b6",
+        "msg": "Fix default value of guestagent_config_file option\n\nThis patch fix the default value of trove::taskmanager::guestagent_config_file.\n\nClose-Bug: #1482494\nChange-Id: I67fd8db0250de4350b4b107d92b2bee09f65247e",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-08-19 00:54:53+08:00",
+        "files": ["taskmanager.pp"]
+      },
+      {
+        "hash": "cdf452769e0da7944c51ca422898911de753a3cc",
+        "msg": "Introduce use_guestagent_template option\n\nCurrent, trove::taskmanager use template to generate guestagent\nconfiguration file.\n\nThis patch is aim to do following efforts:\n  1. Fix template file option typo error\n  2. Update template to keep up with master branch of\n     guestagent.conf.sample\n  3. Add use_guestagent_template option to give more choice for\n     people who want use trove::guestagent to manage guestagent.conf.\n     To keep compatibility, default value is set to true\n\nClose-Bug: #1485397\nChange-Id: I74cba2ad10a811f91ab65f004de78c93309fc95a",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-08-21 15:42:09+08:00",
+        "files": ["taskmanager.pp", "trove_taskmanager_spec.rb", "trove-guestagent.conf.erb"]
+      },
+      {
+        "hash": "03f5a793a63e3788d92bda067b1b342a07db3ff7",
+        "msg": "Simplify rpc_backend parameter\n\nIt is no longer necessary to specify the whole python namespace\nfor the backends, and\nhttp://docs.openstack.org/developer/oslo.messaging/opts.html lists\nthe short versions.\n\nThis patch maintains backwards compatibility with the previous\ndefault value in case it is explicitly used.\n\nChange-Id: Ic16d12e9e84083c09f3d725e5a15f4c3d7279792",
+        "cmtr": "Javier Pena",
+        "date": "2015-10-13 10:32:09+02:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "init.pp", "taskmanager.pp", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "0299eeb5da6cc8e5e5e04ba6b28e5ca10c348f8a",
+        "msg": "Fix rabbit_userid parameter\n\nA bug was introduced in [1], the lookup to find rabbitmq user was wrong.\nThis patch uses the right parameter again.\n\n[1] https://github.com/openstack/puppet-trove/commit/86b7d23f298426ce3c84ea6c7ab9afb682dffa69\n\nChange-Id: Ib23bde57f9a99707917525977d94da891e5a16dd",
+        "cmtr": "Emilien Macchi",
+        "date": "2015-11-03 12:33:43-05:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "taskmanager.pp"]
+      },
+      {
+        "hash": "7b790cc6632c893a733780731fd9ddbe195f6c94",
+        "msg": "Introduce trove::db class\n\nChange-Id: Id2af304b7924e9a95a2e2ecf63c32f8dfa10f3f8\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-11-06 09:21:41+01:00",
+        "files": ["api.pp", "db.pp", "init.pp", "params.pp", "trove_api_spec.rb", "trove_db_spec.rb"]
+      },
+      {
+        "hash": "ffee17b8830c79ce6aa7645e5fdbc781859d5d09",
+        "msg": "Add notification system options in trove\n\nThis patch is aim to manage notification system options:\n  - notification_driver\n  - notification_topics\n\nChange-Id: I76d66fa1a8640f08c8d948e5f8ede51a383216cb\nCloses-Bug: #1473645",
+        "cmtr": "Xingchao Yu",
+        "date": "2015-11-09 00:16:22+08:00",
+        "files": ["api.pp", "guestagent.pp", "init.pp", "taskmanager.pp", "trove_api_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "4d152b2a24c63fe9040db4a6f33796e0f6944a2c",
+        "msg": "Fix db sync command resource title.\n\nThe db sync command resource title is not consistent with the title in\nresource colector. This patch fixes the name for consistency.\n\nChange-Id: I46e26f7afd1907ace4121bbf570c58d0939687ff",
+        "cmtr": "Liao Penghui",
+        "date": "2015-11-16 15:23:09+08:00",
+        "files": ["mysql.pp", "generic_service.pp"]
+      },
+      {
+        "hash": "3c0ac8112eba3a40f1fa191e623b012d9af54e3d",
+        "msg": "Support of PyMySQL driver for MySQL backend\n\nAdd ability to use python-pymysql library\nas backend for MySQL connections.\nUpdate acceptance tests to use pyMySQL.\nDocs: https://wiki.openstack.org/wiki/PyMySQL_evaluation\nThe same implementation as it's done for keystone:\nhttps://review.openstack.org/#/c/242134/\n\nChange-Id: I937aa59984e6ff2f7aff28f56ce79e117e5aa0a9",
+        "cmtr": "iberezovskiy",
+        "date": "2015-11-24 14:23:21+03:00",
+        "files": ["db.pp", "params.pp", "basic_trove_spec.rb", "trove_db_spec.rb"]
+      },
+      {
+        "hash": "c533f497f18acf28f187de97095d4ac41cd700b9",
+        "msg": "Follow-up on PyMySQL support for Red Hat platforms\n\nRely on packaging dependencies to avoid issues caused by different\npackage names between Fedora and RHEL (python-PyMySQL vs python2-PyMySQL).\n\nhttps://review.openstack.org/#/c/245229/4/spec/classes/neutron_db_spec.rb\nincludes all the discussion that led to this.\n\nChange-Id: I32406ad0937241d2a4a02e0e9778fc4929963d3e",
+        "cmtr": "iberezovskiy",
+        "date": "2015-12-02 20:58:37+03:00",
+        "files": ["params.pp", "trove_db_spec.rb"]
+      },
+      {
+        "hash": "0f3cbadffffe6c32d2b74eeda74bcabd7cc5c709",
+        "msg": "Remove trove ubuntu package hack\n\nBug #1365561 has been marked as fixed so it should be safe to remove\nhack adding group and file before installing package.\n\nChange-Id: Id447a47a056a41d8c98b01d6769f4121a36d7aae",
+        "cmtr": "Lukas Bezdicka",
+        "date": "2015-12-03 16:05:00+01:00",
+        "files": ["trove_api_paste_ini.rb", "trove_conductor_config.rb", "trove_config.rb", "trove_guestagent_config.rb", "api.pp", "conductor.pp", "sync.pp", "guestagent.pp", "init.pp", "trove_conductor_config_spec.rb", "trove_conductor_guestagent_spec.rb", "trove_config_spec.rb"]
+      },
+      {
+        "hash": "05cbdefa6b239d8ad515481ca5776cdeb4ba4561",
+        "msg": "Remove qpid messaging support\n\nQpid messaging driver is removed from Oslo.messaging [1]\nTherefore, we cannot support it anymore.\n\n[1] I4a9cba314c4a2f24307504fa7b5427424268b114\n\nChange-Id: I4d4c200e733568d33116728e19377575b92331ca",
+        "cmtr": "Denis Egorenko",
+        "date": "2015-12-07 20:44:35+03:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "init.pp", "taskmanager.pp", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb", "trove-guestagent.conf.erb"]
+      },
+      {
+        "hash": "0ddd0067a19473a088b14575f477c284d18ba393",
+        "msg": "Put all the logging related parameters to the logging class\n\nCurrently logging configuration is splitted in two distinct classes,\nthe api.pp and the logging.pp classes. This review aims to centralize\nall logging related parameters in a single class, the logging.pp one.\n\nThe impacted parameters are :\n\n* use_syslog\n* use_stderr\n* log_facility\n* verbose\n* debug\n* log_dir\n* log_file\n\nThis change remains backward compatible with what is currently in place.\n\nRelated-bug: #1515273\nChange-Id: I76f51876e78015db722ff0fc37f6bcd76fd651f2\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
+        "cmtr": "Gael Chamoulaud",
+        "date": "2015-12-15 14:38:42+01:00",
+        "files": ["api.pp", "logging.pp", "trove_api_spec.rb", "trove_client_spec.rb", "trove_conductor_spec.rb", "trove_db_mysql_spec.rb", "trove_db_postgresql_spec.rb", "trove_db_spec.rb", "trove_guestagent_spec.rb", "trove_init_spec.rb", "trove_keystone_auth_spec.rb", "trove_logging_spec.rb", "trove_taskmanager_spec.rb", "spec_helper.rb"]
+      },
+      {
+        "hash": "c73c228ae73062ddf421a4a74748f9cf0066cbc8",
+        "msg": "Make Keystone_endpoint match service by name/type\n\nSince a chance in puppet-keystone (1], we now match an endpoint with a\nservice name/type.\n)\n[1] http://git.openstack.org/cgit/openstack/puppet-keystone/commit/?id=0a4e06abb0f5b3f324464ff5219d2885816311ce\n\nAlso:\nrequire package before config file Before trying to build the guestagent\nconfig file from the template with Puppet, first install the package so\nwe make sure /etc/trove is ready. Otherwise, Puppet will randomly fail\nto create the file, if the package is not installed yet.\n\nWe need to squash the two changes otherwise CI will never pass.\nChange-Id: I9662c684c83933ffe6ede0337bc1770dd65b0ce7\nCloses-Bug: #1528308",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-01-06 12:08:28-05:00",
+        "files": ["auth.pp", "taskmanager.pp", "trove_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "2443294da20b9f59ce5001b957a4bffe0798b340",
+        "msg": "Add rabbit_ha_queues option\n\nThere are two methods for setting up RabbitMQ HA:\n\n 1. Configure rabbit_hosts to multi rabbit hosts.\n 2. Setting up a loadbalancer in front of RabbitMQ cluster,\n    provide a unique address in rabbit_host\n\nIn current, rabbit_ha_queues option is controled by rabbit_hosts IF\nconditional statement. But when users want to use the second method:\nchanging rabbit_ha_queues to true, but they don't use rabbit_hosts\noption, this logic will not work.\n\nThis patch adds an rabbit_ha_queues option, set it to undef by\ndefault for forward compatbility.\n\nClose-Bug: #1485287\nChange-Id: Ib8fe16182188729100ef4704466c4d42d31ff510",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-01-07 03:49:36+00:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "init.pp", "taskmanager.pp", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "d91b9599b41e7951a30385054a23721d0ed2ebc1",
+        "msg": "Introduce amqp_durable_queues option\n\namqp_durable_queues option is already defined in trove class,\nbut is not be used in other trove class.\n\nClose-Bug: #1486319\nChange-Id: Ifd4411ce90db26d6f12e714fdc5c54ea507975fd",
+        "cmtr": "Xingchao Yu",
+        "date": "2016-01-07 04:04:40+00:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "taskmanager.pp", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "b5124d205b78287c70b4a521fc7e4385a98c48f3",
+        "msg": "Disable exists_notification_transformer for all OS\n\nDisable exists_notification_transformer need to be applied to all\noperating systems to workaround bug #1402055 cause Debian is also\naffected by this bug.\n\nCloses-Bug: #1529506\n\nChange-Id: I05101aa42ae1c4abd92a0c17344d0b24c2c94d2c",
+        "cmtr": "Liao Penghui",
+        "date": "2016-01-15 22:26:28+08:00",
+        "files": ["taskmanager.pp"]
+      },
+      {
+        "hash": "4ccae65825539710b7be615953f64acce3cf04d4",
+        "msg": "Deprecate auth_* old parameters\n\nThis patch does multiple things regarding auth_* parameters.\n\n1/ We deprecate auth_host, auth_url, auth_port and auth_protocol\nIf they are set, a nice warning will show up and mention the parameters\nwill be dropped in a future release. The parameters are still having\neffect but will configure old parameters. No worries, they still work.\nJust lot of warnings so people will have to use new parameters.\n\n2/ Add new parameters\nauth_uri and identity_uri are the way to go!\nFalse by default for now, because we still have old parameters, but in a\nlater release, they'll be set to a default endpoint, like in other\nmodules.\n\n3/ Update beaker\nWe want to test with the new parameters, so let's update beaker\nmanifests and use auth_uri & identity_uri\n\nThis is a first step to use auth_uri & identity_uri that is compliant\nwith other modules. The next step will be to drop old parameters and set\nthe right default values for the 2 new params.\n\nChange-Id: I66d5233c8981763a0a341740911fb24dd0e8d479\nCloses-bug: #1504653",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-01-20 15:38:40-05:00",
+        "files": ["api.pp", "basic_trove_spec.rb", "trove_api_spec.rb"]
+      },
+      {
+        "hash": "08723f9ddc71020125aa700e2c2677ae12f12e13",
+        "msg": "Use tag not name for service collector\n\nThere is no service named trove-server, but there is a tag with\nthat name. That's what we should be using, originally I believe\nthis was a typo.\n\nChange-Id: I7e2fb304644287a5cbe45725cdd6f7464630fca8\nCloses-Bug: #1528786",
+        "cmtr": "Matt Fischer",
+        "date": "2016-02-05 18:03:51+00:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "679c384e6416618ff6644227f3e0ed5db4b78a18",
+        "msg": "Add kombu_reconnect_delay option\n\nThe kombu_reconnect_delay is used when configuring rabbitmq but we are\nmissing the parameter from the base trove class. This change adds it in\nand adds test coverage for the rabbit user, password, host, ssl and\nreconnect delay.\n\nChange-Id: I8a5e7f0241a0f41e4f10b40d791f39e37ce82087\nCloses-Bug: #1545168",
+        "cmtr": "Alex Schultz",
+        "date": "2016-02-23 09:20:44-07:00",
+        "files": ["init.pp", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "b2c7774e6df4ddecb04dd0b12ba988276b242ae1",
+        "msg": "Remove deprecated mysql_module references\n\nChange-Id: I781a48ca333ebe252507a7cc1f35eb2f52f9c751",
+        "cmtr": "Matt Fischer",
+        "date": "2016-03-17 16:57:58-06:00",
+        "files": ["mysql.pp", "init.pp"]
+      },
+      {
+        "hash": "59f75e6085bd49ec0159272ae42d20155f1b2f58",
+        "msg": "Trove external dependency management\n\nMove all dependency tracking to an external class which simplifies the\nrelationships and allows managing Trove without necessarily using\npackages.\n\nThis change also cleans up how the client is handled to make\nit more configurable and match other modules.\n\nFinally the reference to the deprecated and non-functional\nkeystone::python class is dropped.\n\nChange-Id: I943685fbeb114dead80b7465b8f5c564a0bc9fe0",
+        "cmtr": "Matt Fischer",
+        "date": "2016-03-21 19:42:26-06:00",
+        "files": ["api.pp", "client.pp", "conductor.pp", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "generic_service.pp", "guestagent.pp", "init.pp", "auth.pp", "logging.pp", "quota.pp", "taskmanager.pp", "external_dependency_management-4f5c1e349d9983fb.yaml", "make_client_more_configurable-aa43f623d8c9d3c7.yaml", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_db_spec.rb", "trove_deps_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "9fa99515da64f533e64f6613a6b7456a6566bf15",
+        "msg": "guestagent.conf template should use rabbit_hosts\n\nWhen rabbit_hosts was set for taskmanager, the guestagent.conf template\nwas ignoring this setting. This fixes that and moves the configuration\nfor rabbit into the non-deprecated section. Finally it properly sets\nrabbit_ha_queues when using the guestagent template.\n\nChange-Id: Idf22f083541ed307c610c2d019c7022a196bdc0d\nCloses-Bug: #1561651",
+        "cmtr": "Matt Fischer",
+        "date": "2016-03-24 12:23:02-06:00",
+        "files": ["taskmanager.pp", "rabbit_hosts_in_guestagent_template-00c3a03cf1f2be39.yaml", "trove_taskmanager_spec.rb", "trove-guestagent.conf.erb"]
+      },
+      {
+        "hash": "1a4ffa527123e783fccf7ac3b4e05eef17d53799",
+        "msg": "trivial comment paste-o fix\n\nCorrect comments in init.pp\n\nChange-Id: Ie134233afc169bc7283a4fa3615fc838c39253c9",
+        "cmtr": "Matt Fischer",
+        "date": "2016-03-24 13:59:53-06:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "80cf1085e208f3412b2a50f473b6583523692255",
+        "msg": "api: move SSL parameters under [ssl] section\n\nMove SSL parameters under [ssl] section, like it should be done when\nusing Oslo Service.\n\nChange-Id: I5ae991970f949dd9cfe2948b829ba5bb9834423c",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-03-31 16:12:46-04:00",
+        "files": ["api.pp", "trove_api_spec.rb"]
+      },
+      {
+        "hash": "50dec1e92e8c6349e2a172e4e9f3a64f726d3820",
+        "msg": "conductor: add workers parameter\n\nAllow to configure workers for trove conductor.\nKeep default from upstream, which is the same as API.\n\nChange-Id: I942addf4347aaf813ef40d2ab39bac69a85a1a33",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-04-01 12:01:06-04:00",
+        "files": ["conductor.pp", "trove_conductor_spec.rb"]
+      },
+      {
+        "hash": "6798619a0691c9f067cab7bd56031469a98e2e0e",
+        "msg": "Add related parameters to profiler section\n\nThis patch is aim to following params in puppet-trove class:\n  - enabled\n  - trace_sqlalchemy\n\nChange-Id: Icbeedc4a74a8a7d25828ed8c4501c843c5252644\ncloses-Bug: #1567192",
+        "cmtr": "Xiaohua Yuan",
+        "date": "2016-04-07 07:59:16-07:00",
+        "files": ["conductor.pp", "trove_conductor_spec.rb"]
+      },
+      {
+        "hash": "d0da01d63fbee48fc2fa87e5a53768a6e95998a8",
+        "msg": "Remove nova_* options from guestagent\n\nThese options are unncessary according to Tesora, and they are a\nsecurity risk. The nova user has admin privelges. If your use spins up a\ntrove instance then snapshots it, they'd be able to get admin\ncredentials in your cloud.\n\nChange-Id: Ie1f46fde9369033315e299e01d5c7f848bdd2696",
+        "cmtr": "Matt Fischer",
+        "date": "2016-04-14 08:34:09-06:00",
+        "files": ["guestagent.pp", "trove_guestagent_spec.rb"]
+      },
+      {
+        "hash": "3352d44262c16b22f3daf14845763cb1a65efb71",
+        "msg": "Totally drop Qpid support\n\nQpid was removed in Mitaka from Oslo Messaging, so now we can\ndrop it in manifests.\n\nChange-Id: Ie33f82b278bdb685cf1c78b704725eb03be1a19e",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-04-18 14:11:52+03:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "init.pp", "logging.pp", "taskmanager.pp", "drop_qpid-00ae0858778cae53.yaml", "trove_logging_spec.rb"]
+      },
+      {
+        "hash": "2cc9b86601b74d3fa94f4fb5fe636efb4aa5bd63",
+        "msg": "deprecate templated guestagent config\n\nChange-Id: I365d223bafb3ad539703f35d79baaab2d7dd7ca9",
+        "cmtr": "Matt Fischer",
+        "date": "2016-04-19 19:50:54-06:00",
+        "files": ["taskmanager.pp", "deprecate_templated_guestagent_conf-96e92af47e01fe35.yaml"]
+      },
+      {
+        "hash": "06a8eefb16d015f8d4236d2fab20ecf9ac86f9f0",
+        "msg": "Remove the extra space in the conductor.pp\n\nChange-Id: I14d7af4e089b31da8770ec1376c44f1d79a1fa43",
+        "cmtr": "ZhongShengping",
+        "date": "2016-04-21 08:45:37+08:00",
+        "files": ["conductor.pp"]
+      },
+      {
+        "hash": "24839ec63f6b1dfaa1b410a5ac76ba0f4f636b65",
+        "msg": "Use oslo module for messaging (rabbit) configuration\n\nAdditonal changes:\n\n  * switch messaging related parameters to $::os_service_default\n    as they are used in oslo::messaging_rabbit define\n  * update unit tests\n\nChange-Id: I3f7800f78132fa4c6c639753327ff63cf337c285",
+        "cmtr": "Alexey Deryugin",
+        "date": "2016-04-22 15:45:13+00:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "init.pp", "taskmanager.pp", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb", "trove-guestagent.conf.erb"]
+      },
+      {
+        "hash": "b0804e5f8a5869805ef9ec46d4828a0b2f247687",
+        "msg": "Use oslo module for logging and database configuration\n\nAdditonal changes:\n\n  * switch database related parameters to $::os_service_default\n    as they are used in oslo::db\n  * update unit tests\n\nChange-Id: I2c79261d8000d68521f783b5df9a535ff47ce53d",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-04-23 11:56:34+00:00",
+        "files": ["db.pp", "logging.pp", "params.pp", "trove_db_spec.rb"]
+      },
+      {
+        "hash": "57b14b015890e7edd40e00b27f826908a6db6a42",
+        "msg": "Allow guestagent to use different rabbit params\n\nIn some environments, Trove guests will talk to rabbit via a different\ngateway or VIP and possibly using a different port. This might be done\nfor security or separation reasons. This change allows the guestagent's\nrabbit host(s) and port information to be different than that from the\nmain cluster.\n\nChange-Id: I2107edd579073d81496821a8ecf23a3c2039b75d",
+        "cmtr": "Matt Fischer",
+        "date": "2016-05-06 09:44:15-06:00",
+        "files": ["guestagent.pp", "guestagent-override-rabbit-params-eaf20f06fad960c5.yaml", "trove_guestagent_spec.rb"]
+      },
+      {
+        "hash": "692f8b08354b04ed3fc21029ec626b46ab62a090",
+        "msg": "Use oslo module for configuration\n\nOslo module has the control_exchange parameters,\nso use oslo module(oslo::messaging::default) to configure it.\n\nChange-Id: Ica1ce84fc143708e76ae334c1a0d7e091bb974f2",
+        "cmtr": "ZhongShengping",
+        "date": "2016-05-07 14:57:59+08:00",
+        "files": ["api.pp", "guestagent.pp"]
+      },
+      {
+        "hash": "f3519c4825b1f0096b21e6d44371b510abbf3e20",
+        "msg": "Correct name of guestagent config option\n\nChange-Id: Icfc9d799dba50913a644402f765017038dbc8e29\nCloses-Bug: #1580005",
+        "cmtr": "Matt Fischer",
+        "date": "2016-05-10 07:55:34-06:00",
+        "files": ["guestagent.pp"]
+      },
+      {
+        "hash": "ed529e5a5a702c6e9c70edcbf4ca7cb4cc4d004c",
+        "msg": "default swift_url to SERVICE_DEFAULT\n\nIf swift_url is unset, Trove will set it using the Keystone catalog.\nTherefore we will default the swift_url setting to use SERVICE_DEFAULT,\nso that out of the box configs will use the Keystone catalog.\n\nChange-Id: I7a3fe361ca41fbee9f353be6e2306c1a5c7f7097",
+        "cmtr": "Matt Fischer",
+        "date": "2016-05-11 10:18:47-06:00",
+        "files": ["guestagent.pp", "guestagent_swift_default-f14d658a976d69e2.yaml", "trove_guestagent_spec.rb", "trove-guestagent.conf.erb"]
+      },
+      {
+        "hash": "52371ee818ec78179a668d20fdfa2b4b43f0e55f",
+        "msg": "Introduce support for oslo.messaging amqp driver configuration\n\nThis commit adds support for the oslo.messaging amqp rpc_backend\nwhich enables the AMQP 1.0 driver. A proposed feature for the\nNewton oslo.messaging release is an update to the AMQP 1.0 driver\nto support a stateless messaging interconnect for RPC traffic [1].\n\nThis patch:\n* use oslo::messaging::amqp resource\n* add new parameters for the oslo_messaging_amqp driver\n* update spec tests for amqp as alternate rpc_backend\n* add feature release note\n\n[1] https://blueprints.launchpad.net/oslo.messaging/+spec/amqp-dispatch-router\n\nChange-Id: I8306c56e86f2f8a8d6da1ecbf5eab674e6b1e8bf",
+        "cmtr": "Andrew Smith",
+        "date": "2016-05-12 16:13:30-04:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "init.pp", "taskmanager.pp", "add_oslo_messaging_amqp-ee62f22b973da190.yaml", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "8d7be7ac236624690334fca22d0d158de65f1878",
+        "msg": "Use oslo module for logging\n\nAdditonal changes:\n\n  * switch logging related parameters to $::os_service_default\n    as they are used in oslo::log\n  * update unit tests\n\nChange-Id: I1884387b438e3885986d031f95ba323e57aac7ab",
+        "cmtr": "Alexey Deryugin",
+        "date": "2016-05-13 18:43:04+03:00",
+        "files": ["conductor.pp", "guestagent.pp", "taskmanager.pp", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "8246a805582e89b967c47ca9184e1089233a8203",
+        "msg": "Deprecate verbose option in logging\n\nOption \"verbose\" from group \"DEFAULT\" is deprecated for removal.\nThe parameter has no effect.\nDeprecated verbose in all classes\nRemove verbose in README\nRemove verbose from tests.\nIf this option is not set explicitly, there is no such warning.\n\nChange-Id: Iedbc3ea8824fdef8e1e5434d8be9463704c0579a",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-05-18 13:34:00-03:00",
+        "files": ["README.md", "api.pp", "conductor.pp", "guestagent.pp", "logging.pp", "taskmanager.pp", "verbose-deprecation-805b7a15b97a2f48.yaml", "basic_trove_spec.rb", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_logging_spec.rb", "trove_taskmanager_spec.rb", "trove-guestagent.conf.erb"]
+      },
+      {
+        "hash": "c780bfc9641cba07a4b755bbb4897322a42e8c19",
+        "msg": "Providing an option to disable configure_user in Keystone\n\nCurrently configure_user and configure_user_role parameters are set to true.\nThere should be an option to configure the parameter with appropriate values.\n\nFor Example, If we are using Keystone User entries from LDAP,\nWe can't create/update the user.\n\nChange-Id: Ifecd56e3d1f0d82d45436025497746bb6394e188\nCloses-Bug: #1583920",
+        "cmtr": "Praveen",
+        "date": "2016-05-24 06:00:34-04:00",
+        "files": ["auth.pp", "trove_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "2d5ee453cf2e4ef1092c797ca5ff2368cee7be2c",
+        "msg": "Trove Deprecations\n\nDeprecation of parameters listed in Mitaka during Newton cycle [1]\n\n[1] http://docs.openstack.org/mitaka/config-reference/tables/conf-changes/trove.html\n\nChange-Id: I700ddfd674a817c190916890a4a74f82ed82d3c1",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-05-27 12:34:18-03:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "logging.pp", "quota.pp", "taskmanager.pp", "mitaka-deprecations2-3ac716b493057152.yaml", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_logging_spec.rb", "trove_quota_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "a498d302b776f8e0143baa5ed6224e9cc8cf7428",
+        "msg": "Revert \"Trove Deprecations\"\n\nThis commit partially reverts original commit.\n\nuse_syslog option is not deprecated and still actual.\n\nThis reverts commit 700ddfd674a817c190916890a4a74f82ed82d3c1\n\nChange-Id: Ie7515a45abeb3b0b4a7833bd19a32fbab759765a",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-05-31 12:19:24-03:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "logging.pp", "taskmanager.pp", "mitaka-deprecations2-3ac716b493057152.yaml", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_logging_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "45503b548a2be61bc1799f176dae8558592db47a",
+        "msg": "Remove deprecated keystone::auth options\n\nChange-Id: I69df2e6ef68c79bdc6d564c78489cec555af396b",
+        "cmtr": "Denis Egorenko",
+        "date": "2016-06-01 18:37:42+03:00",
+        "files": ["auth.pp", "remove_deprecated_keystone_auth_options-65fea5e2c80278e7.yaml", "trove_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "e99cc9e7cecc199af7bda0cd9d36a091938d3763",
+        "msg": "Change default service_name to 'trove'\n\nWhile we were already able to pick an independent auth_name and\nservice_name; the service_name was defaulting to auth_name. Now it\nhas a value of its own to be consistent with other modules.\n\nChange-Id: If3f29c1f4efe2eeb5ff9173628403dfcc7f48e57\nRelated-Bug: #1590040",
+        "cmtr": "Marcellin Fom Tchassem",
+        "date": "2016-06-07 21:17:19-05:00",
+        "files": ["auth.pp", "keystone-auth-name-ca9c69995d1eac09.yaml", "trove_keystone_auth_spec.rb"]
+      },
+      {
+        "hash": "6c9f6eba03a917174f5ef8fee429a7db444ed135",
+        "msg": "Allow guestagent to use unique rabbit_use_ssl param.\n\nIn some environments, Trove guests will talk to rabbit via\nexternal VIP using SSL connection and trove services will\ncommunicate to rabbit without ssl from the management network.\n\nChange-Id: Ib5cd00cf92e4e2c23fbed2fd64420a07b0a46f88\nCloses-Bug: #1585783",
+        "cmtr": "Shaik Apsar",
+        "date": "2016-06-08 18:36:02+00:00",
+        "files": ["guestagent.pp", "trove_guestagent_spec.rb"]
+      },
+      {
+        "hash": "5dc2d3359e561e618baf24eead4bc6aca11a1b36",
+        "msg": "Add Users/DBs related parameters to guestagent class\n\nThis patch is aim to add following params in guestagent class:\n  - root_grant\n  - root_grant_option\n  - default_password_length\n\nChange-Id: Iaeed4194b7b9ae895c3a04eb2ed2991fa6984636\nCloses-Bug: #1570281",
+        "cmtr": "Yuan Xiaohua",
+        "date": "2016-06-21 14:29:26+08:00",
+        "files": ["guestagent.pp", "trove_guestagent_spec.rb"]
+      },
+      {
+        "hash": "4d5c63416f4433764edf50f2fae4a2ca16378dc5",
+        "msg": "Lint fixes for absolute class name\n\nThis change updates the mysql require lines to resolve lint errors.\n\nChange-Id: I824672198f6af1505d5117ebd4ff1c4d356bb865",
+        "cmtr": "Alex Schultz",
+        "date": "2016-06-28 07:17:02-06:00",
+        "files": ["conductor.pp", "taskmanager.pp"]
+      },
+      {
+        "hash": "7cb103c17ff121de8f852988f356386fcf4229f1",
+        "msg": "Add transport_url parameters for oslo.messaging\n\nThis commit adds the transport_url parameters for oslo.messaging. The\nurl is of the form:\n\n  transport://user:pass@host1:port[,hostN:portN]/virtual_host\n\nWhere the transport scheme specifies the rpc or notification backend\nas one of rabbit, amqp, zmq, etc. Oslo.messaging is deprecating the\nhost, port, and auth configuration options [1]. All drivers will get\nthese options via the transport_url.\n\nThis patch:\n* use oslo::messaging::default resource\n* use oslo::messaging::notifications resource\n* add parameters for transport_url(s)\n* correct config file for amqp backend\n* update spec tests\n* add feature release note\n\n[1] https://review.openstack.org/#/c/317285/\n\nChange-Id: I8d0132f23aa05ed267ff2d88bce61ce9f20160f5",
+        "cmtr": "Alex Schultz",
+        "date": "2016-06-28 13:17:26+00:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "init.pp", "taskmanager.pp", "add_transport_url_parameters-eaef5deb44a5bced.yaml", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "d24a11c35d3cfa522cea7e7aa441554816ebe205",
+        "msg": "Option to specify the trove guestagent log file.\n\nChange-Id: Ifaf124933bca6b64d6a2d5225a5f67e58058e26f\nCloses-Bug: #1506835",
+        "cmtr": "Alex Schultz",
+        "date": "2016-06-28 13:21:59+00:00",
+        "files": ["guestagent.pp", "taskmanager.pp", "trove_guestagent_spec.rb", "trove-guestagent.conf.erb"]
+      },
+      {
+        "hash": "3cf09ad3d400ebfab8377dc813930965256221d4",
+        "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: I8a3744926f0921447448b114ef820e14ef1a028c\nRelated-Bug: 1599113",
+        "cmtr": "Athlan-Guyot sofer",
+        "date": "2016-07-08 09:04:01+00:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "b51e789701f8ee81e34f5b22b87fc6224b18da8b",
+        "msg": "Configure keystone authtoken options\n\nIn trove::api, use keystone::resource::authtoken to configure\nkeystone_authtoken section in trove.conf, with all parameters required\nto configure keystonemiddleware.\nThis patch will allow to deploy Trove to use Keystone v3\nauthentification.\n\nSome deprecations:\n- trove::api::keystone_tenant is deprecated in favor of trove::keystone::authtoken::project_name.\n- trove::api::keystone_user is deprecated in favor of trove::keystone::authtoken::username.\n- trove::api::keystone_password is deprecated in favor of trove::keystone::authtoken::password.\n- trove::api::identity_uri is deprecated in favor of trove::keystone::authtoken::auth_url.\n- trove::api::auth_uri is deprecated in favor of trove::keystone::authtoken::auth_uri.\n\nChange-Id: I808ebda1c4ec3a5b2ed294eb8af4eecafa861051\nCloses-Bug: #1604463",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-08-23 22:08:04-03:00",
+        "files": ["trove.rb", "api.pp", "authtoken.pp", "authtoken-bcb9cc0581080079.yaml", "trove_api_spec.rb", "trove_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "e2729f0fa87b9a41b8e129dd2c6c21eaac7bca00",
+        "msg": "Policy support for Trove\n\nTrove is adding policy support, since it's not yet released (landing in\nNewton) this code will not auto-include the policy class as other\nmodules do. That will be done later after all distros support a Trove\nversion with a policy.json file.\n\nChange-Id: Iae8f8bf341ae17190676c524444600e660420e46",
+        "cmtr": "Matt Fischer",
+        "date": "2016-08-24 11:17:23-04:00",
+        "files": ["policy.pp", "policy-file-support-06db0c1ae60284a5.yaml", "trove_policy_spec.rb"]
+      },
+      {
+        "hash": "9ebd92afbe281aaa393abf0fb9236d04a31e9d93",
+        "msg": "Update log_file documentation\n\nlog_file should be set to $::os_service_default and not to the boolean\nfalse because the boolean false gets interpreted as a file name.\n\nChange-Id: Ie52ea5bbd5e921aeede7a5b3c532c20574728bc2",
+        "cmtr": "Alex Schultz",
+        "date": "2016-09-08 17:49:22-06:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "logging.pp", "taskmanager.pp"]
+      },
+      {
+        "hash": "56b1e146bb41f77d6a7688524c0d25cb159a7eef",
+        "msg": "Fix puppet-lint before upgrading gem\n\nRemoving puppet-lint warnings\nin favor of upgrading to latest gem\n\n2016-09-13 21:09:04.609606 | manifests/quota.pp:58:WARNING: line has more than 140 characters\n2016-09-13 21:09:04.609690 | manifests/quota.pp:65:WARNING: line has more than 140 characters\n2016-09-13 21:09:04.609712 | manifests/quota.pp:72:WARNING: line has more than 140 characters\n2016-09-13 21:09:04.609734 | manifests/taskmanager.pp:263:WARNING: line has more than 140 characters\n\nChange-Id: Id1a6372b3fb8e97cecb206b46d4e4f1379fee8de",
+        "cmtr": "Carlos Camacho",
+        "date": "2016-09-14 13:24:51+02:00",
+        "files": ["quota.pp", "taskmanager.pp"]
+      },
+      {
+        "hash": "1fafc35313ab93bf517c913631fa9a9f7dec5815",
+        "msg": "Remove unnecesary spaces in log messages.\n\nSpaces added by mistake in some log messages.\n\nChange-Id: I2d227aacc82b3f54c4aa3ab9d76db8b56a6e9043",
+        "cmtr": "Carlos Camacho",
+        "date": "2016-09-26 14:30:44+02:00",
+        "files": ["quota.pp", "taskmanager.pp"]
+      },
+      {
+        "hash": "01e4cea5d229c98946864924d6d86ecf1af0593a",
+        "msg": "Remove verbose\n\nSince we are in Ocata we should remove the\nverbose option that was deprecated\n\nChange-Id: I2b35fe30e4e5049b15e6cc58b81c8b202db56191",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-09-27 19:46:42-03:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "logging.pp", "taskmanager.pp", "remove_verbose-208dc449d7fe91ff.yaml"]
+      },
+      {
+        "hash": "b2aeee7afe98568ab608bf9ef9ac3ee7d7729d16",
+        "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: I57496bae7a13a300cdc79b22780bce0f9134ddc4\nCloses-Bug: #1628580",
+        "cmtr": "Sharat Sharma",
+        "date": "2016-09-29 14:16:24+00:00",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "86221d0df02c62379a1ba5ab221083afcccbe128",
+        "msg": "Change worker defaults to ::os_workers\n\nThis patch changes the default worker count from ::processorcount to the\nnew ::os_workers fact. ::os_workers is based on the number of processors\n(currently cpu/4) but is capped at a maximum of 8 worker processors.\nThis is a much more reasonable default in general and prevents excessive\nresource consumption on systems with a large number of CPUs.\n\nChange-Id: Idfd8e3f4fe91df7d70e8c35a491c076b0b8f2348",
+        "cmtr": "Maksym Yatsenko",
+        "date": "2016-10-08 02:07:19+03:00",
+        "files": ["api.pp", "conductor.pp", "os_workers_for_worker_count-3c4240c334ddc6a7.yaml", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_db_postgresql_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "39062e3ac92691f835b5a05ed0eea56d55f707cd",
+        "msg": "Fix documentation for log_dir parameter\n\nChange-Id: Id7bbb1aa48c282269d1dffe0bc1ccd7afd1bf6f5\nPartial-Bug: #1600294",
+        "cmtr": "Mykyta Karpin",
+        "date": "2016-10-10 17:31:27+03:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "logging.pp", "taskmanager.pp", "fix_log_dir_documentation-a8bb71233fba1e9e.yaml"]
+      },
+      {
+        "hash": "3cb02d8768cfbf6823f3453fc7ad87d99e6a430e",
+        "msg": "Make swift_service_type configurable in guestagent.conf\n\nChange-Id: Id167b0dcf68fc6d9b211ecb9c6acbfaf4b1afead\nCloses-Bug: #1569658",
+        "cmtr": "Alexey Deryugin",
+        "date": "2016-10-11 16:31:21+03:00",
+        "files": ["guestagent.pp", "configurable_swift_service_type-9a9b3bab6ff5e185.yaml", "trove_guestagent_spec.rb"]
+      },
+      {
+        "hash": "483c1ff63c700543747520dd6c6221fa688d1380",
+        "msg": "adding taskmanager_manager entry to define Trove taskmanager entry point\n\nChange-Id: I287fdc10518024abad0003b9fffa25a1c7f5d6c0",
+        "cmtr": "Riccardo Pittau",
+        "date": "2016-10-14 15:34:04+02:00",
+        "files": ["taskmanager.pp", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "9ed939888b2984997ba2f21810ad6b66b7d9d239",
+        "msg": "Fix common options position in params.pp\n\nThese parameters are common for both systems,\nthey could be moved out from 'case'.\n\nChange-Id: I3b1c2243dc3d0c8f7cebad6a231f2bdda6b4bdb6",
+        "cmtr": "ZhongShengping",
+        "date": "2016-11-08 11:40:07+08:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "287ef4dfe279471885c862ece9e800121325a472",
+        "msg": "Remove old authtoken options\n\nSince we are in ocata lets remove all old parameters in api\nto configure the keystone_authtoken section\n\nChange-Id: I2ad9c559768324cb494bcbe719195817b3ca4864",
+        "cmtr": "Iury Gregory Melo Ferreira",
+        "date": "2016-11-08 01:11:16-03:00",
+        "files": ["api.pp", "authtoken.pp", "remove_old_authtoken_options-e873bed4cc0139cc.yaml", "basic_trove_spec.rb", "trove_api_spec.rb"]
+      },
+      {
+        "hash": "8bf2f8c39468ea225b1f9ddbdad8319868ad1862",
+        "msg": "Deprecate rabbitmq connection parameters\n\nThe rabbitmq connection parameters have been deprecated in favor of the\ntransport_url setting.\n\nChange-Id: I901eee39ae7da6164320f908a2719b8e35d46172\nRelated-Bug: #1625198",
+        "cmtr": "Alex Schultz",
+        "date": "2016-11-09 07:56:02-07:00",
+        "files": ["guestagent.pp", "init.pp", "rabbit-connection-params-deprecation-8e209afd31c042a1.yaml", "basic_trove_spec.rb", "trove_guestagent_spec.rb"]
+      },
+      {
+        "hash": "3f41bd07f256a9e3b1d9578d70b9e8981c943713",
+        "msg": "Add support for policy\n\nChange-Id: I1134293623ce39db0e469bfb3479a229d087d3c8",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-07 15:39:59+08:00",
+        "files": ["deps.pp", "init.pp", "policy.pp"]
+      },
+      {
+        "hash": "25f4d8b2f46618c522c6c90ac5ecd2b1afbfbae2",
+        "msg": "Fix hosts lists in example.pp\n\nUsing strings results in following errors:\n\nChange-Id: I74e200a4c375830c18448bd60ccdd156d7b1c4d2\nError: join(): Requires array to work with at /etc/puppet/modules/trove/manifests/api.pp:352 on node XXX\nError: join(): Requires array to work with at /etc/puppet/modules/trove/manifests/api.pp:352 on node XXX",
+        "cmtr": "Tomasz Nowak",
+        "date": "2016-12-14 12:34:32+01:00",
+        "files": ["site.pp"]
+      },
+      {
+        "hash": "160d44ab518fc6792a21713f1cccab09ba7f3fde",
+        "msg": "Deprecate signing_dir option\n\nThe signing_dir is deprecated for removel because of PKI token format\nis no longer supported.\nUpdate warning message and release note.\n\nChange-Id: I91803e5f2c674e284657bbd40ea32b349a8f393f\nCloses-Bug: #1652700",
+        "cmtr": "ZhongShengping",
+        "date": "2016-12-28 14:36:31+08:00",
+        "files": ["authtoken.pp", "deprecate_signing_dir_parameter-a5197a359e998f13.yaml", "trove_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "9a54d07420c27938ee33081997ae7eef3a4e443d",
+        "msg": "Fix database_idle_timeout option\n\nChange-Id: Icf527a40c9e18aef4444638a92ce70266dfdadec\nCloses-Bug: #1653603",
+        "cmtr": "ZhongShengping",
+        "date": "2017-01-03 14:49:39+08:00",
+        "files": ["conductor.pp", "taskmanager.pp"]
+      },
+      {
+        "hash": "1266a13ba0ab24c3228a6f07148a5ed4563673d5",
+        "msg": "Allow python-memcache install from authtoken class\n\nThe python-memcache package is required if using memcached. By\ndefault the package is not installed and the define has it set to\nfalse. This change allows managing the python-memcache package\ninstall from the authtoken class.\n\nChange-Id: Iee2b5a00c9eb026a42ebd4bf166d06f6bc5f6e27",
+        "cmtr": "Matthew J. Black",
+        "date": "2017-01-11 18:08:54-05:00",
+        "files": ["authtoken.pp", "authtoken_manage_memcache_package-7bbd660df45a370e.yaml", "trove_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "c73ca7742ccb89a2ff543af4a643cad56ddc93ff",
+        "msg": "Fix the tag of trove service\n\nThe service tag should be trove-service, not trove-server.\n\nChange-Id: If15575547307b649f5503e8ca1ec2b5a8eceaf02",
+        "cmtr": "ZhongShengping",
+        "date": "2017-01-12 19:31:10+08:00",
+        "files": ["auth.pp"]
+      },
+      {
+        "hash": "47e6091f75cd17abb61d913e0ea5f6b0002c8595",
+        "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should be\ninstalled before dbsync starts.\n\nChange-Id: I866c3b3b7392cbead54ab161bf00761e3a51e95f",
+        "cmtr": "ZhongShengping",
+        "date": "2017-01-22 22:04:22+08:00",
+        "files": ["deps.pp"]
+      },
+      {
+        "hash": "ca075e0a9c1742607ee068bd2e7b221a6c622ccb",
+        "msg": "Add backup_aes_cbc_key parameter\n\nThis patch will provide an option for configuring\ncustom value to the backup_aes-cbc_key parameter\nin guestagent configuration file.\n\nCloses-Bug: #1659875\n\nChange-Id: I51a8176c7df4ee80fcf999c37143842f2fdc69ad",
+        "cmtr": "Shaik Apsar",
+        "date": "2017-01-27 15:01:50-05:00",
+        "files": ["guestagent.pp", "configure-backup_aes_cbc_key-aaf934036d76ee57.yaml", "trove_guestagent_spec.rb"]
+      },
+      {
+        "hash": "370c0bf8fa124062b8d006ce75336b7d11804872",
+        "msg": "Add rpc_response_timeout option\n\nAdd rpc_response_timeout to configure seconds time for waiting\nfor a response from a call.\n\nChange-Id: Ib107713d8b2cc137e11c3d478f14f8a4f4d034a3",
+        "cmtr": "ZhongShengping",
+        "date": "2017-02-08 11:35:26+08:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "init.pp", "taskmanager.pp", "add_messaging_default_parameters-9135a887ef423451.yaml", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "3cf985f57ef6f12a09fc4bdb0ad038814dd42db0",
+        "msg": "Inconsistent package_ensure parameter name\n\nThe parameter name used to enforce package state is inconsistent across\nmanifests and modules. I settle on package_ensure since it's already\nwidely used.\n\nChange-Id: I887e924d184d9b25c33b5fe617d82f170d0cee34\nCloses-Bug: #1668732",
+        "cmtr": "ZhongShengping",
+        "date": "2017-03-09 09:25:07+08:00",
+        "files": ["api.pp", "conductor.pp", "generic_service.pp", "guestagent.pp", "taskmanager.pp", "deprecate_ensure_package_parameter-843952a793d67911.yaml", "shared_examples.rb"]
+      },
+      {
+        "hash": "7fdbe6e50c9406a7ecd8dac66880b690464e64ee",
+        "msg": "Add support for single tenant mode\n\nSingle tenant mode creates all DBaaS resources in a given tenant,\nrather than the default, which is to use the users own tenant.\nIt relies on the nova_proxy_admin_* vars for this.\n\nThis commit adds a new trove::single_tenant_mode variable, when set\nto true, sets up the remote_(nova|cinder|neutron)_client config\nvars in the each of the config files for this mode to be enabled.\n\nChange-Id: Ic59bd227fff893c705931ced3add636844533d35",
+        "cmtr": "Andy Botting",
+        "date": "2017-03-09 12:51:15+11:00",
+        "files": ["api.pp", "conductor.pp", "init.pp", "taskmanager.pp", "single-tenant-mode-9e39b1becaaad8c0.yaml", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "64b2ca9a5eeef0aa50c5517ed2e8dcac0c7076f3",
+        "msg": "Separate out api/taskmanager config settings\n\nThis commit removes config settings for the API that were set\nfrom within the taskmanager class, and moves them into the API.\n\nThis fixes the issue where some neutron settings didn't get\nset in the api config file when the api and taskmanager were run on\nseparate hosts. Specifically, API requests will now return the IP\naddress of the DB instance when Neutron is used.\n\nChange-Id: I370f137ce12fedb527f1ae7adc013e1dac4dbffe",
+        "cmtr": "Andy Botting",
+        "date": "2017-04-12 03:08:18+00:00",
+        "files": ["api.pp", "init.pp", "taskmanager.pp", "separate-api-taskmanager-settings-cc860762b270383a.yaml", "trove_api_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "41cff39bdeaafc6ca6432f8b180ea1a3f78ea917",
+        "msg": "Add the setting log level\n\nIncrease the setting log level in the synchronization database.\n\nChange-Id: I68698fd27f456fc310495f267852197147dd9c60\nCloses-Bug: #1683567",
+        "cmtr": "ZhongShengping",
+        "date": "2017-04-18 11:34:30+08:00",
+        "files": ["sync.pp"]
+      },
+      {
+        "hash": "4b9db23377e208708bc441c9fa65a519cfa2365c",
+        "msg": "Remove deprecated keystone authtoken signing_dir option\n\nChange-Id: Id8fb41492d216de5c6ede43aa5b530d16ed8d46f",
+        "cmtr": "ZhongShengping",
+        "date": "2017-07-07 10:01:10+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_signing_dir_option-9dfe0af3219d10f7.yaml"]
+      },
+      {
+        "hash": "6e1a56adb1e991e22096cdc7db99238734f4f6cf",
+        "msg": "Deprecate oslo.messaging rpc_backend option parameter\n\nOslo.messaging uses the transport_url to represent the rpc and\nnotification messaging driver to use and its full configuration. The\nrpc_backend configuration option is deprecated for removal and\nshould not gate oslo.messaging driver configuration options.\n\nThis patch:\n* deprecate rpc_backend\n* remove conditional check\n* update spec tests\n* add release note\n\nChange-Id: Idbd5c231d85a0f4d249dabd14bc829844ee3e83d",
+        "cmtr": "Andrew Smith",
+        "date": "2017-07-27 12:14:53-04:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "init.pp", "taskmanager.pp", "deprecate_rpc_backend_parameter-69670fb9496a4b95.yaml", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "3150e14ad0d7729dc202d7077931bc6a2c7c908b",
+        "msg": "Fix rpc_backend option warning\n\nThe value of rpc_backend option is 'rabbit', not $::os_service_default.\nso fix the if statement condition.\n\nChange-Id: I6f785349e2895919516b5724b122c249d4a010f8",
+        "cmtr": "ZhongShengping",
+        "date": "2017-08-07 09:48:50+08:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "2d905626da10df10b25a39b2c170c7a679f7784b",
+        "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: Ib4030f83a9201155e5168c164d257a14b9da16e0\nCloses-Bug: #1717144",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-14 11:58:05+08:00",
+        "files": ["authtoken.pp", "deprecate_revocation_cache_time_parameter-28379ba2e4a35d0c.yaml", "trove_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "64389fe88056f644de28e27dc68d34fc51185cb0",
+        "msg": "Add deps to all that is needed\n\nChange-Id: I7e54d8050bc73f2f29d35d8784f97e9285051ce1",
+        "cmtr": "ZhongShengping",
+        "date": "2017-09-21 09:23:24+08:00",
+        "files": ["authtoken.pp"]
+      },
+      {
+        "hash": "8b0783abb0f0d7ddec2ba610cd8e8d54eb190c14",
+        "msg": "Accept empty strings for log_dir and log_file\n\nAn empty string is an acceptable value of this entry, and it forces\nlogging to stdout/stderr, which is useful when running on containers.\n\nChange-Id: I363a7558e4addf6b984e27bfa19ebec6d13aa01d",
+        "cmtr": "ZhongShengping",
+        "date": "2017-10-12 09:42:26+08:00",
+        "files": ["logging.pp"]
+      },
+      {
+        "hash": "a54b81c779101e1e8fae5e5b438e3042a39b443b",
+        "msg": "Configure *_domain_name to Default by default\n\nKeystone v2.0 API was removed so we have no choice but configuring\nuser_domain_name and project_domain_name otherwise it fallbacks to\nKeystone v2.0 and it fails. This patch sets the default value so we make\nsure Keystone v3 will be used out of the box for our users.\n\nChange-Id: I4d2a5620e7a4dc5c5fddabd3da0299e0f2211102",
+        "cmtr": "ZhongShengping",
+        "date": "2017-10-13 14:44:08+08:00",
+        "files": ["authtoken.pp", "default_domain-a75b4fc5a094f93d.yaml", "trove_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "aa57603fb4e9a67bd628caa7e37ccb390b4186a9",
+        "msg": "Force trove_auth_url to point to the v3 api URL\n\nAfter removing keystone API v2, trove requires that\ntrove_auth_url parameter has the v3 URL. Note that\nversionless url is not valid for trove_auth_url so\nthis patch enforces v3 url even when auth_url is\nnot versioned.\n\nAdditionally, the default value for auth_url parameter\nhas been updated to point to v3.\n\nChange-Id: I8d0e200958c813101d72e180c6da8343b5fcae6e",
+        "cmtr": "Alfredo Moralejo",
+        "date": "2017-10-20 09:55:39+02:00",
+        "files": ["README.md", "api.pp", "conductor.pp", "guestagent.pp", "taskmanager.pp", "switch-to-keystone-v3-6e8e02a1f2445ad9.yaml", "trove_api_spec.rb", "trove_guestagent_spec.rb", "trove-guestagent.conf.erb"]
+      },
+      {
+        "hash": "b10d37ccbdb2a7af8e94e2417f4ed3df11067c39",
+        "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: I725a38c71f199dd33aeb0f5f54af5164afc00998",
+        "cmtr": "ZhongShengping",
+        "date": "2017-11-28 09:45:05+08:00",
+        "files": ["logging.pp", "log-json-8713a9e0f135d123.yaml", "trove_logging_spec.rb"]
+      },
+      {
+        "hash": "6941810418b1faca89bd5a98b1b7242a195ce0ae",
+        "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nChange-Id: I3c680647c310ad87bb5fb790675a16da784e6e27\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2018-01-11 15:53:16+00:00",
+        "files": ["params.pp", "policy.pp", "trove_policy_spec.rb"]
+      },
+      {
+        "hash": "6dc198fe4e1547a773c0ca45f8a9b95396df7bfe",
+        "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: I36d78d2642ee7b2dbaa1256e69dbd963696dd8e3",
+        "cmtr": "ZhongShengping",
+        "date": "2018-01-15 17:37:10+08:00",
+        "files": ["logging.pp", "add-use_journal-option-for-logging-94d344838c254a75.yaml", "trove_logging_spec.rb"]
+      },
+      {
+        "hash": "578556bdb49ed66c2bf4e298a8532cbd2536775c",
+        "msg": "Deprecate heat_service_type option\n\nThis patch[1] removed heat related support.\n\n[1]https://review.openstack.org/#/c/385513/\n\nChange-Id: Ic81a9c0033d7f6bddb23f131954b57e608b3bb45\nCloses-Bug: #1743713",
+        "cmtr": "ZhongShengping",
+        "date": "2018-02-07 10:59:17+08:00",
+        "files": ["api.pp", "init.pp", "taskmanager.pp", "deprecate_heat_service_type-8a7a6a5b1c40bcdc.yaml", "trove_api_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "ccf6a66e1f2f5d98caa42c4574e5629dbd971336",
+        "msg": "Add kombu_failover_strategy option\n\nAdds the kombu_failover_strategy option for configuring\noslo.messaging.rabbit. This will determines how the next RabbitMQ node\nis chosen in case the one we are currently connected to becomes\nunavailable.\n\nChange-Id: If59b301e533a509051876ed88f410c5101425ec2\nCloses-Bug: #1748353",
+        "cmtr": "ZhongShengping",
+        "date": "2018-02-09 15:05:28+08:00",
+        "files": ["api.pp", "conductor.pp", "guestagent.pp", "init.pp", "taskmanager.pp", "add_rabbit_kombu_options-919c4f7279179e1b.yaml", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "0763133219ac02e433a7988afb73fcde49f91cc0",
+        "msg": "Add endpoint_type options\n\nAdd trove::nova_compute_endpoint_type, trove::neutron_endpoint_type,\ntrove::glance_endpoint_type, trove::cinder_endpoint_type,\ntrove::swift_endpoint_type, trove::trove_endpoint_type options to\nconfigure endpoint type to use when searching catalog.\n\nChange-Id: Iba9d4033d4b5267c4b2a326499364ac44d89400a",
+        "cmtr": "ZhongShengping",
+        "date": "2018-02-14 08:32:00+08:00",
+        "files": ["api.pp", "init.pp", "taskmanager.pp", "add_endpoint_type-92489bc41571f213.yaml", "trove_api_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "90863dce616038131cd05b221aa3d28c81604d9a",
+        "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: I7baded10a128532f7267903fa8d14f576cd9f47a\nCloses-Bug: #1755102",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-12 16:33:10+08:00",
+        "files": ["sync.pp", "openstack_db_tag-801df2b37104b652.yaml", "trove_db_sync_spec.rb"]
+      },
+      {
+        "hash": "064ecaf4beba4ce67f5d199ecbac872371c1e855",
+        "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: Ib2413bc9da8eb50e310ca1f1e99c5ea0e708d570\nCloses-Bug: #1757581",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-22 11:09:50+08:00",
+        "files": ["db.pp", "add-pool_timeout-option-for-db-bd805b61c49faa1e.yaml", "trove_db_spec.rb"]
+      },
+      {
+        "hash": "ae7290a27296a036e46e8b8841e5559e6c2be98d",
+        "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: Id80297afb799a230e0cca042ab1036ed78ca97e4",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-27 10:48:15+08:00",
+        "files": ["authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-bbae786702cd1618.yaml"]
+      },
+      {
+        "hash": "0d8382175a844928854fff26c66512fe8aaae18d",
+        "msg": "Add glance_service_type option\n\nAdd trove::glance_service_type option to configure glance service\ntype to use when searching catalog.\n\nChange-Id: I14d137a06c793eba3cdff6f9d2776fa7f987dc40",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-28 11:40:59+08:00",
+        "files": ["api.pp", "init.pp", "taskmanager.pp", "add_glance_service_type-option-1b62f22b9e3d3290.yaml", "trove_api_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "2a99e642d8d3761dfdfc3af49fc0a3da47d27757",
+        "msg": "Remove deprecated ensure_package option\n\nChange-Id: I4d667ea525c9b7a48d8175b37c1cdfb55543ed39",
+        "cmtr": "ZhongShengping",
+        "date": "2018-03-29 12:01:15+08:00",
+        "files": ["api.pp", "conductor.pp", "generic_service.pp", "guestagent.pp", "taskmanager.pp", "remove_deprecated_ensure_package_option-a4088afe0b345a44.yaml"]
+      },
+      {
+        "hash": "1dfb0d428bae80f8b71a5eade2ddbc8aa0dbfa23",
+        "msg": "Debian is using python3-troveclient\n\nChange-Id: Ie5c525b42ff29f212d9e0b2de43c9a8dc93b2232",
+        "cmtr": "zhubingbing",
+        "date": "2018-04-12 13:30:44+08:00",
+        "files": ["params.pp", "trove_client_spec.rb"]
+      },
+      {
+        "hash": "9fe546b7d05a7ae8461cbcc44ff7c125f8eaa24e",
+        "msg": "neat: missing : in $::os_service_default\n\nChange-Id: I29279f0abed6ca3f0e3db66237c540ae73c21d98",
+        "cmtr": "zhubingbing",
+        "date": "2018-05-11 14:02:40+08:00",
+        "files": ["authtoken.pp"]
+      },
+      {
+        "hash": "35fc44fb958d068755ffea35d4ba1d4ca4f57642",
+        "msg": "Replace port 35357 with 5000\n\nNow that the v2.0 API has been removed, we don't have a reason to\ninclude deployment instructions for two separate applications on\ndifferent ports.\n\nChange-Id: I6267a1b6189601e117d28be342864688d3522aa6",
+        "cmtr": "ZhijunWei",
+        "date": "2018-05-13 15:10:23+08:00",
+        "files": ["authtoken.pp", "trove_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "4e3341f58988bf938b409cc35a97b8ba57d87a07",
+        "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: If7049561c6a9e94fc5074112db9597cd8cb6996e\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nDepends-On: I0dd36ef1f1f5dcdc57413736ecb8f2555712c36d\nCloses-Bug: #1759098",
+        "cmtr": "Tobias Urdin",
+        "date": "2018-05-15 12:20:31+02:00",
+        "files": ["trove.rb", "api.pp", "authtoken.pp", "deprecate_auth_uri_parameter-87ffc735509a6e7c.yaml", "trove_keystone_authtoken_spec.rb"]
+      },
+      {
+        "hash": "d116eb73c98fb7ba76110d7c5bb5f5768e93f259",
+        "msg": "Remove deprecated heat_service_type param\n\nRemove the deprecated heat_service_type param which has been deprecated.\n\nChange-Id: I22a1605a1ac583eb1d30e984ac24c02c4d92662b",
+        "cmtr": "ZhongShengping",
+        "date": "2018-05-24 11:18:20+08:00",
+        "files": ["init.pp", "remove_deprecated_heat_service_type-8f7a2256681b5ed0.yaml"]
+      },
+      {
+        "hash": "fdf5145eb6eb60372a093680968e9b9c322e13c6",
+        "msg": "Remove deprecated rabbit params\n\nRemove the deprecated rabbit params which has been deprecated for\ntwo years. The default_transport_url has been present for a while\nnow and should be used.\n\nChange-Id: I0e220dddaac2cf35b84ba1d3cfcc0fe587acbbaa",
+        "cmtr": "ZhongShengping",
+        "date": "2018-05-28 13:38:35+08:00",
+        "files": ["init.pp", "remove-deprecated-rabbit-params-b874abdbb701f1ae.yaml", "trove_api_spec.rb", "trove_conductor_spec.rb", "trove_guestagent_spec.rb", "trove_taskmanager_spec.rb"]
+      },
+      {
+        "hash": "ca4c7ece371c9d82cf896363ed23910cfd0dbf3f",
+        "msg": "Provide more useful fail message\n\nChange-Id: Ia3d8c561c0c21ae3eb69b88272cb4e3c156013bf\nCloses-Bug: #1792719",
+        "cmtr": "zhulingjie",
+        "date": "2018-09-13 20:41:54-04:00",
+        "files": ["params.pp"]
+      }]
+    }

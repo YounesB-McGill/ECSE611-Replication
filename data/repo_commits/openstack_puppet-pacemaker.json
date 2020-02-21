@@ -1,0 +1,1043 @@
+    {
+      "url": "https://github.com/openstack/puppet-pacemaker",
+      "pp_files": ["filesystem.pp", "order.pp", "fence_vmware_soap.pp", "fence_ipdu.pp", "group.pp", "host.pp", "fence_cisco_ucs.pp", "contain.pp", "corosync.pp", "fence_ilo3.pp", "start.pp", "fence_ipmilan.pp", "fence_intelmodular.pp", "fence_rsb.pp", "fence_apc_snmp.pp", "lsb.pp", "route.pp", "fence_compute.pp", "new.pp", "service.pp", "fence_ibmblade.pp", "params.pp", "fence_bladecenter.pp", "stop.pp", "fence_hpblade.pp", "update.pp", "ip.pp", "fence_eps.pp", "fence_ilo_mp.pp", "stonith.pp", "fence_wti.pp", "fence_xvm.pp", "pcsd.pp", "fence_amt.pp", "fence_ironic.pp", "create.pp", "ocf.pp", "init.pp", "qpid.pp", "setup.pp", "xvm.pp", "fence_eaton_snmp.pp", "property.pp", "auth_key.pp", "firewall.pp", "fence_ilo4.pp", "resource_defaults.pp", "qpid_clustered.pp", "delete.pp", "wrapper.pp", "base.pp", "fence_scsi.pp", "clean.pp", "fence_virt.pp", "systemd.pp", "colocation.pp", "basic.pp", "debian.pp", "bundle.pp", "remote.pp", "ipmilan.pp", "fence_ifmib.pp", "fence_idrac.pp", "fence_kdump.pp", "fence_brocade.pp", "config.pp", "fence_imm.pp", "fence_apc.pp", "location.pp", "fence_ilo2.pp", "fence_drac5.pp", "fence_ilo.pp", "mysql.pp", "install.pp", "fence_rhevm.pp", "fence_cisco_mds.pp", "level.pp"],
+      "pp_cmtrs": ["Yanis Guenane", "Emilien Macchi", "John Eckersberg", "Crag Wolfe", "Dan Radez", "Jiri Stransky", "Risto Laurikainen", "Juan Antonio Osorio Robles", "Chris Jones", "caoyuan", "Michele Baldessari", "melissaml", "Dan Williams", "Devon Mizelle", "Jason Guiditta", "Alex Schultz", "Dmitry Ilyin", "Sofer Athlan-Guyot", "David Juran", "Christian Schulze-Wiehenbrauk", "Ben Nemec", "Zane", "Gilles Dubreuil", "Adam Scarborough", "Dan Prince", "Miguel Angel Ajo", "khorsmann", "Dis McCarthy"],
+      "num_pp_commits": 148,
+      "num_tot_commits": 342,
+      "commits": [{
+        "hash": "1b72dfebedb8155f3bde416101b1780823e37245",
+        "msg": "Initial Commit",
+        "cmtr": "Dan Radez",
+        "date": "2013-01-14 12:01:19-05:00",
+        "files": ["LICENSE", "README.md", "init.pp"]
+      },
+      {
+        "hash": "abef631b88d46a4cb49c1cda5c89fe938b45ba71",
+        "msg": "using ccs tool to configure, adding ipmi support",
+        "cmtr": "Dan Radez",
+        "date": "2013-01-14 12:01:25-05:00",
+        "files": ["cman", "corosync.pp", "ip.pp", "init.pp", "ipmilan.pp"]
+      },
+      {
+        "hash": "6f5b6034721e4076cc32ed0089beae14da99cee9",
+        "msg": "adding require for resources to have pacemaker running",
+        "cmtr": "Dan Radez",
+        "date": "2013-01-14 12:13:06-05:00",
+        "files": ["corosync.pp", "ip.pp", "ipmilan.pp"]
+      },
+      {
+        "hash": "8899efd28dc6487f20696b4cf3288884743e56d7",
+        "msg": "updating dependancy on cman and status check for cman",
+        "cmtr": "Dan Radez",
+        "date": "2013-01-17 11:20:57-05:00",
+        "files": ["corosync.pp"]
+      },
+      {
+        "hash": "ae33b7bc1db201f865b3ea835a7fd75eb8d45846",
+        "msg": "adding hasstatus to my services",
+        "cmtr": "Dan Radez",
+        "date": "2013-01-17 11:35:36-05:00",
+        "files": ["corosync.pp"]
+      },
+      {
+        "hash": "0d84997790f0f1d732f81084c166718b270cb92d",
+        "msg": "fixing resource dependancies",
+        "cmtr": "Dan Radez",
+        "date": "2013-01-17 15:36:06-05:00",
+        "files": ["corosync.pp"]
+      },
+      {
+        "hash": "fc9c7cddcb6855928dc2ed1a02eec391f4c9896a",
+        "msg": "adding corosync pacemaker definition",
+        "cmtr": "Dan Radez",
+        "date": "2013-02-12 21:30:39-05:00",
+        "files": ["pcmk", "cman", "corosync.pp"]
+      },
+      {
+        "hash": "44ae8dbf536ac54b0fb6419f51dec37900ed9652",
+        "msg": "adding firewall rule, fixing dependencies",
+        "cmtr": "Dan Radez",
+        "date": "2013-02-12 22:09:05-05:00",
+        "files": ["README.md", "corosync.pp", "ipmilan.pp"]
+      },
+      {
+        "hash": "df8b69a05ca314e6fe4543ab2b3b9749a337bb14",
+        "msg": "updating to use pcs instead of crm",
+        "cmtr": "Dan Radez",
+        "date": "2013-03-22 09:41:24-04:00",
+        "files": ["corosync.pp", "ip.pp", "ipmilan.pp"]
+      },
+      {
+        "hash": "3c8d4d13db28eb822ab33372634685d5e4f9f9f7",
+        "msg": "renaming crm to resources",
+        "cmtr": "Dan Radez",
+        "date": "2013-03-22 09:41:30-04:00",
+        "files": ["ip.pp"]
+      },
+      {
+        "hash": "0c008bc3b5793c2d4a9c487ca04a9f9d4482de65",
+        "msg": "adding lsb resource",
+        "cmtr": "Dan Radez",
+        "date": "2013-03-22 09:41:30-04:00",
+        "files": ["lsb.pp"]
+      },
+      {
+        "hash": "200266f5b213448e8667e97fe044229faa59521a",
+        "msg": "adding a puppet resource to disable rgmanager",
+        "cmtr": "Dan Radez",
+        "date": "2013-03-22 13:45:51-04:00",
+        "files": ["corosync.pp"]
+      },
+      {
+        "hash": "3f321228facfb5e963a189890dcf668b41b1046b",
+        "msg": "remove corosync/service.d/pcmk from the module",
+        "cmtr": "Dan Radez",
+        "date": "2013-08-06 13:57:12-04:00",
+        "files": ["pcmk", "corosync.pp"]
+      },
+      {
+        "hash": "2d96beba35a58f0da3a01ef8b3e592563d833ed3",
+        "msg": "removing sysconfig/cman",
+        "cmtr": "Dan Radez",
+        "date": "2013-08-06 14:00:32-04:00",
+        "files": ["cman", "corosync.pp"]
+      },
+      {
+        "hash": "a6f7118d38741d39376d5bfeaabc43a904b30900",
+        "msg": "removing ccs",
+        "cmtr": "Dan Radez",
+        "date": "2013-08-08 08:42:06-04:00",
+        "files": ["corosync.pp"]
+      },
+      {
+        "hash": "259c746ef3379c04a278e00d08ae72f6652d5a02",
+        "msg": "aliging cluster creation and basic resources to use pcs for all managment",
+        "cmtr": "Dan Radez",
+        "date": "2013-08-20 10:36:12-04:00",
+        "files": ["corosync.pp", "init.pp", "params.pp", "ip.pp", "lsb.pp", "ip.pp", "lsb.pp"]
+      },
+      {
+        "hash": "00a17951ee0edbc881518d694edd7220178dd361",
+        "msg": "adding ipmi stonith support",
+        "cmtr": "Dan Radez",
+        "date": "2013-08-22 10:20:20-04:00",
+        "files": ["README.md", "corosync.pp", "stonith.pp", "ipmilan.pp"]
+      },
+      {
+        "hash": "ef59b0a151348cf905eec8385194383921612713",
+        "msg": "cleaning out some old unneeded puppet resources",
+        "cmtr": "Dan Radez",
+        "date": "2013-09-03 11:48:56-04:00",
+        "files": ["corosync.pp"]
+      },
+      {
+        "hash": "3cfe9c24fe0ce094035acb943d924b25673cb133",
+        "msg": "prepping for puppet forge submission",
+        "cmtr": "Dan Radez",
+        "date": "2013-09-12 14:51:35-04:00",
+        "files": ["Modulefile", "README.md", "init.pp", "spec_helper.rb", "init.pp"]
+      },
+      {
+        "hash": "fcacc25d85b82e840cc7f2732aa0f2f08a4bef23",
+        "msg": "adding filesystem resource and resource group support",
+        "cmtr": "Dan Radez",
+        "date": "2013-09-19 16:03:20-04:00",
+        "files": ["init.pp", "filesystem.pp", "group.pp", "ip.pp", "lsb.pp"]
+      },
+      {
+        "hash": "4dce91627547e59d3301a62e9e99e9cb7559f34c",
+        "msg": "updating tests and README",
+        "cmtr": "Dan Radez",
+        "date": "2013-09-19 16:11:26-04:00",
+        "files": ["README.md", "init.pp"]
+      },
+      {
+        "hash": "b8341743533469f068943d2c25783ca72053636e",
+        "msg": "syntax fix in the group resource handling",
+        "cmtr": "Dan Radez",
+        "date": "2013-10-01 13:24:38-04:00",
+        "files": ["group.pp"]
+      },
+      {
+        "hash": "ba182dd2813de49d89469392a552a9cb8956510c",
+        "msg": "adding mysql resource handling",
+        "cmtr": "Dan Radez",
+        "date": "2013-10-01 16:26:57-04:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "4269f195d4f3d883d96e8d5af135d439cf85fadc",
+        "msg": "updating tests, readme and Modulefile release for mysql resource",
+        "cmtr": "Dan Radez",
+        "date": "2013-10-01 16:35:11-04:00",
+        "files": ["Modulefile", "README.md", "init.pp"]
+      },
+      {
+        "hash": "cd7a636ab461d21568a4043fe1acde9d0d80247d",
+        "msg": "adding fence_xvm support",
+        "cmtr": "Dan Radez",
+        "date": "2013-10-01 21:59:57-04:00",
+        "files": ["fence_xvm.pp"]
+      },
+      {
+        "hash": "ed4594be496d95c26e97451a38d1db47e9747432",
+        "msg": "update condition to add a resource to resource group",
+        "cmtr": "Crag Wolfe",
+        "date": "2013-10-02 02:13:28-04:00",
+        "files": ["group.pp"]
+      },
+      {
+        "hash": "e2ab8574bd5436eacd0538a1e9055accdef678b2",
+        "msg": "adding a nic option to the ip resource and fixing comma syntax in mysql",
+        "cmtr": "Dan Radez",
+        "date": "2013-10-02 14:23:59-04:00",
+        "files": ["ip.pp", "mysql.pp"]
+      },
+      {
+        "hash": "1dcd1a79bd525c1111bb05d8d572e4dbfc1ffdbe",
+        "msg": "wrong quotes on the ip nic option",
+        "cmtr": "Dan Radez",
+        "date": "2013-10-02 15:06:57-04:00",
+        "files": ["ip.pp"]
+      },
+      {
+        "hash": "09459570852145266bf47709ee27b71b01ac7182",
+        "msg": "resources are added to groups upon creation",
+        "cmtr": "Dan Radez",
+        "date": "2013-10-03 09:39:14-04:00",
+        "files": ["filesystem.pp", "ip.pp", "lsb.pp", "mysql.pp"]
+      },
+      {
+        "hash": "deb09424643250b5fc9140136c41d13051e6a4b3",
+        "msg": "typo fix",
+        "cmtr": "Crag Wolfe",
+        "date": "2013-10-03 19:05:33-04:00",
+        "files": ["filesystem.pp", "ip.pp", "lsb.pp", "mysql.pp"]
+      },
+      {
+        "hash": "a82fbcadbcf5f6413397c28ffabc787568e8d8c2",
+        "msg": "Change default param for nic or group to empty string\n\nto match hash in nic_option or group_option assignments.\nOthwerwise, could end up with puppet output like:\n  Debug: Executing '/usr/sbin/pcs resource create ip-192.168.200.50 IPaddr2 ip=192.168.200.50 cidr_netmask=32 nic=nil ...",
+        "cmtr": "Crag Wolfe",
+        "date": "2013-10-04 14:41:33-04:00",
+        "files": ["filesystem.pp", "ip.pp", "lsb.pp", "mysql.pp"]
+      },
+      {
+        "hash": "265db289dcf3004a04a4e9b291a3ef9736e901fa",
+        "msg": "refactoring resources to have a base define",
+        "cmtr": "Dan Radez",
+        "date": "2013-10-17 15:31:18-04:00",
+        "files": ["base.pp", "filesystem.pp", "group.pp", "ip.pp", "lsb.pp", "mysql.pp"]
+      },
+      {
+        "hash": "3219121acf73f59bf8a7858d69a8e770b9dd673c",
+        "msg": "adding clone option, fixing group option",
+        "cmtr": "Dan Radez",
+        "date": "2013-10-17 16:07:10-04:00",
+        "files": ["base.pp", "lsb.pp", "mysql.pp"]
+      },
+      {
+        "hash": "ce03b6e7f2f906346342ee1408a570e654b6b799",
+        "msg": "adding qpid resource",
+        "cmtr": "Dan Radez",
+        "date": "2013-10-18 16:14:24-04:00",
+        "files": ["qpid.pp"]
+      },
+      {
+        "hash": "fdc7ce4d01ac1f8ffc756fd7dda92299a9376c4b",
+        "msg": "adding some comments and tests",
+        "cmtr": "Dan Radez",
+        "date": "2013-10-18 16:27:41-04:00",
+        "files": ["qpid.pp", "init.pp"]
+      },
+      {
+        "hash": "9259442721ec3a1c0e98e7682795aea6f79f44f6",
+        "msg": "bugfix, needed opening paren.",
+        "cmtr": "Crag Wolfe",
+        "date": "2013-10-20 16:28:59-04:00",
+        "files": ["filesystem.pp"]
+      },
+      {
+        "hash": "4d721d556bd2dde4a5ca5a235025bf2fb5eeb81c",
+        "msg": "Added basic support for adding colocation, location and order constraints using pcs.",
+        "cmtr": "Risto Laurikainen",
+        "date": "2013-12-05 13:06:31+02:00",
+        "files": ["base.pp", "init.pp"]
+      },
+      {
+        "hash": "1da0a6c1639399d23139a20da78e66dfc3f5ec35",
+        "msg": "turning the resource classes into defines so they can be used multiple times for multiple of the same resource",
+        "cmtr": "Dan Radez",
+        "date": "2014-01-10 15:26:36-05:00",
+        "files": ["README.md", "filesystem.pp", "ip.pp", "lsb.pp", "mysql.pp", "qpid.pp"]
+      },
+      {
+        "hash": "f9e900d56dfcac936a8e207962a95338f0812df9",
+        "msg": "adding an additional parameters option for mysql resource",
+        "cmtr": "Dan Radez",
+        "date": "2014-01-15 09:23:16-05:00",
+        "files": ["mysql.pp"]
+      },
+      {
+        "hash": "5e6690dc22dcbf891aa6c3caaab589b6c852bca4",
+        "msg": "moving the resource base to a provider so that properties can be updated",
+        "cmtr": "Dan Radez",
+        "date": "2014-01-22 13:06:40-05:00",
+        "files": ["default.rb", "pcmk_resource.rb", "base.pp", "filesystem.pp", "group.pp", "ip.pp", "lsb.pp", "mysql.pp", "qpid_clustered.pp"]
+      },
+      {
+        "hash": "9009883ef38531ee2850561a052062e7dcaffec7",
+        "msg": "updating constraint location support",
+        "cmtr": "Dan Radez",
+        "date": "2014-02-13 21:42:32-05:00",
+        "files": ["default.rb", "pcmk_constraint.rb", "base.pp", "location.pp"]
+      },
+      {
+        "hash": "dd5a3c7f297517bc99d482f574ba38149b9e4808",
+        "msg": "moving colocation constraint support into the puppet provider",
+        "cmtr": "Dan Radez",
+        "date": "2014-02-13 23:36:39-05:00",
+        "files": ["default.rb", "pcmk_constraint.rb", "base.pp", "colocation.pp", "location.pp"]
+      },
+      {
+        "hash": "8e964aa8a00067e90329cef2e7f9b7b131f22aea",
+        "msg": "adding clone functionality to the lsb and mysql resources",
+        "cmtr": "Dan Radez",
+        "date": "2014-02-27 15:19:50-05:00",
+        "files": ["lsb.pp", "mysql.pp"]
+      },
+      {
+        "hash": "36d0da850c28ad0bb7ed078e1e17350c24ee01e2",
+        "msg": "Add management of the pacemaker service.\n\nThis includes:\n\n* A little extraction of things to params.pp\n* Implementation of the parts of the package -> config -> service pattern that\n  make sense (since pacemaker writes its own cluster.conf)\n* A little formatting cleanup where file was touched anyway",
+        "cmtr": "Jason Guiditta",
+        "date": "2014-03-05 15:06:58-05:00",
+        "files": ["corosync.pp", "init.pp", "install.pp", "params.pp", "service.pp"]
+      },
+      {
+        "hash": "089ca461f0fad17db28f774bbf6fb1692a6ddacc",
+        "msg": "Make sure the cluster is ready before adding resources.\n\nIn certain instances, like qpid, trynig to add a resource before the cluster has\nachieved quorum results in the resource never being started at all. Check for\nquorum, and then allow other commands to be executed.",
+        "cmtr": "Jason Guiditta",
+        "date": "2014-03-05 15:10:49-05:00",
+        "files": ["corosync.pp"]
+      },
+      {
+        "hash": "3270fb2b21ed3d80c98a0ac41969066470292a04",
+        "msg": "fence_xvm updates\n\nSample usage:\n\n  class {'pacemaker::stonith::fence_xvm':\n    name              => \"$::hostname\",\n    manage_key_file   => true,\n    key_file_password => '123456788888',\n  }\n\n  class {'pacemaker::stonith::fence_xvm':\n    name             => \"$::hostname\",\n    manage_key_file  => false,\n    port             => \"$::hostname\",    # the name of the vm\n    pcmk_host        => $clu_ip_address,  # the hostname or IP that pacemaker uses\n  }",
+        "cmtr": "Crag Wolfe",
+        "date": "2014-03-05 22:47:33-05:00",
+        "files": ["fence_xvm.pp"]
+      },
+      {
+        "hash": "73e254380999f9907731d4bf4ece71f40a44dbac",
+        "msg": "add fence_xvm firewall rules",
+        "cmtr": "Crag Wolfe",
+        "date": "2014-03-07 19:44:42-05:00",
+        "files": ["fence_xvm.pp"]
+      },
+      {
+        "hash": "0dd816a703bb16e0d67a32422a771e7aad2e155c",
+        "msg": "Update impilan fencing, follow the pattern of fence_xvm.",
+        "cmtr": "Crag Wolfe",
+        "date": "2014-03-12 17:10:46-04:00",
+        "files": ["ipmilan.pp"]
+      },
+      {
+        "hash": "7fd498ca707750f7da1dc70e62ef59b0921c78bf",
+        "msg": "Update stonith.pp\n\nTypo",
+        "cmtr": "khorsmann",
+        "date": "2014-03-17 14:52:37+01:00",
+        "files": ["stonith.pp"]
+      },
+      {
+        "hash": "962351545bf56af5809bd6954bf940f60f8a5740",
+        "msg": "allow the fileystem resource to be cloneable",
+        "cmtr": "Crag Wolfe",
+        "date": "2014-03-26 06:03:59-04:00",
+        "files": ["filesystem.pp"]
+      },
+      {
+        "hash": "8c94bc6d4b4e562d6476509f2c598d27eaf97d9c",
+        "msg": "expose filesystem mount options to the filesystem resource",
+        "cmtr": "Crag Wolfe",
+        "date": "2014-04-09 06:24:57-04:00",
+        "files": ["filesystem.pp"]
+      },
+      {
+        "hash": "a8f9c49c9a9f268205e29e794b04819c3fb1e09c",
+        "msg": "added route resource management",
+        "cmtr": "Adam Scarborough",
+        "date": "2014-05-01 14:35:30+01:00",
+        "files": ["route.pp"]
+      },
+      {
+        "hash": "ec4e574eabc8be0974632ed580cde5d943ddeee7",
+        "msg": "no cman for el7",
+        "cmtr": "Crag Wolfe",
+        "date": "2014-05-30 00:22:38-04:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "7cd4c5b2fd01bfed107858aa735ce944329681d6",
+        "msg": "cluster setup that works with el7",
+        "cmtr": "Crag Wolfe",
+        "date": "2014-06-05 23:20:40-04:00",
+        "files": ["base.pp", "colocation.pp", "location.pp", "corosync.pp", "params.pp", "service.pp", "stonith.pp"]
+      },
+      {
+        "hash": "6be1148081c7756eefd57ed3aa8eb3d67fd586b3",
+        "msg": "Update to support managing services with systemd.\n\nRHEL 7 uses systemd, so that support is added with this patch.  Also, introduce a\nwrapper 'pacemaker::resource::service' that will call the right type of service\nwithout specification from the caller.",
+        "cmtr": "Jason Guiditta",
+        "date": "2014-06-05 19:49:21-04:00",
+        "files": ["params.pp", "lsb.pp", "service.pp", "systemd.pp"]
+      },
+      {
+        "hash": "ffaea9170892cce6a7a39c030901cec0df91fcf1",
+        "msg": "reasonable default pcmk_host_list for fence_xvm",
+        "cmtr": "Crag Wolfe",
+        "date": "2014-06-10 01:06:20-04:00",
+        "files": ["fence_xvm.pp"]
+      },
+      {
+        "hash": "32debed512b1c3f76be44a6695600e25eac7f3c3",
+        "msg": "add fence-agents(-all) package dep",
+        "cmtr": "Crag Wolfe",
+        "date": "2014-06-10 01:50:22-04:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "3b2e6abfe66c2afe35ff3f841d7f4ed98aaabd38",
+        "msg": "pcsd must be started before pcs cluster auth",
+        "cmtr": "Crag Wolfe",
+        "date": "2014-06-11 05:53:37-04:00",
+        "files": ["corosync.pp"]
+      },
+      {
+        "hash": "7e304243b5bd2dced5f54d5146ecc58d0b5a51f1",
+        "msg": "Add monitor_params property to pcmk_resource\n\nThis allows setting additional monitor parameters besides interval,\nfor example start-delay and timeout.  If interval is also provided, it\nis merged in with monitor_params so as to not conflict.",
+        "cmtr": "John Eckersberg",
+        "date": "2014-06-24 15:47:34-04:00",
+        "files": ["default.rb", "pcmk_resource.rb", "filesystem.pp", "ip.pp", "lsb.pp", "mysql.pp", "qpid_clustered.pp", "route.pp", "service.pp", "systemd.pp"]
+      },
+      {
+        "hash": "46ce1f3ead531f7289d65091d6b7edc91998a014",
+        "msg": "Manage IPtables rules as an option\n\nAllow the user to not configure IPtables rules with a new param:\nmanage_fw.\n\nThis parameter is at True by default to maintain backward compatibility.",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-06-30 14:56:32+02:00",
+        "files": ["corosync.pp", "fence_xvm.pp"]
+      },
+      {
+        "hash": "a2949b62b5308e0edaa3063295ddb2b78fa975eb",
+        "msg": "corosync: add parameter for settle waiting\n\nAdd parameters to change exec values for timeout, tries and try_sleep.\nSet default values like old model to keep backward compatibility.\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
+        "cmtr": "Emilien Macchi",
+        "date": "2014-07-01 13:59:13+02:00",
+        "files": ["corosync.pp"]
+      },
+      {
+        "hash": "7bb7a949fecef0f35e464d4611ba8de2158b9a05",
+        "msg": "Add pacemaker ocf resources support.\n\nIncluded a new resource_name parameter, because the ocf naming\nconvention is module:Resource (neutron:OVSCleanup for example),\nbut pcs can't create a resource with name neutron:OVSCleanup,\nthe ':' makes it fail.",
+        "cmtr": "Miguel Angel Ajo",
+        "date": "2014-07-17 17:22:56+02:00",
+        "files": ["ocf.pp"]
+      },
+      {
+        "hash": "55706c118b197b3f2c29035690ba85e644e0339a",
+        "msg": "Fix route resource ID\n\nThe destination was an ip/netmask set, but pacemaker won't accept that in the resource name.\n\nThis uses route-{puppet name}-{group} instead, which should be fine since the puppet name is unique anyway.",
+        "cmtr": "Dis McCarthy",
+        "date": "2014-08-01 10:59:09-04:00",
+        "files": ["route.pp"]
+      },
+      {
+        "hash": "5d91343c80f65b64be604f4a61558ff408c0f863",
+        "msg": "pacemaker/corosync: Grab correct hacluster password",
+        "cmtr": "Yanis Guenane",
+        "date": "2014-08-19 09:47:11-04:00",
+        "files": ["corosync.pp"]
+      },
+      {
+        "hash": "1e94dc23a162cabbadb9e98d1c4fc48c75f8b39c",
+        "msg": "pacemaker/corosync: Parametrize timeout values",
+        "cmtr": "Yanis Guenane",
+        "date": "2014-08-19 11:50:17-04:00",
+        "files": ["corosync.pp"]
+      },
+      {
+        "hash": "1e052ddf4b1b47d3518e58e371a5de10aa68f60a",
+        "msg": "XML sources and generated agent manifests",
+        "cmtr": "Jiri Stransky",
+        "date": "2014-09-05 11:08:56+02:00",
+        "files": ["fence_apc.xml", "fence_apc_snmp.xml", "fence_bladecenter.xml", "fence_brocade.xml", "fence_cisco_mds.xml", "fence_cisco_ucs.xml", "fence_drac5.xml", "fence_eaton_snmp.xml", "fence_eps.xml", "fence_hpblade.xml", "fence_ibmblade.xml", "fence_idrac.xml", "fence_ifmib.xml", "fence_ilo.xml", "fence_ilo2.xml", "fence_ilo3.xml", "fence_ilo4.xml", "fence_ilo_mp.xml", "fence_imm.xml", "fence_intelmodular.xml", "fence_ipdu.xml", "fence_ipmilan.xml", "fence_kdump.xml", "fence_rhevm.xml", "fence_rsb.xml", "fence_scsi.xml", "fence_virt.xml", "fence_vmware_soap.xml", "fence_wti.xml", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ipmilan.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp"]
+      },
+      {
+        "hash": "c64dc8a8492981a0ff3a9d8b2f597bafa5be34a6",
+        "msg": "Remove inheritance from pacemaker::stonith of pacemaker::corosync\n\nWhen using the pacemaker module together with an ENC, (Satellite 6)\nwe ran into the problem that we want to include both the pacemaker::stonith\nand the pacemaker::corosync classes into our manifest in order to assign parameters\nto both. Here we ran into a problem since the pacemaker::corosync class ended up redefined.\nWe have here removed the inheritance and instead put a require in the pacemaker::stonith class",
+        "cmtr": "David Juran",
+        "date": "2014-09-30 09:09:35+00:00",
+        "files": ["stonith.pp"]
+      },
+      {
+        "hash": "d03ff98b31b9c7d6d214f72b8099b25677cdf09a",
+        "msg": "add retry capability for pacemaker::constraint::base",
+        "cmtr": "Crag Wolfe",
+        "date": "2014-11-07 21:56:16-05:00",
+        "files": ["base.pp"]
+      },
+      {
+        "hash": "59fe631609de3543cbb9082f631ea0a5a118a472",
+        "msg": "Updates to pcmk_resource and related manifests.\n\n* Make sure pcmk_resource supports the various invocations to \"pcs\n  resource create\" in https://github.com/beekhof/osp-ha-deploy.\n* For now, only support creating the resource and deleting it, which\n  is no worse than what existed before (the properties in\n  pcmk_resource in the previous iteration did not work, at best some\n  properties were attempted to be updated to what they already were\n  every puppet run).",
+        "cmtr": "Crag Wolfe",
+        "date": "2015-05-05 01:11:21-04:00",
+        "files": ["default.rb", "pcmk_resource.rb", "filesystem.pp", "ip.pp", "lsb.pp", "mysql.pp", "ocf.pp", "qpid_clustered.pp", "route.pp", "service.pp", "systemd.pp"]
+      },
+      {
+        "hash": "2d2b8adfc1cc4f2469bed1a39e32ae493b2d3282",
+        "msg": "Add params tries, try_sleep, post_success_sleep\n\nThe post_success_sleep deserves a bit of explanation: multiple\nback-to-back immediate calls to pcs can cause issues since the command\nmay return before the cluster status is actually updated across nodes.\nThis parameter provides a bit of a buffer to avoid low-probability\nerror conditions.",
+        "cmtr": "Crag Wolfe",
+        "date": "2015-05-12 23:00:08-04:00",
+        "files": ["default.rb", "pcmk_resource.rb", "filesystem.pp", "ip.pp", "lsb.pp", "ocf.pp", "route.pp", "service.pp", "systemd.pp"]
+      },
+      {
+        "hash": "c884b7202014387c153b3eb584eec78c9ddec375",
+        "msg": "Add $master_params parameter to ocf resource\n\nAdd the possibility to specify $master_params in the ocf resource.\n\nFix #47",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-05-14 08:29:58+02:00",
+        "files": ["ocf.pp"]
+      },
+      {
+        "hash": "4d6f29a921651a33177e433f1e3de17a38ac628a",
+        "msg": "Consistent naming of fence agent manifests\n\nUse pacemaker::stonith::<agent_name> for the original fence agent\nmanifests, and use pacemaker::stonith::fence_<agent_name> for the\nautogenerated manifests.\n\nIt's not sure yet whether e.g. TripleO will use the autogenerated\nfencing manifests, or if we only should use autogeneration as the first\nstep and start editing the fence agents manually to allow additional\noperations besides creating the fencing resources (e.g. like in xvm's\ncase - writing the key file and configuring the firewall).\n\nAnyway it seems like a good idea to have consistent naming, which could\nbe useful when passing parameters around in a generic fashion. I'm not\nreplacing the fence_xvm manifest with the autogenerated variant yet, to\nallow for a deprecation period.",
+        "cmtr": "Jiri Stransky",
+        "date": "2015-05-26 15:04:37+02:00",
+        "files": ["fence_xvm.pp", "xvm.pp"]
+      },
+      {
+        "hash": "46507aa22b10479b65fd8e8fc5a7b6967b51ec78",
+        "msg": "Fix and reformat the fence agent generator\n\nCorrectly process pcmk_host_list variable, ensure uniqueness of execs,\nminor code reformattting.",
+        "cmtr": "Jiri Stransky",
+        "date": "2015-05-28 11:41:25+02:00",
+        "files": ["agent_generator.rb", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ipmilan.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp"]
+      },
+      {
+        "hash": "07ad3712de4601bd0724c1681e58b033bcb7872d",
+        "msg": "Generate the new fence_xvm manifest",
+        "cmtr": "Jiri Stransky",
+        "date": "2015-05-28 13:35:49+02:00",
+        "files": ["fence_xvm.xml", "variables.sh", "fence_xvm.pp"]
+      },
+      {
+        "hash": "37fe18a1e5e17d31bd31100c0c780ecf320b324f",
+        "msg": "Add features from stonith::xvm to stonith::fence_xvm\n\nAdds firewall and key file management to stonith::fence_xvm. Also\nrequires the manifest to be updated manually from now on.",
+        "cmtr": "Jiri Stransky",
+        "date": "2015-06-08 13:36:06+02:00",
+        "files": ["variables.sh", "fence_xvm.pp"]
+      },
+      {
+        "hash": "38fe2f724fe5b9f9b036d1ec33bb2b3c005f5dcc",
+        "msg": "Change fence agents from classes to defined types\n\nThis is required to:\n\n* be able to create the fence devices in an automated fashion with\n  create_resources().\n\n* configure multiple fence devices of the same type on the same host,\n  should such need arise at some point.\n\nAlso this is probably a more fitting abstraction, because the fence\ndevices are also managed in pacemaker similarly as normal resources and\nconstraints.",
+        "cmtr": "Jiri Stransky",
+        "date": "2015-06-08 13:36:10+02:00",
+        "files": ["agent_generator.rb", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ipmilan.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp", "fence_xvm.pp"]
+      },
+      {
+        "hash": "7311e5f3a7faa4c7eecdac6e74f94111cd40d37a",
+        "msg": "Avoid using colons in stonith resource names\n\nThe resource names for stonith::fence_* can be MAC addresses containing\ncolons. When calling pcs stonith create (etc.), make sure the colons are\nremoved from the title.",
+        "cmtr": "Jiri Stransky",
+        "date": "2015-06-08 13:36:11+02:00",
+        "files": ["agent_generator.rb", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ipmilan.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp", "fence_xvm.pp"]
+      },
+      {
+        "hash": "8f40e62acf78e4df54321f875eb86289288c7d9b",
+        "msg": "Wrap fence_xvm boolean checks in str2bool",
+        "cmtr": "Jiri Stransky",
+        "date": "2015-06-10 11:09:34+02:00",
+        "files": ["fence_xvm.pp"]
+      },
+      {
+        "hash": "f62e67f3b48857822ab214bbf2bb704b18ce34af",
+        "msg": "Add retry logic into fence agent manifests",
+        "cmtr": "Jiri Stransky",
+        "date": "2015-06-12 18:31:51+02:00",
+        "files": ["agent_generator.rb", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ipmilan.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp", "fence_xvm.pp"]
+      },
+      {
+        "hash": "ae8c514ecc22bd34e97c4b3e6c513028b68245fa",
+        "msg": "Update README for new pcmk_resource usage.",
+        "cmtr": "Crag Wolfe",
+        "date": "2015-06-16 22:41:01-04:00",
+        "files": ["README.md", "init.pp"]
+      },
+      {
+        "hash": "a74ea9a07fb679c7bf4bcf0cbb468078993fd43a",
+        "msg": "Add $verify_on_create ability for all resources.\n\nImplements a workaround for the rare condidtion where \"pcs resource\ncreate\" may succeed on the command line, but pacemaker is not updated\nwith the new resource.\n\nWhen $verify_on_create is true, make sure the resource exists after\n$try_sleep with an additional \"pcs\" call.  Retry up to $tries per the\nusual behaviour.\n\nWhen $verify_on_create is false (the default), behaviour is exactly\nthe same as before, i.e. only the return value from \"pcs resource\ncreate\" is checked to determine whether the resource creation was\nsuccessful or not.",
+        "cmtr": "Crag Wolfe",
+        "date": "2015-06-22 15:47:08-04:00",
+        "files": ["default.rb", "pcmk_resource.rb", "filesystem.pp", "ip.pp", "lsb.pp", "ocf.pp", "route.pp", "service.pp", "systemd.pp"]
+      },
+      {
+        "hash": "fcbb8112a977289ecd24e8cc23998dbcefe9bf27",
+        "msg": "Add constraint_params support.\n\nThis allows things like setting kind=Optional.",
+        "cmtr": "Jason Guiditta",
+        "date": "2015-07-02 09:11:34-04:00",
+        "files": ["base.pp"]
+      },
+      {
+        "hash": "77f937cc8155fe173a900b773c764c2315fcc54f",
+        "msg": "Add support for Redundant Ring Protocol (RRP)\n\nCorosync's purpose is to keep a cluster of nodes running.\nIf a node loose connectivity it can be fenced and pulled out the\ncluster.\n\nCurrently this modules allow to setup corosync using only a single ring\n(ie. a single network), ring0. That means that if for any reason the network\nfalls entirely the cluster will be down.\n\nBy enabling a second ring (ie. a second network), ring1 we gain\nfault-tolerancy on the whole network. So if we have ring0 and ring1 and\ntwo totally different network, if ring0 falls, cluster will remain\noperational and all the traffic will go through ring1. This is the\ndefault behavior with rrp_mode passive).\n\nWe add a new parameter `$cluster_members_rrp` that defines the nodes and\ntheir interface they are in. `pcs cluster setup --start` will run with\nthis parameter if it is specified else default to `$cluster_members`.\n\nBoth parameters are necessary because `$cluster_members_rrp` is\nincompatible with the `pcs cluster auth` command.\n\nAn example setup can be\n\n```\nclass { '::pacemaker::corosync':\n   cluster_members => 'node01.example.com node02.example.com node03.example.com',\n   cluster_members_rrp => 'node01.example.com,node01.ring.example.com node02.example.com,node02.ring.example.com node03.example.com,node03.ring.example.com',\n   setup_cluster   => true,\n  }\n```\n\nThe outputs of `pcs cluster corosync` looks like the following :\n\n```\n[root@localhost ~]# pcs cluster corosync\ntotem {\nversion: 2\nsecauth: off\ncluster_name: clustername\ntransport: udpu\nrrp_mode: passive\n}\nnodelist {\n  node {\n        ring0_addr: node01.example.com\n        ring1_addr: node01.ring.example.com\n        nodeid: 1\n       }\n  node {\n        ring0_addr: node02.example.com\n        ring1_addr: node02.ring.example.com\n        nodeid: 2\n       }\n  node {\n        ring0_addr: node03.example.com\n        ring1_addr: node03.ring.example.com\n        nodeid: 3\n       }\n}\nquorum {\nprovider: corosync_votequorum\n}\nlogging {\nto_syslog: yes\n}\n```",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-08-19 13:00:55+02:00",
+        "files": ["corosync.pp"]
+      },
+      {
+        "hash": "a2c8705a72703dbf9401d780fcc335723a131373",
+        "msg": "Support setting pacemaker resource defaults\n\nThis patch adds initial support for pacemaker resource\ndefaults. Similarly as other pacemaker resource types in this module, it\ndoesn't yet prefetch already created resources.\n\nThe resource default can either be created directly via\npcmk_resource_default type, or in bulk via pacemaker::resource_defaults\nclass.",
+        "cmtr": "Jiri Stransky",
+        "date": "2015-09-01 11:45:44+02:00",
+        "files": ["pcs.rb", "pcmk_resource_default.rb", "resource_defaults.pp"]
+      },
+      {
+        "hash": "124056af6c6191e4d8dc87a6024a8cad35bb4f8a",
+        "msg": "Allow one to specify some corosync parameters\n\nCurrently only the default value for corosync are available. A user can\nnot set specific values related to corosync due to the fact that the\ncommand run to create the cluster is `pcs cluster setup --start` with no\npossible parameters.\n\nThis commit aims to allow one to specify all the corosync parameters\navailable via the `pcs cluster setup --start` command.\n\nAn example would be the following\n\n```\n class { '::pacemaker::corosync':\n    cluster_members => 'node01.example.com node02.example.com\nnode03.example.com',\n    setup_cluster   => true,\n    cluster_setup_extras => {'--token' => '10000', '--join' => '100'},\n  }\n```\n\nThis would result in `pcs cluster corosync` outputing the following:\nNote: totem and join values.\n\n```\n[root@localhost ~]# pcs cluster corosync\ntotem {\nversion: 2\nsecauth: off\ncluster_name: clustername\ntransport: udpu\ntoken: 10000\njoin: 100\n}\nnodelist {\n  node {\n        ring0_addr: node01.example.com\n        nodeid: 1\n       }\n  node {\n        ring0_addr: node02.example.com\n        nodeid: 2\n       }\n  node {\n        ring0_addr: node03.example.com\n        nodeid: 3\n       }\n}\nquorum {\nprovider: corosync_votequorum\n}\nlogging {\nto_syslog: yes\n}\n```",
+        "cmtr": "Yanis Guenane",
+        "date": "2015-09-23 13:35:00+02:00",
+        "files": ["README.md", "corosync.pp"]
+      },
+      {
+        "hash": "023580239ac495fc20bd4a393a36051ab49ac9fa",
+        "msg": "Ability to set authkey for pacemaker-remote.\n\nSetting $remote_authkey will result in the file /etc/pacemaker/authkey\nbeing created with the contents of $remote_authkey.\n\nAlso add pacemaker-libs to the list installed pacakges, which includes\nthe hacluster user and haclient group which own /etc/pacemaker and\n/etc/pacemaker/authkey.\n\nSee also: http://clusterlabs.org/doc/en-US/Pacemaker/1.1/html/Pacemaker_Remote/_setup_pacemaker_remote.html\n\nIt is presumed we are configuring the HOST system here, it is up to\nthe user to configure the GUEST.",
+        "cmtr": "Crag Wolfe",
+        "date": "2015-10-15 20:08:24-04:00",
+        "files": ["corosync.pp", "params.pp"]
+      },
+      {
+        "hash": "27a5ec99e1917356dd8496d46dbb7ad40a733974",
+        "msg": "adding support for master role constraints",
+        "cmtr": "Zane",
+        "date": "2015-10-20 21:19:41-07:00",
+        "files": ["default.rb", "pcmk_constraint.rb", "colocation.pp"]
+      },
+      {
+        "hash": "04fd6c145f719ec42e8660e476a03f97376164c2",
+        "msg": "Added FW rules for IPv6\n\nUsing ip6tables provider",
+        "cmtr": "Gilles Dubreuil",
+        "date": "2015-12-14 17:17:35+11:00",
+        "files": ["corosync.pp", "fence_xvm.pp", "xvm.pp"]
+      },
+      {
+        "hash": "01c6000db5040055372021ad5a3231840ccb8bba",
+        "msg": "The colons in IPv6 addresses causing title issues\n\nEffectively pcs refuses resource names containing colon character.\n\nSince the IP address is used when creating pcmk_resource for IPaddr2 it breaks\nthe ip.pp manifests.\n\nThis patch replaces the colons replacing them with dots.",
+        "cmtr": "Gilles Dubreuil",
+        "date": "2015-12-17 18:13:30+11:00",
+        "files": ["ip.pp"]
+      },
+      {
+        "hash": "4ae9fabb3ff50dfc95a5f6b415e9e914a6ae8b00",
+        "msg": "Resource constraint with colon in the name (IPv6)\n\nRelated to the fix in[1], this add the possibility to add constraints to\nresource whose name have a colon in it. IPv6 resource are a example of\nwhen it's likely to happen.\n\nCloses-Bug: rhbz#1298716\n\n[1] https://github.com/redhat-openstack/puppet-pacemaker/commit/01c6000db5040055372021ad5a3231840ccb8bba",
+        "cmtr": "Sofer Athlan-Guyot",
+        "date": "2016-01-15 17:04:46+01:00",
+        "files": ["default.rb", "base.pp"]
+      },
+      {
+        "hash": "f4b87d118582fe2338ad83d91ea1d6343360afe6",
+        "msg": "Initial pcs property support\n\nAdd a function in order to support pcs properties natively.\nExample:\n\npacemaker::property { 'global-bar':\n  property        => 'bar',\n  value           => 'baz',\n  force           => true,\n  tries           => 1,\n  try_sleep       => 1,\n}",
+        "cmtr": "Michele Baldessari",
+        "date": "2016-02-04 16:10:07+01:00",
+        "files": ["README.md", "property.pp", "stonith.pp", "init.pp"]
+      },
+      {
+        "hash": "aa4bc300877a8fd98e6932c277e19ef8c6dbaf63",
+        "msg": "Fix invalid boolean check for properties' values\n\nThe property resource checks that if 'ensure' is set to present, then a\nvalue must be set; This check is wrong because false can actually be a\nvalid value for the property. In reality, what we want to check for is\nif the value has been set at all. So this change introduces a check for\nundef.",
+        "cmtr": "Juan Antonio Osorio Robles",
+        "date": "2016-02-05 16:57:04+02:00",
+        "files": ["property.pp"]
+      },
+      {
+        "hash": "399b1fb04ea9b1203ed033e065d68cabdb48ddb6",
+        "msg": "Fixes for lint compliance and working specs.\n\nThis fixes agent generator to have the generated files passing lint\ntest.  It also adds a rake task.\n\nThe stonith/ files were generated using it.  fence_xvm is documented to\nbe updated manually in the variable.sh file.  It will need to be\ninvestigated, and if possible refactored to be able to work with the\ngenerator for simpler updates.\n\nCo-Authored-By: Jason Guiditta <jguiditt@redhat.com>\nChange-Id: I246eee81de6e8148f4f8c01e6deb42b20775079a",
+        "cmtr": "Sofer Athlan-Guyot",
+        "date": "2016-02-19 12:30:22+01:00",
+        "files": ["Rakefile", "agent_generator.rb", "base.pp", "colocation.pp", "location.pp", "corosync.pp", "init.pp", "install.pp", "params.pp", "property.pp", "filesystem.pp", "ip.pp", "lsb.pp", "ocf.pp", "route.pp", "service.pp", "systemd.pp", "resource_defaults.pp", "service.pp", "stonith.pp", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ipmilan.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp", "fence_xvm.pp", "ipmilan.pp", "xvm.pp", "pacemaker_spec.rb", "init.pp"]
+      },
+      {
+        "hash": "8d2f1dfa87d49ffafaeccacb057416f03c829415",
+        "msg": "Basic beaker one node test.\n\nThis add beaker tests for puppet-pacemaker module.  An haproxy is\ndeployed with two IPAddr2 resources (IPv4 and IPv6) and resource\nconstraint are added.\n\nThis also fix some bugs, mainly about idempotency and resource\ndependency.\n\nDepends-On: I420ee94d207c04aade61c3cacc2e5ebdd226f817\nDepends-On: I2e1a561134db1427d9cb5fd9149ecedecffab404\nCloses-Bug: 1555637\nCloses-Bug: 1555683\nCloses-Bug: 1556953\nCloses-Bug: 1556949\n\nChange-Id: Ibb9084c85d0c9bcbf892a82e45bcd685a208ebc5",
+        "cmtr": "Sofer Athlan-Guyot",
+        "date": "2016-03-16 18:02:14+01:00",
+        "files": ["Gemfile", "agent_generator.rb", "corosync.pp", "params.pp", "property.pp", "filesystem.pp", "ip.pp", "lsb.pp", "ocf.pp", "route.pp", "service.pp", "systemd.pp", "service.pp", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ipmilan.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp", "fence_xvm.pp", "basic_one_node_spec.rb", "basic.pp"]
+      },
+      {
+        "hash": "a237447a80750e725ff90fdaefe34987641e87a4",
+        "msg": "Revert \"Basic beaker one node test.\"\n\nIt looks like tripleo-ci isn't correctly gating this project\nright now, so this commit has broken the ha job there.\nProposing a quick revert to unblock TripleO, and I also have\nanother proposed patch that should make the gating on\npuppet-pacemaker work properly.\n\nPartial-Bug: 1558304\n\nThis reverts commit 8d2f1dfa87d49ffafaeccacb057416f03c829415.\n\nChange-Id: I7e984c3658193f779b8cd54ae27032f70c1c34ca",
+        "cmtr": "Ben Nemec",
+        "date": "2016-03-16 22:51:35+00:00",
+        "files": ["Gemfile", "agent_generator.rb", "corosync.pp", "params.pp", "property.pp", "filesystem.pp", "ip.pp", "lsb.pp", "ocf.pp", "route.pp", "service.pp", "systemd.pp", "service.pp", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ipmilan.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp", "fence_xvm.pp", "basic_one_node_spec.rb", "basic.pp"]
+      },
+      {
+        "hash": "f62805f678f6fd8a260118279f6e0dbb05bff3d1",
+        "msg": "Revert revert \"Basic beaker one node test.\"\n\nThis reverts commit a237447a80750e725ff90fdaefe34987641e87a4.\n\nThis re-add beaker tests for puppet-pacemaker module.  An haproxy is\ndeployed with two IPAddr2 resources (IPv4 and IPv6) and resource\nconstraint are added.\n\nDepends-On: I56849d9fc00bd3ce342d5c440cfe7c5b6d26b5bf\nChange-Id: I7dc9dbd412bfb6f06fe034a93a7ab9ee11c9d36b",
+        "cmtr": "Sofer Athlan-Guyot",
+        "date": "2016-03-21 15:48:32+01:00",
+        "files": ["Gemfile", "agent_generator.rb", "corosync.pp", "params.pp", "property.pp", "filesystem.pp", "ip.pp", "lsb.pp", "ocf.pp", "route.pp", "service.pp", "systemd.pp", "service.pp", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ipmilan.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp", "fence_xvm.pp", "basic_one_node_spec.rb", "basic.pp"]
+      },
+      {
+        "hash": "3f1c3e849a8fa5d0643cd5b7ea3ed41a16b43065",
+        "msg": "contraint/base: add resource tag on execs\n\nAdd [ 'pacemaker', 'pacemaker_constraint'] tags to the Exec resources in\nconstrain/base.pp, so we can easily make some orchestration.\n\nChange-Id: Icea7537cea330da59fe108c9b874c04f2b94d062",
+        "cmtr": "Emilien Macchi",
+        "date": "2016-05-09 15:39:20-04:00",
+        "files": ["base.pp"]
+      },
+      {
+        "hash": "4d2e554f687f525ad54c0b0c41a610aa68f50e4d",
+        "msg": "Merge with fuel-infra/puppet-pacemaker\n\n* Import all providers, specs and tests to this module\n* Use corosync module to actually install paceamker\n\nFuel-CI: disable\nChange-Id: I9a16ad1453b694aa0a3e78d079f9c57365a5fcf1",
+        "cmtr": "Sofer Athlan-Guyot",
+        "date": "2016-05-25 11:22:22+02:00",
+        "files": [".fixtures.yml", ".gitignore", ".rspec", ".rubocop.yml", ".travis.yml", "CONTRIBUTING.md", "Gemfile", "Modulefile", "README.md", "Rakefile", "TODO.md", "agent_generator.rb", "host.pp", "setup.pp", "create.pp", "delete.pp", "show.sh", "update.pp", "create.pp", "delete.pp", "show.sh", "update.pp", "create.pp", "delete.pp", "show.sh", "update.pp", "create.pp", "delete.pp", "show.sh", "update.pp", "create.pp", "delete.pp", "show.sh", "update.pp", "create.pp", "delete.pp", "show.sh", "update.pp", "create.pp", "delete.pp", "show.sh", "update.pp", "clean.pp", "start.pp", "stop.pp", "pacemaker_node_name.rb", "options.rb", "options.yaml", "cluster_property.rb", "common.rb", "operation_default.rb", "pcsd_auth.rb", "resource_default.rb", "type.rb", "wait.rb", "cib.rb", "constraint_colocations.rb", "constraint_locations.rb", "constraint_orders.rb", "constraints.rb", "debug.rb", "helpers.rb", "nodes.rb", "operation_default.rb", "primitives.rb", "properties.rb", "resource_default.rb", "status.rb", "xml.rb", "pacemaker_cluster_nodes.rb", "pacemaker_cluster_options.rb", "pacemaker_resource_parameters.rb", "pacemaker_noop.rb", "pacemaker_xml.rb", "pacemaker_noop.rb", "pacemaker_xml.rb", "pacemaker_noop.rb", "pacemaker_xml.rb", "pacemaker_noop.rb", "pacemaker_noop.rb", "pacemaker_xml.rb", "pacemaker_noop.rb", "pacemaker_pcs.rb", "pacemaker_xml.rb", "pacemaker_noop.rb", "pacemaker_xml.rb", "pacemaker_pcs.rb", "pacemaker_noop.rb", "pacemaker_pcs.rb", "pacemaker_noop.rb", "pacemaker_pcs.rb", "pacemaker_xml.rb", "pacemaker_noop.rb", "pacemaker_xml.rb", "pacemaker_noop.rb", "pacemaker_pcs.rb", "pacemaker_xml.rb", "pacemaker_xml.rb", "pacemaker_noop.rb", "pacemaker_xml.rb", "pacemaker_colocation.rb", "pacemaker_location.rb", "pacemaker_nodes.rb", "pacemaker_online.rb", "pacemaker_operation_default.rb", "pacemaker_order.rb", "pacemaker_pcsd_auth.rb", "pacemaker_property.rb", "pacemaker_resource.rb", "pacemaker_resource_default.rb", "pacemaker_colocation.rb", "pacemaker_location.rb", "pacemaker_operation_default.rb", "pacemaker_order.rb", "pacemaker_property.rb", "pacemaker_resource.rb", "pacemaker_resource_default.rb", "pacemaker_xml.rb", "console.rb", "provider.rb", "status.rb", "corosync.pp", "new.pp", "firewall.pp", "install.pp", "params.pp", "filesystem.pp", "ip.pp", "route.pp", "service.pp", "setup.pp", "auth_key.pp", "config.pp", "debian.pp", "pcsd.pp", "wrapper.pp", "service.pp", ".gitkeep", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ipmilan.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp", "metadata.json", "basic_one_node_spec.rb", "centos-70-x64.yml", "centos-511-x64.yml", "centos-66-x64-pe.yml", "centos-66-x64.yml", "centos-72-x64.yml", "debian-78-x64.yml", "debian-82-x64.yml", "ubuntu-server-1204-x64.yml", "ubuntu-server-1404-x64.yml", "vagrant-centos-7.2-64.yml", "vagrant-ubuntu-14.04-64.yml", "pacemaker_colocation_spec.rb", "pacemaker_location_spec.rb", "pacemaker_node_name_spec.rb", "pacemaker_operation_default_spec.rb", "pacemaker_order_spec.rb", "pacemaker_property_spec.rb", "pacemaker_resource_default_spec.rb", "pacemaker_resource_spec.rb", "pacemaker_service_spec.rb", "pacemaker_setup_spec.rb", "coverage_spec.rb", "pacemaker_firewall_spec.rb", "pacemaker_install_spec.rb", "pacemaker_service_spec.rb", "pacemaker_setup_auth_key_spec.rb", "pacemaker_setup_config_spec.rb", "pacemaker_setup_debian_spec.rb", "pacemaker_setup_pcsd_spec.rb", "pacemaker_setup_spec.rb", "pacemaker_spec.rb", "pacemaker_resource_filesystem_spec.rb", "pacemaker_resource_ip_spec.rb", "pacemaker_resource_route_spec.rb", "pacemaker_wrapper_spec.rb", "pacemaker_cluster_nodes_spec.rb", "pacemaker_cluster_options_spec.rb", "pacemaker_resource_parameters_spec.rb", "shared_examples.rb", "spec_helper.rb", "spec_helper_acceptance.rb", "cib.xml", "xml_spec.rb", "xml_spec.rb", "xml_spec.rb", "pacemaker_noop_spec.rb", "xmk_spec.rb", "pcs_spec.rb", "xml_spec.rb", "xml_spec.rb", "pacemaker_pcs_spec.rb", "pcs_spec.rb", "pcs_spec.rb", "xml_spec.rb", "xml_spec.rb", "pcs_spec.rb", "xml_spec.rb", "pacemaker_xml_spec.rb", "pacemaker_xml_spec.rb", "pacemaker_colocation_spec.rb", "pacemaker_location_spec.rb", "pacemaker_nodes_spec.rb", "pacemaker_online_spec.rb", "pacemaker_operation_default_spec.rb", "pacemaker_order_spec.rb", "pacemaker_pcsd_auth_spec.rb", "pacemaker_property_spec.rb", "pacemaker_resource_default_spec.rb", "pacemaker_resource_spec.rb", "pacemaker_colocation_spec.rb", "pacemaker_location_spec.rb", "pacemaker_operation_default_spec.rb", "pacemaker_order_spec.rb", "pacemaker_property_spec.rb", "pacemaker_resource_default_spec.rb", "pacemaker_resource_spec.rb", ".gitkeep", "corosync.conf.erb", "cman_default.erb", "corosync_default.erb", "pacemaker_default.erb", "pacemaker_service.erb", "ocf_handler.sh.erb", "basic.pp", "init.pp"]
+      },
+      {
+        "hash": "475b7ebcd03afe9a7aa391194f75aec22d0521cf",
+        "msg": "Pacemaker misc fixes\n\nAdd missing package, add mising parameters,\nfix functions.\n\nChange-Id: Ib885af7df8fc2b678272fe85e5d8bbdd9aa1988b",
+        "cmtr": "Dmitry Ilyin",
+        "date": "2016-05-31 11:58:45+03:00",
+        "files": ["pacemaker_cluster_nodes.rb", "pacemaker_resource_parameters.rb", "new.pp", "params.pp", "pacemaker_resource_parameters_spec.rb"]
+      },
+      {
+        "hash": "5c6b52be1fa9f6b0821d79b7d81d72b50081ac0a",
+        "msg": "Removing ignoring the action parameter in the agent_generator.rb\nso that the manifests for the fencing scripts will have the parameter\navailable to them.\n\nChange-Id: Iafbb04454a4f54ee8d8a70e4c5c8db0ba690945f\nCloses-Bug: 1594870",
+        "cmtr": "Devon Mizelle",
+        "date": "2016-06-21 18:04:53+00:00",
+        "files": ["agent_generator.rb", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ipmilan.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp"]
+      },
+      {
+        "hash": "0bd90c271139270180f698f5359e1e60bad5b06e",
+        "msg": "CI: specinfra, xenial, lint, puppet bug.\n\nFix beaker job for pacemaker.  When\nhttps://tickets.puppetlabs.com/browse/BKR-851 is fixed, remove it.\n\nThe xenial node definition is now gated for Newton, add it to the mix.\n\nFix puppet puppet-lint-absolute_classname-check.\n\nWork around https://github.com/puppetlabs/puppet/pull/2633 where contain\ncannot have a absolute class name as parameter in puppet 3.6.\n\nFor Ubuntu Xenial we are bitten by this\nhttps://tickets.puppetlabs.com/browse/BKR-821, where puppet is installed\nin /opt/puppetlabs/bin\n\nThe package pacemaker-mgmt is not available on Ubuntu Xenial, adjust to\nthis.  Dbus is required by pacemaker and not installed as a dependency:\nhttp://logs.openstack.org/36/332836/7/check/gate-puppet-pacemaker-puppet-beaker-rspec-ubuntu-xenial/5e1ad11/console.html#_2016-06-23_16_03_00_952026\n\nAdd necessary support files for reno.\n\nAdjust the metadata.json.\n\nChange-Id: I22e207f758b94586ebf2333668c092fff3aaebac",
+        "cmtr": "Sofer Athlan-Guyot",
+        "date": "2016-06-24 18:07:24+02:00",
+        "files": ["Gemfile", "contain.pp", "new.pp", "params.pp", "setup.pp", "service.pp", "metadata.json", "feature_add_xenial_support-6ff98a4d9fd83e62.yaml", ".placeholder", "conf.py", "index.rst", "unreleased.rst", "setup.cfg", "setup.py", "nodepool-xenial.yml", "pacemaker_install_spec.rb", "pacemaker_contain_spec.rb", "spec_helper_acceptance.rb", "test-requirements.txt", "tox.ini"]
+      },
+      {
+        "hash": "907a4174114765cece959269144b9857295ce54d",
+        "msg": "Remove useless etc-pacemaker-authkey -> pcsd dependency\n\nThe pcsd service makes no use whatsoever of any authkey files.\nThose are only needed by pacemaker once the cluster is up to\nconfigure any pacemaker remote nodes.\n\nChange-Id: I4fc1bfc3dbf2ef9a2f1f266135b2a8dc07efe1ba\nCloses-Bug: #1630024",
+        "cmtr": "Michele Baldessari",
+        "date": "2016-10-03 23:44:05+02:00",
+        "files": ["corosync.pp"]
+      },
+      {
+        "hash": "145464e14bbdb369f1e02c29c9a746d583aac0d6",
+        "msg": "Add minimal location rule support to resource creation\n\nCurrently it is impossible to create a location constraint and a\nresource in a non racy way. For example it is not currently possible\nto do something like the following:\npacemaker::resource::ocf { 'galera-master': ... }\npacemaker::constraint::location_rule { 'location-galera':\n  resource           => 'galera-master',\n  expression         => 'galera-role eq true',\n  resource_discovery => 'exclusive',\n}\n\nThe reason the above does not work is that after the resource creation\nthe pacemaker is free to start the resource wherever it wants and this\ncan break certain deployments. There are two blessed ways to solve this\nvia pcs:\n1) pcs resource create galera-master ... --disabled\n   pcs constraint location rule ...\n   pcs resource enable galera-master\n2) pcs cluster cib > cib.xml\n   pcs -f cib.xml resource create galera-master ...\n   pcs -f cib.xml constraint location rule ...\n   pcs cluster cib-push cib.xml --config\n\nBoth approaches have been tried and the first one, with the addition of\na location_rule parameter to all resources seems to be the less\nintrusive one (does not break current users and requires little effort\nto use). The second approach was prototyped here:\nhttps://review.openstack.org/402219\n\nChange-Id: I8d78cc1b14f0e18e034b979a826bf3cdb0878bae",
+        "cmtr": "Michele Baldessari",
+        "date": "2016-12-03 17:13:40+01:00",
+        "files": ["default.rb", "pcmk_resource.rb", "filesystem.pp", "ip.pp", "lsb.pp", "ocf.pp", "route.pp", "service.pp", "systemd.pp"]
+      },
+      {
+        "hash": "b4e3b88ba9a428bc0d691f61e530670a29cdaa0c",
+        "msg": "Relax requires when creating resources on remote nodes\n\nIn the composable HA architecture we must be able to create\nproperties and resources from a pacemaker remote node (which\ndoes not have neither corosync nor pacemaker running).\nIn order to be able to do that we need to relax the requires\nand remove the \"Exec['wait-for-settle']\" which only exists\nin the corosync class, which does not exist on a pacemaker remote\nnode.\n\nThe onus is on the user to make sure that the cluster is functional\nbefore trying to create a resource from a pacemaker remote node.\nIn TripleO we do this by creating the resources only on step2.\n\nThe pacemaker_remote configuration for the remote node itself was\nnever really designed in to the current module, so tweaking the\nexisting corosync class to cater for remote nodes would mean rewriting\nmost of the class and is not worth it when we are actually trying\nto merge with the \"new\" puppet pacemaker module in the future.\n\nCurrently the pacemaker_remote node configuration happens in a tripleo\nprofile: I92953afcc7d536d387381f08164cae8b52f41605\n\nNote: Creating resources on a pacemaker remote node only works\nwith pcs-0.9.152 or later (CentOS/RHEL 7.3 and later)\n\nChange-Id: I5379b804757d23cae694943b54e7d9256f3ca669",
+        "cmtr": "Michele Baldessari",
+        "date": "2016-12-15 16:58:50+01:00",
+        "files": ["pcmk_is_remote.rb", "base.pp", "colocation.pp", "location.pp", "property.pp", "filesystem.pp", "ip.pp", "lsb.pp", "ocf.pp", "route.pp", "service.pp", "systemd.pp"]
+      },
+      {
+        "hash": "a945058ea4363978fcc4c6ba9a7b7e29c4a104d8",
+        "msg": "Move cluster properties implementation to ruby\n\nCurrently cluster properties are simply implemented with a few\npcs Exec calls. Reimplement this functionality in ruby so that\nwe can leverage the newly introduced common pcs() functions.\n\nThis move also makes the code a bit simpler as it is cleaner to\nwrite the code to deal with the following pcs bug:\nhttps://bugzilla.redhat.com/show_bug.cgi?id=1302010.\n\nChange-Id: I9cff31b903e9f2ff6d1a81da99cabea6a7c8b639",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-01-10 19:36:35+01:00",
+        "files": ["default.rb", "pcmk_property.rb", "property.pp"]
+      },
+      {
+        "hash": "99e21a5243455bd420ff1e7569989178831387f7",
+        "msg": "Add a constraint::order class\n\nIn TripleO for the haproxy/vip ordering constraints we are still using\nthe deprecated constraint::base class. While both the location and\ncolocation constraint classes are already implemented via ruby and\nleverage the common pcs() function, the constraint::base class does not.\nLet's add a constraint::order class that mimics the same approach as the\ncolocation/location classes. This way underneath they will also use\nthe backup_cib()/push_cib() methods automatically and we will avoid\npotential CIB push races.\n\nChange-Id: I7bdda74a9cba51043677c3242b5a2142483dc7d8",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-01-11 19:14:36+01:00",
+        "files": ["default.rb", "pcmk_constraint.rb", "order.pp"]
+      },
+      {
+        "hash": "5c7a0ce460fc6427eb25c04038b5ba7a829611a6",
+        "msg": "Add tries/try_sleep to the constraint classes\n\nLet's add tries/try_sleep retry logic to the constraint classes as well\njust like it exists for resources and properties.\n\nChange-Id: Iba1017c33b1cd4d56a3ee8824d851b38cfdbc2d3",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-01-11 19:14:58+01:00",
+        "files": ["default.rb", "pcmk_constraint.rb", "colocation.pp", "location.pp", "order.pp"]
+      },
+      {
+        "hash": "b01145b72372fd7f15296b60ddf4386405a298ac",
+        "msg": "Add support for non-standard ports to fence_ipmilan.\n\nWe can now pass a parameter to fence_ipmilan resources to set the target\nIP port to a non-default value. In particular, this makes it possible to\ntalk to multiple instances of vbmc.\n\nPartial-Bug: #1649695\n\nChange-Id: I341deba4afbfc0fd73253607d3d0d270b5480c6f",
+        "cmtr": "Chris Jones",
+        "date": "2017-01-17 10:00:07+00:00",
+        "files": ["fence_ipmilan.xml", "fence_ipmilan.pp"]
+      },
+      {
+        "hash": "40c5ce56121bccb3cc6f98567bf2b64af7019d74",
+        "msg": "Add a remote class for pacemaker-remote\n\nChange-Id: I0c01ecb7df1a0f9856fdc866b9d06acf0283fa4f",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-01-17 19:42:18+01:00",
+        "files": ["params.pp", "remote.pp"]
+      },
+      {
+        "hash": "37b7b437f1c4c92fbfcdd7fec6280185e7541424",
+        "msg": "Add support for fence_ironic fencing agent.\n\nWe can now generate Pacemaker stonith fencing that uses the fence_ironic\nfencing agent to control power for failed nodes in an HA deployment.\n\nPartial-Bug: #1649695\n\nChange-Id: I315f9bb78a1296f691dadaeb39fb0a48df1d5f06",
+        "cmtr": "Chris Jones",
+        "date": "2017-01-18 13:30:18+00:00",
+        "files": ["fence_ironic.xml", "variables.sh", "fence_ironic.pp"]
+      },
+      {
+        "hash": "d7f4f9a08ae6f685058e78075060ee03c5de7cf1",
+        "msg": "Add tries and try_sleep to ::pacemaker::stonith\n\nMost puppet pacemaker resources have the possibility to add\ntries + try_sleep in order to retry a certain operation.\nLet's add that to the stonith property as well.\n\nChange-Id: I20098c5d69cde356fe79f6d8dbdc03ae42ecb3ef",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-01-19 10:01:34+01:00",
+        "files": ["stonith.pp"]
+      },
+      {
+        "hash": "3d0222d2c90b3d07c4bf31e355347c2690773002",
+        "msg": "Add a pacemaker remote resource\n\nAdd a pacemaker::resource::remote define in order to be able to\ncreate pacemaker remotes. Leverage the existing common functions\nwhen adding it.\n\nChange-Id: Ic0488f4fc63e35b9aede60fae1e2cab34b1fbdd5",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-01-23 22:52:56+01:00",
+        "files": ["default.rb", "pcmk_resource.rb", "remote.pp"]
+      },
+      {
+        "hash": "076360732ac2b5cfb487fd24a0e4e4fb6260ed00",
+        "msg": "Fix potential cluster setup race\n\nIt seems currently there is a small window for a race opportunity\nwhen we set up the pacemaker cluster with puppet-pacemaker.\nThe operator will observe the following error:\n\nError: /Stage[main]/Pacemaker::Corosync/Exec[Start Cluster\ntripleo_cluster]/returns: change from notrun to 0 failed:\n/sbin/pcs cluster start --all returned 1 instead of one of 0\n\nThe following might happen:\nOn the bootstrap node (where setup_cluster is true) we call\nExec <|tag == 'pacemaker-auth'|> ->\nexec {\"Create Cluster ${cluster_name}\":\n  creates => '/etc/cluster/cluster.conf',\n  command => \"${::pacemaker::pcs_bin} cluster setup --name ${cluster_name} ${cluster_members_rrp_real} ${cluster_setup_extras_real}\",\n  unless => '/usr/bin/test -f /etc/corosync/corosync.conf',\n  require => Class['::pacemaker::install'],\n} -> exec {\"Start Cluster ${cluster_name}\":\n  unless => \"${::pacemaker::pcs_bin} status >/dev/null 2>&1\",\n  command => \"${::pacemaker::pcs_bin} cluster start --all\",\n  require => Exec[\"Create Cluster ${cluster_name}\"],\n}\n\nThe problem with the above is that \"pcs cluster setup\"\ninternally will call pcsd.pcsd_sync_certs(...) which will restart pcsd\nwithout waiting. So if we restart pcsd on all nodes and then\njump straift to \"pcs cluster start --all\" the pcs API call that\nstarts the cluster on the remote node might happen during the pcsd\nrestart and hence get a 400 BAD request:\nI, [2017-03-29T07:25:00.943344 #15581] INFO -- : CIB USER: hacluster, groups:\nShutting down (TERM)Shutting down (TERM)\n[2017-03-29 07:25:09] INFO going to shutdown ...\nI, [2017-03-29T07:25:09.901537 #15581] INFO -- : Return Value:\n::ffff:172.17.0.17 - - [29/Mar/2017:07:25:09 +0000] \"GET /remote/cluster_start HTTP/1.1\" 400 - 8.9617\n[2017-03-29 07:25:09] INFO WEBrick::HTTPServer#start done.\n\nWe try to address this by doing two things:\nA) We add a --wait switch to the cluster setup which should wait until\n   the restart is complete.\nB) We add a set of retries to the cluster start statement\n\nWhile it is likely that either one of these be enough to close this\nrace, given the elusiveness of the problem (in CI upstream we hit\nit twice in the last month), I prefer taking a more comprehensive\napproach at closing this window.\n\nAnother option would have been to remove the cluster start exec\nstatement and simply add --start to the cluster setup call. This\napproach seems to me like a smaller less invasive change. Since I'd like\nto backport this issue to older releases as well, I prefer to not\nchange the setup code too much at this stage.\n\nChange-Id: I7cdfcbced0031040e9f45ddba7389868bb3f59b2\nCloses-Bug: #1677312",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-04-03 10:49:42+02:00",
+        "files": ["corosync.pp"]
+      },
+      {
+        "hash": "0c2e23375cd27d43cdcb81c058a370874ff4d5cf",
+        "msg": "Add support for ipv6_addrlabel with IPaddr2 RA\n\nSo currently when we create an IPv6 VIP in puppet the\nservices running on the node where the VIP is, are susceptible\nto using the VIP as a source address in their communication.\nWhen the VIP relocates to another node, those TCP connections\nusing the VIP as a source will be hanging until a TCP timeout\nkicks in.\n\nThere are many ways to guide the kernel in a source address selection\nwith IPv6 (call \"ip -6 addr add <...> \" with the \"noprefixroute\", use\naddress labels, or simply set the deprecated option on the created\nip address). We are choosing address labels because it is already\nsupported in the resource-agents package and seems the recommended\nway of doing things.\n\nPartial-Bug: #1686357\n\nChange-Id: Ifd42683efae2cb29be3fcc1d5afdb62dad1bd82d\nCo-Authored-By: Damien Ciabrini <dciabrin@redhat.com>\nCo-Authored-By: John Eckersberg <jeckersb@redhat.com>",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-04-28 08:21:18+02:00",
+        "files": ["ip.pp"]
+      },
+      {
+        "hash": "90813886250711daca67f316b06418f4bde0f299",
+        "msg": "Fix a typo in ipv6 addrlabel\n\nIn Ifd42683efae2cb29be3fcc1d5afdb62dad1bd82d in my last revision I\nslipped in a typo. This needs to be fixed before we default to use addr\nlabels on ipv6.\n\nAs a reference the two parameters for addr labels are called:\n- lvs_ipv6_addrlabel (boolen)\n  https://github.com/ClusterLabs/resource-agents/blob/master/heartbeat/IPaddr2#L232\n- lvs_ipv6_addrlabel_value (integer)\n  https://github.com/ClusterLabs/resource-agents/blob/master/heartbeat/IPaddr2#L243\n\nChange-Id: I7fcf15a00aedbdcfb21db501ad46c69fb97ec30c",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-05-03 12:31:56+02:00",
+        "files": ["ip.pp"]
+      },
+      {
+        "hash": "5134f1fd654515c77547f47129459dd20bdeeb28",
+        "msg": "Fix up race when setting a property\n\nBack in January when we moved the property support implementation to\nruby the 'require' line got lost. This makes it so that there is a race\nwhere we set a property but the cluster might not be fully up and so we\nmight fail when dumping the CIB:\n\nMay  4 13:46:44 centos-7-2-node-osic-cloud1-s3500-8719947-570244\nos-collect-config:  Error: unable to get cib\nError: /Stage[main]/Pacemaker::Stonith/Pacemaker::Property[Disable\nSTONITH]/Pcmk_property[property--stonith-enabled]: Could not evaluate:\nbackup_cib: Running: /usr/sbin/pcs cluster cib\n/var/lib/pacemaker/cib/puppet-cib-backup20170504-29225-fetp7k failed\nwith code: 1 ->\n\nAm not entirely sure why I saw this only today in a failed CI job, but\nit is likely that being a race it won't show up all too often and likely\nonly when we force the stonith property to be false by default.\n\nChange-Id: Iaebc9b93182f35a4cf143599bd777a4ed5f2de17\nCloses-Bug: #1688322",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-05-04 20:29:11+02:00",
+        "files": ["property.pp"]
+      },
+      {
+        "hash": "7403757dc6a29916c3907612c34b8f7b2557c347",
+        "msg": "Add verify_on_create for remote resources\n\nAll resources have the ability to set verify_on_create so that\nit creates a resource and then waits for the resource to show up.\nLet's add this parameter to remote resources as well.\n\nChange-Id: I1db31dcc92b8695ab0522bba91df729b37f34e0f",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-05-08 08:12:25+02:00",
+        "files": ["remote.pp", "verify_on_create_remote-b4abeace7018480d.yaml"]
+      },
+      {
+        "hash": "aa42b5dc30c2007ba3d518675c6f20d7f36148e5",
+        "msg": "Add support for Pacemaker Remote to stonith drivers.\n\nPacemaker remote nodes don't have Corosync installed, nor can/should\nthey, so we no longer include its class when stonith devices are being\nconfigured on Pacemaker Remote nodes.\n\nChange-Id: Ifb4d19a6b9920b0e340555d6441878c7234eb197\nPartial-Bug: #1686115",
+        "cmtr": "Chris Jones",
+        "date": "2017-05-08 20:55:28+01:00",
+        "files": ["agent_generator.rb", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ipmilan.pp", "fence_ironic.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp", "fence_xvm.pp"]
+      },
+      {
+        "hash": "7d0093b0e1ba47f3f3c36b8bf25626f9fd927cdf",
+        "msg": "Initial bundle resource support\n\nThis change introduces support for Pacemaker::Resource::Bundle\nBundles in pacemaker[1] are special resources that manage containers\nand the processes running within.\n\nSo far we have tested deploying a full HA control plane with these\nresources:\n Docker container set: galera-bundle [192.168.24.1:8787/tripleoupstream/centos-binary-mariadb:latest]\n   galera-bundle-0      (ocf::heartbeat:galera):        Master overcloud-controller-0\n   galera-bundle-1      (ocf::heartbeat:galera):        Master overcloud-controller-1\n   galera-bundle-2      (ocf::heartbeat:galera):        Master overcloud-controller-2\n Docker container set: redis-bundle [192.168.24.1:8787/tripleoupstream/centos-binary-redis:latest]\n   redis-bundle-0       (ocf::heartbeat:redis): Master overcloud-controller-0\n   redis-bundle-1       (ocf::heartbeat:redis): Slave overcloud-controller-1\n   redis-bundle-2       (ocf::heartbeat:redis): Slave overcloud-controller-2\n ip-192.168.24.6        (ocf::heartbeat:IPaddr2):       Started overcloud-controller-0\n ip-10.0.0.13   (ocf::heartbeat:IPaddr2):       Started overcloud-controller-1\n ip-172.16.2.6  (ocf::heartbeat:IPaddr2):       Started overcloud-controller-2\n ip-172.16.2.5  (ocf::heartbeat:IPaddr2):       Started overcloud-controller-0\n ip-172.16.1.4  (ocf::heartbeat:IPaddr2):       Started overcloud-controller-1\n ip-172.16.3.7  (ocf::heartbeat:IPaddr2):       Started overcloud-controller-2\n Docker container set: haproxy-bundle [192.168.24.1:8787/tripleoupstream/centos-binary-haproxy:latest]\n   haproxy-bundle-docker-0      (ocf::heartbeat:docker):        Started overcloud-controller-0\n   haproxy-bundle-docker-1      (ocf::heartbeat:docker):        Started overcloud-controller-1\n   haproxy-bundle-docker-2      (ocf::heartbeat:docker):        Started overcloud-controller-2\n Docker container set: rabbitmq-bundle [192.168.24.1:8787/tripleoupstream/centos-binary-rabbitmq:latest]\n   rabbitmq-bundle-0    (ocf::heartbeat:rabbitmq-cluster):      Started overcloud-controller-0\n   rabbitmq-bundle-1    (ocf::heartbeat:rabbitmq-cluster):      Started overcloud-controller-1\n   rabbitmq-bundle-2    (ocf::heartbeat:rabbitmq-cluster):      Started overcloud-controller-2\n\n[1] http://wiki.clusterlabs.org/wiki/Bundle_Walk-Through\n\nChange-Id: I44fbd7f89ab22b72e8d3fc0a0e3fe54a9418a60f",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-05-23 16:22:23+02:00",
+        "files": ["default.rb", "default.rb", "pcmk_bundle.rb", "pcmk_resource.rb", "bundle.pp", "filesystem.pp", "ip.pp", "lsb.pp", "ocf.pp", "remote.pp", "route.pp", "service.pp", "systemd.pp"]
+      },
+      {
+        "hash": "de9d1996492a96bca29cb649dfc3353fb52e08f3",
+        "msg": "Add retries for pcs cluster setup\n\nIn bug #1677312 we encountered an error where pcs cluster start --all\nwould return 1, due to pcsd on one node being in the middle of a restart\n(due to ssl keys exchange).\n\nIt turns out this can also happen during the pcs cluster setup call, so\nlet's add the proper retries there as well. This has\nbeen spotted a couple of time in largish clusters.\n\nCloses-Bug: #1692923\n\nChange-Id: Ia5d820c97d5dfdaaa03aff2721612937e0efa2e6",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-05-23 17:13:55+02:00",
+        "files": ["corosync.pp"]
+      },
+      {
+        "hash": "790c37f6b5b9e776c13a6ecea38b4b96dab88d8c",
+        "msg": "Switch requires for wait-for-settle into resource collectors\n\nThis makes requiring that exec optional (only if it's in the resource\ncatalog), instead of needing that logic for the require and the\nvariable.\n\nAlso, wait-for-settle has an explicit dependency to start before any\npacemaker resource, property, constraint and bundle; so there is less\ncode repetition.\n\nChange-Id: I61f3393b88b65d29e2f2a5fdf6c2e2a112bfc9a1",
+        "cmtr": "Alex Schultz",
+        "date": "2017-08-03 15:21:32+00:00",
+        "files": ["base.pp", "colocation.pp", "location.pp", "order.pp", "corosync.pp", "property.pp", "bundle.pp", "filesystem.pp", "ip.pp", "lsb.pp", "ocf.pp", "remote.pp", "route.pp", "service.pp", "systemd.pp"]
+      },
+      {
+        "hash": "cb9682aed334a539fe8381e2e8ec785c80775ee5",
+        "msg": "Use ensure_resources to install pacemaker package\n\nAvoids a potential duplicate Package resource\nwhen both the install and remote modules are used.\n\nChange-Id: I9511c1830b967038721e03dcbb4401cc3059648a",
+        "cmtr": "Dan Prince",
+        "date": "2017-09-12 11:25:33-06:00",
+        "files": ["install.pp", "remote.pp"]
+      },
+      {
+        "hash": "d952513d4180705002dae9901db3af00cfb4f05a",
+        "msg": "Fix pacemaker remote 'Illegal relationship operand..' errors\n\nTrying to use a pacemaker remote manifest breaks like this:\n\nError: Evaluation Error: Illegal relationship operand, can not form a\nrelationship with an Undef Value. A Catalog type is required. at\n/etc/puppet/modules/pacemaker/manifests/remote.pp:31:6 on node\n\nThe reason is that the change introduced in\nI9511c1830b967038721e03dcbb4401cc3059648a broke the pacemaker remote\nfunctionality.\n\nLet's switch to resource collectors to fix these relationship\nissues so we still get the ordering right without the issue:\nDebug: /Stage[main]/Pacemaker::Remote/Package[pacemaker-remote]/before: subscribes to File[etc-pacemaker]\n\nCloses-Bug: #1718534\n\nChange-Id: I0b1a5821226491a453b816e3b09369dc4b60d31b",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-09-20 23:34:11+02:00",
+        "files": ["remote.pp"]
+      },
+      {
+        "hash": "1c56377c8ecfe65c24f5d7fba93a917254eca7e6",
+        "msg": "Switch the stonith_agent_generator to pcmk_stonith provider\n\nIn change I424302bbf8d0d5f233e3a7debc082be1c9a170bb we added the\npcmk_stonith provider to provide race-free stonith resource\ncreation. With this commit we switch the agent_generator\nto make use of this new provider and we update all stonith\nmanifests.\n\nCo-Authored-By: John Eckersberg <jeckersb@redhat.com>\n\nChange-Id: I8be5d5d1a9894b0e2915459b10ea2feed703ba8e\nCloses-Bug: #1717566",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-09-21 08:29:34+02:00",
+        "files": ["agent_generator.rb", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ipmilan.pp", "fence_ironic.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp", "pacemaker_stonith_fence_ipmilan_spec.rb"]
+      },
+      {
+        "hash": "1721dd71bb79e6c82334d7b05e0af0a12e554d0e",
+        "msg": "Fix up package relationship in generated stonith manifests\n\nIn last revision of I8be5d5d1a9894b0e2915459b10ea2feed703ba8e\nthere was a typo in the generator that made the relation ships\nuseless. While it does not break all too much in the tripleo case,\nthis should be fixed.\n\nChange-Id: I58ceeecba597f7455fae87773257aca993e4c8ac",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-09-21 20:51:20+02:00",
+        "files": ["agent_generator.rb", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ironic.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp"]
+      },
+      {
+        "hash": "de68119a1aa1c799dfef0a9c5fda027f58b5b838",
+        "msg": "Fix resource defaults class\n\nCurrently the resource defaults type has a few problems:\n1) Calls pcs directly and so will break in case of concurrent\n   CIB updates\n2) The delete method is broken because it will not expand the\n   name of the variable so nothing will be deleted\n\nMove to the common pcs() function which takes care of\n1) and also fix 2) as well. Also add the tries/try_sleep parameters\nto be passed to the common pcs() function. Let's also add a test\ncase to cover for this class.\n\nChange-Id: I1408c359ba9047f4295c9d820e055a8bef1891ee",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-09-23 15:51:02+02:00",
+        "files": ["pcs.rb", "pcmk_resource_default.rb", "resource_defaults.pp", "pacemaker_resource_defaults_spec.rb"]
+      },
+      {
+        "hash": "d0584c54754b765282023f57a67d4554c1b23258",
+        "msg": "Generate fence_ironic automatically\n\nWhen I315f9bb78a1296f691dadaeb39fb0a48df1d5f06 got merged the xml files\nfor fence_ironic were added but the actual manifest that was merged into\nmanifests/stonith/fence_ironic was manually generated.\n\nThat means that there are a bunch of parameters that do not work in the\ncurrent release (and probably never have?). For example:\n- fence_ironic takes 'password' as an option:\n  https://github.com/ClusterLabs/fence-agents/blob/master/fence/agents/ironic/fence_ironic.py#L53).\n  But in the manifest we have 'passwd':\n  https://github.com/openstack/puppet-pacemaker/blob/master/manifests/stonith/fence_ironic.pp#L85\n\nSince this one and a few other options could never really have worked,\nlet's just autogenerate the file from xml properly. The xml has the\nlast word on which parameters work in any case.\n\nAdditionally there never has been a released fence-agents-ironic\npackage, so the package relationship cannot have worked unless the user\ncreated a package himself. In order to fix that we allow a special\npackage name 'None' to be passed to the autogenerator which will skip\ngenerating the package dependencies.  In this case it is the user's duty\nto have the binary on the system.  We can change this back once a\nfence-agents-ironic package does get released.\n\nCloses-Bug: #1719389\n\nChange-Id: Ie9e61c44fd5dd186f521f98ef2fd637005b00ee9",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-09-27 09:29:21+02:00",
+        "files": ["agent_generator.rb", "variables.sh", "fence_ironic.pp"]
+      },
+      {
+        "hash": "a4aa655a3f2e07031becac7c6ac3a116ab79e607",
+        "msg": "Add meta attribute support to stonith manifests\n\nStonith devices can also take a 'meta' attributes that\ndescribes further characteristics of their behaviour.\nWe add a 'meta_attr' parameter that can be used to specify\nadditional meta parameters when invoking pcs.\n\nNote: fence_xvm was done by hand as it is not autogenerated.\n\nTested with the upcoming fence_compute manifest (autogenerated)\nand meta attributes are correctly set when meta_attr is not\nundef:\n$ pcs stonith show stonith-fence_compute-fence-nova |grep Meta\n  Meta Attrs: provides=unfencing\n\nChange-Id: I3648b358ca9799c2a430878ca5b17f570914a06d",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-09-27 18:46:10+02:00",
+        "files": ["agent_generator.rb", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ipmilan.pp", "fence_ironic.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp", "fence_xvm.pp", "pacemaker_stonith_fence_ipmilan_spec.rb"]
+      },
+      {
+        "hash": "782f4a1a5fd3b626099c0ad3a7184e1bc7620d1b",
+        "msg": "Add autogenerated fence-amt manifest\n\nAdd another autogenerated fence-amt manifest in order to\nto create stonith resources for AMT devices.\nSet the corresponding package to 'None' as fence-agents-amt does\nnot exist yet in CentOS.\n\nChange-Id: I5db9300f8f5857bc5762a6658ea981d3ef01238b",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-09-29 19:58:05+02:00",
+        "files": ["fence_amt.xml", "variables.sh", "fence_amt.pp"]
+      },
+      {
+        "hash": "abcbfca87b1a9eef5e740a1add871755c817ddf6",
+        "msg": "Add fence_compute stonith manifest\n\nThis is an automatically generated manifest for the fence_compute\nagent. It is contained in the fence-agents-compute package in centos.\n\nTested and works correctly:\n$ sudo pcs stonith show stonith-fence_compute-fence-nova\n Resource: stonith-fence_compute-fence-nova (class=stonith type=fence_compute)\n  Attributes: auth_url=http://10.0.0.5:5000/v2.0 domain=localdomain login=admin passwd=gxcM9pm8qK8vyKqFJp3tuB4cr record_only=1 tenant_name=admin\n  Meta Attrs: provides=unfencing\n  Operations: monitor interval=60s (stonith-fence_compute-fence-nova-monitor-interval-60s)\n\nChange-Id: Ib36709225af3b6c0f2866c6c7a1afefc1e91b176",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-10-06 08:40:52+02:00",
+        "files": ["fence_compute.xml", "variables.sh", "fence_compute.pp"]
+      },
+      {
+        "hash": "4131dcee8dbd5f763a8a890a8577da411c6efbd3",
+        "msg": "Allow more than one order rule between two resources.\n\nPreviously the actions were not taken account of in the name of the\npcmk_constraint name, which prevented defining the equivilant of:\n\npcs -f pgsql_cfg constraint order promote msPostgresql then start \\\nmaster-group symmetrical=false score=INFINITY\n\npcs -f pgsql_cfg constraint order demote msPostgresql then stop \\\nmaster-group symmetrical=false score=0\n\nChange-Id: Ie543e9855e141c2c38b55571d3a3639fd1496bc3\nCloses-Bug: #1659617",
+        "cmtr": "Dan Williams",
+        "date": "2017-10-06 18:41:52+01:00",
+        "files": ["order.pp"]
+      },
+      {
+        "hash": "ebef43cadf09f622637b4286a1cb8771b58bca21",
+        "msg": "Implement stonith levels resource\n\nThis resource implements a stonith levels definition.\nThis is used so that we can define a specific sequence of stonith\noperations on a node.\n\nMore documentation about stonith levels can be found here:\nhttps://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/high_availability_add-on_reference/#s1-fencelevels-HAAR\n\nChange-Id: I9cc5064e776a3771e30d853d9453026d2731c98d",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-10-12 11:01:30+02:00",
+        "files": ["default.rb", "pcmk_stonith_level.rb", "level.pp", "pacemaker_stonith_level_spec.rb"]
+      },
+      {
+        "hash": "5d98d82967e138d8b2bf8b7cb5205377b9d00fa5",
+        "msg": "Revert \"Allow more than one order rule between two resources.\"\n\nThis reverts commit 4131dcee8dbd5f763a8a890a8577da411c6efbd3.\n\nSee the following bug for a more detailed explanation:\nCloses-Bug: #1723729\n\nChange-Id: I607927c2ee5c29b605e18e9294b0f91d37337680",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-10-15 11:15:26+00:00",
+        "files": ["order.pp"]
+      },
+      {
+        "hash": "9f899c5686b243586d04ed01327cc05bb6704d99",
+        "msg": "Allow multiple stonith declarations in one manifest\n\nCreating two stonith resources with the same fence agent within\nthe same manifest fails like this:\n\nEvaluation Error: Error while evaluating a Resource Statement,\nEvaluation Error: Error while evaluating a Resource Statement, Duplicate\ndeclaration: Package[fence-agents-amt] is already declared in file\n/etc/puppet/modules/pacemaker/manifests/stonith/fence_amt.pp:293; cannot\nredeclare at\n/etc/puppet/modules/pacemaker/manifests/stonith/fence_amt.pp:293 at\n/etc/puppet/modules/pacemaker/manifests/stonith/fence_amt.pp:293:5 at\n/root/pacemaker-tests/test.pp:28 on node nuc3.int.rhx\n\nLet's switch to ensure_resource for the package installation statements.\nThis way we can create multiple statements:\npacemaker::stonith::fence_amt { 'stonith-fence-nuc1':\n  ipaddr         => '192.0.3.99',\n  passwd         => 'foobar!',\n  pcmk_host_list => 'nuc1',\n}\npacemaker::stonith::fence_amt { 'stonith-fence-nuc2':\n  ipaddr         => '192.0.2.100',\n  passwd         => 'foobar!',\n  pcmk_host_list => 'nuc2',\n}\npacemaker::stonith::fence_amt { 'stonith-fence-nuc3':\n  ipaddr         => '192.0.2.101',\n  passwd         => 'foobar!',\n  pcmk_host_list => 'nuc3',\n}\n\nAnd we correctly get the stonith devices configured:\n\n stonith-fence_amt-stonith-fence-nuc1 (stonith:fence_amt): Started nuc2\n stonith-fence_amt-stonith-fence-nuc2 (stonith:fence_amt): Started nuc1\n stonith-fence_amt-stonith-fence-nuc3 (stonith:fence_amt): Started nuc1\n\nChange-Id: I1cf5337bfcbe85b3ff66f5102fb4120d19884e41\nCloses-Bug: #1717660\nCloses-Bug: #1553227",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-10-25 08:35:16+02:00",
+        "files": ["agent_generator.rb", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_compute.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ipmilan.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp", "fence_xvm.pp"]
+      },
+      {
+        "hash": "9ca9f9979e96f1396d70df5809a99c435b932ea2",
+        "msg": "Use resource collectors for ordering in stonith manifests\n\nIn change I61f3393b88b65d29e2f2a5fdf6c2e2a112bfc9a1 we switched\nto using resource collectors in order to require the wait-for-settle\nExec.\n\nLet's make the same change for stonith resources as well, so we\ncan avoid the $pcmk_require workaround.\n\nChange-Id: I99c719370bf8a1a8864b7472a3276ecd227df93f",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-10-25 08:35:16+02:00",
+        "files": ["agent_generator.rb", "fence_amt.pp", "fence_apc.pp", "fence_apc_snmp.pp", "fence_bladecenter.pp", "fence_brocade.pp", "fence_cisco_mds.pp", "fence_cisco_ucs.pp", "fence_compute.pp", "fence_drac5.pp", "fence_eaton_snmp.pp", "fence_eps.pp", "fence_hpblade.pp", "fence_ibmblade.pp", "fence_idrac.pp", "fence_ifmib.pp", "fence_ilo.pp", "fence_ilo2.pp", "fence_ilo3.pp", "fence_ilo4.pp", "fence_ilo_mp.pp", "fence_imm.pp", "fence_intelmodular.pp", "fence_ipdu.pp", "fence_ipmilan.pp", "fence_ironic.pp", "fence_kdump.pp", "fence_rhevm.pp", "fence_rsb.pp", "fence_scsi.pp", "fence_virt.pp", "fence_vmware_soap.pp", "fence_wti.pp", "fence_xvm.pp"]
+      },
+      {
+        "hash": "3f79e3fd201d8ea85fb8eaa0e0b64a52cd15d7c7",
+        "msg": "Fix up fence_compute with latest keystone v3 changes\n\nVia https://github.com/ClusterLabs/fence-agents/commit/549fee1c18cfb31881c9126ae46a4bd9b20b4716\nthe fence_compute RA gained the possibility to use keystone V3\nauthentication and versionless endpoint support.\nRegenerate the manifest automatically given the new parameters\n\nTested this and am able to correctly configure fence_compute for\nkeystone v3:\n\n[root@overcloud-controller-0 ~]# pcs stonith show stonith-fence_compute-fence-nova\n Resource: stonith-fence_compute-fence-nova (class=stonith type=fence_compute)\n  Attributes: auth_url=http://10.0.0.4:5000/ domain=localdomain login=admin passwd=7mcDcuGDaBWcwNAbpwhjAZ4MB project_domain=Default record_only=1 tenant_name=admin user_domain=Default\n  Meta Attrs: provides=unfencing\n  Operations: monitor interval=60s (stonith-fence_compute-fence-nova-monitor-interval-60s)\n\nCo-Authored-By: Damien Ciabrini <dciabrin@redhat.com>\n\nChange-Id: I40087dc602b92e06825c80d0c13c6036fdb77a52",
+        "cmtr": "Michele Baldessari",
+        "date": "2017-11-29 15:29:48+01:00",
+        "files": ["fence_compute.xml", "fence_compute.pp"]
+      },
+      {
+        "hash": "256d592a271c0ad1e271a1db60ba6ee52b947b63",
+        "msg": "Add a pcsd_debug option\n\nAdd a new pcsd_debug option defaulting to false, in order to be able\nto debug pcsd start failures in certain environments.\n\nChange-Id: I2dbd005d685d9d02539c8656248306a1ab5d5538",
+        "cmtr": "Michele Baldessari",
+        "date": "2018-02-21 22:26:46+01:00",
+        "files": ["corosync.pp", "params.pp"]
+      },
+      {
+        "hash": "bde4061048651bbfeff81660153666efeac57b70",
+        "msg": "Allow meta_params and op_params on resource::ip\n\nThis should give us support for specifying custom timeouts on VIPs.\nTested with:\npacemaker::resource::ip { 'my_ip':\n  ip_address   => \"172.16.11.97\",\n  cidr_netmask => '32',\n  op_params    => 'start timeout=200s stop timeout=200s monitor timeout=5s',\n  tries        => 3,\n}\n\nObtained:\n[root@foobar-0 ~]# pcs resource show ip-172.16.11.97\n Resource: ip-172.16.11.97 (class=ocf provider=heartbeat type=IPaddr2)\n  Attributes: cidr_netmask=32 ip=172.16.11.97\n  Operations: monitor interval=60s timeout=5s (ip-172.16.11.97-monitor-interval-60s)\n              start interval=0s timeout=200s (ip-172.16.11.97-start-interval-0s)\n              stop interval=0s timeout=200s (ip-172.16.11.97-stop-interval-0s)\n\nRelated-Bug: #1719540\n\nChange-Id: Iadf0cd3805f72141563707f43130945c9d362f5c",
+        "cmtr": "Michele Baldessari",
+        "date": "2018-03-20 17:49:02+01:00",
+        "files": ["ip.pp"]
+      },
+      {
+        "hash": "8df2e01421c74076cc27714a3aedaa85735e1393",
+        "msg": "Add a deep_compare option in bundles and resources\n\nA new 'deep_compare' parameter gets added to resources and bundles\n (defaulting to false). The rationale is the following:\n\nBy default pacemaker does not update resources and will keep doing so.\nThis happens for a number of mostly historical reasons (old non HA-NG\nOSP releases had way too many relationships between pacemaker resources\nand puppet-triggered restart would cause havoc on the overcloud, also\nlack of the code for doing this in puppet-pacemaker was a factor).\n\nWhen set to true additional code comparison logic will be triggered and\nwe will actually update pacemaker resources. We do so by modifying an\noffline CIB with the manifests resources and then running crm_simulate\non it in order to determine if pacemaker would trigger a restart of the\nresource if the CIB was to be pushed for real on to the cluster. We\ncurrently cannot use crm_diff due to a bug where it would trigger too\nmany false positives.  Using crm_simulate has one small limitation.\nNamely, changes in resource operation timeouts normally do not trigger a\nresource restart and hence they won't update a resource. Also note that\nthis is currently only supported for resources and bundles (not\nconstraints nor stonith resources).\n\nSome thought has been put into whether we should be having the\n'deep_compare' parameter a global pacemaker::corosync one or a\nper-resource parameter. I chose the latter for the following reasons:\n- It might be useful to let the operator decide for which resources the\n  deep comparison is enabled (think tripleo upgrades where we want to\n  make sure only certain resources are upgraded)\n- It makes it much clearer which resources support this deeper\n  comparison feature.\n\nChange-Id: I11b5f9097694b88431f21e1e806bc1823386528f",
+        "cmtr": "Michele Baldessari",
+        "date": "2018-04-11 07:53:12+02:00",
+        "files": ["pcmk_bundle.rb", "pcmk_resource.rb", "bundle.pp", "filesystem.pp", "ip.pp", "lsb.pp", "ocf.pp", "remote.pp", "route.pp", "service.pp", "systemd.pp", "update-resources-ae2ef4f9e75e8699.yaml"]
+      },
+      {
+        "hash": "99b7eb09b7b679e680c07c7f8116bf182f521816",
+        "msg": "Fix missing pass-through of cluster_auth_enabled parameter\n\npacemaker::new accepts parameter cluster_auth_enabled, but did\nnot pass this to pacemaker::new::setup. Therefore it was not\npossible to enable cluster_auth with this parameter, since it defaults\nto false in pacemaker::new::params.\n\nChange-Id: I8d0cece9dfec82ed58035c876895881a4b918c82",
+        "cmtr": "Christian Schulze-Wiehenbrauk",
+        "date": "2018-04-18 14:36:41+02:00",
+        "files": ["new.pp"]
+      },
+      {
+        "hash": "8695d6f0f41afac0cb4188f65ffb56de3438734a",
+        "msg": "Fix a small race window when setting up pcmk remotes\n\nRight now we have the following constraint around the authkey used\nto create remotes:\nFile['etc-pacemaker-authkey'] -> Exec[\"Create Cluster ${cluster_name}\"]\n\nWhile this is okay in general, we have observed a race from time to time\n(but only when using 1 controller). The reason is the following:\n1) We call 'pcs cluster auth command':\nMay 24 05:39:43 overcloud-controller-0 puppet-user[18207]: (/Stage[main]/Pacemaker::Corosync/Exec[reauthenticate-across-all-nodes]) Triggered 'refresh' from 2 events\n\n2) We generate the authkey\nMay 24 05:39:43 overcloud-controller-0 puppet-user[18207]: (/Stage[main]/Pacemaker::Corosync/File[etc-pacemaker-authkey]/ensure) defined content as '{md5}4a0c7c34ecef8b47616dc8ff675859cf'\n\n3) We call pcs cluster setup\n\nSo either 1), 3) or the pcsd service restart somehow will forcefully trigger\na /remote/cluster_stop API call, which then will trigger a removal of all existing cluster configuration:\n::ffff:172.17.1.22 - - [24/May/2018:09:39:43 +0000] \"POST /remote/auth HTTP/1.1\" 200 36 0.0354\novercloud-controller-0.redhat.local - - [24/May/2018:09:39:43 UTC] \"POST /remote/auth HTTP/1.1\" 200 36 - -> /remote/auth\n::ffff:172.17.1.22 - - [24/May/2018:09:39:45 +0000] \"POST /remote/cluster_stop HTTP/1.1\" 200 32 0.2376\n::ffff:172.17.1.22 - - [24/May/2018:09:39:45 +0000] \"POST /remote/cluster_stop HTTP/1.1\" 200 32 0.2377\novercloud-controller-0.redhat.local - - [24/May/2018:09:39:45 UTC] \"POST /remote/cluster_stop HTTP/1.1\" 200 32\n- -> /remote/cluster_stop\nI, [2018-05-24T09:40:39.075982 #19327]  INFO -- : Running: /usr/sbin/corosync-cmapctl totem.cluster_name\nI, [2018-05-24T09:40:39.076036 #19327]  INFO -- : CIB USER: hacluster, groups:\nD, [2018-05-24T09:40:39.079019 #19327] DEBUG -- : []\nD, [2018-05-24T09:40:39.079073 #19327] DEBUG -- : [\"Failed to initialize the cmap API. Error CS_ERR_LIBRARY\\n\"]\nD, [2018-05-24T09:40:39.079122 #19327] DEBUG -- : Duration: 0.002975586s\nI, [2018-05-24T09:40:39.079165 #19327]  INFO -- : Return Value: 1\nW, [2018-05-24T09:40:39.079248 #19327]  WARN -- : Cannot read config 'corosync.conf' from '/etc/corosync/corosync.conf': No such file\nW, [2018-05-24T09:40:39.079293 #19327]  WARN -- : Cannot read config 'corosync.conf' from '/etc/corosync/corosync.conf': No such file or directory - /etc/corosync/corosync.conf\nD, [2018-05-24T09:40:39.079575 #19327] DEBUG -- : permission check action=full username=hacluster groups=\nD, [2018-05-24T09:40:39.079598 #19327] DEBUG -- : permission granted for superuser\nI, [2018-05-24T09:40:39.079629 #19327]  INFO -- : Running: /usr/sbin/pcs cluster destroy\nI, [2018-05-24T09:40:39.079644 #19327]  INFO -- : CIB USER: hacluster, groups:\nD, [2018-05-24T09:40:39.874478 #19327] DEBUG -- : [\"Shutting down pacemaker/corosync services...\\n\", \"Killing any remaining services...\\n\", \"Removing all cluster configuration files...\\n\"]\n\nThe above removal of all cluster configuration is problematic because it\nwill also remove the puppet generated /etc/pacemaker/authkey and the\ncluster setup command will generate a new random authkey for us. But\nsince this key is now different to what we have on the pcmk remote nodes\nthe cluster will fail with:\n\nMay 19 07:22:01 [15997] overcloud-novacomputeiha-0 pacemaker_remoted:    error: lrmd_remote_client_msg: Remote lrmd tls handshake failed (-24)\n(-24 is the error for decryption failed, aka differing keys).\n\nTested this with 25 successful runs in a row (usually it would fail\nonce every 5/6 deploys). We now simply make sure that the\nauthkey is generated before the cluster is started but after the cluster\nsetup.\n\nCloses-Bug: #1773754\n\nChange-Id: I74994a7e52a7470ead7862dd9083074f807f7675",
+        "cmtr": "Michele Baldessari",
+        "date": "2018-06-11 16:59:05+02:00",
+        "files": ["corosync.pp"]
+      },
+      {
+        "hash": "d465e25f4bb3038edd04e7a6375572989cd028a5",
+        "msg": "Use crm_diff for pcmk resource deep_compare\n\nDetect if crm_diff is fixed and if it is favour the crm_diff resource\ncomparison. Also introduce a 'update_settle_secs' parameter\nfor resources that can be used to override the amount of time (s)\nto wait for the cluster to settle after updating a resource.\n\nTested this as follows:\n1) Normal deploys work fine (the code never gets triggered anyway)\n2) Redeploy with no changes -> pcmk resources are untouched\n   (the code does not get triggered anyway)\n3) Redeploy by adding the following hiera keys:\n   ExtraConfig:\n     pacemaker::resource::bundle::deep_compare: true\n     pacemaker::resource::ip::deep_compare: true\n     pacemaker::resource::ocf::deep_compare: true\n   -> pcmk resources are untouched\n4) Redeploy with keys at 3) but with changes that trigger a restart\n   -> pcmk resources are restarted and cluster waits for the\n      restart before continuing\n\nChange-Id: I62d5662327333e17e1c32a029695b3d3a904ca10",
+        "cmtr": "Michele Baldessari",
+        "date": "2018-07-10 18:24:18+02:00",
+        "files": ["default.rb", "pcmk_common.rb", "default.rb", "pcmk_bundle.rb", "pcmk_resource.rb", "bundle.pp", "filesystem.pp", "ip.pp", "lsb.pp", "ocf.pp", "remote.pp", "route.pp", "service.pp", "systemd.pp", "pcmk_common_spec.rb"]
+      },
+      {
+        "hash": "03391e07ea608aedb0716d392c169d13273694e1",
+        "msg": "Initial support for adding cluster nodes to an existing cluster\n\nWe add a function which will detect if rerunning the manifest would\nmean adding any cluster nodes. For those nodes we trigger the cluster\nnode addition via:\npcs cluster auth newnode\npcs cluster node add newnode\npcs cluster start newnode\n\nInitial run with one node in cluster_members:\nOnline: [ foobar-0 ]\n\nFull list of resources:\n\n stonith-fence_amt-stonith-fence-1      (stonith:fence_amt):    Stopped\n Docker container: test_bundle [docker.io/sdelrio/docker-minimal-nginx]\n   test_bundle-docker-0 (ocf::heartbeat:docker):        Started foobar-0\n ip-172.16.11.97        (ocf::heartbeat:IPaddr2):       Started foobar-0\n Clone Set: rabbitmq-clone [rabbitmq]\n     Started: [ foobar-0 ]\n\nRerun with additional two additional nodes and by setting ::deep_compare\nhiera keys to true so that resources get updated:\nOnline: [ foobar-0 foobar-1 foobar-2 ]\n\nFull list of resources:\n\n stonith-fence_amt-stonith-fence-1      (stonith:fence_amt):    Started foobar-1\n ip-172.16.11.97        (ocf::heartbeat:IPaddr2):       Started foobar-2\n Clone Set: rabbitmq-clone [rabbitmq]\n     Started: [ foobar-0 foobar-1 foobar-2 ]\n stonith-fence_amt-stonith-fence-2      (stonith:fence_amt):    Started foobar-0\n stonith-fence_amt-stonith-fence-3      (stonith:fence_amt):    Started foobar-1\n Docker container set: test_bundle [docker.io/sdelrio/docker-minimal-nginx]\n   test_bundle-docker-0 (ocf::heartbeat:docker):        Started foobar-0\n   test_bundle-docker-1 (ocf::heartbeat:docker):        Started foobar-2\n   test_bundle-docker-2 (ocf::heartbeat:docker):        Started foobar-1\n\nRan about 50 scaleup tests and this node addition code has worked all\nthe time. We have intentionally not yet added removal support as that\nneeds to have a use-case and a lot of testing.\n\nFor this scaleup to work properly we need a fix for the firewall\nordering issue, otherwise this could be racy when stonith is configured.\n(i.e. we'll need I01e681a6305e2708bf364781a2032265b146d065 if this\nreview ever gets backported).\n\nChange-Id: I80a125ac41bbe2c94cc122a2b11de03a7f29a8ea",
+        "cmtr": "Michele Baldessari",
+        "date": "2018-07-13 14:09:28+02:00",
+        "files": ["pcmk_nodes_added.rb", "corosync.pp", "pcmk_nodes_added_spec.rb"]
+      },
+      {
+        "hash": "475f65f5ac7ba380197f80eeb563e11f3620464f",
+        "msg": "Revert \"Initial support for adding cluster nodes to an existing cluster\"\n\nThis reverts commit 03391e07ea608aedb0716d392c169d13273694e1.\n\nThis has broken puppet-tripleo unit tests as we appear to be\nexecuting crm calls.\n\nhttp://logs.openstack.org/58/583658/3/check/puppet-openstack-unit-4.8-centos-7/58d8a84/job-output.txt.gz#_2018-07-23_18_25_32_550205\n\nCloses-Bug: #1783199\nChange-Id: Iaf21af2000ce6f9376a50aea6776d7263f530357",
+        "cmtr": "Alex Schultz",
+        "date": "2018-07-23 20:06:06+00:00",
+        "files": ["pcmk_nodes_added.rb", "corosync.pp", "pcmk_nodes_added_spec.rb"]
+      },
+      {
+        "hash": "cd20731d969f482415f945ba11d72381d78cac06",
+        "msg": "Initial support for adding cluster nodes to an existing cluster\n\nWe add a function which will detect if rerunning the manifest would\nmean adding any cluster nodes. For those nodes we trigger the cluster\nnode addition via:\npcs cluster auth newnode\npcs cluster node add newnode\npcs cluster start newnode\n\nInitial run with one node in cluster_members:\nOnline: [ foobar-0 ]\n\nFull list of resources:\n\n stonith-fence_amt-stonith-fence-1      (stonith:fence_amt):    Stopped\n Docker container: test_bundle [docker.io/sdelrio/docker-minimal-nginx]\n   test_bundle-docker-0 (ocf::heartbeat:docker):        Started foobar-0\n ip-172.16.11.97        (ocf::heartbeat:IPaddr2):       Started foobar-0\n Clone Set: rabbitmq-clone [rabbitmq]\n     Started: [ foobar-0 ]\n\nRerun with additional two additional nodes and by setting ::deep_compare\nhiera keys to true so that resources get updated:\nOnline: [ foobar-0 foobar-1 foobar-2 ]\n\nFull list of resources:\n\n stonith-fence_amt-stonith-fence-1      (stonith:fence_amt):    Started foobar-1\n ip-172.16.11.97        (ocf::heartbeat:IPaddr2):       Started foobar-2\n Clone Set: rabbitmq-clone [rabbitmq]\n     Started: [ foobar-0 foobar-1 foobar-2 ]\n stonith-fence_amt-stonith-fence-2      (stonith:fence_amt):    Started foobar-0\n stonith-fence_amt-stonith-fence-3      (stonith:fence_amt):    Started foobar-1\n Docker container set: test_bundle [docker.io/sdelrio/docker-minimal-nginx]\n   test_bundle-docker-0 (ocf::heartbeat:docker):        Started foobar-0\n   test_bundle-docker-1 (ocf::heartbeat:docker):        Started foobar-2\n   test_bundle-docker-2 (ocf::heartbeat:docker):        Started foobar-1\n\nRan about 50 scaleup tests and this node addition code has worked all\nthe time. We have intentionally not yet added removal support as that\nneeds to have a use-case and a lot of testing.\n\nFor this scaleup to work properly we need a fix for the firewall\nordering issue, otherwise this could be racy when stonith is configured.\n(i.e. we'll need I01e681a6305e2708bf364781a2032265b146d065 if this\nreview ever gets backported).\n\nChange-Id: Iac31035da98bd68a5481d97ee3765a99563db49f",
+        "cmtr": "Alex Schultz",
+        "date": "2018-08-03 13:09:12+00:00",
+        "files": ["pcmk_nodes_added.rb", "corosync.pp", "pcmk_nodes_added_spec.rb"]
+      },
+      {
+        "hash": "e400b7b82a54c36ec306a71e8db0fddbcc06788f",
+        "msg": "Abstract container backend\n\nIn the future we want to be able to create bundles that can make\nuse of different container backends. We leave the current default\nset to 'docker' but we allow other types.\nTested with the 'podman' backend after applying:\nhttps://github.com/ClusterLabs/pacemaker/pull/1564\nhttps://github.com/ClusterLabs/pcs/pull/181\nhttps://github.com/ClusterLabs/resource-agents/pull/1193\n\nChange-Id: Ia4a7b58d14d80e85d51e98acec1aad2ba90b69de",
+        "cmtr": "Michele Baldessari",
+        "date": "2018-08-22 08:50:07+02:00",
+        "files": ["default.rb", "pcmk_bundle.rb", "bundle.pp"]
+      },
+      {
+        "hash": "1cc8417a20873eb1a13101eae6c9f4bbe9847744",
+        "msg": "Update overriden to overridden\n\nfix a typo\n\nChange-Id: I95d8c6fe7d5f9ae4ddfca59c5adabb9e2570863b",
+        "cmtr": "caoyuan",
+        "date": "2018-09-18 00:24:43+00:00",
+        "files": ["wrapper.pp"]
+      },
+      {
+        "hash": "4d5799c7cec796b52a558ce89b099b5f44558c63",
+        "msg": "Fix typos in doc\n\nChange-Id: I05450084fa2b1e9720e74858241ae1518e9aeee7",
+        "cmtr": "melissaml",
+        "date": "2018-09-23 01:41:17+08:00",
+        "files": ["wrapper.pp"]
+      }]
+    }
