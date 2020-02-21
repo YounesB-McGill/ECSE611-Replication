@@ -118,10 +118,7 @@ def mine_repos(repos: List[str]):
             f.write(f'    {{\n      "url": "{repo}",\n      "commits": [')
 
             depth = 0
-            for commit in RepositoryMining(path_to_repo=repo).traverse_commits():
-                if commit_is_too_recent(commit):
-                    break
-
+            for commit in RepositoryMining(path_to_repo=repo, to=DATE_LIMIT).traverse_commits():
                 if commit_includes_pp_file(commit):
                     f.write(make_commit_json(commit))
 
@@ -136,10 +133,6 @@ def mine_repos(repos: List[str]):
             f.write("]\n    }\n")
 
         print(f"Processed {depth} commits in the {repo} repo.")
-
-
-def commit_is_too_recent(commit: Commit) -> bool:
-    return commit.committer_date > DATE_LIMIT
 
 
 def commit_includes_pp_file(commit: Commit) -> bool:
