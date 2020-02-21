@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import datetime
+import json
 import requests
 import os
 
@@ -129,6 +130,8 @@ def mine_repos(repos: List[str]):
         for commit in RepositoryMining(path_to_repo=repo, to=DATE_LIMIT).traverse_commits():
             if commit_includes_pp_file(commit):
                 output_json += make_commit_json(commit)
+                pp_files.update(get_modified_pp_files(commit))
+                pp_committers.add(get_committer_name(commit))
                 num_pp_commits += 1
 
             num_tot_commits += 1
@@ -165,12 +168,26 @@ def make_modified_files_list(commit: Commit) -> str:
     return result
 
 
+def get_modified_pp_files(commit: Commit) -> List[str]:
+    result = []
+    
+    for modification in commit.modifications:
+        if modification.filename[-3:] == ".pp":
+            result.append(modification.filename)
+    
+    return result
+
+
+def get_committer_name(commit: Commit) -> str:
+    return commit.committer.name.replace('"', "")
+
+
 def make_output_json_header(repo_url: str, pp_files: Iterable[str], pp_committers: Iterable[str],
                             num_pp_commits: int, num_tot_commits: int) -> str:
     return f'''    {{
       "url": "{repo_url}",
-      "pp_files": {list(pp_files)},
-      "pp_cmtrs": {list(pp_committers)},
+      "pp_files": {json.dumps(list(pp_files))},
+      "pp_cmtrs": {json.dumps(list(pp_committers))},
       "num_pp_commits": {num_pp_commits},
       "num_tot_commits": {num_tot_commits},
       "commits": ['''
@@ -179,11 +196,10 @@ def make_output_json_header(repo_url: str, pp_files: Iterable[str], pp_committer
 def make_commit_json(commit: Commit) -> str:
     msg = commit.msg.replace("\\", "\\\\").replace("\n", "\\n").replace("\r", "") \
                     .replace("\t", " ").replace('"', '\\\"')
-    committer_name = commit.committer.name.replace('"', "")
     return f"""{{
         "hash": "{commit.hash}",
         "msg": "{msg}",
-        "cmtr": "{committer_name}",
+        "cmtr": "{get_committer_name(commit)}",
         "date": "{commit.committer_date}",
         "files": {make_modified_files_list(commit)}
       }},\n      """

@@ -1,0 +1,119 @@
+    {
+      "url": "https://github.com/Mirantis/puppetlabs-horizon",
+      "pp_files": ["params.pp", "init.pp", "site.pp"],
+      "pp_cmtrs": ["root", "Branan Purvine-Riley", "Robert Starmer", "Derek Higgins", "Sebastien Badia", "Eugene Kirpichov", "Dan Bode", "Fran\u00e7ois Charlier"],
+      "num_pp_commits": 16,
+      "num_tot_commits": 29,
+      "commits": [{
+        "hash": "c79dbe794ec276cabac2cecbd78e5152951ba098",
+        "msg": "initial checkin\n\ncontains a basic class for configuring horizon\non precise.",
+        "cmtr": "Dan Bode",
+        "date": "2012-04-10 20:22:41-07:00",
+        "files": ["init.pp", "local_settings.py.erb"]
+      },
+      {
+        "hash": "342faab69a73ee18e2f30958262dcf5192893182",
+        "msg": "Remove wsgi dependency\n\nIt should be resolved by the openstack-dashbaord\npackage",
+        "cmtr": "Dan Bode",
+        "date": "2012-04-11 19:31:26-07:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "d1ffe8defaa4fd9f55df56a7bac8b5b260111460",
+        "msg": "Adding name of the httpd service as a param",
+        "cmtr": "Derek Higgins",
+        "date": "2012-04-18 10:04:37+01:00",
+        "files": ["init.pp", "params.pp"]
+      },
+      {
+        "hash": "75211935e5f9ef2a3f975e63eea1e8bf0a790b8e",
+        "msg": "Params should have been imported, it was only working in tests by accident",
+        "cmtr": "root",
+        "date": "2012-04-20 22:26:27+01:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "adcfda7235095cc8cea2971fbf86d6f7ae3d472c",
+        "msg": "For debian apache2 is not an dependence of openstack-dashboard",
+        "cmtr": "Sebastien Badia",
+        "date": "2012-06-12 01:30:09+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "5dc486cb65ceb9baa742d3d6ce8b7337141af686",
+        "msg": "added enhancements to the template to support swift and quantum, and added tags and templates for app, compute, and storage monitoring callouts",
+        "cmtr": "Robert Starmer",
+        "date": "2012-06-12 05:36:32+00:00",
+        "files": ["init.pp", "local_settings.py.erb"]
+      },
+      {
+        "hash": "816258e20e6629a8c2055daf4dfec685ae7e88d8",
+        "msg": "Fixed comments on pull.",
+        "cmtr": "Robert Starmer",
+        "date": "2012-06-12 07:38:54+00:00",
+        "files": ["init.pp", "local_settings.py.erb"]
+      },
+      {
+        "hash": "99c9279726919f2fdedade778cd0c20c8d36d1d0",
+        "msg": "Debian: openstack-dashboard is an dependency of openstack-dashboard-apache",
+        "cmtr": "Sebastien Badia",
+        "date": "2012-06-15 01:43:49+02:00",
+        "files": ["init.pp", "params.pp"]
+      },
+      {
+        "hash": "c386cd4a718675884a9b031d72465d01d2004781",
+        "msg": "Add initial spec test",
+        "cmtr": "Branan Purvine-Riley",
+        "date": "2012-06-18 16:12:32-07:00",
+        "files": [".fixtures.yml", ".gemfile", "Rakefile", "horizon_init_spec.rb", "site.pp", "spec_helper.rb"]
+      },
+      {
+        "hash": "58ad431a5b03d8baa648532b3b6cafc3e1f9c8a1",
+        "msg": "Remove trailing comma to be compatible with older puppets",
+        "cmtr": "Branan Purvine-Riley",
+        "date": "2012-06-18 16:17:52-07:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "ff60c16b2ea9ddb2aabac998433bb0e00fe6a0e7",
+        "msg": "Use operatingsystem instead of lsbdistid (Refs pull request #7)",
+        "cmtr": "Sebastien Badia",
+        "date": "2012-06-19 23:24:34+02:00",
+        "files": ["params.pp"]
+      },
+      {
+        "hash": "84c89d6be8b4851b88fa63a98311fb91d0177779",
+        "msg": "Add parameters for keystone endpoint",
+        "cmtr": "François Charlier",
+        "date": "2012-06-25 17:00:51+02:00",
+        "files": ["init.pp", "horizon_init_spec.rb", "local_settings.py.erb"]
+      },
+      {
+        "hash": "af98c681c86188ce4683b75d11194d8700d0abc3",
+        "msg": "Add keystone_default_role parameter",
+        "cmtr": "François Charlier",
+        "date": "2012-06-28 15:26:04+02:00",
+        "files": ["init.pp", "horizon_init_spec.rb", "local_settings.py.erb"]
+      },
+      {
+        "hash": "d714a2c64ad5bf32bebebbd1e6817033c3d91fbe",
+        "msg": "Add more parameters:\n\n* secret key\n* django_debug\n* api_result_limit",
+        "cmtr": "François Charlier",
+        "date": "2012-06-28 16:21:30+02:00",
+        "files": ["init.pp", "horizon_init_spec.rb", "local_settings.py.erb"]
+      },
+      {
+        "hash": "cfa8ee9245c576812cf254ae8a551a910aff3b13",
+        "msg": "Remove the trailing comma on last parameter\n\nIt breaks puppet 2.6 and some 2.7",
+        "cmtr": "François Charlier",
+        "date": "2012-07-10 20:52:24+02:00",
+        "files": ["init.pp"]
+      },
+      {
+        "hash": "b55d627c79bc6017474159b9cf3cdbcad5daac2c",
+        "msg": "Properly require and enable mod_wsgi before installing dashboard",
+        "cmtr": "Eugene Kirpichov",
+        "date": "2012-08-21 14:26:19-07:00",
+        "files": ["init.pp", "params.pp"]
+      }]
+    }
