@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import datetime
 import requests
 import os
 
@@ -19,6 +20,17 @@ RAW_IST_FILES = [
 GITHUB_USERNAMES = ["Mirantis", "openstack", "wikimedia"]
 
 REPO_URLS_LOC = "data/repo_urls.txt"
+
+class UtcTzinfo(datetime.tzinfo):
+    """Helper class to compare dates in different timezones."""
+    def __init__(self): pass
+    def utcoffset(self, dt): return datetime.timedelta(0)
+    def dst(self, dt): return 0
+    def tzname(self, dt): return "UTC"
+    def fromutc(self, dt): return dt
+
+# Do not include commits made on or after this date
+DATE_LIMIT = datetime.datetime(2018, 10, 19, tzinfo=UtcTzinfo())
 
 
 def get_repo_urls() -> List[str]:
@@ -75,47 +87,59 @@ def make_repo_url(github_username: str, project_name: str) -> str:
 
 def url_exists(url: str) -> bool:
     """
-    Returns True if the input url exists.
+    Return True if the input url exists.
     """
     return requests.head(url).status_code == 200
 
 
 def mine_repos(repos: List[str]):
     """
-    Mines repos for information about commits using pydriller. This function is very slow when run
+    Mine repos for information about commits using pydriller. This function is very slow when run
     on lots of data!
 
-    Sample output:
+    Sample JSON output for one repo:
 
-        32cda6f8735817ed08df40f6154725c7ad956559,change message,Dustin J. Mitchell,2011-08-24 18:05:14-05:00
-        e48046ad0a27aa855c32142c8ad71317c540f7e6,initial base-image.sh,Dustin J. Mitchell,2011-08-30 14:21:46-05:00
-        cfc25c2cbc4fbdaf6b1563ac7f2942d2568eaf65,update base-image.sh,Dustin J. Mitchell,2011-08-30 14:23:53-05:00
+        {
+          "url": "https://github.com/mozilla-releng/build-puppet",
+          "commits": [{
+            "hash": "0d3456eaa47fa44f5adeadc619277c55d90b8adb",
+            "msg": "initial site.pp",
+            "cmtr": "<pydriller.domain.developer.Developer object at 0x7f1415941b50>",
+            "date": "2011-08-22 18:13:36-05:00",
+            "files": ["site.pp"]
+          },...]
+        }
     """
 
     for repo in repos:
         names = repo.split("/")
         with open(f"data/repo_commits/{names[-2]}_{names[-1]}.json", "w+") as f:
-            #f.write('{\n  "repos": [\n')
+            #f.write('{\n  "repos": [\n')  # TODO Use this when merging files
             f.write(f'    {{\n      "url": "{repo}",\n      "commits": [')
 
             depth = 0
             for commit in RepositoryMining(path_to_repo=repo).traverse_commits():
+                if commit_is_too_recent(commit):
+                    break
+
                 if commit_includes_pp_file(commit):
                     f.write(make_commit_json(commit))
 
-                    #print(f"{commit.hash},{commit.msg},{commit.committer.name},{commit.committer_date}")
-
                     depth += 1
-                    if depth == 2:
-                        break
+                    # if depth == 2:  # use this to limit the depth if it gets too large
+                    #     break
 
-            # TODO Remove trailing comma from last commit
+            # Remove trailing comma from last commit
+            f.seek(0, os.SEEK_END)
+            f.seek(f.tell() - 8, os.SEEK_SET)
+            f.truncate()
+            f.write("]\n    }\n")
 
-            f.write("      ]\n")
-        
-            #f.write('  ]\n}\n')
+        print(f"Processed {depth} commits in the {repo} repo.")
 
-        print(f"Total commits: {depth}")
+
+def commit_is_too_recent(commit: Commit) -> bool:
+    return commit.committer_date > DATE_LIMIT
 
 
 def commit_includes_pp_file(commit: Commit) -> bool:
@@ -127,28 +151,31 @@ def commit_includes_pp_file(commit: Commit) -> bool:
 
 def make_modified_files_list(commit: Commit) -> str:
     """
-    Return a string of files which is compatible with JSON arrays ["a", "b", "c"].
+    Return a string of files which is compatible with JSON arrays, eg ["a", "b", "c"].
     """
     result = "["
     for modification in commit.modifications:
         result += f'"{modification.filename}", '
     result += "]"
-    result = "".join(result.rsplit(", ", 1))
+    result = "".join(result.rsplit(", ", 1))  # remove trailing comma
     return result
 
 
 def make_commit_json(commit: Commit) -> str:
-    msg = commit.msg.replace("\n", "\\n")
+    msg = commit.msg.replace("\\", "\\\\").replace("\n", "\\n").replace("\r", "") \
+                    .replace("\t", " ").replace('"', '\\\"')
+    committer_name = commit.committer.name.replace('"', "")
     return f"""{{
         "hash": "{commit.hash}",
         "msg": "{msg}",
-        "cmtr": "{commit.committer}",
+        "cmtr": "{committer_name}",
         "date": "{commit.committer_date}",
         "files": {make_modified_files_list(commit)}
-    }},\n"""
+      }},\n      """
 
 
 if __name__ == "__main__":
     urls = get_repo_urls()
-    mine_repos(urls[0:1])
+    #mine_repos(urls[0:1])
+    mine_repos(urls[0:1])  # was 6
 
