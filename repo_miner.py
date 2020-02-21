@@ -6,7 +6,7 @@ import os
 
 from pydriller import RepositoryMining
 from pydriller.domain.commit import Commit
-from typing import List
+from typing import Iterable, List
 
 RAW_IST_LOC = "data"
 
@@ -118,8 +118,8 @@ def mine_repos(repos: List[str]):
 
         # To facilitate repository analysis, certain global properties should be computed from the
         # commits, eg the list of Puppet files in the entire project.
-        pp_files = []
-        pp_committers = []
+        pp_files = set()
+        pp_committers = set()
         num_pp_commits = 0
         num_tot_commits = 0
 
@@ -172,11 +172,11 @@ def make_template(name: str) -> str:
     return f"@@{UNIQUE_TEMPLATE_PREFIX}__{name}@@"
 
 
-def make_output_json_header(repo_url: str, pp_files: List[str], pp_committers: List[str]) -> str:
+def make_output_json_header(repo_url: str, pp_files: Iterable[str], pp_committers: Iterable[str]) -> str:
     return f'''    {{
       "url": "{repo_url}",
-      "pp_files": {pp_files},
-      "pp_cmtrs": {pp_committers},
+      "pp_files": {list(pp_files)},
+      "pp_cmtrs": {list(pp_committers)},
       "num_pp_commits": "{make_template("NUM_PP_COMMITS")}",
       "num_tot_commits": "{make_template("NUM_TOT_COMMITS")}",
       "commits": ['''
