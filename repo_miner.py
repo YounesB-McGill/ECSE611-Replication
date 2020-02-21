@@ -113,24 +113,25 @@ def mine_repos(repos: List[str]):
 
     for repo in repos:
         names = repo.split("/")
+
+        # '{\n  "repos": [\n'  # TODO Use this when merging files
+        output_json: str = f'    {{\n      "url": "{repo}",\n      "commits": ['
+        #print(output_json)
+        
+        depth = 0
+        for commit in RepositoryMining(path_to_repo=repo, to=DATE_LIMIT).traverse_commits():
+            if commit_includes_pp_file(commit):
+                output_json += make_commit_json(commit)
+                #print(output_json)
+
+            depth += 1
+            # if depth == 2: break  # use this to limit the depth if it gets too large
+
+        # Remove trailing comma from last commit
+        output_json = output_json[:-8] + "]\n    }\n"
+        
         with open(f"data/repo_commits/{names[-2]}_{names[-1]}.json", "w+") as f:
-            #f.write('{\n  "repos": [\n')  # TODO Use this when merging files
-            f.write(f'    {{\n      "url": "{repo}",\n      "commits": [')
-
-            depth = 0
-            for commit in RepositoryMining(path_to_repo=repo, to=DATE_LIMIT).traverse_commits():
-                if commit_includes_pp_file(commit):
-                    f.write(make_commit_json(commit))
-
-                    depth += 1
-                    # if depth == 2:  # use this to limit the depth if it gets too large
-                    #     break
-
-            # Remove trailing comma from last commit
-            f.seek(0, os.SEEK_END)
-            f.seek(f.tell() - 8, os.SEEK_SET)
-            f.truncate()
-            f.write("]\n    }\n")
+            f.write(output_json)
 
         print(f"Processed {depth} commits in the {repo} repo.")
 
@@ -169,6 +170,6 @@ def make_commit_json(commit: Commit) -> str:
 
 if __name__ == "__main__":
     urls = get_repo_urls()
-    #mine_repos(urls[0:1])
-    mine_repos(urls[0:1])  # was 6
+    mine_repos(urls[1:6])
+    #mine_repos(urls[0:1])  # was 6
 
