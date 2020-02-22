@@ -9128,7 +9128,7 @@
       {
         "hash": "c61ef0d1dcae643ef05199a3d0614a818037298d",
         "msg": "FUEL-195\nadding puppetd agent",
-        "cmtr": "U-GRIDDYNAMICS\ibondar",
+        "cmtr": "U-GRIDDYNAMICS\\ibondar",
         "date": "2012-12-10 20:42:27+04:00",
         "files": ["client.pp", "puppetd.ddl.erb", "puppetd.rb.erb"]
       },
@@ -9191,7 +9191,7 @@
       {
         "hash": "4c53a485004047f0c85b3bde59397b5ab6d47912",
         "msg": "FUEL-195\nntp on fuel-mcollective, correcting domain names",
-        "cmtr": "U-GRIDDYNAMICS\ibondar",
+        "cmtr": "U-GRIDDYNAMICS\\ibondar",
         "date": "2012-12-11 18:52:42+04:00",
         "files": ["site.pp", "test_cobbler.py"]
       },
@@ -9625,7 +9625,7 @@
       {
         "hash": "17e94e01081ebfb1a7f2ad69cd6c762f9ea94c3f",
         "msg": "FUEL-195\nrestart Rabbitmq after config changes",
-        "cmtr": "U-GRIDDYNAMICS\ibondar",
+        "cmtr": "U-GRIDDYNAMICS\\ibondar",
         "date": "2012-12-24 16:44:14+04:00",
         "files": ["rabbitmq.pp"]
       },
@@ -9639,7 +9639,7 @@
       {
         "hash": "d657856de225725a04cc1169e25e78235a134485",
         "msg": "FUEL-195\nrestarting rabbitmq afrer config",
-        "cmtr": "U-GRIDDYNAMICS\ibondar",
+        "cmtr": "U-GRIDDYNAMICS\\ibondar",
         "date": "2012-12-24 19:13:24+04:00",
         "files": ["rabbitmq.pp"]
       },
@@ -9653,7 +9653,7 @@
       {
         "hash": "22bd5f8d50e93f46c660776cf815a71f9c941674",
         "msg": "FUEL-195\nmissed comma",
-        "cmtr": "U-GRIDDYNAMICS\ibondar",
+        "cmtr": "U-GRIDDYNAMICS\\ibondar",
         "date": "2012-12-24 19:48:19+04:00",
         "files": ["rabbitmq.pp"]
       },
@@ -9709,7 +9709,7 @@
       {
         "hash": "8337beac8dc0b9f7989beb870c148ed954df9926",
         "msg": "FUEL-195\nadding path to service in ubuntu",
-        "cmtr": "U-GRIDDYNAMICS\ibondar",
+        "cmtr": "U-GRIDDYNAMICS\\ibondar",
         "date": "2012-12-25 18:48:02+04:00",
         "files": ["rabbitmq.pp"]
       },
@@ -9786,7 +9786,7 @@
       {
         "hash": "842b98274c1ec7605caed0acf2d8be742a667a29",
         "msg": "FUEL-195\ncorrection in config file",
-        "cmtr": "U-GRIDDYNAMICS\ibondar",
+        "cmtr": "U-GRIDDYNAMICS\\ibondar",
         "date": "2012-12-27 22:44:15+04:00",
         "files": ["client.pp", "client.cfg.erb", "client.cfg.ubuntu.erb"]
       },
@@ -10325,7 +10325,7 @@
       {
         "hash": "60374b01b8a2a8f42e2f596dc5bde495992c44aa",
         "msg": "FUEL-195\nimmediate ntp sync",
-        "cmtr": "U-GRIDDYNAMICS\ibondar",
+        "cmtr": "U-GRIDDYNAMICS\\ibondar",
         "date": "2013-01-25 13:05:02+04:00",
         "files": ["init.pp"]
       },

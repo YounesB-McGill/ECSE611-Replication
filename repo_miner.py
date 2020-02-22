@@ -176,7 +176,7 @@ def get_modified_pp_files(commit: Commit) -> List[str]:
 
 
 def get_committer_name(commit: Commit) -> str:
-    return commit.committer.name.replace('"', "")
+    return commit.committer.name.replace('"', "").replace("\\", "\\\\")
 
 
 def make_output_json_header(repo_url: str, pp_files: Iterable[str], pp_committers: Iterable[str],
