@@ -52,6 +52,7 @@ def compute_ownership_metrics(file):
 
 def create_ownership_list(filename):
 	path = filename.replace('data/repo_commits/','')
+	path = path.replace('.json', '')
 	df = intake_data_frame(filename)
 
 	list_of_files = {}
@@ -77,13 +78,17 @@ def run_through_directory(directory_name, project_name):
 	for path in pathlist:
 		str_path = str(path)
 		if str_path.startswith("data/repo_commits/Mirantis"):
-			mirantis_paths.append(str(path))
+			if project_name == 'Mirantis':
+				mirantis_paths.append(str(path))
 		if str_path.startswith("data/repo_commits/openstack"):
-			openstack_paths.append(str(path))
+			if project_name == 'openstack':
+				openstack_paths.append(str(path))
 		if str_path.startswith("data/repo_commits/mozilla"):
-			mozilla_paths.append(str(path))
+			if project_name == 'mozilla':
+				mozilla_paths.append(str(path))
 		if str_path.startswith("data/repo_commits/wikimedia"):
-			wiki_paths.append(str(path))
+			if project_name == 'wikimedia':
+				wiki_paths.append(str(path))
 
 
 
@@ -102,12 +107,29 @@ def run_through_directory(directory_name, project_name):
 			total_output = total_output + create_ownership_list(path)
 	return(total_output)
 
+def perform_all_projects():
+	col = ["Path", "File", "contributers", "top", "major","minor"]
 
-ownership_list = run_through_directory("data/repo_commits", "Mirantis")
+	mirantis_ownership_list = run_through_directory("data/repo_commits", "Mirantis")
+	df = pd.DataFrame(mirantis_ownership_list, columns=col)
+	df.to_csv('data/ownership_data_files/mirantis_output.csv', index = False)
 
-col = ["Path", "File", "contributers", "top", "major","minor"]
-df = pd.DataFrame(ownership_list, columns=col)
-df.to_csv('mirantis_output.csv', index = False)
+	openstack_ownership_list = run_through_directory("data/repo_commits", "openstack")
+	df = pd.DataFrame(openstack_ownership_list, columns=col)
+	df.to_csv('data/ownership_data_files/openstack_output.csv', index = False)
+
+	mozilla_ownership_list = run_through_directory("data/repo_commits", "mozilla")
+	df = pd.DataFrame(mozilla_ownership_list, columns=col)
+	df.to_csv('data/ownership_data_files/mozilla_output.csv', index = False)
+
+	wikimedia_ownership_list = run_through_directory("data/repo_commits", "wikimedia")
+	df = pd.DataFrame(wikimedia_ownership_list, columns=col)
+	df.to_csv('data/ownership_data_files/wikimedia_output.csv', index = False)
+
+perform_all_projects()
+
+
+
 
 # with open('mirantis_output.csv', 'w') as out_file:
 # 	wr = csv.writer(out_file, delimiter="\n")
