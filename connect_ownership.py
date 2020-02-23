@@ -18,10 +18,10 @@ def get_important_info(line):
 	return project, repo, line["File"]
 
 def find_file_in_csv(project, repo, file, orig_file):
-	for line in orig_file:
-		if repo in line[1]:
-			if file in line[1]:
-				return 1
+	for i in range(0, len(orig_file)):
+		if repo in orig_file[i][1]:
+			if file in orig_file[i][1]:
+				return i
 	return 0
 
 
@@ -37,6 +37,21 @@ total_found = 0
 for index, row in df.iterrows():
 	project, repo, file = get_important_info(row)
 	result = find_file_in_csv(project, repo, file, data)
-	total_found+= result
+	if result != 0:
+		total_found+=1
+		if len(data[result]) > 17:
+			continue
+		else:
+			data[result].append(row["contributers"])
+			data[result].append(row["top"])
+			data[result].append(row["major"])
+			data[result].append(row["minor"])
 
+data[0].append("contributers")
+data[0].append("top")
+data[0].append("major")
+data[0].append("minor")
+out_df = pd.DataFrame(data, columns = data[0])
+fixed_out_df = out_df.drop(index=0, axis = 0)
+fixed_out_df.to_csv('data/ownership_data_files/IST_MIR_OWN.csv', index = False)
 print(total_found)
