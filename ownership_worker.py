@@ -129,10 +129,3 @@ def perform_all_projects():
 perform_all_projects()
 
 
-
-
-# with open('mirantis_output.csv', 'w') as out_file:
-# 	wr = csv.writer(out_file, delimiter="\n")
-# 	wr.writerow(ownership_list)
-
-
