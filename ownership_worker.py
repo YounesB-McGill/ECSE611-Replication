@@ -2,6 +2,7 @@ import json
 import csv
 import pandas as pd
 import math
+from pathlib import Path
 
 
 def intake_data_frame(filename):
@@ -64,15 +65,52 @@ def create_ownership_list(filename):
 		owner_tuple = [path,key,contributers, top_contrib, number_of_major, number_of_minor]
 		ownership_metric_list.append(owner_tuple)
 
-	print(ownership_metric_list)
 	return(ownership_metric_list)
 
+def run_through_directory(directory_name, project_name):
+	pathlist = Path(directory_name).glob('*')
 
-ownership_list = create_ownership_list("data/repo_commits/Mirantis_fuel-plugin-celebrer.json")
+	mirantis_paths = []
+	openstack_paths = []
+	mozilla_paths = []
+	wiki_paths = []
+	for path in pathlist:
+		str_path = str(path)
+		if str_path.startswith("data/repo_commits/Mirantis"):
+			mirantis_paths.append(str(path))
+		if str_path.startswith("data/repo_commits/openstack"):
+			openstack_paths.append(str(path))
+		if str_path.startswith("data/repo_commits/mozilla"):
+			mozilla_paths.append(str(path))
+		if str_path.startswith("data/repo_commits/wikimedia"):
+			wiki_paths.append(str(path))
 
-with open('test_output.csv', 'w') as out_file:
-	wr = csv.writer(out_file, delimiter="\n")
-	wr.writerow(ownership_list)
 
+
+	total_output = []
+	if project_name == "Mirantis":
+		for path in mirantis_paths:
+			total_output = total_output + create_ownership_list(path)
+	elif project_name == "openstack":
+		for path in openstack_paths:
+			total_output = total_output + create_ownership_list(path)
+	elif project_name == "mozilla":
+		for path in mozilla_paths:
+			total_output = total_output + create_ownership_list(path)
+	elif project_name == "wikimedia":
+		for path in wiki_paths:
+			total_output = total_output + create_ownership_list(path)
+	return(total_output)
+
+
+ownership_list = run_through_directory("data/repo_commits", "Mirantis")
+
+col = ["Path", "File", "contributers", "top", "major","minor"]
+df = pd.DataFrame(ownership_list, columns=col)
+df.to_csv('mirantis_output.csv', index = False)
+
+# with open('mirantis_output.csv', 'w') as out_file:
+# 	wr = csv.writer(out_file, delimiter="\n")
+# 	wr.writerow(ownership_list)
 
 
