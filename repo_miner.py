@@ -157,11 +157,11 @@ def make_modified_files_list(commit: Commit) -> str:
     """
     Return a string of files which is compatible with JSON arrays, eg ["a", "b", "c"].
     """
-    result = "["
+    result = "[\n"
     for modification in commit.modifications:
-        result += f'"{modification.filename}", '
+        result += f'            "{modification.new_path}",\n'
     result += "]"
-    result = "".join(result.rsplit(", ", 1))  # remove trailing comma
+    result = "".join(result.rsplit(",\n", 1))  # remove trailing comma
     return result
 
 
@@ -170,7 +170,7 @@ def get_modified_pp_files(commit: Commit) -> List[str]:
     
     for modification in commit.modifications:
         if modification.filename[-3:] == ".pp":
-            result.append(modification.filename)
+            result.append(modification.new_path)
     
     return result
 
@@ -183,7 +183,7 @@ def make_output_json_header(repo_url: str, pp_files: Iterable[str], pp_committer
                             num_pp_commits: int, num_tot_commits: int) -> str:
     return f'''    {{
       "url": "{repo_url}",
-      "pp_files": {json.dumps(list(pp_files))},
+      "pp_files": {json.dumps(list(pp_files), indent=8).replace("]", "      ]")},
       "pp_cmtrs": {json.dumps(list(pp_committers))},
       "num_pp_commits": {num_pp_commits},
       "num_tot_commits": {num_tot_commits},
@@ -205,5 +205,5 @@ def make_commit_json(commit: Commit) -> str:
 if __name__ == "__main__":
     urls = get_repo_urls()
     mine_repos(urls)
-    #mine_repos(urls[0:1])  # was 6
+    #mine_repos(urls[1:2])  # was 6
 
