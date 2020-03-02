@@ -1,7 +1,29 @@
     {
       "url": "https://github.com/openstack/puppet-watcher",
-      "pp_files": ["upgrade.pp", "logging.pp", "applier.pp", "db.pp", "init.pp", "sync.pp", "postgresql.pp", "params.pp", "authtoken.pp", "config.pp", "policy.pp", "deps.pp", "client.pp", "api.pp", "decision_engine.pp", "mysql.pp", "create_schema.pp", "apache.pp", "auth.pp"],
-      "pp_cmtrs": ["Carlos Camacho", "Daniel Pawlik", "zhangyanxian", "Mykyta Karpin", "ZhongShengping", "Emilien Macchi", "Thomas Goirand", "jacky06", "Matthew J. Black", "Alex Schultz", "David Moreau Simard", "qiaomin", "Sofer Athlan-Guyot", "zhulingjie", "zhubingbing"],
+      "pp_files": [
+        "manifests/wsgi/apache.pp",
+        "manifests/deps.pp",
+        "manifests/db/postgresql.pp",
+        "manifests/decision_engine.pp",
+        "manifests/client.pp",
+        "manifests/init.pp",
+        "manifests/config.pp",
+        "manifests/logging.pp",
+        "manifests/api.pp",
+        "manifests/db/create_schema.pp",
+        "manifests/db/upgrade.pp",
+        "manifests/db/mysql.pp",
+        "manifests/keystone/auth.pp",
+        "manifests/keystone/authtoken.pp",
+        "manifests/policy.pp",
+        "manifests/params.pp",
+        "tests/init.pp",
+        "manifests/applier.pp",
+        "manifests/db/sync.pp",
+        null,
+        "manifests/db.pp"
+      ],
+      "pp_cmtrs": ["Sofer Athlan-Guyot", "jacky06", "zhubingbing", "Mykyta Karpin", "Emilien Macchi", "Thomas Goirand", "Alex Schultz", "zhangyanxian", "Daniel Pawlik", "qiaomin", "zhulingjie", "ZhongShengping", "Matthew J. Black", "Carlos Camacho", "David Moreau Simard"],
       "num_pp_commits": 55,
       "num_tot_commits": 196,
       "commits": [{
@@ -9,384 +31,581 @@
         "msg": "puppet-watcher: Initial commit\n\nThis is the initial commit for puppet-watcher.\nIt has been automatically generated using cookiecutter[1] and msync[2]\n\n[1] https://github.com/openstack/puppet-openstack-cookiecutter\n[2] https://github.com/openstack/puppet-modulesync-configs\n\nChange-Id: I72a2df77b202c994b24887062544918903f3631b",
         "cmtr": "Daniel Pawlik",
         "date": "2016-06-02 14:30:22+00:00",
-        "files": [".gitignore", "Gemfile", "LICENSE", "README.md", "Rakefile", "ini_setting.rb", "watcher_config.rb", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "init.pp", "auth.pp", "logging.pp", "params.pp", "policy.pp", "metadata.json", "centos-70-x64.yml", "default.yml", "nodepool-centos7.yml", "nodepool-trusty.yml", "ubuntu-server-1404-x64.yml", "watcher_db_mysql_spec.rb", "watcher_db_postgresql_spec.rb", "watcher_db_spec.rb", "watcher_keystone_auth_spec.rb", "watcher_logging_spec.rb", "watcher_policy_spec.rb", "shared_examples.rb", "spec_helper.rb", "spec_helper_acceptance.rb", "ini_setting_spec.rb", "watcher_config_spec.rb", "init.pp"]
+        "files": [
+            ".gitignore",
+            "Gemfile",
+            "LICENSE",
+            "README.md",
+            "Rakefile",
+            "lib/puppet/provider/watcher_config/ini_setting.rb",
+            "lib/puppet/type/watcher_config.rb",
+            "manifests/config.pp",
+            "manifests/db.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "manifests/db/sync.pp",
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/logging.pp",
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "metadata.json",
+            "spec/acceptance/nodesets/centos-70-x64.yml",
+            "spec/acceptance/nodesets/default.yml",
+            "spec/acceptance/nodesets/nodepool-centos7.yml",
+            "spec/acceptance/nodesets/nodepool-trusty.yml",
+            "spec/acceptance/nodesets/ubuntu-server-1404-x64.yml",
+            "spec/classes/watcher_db_mysql_spec.rb",
+            "spec/classes/watcher_db_postgresql_spec.rb",
+            "spec/classes/watcher_db_spec.rb",
+            "spec/classes/watcher_keystone_auth_spec.rb",
+            "spec/classes/watcher_logging_spec.rb",
+            "spec/classes/watcher_policy_spec.rb",
+            "spec/shared_examples.rb",
+            "spec/spec_helper.rb",
+            "spec/spec_helper_acceptance.rb",
+            "spec/unit/provider/watcher_config/ini_setting_spec.rb",
+            "spec/unit/type/watcher_config_spec.rb",
+            "tests/init.pp"]
       },
       {
         "hash": "58c20a1869b800f202046eb93cad3482f4e7a5a1",
         "msg": "This commit adds the initial project files.\n\nUnit tests: added\n\nPackages for Debian and RedHat family OS are not known. Until that\npackage installation has been removed from init.pp file.\n\nChange-Id: I79f41e1168d26ee7ed4785ef46783a24a246f21b",
         "cmtr": "Daniel Pawlik",
         "date": "2016-06-13 14:09:05+00:00",
-        "files": ["LICENSE", "deps.pp", "init.pp", "watcher_init_spec.rb"]
+        "files": [
+            "LICENSE",
+            "manifests/deps.pp",
+            "manifests/init.pp",
+            "spec/classes/watcher_init_spec.rb"]
       },
       {
         "hash": "1dc80b3f2c1ee20e387132a0b79a3a73282f6417",
         "msg": "Implement api.pp\n\nUnit tests fixed.\n\nChange-Id: I422a1f591f9d09b3db3fbb6f85fc38e6ef6eef17",
         "cmtr": "Daniel Pawlik",
         "date": "2016-06-16 14:24:55+00:00",
-        "files": ["api.pp", "watcher_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "spec/classes/watcher_api_spec.rb"]
       },
       {
         "hash": "b7d6b9947d93e62741df1c5f5448fbe81bd1e912",
         "msg": "Added watcher package ensure\n\nWatcher package is available now for RedHat and Debian (experimental\nrepo).\n\nNote: Watcher package is not available in Ubuntu repository.\n\nChange-Id: Id805f0d3494a858ef43cb2ba396824592847d689",
         "cmtr": "Daniel Pawlik",
         "date": "2016-07-01 08:17:17+00:00",
-        "files": ["api.pp", "init.pp", "params.pp", "watcher_spec.rb", "watcher_api_spec.rb", "watcher_init_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/init.pp",
+            "manifests/params.pp",
+            "spec/acceptance/watcher_spec.rb",
+            "spec/classes/watcher_api_spec.rb",
+            "spec/classes/watcher_init_spec.rb"]
       },
       {
         "hash": "9de450c765bf83715db032d174401ff2001f1a6d",
         "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: I28014d264d5c422fa90bb182697f63894e255e88\nRelated-Bug: 1599113\nDepends-On: I31f3b254b3c36fb30cf968195ee3e0520490a04f",
         "cmtr": "Sofer Athlan-Guyot",
         "date": "2016-07-08 10:54:49+02:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "b30e232f1240aa4c6f28f7c15e8542ef0c1e03c3",
         "msg": "Fix authtoken options and adding the missing\n\nThis change updates the api class to pass the keystone_authtoken options\nto the keystone::resource::authtoken now that those options are properly\nsupported.\nWatcher configuration sample file doesn't include all of\nkeystonemiddleware parameters, but the parameters can be configured in\nwatcher config file.[1]\n\n[1] - http://docs.openstack.org/developer/watcher/deploy/conf-files.html\n\nCo-Authored-By: Daniel Pawlik <daniel.pawlik@corp.ovh.com>\n\nChange-Id: I31f3b254b3c36fb30cf968195ee3e0520490a04f",
         "cmtr": "Daniel Pawlik",
         "date": "2016-07-09 06:42:12+00:00",
-        "files": ["api.pp", "watcher_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "spec/classes/watcher_api_spec.rb"]
       },
       {
         "hash": "c5ddc31f46fbf2373b403bf2067091570fa305c3",
         "msg": "Implement watcher-db-manage commands\n\nAdded DB commands: upgrade and create_schema.\nRemoved sync command.\n\n\nChange-Id: I1c4e2c36ba675cfbbbde3b038067f73c98c150ff",
         "cmtr": "Daniel Pawlik",
         "date": "2016-07-11 19:24:28+00:00",
-        "files": ["api.pp", "create_schema.pp", "mysql.pp", "postgresql.pp", "sync.pp", "upgrade.pp", "watcher_spec.rb", "watcher_api_spec.rb", "watcher_db_create_schema_spec.rb", "watcher_db_upgrade_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/db/create_schema.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "None",
+            "manifests/db/upgrade.pp",
+            "spec/acceptance/watcher_spec.rb",
+            "spec/classes/watcher_api_spec.rb",
+            "spec/classes/watcher_db_create_schema_spec.rb",
+            "spec/classes/watcher_db_upgrade_spec.rb"]
       },
       {
         "hash": "11d3887da2a1ccd9d184f6e631a7e91074115db6",
         "msg": "Implement applier and decision-engine\n\nChange-Id: I00854d1281c083df36997e2c907e3a7bd353551d",
         "cmtr": "Daniel Pawlik",
         "date": "2016-07-13 12:51:26+00:00",
-        "files": ["applier.pp", "decision_engine.pp", "params.pp", "watcher_spec.rb", "watcher_applier_spec.rb", "watcher_decision_engine_spec.rb"]
+        "files": [
+            "manifests/applier.pp",
+            "manifests/decision_engine.pp",
+            "manifests/params.pp",
+            "spec/acceptance/watcher_spec.rb",
+            "spec/classes/watcher_applier_spec.rb",
+            "spec/classes/watcher_decision_engine_spec.rb"]
       },
       {
         "hash": "72e2a491e6fe781feeeb98600e03209f082d6e13",
         "msg": "Changed api service requirements\n\nWatcher-api doesn't need watcher::db class in service requirements,\nbecause it is handled by deps class.\n\nChange-Id: I61168aa307c3e751d78c979104e38e2cf72e48d2",
         "cmtr": "Daniel Pawlik",
         "date": "2016-07-13 19:44:43+00:00",
-        "files": ["api.pp", "watcher_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "spec/classes/watcher_api_spec.rb"]
       },
       {
         "hash": "b2d2c60eb5960400a69e335160e12ee3e36034b2",
         "msg": "Added planer sections\n\nPlanner sections are only used by decision engine service.\n\nChange-Id: Ia92d612cb51a4914913dc853f7ea7f6f76d524f5",
         "cmtr": "Daniel Pawlik",
         "date": "2016-07-27 10:01:13+00:00",
-        "files": ["decision_engine.pp", "watcher_decision_engine_spec.rb"]
+        "files": [
+            "manifests/decision_engine.pp",
+            "spec/classes/watcher_decision_engine_spec.rb"]
       },
       {
         "hash": "531be965cbfa0d2dafbc28f0c9da9c2b30a8b62e",
         "msg": "Change authtoken to class\n\nAuthtoken will be configure by a new class\ninstead of api class.\n\nChange-Id: I95c8875a213057f687017779cb236ececbe6ebc1",
         "cmtr": "Daniel Pawlik",
         "date": "2016-09-04 19:39:38+00:00",
-        "files": ["api.pp", "authtoken.pp", "watcher_spec.rb", "watcher_api_spec.rb", "watcher_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/keystone/authtoken.pp",
+            "spec/acceptance/watcher_spec.rb",
+            "spec/classes/watcher_api_spec.rb",
+            "spec/classes/watcher_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "e321519dce730b00290d8702a9609d1e0b8d5de2",
         "msg": "Fix puppet-lint before upgrading gem\n\nRemoving puppet-lint warnings\nin favor of upgrading to latest gem\n\n2016-09-13 21:13:01.029817 | manifests/api.pp:221:WARNING: line has more than 140 characters\n\nChange-Id: Iff0f9ac6d6de528b8ea2ff01f1bbbf164bde8bfc",
         "cmtr": "Carlos Camacho",
         "date": "2016-09-15 16:20:35+02:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "13da01d1f39a598509358fc244be23f55c5d83f8",
         "msg": "Fix documentation for log_dir parameter\n\nChange-Id: I78b06943b0b1d6d6c40fa0ac4b8d45b19de5a6a5\nPartial-Bug: #1600294",
         "cmtr": "Mykyta Karpin",
         "date": "2016-10-10 17:34:13+03:00",
-        "files": ["logging.pp"]
+        "files": [
+            "manifests/logging.pp"]
       },
       {
         "hash": "b9651a0639511cbc59cffedca2985faf73fa2ebe",
         "msg": "Added ability to configure workers for watcher api\n\nBy default it will use the ::os_workers fact. ::os_workers\nis based on the number of processors (currently cpu/4) but is\ncapped at a maximum of 8 worker processors.\n\nChange-Id: I415794daa6305d675b9341165a3722d2c0760560",
         "cmtr": "Alex Schultz",
         "date": "2016-10-14 11:12:14-06:00",
-        "files": ["api.pp", "watcher_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "spec/classes/watcher_api_spec.rb"]
       },
       {
         "hash": "a9d1fccdd64e1ea4fa707ae490520a63dd7f6c39",
         "msg": "Add purge_config option\n\nAdd the option in order to facilitate management.\nUser can ensure that only the options they hoped\nare configured.\n\nChange-Id: I6d6b5d89a3ed3e631fd02223fbf581e6a978b12a",
         "cmtr": "ZhongShengping",
         "date": "2016-10-27 00:42:18+08:00",
-        "files": ["init.pp", "watcher_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/watcher_init_spec.rb"]
       },
       {
         "hash": "edb85619cbbdef41faf3a4600107a7f786a97594",
         "msg": "Add support for db_max_retries param\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: Ib4a04482f7b67b4b38a91031ba9a25670e52d91b\nCloses-Bug: 1579718",
         "cmtr": "ZhongShengping",
         "date": "2016-10-27 23:08:37+08:00",
-        "files": ["db.pp", "watcher_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "spec/classes/watcher_db_spec.rb"]
       },
       {
         "hash": "7a50b8158151bed48204d611171e523d20af246f",
         "msg": "Added new parameters only for watcher sections.\n\nChange-Id: I74b4a184909c35881eaac021e2bc82efdaf2e2f1",
         "cmtr": "Daniel Pawlik",
         "date": "2016-11-09 12:30:52+00:00",
-        "files": ["api.pp", "decision_engine.pp", "watcher_api_spec.rb", "watcher_decision_engine_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/decision_engine.pp",
+            "spec/classes/watcher_api_spec.rb",
+            "spec/classes/watcher_decision_engine_spec.rb"]
       },
       {
         "hash": "e5b62b15ab5fb14df330a9b336baf497c695f318",
         "msg": "Remove rabbitmq connection parameters\n\nThe rabbitmq connection parameters have been removed in favor of the\ntransport_url setting.\n\nChange-Id: Ib13ee35c8195677a81c157a171c759afbf65d344\nRelated-Bug: #1625198",
         "cmtr": "Alex Schultz",
         "date": "2016-11-22 19:08:30+00:00",
-        "files": ["init.pp", "watcher_spec.rb", "watcher_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/acceptance/watcher_spec.rb",
+            "spec/classes/watcher_init_spec.rb"]
       },
       {
         "hash": "8aee1f413f277ba35633db58a759087309199fa6",
         "msg": "Fix hooks for external install & svc management\n\n1) Add deps to all that is needed.\n2) Fix hooks for external install & svc management.\n3) Update releated spec tests.\n\nChange-Id: Id3e0594631579c316c721dd53b0579808571ee95",
         "cmtr": "ZhongShengping",
         "date": "2016-12-02 12:19:45+08:00",
-        "files": ["api.pp", "applier.pp", "config.pp", "db.pp", "create_schema.pp", "mysql.pp", "postgresql.pp", "upgrade.pp", "decision_engine.pp", "deps.pp", "init.pp", "auth.pp", "logging.pp", "policy.pp", "watcher_api_spec.rb", "watcher_db_create_schema_spec.rb", "watcher_db_upgrade_spec.rb", "watcher_init_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/applier.pp",
+            "manifests/config.pp",
+            "manifests/db.pp",
+            "manifests/db/create_schema.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "manifests/db/upgrade.pp",
+            "manifests/decision_engine.pp",
+            "manifests/deps.pp",
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/logging.pp",
+            "manifests/policy.pp",
+            "spec/classes/watcher_api_spec.rb",
+            "spec/classes/watcher_db_create_schema_spec.rb",
+            "spec/classes/watcher_db_upgrade_spec.rb",
+            "spec/classes/watcher_init_spec.rb"]
       },
       {
         "hash": "21df08b9c249570490f2a5aa1019b9088eef237f",
         "msg": "Add deps to authtoken\n\nThe authtoken class needs to include the ::watcher::deps class.\n\nChange-Id: I99b5e270ccf1a7432e864201b4f5803387eb3a12",
         "cmtr": "ZhongShengping",
         "date": "2016-12-07 16:32:48+08:00",
-        "files": ["authtoken.pp"]
+        "files": [
+            "manifests/keystone/authtoken.pp"]
       },
       {
         "hash": "e89b26e3cb62f676fe64380fdbad24352ed10b69",
         "msg": "Remove signing_dir option\n\nThe signing_dir is deprecated for removel because PKI token format\nis no longer supported.\n\nChange-Id: I91a99b581e5cd09c532d6d5e52e630e086340837\nCloses-Bug: #1652700",
         "cmtr": "ZhongShengping",
         "date": "2016-12-28 14:41:23+08:00",
-        "files": ["authtoken.pp", "watcher_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "spec/classes/watcher_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "77d260badc703922e18186dbb0e7da764cb20876",
         "msg": "Allow python-memcache install from authtoken class\n\nThe python-memcache package is required if using memcached. By\ndefault the package is not installed and the define has it set to\nfalse. This change allows managing the python-memcache package\ninstall from the authtoken class.\n\nChange-Id: Ifd3fdea4c08fa9df451bcd4dc01f70b9a53f72c8",
         "cmtr": "Matthew J. Black",
         "date": "2017-01-12 07:59:41-05:00",
-        "files": ["authtoken.pp", "watcher_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "spec/classes/watcher_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "8cfe5ded318ba36b3a8b2975ac813444161d25c4",
         "msg": "Fix typo in api.pp\n\nTrivialFix\n\nChange-Id: I0bbd5992381b3c184f9a757bbf1759444a1d6733",
         "cmtr": "zhangyanxian",
         "date": "2017-01-20 07:36:31+00:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "c3a1278d445990a560597694d9ba2bdf71936b37",
         "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should be\ninstalled before dbsync starts.\n\nChange-Id: If592611b0b226b8f89d6d97469f63e83ecbf3e86",
         "cmtr": "ZhongShengping",
         "date": "2017-01-22 22:42:21+08:00",
-        "files": ["deps.pp"]
+        "files": [
+            "manifests/deps.pp"]
       },
       {
         "hash": "516c0e1ea4555a6212ac4e6d9039a4136a133e6b",
         "msg": "Inconsistent package_ensure parameter name\n\nThe parameter name used to enforce package state is inconsistent across\nmanifests and modules. I settle on package_ensure since it's already\nwidely used.\n\nChange-Id: I843bdc0b9f72b4758c19e6a8ddad1368c7d80977\nCloses-Bug: #1668732",
         "cmtr": "ZhongShengping",
         "date": "2017-03-08 18:07:44+08:00",
-        "files": ["init.pp", "deprecate_ensure_package_parameter-12a9e89713d6791f.yaml", "watcher_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/deprecate_ensure_package_parameter-12a9e89713d6791f.yaml",
+            "spec/classes/watcher_init_spec.rb"]
       },
       {
         "hash": "89a0622c234804ac0a3ccaf0e775843d00df9fcd",
         "msg": "Add the setting log level\n\nIncrease the setting log level in the synchronization database.\n\nChange-Id: I98bbc3d0a5cf8f57448a210399c3caede6b4292f\nCloses-Bug: #1683567",
         "cmtr": "ZhongShengping",
         "date": "2017-04-18 11:39:41+08:00",
-        "files": ["create_schema.pp", "upgrade.pp", "watcher_db_create_schema_spec.rb", "watcher_db_upgrade_spec.rb"]
+        "files": [
+            "manifests/db/create_schema.pp",
+            "manifests/db/upgrade.pp",
+            "spec/classes/watcher_db_create_schema_spec.rb",
+            "spec/classes/watcher_db_upgrade_spec.rb"]
       },
       {
         "hash": "3653345f1cb1a3663dfb28473caa80643027be5c",
         "msg": "Fix upgrade command\n\nMake our upgrade class match devstack.\nhttps://github.com/openstack/watcher/blob/2d98d5e743d8a1ed1bcb9ca4ff79774491b4ee96/devstack/lib/watcher#L238\n\nChange-Id: I02ce5e52f78282c394b086b8643655dbe226bd68",
         "cmtr": "Alex Schultz",
         "date": "2017-05-17 22:42:58+00:00",
-        "files": ["upgrade.pp", "fix-db-upgrade-5dc1d2c07d26774a.yaml", "watcher_db_upgrade_spec.rb"]
+        "files": [
+            "manifests/db/upgrade.pp",
+            "releasenotes/notes/fix-db-upgrade-5dc1d2c07d26774a.yaml",
+            "spec/classes/watcher_db_upgrade_spec.rb"]
       },
       {
         "hash": "0f9cd7bc746001f80ffe26aa277c39aec64a3f46",
         "msg": "Deprecate rabbit_max_retries option\n\nOption \"rabbit_max_retries\" from group \"oslo_messaging_rabbit\" is\ndeprecated for removal. Its value may be silently ignored in the future.\n\nChange-Id: I0a98136f6fb4579cbf4d609b3ee495da208a41eb\nCloses-Bug: #1697350",
         "cmtr": "ZhongShengping",
         "date": "2017-06-12 13:54:31+08:00",
-        "files": ["init.pp", "deprecate_rabbit_max_retries-8135a8723f235d61.yaml", "watcher_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/deprecate_rabbit_max_retries-8135a8723f235d61.yaml",
+            "spec/classes/watcher_init_spec.rb"]
       },
       {
         "hash": "824147d47052a2a5197bf710546c9b0708687237",
         "msg": "Revert \"Fix upgrade command\"\n\nThey changed their mind and are back to an upgrade\nwithout 'head' as per https://review.openstack.org/#/c/485495/\n\nThis reverts commit 3653345f1cb1a3663dfb28473caa80643027be5c.\n\nChange-Id: I2b33771899659bb7b32fce02eaa0ddcfb6656ad0",
         "cmtr": "David Moreau Simard",
         "date": "2017-07-21 04:13:33+00:00",
-        "files": ["upgrade.pp", "fix-db-upgrade-5dc1d2c07d26774a.yaml", "watcher_db_upgrade_spec.rb"]
+        "files": [
+            "manifests/db/upgrade.pp",
+            "None",
+            "spec/classes/watcher_db_upgrade_spec.rb"]
       },
       {
         "hash": "df39ae39bcd434228ca490eeda29d1aae581933f",
         "msg": "Deprecate oslo.messaging rpc_backend option parameter\n\nOslo.messaging uses the transport_url to represent the rpc and\nnotification messaging driver to use and its full configuration. The\nrpc_backend configuration option is deprecated for removal and\nshould not gate oslo.messaging driver configuration options.\n\nThis patch:\n* deprecate rpc_backend\n* remove conditional check\n* update spec tests\n* add release note\n\nChange-Id: I0c9bacd06490dfd5810e528f8dd0b630d33954c8\nCloses-Bug: #1708976",
         "cmtr": "ZhongShengping",
         "date": "2017-08-07 09:37:31+08:00",
-        "files": ["init.pp", "deprecate_rpc_backend_parameter-afa0e60e3d5f87e0.yaml", "watcher_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/deprecate_rpc_backend_parameter-afa0e60e3d5f87e0.yaml",
+            "spec/classes/watcher_init_spec.rb"]
       },
       {
         "hash": "9e2849f0711544c908f657edf05ef344f81bebae",
         "msg": "Add watcher client install support\n\nChange-Id: I24ea46941576c43564554a94ac52fe54979016a9",
         "cmtr": "Alex Schultz",
         "date": "2017-08-07 14:33:05+00:00",
-        "files": ["client.pp", "params.pp", "watcher_client_spec.rb"]
+        "files": [
+            "manifests/client.pp",
+            "manifests/params.pp",
+            "spec/classes/watcher_client_spec.rb"]
       },
       {
         "hash": "9d2a0fb19836dda6a2c3b7ef7701064abe21c4c5",
         "msg": "Add WSGI support for `watcher-api'\n\nAdds support to run watcher-api with mod-wsgi[0].\n\n[0]https://review.openstack.org/#/c/450740/\n\nChange-Id: Ie6bbde98bee19ccc4a938bba28b66b759ccd3307\nImplements: blueprint wsgi-support",
         "cmtr": "ZhongShengping",
         "date": "2017-08-15 13:56:44+08:00",
-        "files": ["api.pp", "params.pp", "apache.pp", "add_wsgi_support-98135d2375f323e8.yaml", "watcher_wsgi_apache_spec.rb", "watcher_api_spec.rb", "watcher_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/params.pp",
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/add_wsgi_support-98135d2375f323e8.yaml",
+            "spec/acceptance/watcher_wsgi_apache_spec.rb",
+            "spec/classes/watcher_api_spec.rb",
+            "spec/classes/watcher_wsgi_apache_spec.rb"]
       },
       {
         "hash": "9c705fb84721d85d388f564e79c6cd0285373f8f",
         "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: Ia9fd9b7af4b345715bbe233f9724383817f64686\nCloses-Bug: #1717144",
         "cmtr": "ZhongShengping",
         "date": "2017-09-14 12:25:53+08:00",
-        "files": ["authtoken.pp", "deprecate_revocation_cache_time_parameter-833ea914b2355a29.yaml", "watcher_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_revocation_cache_time_parameter-833ea914b2355a29.yaml",
+            "spec/classes/watcher_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "0c4b3bde4e24be4f646a345a9a13397bca473ab7",
         "msg": "Allow setting log files for apache vhost\n\nThis allows the setting of the error and access file logs, as well as\nthe access log format. This was done in a similar fashion as one can\nconfigure these ones in the keystone wsgi manifest.\n\nChange-Id: Ib96107448fa8dde4bae799144d529f85019b1d98",
         "cmtr": "ZhongShengping",
         "date": "2017-10-12 09:54:44+08:00",
-        "files": ["apache.pp", "watcher_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "spec/classes/watcher_wsgi_apache_spec.rb"]
       },
       {
         "hash": "e73411d4ed7f802a168207c66e6731ceea30cb16",
         "msg": "Configure *_domain_name to Default by default\n\nKeystone v2.0 API was removed so we have no choice but configuring\nuser_domain_name and project_domain_name otherwise it fallbacks to\nKeystone v2.0 and it fails. This patch sets the default value so we make\nsure Keystone v3 will be used out of the box for our users.\n\nChange-Id: I10ea974343681668c5936d26308506c8a58da17c",
         "cmtr": "ZhongShengping",
         "date": "2017-10-13 14:50:36+08:00",
-        "files": ["authtoken.pp", "default_domain-b1fb03d5e12a9f7d.yaml", "watcher_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/default_domain-b1fb03d5e12a9f7d.yaml",
+            "spec/classes/watcher_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "331bf7326a7975d130f16798acd7f50727c63256",
         "msg": "add parameter to overwrite/add wsgi process options\n\nAdd parameter to apache_wsgi to allow overwrite\nand/or add additional wsgi process options.\n\nThis possibility was added to openstacklib\nwith Change-Id: I41914ce3361988d5db1695f09d21209772fdf548\nlease enter the commit message for your changes. Lines starting\n\nChange-Id: Ieab1cfea6bbf026b783c701e7631fb38c21061c4",
         "cmtr": "ZhongShengping",
         "date": "2017-10-23 14:13:37+08:00",
-        "files": ["apache.pp", "wsgi_process_options-a4089bef3f83070f.yaml", "watcher_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/wsgi_process_options-a4089bef3f83070f.yaml",
+            "spec/classes/watcher_wsgi_apache_spec.rb"]
       },
       {
         "hash": "385bd43951e64a12d5af2bc29c9a6d16f6791d50",
         "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: I2933a99745c7cebe02800ea5af77a6e173e3df46",
         "cmtr": "ZhongShengping",
         "date": "2017-11-28 09:48:57+08:00",
-        "files": ["logging.pp", "log-json-a87130f234e8771d.yaml", "watcher_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "releasenotes/notes/log-json-a87130f234e8771d.yaml",
+            "spec/classes/watcher_logging_spec.rb"]
       },
       {
         "hash": "ea0947f15649bfadfc2f01ee86f6b7ac7db08de5",
         "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nChange-Id: I3e6853430363c0976a634ca44d0418948d0ded23\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
         "cmtr": "Emilien Macchi",
         "date": "2018-01-10 14:24:09-08:00",
-        "files": ["params.pp", "policy.pp", "watcher_policy_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "spec/classes/watcher_policy_spec.rb"]
       },
       {
         "hash": "ae0785e3d4e3066cab97626df9343ccec5e039e7",
         "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: If0fee161d0225d399a54bf8679de993af0644f96",
         "cmtr": "ZhongShengping",
         "date": "2018-01-15 17:39:06+08:00",
-        "files": ["logging.pp", "add-use_journal-option-for-logging-99d82c6c8d195dcf.yaml", "watcher_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "releasenotes/notes/add-use_journal-option-for-logging-99d82c6c8d195dcf.yaml",
+            "spec/classes/watcher_logging_spec.rb"]
       },
       {
         "hash": "04bf26b08b5b1290c6b131e5463dce57a5dbd118",
         "msg": "Drop all qpid related explanations\n\nQpid was removed in Mitaka from Oslo Messaging, so we\ncan remove all qpid related explanations.\n\nChange-Id: I538d406f8dacbf2c88b2097631e3d259df4b7005",
         "cmtr": "ZhongShengping",
         "date": "2018-03-09 15:04:23+08:00",
-        "files": ["logging.pp"]
+        "files": [
+            "manifests/logging.pp"]
       },
       {
         "hash": "15dc6f8d4e6dd088fdb785ccb75aa80b0b489635",
         "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: I41a7eb38176781bffc16c6886a3de9f855036fbc\nCloses-Bug: #1755102",
         "cmtr": "ZhongShengping",
         "date": "2018-03-12 16:33:11+08:00",
-        "files": ["create_schema.pp", "openstack_db_tag-8c7bcab4734ad950.yaml", "watcher_db_create_schema_spec.rb"]
+        "files": [
+            "manifests/db/create_schema.pp",
+            "releasenotes/notes/openstack_db_tag-8c7bcab4734ad950.yaml",
+            "spec/classes/watcher_db_create_schema_spec.rb"]
       },
       {
         "hash": "c13a788dd99a515a8bc5fc52b653fead39662eb8",
         "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: I784ca2fc0a9a906633ad60d1338c4b4b73c376c7\nCloses-Bug: #1628580",
         "cmtr": "ZhongShengping",
         "date": "2018-03-16 11:21:20+08:00",
-        "files": ["create_schema.pp", "upgrade.pp", "watcher_db_create_schema_spec.rb", "watcher_db_upgrade_spec.rb"]
+        "files": [
+            "manifests/db/create_schema.pp",
+            "manifests/db/upgrade.pp",
+            "spec/classes/watcher_db_create_schema_spec.rb",
+            "spec/classes/watcher_db_upgrade_spec.rb"]
       },
       {
         "hash": "d90027370b283bfb78ac9626eeb826f5604a74fb",
         "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: I1246d4d2ff9b71903573bbe028d418c8b74cea7d\nCloses-Bug: #1757581",
         "cmtr": "ZhongShengping",
         "date": "2018-03-22 11:09:51+08:00",
-        "files": ["db.pp", "add-pool_timeout-option-for-db-a72dd0ebec01c9c5.yaml", "watcher_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "releasenotes/notes/add-pool_timeout-option-for-db-a72dd0ebec01c9c5.yaml",
+            "spec/classes/watcher_db_spec.rb"]
       },
       {
         "hash": "64a6eaacceab96fac9cf74b96107a956453ed82a",
         "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: I93b272477a2d0b1ac2caa6e3e5d0d49e724cbd1b",
         "cmtr": "ZhongShengping",
         "date": "2018-03-27 10:33:24+08:00",
-        "files": ["authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-be8d023807173463.yaml"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/remove_deprecated_keystone_revocation_cache_time_option-be8d023807173463.yaml"]
       },
       {
         "hash": "edc11d0bd979d64ebf498e1aed1a2cec92f1a2b4",
         "msg": "Remove deprecated ensure_package option\n\nChange-Id: I3c5d099bea57fde3816877efdfce9ed69650c964",
         "cmtr": "ZhongShengping",
         "date": "2018-03-29 12:01:16+08:00",
-        "files": ["init.pp", "remove_deprecated_ensure_package_option-989408783eac7d73.yaml"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/remove_deprecated_ensure_package_option-989408783eac7d73.yaml"]
       },
       {
         "hash": "1c23b8e61e27eb0ae88f5dbc73da9dd95c94873e",
         "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: I35fd2cc9b91148ab23793075862483940d92798e\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
         "cmtr": "ZhongShengping",
         "date": "2018-04-03 16:55:05+08:00",
-        "files": ["authtoken.pp", "deprecate_auth_uri_parameter-93fd3119f74b8769.yaml", "watcher_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_auth_uri_parameter-93fd3119f74b8769.yaml",
+            "spec/classes/watcher_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "807bac00a537cd867b0b03fde819e3c9c4198711",
         "msg": "Debian is using python3-watcherclient\n\nChange-Id: I60c2a73f20bc0ba75c0d90ed8b640e8120949956",
         "cmtr": "zhubingbing",
         "date": "2018-04-12 11:49:19+08:00",
-        "files": ["params.pp", "watcher_client_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "spec/classes/watcher_client_spec.rb"]
       },
       {
         "hash": "41e1ab5dd285b4496fdb36bd32967238bcea28a6",
         "msg": "Debian path to app.wsgi\n\nDebian isn't using /usr/lib/python2.7. First, its using Python 3,\nand second, the app.wsgi is in /usr/share/watcher-common.\n\nChange-Id: Ib93cbb8362625634398b9d92c56b251e96450ed6",
         "cmtr": "Thomas Goirand",
         "date": "2018-05-08 15:33:08+02:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "7d94b4b6f32b8fb0a553eb135925fdc614dfa9a6",
         "msg": "neat: missing : in $::os_service_default\n\nChange-Id: I783b2293f5e1f06e670246804fbbb5066a497876",
         "cmtr": "zhubingbing",
         "date": "2018-05-11 14:02:40+08:00",
-        "files": ["authtoken.pp"]
+        "files": [
+            "manifests/keystone/authtoken.pp"]
       },
       {
         "hash": "60982ee75f4187b0857a57ecf4ec71a8b34df5d7",
         "msg": "Replace port 35357 with 5000\n\nNow that the v2.0 API has been removed, we don't have a reason to\ninclude deployment instructions for two separate applications on\ndifferent ports.\n\nChange-Id: Ic1d30e49dc878f997c4d8e0eb228b2e80da578c0",
         "cmtr": "qiaomin",
         "date": "2018-05-13 00:55:35+08:00",
-        "files": ["api.pp", "authtoken.pp", "watcher_api_spec.rb", "watcher_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/keystone/authtoken.pp",
+            "spec/classes/watcher_api_spec.rb",
+            "spec/classes/watcher_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "7ee7fc5ec530f5b6fd92b39cfd579ed35def314f",
         "msg": "Remove deprecated rpc_backend param\n\nRemove the deprecated rpc_backend param which has been deprecated for\ntwo years. The default_transport_url has been present for a while\nnow and should be used.\n\nChange-Id: I0b1356b3e44c3f01fb7025fa8f0720403dd376da",
         "cmtr": "ZhongShengping",
         "date": "2018-05-24 11:24:56+08:00",
-        "files": ["init.pp", "remove-deprecated-rabbit-params-a34e86d1c1d0a6fc.yaml"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/remove-deprecated-rabbit-params-a34e86d1c1d0a6fc.yaml"]
       },
       {
         "hash": "e02822a3f64e7856cf055935df2c42bc321137d7",
         "msg": "Remove rabbit_max_retries option\n\nThe rabbit_max_retries parameter has been deprecated for one year.\nWe can remove it.\n\nChange-Id: I0ec9f905a2e07bc6fef8cfe5ca64b542c36dc7c0",
         "cmtr": "ZhongShengping",
         "date": "2018-06-01 14:38:42+08:00",
-        "files": ["init.pp", "remove_deprecated_rabbit_max_retries_option-886e2102ff813c90.yaml"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/remove_deprecated_rabbit_max_retries_option-886e2102ff813c90.yaml"]
       },
       {
         "hash": "d6f774d1aeb3b4106bb3b643daf8d23300e14918",
         "msg": "Fix annotations\n\nChange-Id: I634d9f225ef60d654b7c1602beb05ecd146139c4",
         "cmtr": "zhubingbing",
         "date": "2018-06-15 15:07:38+08:00",
-        "files": ["mysql.pp"]
+        "files": [
+            "manifests/db/mysql.pp"]
       },
       {
         "hash": "bb532b136cf3a4fa3082658e0796f5035bddd09c",
         "msg": "Fix the smoke testing link\n\nChange-Id: I7368774a630233e9a1b3eae17a62bea4be700840",
         "cmtr": "jacky06",
         "date": "2018-07-30 12:31:35-04:00",
-        "files": ["init.pp"]
+        "files": [
+            "tests/init.pp"]
       },
       {
         "hash": "ed34f375858ec723f2fa9aedbf2d6f1cb9a563a4",
         "msg": "Fix the duplicated vars defined\n\nChange-Id: I57511901fc9a2ac48473fd53dfd756868f1ae2c9\nCloses-Bug: #1792705",
         "cmtr": "zhulingjie",
         "date": "2018-09-13 18:52:29-04:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       }]
     }

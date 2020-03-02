@@ -1,7 +1,25 @@
     {
       "url": "https://github.com/openstack/fuel-plugin-plumgrid",
-      "pp_files": ["edge.pp", "firewall.pp", "nginx.pp", "pg_common.pp", "pre_deployment.pp", "repo.pp", "director.pp", "init.pp", "plumgrid_nova_compute.pp", "params.pp", "tools.pp", "keepalived.pp", "gateway.pp", "director_fixes.pp", "disable_openvswitch.pp"],
-      "pp_cmtrs": ["mshahzeb", "Javeria Khan", "Muhammad Shahzeb"],
+      "pp_files": [
+        "deployment_scripts/puppet/manifests/director.pp",
+        "deployment_scripts/puppet/manifests/plumgrid_nova_compute.pp",
+        "deployment_scripts/puppet/manifests/gateway.pp",
+        "deployment_scripts/puppet/manifests/pg_common.pp",
+        "deployment_scripts/puppet/modules/plumgrid/manifests/firewall.pp",
+        "deployment_scripts/puppet/modules/sal/manifests/nginx.pp",
+        "deployment_scripts/puppet/manifests/disable_openvswitch.pp",
+        null,
+        "deployment_scripts/puppet/manifests/director_fixes.pp",
+        "deployment_scripts/puppet/manifests/pre_deployment.pp",
+        "deployment_scripts/puppet/modules/sal/manifests/keepalived.pp",
+        "deployment_scripts/puppet/manifests/edge.pp",
+        "deployment_scripts/puppet/modules/plumgrid/manifests/params.pp",
+        "deployment_scripts/puppet/manifests/tools.pp",
+        "deployment_scripts/puppet/modules/sal/manifests/init.pp",
+        "deployment_scripts/puppet/modules/plumgrid/manifests/init.pp",
+        "deployment_scripts/puppet/modules/plumgrid/manifests/repo.pp"
+      ],
+      "pp_cmtrs": ["Javeria Khan", "mshahzeb", "Muhammad Shahzeb"],
       "num_pp_commits": 10,
       "num_tot_commits": 35,
       "commits": [{
@@ -9,69 +27,152 @@
         "msg": "Initial Commit - Fuel PLUMgrid Plugin\n\n- Supports MOS 7.0 deployment\n\nChange-Id: I3f6a17ba3b8720e22d3d1be29e45b13077879210\nSigned-off-by: Javeria Khan <javeriak@plumgrid.com>",
         "cmtr": "Javeria Khan",
         "date": "2016-02-13 01:12:57-08:00",
-        "files": ["LICENSE", "README.md", "cleanup_os.sh", "pg_os_version.sh", "plumgrid_fabric.sh", "post_pg_license.sh", "director.pp", "director_fixes.pp", "edge.pp", "gateway.pp", "pg_common.pp", "pre_deployment.pp", "tools.pp", "network.filters", "plumgrid_plugin.py", "firewall.pp", "init.pp", "params.pp", "repo.pp", "hosts.erb", "ifcs.conf.erb", "plumgrid.conf.erb", "init.pp", "keepalived.pp", "nginx.pp", "default.conf.erb", "keepalived.conf.erb", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "network_roles.yaml", "node_roles.yaml", "pre_build_hook", ".gitkeep", ".gitkeep", "tasks.yaml", "volumes.yaml"]
+        "files": [
+            "LICENSE",
+            "README.md",
+            "deployment_scripts/cleanup_os.sh",
+            "deployment_scripts/pg_os_version.sh",
+            "deployment_scripts/plumgrid_fabric.sh",
+            "deployment_scripts/post_pg_license.sh",
+            "deployment_scripts/puppet/manifests/director.pp",
+            "deployment_scripts/puppet/manifests/director_fixes.pp",
+            "deployment_scripts/puppet/manifests/edge.pp",
+            "deployment_scripts/puppet/manifests/gateway.pp",
+            "deployment_scripts/puppet/manifests/pg_common.pp",
+            "deployment_scripts/puppet/manifests/pre_deployment.pp",
+            "deployment_scripts/puppet/manifests/tools.pp",
+            "deployment_scripts/puppet/modules/plumgrid/files/network.filters",
+            "deployment_scripts/puppet/modules/plumgrid/files/plumgrid_plugin.py",
+            "deployment_scripts/puppet/modules/plumgrid/manifests/firewall.pp",
+            "deployment_scripts/puppet/modules/plumgrid/manifests/init.pp",
+            "deployment_scripts/puppet/modules/plumgrid/manifests/params.pp",
+            "deployment_scripts/puppet/modules/plumgrid/manifests/repo.pp",
+            "deployment_scripts/puppet/modules/plumgrid/templates/hosts.erb",
+            "deployment_scripts/puppet/modules/plumgrid/templates/ifcs.conf.erb",
+            "deployment_scripts/puppet/modules/plumgrid/templates/plumgrid.conf.erb",
+            "deployment_scripts/puppet/modules/sal/manifests/init.pp",
+            "deployment_scripts/puppet/modules/sal/manifests/keepalived.pp",
+            "deployment_scripts/puppet/modules/sal/manifests/nginx.pp",
+            "deployment_scripts/puppet/modules/sal/templates/default.conf.erb",
+            "deployment_scripts/puppet/modules/sal/templates/keepalived.conf.erb",
+            "deployment_tasks.yaml",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "network_roles.yaml",
+            "node_roles.yaml",
+            "pre_build_hook",
+            "repositories/centos/.gitkeep",
+            "repositories/ubuntu/.gitkeep",
+            "tasks.yaml",
+            "volumes.yaml"]
       },
       {
         "hash": "1926161ac0842b053008619f735f4fbd4cd20357",
         "msg": "Ensure latest python-plumgridlib in class neutron::plugins::plumgrid\n\nChange-Id: Ideb033630ee81950fac3648c42de7fba1a41620d\nSigned-off-by: Javeria Khan <javeriak@plumgrid.com>",
         "cmtr": "Javeria Khan",
         "date": "2016-03-09 10:40:13-08:00",
-        "files": ["director.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/director.pp"]
       },
       {
         "hash": "bb5fb3c7d3196ed0c210a061eac2b81a59f342ec",
         "msg": "Add OPSVM / CloudApex support for MOS7\n\n- a new UI input has been added to specify OPSVM IP\n  before deployment\n- plumgrid and sal puppet modules have been modified to\n  process the provided OPSVM IP\n\nChange-Id: I9d01b71ab7c8e7fd0c14b36a35c72b88d31d7292\nSigned-off-by: Javeria Khan <javeriak@plumgrid.com>",
         "cmtr": "Javeria Khan",
         "date": "2016-04-19 06:12:20-07:00",
-        "files": ["director.pp", "edge.pp", "gateway.pp", "init.pp", "00-pg.conf.erb", "init.pp", "nginx.pp", "default.conf.erb", "environment_config.yaml", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/director.pp",
+            "deployment_scripts/puppet/manifests/edge.pp",
+            "deployment_scripts/puppet/manifests/gateway.pp",
+            "deployment_scripts/puppet/modules/plumgrid/manifests/init.pp",
+            "deployment_scripts/puppet/modules/plumgrid/templates/00-pg.conf.erb",
+            "deployment_scripts/puppet/modules/sal/manifests/init.pp",
+            "deployment_scripts/puppet/modules/sal/manifests/nginx.pp",
+            "deployment_scripts/puppet/modules/sal/templates/default.conf.erb",
+            "environment_config.yaml",
+            "metadata.yaml"]
       },
       {
         "hash": "8f36e19b4b5e682498f74a608b80fa9cd5c2f275",
         "msg": "OPSVM fix for sal class Middleware-IP\n\nAdded missing IP for OPSVM to sal class in director manifest\n\nChange-Id: I9375599990c6e62c61c2483427aa0ca3ff270287\nSigned-off-by: Javeria Khan <javeriak@plumgrid.com>",
         "cmtr": "Javeria Khan",
         "date": "2016-04-27 03:41:37-07:00",
-        "files": ["director.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/director.pp"]
       },
       {
         "hash": "172011019e14aff9ac68836bbfe309e181158bae",
         "msg": "Improving Upgrade work flow for networking-plugmrid pip version\n\nChange-Id: Icea48f09cdd4c331a3ddfcb411357cc1e9bedba1\nTicket: [SOL-1077]\nSigned-off-by: Muhammad Shahzeb <mshahzeb@plumgrid.com>",
         "cmtr": "Muhammad Shahzeb",
         "date": "2016-06-07 01:14:11-07:00",
-        "files": ["pre_deployment.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/pre_deployment.pp"]
       },
       {
         "hash": "75ee8d43275ac36904328fc221af2f8fd66beb21",
         "msg": "Adding ecmp support for neutron.\n  - Create pgrc file in /etc/neutron/plugins/plumgrid\n  - Using identity v2.0 for MOS7\n\nChange-Id: Ic2ee45682a1eab548491e837fd212aa7c587240d\nTicket: [SOL-807]\nSigned-off-by: Muhammad Shahzeb <mshahzeb@plumgrid.com>",
         "cmtr": "Muhammad Shahzeb",
         "date": "2016-06-08 03:04:29-07:00",
-        "files": ["director.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/director.pp"]
       },
       {
         "hash": "41f19ebf86f54deda7c38b802dd104198f481f45",
         "msg": "Update PG Firewall rules for MOS\n\nChange-Id: I0309dd9bf00a9d0f340653b977dfa8f05a54ceab\nTicket: [SOL-904]\nSigned-off-by: Muhammad Shahzeb <mshahzeb@plumgrid.com>",
         "cmtr": "Muhammad Shahzeb",
         "date": "2016-06-09 00:10:21-07:00",
-        "files": ["director.pp", "edge.pp", "gateway.pp", "firewall.pp", "init.pp", "init.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/director.pp",
+            "deployment_scripts/puppet/manifests/edge.pp",
+            "deployment_scripts/puppet/manifests/gateway.pp",
+            "None",
+            "deployment_scripts/puppet/modules/plumgrid/manifests/init.pp",
+            "deployment_scripts/puppet/modules/sal/manifests/init.pp"]
       },
       {
         "hash": "aa417e80fd74ea530b7d061ec00d4fd3fb4a37e3",
         "msg": "Add support for MOS8 in fuel plumgrid plugin:\n - Changed parameters in environment config file\n - Changed values in metadata file\n - Changed director.pp manifest\n    - Remove neutron-plugin package\n    - Add support for deb based networking-plumgrid\n      package\n - Changed core plugin value\n - Replace plugin name in guess function\n - Add iptables rule for metadata\n - Add support for solutions api (license, ips, zoneinfo)\n - Fixed cleanup script\n - Delete all neutron agents at deployment\n - Place nova sql url in nova.conf of compute\n - Add fabric network support in modules\n - Made username and password variable in post license\n - Setup plumgrid sigmund service\n - Indentation fixes\n\nTicket: [SOL-1022] [SOL-975] [SOL-782] [SOL-1147] [SOL-1144] [SOL-1101]\nChange-Id: I4fdf75de95d367c9ae197d384ebc2eb1e4df738a\nSigned-off-by: Muhammad Shahzeb <mshahzeb@plumgrid.com>\n(cherry picked from commit d28a0b75def94237656380f00ece7c24110df0e2)\n(cherry picked from commit 2bfe4490a78b1e422b999d1655b0cb9015fdc239)",
         "cmtr": "Muhammad Shahzeb",
         "date": "2016-08-03 23:02:42-07:00",
-        "files": ["cleanup_os.sh", "pg_os_version.sh", "plumgrid_fabric.sh", "post_pg_license.sh", "director.pp", "director_fixes.pp", "edge.pp", "gateway.pp", "pg_common.pp", "pre_deployment.pp", "solution_api.sh", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "network_roles.yaml"]
+        "files": [
+            "deployment_scripts/cleanup_os.sh",
+            "None",
+            "None",
+            "deployment_scripts/post_pg_license.sh",
+            "deployment_scripts/puppet/manifests/director.pp",
+            "deployment_scripts/puppet/manifests/director_fixes.pp",
+            "deployment_scripts/puppet/manifests/edge.pp",
+            "deployment_scripts/puppet/manifests/gateway.pp",
+            "deployment_scripts/puppet/manifests/pg_common.pp",
+            "deployment_scripts/puppet/manifests/pre_deployment.pp",
+            "deployment_scripts/solution_api.sh",
+            "deployment_tasks.yaml",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "network_roles.yaml"]
       },
       {
         "hash": "49c87408db48fc8b6fc188e092488072edbd8957",
         "msg": "Disable OVS related task to support scale in/out in MOS8\n  - Override hiera files to disable ovs\n  - Replace compute task\n  - Skip OVS related tasks\n\nChange-Id: I6ed8b7a56f3512dfae9321058970d211269e1a6f\nSigned-off-by: Muhammad Shahzeb <mshahzeb@plumgrid.com>\n(cherry picked from commit 7ae49381f3b1d5de9f1791baa314a6feeb9f6472)",
         "cmtr": "Muhammad Shahzeb",
         "date": "2016-08-23 23:43:07-07:00",
-        "files": ["cleanup_os.sh", "disable_openvswitch.pp", "pg_common.pp", "plumgrid_nova_compute.pp", "deployment_tasks.yaml"]
+        "files": [
+            "None",
+            "deployment_scripts/puppet/manifests/disable_openvswitch.pp",
+            "deployment_scripts/puppet/manifests/pg_common.pp",
+            "deployment_scripts/puppet/manifests/plumgrid_nova_compute.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "da15e2cdd7f7e478771ebb4e6f2cbe2b1e833f18",
         "msg": "MOS-9 integration:\n  - Complete integration for deploying MOS-9 with PLUMgrid\n  - Add support for paralell installation feature in MOS9\n  - Add missing paramters in plumlib.ini\n\nChange-Id: Id7f3c0bdb1c57e35787178a6fdcba5a262fe6108\nTicket: [SOL-1063, SOL-1105, SOL-1170, SOL-1175, SOL-1157]\nSigned-off-by: mshahzeb <mshahzeb@plumgrid.com>",
         "cmtr": "mshahzeb",
         "date": "2016-09-01 07:41:51-04:00",
-        "files": ["post_pg_license.sh", "director.pp", "director_fixes.pp", "disable_openvswitch.pp", "deployment_tasks.yaml", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/post_pg_license.sh",
+            "deployment_scripts/puppet/manifests/director.pp",
+            "deployment_scripts/puppet/manifests/director_fixes.pp",
+            "deployment_scripts/puppet/manifests/disable_openvswitch.pp",
+            "deployment_tasks.yaml",
+            "metadata.yaml"]
       }]
     }

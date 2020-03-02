@@ -1,7 +1,14 @@
     {
       "url": "https://github.com/Mirantis/puppet-haproxy",
-      "pp_files": ["balancermember.pp", "config.pp", "init.pp", "data.pp", "site.pp"],
-      "pp_cmtrs": ["Gary Larizza", "R. Tyler Croy"],
+      "pp_files": [
+        "tests/init.pp",
+        "manifests/init.pp",
+        "manifests/balancermember.pp",
+        "manifests/config.pp",
+        "manifests/data.pp",
+        "spec/fixtures/manifests/site.pp"
+      ],
+      "pp_cmtrs": ["R. Tyler Croy", "Gary Larizza"],
       "num_pp_commits": 5,
       "num_tot_commits": 12,
       "commits": [{
@@ -9,34 +16,58 @@
         "msg": "Initial Commit",
         "cmtr": "Gary Larizza",
         "date": "2012-05-07 14:26:21-07:00",
-        "files": ["Modulefile", "README", "balancermember.pp", "config.pp", "data.pp", "init.pp", "spec_helper.rb", "haproxy-base.cfg.erb", "haproxy_balancermember.erb", "haproxy_config_block.erb", "init.pp"]
+        "files": [
+            "Modulefile",
+            "README",
+            "manifests/balancermember.pp",
+            "manifests/config.pp",
+            "manifests/data.pp",
+            "manifests/init.pp",
+            "spec/spec_helper.rb",
+            "templates/haproxy-base.cfg.erb",
+            "templates/haproxy_balancermember.erb",
+            "templates/haproxy_config_block.erb",
+            "tests/init.pp"]
       },
       {
         "hash": "98aaa48b6759c05a9e7bb1cab3d6f178658bc450",
         "msg": "Ensure hasrestart parameter with haproxy service\n\nThe haproxy service should have the hasrestart parameter defaulted to\ntrue.  Previously, this was not the case.  This commit establishes that.",
         "cmtr": "Gary Larizza",
         "date": "2012-05-09 16:35:51-07:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "01d46be262154b76ffd794fadf0d43deeb425fa6",
         "msg": "Use array in config class default\n\nPreviously, I was using the option parameter twice in the default\nsetting for haproxy::config.  This commit changes that to passing an\narray to the option parameter (and fixes the example).",
         "cmtr": "Gary Larizza",
         "date": "2012-05-09 16:36:40-07:00",
-        "files": ["config.pp"]
+        "files": [
+            "manifests/config.pp"]
       },
       {
         "hash": "580e831fbb7ba60cc0206661a8cfe263613c2b5e",
         "msg": "Commit spec tests for the haproxy module\n\nPreviously, the haproxy module didn't provide rspec tests for the class\nor defined resource types.  This commit adds the tests, a spec_helper\nfile, and a rakefile so you can do `rake spec` and automatically run the\ntests.\n\nI've also committed a symlink in the\nspec/fixtures/modules/haproxy directory so the rspec-puppet tests will\nFIND the haproxy class/defined resource types, but I HAVE NOT committed\na symlink so that it will find the concat class (which is a dependency\nfor this module).  If you choose to run the tests, you must symlink the\nconcat module in the spec/fixtures/modules directory before the spec\ntests will pass.",
         "cmtr": "Gary Larizza",
         "date": "2012-05-09 16:38:43-07:00",
-        "files": ["Rakefile", "haproxy_spec.rb", "balancermember_spec.rb", "config_spec.rb", "site.pp", "haproxy", "spec_helper.rb"]
+        "files": [
+            "Rakefile",
+            "spec/classes/haproxy_spec.rb",
+            "spec/defines/balancermember_spec.rb",
+            "spec/defines/config_spec.rb",
+            "spec/fixtures/manifests/site.pp",
+            "spec/fixtures/modules/haproxy",
+            "spec/spec_helper.rb"]
       },
       {
         "hash": "c409a0953552107f4ad4c6535392071980d9e33b",
         "msg": "Fix some, but by no means all, of puppet-lint's complaining",
         "cmtr": "R. Tyler Croy",
         "date": "2012-07-08 21:38:50-07:00",
-        "files": ["balancermember.pp", "config.pp", "init.pp", "init.pp"]
+        "files": [
+            "manifests/balancermember.pp",
+            "manifests/config.pp",
+            "manifests/init.pp",
+            "tests/init.pp"]
       }]
     }

@@ -1,7 +1,40 @@
     {
       "url": "https://github.com/openstack/fuel-plugin-lma-infrastructure-alerting",
-      "pp_files": ["service.pp", "cluster.pp", "init.pp", "host.pp", "cgi.pp", "server_service.pp", "object_custom_vars.pp", "hostgroup.pp", "params.pp", "nagios_dashboard_url.pp", "validate_certificate.pp", "check_ssh.pp", "hiera.pp", "enable_quorum.pp", "vhost_cluster_status.pp", "contactgroup.pp", "configure_default_route.pp", "check_http.pp", "command.pp", "ha_services.pp", "firewall.pp", "hosts.pp", "vhost.pp", "contact.pp", "service_status.pp", "services.pp", "nagios.pp"],
-      "pp_cmtrs": ["Simon Pasquier", "Guillaume Thouvenin", "Swann Croiset", "pangliye"],
+      "pp_files": [
+        "deployment_scripts/puppet/modules/nagios/manifests/hostgroup.pp",
+        "deployment_scripts/puppet/manifests/hiera.pp",
+        "deployment_scripts/puppet/modules/nagios/manifests/service.pp",
+        "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/contact.pp",
+        "deployment_scripts/puppet/modules/nagios/manifests/contact.pp",
+        "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp",
+        "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/hosts.pp",
+        "deployment_scripts/puppet/manifests/nagios.pp",
+        "deployment_scripts/puppet/modules/nagios/manifests/init.pp",
+        "deployment_scripts/puppet/manifests/nagios_dashboard_url.pp",
+        "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/init.pp",
+        "deployment_scripts/puppet/modules/nagios/manifests/object_custom_vars.pp",
+        "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/service_status.pp",
+        "deployment_scripts/puppet/modules/nagios/manifests/server_service.pp",
+        "deployment_scripts/puppet/manifests/enable_quorum.pp",
+        "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/check_http.pp",
+        "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/check_ssh.pp",
+        "deployment_scripts/puppet/manifests/configure_default_route.pp",
+        "deployment_scripts/puppet/modules/nagios/manifests/command.pp",
+        "deployment_scripts/puppet/manifests/cluster.pp",
+        "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp",
+        "deployment_scripts/puppet/manifests/firewall.pp",
+        "deployment_scripts/puppet/modules/nagios/manifests/contactgroup.pp",
+        "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/services.pp",
+        "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/vhost_cluster_status.pp",
+        "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp",
+        "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/vhost.pp",
+        null,
+        "deployment_scripts/puppet/manifests/ha_services.pp",
+        "deployment_scripts/puppet/modules/nagios/manifests/params.pp",
+        "deployment_scripts/puppet/manifests/validate_certificate.pp",
+        "deployment_scripts/puppet/modules/nagios/manifests/host.pp"
+      ],
+      "pp_cmtrs": ["Simon Pasquier", "pangliye", "Swann Croiset", "Guillaume Thouvenin"],
       "num_pp_commits": 92,
       "num_tot_commits": 292,
       "commits": [{
@@ -9,643 +42,1021 @@
         "msg": "Configure Nagios to manage service status alerts\n\n* configure Nagios server and Nagios CGI\n* create a Nagios \"virtual\" hostname pointing to the management VIP\n* create service passive checks corresponding to OpenStack service\n  statutes sent by LMA collector\n* create one Contact with an email for alert notifications\n\nNote: we ship our own Nagios manifest due to the fact that all manifests\naround the place are either not compatible for masterless Puppet\nenvironment or not well tested for both Ubuntu and CentOS. Furthermore,\nthis plugin probably doesn't require all Nagios configuration features.\n\nimplements blueprint lma-infra-alerting-plugin\n\nChange-Id: I6faa3a0274b5b7f345a240d9d0ac7925de8a9919",
         "cmtr": "Swann Croiset",
         "date": "2015-07-22 10:49:20+02:00",
-        "files": ["nagios.pp", "LICENSE", "README", "init.pp", "nagios.pp", "contact.pp", "service_status.pp", "params.pp", "metadata.json", "LICENSE", "README", "cmd_notify_service_by_email.cfg", "cgi.pp", "command.pp", "contact.pp", "contactgroup.pp", "host.pp", "init.pp", "params.pp", "server_service.pp", "service.pp", "metadata.json", "pre_build_hook", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/LICENSE",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/README",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/init.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/contact.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/service_status.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/metadata.json",
+            "deployment_scripts/puppet/modules/nagios/LICENSE",
+            "deployment_scripts/puppet/modules/nagios/README",
+            "deployment_scripts/puppet/modules/nagios/files/cmd_notify_service_by_email.cfg",
+            "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/command.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/contact.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/contactgroup.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/host.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/init.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/params.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/server_service.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/service.pp",
+            "deployment_scripts/puppet/modules/nagios/metadata.json",
+            "pre_build_hook",
+            "tasks.yaml"]
       },
       {
         "hash": "ce1e5497083e6ad07d43fbd3c948de154ef60307",
         "msg": "Configure Nagios to monitor all nodes\n\nAll hosts are configured with their management IP with a ping check and\nhave a basic SSH service checks for all IPs (except for public network).\n\nNote: each Nagios Hosts inherit from a Nagios Host Template to add Custom\nVariables per host. These custom variables are used within commands (and\ncould be used elsewhere if it's useful like notification commands)\n\nimplements blueprint lma-infra-alerting-plugin\n\nChange-Id: Ia65b0da45a8dd299406dc434a1dcdb8099c62b25",
         "cmtr": "Swann Croiset",
         "date": "2015-07-27 15:23:49+02:00",
-        "files": ["nagios.pp", "nodes_to_nagios_hostgroups.rb", "nodes_to_nagios_hosts.rb", "check_ssh.pp", "hosts.pp", "host.pp", "hostgroup.pp", "object_custom_vars.pp", "params.pp", "object_custom_vars.erb", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/lib/puppet/parser/functions/nodes_to_nagios_hostgroups.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/lib/puppet/parser/functions/nodes_to_nagios_hosts.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/check_ssh.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/hosts.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/host.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/hostgroup.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/object_custom_vars.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/params.pp",
+            "deployment_scripts/puppet/modules/nagios/templates/object_custom_vars.erb",
+            "pre_build_hook"]
       },
       {
         "hash": "0339412735ab802a632aa0f77963f25405134054",
         "msg": "Ensure the friendly coexistence with other Fuel plugins\n\n* use hard coded HTTP port 8001 to allow coexistence with other fuel plugins\n* use Apache Puppet module to configure Virtualhost\n\nimplements blueprint lma-infra-alerting-plugin\n\nChange-Id: Id82ef1a580d4e39f3dd207b725900d70570ba539",
         "cmtr": "Swann Croiset",
         "date": "2015-07-30 09:22:28+02:00",
-        "files": ["firewall.pp", "init.pp", "nagios.pp", "params.pp", "cgi.pp", "params.pp", "metadata.json", "apache_vhost_ubuntu.conf.erb", "pre_build_hook", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/firewall.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/init.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/params.pp",
+            "deployment_scripts/puppet/modules/nagios/metadata.json",
+            "deployment_scripts/puppet/modules/nagios/templates/apache_vhost_ubuntu.conf.erb",
+            "pre_build_hook",
+            "tasks.yaml"]
       },
       {
         "hash": "adeee0a8a01a8e66ebb79cb646b738f002c40694",
         "msg": "Add SMTP support\n\n* UI options to configure SMTP parameters (without TLS support)\n* use command heirloom-mailx as replacement of command mail\n - this tool is available for Ubuntu and CentOS and support SMTP\n   authentication.\n\nChange-Id: I6fa19fdc50ec79776ec82c9790e5403011f563ea",
         "cmtr": "Swann Croiset",
         "date": "2015-07-30 09:53:29+02:00",
-        "files": ["nagios.pp", "init.pp", "contact.pp", "contact.pp", "init.pp", "params.pp", "notify-by-smtp.cfg.erb", "environment_config.yaml", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/init.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/contact.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/contact.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/init.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/params.pp",
+            "deployment_scripts/puppet/modules/nagios/templates/notify-by-smtp.cfg.erb",
+            "environment_config.yaml",
+            "pre_build_hook"]
       },
       {
         "hash": "b721fa61d7e3a2029302085e89bd2aca89664a25",
         "msg": "Fix typo in the Nagios status information\n\nChange-Id: I04c6c23014a3088ccb3507e421ee23444ad63496",
         "cmtr": "Simon Pasquier",
         "date": "2015-07-30 16:28:51+02:00",
-        "files": ["service.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/nagios/manifests/service.pp"]
       },
       {
         "hash": "2bae4e709e2d940c5422756ca9b0d3023a99e42d",
         "msg": "Add tests for Puppet modules\n\nThese tests run lint, syntax checker and simple Puppet class tests.\nIn the mean time this change fixes syntax warnings\n\nChange-Id: I474332ec965689a4e71ad9a235121e01faf5a24c",
         "cmtr": "Swann Croiset",
         "date": "2015-08-25 14:53:49+02:00",
-        "files": [".gitignore", "nagios.pp", ".fixtures.yml", ".gitignore", "Gemfile", "Rakefile", "init.pp", "nagios.pp", "contact.pp", "service_status.pp", "metadata.json", "lma_infra_alerting_nagios_contact_spec.rb", "lma_infra_alerting_service_status_spec.rb", "lma_infra_alerting_spec.rb", "lma_infra_alerting_check_ssh_spec.rb", "spec.opts", "spec_helper.rb", ".fixtures.yml", ".gitignore", "Gemfile", "Rakefile", "cgi.pp", "command.pp", "contact.pp", "contactgroup.pp", "host.pp", "hostgroup.pp", "init.pp", "object_custom_vars.pp", "server_service.pp", "service.pp", "metadata.json", "nagios_object_custom_vars_spec.rb", "spec.opts", "spec_helper.rb", "tox.ini"]
+        "files": [
+            ".gitignore",
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/.fixtures.yml",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/.gitignore",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/Gemfile",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/Rakefile",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/init.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/contact.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/service_status.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/metadata.json",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/classes/lma_infra_alerting_nagios_contact_spec.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/classes/lma_infra_alerting_service_status_spec.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/classes/lma_infra_alerting_spec.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/defines/lma_infra_alerting_check_ssh_spec.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/spec.opts",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/spec_helper.rb",
+            "deployment_scripts/puppet/modules/nagios/.fixtures.yml",
+            "deployment_scripts/puppet/modules/nagios/.gitignore",
+            "deployment_scripts/puppet/modules/nagios/Gemfile",
+            "deployment_scripts/puppet/modules/nagios/Rakefile",
+            "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/command.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/contact.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/contactgroup.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/host.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/hostgroup.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/init.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/object_custom_vars.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/server_service.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/service.pp",
+            "deployment_scripts/puppet/modules/nagios/metadata.json",
+            "deployment_scripts/puppet/modules/nagios/spec/defines/nagios_object_custom_vars_spec.rb",
+            "deployment_scripts/puppet/modules/nagios/spec/spec.opts",
+            "deployment_scripts/puppet/modules/nagios/spec/spec_helper.rb",
+            "tox.ini"]
       },
       {
         "hash": "262ba9baa738cee63d6eb9324596479392034c3b",
         "msg": "Add service checks for the LMA backend components\n\nAdd simple HTTP checks for Elasticsearch, Kibana, InfluxDB and Grafana.\n\nThese checks verify the HTTP return code and the presence of one expected\nstring in the response.\n\nChange-Id: Iff7c55e6525d86745d710dda3afc01f0cbef6bf1",
         "cmtr": "Swann Croiset",
         "date": "2015-08-25 14:58:09+02:00",
-        "files": ["nagios.pp", "check_http.pp", "params.pp", "lma_infra_alerting_check_http_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/check_http.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/defines/lma_infra_alerting_check_http_spec.rb"]
       },
       {
         "hash": "7d3e57ff3f36e87dcb8085046a75b710b1cb3a4b",
         "msg": "Be idempotent with concatenated strings\n\nChange-Id: I2ad22d0c55a8ad11c3be81da6cc8ecbeb90ac422",
         "cmtr": "Swann Croiset",
         "date": "2015-08-27 09:22:40+02:00",
-        "files": ["contact.pp", "host.pp", "hostgroup.pp", "service.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/nagios/manifests/contact.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/host.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/hostgroup.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/service.pp"]
       },
       {
         "hash": "c5a5da226d127b2c71bf063a8dc113cced7dd208",
         "msg": "Add support for CentOS 6.5\n\nChange-Id: If20fb41b79c461670c2fdeafd064a49018403677",
         "cmtr": "Swann Croiset",
         "date": "2015-08-27 09:34:05+02:00",
-        "files": ["nodes_to_nagios_hosts.rb", "hosts.pp", "service_status.pp", "params.pp", "cgi.pp", "init.pp", "params.pp", "apache_vhost_centos.conf.erb", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/lib/puppet/parser/functions/nodes_to_nagios_hosts.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/hosts.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/service_status.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/init.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/params.pp",
+            "deployment_scripts/puppet/modules/nagios/templates/apache_vhost_centos.conf.erb",
+            "pre_build_hook"]
       },
       {
         "hash": "79ba56942a4be2cb452a2cd924089decf8eaff7b",
         "msg": "Update Nagios configuration when scaling up the cluster\n\nA cronjob is responsible to scrutinize the /etc/hiera/nodes.yaml to\ndetect if new node has been added, then re-apply the puppet manifest.\nThis is the only way we have with MOS 7.0 to add some dynamic\nreconfiguration when adding a new node to the cluster.\n\nTo notice that this doesn't work when removing a node since the nodes.yaml is\nnever updated at this stage.\nSee for details bug https://bugs.launchpad.net/fuel/+bug/1491027\n\nChange-Id: I9eb75a66a55949f2d852fbcd19a4dc67df1dca25",
         "cmtr": "Swann Croiset",
         "date": "2015-09-04 12:11:13+02:00",
-        "files": ["update-lma-configuration", "nagios.pp", "params.pp", "lma_infra_alerting_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/files/update-lma-configuration",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/classes/lma_infra_alerting_spec.rb"]
       },
       {
         "hash": "e2d97b5b3e4e5b8b9449513cef82f300e9f19309",
         "msg": "Hiera controllers no more available\n\nChange-Id: Id39a805d42bee6f0eb2408b09882d16cfecb3b30",
         "cmtr": "Swann Croiset",
         "date": "2015-09-04 12:11:26+02:00",
-        "files": ["nagios.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp"]
       },
       {
         "hash": "a0528556f83c2accdd23997550aea883f4bfcd4e",
         "msg": "Define new role infrastructure_alerting\n\nChange-Id: I700c59c350942776b150d8f9c59bc0b92f3d037d",
         "cmtr": "Swann Croiset",
         "date": "2015-09-08 11:23:41+02:00",
-        "files": ["firewall.pp", "nagios.pp", "deployment_tasks.yaml", "environment_config.yaml", "node_roles.yaml", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/firewall.pp",
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_tasks.yaml",
+            "environment_config.yaml",
+            "node_roles.yaml",
+            "tasks.yaml"]
       },
       {
         "hash": "6e7ff7de81c0facae4c6847939a4311fad7c0709",
         "msg": "Allow to deploy this plugin role node alone in cluster\n\nSince the plugin no longer uses the base-os role, the Nagios configuration\ngenerated is wrong because there is no one host found.\nBy the way this avoids to monitor the infrastructure_alerting node (itself)\n\nChange-Id: I5a6bbefe3f3c7916280996fc7b29e1e5e7464274",
         "cmtr": "Swann Croiset",
         "date": "2015-09-08 11:23:45+02:00",
-        "files": ["nagios.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp"]
       },
       {
         "hash": "a7f613f51b1857389633998b535c237df6f31cc5",
         "msg": "Purge default Nagios conf shipped by distribution\n\nA nagios HTTP check is made on the default HTTP port 80 to verify availability\nof the Nagios UI but the plugin modifies its HTTP port to 8001 hence\nthe generation of a false alert.\nLet's remove this configuration shipped by Ubuntu.\n\nChange-Id: I5fc1e6e651e2f8accd94e94ba0c6db55fca8dce8",
         "cmtr": "Swann Croiset",
         "date": "2015-09-08 11:23:45+02:00",
-        "files": ["init.pp", "params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/init.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp"]
       },
       {
         "hash": "0f4fe35c19443ecd148a4ff4d92166892a6920f8",
         "msg": "Update tests\n\n- add lint and syntax test for Puppet manifests\n- set env GEM_HOME to allow jenkins install gem locally\n\nChange-Id: I4678088dc5ea9ef4cdd5e20feec9880538605067",
         "cmtr": "Swann Croiset",
         "date": "2015-09-10 11:58:42+02:00",
-        "files": [".gitignore", "Gemfile", "Rakefile", "nagios.pp", "tox.ini"]
+        "files": [
+            ".gitignore",
+            "deployment_scripts/puppet/manifests/Gemfile",
+            "deployment_scripts/puppet/manifests/Rakefile",
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "tox.ini"]
       },
       {
         "hash": "3c62cbf69ec71151c9eba4933fa80513a14f5a56",
         "msg": "Locate InfluxDB and Elasticsearch nodes by role\n\nChange-Id: Id9a1fa1bb44ef60e47c01b648a788e017a77493a",
         "cmtr": "Swann Croiset",
         "date": "2015-09-11 15:38:43+02:00",
-        "files": ["nagios.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp"]
       },
       {
         "hash": "c21f7232b90025ff8b5b191eafb6b9fd02ec8dec",
         "msg": "Dedicate a Logical Volume for Nagios\n\nA LV of 20GB is dedicated for Nagios which uses /var/nagios for all its data:\n - object_cache_file\n - status_file\n - temp_file\n - log_file\n - debug_file\n - log_archive_path\n\nChange-Id: I5dc67e6326e21af48c59e3acf7fe31541c5af497",
         "cmtr": "Swann Croiset",
         "date": "2015-09-11 15:55:34+02:00",
-        "files": ["README.md", "init.pp", "params.pp", "volumes.yaml"]
+        "files": [
+            "README.md",
+            "deployment_scripts/puppet/modules/nagios/manifests/init.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/params.pp",
+            "volumes.yaml"]
       },
       {
         "hash": "91a29419e4d5fb5df74cd6304293afdc7207f662",
         "msg": "Restart the Apache service after CGI configuration\n\nThe Apache process needs to be restarted after the configuration of the\nNagios CGI script. Otherwise the running Apache workers fail to access\nthe FIFO file.\n\nChange-Id: I1c7b4da3e3c2a4dd343cf1af3f6797874fce68c1",
         "cmtr": "Simon Pasquier",
         "date": "2015-09-16 11:32:07+02:00",
-        "files": ["cgi.pp", "nagios_cgi_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp",
+            "deployment_scripts/puppet/modules/nagios/spec/classes/nagios_cgi_spec.rb"]
       },
       {
         "hash": "5cc72eeace8bec744b1246199424de5d01c987a9",
         "msg": "Escape SMTP credentials for special characters\n\nAnd specify the sender email\n\nChange-Id: I5a5f2832d7525068c93f6f4c93061b4ee1353d45",
         "cmtr": "Swann Croiset",
         "date": "2015-09-16 18:35:36+02:00",
-        "files": ["contact.pp", "nagios_contact_spec.rb", "notify-by-smtp.cfg.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/nagios/manifests/contact.pp",
+            "deployment_scripts/puppet/modules/nagios/spec/defines/nagios_contact_spec.rb",
+            "deployment_scripts/puppet/modules/nagios/templates/notify-by-smtp.cfg.erb"]
       },
       {
         "hash": "7606345c3eb180cb936d54357e508751462e7ffa",
         "msg": "Configure OpenStack service and node clusters for GSE\n\nChange-Id: I6a665bf3f3a81edede08055a7725d9c64feab8ca",
         "cmtr": "Swann Croiset",
         "date": "2015-10-12 10:59:13+02:00",
-        "files": ["nagios.pp", "init.pp", "service_status.pp", "params.pp", "lma_infra_alerting_service_status_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/init.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/service_status.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/lma_infra_alerting_service_status_spec.rb"]
       },
       {
         "hash": "b99bc87da1920d09a70be7dd2f40b4b608954f81",
         "msg": "Disable notifications for node clusters\n\nChange-Id: Id53b5d5e2c707ea9cb58d9ec767c76c26bf4b7c8",
         "cmtr": "Swann Croiset",
         "date": "2015-10-12 16:01:47+02:00",
-        "files": ["init.pp", "service_status.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/init.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/service_status.pp"]
       },
       {
         "hash": "38091e2cfab2435f9ca5e11d515d2fa0ef297fc8",
         "msg": "Reorganize Puppet resources to manage Nagios_service\n\n* s/service_status/vhost_cluster_status/ is more accurate now\n* provide nagios_service wrapper resource into a lma_infra_alerting::nagios::service\n\nChange-Id: I5781a28fc7a4c34ba214198004af206126767d64",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-10-19 07:44:45+00:00",
-        "files": ["init.pp", "services.pp", "vhost_cluster_status.pp", "params.pp", "lma_infra_alerting_vhost_cluster_status_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/init.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/services.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/vhost_cluster_status.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/defines/lma_infra_alerting_vhost_cluster_status_spec.rb"]
       },
       {
         "hash": "53b9b0b29789cea60a48559fae2fd9ee4fda1bde",
         "msg": "Add missing resource dependencies\n\nChange-Id: Ide1203d76ecd7b537bf3a8f121ce89898c56a17b",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-10-19 07:44:55+00:00",
-        "files": ["nagios.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp"]
       },
       {
         "hash": "cf7df4b4baf453349cc16de67cff5b56df2fa940",
         "msg": "Configure the virtual clusters based on Hiera\n\nThis change leverages the Hiera data from the LMA collector plugin to\nconfigure the virtual hosts representing the global and node clusters.\n\nCo-Authored-By: Swann Croiset <scroiset@mirantis.com>\nChange-Id: Ideeaffd87a0a52375900da51129822ec65c6024c",
         "cmtr": "Simon Pasquier",
         "date": "2015-10-22 10:20:31+02:00",
-        "files": ["nagios.pp", "init.pp", "vhost_cluster_status.pp", "params.pp", "lma_infra_alerting_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/init.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/vhost_cluster_status.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/classes/lma_infra_alerting_spec.rb"]
       },
       {
         "hash": "fc6ca54ec62affad929336ef0a975dd0a737869d",
         "msg": "Refactor lma_infra_alerting::nagios::services\n\nThis change modifies the interface of the\nlma_infra_alerting::nagios::services defined type to allow the\ndeclaration of several nagios::service resources with the same\ndescription.\n\nChange-Id: I0af5b8bf6f00107efe7091fe8ac51245f9dd0cc4",
         "cmtr": "Simon Pasquier",
         "date": "2015-10-22 17:33:45+02:00",
-        "files": ["check_http.pp", "check_ssh.pp", "services.pp", "vhost_cluster_status.pp", "lma_infra_alerting_nagios_services_spec.rb", "lma_infra_alerting_vhost_cluster_status_spec.rb", "service.pp", "nagios_service_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/check_http.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/check_ssh.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/services.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/vhost_cluster_status.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/defines/lma_infra_alerting_nagios_services_spec.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/defines/lma_infra_alerting_vhost_cluster_status_spec.rb",
+            "deployment_scripts/puppet/modules/nagios/manifests/service.pp",
+            "deployment_scripts/puppet/modules/nagios/spec/defines/nagios_service_spec.rb"]
       },
       {
         "hash": "609bd49e4d8c2a8ca2fadf37666ff13caa518e68",
         "msg": "Configure the node service checks based on Hiera\n\nThis change configures the service checks in Nagios that correspond to\nthe status messages emitted by the AFD node filters.\n\nCo-Authored-By: Swann Croiset <scroiset@mirantis.com>\nChange-Id: Ie5f45d023489dbfaef4af4bbec204210eb242066",
         "cmtr": "Simon Pasquier",
         "date": "2015-10-22 17:33:50+02:00",
-        "files": ["nagios.pp", "afds_to_nagios_services.rb", "nodes_to_nagios_hostgroups.rb", "nodes_to_nagios_hosts.rb", "hosts.pp", "afds_to_nagios_services_spec.rb", "nodes_to_nagios_hostgroups_spec.rb", "nodes_to_nagios_hosts_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/lib/puppet/parser/functions/afds_to_nagios_services.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/lib/puppet/parser/functions/nodes_to_nagios_hostgroups.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/lib/puppet/parser/functions/nodes_to_nagios_hosts.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/hosts.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/functions/afds_to_nagios_services_spec.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/functions/nodes_to_nagios_hostgroups_spec.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/functions/nodes_to_nagios_hosts_spec.rb"]
       },
       {
         "hash": "3f74538d5d648c15899d26880b1793baeb4f939b",
         "msg": "Do not overwrite the SMTP configuration file\n\nThe deployer may need to modify the SMTP parameters to enable STARTTLS.\nWhen a node is added or removed in the environment, the Puppet\nexecution following this shouldn't modify the SMTP configuration.\n\nChange-Id: Ie4b097f474742955c30e6d51ac852db465ca837f",
         "cmtr": "Simon Pasquier",
         "date": "2015-11-13 11:02:25+01:00",
-        "files": ["contact.pp", "notify-by-smtp.cfg.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/nagios/manifests/contact.pp",
+            "deployment_scripts/puppet/modules/nagios/templates/notify-by-smtp.cfg.erb"]
       },
       {
         "hash": "611dea8c4ca0d4cf2e8fee8a7a59b25e2fdd57e8",
         "msg": "Check private address when VxLAN is used\n\nCloses-Bug: #1518377\nChange-Id: I2447fc8a02b8fe826fa154e0e44c2edc8981e18c",
         "cmtr": "Simon Pasquier",
         "date": "2015-11-24 14:58:38+01:00",
-        "files": ["nagios.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp"]
       },
       {
         "hash": "58a480432d72534c947a1a89ea68e8b1ba70bbe2",
         "msg": "Configure a management VIP address\n\nThis change configures a VIP address in the management subnet. It also\ndeploys a Corosync/Pacemaker cluster which is needed for the VIP\nfail-over.\n\nChange-Id: I13055ff714dffb893284f9163d3c501ded8b5e74\nImplements: blueprint nagios-high-availability",
         "cmtr": "Simon Pasquier",
         "date": "2016-01-12 08:30:22+00:00",
-        "files": ["cluster.pp", "firewall.pp", "hiera.pp", "deployment_tasks.yaml", "network_roles.yaml", "node_roles.yaml", "pre_build_hook", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cluster.pp",
+            "deployment_scripts/puppet/manifests/firewall.pp",
+            "deployment_scripts/puppet/manifests/hiera.pp",
+            "deployment_tasks.yaml",
+            "network_roles.yaml",
+            "node_roles.yaml",
+            "pre_build_hook",
+            "tasks.yaml"]
       },
       {
         "hash": "e57f7261d2e50bac367bf3b8f6c8f66a256b95e9",
         "msg": "Manage Apache and Nagios with Pacemaker\n\nThis change implements the OCF resource agents that manage the Apache\nand Nagios services in the network namespace where the VIP address is\nrunning. It configures the necessary Pacemaker resources and makes sure\nthat the Apache and Nagios services are always co-located with the VIP.\n\nChange-Id: I524157498537fa4a652f2f59e267a0ceb12f8192",
         "cmtr": "Simon Pasquier",
         "date": "2016-01-14 17:32:13+01:00",
-        "files": ["ha_services.pp", "hiera.pp", "ocf-ns_apache", "ocf-ns_nagios", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/ha_services.pp",
+            "deployment_scripts/puppet/manifests/hiera.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/files/ocf-ns_apache",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/files/ocf-ns_nagios",
+            "tasks.yaml"]
       },
       {
         "hash": "80e719a5976da5443c38cb4e72ad47d64b92c1e9",
         "msg": "Notify the Nagios URL to the Fuel API\n\nOnce the plugin deployment has completed, it uses the Fuel API to\nregister the Nagios URL. The end-users will get the information in\nthe Fuel UI.\n\nThis change also introduces the use of the primary role since only one\nnode should be responsible for notifying the Fuel API.\n\nChange-Id: Ie5c2495b5bcbce4aec3d5dd2cae247884b231efe",
         "cmtr": "Simon Pasquier",
         "date": "2016-01-18 13:03:31+01:00",
-        "files": ["hiera.pp", "nagios_dashboard_url.pp", "deployment_tasks.yaml", "network_roles.yaml", "node_roles.yaml", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera.pp",
+            "deployment_scripts/puppet/manifests/nagios_dashboard_url.pp",
+            "deployment_tasks.yaml",
+            "network_roles.yaml",
+            "node_roles.yaml",
+            "tasks.yaml"]
       },
       {
         "hash": "f97486060c39b54a7dfa03004871ca6f4ed6d3d0",
         "msg": "Fix broken dependency in the nagios manifest\n\nWe can't change the ownership of the /var/nagios directory before the\nNagios package is installed obviously.\n\nNote that it had no visible impact on the Fuel deployment because\nAstute re-runs the manifest if it fails.\n\nChange-Id: Ic88b099fe515555c23312c062044466d4fb53443",
         "cmtr": "Simon Pasquier",
         "date": "2016-01-18 14:14:36+00:00",
-        "files": ["init.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/nagios/manifests/init.pp"]
       },
       {
         "hash": "20123eb196ddcba9eaa7c93a54d17366cab264d4",
         "msg": "Disable checks on the mesh network\n\nThe data that used to be present in Hiera is now missing. To avoid\n'unknown' check results, this change disables the service checks.\n\nChange-Id: I375711c90b40c1567e324a691141a43e7dbeeb9e\nCloses-Bug: #1532869",
         "cmtr": "Simon Pasquier",
         "date": "2016-01-18 16:15:42+01:00",
-        "files": ["nagios.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp"]
       },
       {
         "hash": "b22438c7e67cd06181ad86a176264270b37ab0fc",
         "msg": "Monitor all service backends on all nodes\n\nSince Elasticsearch/Kibana and InfluxDB/Grafana can be deployed on\nseveral nodes, we need to check remotely all services on all nodes.\n\nChange-Id: I660f8bd7f5f2435477d3a8e9b4a8898dd1a38d26",
         "cmtr": "Swann Croiset",
         "date": "2016-01-22 16:19:43+00:00",
-        "files": ["nagios.pp", "check_http.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/check_http.pp"]
       },
       {
         "hash": "e82b6bc8fe21fd701fd00a3c6fde73afa8ee08dc",
         "msg": "Configure no-quorum-policy for Pacemaker\n\nThis change makes sure that the no-quorum-policy parameter is 'stop'\nwhen there are at least 3 nodes and 'ignore' otherwise.\n\nChange-Id: If251bb733a8b9d56fc76e6e1a7a27db294775399",
         "cmtr": "Simon Pasquier",
         "date": "2016-01-26 10:59:45+00:00",
-        "files": ["enable_quorum.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/enable_quorum.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "6a1f72fb2d3106c95e4f7b890ac38cca05e4bfa9",
         "msg": "Avoid useless Nagios logs\n\nChange-Id: I9dd49f1df5fa060416b33ec1119c7dd3752889f8\nFixes-bug: #1539567",
         "cmtr": "Swann Croiset",
         "date": "2016-01-29 13:40:30+01:00",
-        "files": ["nagios.pp", "params.pp", "init.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/init.pp"]
       },
       {
         "hash": "2fb43d2935a6b65ffd580f8a3da139a4cc688afc",
         "msg": "Disable SMTP configuration if needed\n\nIf the user disables all notifications then the SMTP configuration is no\nmore required in UI and there is no need to configure an email address\nfor the Nagios contact.\n\nFixes-bug: #1541458\n\nChange-Id: I450fe4e5bd6cd0d2a5bfbd4575c4765ba573b6e6",
         "cmtr": "Swann Croiset",
         "date": "2016-02-05 11:38:25+01:00",
-        "files": ["nagios.pp", "contact.pp", "params.pp", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/contact.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp",
+            "environment_config.yaml"]
       },
       {
         "hash": "4a3c9edd814ba400612ce4e5879c0828dab4ef95",
         "msg": "Remove localhost default monitoring\n\nThis configuration is shipped with the package distribution but is\nannoying in the context of LMA.\n\nFixes-bug: #1538655\n\nChange-Id: Iacc9c3ddfd0cc6b2445ea2df905a2efe73b2aace",
         "cmtr": "Swann Croiset",
         "date": "2016-02-10 16:26:29+01:00",
-        "files": ["params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp"]
       },
       {
         "hash": "b1af695fdea02438d04e37d09035c349b8562dee",
         "msg": "Disable checks on the storage network\n\nThis change disables the Nagios checks on the storage network because\nthere is no guarantee that the Nagios server has access to this network.\n\nChange-Id: Ied2ed975a01f8bcb4c37f73e5d2403334ab51d99\nCloses-Bug: #1545745",
         "cmtr": "Simon Pasquier",
         "date": "2016-02-15 15:43:21+01:00",
-        "files": ["nagios.pp", "hosts.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/hosts.pp"]
       },
       {
         "hash": "32bebb529200af1997094b8aff4a1b64d79f8f5a",
         "msg": "Proper way to purge Nagios configuration files\n\nThe files purge is now done by the nagios Puppet module in place of\nlma_infra_alerting module.\n\nChange-Id: I8d887dcf6aabbe4cb97b102e4cd570e70a3a87dd",
         "cmtr": "Swann Croiset",
         "date": "2016-02-18 10:18:04+01:00",
-        "files": ["init.pp", "nagios.pp", "params.pp", "init.pp", "nagios_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/init.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/init.pp",
+            "deployment_scripts/puppet/modules/nagios/spec/classes/nagios_spec.rb"]
       },
       {
         "hash": "9f25ef4a6e66c7117c3dba8f0105e7dd46bfd570",
         "msg": "Ensure Nagios and Apache services are managed by Pacemaker\n\nThe patch moves the Pacemaker configuration of these services to one manifest.\n\nFixes-bug: #1547402\n\nChange-Id: Iceba637fa5305a3f3411afea85e910a93cf5371d",
         "cmtr": "Swann Croiset",
         "date": "2016-02-19 15:44:38+00:00",
-        "files": ["ha_services.pp", "nagios.pp", "tasks.yaml"]
+        "files": [
+            "None",
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "tasks.yaml"]
       },
       {
         "hash": "e0e23a6bcc4e7f9534b904831b447881ab16a165",
         "msg": "Fix URLs of the Samba packages\n\nThis change also fixes the Puppet manifests to comply with the\n140-character limit.\n\nChange-Id: Ie1ce11af9d1f473826d14153c1d962498f5dd5e2",
         "cmtr": "Simon Pasquier",
         "date": "2016-03-10 14:32:55+01:00",
-        "files": ["check_http.pp", "services.pp", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/check_http.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/services.pp",
+            "pre_build_hook"]
       },
       {
         "hash": "a4102ef43cf5e06ece701cfbc7d6ec7f13b0d7c5",
         "msg": "Specify contact_groups for SSH checks\n\nChange-Id: I96db33f015302023f89149f0b9c1877bf9ea6cdb\nFixes-bug: #1559153",
         "cmtr": "Swann Croiset",
         "date": "2016-03-18 17:02:43+00:00",
-        "files": ["check_ssh.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/check_ssh.pp"]
       },
       {
         "hash": "b39e503275b19c53d80eb321720054505e360d64",
         "msg": "Specify contact_groups for HTTP checks\n\nFixes-bug: #1559151\n\nChange-Id: Ief381ca833c6803e518c5911551a6cb528cc3c64",
         "cmtr": "Swann Croiset",
         "date": "2016-03-18 17:04:35+00:00",
-        "files": ["check_http.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/check_http.pp"]
       },
       {
         "hash": "24873d6ab8acd90353bee3133be0e1712dc5e60d",
         "msg": "Add notice to identify StackLight manifests in puppet logs\n\nChange-Id: Ie07a7220ac29216828768489c5ed003345144aa7",
         "cmtr": "Guillaume Thouvenin",
         "date": "2016-04-15 16:32:23+02:00",
-        "files": ["cluster.pp", "enable_quorum.pp", "firewall.pp", "hiera.pp", "nagios.pp", "nagios_dashboard_url.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cluster.pp",
+            "deployment_scripts/puppet/manifests/enable_quorum.pp",
+            "deployment_scripts/puppet/manifests/firewall.pp",
+            "deployment_scripts/puppet/manifests/hiera.pp",
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/manifests/nagios_dashboard_url.pp"]
       },
       {
         "hash": "a991d5fb2592315315b8db981fd0eff1d586f60b",
         "msg": "Fix manifests to work with MOS 9.0\n\nThis patch modifies the parameters passed to the cluster class and\nreplaces cs_property by pcmk_property. It also replaces the former\nfunction filter_nodes by get_nodes_hash_by_roles.\n\nChange-Id: I0dbe0a4a0198e4b27d0c8169cc98cb2961a2fbb4",
         "cmtr": "Guillaume Thouvenin",
         "date": "2016-04-21 09:26:11+02:00",
-        "files": ["cluster.pp", "enable_quorum.pp", "nagios.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cluster.pp",
+            "deployment_scripts/puppet/manifests/enable_quorum.pp",
+            "deployment_scripts/puppet/manifests/nagios.pp"]
       },
       {
         "hash": "b6a37b93cd8f91c01ad90b9ca3b53ddce54a108e",
         "msg": "Fix manifest when LMA collector isn't here\n\nChange-Id: I47808e65cc49bfc73f5a7de85e59aa93036e91c4\nCloses-Bug: #1580938",
         "cmtr": "Simon Pasquier",
         "date": "2016-05-12 11:53:57+00:00",
-        "files": ["nagios.pp", "hosts.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/hosts.pp"]
       },
       {
         "hash": "3ec437b2dc775aaf4388b1a0e5106a24b60f698a",
         "msg": "Implement lightweight WSGI application to replace CGI\n\nFixes-bug: #1552772\nImplement: blueprint scalable-nagios-api\n\nChange-Id: I55613dd650b039142767174d3f19fa9262a2a7bc",
         "cmtr": "Swann Croiset",
         "date": "2016-05-12 15:02:05+00:00",
-        "files": ["process-service-checks.wsgi", "cgi.pp", "apache_vhost_centos.conf.erb", "apache_vhost_ubuntu.conf.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/nagios/files/process-service-checks.wsgi",
+            "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp",
+            "deployment_scripts/puppet/modules/nagios/templates/apache_vhost_centos.conf.erb",
+            "deployment_scripts/puppet/modules/nagios/templates/apache_vhost_ubuntu.conf.erb"]
       },
       {
         "hash": "3c3d9d5b2ac87370c22726a25c52b3bbf9dfc4b1",
         "msg": "Fix deployment when using network templates\n\nApache can be deployed on any network thanks to network templates. This\nchange removes all the hard-coded dependencies on the management\nnetwork. All port numbers for Apache, Kibana, Elasticsearch, InfluxDB\nand Grafana are also moved to Hiera to make it easier to customize if\nneeded.\n\nIt also removes the call to hiera('nodes') since this entry is\ndeprecated as well as SSH checks because they're not reliable when\nnetwork templates are used.\n\nChange-Id: I8f51bda7fee614ac814f0413f8c655b1356b4036\nCloses-Bug: #1577358\nCloses-Bug: #1550253\nRelated-Bug: #1514365",
         "cmtr": "Simon Pasquier",
         "date": "2016-05-13 15:21:36+00:00",
-        "files": ["firewall.pp", "hiera.pp", "nagios.pp", "nagios_dashboard_url.pp", "afds_to_nagios_services.rb", "get_check_http_params.rb", "nodes_to_nagios_hostgroups.rb", "nodes_to_nagios_hosts.rb", "init.pp", "nagios.pp", "check_http.pp", "hosts.pp", "params.pp", "lma_infra_alerting_spec.rb", "afds_to_nagios_services_spec.rb", "nodes_to_nagios_hostgroups_spec.rb", "nodes_to_nagios_hosts_spec.rb", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/firewall.pp",
+            "deployment_scripts/puppet/manifests/hiera.pp",
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/manifests/nagios_dashboard_url.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/lib/puppet/parser/functions/afds_to_nagios_services.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/lib/puppet/parser/functions/get_check_http_params.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/lib/puppet/parser/functions/nodes_to_nagios_hostgroups.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/lib/puppet/parser/functions/nodes_to_nagios_hosts.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/init.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/check_http.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/hosts.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/classes/lma_infra_alerting_spec.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/functions/afds_to_nagios_services_spec.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/functions/nodes_to_nagios_hostgroups_spec.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/functions/nodes_to_nagios_hosts_spec.rb",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "9dc75657da97d0cba564672ed32c5275d7ecef79",
         "msg": "Use hiera_hash for network data\n\nChange-Id: Ie578479ed3dac2b3560e1a0cd9703b2e5a6e3e35\nPartial-Bug: #1585350",
         "cmtr": "Simon Pasquier",
         "date": "2016-05-25 10:28:32+02:00",
-        "files": ["enable_quorum.pp", "hiera.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/enable_quorum.pp",
+            "deployment_scripts/puppet/manifests/hiera.pp"]
       },
       {
         "hash": "bdaf9e607fc984976b590e9a152783ca815e91e0",
         "msg": "Fix the expected strings for Elasticsearch and Kibana\n\nChange-Id: Ie26b8510ed3ef3910c7d820350415fcf757c0e1c\nDepends-on: I068ec6e6981b9b7729d0041be65760206790f615",
         "cmtr": "Swann Croiset",
         "date": "2016-06-08 18:17:05+02:00",
-        "files": ["nagios.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp"]
       },
       {
         "hash": "aaf626dbe6097e43c82249aad714a704ffa0847e",
         "msg": "Configure at least one dummy Nagios service check\n\nNagios fails to start if no service check is configured, this is the\ncase when the plugin is deployed without LMA Collector plugin. To make\nthe CI happy, this patch configures a dummy service check.\n\nChange-Id: Iebd95c5b2df073307a654cf423716b02629a9fc7",
         "cmtr": "Swann Croiset",
         "date": "2016-06-20 15:19:36+02:00",
-        "files": ["hosts.pp", "service.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/hosts.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/service.pp"]
       },
       {
         "hash": "dc0bb4141d31be5ab72b7ae412a306def1ff97f6",
         "msg": "Fix indentation in Puppet manifests\n\nChange-Id: I10df7275b146cd8f3fd92751352533495bddd41c",
         "cmtr": "Simon Pasquier",
         "date": "2016-06-21 17:40:02+02:00",
-        "files": ["nagios.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp"]
       },
       {
         "hash": "51bffbc63cb8c38fd689f1dddd812f118cf0c164",
         "msg": "Use 2 Virtual IPs for Nagios\n\nOne VIP is used for the Nagios UI and the other for the /status\nlocation exclusively used by LMA collectors to report statuses.\nThis split will help to enable HTTPS for the Nagios UI and deploy it on\nanother network while LMA collectors continue to use HTTP over the\n\"monitoring\" network.\n\nThese VIPs are allocated by default on the management network.\n\nChange-Id: I3c0df769cb40b540b1afb74d4958e87b58daa12d",
         "cmtr": "Swann Croiset",
         "date": "2016-06-22 18:11:28+02:00",
-        "files": ["hiera.pp", "nagios.pp", "nagios_dashboard_url.pp", "nagios.pp", "vhost.pp", "lma_infra_alerting_nagios_spec.rb", "lma_infra_alerting_nagios_vhost_spec.rb", "cgi.pp", "params.pp", "nagios_cgi_spec.rb", "apache_vhost_ubuntu.conf.erb", "apache_wsgi_vhost_ubuntu.conf.erb", "network_roles.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera.pp",
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/manifests/nagios_dashboard_url.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/vhost.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/classes/lma_infra_alerting_nagios_spec.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/classes/lma_infra_alerting_nagios_vhost_spec.rb",
+            "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/params.pp",
+            "deployment_scripts/puppet/modules/nagios/spec/classes/nagios_cgi_spec.rb",
+            "deployment_scripts/puppet/modules/nagios/templates/apache_vhost_ubuntu.conf.erb",
+            "deployment_scripts/puppet/modules/nagios/templates/apache_wsgi_vhost_ubuntu.conf.erb",
+            "network_roles.yaml"]
       },
       {
         "hash": "874c658ba1658143ef9deb95edb8f23f2402be50",
         "msg": "Enable TLS for Nagios UI\n\nBlueprint: support-secure-communication\n\nChange-Id: Iac010a698ed92cd3179dae8f9caf2eb6c0f4c1e0",
         "cmtr": "Swann Croiset",
         "date": "2016-06-23 13:42:55+02:00",
-        "files": ["firewall.pp", "hiera.pp", "nagios.pp", "nagios_dashboard_url.pp", "validate_certificate.pp", "validate_ssl_certificate.rb", "nagios.pp", "cgi.pp", "apache_vhost_ubuntu.conf.erb", "deployment_tasks.yaml", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/firewall.pp",
+            "deployment_scripts/puppet/manifests/hiera.pp",
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/manifests/nagios_dashboard_url.pp",
+            "deployment_scripts/puppet/manifests/validate_certificate.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/lib/puppet/parser/functions/validate_ssl_certificate.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp",
+            "deployment_scripts/puppet/modules/nagios/templates/apache_vhost_ubuntu.conf.erb",
+            "deployment_tasks.yaml",
+            "environment_config.yaml"]
       },
       {
         "hash": "a70862ce2bf113949597e6ec4a4912c34e8aa251",
         "msg": "Support multiple Virtual IPs on the same subnet\n\nFixes-bug: #1594722\n\nChange-Id: I825009dbc2cc3a656c6dbd1b89cd34d77bb7ede3",
         "cmtr": "Swann Croiset",
         "date": "2016-06-23 13:42:55+02:00",
-        "files": ["nagios.pp", "configure_arp_filter_for_vip", "ocf-ns_apache"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/files/configure_arp_filter_for_vip",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/files/ocf-ns_apache"]
       },
       {
         "hash": "7bd09ef2be43075e5ceb82b4e2f3553d55c040cc",
         "msg": "Configure a dedicated Apache process for Nagios\n\nChange-Id: I1fdf9841331b08332d29eaaacea3ff56afba5c92",
         "cmtr": "Swann Croiset",
         "date": "2016-06-24 12:29:56+02:00",
-        "files": ["hiera.pp", "nagios.pp", "ocf-ns_apache", "nagios.pp", "cgi.pp", "nagios_cgi_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera.pp",
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/files/ocf-ns_apache",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp",
+            "deployment_scripts/puppet/modules/nagios/spec/classes/nagios_cgi_spec.rb"]
       },
       {
         "hash": "ac6fb29afbc2a8a5329b9edefd0472086b7d504b",
         "msg": "Remove useless hiera scheme value\n\nChange-Id: I1e6536a2b5d18bc40fef1741a723b5e390c1a55a",
         "cmtr": "Swann Croiset",
         "date": "2016-06-29 13:02:30+02:00",
-        "files": ["hiera.pp", "nagios_dashboard_url.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera.pp",
+            "deployment_scripts/puppet/manifests/nagios_dashboard_url.pp"]
       },
       {
         "hash": "ebc66d9cff545b698019ee54d80b25e5c981b5b8",
         "msg": "Avoid Apache SSL_ERROR_RX_RECORD_TOO_LONG error\n\nChange-Id: Ie76a691787c3008ee8986b44374ab105004f8408",
         "cmtr": "Swann Croiset",
         "date": "2016-06-29 14:45:20+02:00",
-        "files": ["cgi.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp"]
       },
       {
         "hash": "fbd3a35cb524c8499a6cdd112d9bf80086960bb8",
         "msg": "Implement LDAP integration for Nagios UI\n\nChange-Id: Idc350f3cc793a8be7e4847a78c293c1a77a9a0ee\nImplement-blueprint: ldap-integration-in-stacklight",
         "cmtr": "Swann Croiset",
         "date": "2016-06-29 17:16:39+02:00",
-        "files": ["hiera.pp", "nagios.pp", "nagios.pp", "cgi.pp", "params.pp", "apache_vhost_ubuntu.conf.erb", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera.pp",
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/params.pp",
+            "deployment_scripts/puppet/modules/nagios/templates/apache_vhost_ubuntu.conf.erb",
+            "environment_config.yaml"]
       },
       {
         "hash": "6871e827cee4c8aef7a6371d3d518897d0483967",
         "msg": "Avoid to start the default Apache2 process\n\nThe Apache Puppet module manages by default httpd service,\nwhich leads to start the default Apache2 of the distribution.\n\nChange-Id: I98341e3bcce5b90d111fa7baf9c360963c82cbba",
         "cmtr": "Swann Croiset",
         "date": "2016-06-29 17:16:39+02:00",
-        "files": ["nagios.pp", "nagios.pp", "cgi.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp"]
       },
       {
         "hash": "aa64dc7b5361c463c17f5247f7eab8c20ad4e23e",
         "msg": "Use Basic authentication for Kibana\n\nChange-Id: I3b0838c7970859eefd38ec4766fb7b7319a066d2",
         "cmtr": "Swann Croiset",
         "date": "2016-07-04 13:34:57+02:00",
-        "files": ["hiera.pp", "nagios.pp", "check_http.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera.pp",
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/check_http.pp"]
       },
       {
         "hash": "d91b0e49a31f1c7a177fd322293f0e9274d88635",
         "msg": "Display port in the link shown in Fuel UI\n\nChange-Id: Ie561f8189eefcfec1cd2456b80167d47fe74ffe7",
         "cmtr": "Guillaume Thouvenin",
         "date": "2016-07-04 15:16:02+02:00",
-        "files": ["nagios_dashboard_url.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios_dashboard_url.pp"]
       },
       {
         "hash": "b98f6892fb5b63569a297d220c338eaf19087b92",
         "msg": "Specify host_notification_commands with SMTP\n\nPreviously, only service_notification_commands was correctly configured.\n\nChange-Id: Id91bbc00bde62110424a7ac51d17d00f6b235d03\nCloses-bug: #1559155",
         "cmtr": "Swann Croiset",
         "date": "2016-07-05 10:08:41+02:00",
-        "files": ["contact.pp", "nagios_contact_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/modules/nagios/manifests/contact.pp",
+            "deployment_scripts/puppet/modules/nagios/spec/defines/nagios_contact_spec.rb"]
       },
       {
         "hash": "8e1322434946e81f6cd823bcfac3a6715173078b",
         "msg": "Use standard HTTP ports\n\nThe Nagios UI uses now port 80 for HTTP or 443 for HTTPS.\nThe Nagios WSGI application sticks always with HTTP port 80.\n\nChange-Id: I39d22068a6a50d2b1d7ed7eff8b788b1fe204cdc",
         "cmtr": "Swann Croiset",
         "date": "2016-07-07 11:21:44+02:00",
-        "files": ["hiera.pp", "nagios.pp", "nagios_dashboard_url.pp", "params.pp", "cgi.pp", "apache_wsgi_vhost_ubuntu.conf.erb", "user.rst"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera.pp",
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/manifests/nagios_dashboard_url.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp",
+            "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp",
+            "deployment_scripts/puppet/modules/nagios/templates/apache_wsgi_vhost_ubuntu.conf.erb",
+            "doc/source/user.rst"]
       },
       {
         "hash": "8b150777aaa31b2c1cf82f54324f7ee52e4948fe",
         "msg": "Configure Pacemaker primitives instead of clones\n\nChange-Id: Id4167b5a4d77ff412694a87bc2978d0cceb5ea8f",
         "cmtr": "Guillaume Thouvenin",
         "date": "2016-07-08 10:42:06+02:00",
-        "files": ["nagios.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp"]
       },
       {
         "hash": "c1febe55ff22e059a9b65b6c8362d9a82aeca67e",
         "msg": "Run Nagios in the default network namespace\n\nThis is useless to run Nagios in a dedicated namespace and this way, Nagios is\nable to communicate with external networks (eg. to send SMTP notifications).\n\nChange-Id: Ica543c29412f109db11dc3bd18ae9e8cecdf1817",
         "cmtr": "Swann Croiset",
         "date": "2016-07-13 14:34:23+00:00",
-        "files": ["nagios.pp", "ocf-ns_nagios"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/files/ocf-ns_nagios"]
       },
       {
         "hash": "2a3b6fe1abd883a811223e249a184a90e9a1d83a",
         "msg": "Fix resource colocation for MOS 8\n\nThis change fixes the declaration of resource colocations for VIP\naddresses and Nagios/Apache. The dependent resource must be listed\nfirst in the array (which isn't obvious!).\n\nChange-Id: If6df9dfa31fa07bd2a06f0d07d92f2a9aa0e3c88\nCloses-Bug: #1603319",
         "cmtr": "Simon Pasquier",
         "date": "2016-07-18 14:45:16+02:00",
-        "files": ["nagios.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp"]
       },
       {
         "hash": "2caef603e22bd9a03e4c839c6ab77946e5b87b30",
         "msg": "Configure the management gateway in the network ns\n\nSince Apache runs in its own namespace, it has no default gateway and\ncan't connect to remote services such as LDAP if those aren't in the\nsame subnet. As long as one of the 2 VIP addresses is located on the\nmanagement network, we should configure the management vrouter as the\ndefault gateway in the infrastructure_alerting network namespace.\n\nNote that it solves the issue when network templates are used and none\nof the VIP addresses is located on the management network.\n\nPartial-Bug: #1600167\n\nChange-Id: I61dcdddc92aa705839ff10d841bbcfdc36d29caf",
         "cmtr": "Simon Pasquier",
         "date": "2016-07-18 16:44:52+02:00",
-        "files": ["hiera.pp", "nagios.pp", "ocf-ns_apache"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera.pp",
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/files/ocf-ns_apache"]
       },
       {
         "hash": "3ce87b3aaca45f2c6b263ab88315d597c47a9227",
         "msg": "Fix SMTP without authentication\n\nCloses-bug: #1558140\nChange-Id: I1272414be40d79f2f32c937a0b6e7c852b649af5",
         "cmtr": "Simon Pasquier",
         "date": "2016-07-19 09:51:51+00:00",
-        "files": ["contact.pp", "cmd_notify_service_by_email.cfg.erb", "notify-by-smtp-noauth.cfg.erb", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/nagios/manifests/contact.pp",
+            "deployment_scripts/puppet/modules/nagios/templates/cmd_notify_service_by_email.cfg.erb",
+            "deployment_scripts/puppet/modules/nagios/templates/notify-by-smtp-noauth.cfg.erb",
+            "environment_config.yaml"]
       },
       {
         "hash": "de3cc5e66375546272ea30db41d44fc49aa50c72",
         "msg": "Add ordering constraints between Apache and VIPs\n\nThis ensures that the Nagios Apache service won't start until the VIP\ninterfaces are up and running. This is required because the Apache OCF\nscript needs to tweak the ARP parameters of the VIP interfaces.\n\nChange-Id: I4cc7b7db06cda31064b22e0283af478228202b54\nRelated-Bug: #1594722",
         "cmtr": "Simon Pasquier",
         "date": "2016-07-21 14:21:54+02:00",
-        "files": ["nagios.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp"]
       },
       {
         "hash": "4bf5696b46d55a5312df5975fff3a13a448f0a5a",
         "msg": "Configure the management gateway on the nodes\n\nWithout this change, the nodes are configured to use the Fuel node as\ntheir default gateway. Note that the code path is different between MOS\n8 and MOS 9 because of this bug fix [1] that hasn't been backported on\nMOS 8.\n\n[1] https://bugs.launchpad.net/fuel/+bug/1541309\n\nChange-Id: I13a504c03091119286b993c626db2379eb27aa29\nCloses-Bug: #1583994",
         "cmtr": "Simon Pasquier",
         "date": "2016-08-01 16:25:11+02:00",
-        "files": ["configure_default_route.pp", "hiera.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/configure_default_route.pp",
+            "deployment_scripts/puppet/manifests/hiera.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "57e43e3a0a64b6e805169ead4493aafee285871b",
         "msg": "Fix issue with LDAP protocol radio button\n\nThis patch modifies the label of the radio button used for selecting\nthe LDAP protocol to make it unique across all the StackLight plugins.\n\nChange-Id: I9fff175af82a5e6bab8666fa5f8c8f1b64926b0c\nPartial-Bug: #1599778",
         "cmtr": "Guillaume Thouvenin",
         "date": "2016-08-09 16:32:30+02:00",
-        "files": ["hiera.pp", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera.pp",
+            "environment_config.yaml"]
       },
       {
         "hash": "8029745b1e42c9a5b4204100cc6f095e36c04590",
         "msg": "Fix lint issue in lma_infra_alerting::nagios\n\nChange-Id: I3ec7ab31e1514d85e30037ba5d1b4cb4ea102717",
         "cmtr": "Simon Pasquier",
         "date": "2016-08-24 11:36:41+02:00",
-        "files": ["nagios.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp"]
       },
       {
         "hash": "18788ae9f8bf635cf41750ee498014e86a14a3d4",
         "msg": "Alarming refactoring\n\nblueprint: alarming-refactoring\nDocImpact\n\nDepends-On: I8c053f2fbc4b4b85958be8413919f9bf1b168027\n\nChange-Id: I611866a4c450d8bd3c4cf8d1237ba91b1bf911c6",
         "cmtr": "Swann Croiset",
         "date": "2016-09-13 18:58:01+02:00",
-        "files": ["nagios.pp", "afds_to_nagios_services.rb", "hosts.pp", "afds_to_nagios_services_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/lib/puppet/parser/functions/afds_to_nagios_services.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/hosts.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/functions/afds_to_nagios_services_spec.rb"]
       },
       {
         "hash": "086b96b7c61de5633efa82adc5a9fa4761ec8fa5",
         "msg": "Support activate_alarming and enable_notification\n\nWith activate_alarming=false, AFDs are not configured in Nagios,\nif 'activate_alarming' is not set the AFDs are configured.\n\nif AFDs are configured and 'enable_notification' and is true, the\nnotification are enabled.\n\nChange-Id: I561fae6e7e62f237bee58771c91c6344332f239d\nblueprint: alarming-refactoring",
         "cmtr": "Swann Croiset",
         "date": "2016-09-13 23:21:05+02:00",
-        "files": ["afds_to_nagios_services.rb", "hosts.pp", "afds_to_nagios_services_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/lib/puppet/parser/functions/afds_to_nagios_services.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/hosts.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/functions/afds_to_nagios_services_spec.rb"]
       },
       {
         "hash": "9d5c256e1356552367305a93edfddbff595f3a86",
         "msg": "Support activate_alerting and enable_notification properties for GSE\n\nblueprint: alarming-refactoring\nChange-Id: Ifdc6d4f8ae273af0db354cbc7c57c0ae5aa70808",
         "cmtr": "Swann Croiset",
         "date": "2016-09-15 11:10:11+02:00",
-        "files": ["nagios.pp", "vhost.pp", "vhost_cluster_status.pp", "params.pp", "lma_infra_alerting_vhost_cluster_status_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/vhost.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/vhost_cluster_status.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/defines/lma_infra_alerting_vhost_cluster_status_spec.rb"]
       },
       {
         "hash": "bccb10031c7ad120bbdd939067a0af3097c57d84",
         "msg": "Modify the cron job to use specific version of the plugin\n\nThis patch modifies the cron job used to update the nagios configuration\nto solve a bug that occurs when several version of the plugin are\navailable. This happens after an upgrade procedure.\n\nChange-Id: I41831e43707e7ca5e88fd0a329508ad4813d26bb\nCloses-Bug: #1622628",
         "cmtr": "Guillaume Thouvenin",
         "date": "2016-09-15 16:37:10+02:00",
-        "files": ["nagios.pp", "update-lma-configuration", "nagios.pp", "lma_infra_alerting_nagios_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/files/update-lma-configuration",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/classes/lma_infra_alerting_nagios_spec.rb"]
       },
       {
         "hash": "58ebfac2a4c8cac6414d6b5c8db0491ed2a70424",
         "msg": "Fix Nagios service names for GSEs\n\nChange-Id: If62ee95acda21eb9979b65b071626a2ed257fd79",
         "cmtr": "Swann Croiset",
         "date": "2016-09-22 13:41:59+02:00",
-        "files": ["vhost_cluster_status.pp", "lma_infra_alerting_vhost_cluster_status_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/vhost_cluster_status.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/defines/lma_infra_alerting_vhost_cluster_status_spec.rb"]
       },
       {
         "hash": "f2a441bf828c9aac6eaea8d55abdc0ec8c1447ea",
         "msg": "Allow to pass a list of LDAP servers\n\nChange-Id: Ie4fcd0e20132dd040d465199e77668d4b983b3bc\nCloses-Bug: #1624002",
         "cmtr": "Guillaume Thouvenin",
         "date": "2016-09-28 15:05:39+00:00",
-        "files": ["cgi.pp", "nagios_cgi_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp",
+            "deployment_scripts/puppet/modules/nagios/spec/classes/nagios_cgi_spec.rb"]
       },
       {
         "hash": "07526249a70302bd4ca1472e58071ae4ea0ccd4e",
         "msg": "Rename AFD and GSE alerting attributes\n\nDepends-On: I30b16d7ef159242f9984b54a8ae344fbf6560314\n\nChange-Id: I7f141fb04edd4a1837f188347d2bf478fe5241c6",
         "cmtr": "Swann Croiset",
         "date": "2016-10-06 18:40:21+02:00",
-        "files": ["nagios.pp", "afds_to_nagios_services.rb", "afds_to_nagios_services_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/lib/puppet/parser/functions/afds_to_nagios_services.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/functions/afds_to_nagios_services_spec.rb"]
       },
       {
         "hash": "8ee53ec594a2dba22d6c6c18e77a29a677bb1b39",
         "msg": "Skip service configuration for remote alarms\n\nWhen an alarm contains metric(s) with collected_on:'aggregator',\nthe corresponding Nagios service check is skipped.\n\nChange-Id: I758e7bd412a68314e59ec86a40370661525a5af9",
         "cmtr": "Swann Croiset",
         "date": "2016-10-10 16:30:32+02:00",
-        "files": ["nagios.pp", "afds_to_nagios_services.rb", "hosts.pp", "afds_to_nagios_services_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/lib/puppet/parser/functions/afds_to_nagios_services.rb",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/hosts.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/spec/functions/afds_to_nagios_services_spec.rb"]
       },
       {
         "hash": "7c3997b8b9a87d3d267a46d165a135bac3a2f251",
         "msg": "Configure logrotate for WSGI logs\n\nChange-Id: I1f0692d85c24687d3a51ee09ce082e3544fd7317\nCloses-Bug: #1635222",
         "cmtr": "Swann Croiset",
         "date": "2016-10-25 15:04:32+02:00",
-        "files": ["cgi.pp", "apache_wsgi_vhost_ubuntu.conf.erb", "logrotate.conf.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp",
+            "deployment_scripts/puppet/modules/nagios/templates/apache_wsgi_vhost_ubuntu.conf.erb",
+            "deployment_scripts/puppet/modules/nagios/templates/logrotate.conf.erb"]
       },
       {
         "hash": "ce957db3a93abaf6ec7ac16ea28fd89de497f74a",
         "msg": "Fix typo nagios.pp\n\nChange-Id: I9abc17831105c0da47b02b12ac90d69c00cc69cc",
         "cmtr": "pangliye",
         "date": "2016-11-02 17:24:22+08:00",
-        "files": ["nagios.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp"]
       },
       {
         "hash": "2720efe64ab6691d963463813a2688f16cd16230",
         "msg": "Remove the dummy check if necessary\n\nThe dummy check is configured when LMA collector plugin is not\ninstalled, this dummy check has been added to allow LMA infrastructure\nalerting plugin to be tested alone by the CI.\n\nChange-Id: Ifaec285e2913f8a382e26c363acc15da0aee0eb0\nCloses-bug: #1638546",
         "cmtr": "Swann Croiset",
         "date": "2016-11-02 13:54:30+01:00",
-        "files": ["hosts.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/hosts.pp"]
       },
       {
         "hash": "08dbf4bd38fc52ec7e4b3f41f1f96379815873a4",
         "msg": "Enforce literal strings in Hiera YAML file\n\nChange-Id: I4eb32dee32f7a140c31d46691fc032e92556516e\nRelated-Bug: #1631544",
         "cmtr": "Simon Pasquier",
         "date": "2017-01-10 09:52:01+01:00",
-        "files": ["hiera.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera.pp"]
       },
       {
         "hash": "b943475c1bbab771c2d70f683039cf301989d549",
         "msg": "Fix typo host.pp\n\nChange-Id: I1e0dc58da06b6fca0104e2f61171407dd6d09517",
         "cmtr": "Simon Pasquier",
         "date": "2017-01-10 09:56:21+00:00",
-        "files": ["host.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/nagios/manifests/host.pp"]
       },
       {
         "hash": "d51e16ffe61431383e12f2d56e996cda7fe5ff2e",
         "msg": "Fix the contact_groups used for hosts\n\nChange-Id: Ie014da3b91c62ddddd24289252df5fdddfeca662\nCloses-bug: #1650543",
         "cmtr": "Swann Croiset",
         "date": "2017-01-16 10:17:09+01:00",
-        "files": ["host.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/nagios/manifests/host.pp"]
       },
       {
         "hash": "7a4a33c540044ad68d2d48353ea1ec912858a2b4",
         "msg": "Remove previous Nagios services\n\nChange-Id: I0a17c441389e51fd6bd2e3fd0b29fba81e17ab53",
         "cmtr": "Swann Croiset",
         "date": "2017-01-27 16:14:32+01:00",
-        "files": ["hiera.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera.pp"]
       },
       {
         "hash": "8e1ae3c6832bb35c8f6afd66b9dd5a6b65bc293f",
         "msg": "Reduce the concurrent execution likelihood of Puppet runs\n\nThe patch removes the crontab at the begining of deployment and increase\nthe frequency of the cron job responsible to update Nagios.\n\nChange-Id: I095540c36b3f0c0c318ae91702b5671e3122e8c2",
         "cmtr": "Swann Croiset",
         "date": "2017-01-27 16:14:52+01:00",
-        "files": ["hiera.pp", "nagios.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera.pp",
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp"]
       },
       {
         "hash": "abe21e9c817fc2dfa7d72f95d5ba73aa0371cfa9",
         "msg": "Create the dashboard link when upgrading from 0.10.3\n\nChange-Id: I50fd93e686a785ce4b74be83cdabd4f7d4aa313f",
         "cmtr": "Swann Croiset",
         "date": "2017-01-27 16:15:01+01:00",
-        "files": ["nagios_dashboard_url.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nagios_dashboard_url.pp"]
       },
       {
         "hash": "859ed811b4dfe19609946cef31014c4b6b58dde2",
         "msg": "Adjust the External Command Check Interval\n\nNagios will check for external commands as often as possible.\n\nThe number of passive checks have been significantly increased and\nNagios can be the bottleneck with 10s interval with large deployments.\n\nChange-Id: Ic7b38203d6641497f5c8d50076903bd7226ed679",
         "cmtr": "Swann Croiset",
         "date": "2017-02-14 10:24:18+00:00",
-        "files": ["params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp"]
       }]
     }

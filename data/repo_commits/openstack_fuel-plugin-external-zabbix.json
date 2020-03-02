@@ -1,7 +1,50 @@
     {
       "url": "https://github.com/openstack/fuel-plugin-external-zabbix",
-      "pp_files": ["nova_mon.pp", "openstack.pp", "db.pp", "cleanup_apt_config.pp", "glance_mon.pp", "init.pp", "haproxy_mon.pp", "rabbitmq_mon.pp", "controller.pp", "params.pp", "mysql_db.pp", "openstack_virtual_mon.pp", "configure_apt.pp", "ceilometer_compute_mon.pp", "swift_mon.pp", "config.pp", "mysql_mon.pp", "scripts.pp", "ceilometer_mon.pp", "keystone_mon.pp", "firewall_mon.pp", "userparameter.pp", "zabbix_server_config.pp", "agent.pp", "memcached_mon.pp", "primary_controller.pp", "mysql.pp", "neutron_mon.pp", "monitoring.pp", "ceph_mon.pp", "frontend.pp", "openvswitch_mon.pp", "haproxy.pp", "haproxy_service.pp", "zabbixserver_mon.pp", "horizon_mon.pp", "cinder_mon.pp", "override_configuration.pp"],
-      "pp_cmtrs": ["Maciej Relewicz", "Piotr Misiak", "Olivier Bourdon", "Marcin Iwinski", "Valyavskiy Viacheslav", "Bartosz Kupidura", "Swann Croiset"],
+      "pp_files": [
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/init.pp",
+        "deployment_scripts/puppet/manifests/agent.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/ceilometer_mon.pp",
+        "deployment_scripts/puppet/manifests/controller.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/haproxy_mon.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/nova_mon.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/keystone_mon.pp",
+        "deployment_scripts/puppet/manifests/cleanup_apt_config.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/horizon_mon.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/agent/userparameter.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/db.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params/openstack.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/controller.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/ha/haproxy.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/firewall_mon.pp",
+        "deployment_scripts/puppet/manifests/override_configuration.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/ceilometer_compute_mon.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/cinder_mon.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/glance_mon.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/openstack_virtual_mon.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/db/mysql.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/server/config.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/rabbitmq_mon.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+        "deployment_scripts/puppet/manifests/primary_controller.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/db/mysql_db.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/openvswitch_mon.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/ha/haproxy_service.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/swift_mon.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/primary_controller.pp",
+        null,
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/mysql_mon.pp",
+        "deployment_scripts/puppet/manifests/zabbix_server_config.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/ceph_mon.pp",
+        "deployment_scripts/puppet/manifests/configure_apt.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/neutron_mon.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/agent.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/frontend.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/zabbixserver_mon.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/agent/scripts.pp",
+        "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/memcached_mon.pp"
+      ],
+      "pp_cmtrs": ["Olivier Bourdon", "Marcin Iwinski", "Piotr Misiak", "Valyavskiy Viacheslav", "Maciej Relewicz", "Bartosz Kupidura", "Swann Croiset"],
       "num_pp_commits": 69,
       "num_tot_commits": 220,
       "commits": [{
@@ -9,482 +52,878 @@
         "msg": "add Zabbix plugin code\n\nChange-Id: I9e1c1073453a4f49f660ad992df1e861c6e45373",
         "cmtr": "Piotr Misiak",
         "date": "2015-05-26 10:14:25+02:00",
-        "files": [".gitignore", "LICENSE", "agent.pp", "controller.pp", "primary_controller.pp", "zabbix_server_config.pp", "AUTHORS.txt", "LICENSE", "Modulefile", "db_clean.sh", "Screens_OpenStack_Cluster.xml", "Template_App_HAProxy.xml", "Template_App_Iptables_Stats.xml", "Template_App_Memcache.xml", "Template_App_MySQL.xml", "Template_App_OpenStack_Ceilometer.xml", "Template_App_OpenStack_Ceilometer_Compute.xml", "Template_App_OpenStack_Ceph.xml", "Template_App_OpenStack_Cinder_API.xml", "Template_App_OpenStack_Cinder_API_check.xml", "Template_App_OpenStack_Cinder_Scheduler.xml", "Template_App_OpenStack_Cinder_Volume.xml", "Template_App_OpenStack_Glance_API.xml", "Template_App_OpenStack_Glance_API_check.xml", "Template_App_OpenStack_Glance_Registry.xml", "Template_App_OpenStack_Horizon.xml", "Template_App_OpenStack_Keystone.xml", "Template_App_OpenStack_Keystone_API_check.xml", "Template_App_OpenStack_Libvirt.xml", "Template_App_OpenStack_Neutron_API_check.xml", "Template_App_OpenStack_Neutron_DHCP_Agent.xml", "Template_App_OpenStack_Neutron_L3_Agent.xml", "Template_App_OpenStack_Neutron_Metadata_Agent.xml", "Template_App_OpenStack_Neutron_OVS_Agent.xml", "Template_App_OpenStack_Neutron_Server.xml", "Template_App_OpenStack_Nova_API.xml", "Template_App_OpenStack_Nova_API_EC2.xml", "Template_App_OpenStack_Nova_API_Metadata.xml", "Template_App_OpenStack_Nova_API_OSAPI.xml", "Template_App_OpenStack_Nova_API_OSAPI_check.xml", "Template_App_OpenStack_Nova_Cert.xml", "Template_App_OpenStack_Nova_Compute.xml", "Template_App_OpenStack_Nova_ConsoleAuth.xml", "Template_App_OpenStack_Nova_Network.xml", "Template_App_OpenStack_Nova_Scheduler.xml", "Template_App_OpenStack_Open_vSwitch.xml", "Template_App_OpenStack_RabbitMQ_ha.xml", "Template_App_OpenStack_Swift_Account.xml", "Template_App_OpenStack_Swift_Container.xml", "Template_App_OpenStack_Swift_Object.xml", "Template_App_OpenStack_Swift_Proxy.xml", "Template_App_Zabbix_Agent.xml", "Template_App_Zabbix_Server.xml", "Template_Fuel_OS_Linux.xml", "Template_OpenStack_Cluster.xml", "ceph_health.sh", "check_api.py", "check_rabbit.py", "crm_node_check.sh", "haproxy.sh", "query_db.py", "vfs.dev.discovery.sh", "vfs.mdadm.discovery.sh", "zabbix_checks_logger.py", "block_dev.sql", "zabbix-server-mysql.conf", "zabbix-server.ocf", "zabbix-sudo", "defined_in_state.rb", "get_server_by_role.rb", "plugin_zabbix.rb", "ruby.rb", "ruby.rb", "ruby.rb", "ruby.rb", "ruby.rb", "plugin_zabbix_configuration_import.rb", "plugin_zabbix_host.rb", "plugin_zabbix_hostgroup.rb", "plugin_zabbix_template_link.rb", "plugin_zabbix_usermacro.rb", "agent.pp", "scripts.pp", "userparameter.pp", "controller.pp", "db.pp", "mysql.pp", "mysql_db.pp", "frontend.pp", "haproxy.pp", "haproxy_service.pp", "init.pp", "monitoring.pp", "ceilometer_compute_mon.pp", "ceilometer_mon.pp", "ceph_mon.pp", "cinder_mon.pp", "firewall_mon.pp", "glance_mon.pp", "haproxy_mon.pp", "horizon_mon.pp", "keystone_mon.pp", "memcached_mon.pp", "mysql_mon.pp", "neutron_mon.pp", "nova_mon.pp", "openstack_virtual_mon.pp", "openvswitch_mon.pp", "rabbitmq_mon.pp", "swift_mon.pp", "zabbixserver_mon.pp", "params.pp", "openstack.pp", "primary_controller.pp", "config.pp", "spec_helper.rb", "ruby_spec.rb", "plugin_zabbix_spec.rb", "ruby_spec.rb", "ruby_spec.rb", "plugin_zabbix_configuration_import_spec.rb", "plugin_zabbix_host_spec.rb", "plugin_zabbix_hostgroup_spec.rb", "plugin_zabbix_template_link_spec.rb", "plugin_zabbix_usermacro_spec.rb", "check_api.conf.erb", "check_db.conf.erb", "check_rabbit.conf.erb", "data_clean.erb", "my.cnf.erb", "zabbix.conf.php.erb", "zabbix_agent_userparam.conf.erb", "zabbix_agentd.conf.erb", "zabbix_server.conf.erb", "environment_config.yaml", "metadata.yaml", "pre_build_hook", ".gitkeep", ".gitkeep", "tasks.yaml"]
+        "files": [
+            ".gitignore",
+            "LICENSE",
+            "deployment_scripts/puppet/manifests/agent.pp",
+            "deployment_scripts/puppet/manifests/controller.pp",
+            "deployment_scripts/puppet/manifests/primary_controller.pp",
+            "deployment_scripts/puppet/manifests/zabbix_server_config.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/AUTHORS.txt",
+            "deployment_scripts/puppet/modules/plugin_zabbix/LICENSE",
+            "deployment_scripts/puppet/modules/plugin_zabbix/Modulefile",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/externalscripts/db_clean.sh",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Screens_OpenStack_Cluster.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_HAProxy.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_Iptables_Stats.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_Memcache.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_MySQL.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Ceilometer.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Ceilometer_Compute.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Ceph.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Cinder_API.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Cinder_API_check.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Cinder_Scheduler.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Cinder_Volume.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Glance_API.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Glance_API_check.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Glance_Registry.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Horizon.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Keystone.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Keystone_API_check.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Libvirt.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Neutron_API_check.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Neutron_DHCP_Agent.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Neutron_L3_Agent.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Neutron_Metadata_Agent.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Neutron_OVS_Agent.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Neutron_Server.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Nova_API.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Nova_API_EC2.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Nova_API_Metadata.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Nova_API_OSAPI.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Nova_API_OSAPI_check.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Nova_Cert.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Nova_Compute.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Nova_ConsoleAuth.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Nova_Network.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Nova_Scheduler.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Open_vSwitch.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_RabbitMQ_ha.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Swift_Account.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Swift_Container.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Swift_Object.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Swift_Proxy.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_Zabbix_Agent.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_Zabbix_Server.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_Fuel_OS_Linux.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_OpenStack_Cluster.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/ceph_health.sh",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/check_api.py",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/check_rabbit.py",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/crm_node_check.sh",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/haproxy.sh",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/query_db.py",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/vfs.dev.discovery.sh",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/vfs.mdadm.discovery.sh",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/zabbix_checks_logger.py",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/sql/block_dev.sql",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/zabbix-server-mysql.conf",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/zabbix-server.ocf",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/zabbix-sudo",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/parser/functions/defined_in_state.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/parser/functions/get_server_by_role.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/provider/plugin_zabbix.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/provider/plugin_zabbix_configuration_import/ruby.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/provider/plugin_zabbix_host/ruby.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/provider/plugin_zabbix_hostgroup/ruby.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/provider/plugin_zabbix_template_link/ruby.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/provider/plugin_zabbix_usermacro/ruby.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/type/plugin_zabbix_configuration_import.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/type/plugin_zabbix_host.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/type/plugin_zabbix_hostgroup.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/type/plugin_zabbix_template_link.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/type/plugin_zabbix_usermacro.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/agent.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/agent/scripts.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/agent/userparameter.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/db.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/db/mysql.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/db/mysql_db.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/frontend.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/ha/haproxy.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/ha/haproxy_service.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/init.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/ceilometer_compute_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/ceilometer_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/ceph_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/cinder_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/firewall_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/glance_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/haproxy_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/horizon_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/keystone_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/memcached_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/mysql_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/neutron_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/nova_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/openstack_virtual_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/openvswitch_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/rabbitmq_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/swift_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/zabbixserver_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params/openstack.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/primary_controller.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/server/config.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/spec_helper.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/provider/plugin_zabbix_host/ruby_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/provider/plugin_zabbix_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/provider/plugin_zabbix_template_link/ruby_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/provider/plugin_zabbix_usermacro/ruby_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/type/plugin_zabbix_configuration_import_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/type/plugin_zabbix_host_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/type/plugin_zabbix_hostgroup_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/type/plugin_zabbix_template_link_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/type/plugin_zabbix_usermacro_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/check_api.conf.erb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/check_db.conf.erb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/check_rabbit.conf.erb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/data_clean.erb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/my.cnf.erb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/zabbix.conf.php.erb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/zabbix_agent_userparam.conf.erb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/zabbix_agentd.conf.erb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/zabbix_server.conf.erb",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "pre_build_hook",
+            "repositories/centos/.gitkeep",
+            "repositories/ubuntu/.gitkeep",
+            "tasks.yaml"]
       },
       {
         "hash": "ef2d9c0a15406c33f07fb92a64076c5d5a8a76ed",
         "msg": "force mysql client to read /var/lib/zabbix/.my.cnf file\nfor some reason it doesn't happen by default\n\nChange-Id: I983498e89788e963a76175781bea3bb304e49d95",
         "cmtr": "Piotr Misiak",
         "date": "2015-05-29 16:29:47+02:00",
-        "files": ["mysql_mon.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/mysql_mon.pp"]
       },
       {
         "hash": "7af772c9f1cbee036311c2b4e4883a35da2c30b9",
         "msg": "set expose_php parameter to Off in php.ini to prevent\ndisclosure of sensitive information (OSVDB-12184)\n\nChange-Id: I63f0893fe550542bcd6350c6b203400fd303830e",
         "cmtr": "Piotr Misiak",
         "date": "2015-06-11 12:48:46+02:00",
-        "files": ["frontend.pp", "params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/frontend.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp"]
       },
       {
         "hash": "f9db09ca9dae4e1aa8467b012d3ba80a02cae7c6",
         "msg": "add license information\n\nChange-Id: Icab6da18be267034c1d83471b5390b2fb6c89c1b",
         "cmtr": "Piotr Misiak",
         "date": "2015-06-19 11:44:35+02:00",
-        "files": ["db_clean.sh", "ceph_health.sh", "crm_node_check.sh", "haproxy.sh", "vfs.dev.discovery.sh", "vfs.mdadm.discovery.sh", "defined_in_state.rb", "get_server_by_role.rb", "plugin_zabbix.rb", "ruby.rb", "ruby.rb", "ruby.rb", "ruby.rb", "ruby.rb", "plugin_zabbix_configuration_import.rb", "plugin_zabbix_host.rb", "plugin_zabbix_hostgroup.rb", "plugin_zabbix_template_link.rb", "plugin_zabbix_usermacro.rb", "firewall_mon.pp", "spec_helper.rb", "ruby_spec.rb", "plugin_zabbix_spec.rb", "ruby_spec.rb", "ruby_spec.rb", "plugin_zabbix_configuration_import_spec.rb", "plugin_zabbix_host_spec.rb", "plugin_zabbix_hostgroup_spec.rb", "plugin_zabbix_template_link_spec.rb", "plugin_zabbix_usermacro_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/externalscripts/db_clean.sh",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/ceph_health.sh",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/crm_node_check.sh",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/haproxy.sh",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/vfs.dev.discovery.sh",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/vfs.mdadm.discovery.sh",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/parser/functions/defined_in_state.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/parser/functions/get_server_by_role.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/provider/plugin_zabbix.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/provider/plugin_zabbix_configuration_import/ruby.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/provider/plugin_zabbix_host/ruby.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/provider/plugin_zabbix_hostgroup/ruby.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/provider/plugin_zabbix_template_link/ruby.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/provider/plugin_zabbix_usermacro/ruby.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/type/plugin_zabbix_configuration_import.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/type/plugin_zabbix_host.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/type/plugin_zabbix_hostgroup.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/type/plugin_zabbix_template_link.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/type/plugin_zabbix_usermacro.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/firewall_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/spec_helper.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/provider/plugin_zabbix_host/ruby_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/provider/plugin_zabbix_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/provider/plugin_zabbix_template_link/ruby_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/provider/plugin_zabbix_usermacro/ruby_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/type/plugin_zabbix_configuration_import_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/type/plugin_zabbix_host_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/type/plugin_zabbix_hostgroup_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/type/plugin_zabbix_template_link_spec.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/spec/unit/type/plugin_zabbix_usermacro_spec.rb"]
       },
       {
         "hash": "bc7d37abb27f56150d9226bab1977f28d127aa5c",
         "msg": "Allow to run zabbix-server on every controller\nEnsure apache configuration for frontend\n\nChange-Id: I001602bce95c3aaa00991cb2b3337ec315a2731c\nCloses-Bug: #1469131",
         "cmtr": "Bartosz Kupidura",
         "date": "2015-07-01 12:56:32+00:00",
-        "files": ["README.md", "controller.pp", "mysql.pp", "frontend.pp", "primary_controller.pp", "metadata.yaml"]
+        "files": [
+            "README.md",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/db/mysql.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/frontend.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/primary_controller.pp",
+            "metadata.yaml"]
       },
       {
         "hash": "77e08b804537d991e9d30e54f99e33f0985196f5",
         "msg": "Create trigger for nova/neutron/cinder services goes offline\nAdd item to monitor number of neutron services in offline\nstate\n\nChange-Id: I1afa6c11156b17b9205fe805ea1134e7b0bccc4d\nCloses-bug: #1446257",
         "cmtr": "Bartosz Kupidura",
         "date": "2015-07-27 17:06:05+02:00",
-        "files": ["Template_OpenStack_Cluster.xml", "openstack_virtual_mon.pp", "openstack.pp", "check_db.conf.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_OpenStack_Cluster.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/openstack_virtual_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params/openstack.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/check_db.conf.erb"]
       },
       {
         "hash": "18f95e520c8be89448b8367b6186edaca8c9dcf1",
         "msg": "Add new triggers for RabbitMQ\n\nChange-Id: I4707c647b1ad08597dff3cb1b40a40961a3dc9fa",
         "cmtr": "Bartosz Kupidura",
         "date": "2015-07-28 18:33:02+02:00",
-        "files": ["Template_App_OpenStack_RabbitMQ_ha.xml", "check_rabbit.py", "rabbitmq_mon.pp", "check_rabbit.conf.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_RabbitMQ_ha.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/check_rabbit.py",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/rabbitmq_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/check_rabbit.conf.erb"]
       },
       {
         "hash": "d3bf8c5425d3a5addd3a48e71ecc4925b2ef755d",
         "msg": "Remove collocation between zabbix and mgmt vip\n\nChange-Id: I4acd08b1f75890dd64a3a283e3a3423cddedb37d\nCloses-Bug: #1478425",
         "cmtr": "Bartosz Kupidura",
         "date": "2015-07-29 11:55:35+00:00",
-        "files": ["primary_controller.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/primary_controller.pp"]
       },
       {
         "hash": "0e6883c58c5e2d4f7f479f281b6cc3f7070cc2ae",
         "msg": "Reserve an additional VIP for Zabbix and bind zabbix_server process to it\n\nChange-Id: I0101e98f3854598150c2ff4e2c76ae28f2885cb5",
         "cmtr": "Piotr Misiak",
         "date": "2015-08-07 14:18:55+02:00",
-        "files": ["controller.pp", "haproxy.pp", "params.pp", "primary_controller.pp", "zabbix_server.conf.erb", "metadata.yaml", "network_roles.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/ha/haproxy.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/primary_controller.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/zabbix_server.conf.erb",
+            "metadata.yaml",
+            "network_roles.yaml"]
       },
       {
         "hash": "e133b690688eef998ebe0e0ea10112d2b91810f2",
         "msg": "remove the code which configures the reserved VIP in the Pacemaker\nrun zabbix-server process in the haproxy namespace\n\nChange-Id: Ifaf2b91b67e7d5bc86868049b22f9b3346f6d6d5",
         "cmtr": "Piotr Misiak",
         "date": "2015-08-20 09:17:08+02:00",
-        "files": ["zabbix-server.ocf", "controller.pp", "params.pp", "primary_controller.pp", "network_roles.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/zabbix-server.ocf",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/primary_controller.pp",
+            "network_roles.yaml"]
       },
       {
         "hash": "a3113de7d7c17f542000fd72363a6b2d67ccc313",
         "msg": "added ssl support for plugin zabbix\n\nChange-Id: Ie943adcf12f56d9a54d4786df3d80657e17f7121",
         "cmtr": "Maciej Relewicz",
         "date": "2015-08-24 13:46:38+02:00",
-        "files": ["plugin_zabbix.rb", "haproxy.pp", "params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/puppet/provider/plugin_zabbix.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/ha/haproxy.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp"]
       },
       {
         "hash": "8e21299784ddab60fec94404c1aaef49154db55b",
         "msg": "Zendesk - Ticket #7860\n\nChange-Id: I66861444d161d146c5d7b1e3148d2b23e1df8653",
         "cmtr": "Maciej Relewicz",
         "date": "2015-08-24 16:29:12+02:00",
-        "files": ["frontend.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/frontend.pp"]
       },
       {
         "hash": "db3f068f0868f241f5c477dfddfb358e8ec72a33",
         "msg": "fix for 'Length limitation added for vip name in network roles'\n\nChange-Id: I5f179aba333a17a60be1f23a7c866c061689cdfc",
         "cmtr": "Maciej Relewicz",
         "date": "2015-08-31 15:34:27+02:00",
-        "files": ["params.pp", "network_roles.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "network_roles.yaml"]
       },
       {
         "hash": "6d47f0daee37589e7b708f2869ddb53130d56a22",
         "msg": "add php-mysql dependency\n\nChange-Id: I94c78331bf8e6f394dcb081266d68b25034c356d\nCloses-Bug: #1491159",
         "cmtr": "Valyavskiy Viacheslav",
         "date": "2015-09-02 07:35:46+00:00",
-        "files": ["frontend.pp", "params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/frontend.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp"]
       },
       {
         "hash": "cf131b8e8ab03478db10187bfdb8b6c58ec52ff0",
         "msg": "separate openstack user for zabbix openstack API checks\n\nCloses-Bug: #1496043\nChange-Id: Idbab9e1dbdb7ae2e3ea6b7f84cdedd9fe1d45ce0",
         "cmtr": "Maciej Relewicz",
         "date": "2015-09-22 15:38:49+02:00",
-        "files": ["keystone_mon.pp", "openstack_virtual_mon.pp", "openstack.pp", "primary_controller.pp", "guide.rst", "settings.png", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/keystone_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/openstack_virtual_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params/openstack.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/primary_controller.pp",
+            "doc/content/guide.rst",
+            "doc/images/settings.png",
+            "environment_config.yaml"]
       },
       {
         "hash": "ce0169b252ac80dd27cc39ddd487aab862b0b9d7",
         "msg": "Increase CacheSize to 16M in Zabbix Server\n\nChange-Id: I9bfe311490e213126531bc09804aaf29ccc18b34",
         "cmtr": "Maciej Relewicz",
         "date": "2015-10-12 11:24:45+02:00",
-        "files": ["params.pp", "zabbix_server.conf.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/zabbix_server.conf.erb"]
       },
       {
         "hash": "3904744783e2a5455ac9e2a82124bce4b52c70f0",
         "msg": "Migration from group to colocation\n\nCloses-Bug: #1506767\nChange-Id: I360fa25e2e3667f6376c0b098156cfa0559d891c",
         "cmtr": "Maciej Relewicz",
         "date": "2015-10-19 14:22:17+02:00",
-        "files": ["primary_controller.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/primary_controller.pp"]
       },
       {
         "hash": "21d611368f881b06d34b536870765b87e8d0be69",
         "msg": "Performance tuning zabbix agent\n\n* increase number of agents (process)\n* set max log size of 1GB before rotating\n* increase timeout to 30s\n\nChange-Id: Ie0118ce6ea689d2cf342d050a9e39b9d7fff011e",
         "cmtr": "Swann Croiset",
         "date": "2015-10-20 14:57:46+02:00",
-        "files": ["params.pp", "zabbix_agentd.conf.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/zabbix_agentd.conf.erb"]
       },
       {
         "hash": "3cfc82f0cd529ef953ca85060fde828920ae6063",
         "msg": "Performance tuning of zabbix server\n\n* caching options: increase cache size or use default values if no enought\n  memory on the node.\n* increase the process numbers for trappers, pollers, and pollersunreachable\n* log slow queries greater or equal than 1 second\n\nChange-Id: Idaade61939e440d168a035cbefa17dd88b73eda3",
         "cmtr": "Swann Croiset",
         "date": "2015-10-21 09:22:38+02:00",
-        "files": ["params.pp", "zabbix_server.conf.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/zabbix_server.conf.erb"]
       },
       {
         "hash": "4d92df032f99b27c7d4ea04e7e51a898d01c9b89",
         "msg": "Fix minimal available memory check\n\nChange-Id: Iaad055fc102db026b43fa662d2fb783b95c517a3",
         "cmtr": "Swann Croiset",
         "date": "2015-10-22 11:46:30+02:00",
-        "files": ["params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp"]
       },
       {
         "hash": "10791a25f23a68fc99049c82412f24bdb1b1a610",
         "msg": "Add snmp-mibs-downloader package to address OID-SNMP-MIB issues\n\nChange-Id: Ic64dca477c40fa500efbdfddc268fd0f1d6e2bdb",
         "cmtr": "Swann Croiset",
         "date": "2015-10-22 15:45:39+02:00",
-        "files": ["monitoring.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring.pp"]
       },
       {
         "hash": "8cbfb587b033caec2dea99ff667b5c2bf8465316",
         "msg": "Check nova-conductor process\n\nChange-Id: I18ecc564861724161d0a01fcfe5fdbc961719ce4",
         "cmtr": "Swann Croiset",
         "date": "2015-10-23 16:25:14+02:00",
-        "files": ["Template_App_OpenStack_Nova_Conductor.xml", "nova_mon.pp", "config.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Nova_Conductor.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/nova_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/server/config.pp"]
       },
       {
         "hash": "d78e3f52a5319580bc157835a59e5d795b3080d2",
         "msg": "added source parameter in zabbix haproxy configuration\n\nCloses-Bug: #1510115\nChange-Id: Id0ee351779ac072c3aefc1d8c5f335edbec3731c",
         "cmtr": "Maciej Relewicz",
         "date": "2015-10-28 10:25:41+01:00",
-        "files": ["haproxy.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/ha/haproxy.pp"]
       },
       {
         "hash": "3aa358eb2608ce93b552ba8b4e829db8763b08d9",
         "msg": "Ceph monitoring\n\n- Perform 'ceph health' checks where ceph-mon processes run (usually on\n  controllers) instead of running this check on nodes running ceph-osd.\n  This should reduce the load on the cluster but also on Zabbix server\n  since there are much less ceph-mon than ceph-osd nodes across the cluster.\n- Define OSD process checks into a (new) dedicated template.\n- Define 3 new host_groups:\n  - Ceph OSDs: all nodes running ceph-osd\n  - Ceph Mons: all nodes running ceph-mon\n  - Ceph Cluster: all nodes running Ceph components\n\nChange-Id: Ie046debdfd1e073f4a5d0804e1961e3e0b18ec9e",
         "cmtr": "Swann Croiset",
         "date": "2015-10-29 17:52:34+01:00",
-        "files": ["Template_App_OpenStack_Ceph.xml", "Template_App_OpenStack_Ceph_OSD.xml", "agent.pp", "ceph_mon.pp", "params.pp", "config.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Ceph.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Ceph_OSD.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/agent.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/ceph_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/server/config.pp"]
       },
       {
         "hash": "ced0a70d0d1db95d487ae493d87ec4784e58a14d",
         "msg": "Check ceph-mon processes\n\nChange-Id: I16ca1e762f56c1484a3b3966aba35aca47fe08c4",
         "cmtr": "Swann Croiset",
         "date": "2015-10-29 17:52:34+01:00",
-        "files": ["Template_App_OpenStack_Ceph_MON.xml", "ceph_mon.pp", "config.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Ceph_MON.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/ceph_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/server/config.pp"]
       },
       {
         "hash": "b6600bbef9279416e6161a5d9c55cdf4e5f576ef",
         "msg": "Install zabbix-sender\n\nChange-Id: I8387189c1177568981907a8a7f9aa2310c115608",
         "cmtr": "Swann Croiset",
         "date": "2015-10-29 17:52:34+01:00",
-        "files": ["agent.pp", "params.pp", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/agent.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "pre_build_hook"]
       },
       {
         "hash": "a911ebbaf76e8880b067b19669b42168cbb498c1",
         "msg": "Check nova-novncproxy process\n\nChange-Id: I3c63e34562e627dbdda07258d463032fa2ecbb02",
         "cmtr": "Swann Croiset",
         "date": "2015-10-30 13:32:25+01:00",
-        "files": ["Template_App_OpenStack_Nova_NoVNCProxy.xml", "nova_mon.pp", "config.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Nova_NoVNCProxy.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/nova_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/server/config.pp"]
       },
       {
         "hash": "951736984edf6b4553475dc58016efdd0d31ee6e",
         "msg": "Add MySQL cluster metrics\n\nSQL query to retrieve from GLOBAL_STATUS these informations:\n- wsrep_ready: 1 (ON) or 0 (OFF)\n- wsrep_cluster_status: 1 (Primary), 2 (Non-Primary) or 3 (Disconnected)\n- wsrep_connected: 1 (ON) or 0 (OFF)\n\nChange-Id: I12addbb8c81d3e0a42d34413602c80ab40c6e319",
         "cmtr": "Swann Croiset",
         "date": "2015-11-02 14:27:55+01:00",
-        "files": ["Template_App_MySQL.xml", "mysql_mon.pp", "check_db.conf.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_MySQL.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/mysql_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/check_db.conf.erb"]
       },
       {
         "hash": "c70515094c5476f8de2c7e537fe0cac9f3f78f4d",
         "msg": "Collect Ceph metrics\n\nThis changes deploys the following configuration only if Ceph is deployed.\n\nA new virtual host is configured 'CephCluster' with\nan item (passive) 'probe.ceph' configured with UserParameter.\nThe corresponding script 'ceph.py' is executed by zabbix-agentd every 30s.\nThe script performs metrics collection by issuing 'ceph' commands, and sends\nwith 'zabbix_sender' command all metrics to zabbix-server via the zabbix-vip.\nItem trappers configured\n - monitor_count\n - quorum_count\n - pg_bytes_used\n - pg_bytes_free\n - pg_bytes_total\n - pg_data_bytes\n - pg_count\n - pg_state_count_backfill\n - pg_state_count_repair\n - pg_state_count_creating\n - pg_state_count_recovering\n - pg_state_count_peered\n - pg_state_count_incomplete\n - pg_state_count_peering\n - pg_state_count_splitting\n - pg_state_count_waitbackfill\n - pg_state_count_down\n - pg_state_count_backfilltoofull\n - pg_state_count_remapped\n - pg_state_count_replay\n - pg_state_count_inconsistent\n - pg_state_count_clean\n - pg_state_count_active\n - pg_state_count_undersized\n - pg_state_count_degraded\n - pg_state_count_stale\n - pg_state_count_scrubbing\n - objects_count\n - pool_count\n - pool_total_bytes_used\n - pool_total_bytes_free\n - pool_total_bytes_total\n - pool_total_percent_used\n - pool_total_percent_free\n - osd_count_up\n - osd_count_down\n - osd_count_in\n - osd_count_out\n\nOne trigger is configured to raise when 'pool_total_percent_free' < 10%\n\nChange-Id: Id8ce8bbbfcd74aaed0ef8118bc73fc9f40812fed",
         "cmtr": "Swann Croiset",
         "date": "2015-11-02 13:29:09+00:00",
-        "files": ["Template_App_OpenStack_Ceph_Cluster.xml", "base.py", "ceph.py", "ceph_mon.pp", "openstack.pp", "config.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Ceph_Cluster.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/base.py",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/ceph.py",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/ceph_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params/openstack.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/server/config.pp"]
       },
       {
         "hash": "7a0dce2e3744cbd8c3fd90b4f37501634712fdb0",
         "msg": "Add screen for Ceph Cluster\n\nChange-Id: I2ef4cb9babc6650e4c8305dc23365611d003a518",
         "cmtr": "Swann Croiset",
         "date": "2015-11-02 13:36:05+00:00",
-        "files": ["Screens_Ceph_Cluster.xml", "config.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Screens_Ceph_Cluster.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/server/config.pp"]
       },
       {
         "hash": "ecfd271522206b7df8ebfae6b34adaea5cf90c42",
         "msg": "Remove useless cron\n\nChange-Id: I67035387fea3e818fe5ee685abe5dae2c76a1ae4",
         "cmtr": "Swann Croiset",
         "date": "2015-11-02 16:20:20+01:00",
-        "files": ["db_clean.sh", "controller.pp", "params.pp"]
+        "files": [
+            "None",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp"]
       },
       {
         "hash": "5bcc3236bcee7109cae3db198223a40d06705d1f",
         "msg": "Configure sysctl kernel.shmmax to 1Gb\n\nChange-Id: I033428a57b16425aa8361a15a4f33ade0eb6d706",
         "cmtr": "Swann Croiset",
         "date": "2015-11-04 13:40:53+01:00",
-        "files": ["controller.pp", "params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp"]
       },
       {
         "hash": "f2fbb8989f01fdd32718a00a561b0ac921b2c0db",
         "msg": "Apache name and user differ between distros\n\nUse Apache Puppet module to determine the user name and the binary name to set\nup usermacros {$APACHE_USER} and {$APACHE_NAME] used inside Zabbix template.\n\nChange-Id: Iabcefd2070d602eb337fd17b92a94e1219c05824",
         "cmtr": "Swann Croiset",
         "date": "2015-11-04 15:01:57+00:00",
-        "files": ["Template_App_OpenStack_Horizon.xml", "horizon_mon.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_OpenStack_Horizon.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/horizon_mon.pp"]
       },
       {
         "hash": "9ab8c4ef8281a82d52833bc60aaed64ec069d523",
         "msg": "Add check for ntpd binding on UDP port 123\n\nThis check is performed on all nodes except for controller nodes.\n\nRelated-bug: #1513454\n\nChange-Id: Iecf14599a01e66b35e57b5b7e656a4329545f39d",
         "cmtr": "Swann Croiset",
         "date": "2015-11-07 14:18:18+01:00",
-        "files": ["agent.pp", "Template_NTP_binding.xml", "monitoring.pp", "config.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/agent.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_NTP_binding.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/server/config.pp"]
       },
       {
         "hash": "7f3c3ecc743542dd4f027e0173e42d5dc82fc945",
         "msg": "Configure NTP check on controllers\n\nThe check verifies that the ntpd process listens on port 123 on the\nvrouter network namespace.\n\nRelated-bug: #1513454\n\nChange-Id: I45b2257dd584972a26643bf6f8cb34c4983be6e0",
         "cmtr": "Swann Croiset",
         "date": "2015-11-09 13:54:26+00:00",
-        "files": ["Template_OS_Controller.xml", "netns.listen.sh", "zabbix-sudo", "monitoring.pp", "config.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_OS_Controller.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/netns.listen.sh",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/zabbix-sudo",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/server/config.pp"]
       },
       {
         "hash": "89998acd0f24f52e17191465ce1bcb3bd44883b2",
         "msg": "Support deployment without Horizon on controllers\n\nThe patch configures HAproxy for Zabbix UI when Horizon is not deployed on\nController.\nIf Horizon is deployed, the previous behaviour stays the same:\nthe plugin patches the HAproxy configuration of Horizon to bind on the\nZabbix VIP.\n\nCloses-bug: #1517005\n\nChange-Id: I6e7e35ecca940dddc3fe978b9e279d81b86722e4",
         "cmtr": "Swann Croiset",
         "date": "2015-11-23 14:43:51+00:00",
-        "files": ["haproxy.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/ha/haproxy.pp"]
       },
       {
         "hash": "55cbcb8cd00416622ab5133595a076ca7aad3a1c",
         "msg": "Configures tox environments\n\nThis tests are performed:\n* puppet-lint and puppet-syntax for manifests and plugin_zabbix module\n* run spec test for plugin_zabbix module\n\nThe patch fixes puppet lint warnings in the same time\n\nChange-Id: I060f59f724ec9325db8bc5f5718479ff42501686",
         "cmtr": "Swann Croiset",
         "date": "2015-11-23 15:08:44+00:00",
-        "files": [".gitignore", "Gemfile", "Rakefile", "agent.pp", "Gemfile", "Rakefile", "scripts.pp", "controller.pp", "mysql.pp", "frontend.pp", "ceilometer_mon.pp", "cinder_mon.pp", "firewall_mon.pp", "glance_mon.pp", "haproxy_mon.pp", "keystone_mon.pp", "memcached_mon.pp", "mysql_mon.pp", "neutron_mon.pp", "nova_mon.pp", "openvswitch_mon.pp", "rabbitmq_mon.pp", "swift_mon.pp", "zabbixserver_mon.pp", "primary_controller.pp", "config.pp", "tox.ini"]
+        "files": [
+            ".gitignore",
+            "deployment_scripts/puppet/manifests/Gemfile",
+            "deployment_scripts/puppet/manifests/Rakefile",
+            "deployment_scripts/puppet/manifests/agent.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/Gemfile",
+            "deployment_scripts/puppet/modules/plugin_zabbix/Rakefile",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/agent/scripts.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/db/mysql.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/frontend.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/ceilometer_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/cinder_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/firewall_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/glance_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/haproxy_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/keystone_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/memcached_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/mysql_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/neutron_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/nova_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/openvswitch_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/rabbitmq_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/swift_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/zabbixserver_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/primary_controller.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/server/config.pp",
+            "tox.ini"]
       },
       {
         "hash": "a2ab0bc0a6ec22d16d54806195711eee16aa13fa",
         "msg": "Revert \"added source parameter in zabbix haproxy configuration\"\n\nWith several controllers this patch breaks things.\n\nhaproxy running on other controllers (w/o zabbix vip) try to check\ntheir backend servers with an invalid address as \"source\"\n(because the zabbix vip lives only on 1 controller):\n\nlisten zabbix-agent\n  bind 10.109.2.3:10049\n  balance  roundrobin\n  mode  tcp\n  option  tcpka\n  source 10.109.2.3  <---- this IP doesn't exist on controller and the 'check' below use it'\n  timeout client  48h\n  timeout server  48h\n  server node-31 10.109.2.6:10050  check inter 5000 rise 2 fall 3\n  server node-32 10.109.2.5:10050  check inter 5000 rise 2 fall 3\n  server node-33 10.109.2.4:10050  check inter 5000 rise 2 fall 3\n\nThis leads to trigger false positive alerts:\nHost                            Name\nnode-31.test.domain.local node-33 backend of zabbix-agent proxy down\nnode-31.test.domain.local node-32 backend of zabbix-agent proxy down\nnode-31.test.domain.local node-31 backend of zabbix-agent proxy down\n\nHAproxy log entries:\n<129>Nov 24 13:21:54 node-32 haproxy[31597]: Server zabbix-agent/node-31 is DOWN, reason: Layer4 connection problem, info: \"General socket error (Invalid argument)\", check duration: 0ms. 2 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.\n<129>Nov 24 13:21:54 node-32 haproxy[31597]: Server zabbix-agent/node-32 is DOWN, reason: Layer4 connection problem, info: \"General socket error (Invalid argument)\", check duration: 0ms. 1 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.\n<129>Nov 24 13:21:54 node-32 haproxy[31597]: Server zabbix-agent/node-33 is DOWN, reason: Layer4 connection problem, info: \"General socket error (Invalid argument)\", check duration: 0ms. 0 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.\n<128>Nov 24 13:21:54 node-32 haproxy[31597]: proxy zabbix-agent has no server available!\n\nThis reverts commit d78e3f52a5319580bc157835a59e5d795b3080d2.\n\nCo-Authored-By: Bartosz Kupidura <bkupidura@mirantis.com>\n\nRelated-bug: #1510115\n\nChange-Id: I5b90b7d7cfb06b0f0631c3fc76cc390e0975623d",
         "cmtr": "Swann Croiset",
         "date": "2015-11-24 17:10:49+00:00",
-        "files": ["haproxy.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/ha/haproxy.pp"]
       },
       {
         "hash": "06b9e4f561c92b56ae11823f43fce3fd57a3efe3",
         "msg": "Accept incoming connections from mgmt vip for zabbix agent\n\nRelated-bug: #1510115\n\nChange-Id: I4a1ff1c47e4c3053ff5fde19f00d539eb1f6f9c3",
         "cmtr": "Swann Croiset",
         "date": "2015-11-25 09:10:14+00:00",
-        "files": ["params.pp", "zabbix_agentd.conf.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/zabbix_agentd.conf.erb"]
       },
       {
         "hash": "2d1ce1c0d9eadb3479439cf4558f117754d70f13",
         "msg": "Fix deployment of base-os node\n\nCloses-Bug: #1515956\n\nChange-Id: Ia83095b301fbdee8e038eca5373c894c1c4be10f",
         "cmtr": "Olivier Bourdon",
         "date": "2015-12-11 15:16:13+00:00",
-        "files": ["agent.pp", "monitoring.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/agent.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring.pp"]
       },
       {
         "hash": "3c40e9444ab6255c1e9e07c14142737277df6915",
         "msg": "Change attribute separator in HAproxy monitoring\n\nRework HAproxy monitoring so the item's parameters gets properly separated\nusing commas, allowing to use dots in parameter name.\n\nCloses-bug: 1525713\n\nChange-Id: I912ec25c34e52b0917715b271e198c4fd9f331fe",
         "cmtr": "Marcin Iwinski",
         "date": "2015-12-13 23:04:03+01:00",
-        "files": ["Template_App_HAProxy.xml", "haproxy.sh", "haproxy_mon.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/import/Template_App_HAProxy.xml",
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/scripts/haproxy.sh",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/haproxy_mon.pp"]
       },
       {
         "hash": "28f8d461cea3a6e08008665c87ea219243d667da",
         "msg": "Add zabbix-get package onto Zabbix nodes\n\nChange-Id: Ib05f22659bc678967cff7d93d57f113981c01a41\nCloses-Bug: #1525924",
         "cmtr": "Olivier Bourdon",
         "date": "2015-12-14 17:51:36+01:00",
-        "files": ["agent.pp", "params.pp", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/agent.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "pre_build_hook"]
       },
       {
         "hash": "bf2966c9ed987470da343d676a1197b7c9350d73",
         "msg": "Skip zabbix agent installation for virt nodes\n\nCloses-bug: #1515956\n\nChange-Id: I9711e017f2725763650b3baa0502972cc87519b2",
         "cmtr": "Swann Croiset",
         "date": "2015-12-15 15:01:46+01:00",
-        "files": ["monitoring.pp", "description.rst", "test-system.rst"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring.pp",
+            "doc/plugin-guide/source/description.rst",
+            "doc/qa/source/test-system.rst"]
       },
       {
         "hash": "0662050eeec9390bf2aa9a192a10a8f1deae3602",
         "msg": "Service \"zabbix_server\" was restarted after executing of task \"upload_core_repos\"\n\nCloses-Bug: #1529642\n\nNew version complying with latest code review comments\nNote that for latest comment (line 75 of controller.pp), I had tried and it did not work\n\nChange-Id: I325c7ff6f5954b81325db832f9e88b125a376874",
         "cmtr": "Olivier Bourdon",
         "date": "2016-01-11 09:21:34+01:00",
-        "files": ["README.md", "check_zabbix_pacemaker.rb", "controller.pp", "primary_controller.pp", "description.rst", "metadata.yaml"]
+        "files": [
+            "README.md",
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/facter/check_zabbix_pacemaker.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/primary_controller.pp",
+            "doc/plugin-guide/source/description.rst",
+            "metadata.yaml"]
       },
       {
         "hash": "7dab74794d46deefe0c5f8df9a6c26a4f08a9c3b",
         "msg": "Zabbix snmptrapd: Service \"snmptt\" was restarted after executing of task \"upload_core_repos\"\n\nChange-Id: I3868e46bc34238fc5848f60414f084c907b93437\nCloses-Bug: #1529643",
         "cmtr": "Olivier Bourdon",
         "date": "2016-01-18 17:15:27+01:00",
-        "files": ["controller.pp", "params.pp", "zabbix_server.conf.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/zabbix_server.conf.erb"]
       },
       {
         "hash": "2e67aed3e1c4639c392cedb8e0584235dbdccafe",
         "msg": "Fix for use of PHP-FPM instead of mod_php\n\nChange-Id: Id9112adee54d093a36ebdcbe04cefcb32cbe0034\n(cherry picked from commit 72a190d1d7cd7f1c6f50537b28fd3416c3484035)",
         "cmtr": "Olivier Bourdon",
         "date": "2016-03-23 10:19:11+01:00",
-        "files": ["Rakefile", "frontend.pp", "params.pp", "zabbix_apache.conf.erb", "functions.sh", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/Rakefile",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/frontend.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/zabbix_apache.conf.erb",
+            "functions.sh",
+            "pre_build_hook"]
       },
       {
         "hash": "42bbb26028b0e91e6930432be8fcce74333b8658",
         "msg": "Fix 140 chars puppet-lint errors\n\nChange-Id: Id1f04117f9276688a4339f4011ae11068f01e134",
         "cmtr": "Olivier Bourdon",
         "date": "2016-04-07 09:32:07+02:00",
-        "files": ["Rakefile", "agent.pp", "controller.pp", "frontend.pp", "ceph_mon.pp", "mysql_mon.pp", "params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/Rakefile",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/agent.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/frontend.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/ceph_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/mysql_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp"]
       },
       {
         "hash": "b25ae621b129268879290f1d540d93910eb8834f",
         "msg": "Fix zabbix support for metrics and status per NIC\n\nRestricting NICs to the same regexps exclusion list than LMA collector\nSimplify deployment by putting everything into single template file\nDisable puppet-lint check for 140 chars wide lines for the moment\n\nCloses-Bug: #1522831\n\nChange-Id: I863d7e556b2933727a7899b0e8c3619dbbaa0064",
         "cmtr": "Olivier Bourdon",
         "date": "2016-04-13 08:28:40+00:00",
-        "files": ["Rakefile", "block_dev.sql", "filesystem.sql", "mysql.pp", "data_clean.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/Rakefile",
+            "None",
+            "None",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/db/mysql.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/data_clean.erb"]
       },
       {
         "hash": "1bb70eaed011fef2d440401b31dbf49d01217884",
         "msg": "Fix port conflict between php-fpm and radosgw\n\nCloses-Bug: #1570830\n\nChange-Id: I24c258ef853a11e47b2093275844988851f1f867",
         "cmtr": "Olivier Bourdon",
         "date": "2016-04-18 11:24:23+02:00",
-        "files": ["frontend.pp", "params.pp", "zabbix_apache.conf.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/frontend.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/zabbix_apache.conf.erb"]
       },
       {
         "hash": "aebba74777f174c35c4b1557978d993ed8813986",
         "msg": "Add support for MOS 9.0\n\nRemove usage of deprecated filter_nodes, node_roles and hiera('nodes') functions\nTested on MOS 7.0, 8.0 and 9.0-4014\n\nChange-Id: Idc863b0ab9420f1b6bb4f14c573255b44d640f33",
         "cmtr": "Olivier Bourdon",
         "date": "2016-04-18 11:37:44+02:00",
-        "files": ["agent.pp", "haproxy.pp", "monitoring.pp", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/agent.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/ha/haproxy.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring.pp",
+            "metadata.yaml"]
       },
       {
         "hash": "0fe8bf872d2983c1f2e4871477c529ea084e8259",
         "msg": "Add more readability\n\nUniformization of Puppet dependencies/chaining\n\nChange-Id: I709d2ee6af0c1cdcc4583fb8ac06624f41eb97da",
         "cmtr": "Olivier Bourdon",
         "date": "2016-07-26 16:42:57+02:00",
-        "files": ["agent.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/agent.pp"]
       },
       {
         "hash": "0d2209e20371537805494ff50df259f20976178f",
         "msg": "Use Puppet version of mysql::db\n\nremove useless local copy\n\nChange-Id: Ib6f483a842e6e7228458fa76b112c04e6be30b32",
         "cmtr": "Olivier Bourdon",
         "date": "2016-07-26 16:42:57+02:00",
-        "files": ["controller.pp", "db.pp", "mysql_db.pp", "primary_controller.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/controller.pp",
+            "None",
+            "None",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/primary_controller.pp"]
       },
       {
         "hash": "f99217058924689c65442749f35626e9b19a8aea",
         "msg": "Configure APT like other StackLight/LMA plugins\n\nChange-Id: Id971fa77cbb105aec11539a1a9f434d189b75b71",
         "cmtr": "Olivier Bourdon",
         "date": "2016-07-27 09:40:45+02:00",
-        "files": ["cleanup_apt_config.pp", "configure_apt.pp", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cleanup_apt_config.pp",
+            "deployment_scripts/puppet/manifests/configure_apt.pp",
+            "tasks.yaml"]
       },
       {
         "hash": "5cf3e89474c2b050e3168fc6b6655442fd97035b",
         "msg": "Add full support for MOS 9.0\n\nChange-Id: If263209ae009700e527e375799cf29e7b7dd990c",
         "cmtr": "Olivier Bourdon",
         "date": "2016-07-27 09:42:15+02:00",
-        "files": ["controller.pp", "mysql.pp", "primary_controller.pp", "deployment_tasks.yaml", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/db/mysql.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/primary_controller.pp",
+            "deployment_tasks.yaml",
+            "tasks.yaml"]
       },
       {
         "hash": "1261dcef136ed3205e4d14801e899b830f41bfb3",
         "msg": "Fix templates deployment for MOS 7, 8 and 9\n\nChange-Id: I6bd85a15eb552df6dee1f3ae61a7613c7fdcf3ef",
         "cmtr": "Olivier Bourdon",
         "date": "2016-07-28 13:51:58+02:00",
-        "files": ["agent.pp", "neutron_mon.pp", "nova_mon.pp", "openstack_virtual_mon.pp", "swift_mon.pp", "index.rst"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/agent.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/neutron_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/nova_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/openstack_virtual_mon.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/swift_mon.pp",
+            "doc/specs/source/index.rst"]
       },
       {
         "hash": "2bed5dbe6e7154d8867c72c0370ef65c7b5f6bd2",
         "msg": "Fix the resource colocation constraint with VIP\n\nThis is the previous behavior before upgrading plugin for mos9.\n\nChange-Id: If35fcf160828e34ce4fd8344771661f2e10a3211",
         "cmtr": "Swann Croiset",
         "date": "2016-08-02 14:14:58+02:00",
-        "files": ["primary_controller.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/primary_controller.pp"]
       },
       {
         "hash": "4a72ee8edb21ea01aba81529f20de35e57888b29",
         "msg": "Install OCF script before any Pacemaker configuration\n\nChange-Id: Ie5db7bf8f70368baed2ba5f0097ba404ce1a3cec\nCloses-bug: #1608852",
         "cmtr": "Swann Croiset",
         "date": "2016-08-02 14:15:52+02:00",
-        "files": ["configure_apt.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/configure_apt.pp"]
       },
       {
         "hash": "d6f934207e04c5a184327790c4f9ea71e512f7b3",
         "msg": "Fix for MOS 9.0 deployment with changed host names\n\nCloses-Bug: #1633701\nChange-Id: Ic6b6f3baaf271fa77981c9185ea9c2f16437c66d",
         "cmtr": "Olivier Bourdon",
         "date": "2017-01-10 08:34:42+01:00",
-        "files": ["agent.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/agent.pp"]
       },
       {
         "hash": "ca610036b2ca542426bc1c06eaec1543ebc8b967",
         "msg": "Fix issue where VIP becomes unavailable after Controller reboot\n\nUse a dedicated network namespace (zabbix) for the Zabbix VIP\n\nChange-Id: I70486093cb2c1009fd6a8602c5cebadeb1c3e6f6\nCloses-Bug: #1644821",
         "cmtr": "Olivier Bourdon",
         "date": "2017-01-11 14:31:01+00:00",
-        "files": ["zabbix-server.ocf", "params.pp", "network_roles.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/files/zabbix-server.ocf",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "network_roles.yaml"]
       },
       {
         "hash": "4937294340a26ffb9f0013a026a80658377dd68f",
         "msg": "Add notice messages to manifests\n\nChange-Id: I29537787244389fce10fbe428668c5478ff47aa2",
         "cmtr": "Olivier Bourdon",
         "date": "2017-02-15 14:12:03+01:00",
-        "files": ["agent.pp", "cleanup_apt_config.pp", "controller.pp", "primary_controller.pp", "zabbix_server_config.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/agent.pp",
+            "deployment_scripts/puppet/manifests/cleanup_apt_config.pp",
+            "deployment_scripts/puppet/manifests/controller.pp",
+            "deployment_scripts/puppet/manifests/primary_controller.pp",
+            "deployment_scripts/puppet/manifests/zabbix_server_config.pp"]
       },
       {
         "hash": "c98026a2efd5a78fb5b704066449292a205f91eb",
         "msg": "Fix PHP configuration for MOS 10.0\n\nChange-Id: Ied5b9f6faf11bb033f949b9a358041b28a0cf236",
         "cmtr": "Olivier Bourdon",
         "date": "2017-02-20 15:26:48+00:00",
-        "files": ["frontend.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/frontend.pp"]
       },
       {
         "hash": "d7b53e07a5022ce972b7470da58eddb23b871ca4",
         "msg": "Fix Zabbix server 2.2 configuration file\n\nChange-Id: I910b85633d5e2b39ca1ff6a8a7f127898df8ba25",
         "cmtr": "Olivier Bourdon",
         "date": "2017-04-16 10:05:43+02:00",
-        "files": ["check_zabbix_version.rb", "params.pp", "zabbix_server.conf.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/lib/facter/check_zabbix_version.rb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/zabbix_server.conf.erb"]
       },
       {
         "hash": "5854acda6e287481b67fb03a7afdb727a00c517c",
         "msg": "Fix Zabbix 2.2 triggers expressions\n\nChange-Id: I95b0b47daff5dc6189ef7502cfb2cb3c408d6e07",
         "cmtr": "Olivier Bourdon",
         "date": "2017-04-20 11:52:55+02:00",
-        "files": ["params.pp", "config.pp", "Template_App_MySQL.xml.erb", "Template_App_OpenStack_Ceph_Cluster.xml.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/server/config.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/Template_App_MySQL.xml.erb",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/Template_App_OpenStack_Ceph_Cluster.xml.erb"]
       },
       {
         "hash": "c788a732ab299cb7109a8dd9895d4a4dff60fcf9",
         "msg": "Fix access to Zabbix frontend\n\nChange-Id: I88bb645dc9a59d4ecbc3af2d2fc56b6a0d105539",
         "cmtr": "Olivier Bourdon",
         "date": "2017-04-24 08:35:57+02:00",
-        "files": ["haproxy.pp", "params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/ha/haproxy.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp"]
       },
       {
         "hash": "9d4cb0e001a7d8fa06d0bbedbdcf2ff3c24f1e7c",
         "msg": "Fix haproxy SSL configuration\n\nCloses-Bug: #1691160\n\nChange-Id: If7ef7281cd0ca4bff357948401115fc9d32af54a",
         "cmtr": "Olivier Bourdon",
         "date": "2017-05-22 15:28:22+02:00",
-        "files": ["haproxy.pp", "params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/ha/haproxy.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp"]
       },
       {
         "hash": "2194af26dd0829ef757d8b3346252b77a997c37a",
         "msg": "Fix for proper network_metadata retrieval\n\nChange-Id: I1b47877c8837143ba8bd4ece9e29c84613c83043",
         "cmtr": "Olivier Bourdon",
         "date": "2017-05-22 15:58:02+02:00",
-        "files": ["params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp"]
       },
       {
         "hash": "83969653ab715c18d58670b75b7a14e9610a729a",
         "msg": "Fix propagation of new Zabbix VIP changes to astute.yaml\n\nCloses-Bug: #1691157\n\nChange-Id: Ie56ed4f372b18c85c8257b1b8c473519a4ca2c04",
         "cmtr": "Olivier Bourdon",
         "date": "2017-05-24 07:30:36+02:00",
-        "files": ["override_configuration.pp", "config_override.erb", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/override_configuration.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/templates/config_override.erb",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "6e27b4b0f681ee0b1fb61bd03e74d73b26ae0c11",
         "msg": "Fix deployment errors when security options disabled\n\nCloses-Bug: #1693208\n\nChange-Id: I3f8a3f9b02e9ce0854c6992ae94a101be372de97",
         "cmtr": "Olivier Bourdon",
         "date": "2017-05-29 15:53:38+02:00",
-        "files": ["haproxy.pp", "params.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/ha/haproxy.pp",
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "f4a5980e98a89041769406a06ec84c57ce0875f2",
         "msg": "Purge tmp directory\n\nChange-Id: I104d243c453c6aaea91a88f300dd19ce7f369d10\nCloses-Bug: 1714454",
         "cmtr": "Olivier Bourdon",
         "date": "2017-10-02 11:25:00+02:00",
-        "files": ["mysql.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_zabbix/manifests/db/mysql.pp"]
       }]
     }

@@ -1,7 +1,22 @@
     {
       "url": "https://github.com/Mirantis/puppetlabs-cinder",
-      "pp_files": ["api.pp", "setup_test_volume.pp", "base.pp", "host_access.pp", "init.pp", "sync.pp", "auth.pp", "volume.pp", "iscsi.pp", "mysql.pp", "client.pp", "params.pp", "scheduler.pp"],
-      "pp_cmtrs": ["Derek Higgins", "Joe Topjian", "Dan Bode"],
+      "pp_files": [
+        "manifests/db/mysql/host_access.pp",
+        "manifests/client.pp",
+        "manifests/volume/iscsi.pp",
+        "manifests/init.pp",
+        "manifests/db/sync.pp",
+        "manifests/api.pp",
+        "manifests/base.pp",
+        "manifests/scheduler.pp",
+        null,
+        "manifests/db/mysql.pp",
+        "manifests/keystone/auth.pp",
+        "manifests/setup_test_volume.pp",
+        "manifests/volume.pp",
+        "manifests/params.pp"
+      ],
+      "pp_cmtrs": ["Dan Bode", "Derek Higgins", "Joe Topjian"],
       "num_pp_commits": 17,
       "num_tot_commits": 34,
       "commits": [{
@@ -9,118 +24,167 @@
         "msg": "Initial commit of new configuration",
         "cmtr": "Joe Topjian",
         "date": "2012-09-09 22:24:59+00:00",
-        "files": ["api.pp", "mysql.pp", "sync.pp", "init.pp", "auth.pp", "params.pp", "scheduler.pp", "volume.pp", "iscsi.pp"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/sync.pp",
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/params.pp",
+            "manifests/scheduler.pp",
+            "manifests/volume.pp",
+            "manifests/volume/iscsi.pp"]
       },
       {
         "hash": "58e387284ee2c497f35a26a7ec19dfd85a45a7db",
         "msg": "changes",
         "cmtr": "Joe Topjian",
         "date": "2012-09-10 06:04:34+00:00",
-        "files": ["mysql.pp", "host_access.pp", "sync.pp", "init.pp"]
+        "files": [
+            "manifests/db/mysql.pp",
+            "manifests/db/mysql/host_access.pp",
+            "manifests/db/sync.pp",
+            "manifests/init.pp"]
       },
       {
         "hash": "f59c361f9ed8680e41501a1057607271ec185582",
         "msg": "Added ini_setting file notification",
         "cmtr": "Joe Topjian",
         "date": "2012-09-12 04:53:16+00:00",
-        "files": ["api.pp", "params.pp", "scheduler.pp", "volume.pp"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/params.pp",
+            "manifests/scheduler.pp",
+            "manifests/volume.pp"]
       },
       {
         "hash": "14a96dc17f40cab400680b068c3582da9051efb8",
         "msg": "update cinder for folsome\n\nThese are my initial changes to Joe's initial cinder module.",
         "cmtr": "Dan Bode",
         "date": "2012-10-11 02:11:23-07:00",
-        "files": ["ini_setting.rb", "ini_setting.rb", "cinder_api_paste_ini.rb", "cinder_config.rb", "api.pp", "base.pp", "mysql.pp", "init.pp", "auth.pp", "params.pp", "scheduler.pp", "volume.pp", "iscsi.pp"]
+        "files": [
+            "lib/puppet/provider/cinder_api_paste_ini/ini_setting.rb",
+            "lib/puppet/provider/cinder_config/ini_setting.rb",
+            "lib/puppet/type/cinder_api_paste_ini.rb",
+            "lib/puppet/type/cinder_config.rb",
+            "manifests/api.pp",
+            "manifests/base.pp",
+            "manifests/db/mysql.pp",
+            "None",
+            "manifests/keystone/auth.pp",
+            "manifests/params.pp",
+            "manifests/scheduler.pp",
+            "manifests/volume.pp",
+            "manifests/volume/iscsi.pp"]
       },
       {
         "hash": "81428cc005972672eef0a9573ca78284a8e99931",
         "msg": "changed vg name, added tgt configuration",
         "cmtr": "Joe Topjian",
         "date": "2012-10-15 06:58:28+00:00",
-        "files": ["iscsi.pp"]
+        "files": [
+            "manifests/volume/iscsi.pp"]
       },
       {
         "hash": "07e1bc6000c7d052d2957e159b5d55042c0206b7",
         "msg": "Multi-region support",
         "cmtr": "Joe Topjian",
         "date": "2012-10-16 05:44:03+00:00",
-        "files": ["auth.pp"]
+        "files": [
+            "manifests/keystone/auth.pp"]
       },
       {
         "hash": "36c44e19241e1f5ae3b64c9d58858ead480a01e1",
         "msg": "tgt config file is now included in cinder-volume package.",
         "cmtr": "Joe Topjian",
         "date": "2012-10-24 14:39:23-06:00",
-        "files": ["iscsi.pp"]
+        "files": [
+            "manifests/volume/iscsi.pp"]
       },
       {
         "hash": "3b32b881f519a8c67218ed7df85c6ed3a5cec8b8",
         "msg": "iscsi_ip_address is required",
         "cmtr": "Joe Topjian",
         "date": "2012-10-24 15:16:54-06:00",
-        "files": ["iscsi.pp"]
+        "files": [
+            "manifests/volume/iscsi.pp"]
       },
       {
         "hash": "630cdb7aa4274f117202654bd435bb4ebf22fa1d",
         "msg": "ensure scheduler starts after db sync\n\nThis was resulting in occassional failures.",
         "cmtr": "Dan Bode",
         "date": "2012-10-25 17:10:28-07:00",
-        "files": ["scheduler.pp"]
+        "files": [
+            "manifests/scheduler.pp"]
       },
       {
         "hash": "e67394639e8868b7c2263ec9269df0bb7ab730e2",
         "msg": "add test class\n\nThis commit adds a class for testing that creates\na volume on a loopback device.",
         "cmtr": "Dan Bode",
         "date": "2012-10-25 17:42:46-07:00",
-        "files": ["setup_test_volume.pp"]
+        "files": [
+            "manifests/setup_test_volume.pp"]
       },
       {
         "hash": "9c716d68c59729090192b341798fa737de4280ea",
         "msg": "remove trailing class param comma\n\nfor 2.6.x support",
         "cmtr": "Dan Bode",
         "date": "2012-10-28 21:31:45-07:00",
-        "files": ["iscsi.pp"]
+        "files": [
+            "manifests/volume/iscsi.pp"]
       },
       {
         "hash": "104baec9eaf2c1f82d1662edf7f5bae80575cdd7",
         "msg": "set default verbose to False\n\nIt should default to false to be consistent with\ncinder defaults and the default of the other\nopenstack modules.",
         "cmtr": "Dan Bode",
         "date": "2012-10-29 12:54:54-07:00",
-        "files": ["base.pp"]
+        "files": [
+            "manifests/base.pp"]
       },
       {
         "hash": "ac334c1f9daff245a17e82d59dea35d017030936",
         "msg": "catch unsupported osfamily\n\nPreviously, param lookups were returning nil. This\nleads to a more obvious error message.",
         "cmtr": "Dan Bode",
         "date": "2012-10-29 12:55:31-07:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "d5f081ba58eafa3a983beb746c227d243265ebfd",
         "msg": "set volume package dep to title\n\nManifest reps should be titles.",
         "cmtr": "Dan Bode",
         "date": "2012-10-29 12:55:56-07:00",
-        "files": ["volume.pp"]
+        "files": [
+            "manifests/volume.pp"]
       },
       {
         "hash": "704400f0db2928c181541601dcc7de076f127941",
         "msg": "add cinder client",
         "cmtr": "Dan Bode",
         "date": "2012-11-02 10:12:35-07:00",
-        "files": ["client.pp", "cinder_client_spec.rb"]
+        "files": [
+            "manifests/client.pp",
+            "spec/classes/cinder_client_spec.rb"]
       },
       {
         "hash": "4a94945884a1b8a2bd7eb0f31350841fc704e65b",
         "msg": "Add Redhat support\n\nThis commit adds red hat support to cinder.\n- Adds Redhat package names\n- Make package installations optional\n- Make cinder client package name per OS",
         "cmtr": "Dan Bode",
         "date": "2012-11-05 22:36:58-08:00",
-        "files": ["api.pp", "client.pp", "params.pp", "scheduler.pp", "volume.pp"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/client.pp",
+            "manifests/params.pp",
+            "manifests/scheduler.pp",
+            "manifests/volume.pp"]
       },
       {
         "hash": "c4f4a30922fd1ad702ade8d11a5ced0c13c45a88",
         "msg": "Include /etc/cinder/volumes/ in tgt targets.conf\n\nThis config isn't included in the RHEL packages",
         "cmtr": "Derek Higgins",
         "date": "2012-11-13 12:54:47+00:00",
-        "files": ["iscsi.pp", "cinder_volume_iscsi_spec.rb"]
+        "files": [
+            "manifests/volume/iscsi.pp",
+            "spec/classes/cinder_volume_iscsi_spec.rb"]
       }]
     }

@@ -1,7 +1,70 @@
     {
       "url": "https://github.com/openstack/puppet-monasca",
-      "pp_files": ["instance.pp", "prereqs.pp", "solidfire.pp", "libvirt.pp", "init.pp", "http_check.pp", "load.pp", "bootstrap.pp", "params.pp", "ovs.pp", "config.pp", "thresh.pp", "agent_instance.pp", "api.pp", "agent.pp", "rabbitmq.pp", "disk.pp", "process.pp", "mysql.pp", "topics.pp", "dashboard.pp", "alarmdefs.pp", "network.pp", "apiserver.pp", "persister.pp", "storm.pp", "memory.pp", "notification.pp", "cpu.pp", "vertica.pp", "startup_script.pp", "apache.pp", "auth.pp", "host_alive.pp", "zk.pp", "nagios_wrapper.pp"],
-      "pp_cmtrs": ["Carlos Camacho", "Matt Fischer", "Brad Klein", "Yanis Guenane", "Emilien Macchi", "Tobias Urdin", "ZhongShengping", "bklei", "Ryan Bak", "Clayton O'Neill", "Sharat Sharma", "Sofer Athlan-Guyot"],
+      "pp_files": [
+        "manifests/checks/instances/http_check.pp",
+        "manifests/influxdb/bootstrap.pp",
+        "manifests/storm/startup_script.pp",
+        "manifests/checks/vertica.pp",
+        "manifests/dashboard.pp",
+        "manifests/checks/instances/rabbitmq.pp",
+        "manifests/checks/instances/process.pp",
+        "manifests/checks/instances/memory.pp",
+        "manifests/checks/instances/cpu.pp",
+        "manifests/thresh.pp",
+        "manifests/checks/zk.pp",
+        "manifests/checks/ovs.pp",
+        "manifests/alarmdefs.pp",
+        "manifests/storm.pp",
+        "manifests/checks/libvirt.pp",
+        "manifests/checks/process.pp",
+        "manifests/persister/config.pp",
+        "manifests/notification.pp",
+        "manifests/kafka/topics.pp",
+        "manifests/checks/host_alive.pp",
+        "manifests/checks/mysql.pp",
+        "manifests/checks/nagios_wrapper.pp",
+        "tests/apiserver.pp",
+        "manifests/apiserver.pp",
+        "manifests/checks/load.pp",
+        "manifests/checks/http_check.pp",
+        "manifests/checks/instances/host_alive.pp",
+        "manifests/checks/memory.pp",
+        "manifests/init.pp",
+        "tests/storm.pp",
+        "manifests/config.pp",
+        "manifests/virtualenv/instance.pp",
+        "manifests/api.pp",
+        "manifests/checks/instances/zk.pp",
+        "manifests/checks/solidfire.pp",
+        "manifests/db/mysql.pp",
+        "manifests/keystone/auth.pp",
+        "manifests/kafka/config.pp",
+        "manifests/prereqs.pp",
+        "manifests/params.pp",
+        "manifests/mysql/config.pp",
+        "manifests/checks/instances/solidfire.pp",
+        "manifests/storm/config.pp",
+        "manifests/checks/apache.pp",
+        "tests/init.pp",
+        "manifests/persister/startup_script.pp",
+        "manifests/apiserver/config.pp",
+        "manifests/checks/network.pp",
+        "manifests/agent.pp",
+        "manifests/persister.pp",
+        "manifests/checks/instances/apache.pp",
+        null,
+        "manifests/checks/instances/mysql.pp",
+        "manifests/checks/instances/network.pp",
+        "manifests/checks/cpu.pp",
+        "manifests/checks/rabbitmq.pp",
+        "manifests/checks/disk.pp",
+        "manifests/checks/instances/nagios_wrapper.pp",
+        "manifests/checks/instances/disk.pp",
+        "manifests/virtualenv/agent_instance.pp",
+        "manifests/checks/instances/load.pp",
+        "manifests/vertica/config.pp"
+      ],
+      "pp_cmtrs": ["Sofer Athlan-Guyot", "Clayton O'Neill", "Emilien Macchi", "Matt Fischer", "Sharat Sharma", "Yanis Guenane", "bklei", "Brad Klein", "Tobias Urdin", "ZhongShengping", "Carlos Camacho", "Ryan Bak"],
       "num_pp_commits": 140,
       "num_tot_commits": 288,
       "commits": [{
@@ -9,979 +72,1507 @@
         "msg": "Initial puppet module files\n\nCreated with \"puppet module generate <USERNAME>-<MODULE NAME>\" command\nGemfile and Rakefile added by hand\n\nChange-Id: I5581abbd8602e0447cd15980fe536856f5508e64",
         "cmtr": "Ryan Bak",
         "date": "2014-10-06 09:05:39-06:00",
-        "files": [".gitignore", ".gitreview", "Gemfile", "Modulefile", "README", "Rakefile", "init.pp", "spec_helper.rb", "init.pp"]
+        "files": [
+            ".gitignore",
+            ".gitreview",
+            "Gemfile",
+            "Modulefile",
+            "README",
+            "Rakefile",
+            "manifests/init.pp",
+            "spec/spec_helper.rb",
+            "tests/init.pp"]
       },
       {
         "hash": "6dacb2f9b7de35e9a41d7f8a5cc007d8a829566e",
         "msg": "CIRRUS-1326: initial cut at storm install\n\nChange-Id: I90446831e7fd0eda6a5bd32a124cf2edf5b298a0",
         "cmtr": "bklei",
         "date": "2014-10-06 14:06:50-06:00",
-        "files": ["apiserver.pp", "storm.pp", "apiserver.pp", "storm.pp"]
+        "files": [
+            "manifests/apiserver.pp",
+            "manifests/storm.pp",
+            "tests/apiserver.pp",
+            "tests/storm.pp"]
       },
       {
         "hash": "415e03ab59770e60ad4efd2a9a00a158d1a9ff6d",
         "msg": "Added files to generate api and agent configs\n\nChange-Id: Idda19395ce72863331c1f81118699457f24b1bdb",
         "cmtr": "Ryan Bak",
         "date": "2014-10-07 10:53:58-06:00",
-        "files": ["ini_setting.rb", "ini_setting.rb", "ini_setting.rb", "agent_config.rb", "monasca_config.rb", "monasca_ini.rb", "config.pp", "init.pp"]
+        "files": [
+            "lib/puppet/provider/agent_config/ini_setting.rb",
+            "lib/puppet/provider/monasca_config/ini_setting.rb",
+            "lib/puppet/provider/monasca_ini/ini_setting.rb",
+            "lib/puppet/type/agent_config.rb",
+            "lib/puppet/type/monasca_config.rb",
+            "lib/puppet/type/monasca_ini.rb",
+            "manifests/config.pp",
+            "manifests/init.pp"]
       },
       {
         "hash": "a3b438e76b0f891c6d99cf4734428dce18b7151f",
         "msg": "Added agent class\n\nChange-Id: Ie3a7f8ce8aec4518a8898ad60f0cc3a16ba834e5",
         "cmtr": "Ryan Bak",
         "date": "2014-10-08 16:48:32-06:00",
-        "files": ["agent.pp", "params.pp"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/params.pp"]
       },
       {
         "hash": "4b08ed11d158f39a59245406163edb9fc69f54c0",
         "msg": "Added dashboard class\n\nChange-Id: I9e5aff7f3fd84be8c86333c44c52913fa08e0da7",
         "cmtr": "Ryan Bak",
         "date": "2014-10-20 12:39:47-06:00",
-        "files": ["dashboard.pp", "config.js.erb"]
+        "files": [
+            "manifests/dashboard.pp",
+            "templates/config.js.erb"]
       },
       {
         "hash": "37a29b9f893d522436bd345758e05c8108e9eb04",
         "msg": "Clean up apiserver class\n\nChange-Id: I3de770b3a08c4cef60dfb1701a9a7808b199cd5c\nIssue: CIRRUS-1325",
         "cmtr": "bklei",
         "date": "2014-10-24 09:06:48-06:00",
-        "files": ["apiserver.pp", "storm.pp"]
+        "files": [
+            "manifests/apiserver.pp",
+            "manifests/storm.pp"]
       },
       {
         "hash": "abc3d007ce66e1bf8ed6b9464b51f601b84bf019",
         "msg": "Require install parms -- get from hiera/profile\n\nChange-Id: I0ba94c0cad2d8a6f5f216db75a37fef506a62a33\nIssue: CIRRUS-1325",
         "cmtr": "bklei",
         "date": "2014-10-24 13:08:08-06:00",
-        "files": ["apiserver.pp"]
+        "files": [
+            "manifests/apiserver.pp"]
       },
       {
         "hash": "77c9180c368dec6573675f01928793b5d8e50b5f",
         "msg": "Setup monasca dependencies\n\nIssue: CIRRUS-1325\nChange-Id: Id253f54c2b4d9eef3d907a9a8280f61e7eb1f2b3",
         "cmtr": "bklei",
         "date": "2014-10-24 15:07:17-06:00",
-        "files": ["prereqs.pp"]
+        "files": [
+            "manifests/prereqs.pp"]
       },
       {
         "hash": "f020c884b3a1de0a8675f0a7ae18f21c49a3ee98",
         "msg": "Added monasca auth class\n\nChange-Id: I7bcee0a760adbfaa45880936687441a2a405a33d",
         "cmtr": "Ryan Bak",
         "date": "2014-10-27 15:34:48-06:00",
-        "files": ["auth.pp"]
+        "files": [
+            "manifests/keystone/auth.pp"]
       },
       {
         "hash": "fba3a8b0a3354d84433af7d30c40e77d2f3046e1",
         "msg": "More storm config\n\nChange-Id: Ibfcb4909703e36ca11bfaba11a8898ff6075e91d\nIssue: CIRRUS-1325",
         "cmtr": "bklei",
         "date": "2014-10-27 16:00:07-06:00",
-        "files": ["prereqs.pp", "startup_script.pp", "storm-startup-script.erb"]
+        "files": [
+            "manifests/prereqs.pp",
+            "manifests/storm/startup_script.pp",
+            "templates/storm-startup-script.erb"]
       },
       {
         "hash": "7a9b489fb5f41faac4cb1f38b38823a94ae58a32",
         "msg": "Add nimbus and kafka config\n\nChange-Id: Iee03bb90d592ed4d659b357b25b09e37a234cfb2\nIssue: CIRRUS-1325",
         "cmtr": "bklei",
         "date": "2014-10-29 08:02:18-06:00",
-        "files": ["config.pp", "topics.pp", "config.pp"]
+        "files": [
+            "manifests/kafka/config.pp",
+            "manifests/kafka/topics.pp",
+            "manifests/storm/config.pp"]
       },
       {
         "hash": "00de95a20d9bbd122d71d34845896ad6677ad848",
         "msg": "Fix dependency chain, cleanup wget caching\n\nChange-Id: Ie9c196a3db05dfe33cfa35e48b3e41e336e5317c\nIssue: CIRRUS-1584",
         "cmtr": "bklei",
         "date": "2014-10-30 17:36:44-06:00",
-        "files": ["apiserver.pp", "config.pp", "startup_script.pp"]
+        "files": [
+            "manifests/apiserver.pp",
+            "manifests/storm/config.pp",
+            "manifests/storm/startup_script.pp"]
       },
       {
         "hash": "6505532208249dc19640b95adb084aa6964c2784",
         "msg": "bootstrap influx\n\nChange-Id: Id88dea98fbbe2d5f52bafad8fd40dbe89a2ad3c1",
         "cmtr": "bklei",
         "date": "2014-11-03 10:27:42-07:00",
-        "files": ["bootstrap.pp", "bootstrap-influxdb.py.erb"]
+        "files": [
+            "manifests/influxdb/bootstrap.pp",
+            "templates/bootstrap-influxdb.py.erb"]
       },
       {
         "hash": "0968f094a2325e551a7d7ac53f8d874d6fda8cf0",
         "msg": "Change script ownership, wait for influx to be up, fix ordering.\n\nChange-Id: I2c72dd301b788c71a67c2b562540cbed34bbe099\nIssue: CIRRUS-1325",
         "cmtr": "bklei",
         "date": "2014-11-03 12:55:43-07:00",
-        "files": ["bootstrap.pp", "bootstrap-influxdb.py.erb"]
+        "files": [
+            "manifests/influxdb/bootstrap.pp",
+            "templates/bootstrap-influxdb.py.erb"]
       },
       {
         "hash": "2f97d0e9250d84c8198ab9721656d5eab5c2cc85",
         "msg": "Added shard config to database creation\n\nChange-Id: I966a1712a0f26eb0324426aa842832267590892b",
         "cmtr": "Ryan Bak",
         "date": "2014-11-04 14:51:45-07:00",
-        "files": ["shard_config.json", "bootstrap.pp", "bootstrap-influxdb.py.erb"]
+        "files": [
+            "files/shard_config.json",
+            "manifests/influxdb/bootstrap.pp",
+            "templates/bootstrap-influxdb.py.erb"]
       },
       {
         "hash": "dd5e307a9ea3edb2e516aa84631399597a4a745c",
         "msg": "Config monasca processes, cleanup storm services\n\nChange-Id: I8edad0f9541eff2e93c51a6d595606fc7483ecf2\nIssue: CIRRUS-1325",
         "cmtr": "bklei",
         "date": "2014-11-05 08:31:04-07:00",
-        "files": ["apiserver.pp", "config.pp", "bootstrap.pp", "config.pp", "startup_script.pp", "api-config.yml.erb", "bootstrap-influxdb.py.erb", "persister-config.yml.erb", "storm-startup-script.erb"]
+        "files": [
+            "manifests/apiserver.pp",
+            "manifests/apiserver/config.pp",
+            "manifests/influxdb/bootstrap.pp",
+            "manifests/storm/config.pp",
+            "manifests/storm/startup_script.pp",
+            "templates/api-config.yml.erb",
+            "templates/bootstrap-influxdb.py.erb",
+            "templates/persister-config.yml.erb",
+            "templates/storm-startup-script.erb"]
       },
       {
         "hash": "5528fb9005ee23a94cd92952146892bcc0002e71",
         "msg": "Bootstrap mysql config database\n\nChange-Id: I5b8303b5cfd4a209fa90298f843d771de4cbca8f\nIssue: CIRRUS-1608",
         "cmtr": "bklei",
         "date": "2014-11-07 11:48:08-07:00",
-        "files": ["config.pp", "config.pp", "mon.sql.erb"]
+        "files": [
+            "manifests/apiserver/config.pp",
+            "manifests/mysql/config.pp",
+            "templates/mon.sql.erb"]
       },
       {
         "hash": "7e202a1b74d8371b83ba35cb09b2f3525b220f7e",
         "msg": "Added monasca auth to cirrus\n\nIssue: CIRRUS-1329\nChange-Id: Iab35628c0d8720f7157ba211f984672babce9967",
         "cmtr": "Ryan Bak",
         "date": "2014-11-10 13:51:30-07:00",
-        "files": ["auth.pp"]
+        "files": [
+            "manifests/keystone/auth.pp"]
       },
       {
         "hash": "6fd256081f03528523cc5e8acc6d432e809e1b50",
         "msg": "Work around for monasca libvirt metrics\n\nIssue: CIRRUS-1327\nChange-Id: Iabcbf9f8dbcf8d54164dbd729ec2c3f6f3df3e68",
         "cmtr": "Ryan Bak",
         "date": "2014-11-12 09:46:28-07:00",
-        "files": ["main.py", "agent.pp"]
+        "files": [
+            "files/main.py",
+            "manifests/agent.pp"]
       },
       {
         "hash": "77ac4a80b0a1a6201b6e137f7dfebddc8011e2ff",
         "msg": "Fixed conflicting package defenitions\n\nIssue: CIRRUS-1328\nChange-Id: Ib009b49ba5f19df627fd1ecb2240cadfddc50f17",
         "cmtr": "Ryan Bak",
         "date": "2014-11-12 13:40:42-07:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "783b32a4bc539302e3064571f211c224a27fe07a",
         "msg": "Fixed agent/user ordering\n\nIssue: CIRRUS-1329\nChange-Id: Ia39825d579627eb283e27dad78d0624b429675ca",
         "cmtr": "Ryan Bak",
         "date": "2014-11-12 16:42:43-07:00",
-        "files": ["auth.pp"]
+        "files": [
+            "manifests/keystone/auth.pp"]
       },
       {
         "hash": "7a2e5d688ea87c98f8b63793bebcc28da1d6fc58",
         "msg": "Refresh stackforge repo\n\nChange-Id: I1625464353482dbd4fc8e7737a79160d87dd84ff",
         "cmtr": "bklei",
         "date": "2014-11-18 11:19:30-07:00",
-        "files": [".gitreview", "agent.pp", "auth.pp", "monasca-agent.init.erb", "supervisor.conf.erb"]
+        "files": [
+            ".gitreview",
+            "manifests/agent.pp",
+            "manifests/keystone/auth.pp",
+            "templates/monasca-agent.init.erb",
+            "templates/supervisor.conf.erb"]
       },
       {
         "hash": "f7e9ff341a84c0f519eeb3cdea08f01f20774cb8",
         "msg": "Refresh with the week's changes\n\nChange-Id: I81388294d7ecc5f33ba71a5e1fcc899999d47315",
         "cmtr": "bklei",
         "date": "2014-12-02 12:00:08-07:00",
-        "files": ["agent.pp", "apiserver.pp", "config.pp", "bootstrap.pp", "auth.pp", "api-config.yml.erb", "bootstrap-influxdb.py.erb", "main.py.erb"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/apiserver.pp",
+            "manifests/apiserver/config.pp",
+            "manifests/influxdb/bootstrap.pp",
+            "manifests/keystone/auth.pp",
+            "templates/api-config.yml.erb",
+            "templates/bootstrap-influxdb.py.erb",
+            "templates/main.py.erb"]
       },
       {
         "hash": "c8df3a35f1bc95de7b96384f127e93bde0d1418d",
         "msg": "Add more libvirt plugin dependencies\n\nChange-Id: Ic5a2ddc1b553f59184b605def0d9a8344da235dd",
         "cmtr": "bklei",
         "date": "2014-12-02 14:52:06-07:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "d89bb45166ce6e3ab35cbc59b1211cc4c442c347",
         "msg": "Fixed checks_d directory permissions\n\nChange-Id: I7677d2193c46e06da195c1764c806ce24046bf68",
         "cmtr": "Ryan Bak",
         "date": "2014-12-03 12:14:09-07:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "e530fd7a95faea34f82e51dec008dbbed6014cb7",
         "msg": "Removed dashboard class\n\nSetting up the dashboard through puppet isn't necessary, as the monasca-ui\nhas been redesigned to be installable in horizon as an egg\n\nChange-Id: I205c0abe0d02e3dd8cb2cdefe5a2c448ddfde261",
         "cmtr": "Ryan Bak",
         "date": "2014-12-04 13:20:13-07:00",
-        "files": ["dashboard.pp"]
+        "files": [
+            "None"]
       },
       {
         "hash": "a6329b0db39117266b5f95967cdda931ddb6b396",
         "msg": "Pull in http_check.py fix in monasca-agent 0.0.14\n\nChange-Id: I313328e6c595309dd0aef25b374b5e848d59b522",
         "cmtr": "bklei",
         "date": "2014-12-08 08:10:56-07:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "67df066b0e28f027ec94fc4d599f2958c151e01b",
         "msg": "Fix libxslt-dev reference\n\nThe libxslt package on Ubuntu is actually named libxslt1-dev, but it\nprovised the libxslt-dev package.  This means that each time puppet\nruns, it looks for, doesn't find and reinstalls libxslt-dev, which\nactually installs libxslt1-dev.\n\nChange-Id: Ibd21d70605ab98a569e7abae654d0463672b7b37",
         "cmtr": "Clayton O'Neill",
         "date": "2014-12-09 04:26:21+00:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "5bf6034ff9b1bcd8fba5d5238642dc9fcf42afc9",
         "msg": "Refactored agent to not use setup script\n\nThis will allow better control of which checks are configured\n\nChange-Id: Ib997054047c1da06239f9fbf8419a1a2821db462",
         "cmtr": "Ryan Bak",
         "date": "2014-12-09 10:36:59-07:00",
-        "files": ["agent.pp", "apache.pp", "host_alive.pp", "http_check.pp", "libvirt.pp", "mysql.pp", "nagios_wrapper.pp", "network.pp", "process.pp", "rabbitmq.pp", "zk.pp", "generic.yaml.erb", "host_alive.yaml.erb", "libvirt.yaml.erb", "nagios_wrapper.yaml.erb", "main.py.erb"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/checks/apache.pp",
+            "manifests/checks/host_alive.pp",
+            "manifests/checks/http_check.pp",
+            "manifests/checks/libvirt.pp",
+            "manifests/checks/mysql.pp",
+            "manifests/checks/nagios_wrapper.pp",
+            "manifests/checks/network.pp",
+            "manifests/checks/process.pp",
+            "manifests/checks/rabbitmq.pp",
+            "manifests/checks/zk.pp",
+            "templates/checks/generic.yaml.erb",
+            "templates/checks/host_alive.yaml.erb",
+            "templates/checks/libvirt.yaml.erb",
+            "templates/checks/nagios_wrapper.yaml.erb",
+            "None"]
       },
       {
         "hash": "3317a2c38de0daa682beb382968ecc45ce69365e",
         "msg": "Added mysql check dependency, cleaned depecrations\n\nChange-Id: Ica0c0b70bc12031c3a0dc6d7533333e826767fb6",
         "cmtr": "Ryan Bak",
         "date": "2014-12-09 10:58:12-07:00",
-        "files": ["libvirt.pp", "mysql.pp"]
+        "files": [
+            "manifests/checks/libvirt.pp",
+            "manifests/checks/mysql.pp"]
       },
       {
         "hash": "e5cff5c1c2528541d495295c655a3dd908b62c32",
         "msg": "Temporary fix for duplicate resource\n\nChange-Id: I8d9e87d756222d5174b87aa813f729c07a80de0a",
         "cmtr": "Ryan Bak",
         "date": "2014-12-09 12:58:51-07:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "13888f568a8d49ec050f414c509e9cc2f8a46973",
         "msg": "Refactor to clean up duplicate resources and vars\n\nChange-Id: Idc53584c1f4c408dd6624d9feb2f32bf042f0b57",
         "cmtr": "Ryan Bak",
         "date": "2014-12-11 14:24:48-07:00",
-        "files": ["agent.pp", "api.pp", "apiserver.pp", "config.pp", "mysql.pp", "init.pp", "auth.pp", "params.pp", "persister.pp", "config.pp", "startup_script.pp", "thresh.pp", "api-config.yml.erb"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/api.pp",
+            "None",
+            "None",
+            "manifests/db/mysql.pp",
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/params.pp",
+            "manifests/persister.pp",
+            "manifests/storm/config.pp",
+            "manifests/storm/startup_script.pp",
+            "manifests/thresh.pp",
+            "templates/api-config.yml.erb"]
       },
       {
         "hash": "557c2f87b80a8394fc90dca01fa296f2177e2a11",
         "msg": "Fixed admin_name and password for api template\n\nChange-Id: I80b222fd9570fbc9930a9b8dc3906d7f4f6d5768",
         "cmtr": "Ryan Bak",
         "date": "2014-12-11 14:49:48-07:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "9f879a1ceb3453a1cbada0dc91b11d3f3f3f02af",
         "msg": "Fixes minor bugs from refactor\n\nChange-Id: I8797b25af6b27a0e7a4387e5d88a3f7b8e0772e6",
         "cmtr": "Ryan Bak",
         "date": "2014-12-12 11:55:29-07:00",
-        "files": ["api.pp", "bootstrap.pp", "init.pp"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/influxdb/bootstrap.pp",
+            "manifests/init.pp"]
       },
       {
         "hash": "1b2f40e813366f3a9a9950e49490b34852101e68",
         "msg": "Add version to keystone catalog endpoints\n\nChange-Id: I204752a345440cb2a5e5dbbbc84f8ec3a8050b73",
         "cmtr": "bklei",
         "date": "2014-12-12 13:38:57-07:00",
-        "files": ["auth.pp", "params.pp"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "manifests/params.pp"]
       },
       {
         "hash": "5b53834b075cc30f37e31bd004ed3034a88a1817",
         "msg": "Fixed monasca check group\n\nChanged for consistency with the recent refactor\nChange-Id: I7d948f8e63147b730da870df671361fae7e8bc47",
         "cmtr": "Ryan Bak",
         "date": "2014-12-15 15:15:02-07:00",
-        "files": ["apache.pp", "host_alive.pp", "http_check.pp", "libvirt.pp", "mysql.pp", "nagios_wrapper.pp", "network.pp", "process.pp", "rabbitmq.pp", "zk.pp", "init.pp"]
+        "files": [
+            "manifests/checks/apache.pp",
+            "manifests/checks/host_alive.pp",
+            "manifests/checks/http_check.pp",
+            "manifests/checks/libvirt.pp",
+            "manifests/checks/mysql.pp",
+            "manifests/checks/nagios_wrapper.pp",
+            "manifests/checks/network.pp",
+            "manifests/checks/process.pp",
+            "manifests/checks/rabbitmq.pp",
+            "manifests/checks/zk.pp",
+            "manifests/init.pp"]
       },
       {
         "hash": "13ea7d6cd448feb85366283fd9623e6ee5730944",
         "msg": "Changed yaml files for checks to build with concat\n\nChange-Id: I635920bb4ecb2a35caa33a8709517901e84f797e",
         "cmtr": "Ryan Bak",
         "date": "2014-12-17 12:22:56-07:00",
-        "files": ["apache.pp", "host_alive.pp", "http_check.pp", "apache.pp", "host_alive.pp", "http_check.pp", "mysql.pp", "nagios_wrapper.pp", "network.pp", "process.pp", "rabbitmq.pp", "zk.pp", "mysql.pp", "nagios_wrapper.pp", "network.pp", "process.pp", "rabbitmq.pp", "zk.pp", "apache.erb", "generic.yaml.erb", "host_alive.erb", "host_alive.yaml.erb", "http_check.erb", "mysql.erb", "nagios_wrapper.erb", "nagios_wrapper.yaml.erb", "network.erb", "process.erb", "rabbitmq.erb", "zk.erb"]
+        "files": [
+            "manifests/checks/apache.pp",
+            "manifests/checks/host_alive.pp",
+            "manifests/checks/http_check.pp",
+            "manifests/checks/instances/apache.pp",
+            "manifests/checks/instances/host_alive.pp",
+            "manifests/checks/instances/http_check.pp",
+            "manifests/checks/instances/mysql.pp",
+            "manifests/checks/instances/nagios_wrapper.pp",
+            "manifests/checks/instances/network.pp",
+            "manifests/checks/instances/process.pp",
+            "manifests/checks/instances/rabbitmq.pp",
+            "manifests/checks/instances/zk.pp",
+            "manifests/checks/mysql.pp",
+            "manifests/checks/nagios_wrapper.pp",
+            "manifests/checks/network.pp",
+            "manifests/checks/process.pp",
+            "manifests/checks/rabbitmq.pp",
+            "manifests/checks/zk.pp",
+            "templates/checks/apache.erb",
+            "None",
+            "templates/checks/host_alive.erb",
+            "templates/checks/host_alive.yaml.erb",
+            "templates/checks/http_check.erb",
+            "templates/checks/mysql.erb",
+            "templates/checks/nagios_wrapper.erb",
+            "templates/checks/nagios_wrapper.yaml.erb",
+            "templates/checks/network.erb",
+            "templates/checks/process.erb",
+            "templates/checks/rabbitmq.erb",
+            "templates/checks/zk.erb"]
       },
       {
         "hash": "bd3b8414c887a8331a9f8116783c96b930215cae",
         "msg": "Add threshold engine config\n\nChange-Id: Icca7572b7b9d8d06bd7619fbd489d5c4a180b074",
         "cmtr": "bklei",
         "date": "2014-12-31 15:23:22-07:00",
-        "files": [".fixtures.yml", ".gitignore", "Gemfile", "Rakefile", "alarm_definition_config.json", "alarmdefs.pp", "apache.pp", "host_alive.pp", "http_check.pp", "mysql.pp", "nagios_wrapper.pp", "network.pp", "process.pp", "rabbitmq.pp", "zk.pp", "libvirt.pp", "params.pp", "config.pp", "thresh.pp", "monasca_alarmdefs_spec.rb", "default.yml", "nodepool.yml", "ubuntu-server-1404-x64.yml", "monasca_alarmdefs_spec.rb", "spec_helper.rb", "spec_helper_acceptance.rb", "bootstrap-alarm-definitions.py.erb", "thresh-config.yml.erb"]
+        "files": [
+            ".fixtures.yml",
+            ".gitignore",
+            "Gemfile",
+            "Rakefile",
+            "files/alarm_definition_config.json",
+            "manifests/alarmdefs.pp",
+            "manifests/checks/instances/apache.pp",
+            "manifests/checks/instances/host_alive.pp",
+            "manifests/checks/instances/http_check.pp",
+            "manifests/checks/instances/mysql.pp",
+            "manifests/checks/instances/nagios_wrapper.pp",
+            "manifests/checks/instances/network.pp",
+            "manifests/checks/instances/process.pp",
+            "manifests/checks/instances/rabbitmq.pp",
+            "manifests/checks/instances/zk.pp",
+            "manifests/checks/libvirt.pp",
+            "manifests/params.pp",
+            "manifests/storm/config.pp",
+            "manifests/thresh.pp",
+            "spec/acceptance/monasca_alarmdefs_spec.rb",
+            "spec/acceptance/nodesets/default.yml",
+            "spec/acceptance/nodesets/nodepool.yml",
+            "spec/acceptance/nodesets/ubuntu-server-1404-x64.yml",
+            "spec/classes/monasca_alarmdefs_spec.rb",
+            "spec/spec_helper.rb",
+            "spec/spec_helper_acceptance.rb",
+            "templates/bootstrap-alarm-definitions.py.erb",
+            "templates/thresh-config.yml.erb"]
       },
       {
         "hash": "c288288dec28c980cc86741412fe983872560e2e",
         "msg": "Removes all checks unmanged by puppet\n\nEnsures removing a check in puppet cleans up all the files.\n\nChange-Id: I158d160db476dd52a89c3857b8d6a27071be5c92",
         "cmtr": "Ryan Bak",
         "date": "2015-01-06 12:53:41-07:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "98144723c95f3bf89157800d0a1769d3a3c273f9",
         "msg": "Makes agent version configurable via param\n\nChange-Id: Ib55a64637ede56acfa90d1f4e8428ea41b096380",
         "cmtr": "Ryan Bak",
         "date": "2015-02-03 11:05:37-07:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "da8238a683ba66873e261402ea1471035a6a4318",
         "msg": "Add support for influxdb 0.9.0\n\nChange-Id: Iccc11ea3b34f9916a143b2e79369827cd5cd5873",
         "cmtr": "bklei",
         "date": "2015-02-04 16:05:29-07:00",
-        "files": ["shard_config.json", "bootstrap.pp", "bootstrap-influxdb.py.erb", "bootstrap-influxdb.sh.erb"]
+        "files": [
+            "None",
+            "manifests/influxdb/bootstrap.pp",
+            "None",
+            "templates/bootstrap-influxdb.sh.erb"]
       },
       {
         "hash": "aad70f56eaff71bc8fa8005423d5d74e3c38147f",
         "msg": "Updated config for 0.1.19 agent\n\nChange-Id: I7d68be992a27730f71953afddfc60563cfa7ab99",
         "cmtr": "Ryan Bak",
         "date": "2015-02-05 13:47:50-07:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "9810dbbd605ba0eedfc00f1e042ab0776db7826b",
         "msg": "Allow dynamic setting of more db values\n\nChange-Id: Ib513fe81bf233847edbd167fb4b508d755f15cf5",
         "cmtr": "bklei",
         "date": "2015-02-06 08:36:16-07:00",
-        "files": ["api.pp", "persister.pp", "persister-config.yml.erb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/persister.pp",
+            "templates/persister-config.yml.erb"]
       },
       {
         "hash": "4ece1da5d30ceb8b8af5069d1c090ed6ead2f01e",
         "msg": "Adapt to recent monasca-persister changes\n\nChange-Id: Ib2293f32881b8dd1c2ce5c73e4cfc8066d7ea50f",
         "cmtr": "bklei",
         "date": "2015-02-11 14:26:49-07:00",
-        "files": ["persister.pp", "bootstrap-influxdb.sh.erb", "persister-config.yml.erb"]
+        "files": [
+            "manifests/persister.pp",
+            "templates/bootstrap-influxdb.sh.erb",
+            "templates/persister-config.yml.erb"]
       },
       {
         "hash": "397bc8696f7651809c52e61bd4e242fda8b48627",
         "msg": "Fix resource warnings\n\nChange-Id: Ia5006cb9517cddf215bf97a637198264ca19b8c2",
         "cmtr": "Matt Fischer",
         "date": "2015-02-17 11:21:26-07:00",
-        "files": ["auth.pp"]
+        "files": [
+            "manifests/keystone/auth.pp"]
       },
       {
         "hash": "8c267d42d7eea80f35d852c672c90439b4200a08",
         "msg": "Add script to manage stack services starts/stops\n\nChange-Id: I2f307614326b857cf6d003839ba9edd50b59d44d",
         "cmtr": "bklei",
         "date": "2015-02-18 11:11:11-07:00",
-        "files": ["monasca_stack.sh", "api.pp"]
+        "files": [
+            "files/monasca_stack.sh",
+            "manifests/api.pp"]
       },
       {
         "hash": "6c0946ba865db202da5df5990c50f67e7f0d6611",
         "msg": "Make auth method for api server dynamic, default to 'token'\n\nChange-Id: I3bac9b9aa00ab0b9c8b76aa3ba619d0e13cfef84",
         "cmtr": "bklei",
         "date": "2015-02-26 09:36:00-07:00",
-        "files": ["api.pp", "params.pp", "api-config.yml.erb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/params.pp",
+            "templates/api-config.yml.erb"]
       },
       {
         "hash": "d073c8dd0af6b5766e67c9031b64b6779dc8e63a",
         "msg": "Ensure directories for agent virtualenv exist\n\nChange-Id: If0bf7ea1f14de9eee0eaf94cfb57f47ff324ee3a",
         "cmtr": "Ryan Bak",
         "date": "2015-02-26 10:12:50-07:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "7b37ea35a8358f0184db02334470932687c3df47",
         "msg": "Revert previous change for virtualenv\n\nIt is the users resposibility to ensure directories above the monasca\nmodule exist\n\nChange-Id: I66f3ddfe20bc794bbdfad20cca9db38c5d6e6c65",
         "cmtr": "Ryan Bak",
         "date": "2015-02-26 14:03:02-07:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "b289eeb6a1001b327194b02f9010499a3352d263",
         "msg": "Remove management of /var/www\n\nThis is a followup to the other change.  The user must create any parent\ndirectories of the monasca virtualenv.\n\nChange-Id: I3a717c13b875846a09da04d2687c78c3f8ab1b54",
         "cmtr": "Clayton O'Neill",
         "date": "2015-02-27 13:27:16+00:00",
-        "files": ["alarmdefs.pp"]
+        "files": [
+            "manifests/alarmdefs.pp"]
       },
       {
         "hash": "40107a1c47c27696f40cb176efefe68afac79177",
         "msg": "Make python deps optional\n\nThis will allow users to manage these depds directly, in cases that they\nhave several modules that want to manage it.\n\nChange-Id: I305cd425f6a8e811b61aaff2acf819c748877c78",
         "cmtr": "Clayton O'Neill",
         "date": "2015-02-27 13:43:14+00:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "0094ae8096e48c2ad6c768663ab8e68104169b9d",
         "msg": "Also make alarmdefs python deps optional\n\nChange-Id: Iea49bf68f938f2d0e3e428a1a60bf093cf3b9e7e",
         "cmtr": "Clayton O'Neill",
         "date": "2015-02-27 22:19:56+00:00",
-        "files": ["alarmdefs.pp"]
+        "files": [
+            "manifests/alarmdefs.pp"]
       },
       {
         "hash": "dbc7af4cc5699d1f13fc3f965f747383e2d94baa",
         "msg": "Adds easier defining of checks for nagios plugin\n\nChange-Id: Iae7cd82998e16ab0e5d380e367ad9f98251e025a",
         "cmtr": "Ryan Bak",
         "date": "2015-03-02 11:00:35-07:00",
-        "files": ["generate_nagios_instances.rb", "nagios_wrapper.pp", "nagios_wrapper.pp", "nagios_wrapper.erb"]
+        "files": [
+            "lib/puppet/parser/functions/generate_nagios_instances.rb",
+            "manifests/checks/instances/nagios_wrapper.pp",
+            "manifests/checks/nagios_wrapper.pp",
+            "templates/checks/nagios_wrapper.erb"]
       },
       {
         "hash": "74bd8116a17903877db2d17b037ee3adf5f9a517",
         "msg": "Gives monasca-admin user admin permissions\n\nChange-Id: I4b5f4a73ef7188785973a606aa617e39c8fb6837",
         "cmtr": "Ryan Bak",
         "date": "2015-03-03 15:02:11-07:00",
-        "files": ["auth.pp"]
+        "files": [
+            "manifests/keystone/auth.pp"]
       },
       {
         "hash": "840d3543bb03a9318597962099f7955666fdee2c",
         "msg": "Add default monasca user and role\n\nChange-Id: I20a3273726ee793a2e28af354861e0c6ccf86f23",
         "cmtr": "bklei",
         "date": "2015-03-05 19:57:59-07:00",
-        "files": ["auth.pp", "params.pp", "api-config.yml.erb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "manifests/params.pp",
+            "templates/api-config.yml.erb"]
       },
       {
         "hash": "f866a3119d74cb5db1ca74f741862de7741665ca",
         "msg": "Support multiple persisters\n\nChange-Id: I20a06076ec5dbbe1faba71ea2bd805a3cafedd92",
         "cmtr": "bklei",
         "date": "2015-03-09 11:56:19-06:00",
-        "files": ["monasca_stack.sh", "params.pp", "persister.pp", "config.pp", "startup_script.pp", "persister-config.yml.erb", "persister-startup-script.erb"]
+        "files": [
+            "files/monasca_stack.sh",
+            "manifests/params.pp",
+            "manifests/persister.pp",
+            "manifests/persister/config.pp",
+            "manifests/persister/startup_script.pp",
+            "templates/persister-config.yml.erb",
+            "templates/persister-startup-script.erb"]
       },
       {
         "hash": "774ed1cf36750624b2f860e3f174c6e85af46f5c",
         "msg": "allow dynamic persister batch size config tuning\n\nChange-Id: Icbb5c980f7ac017d2fb96a2f8cf4b3e2f409abc7",
         "cmtr": "bklei",
         "date": "2015-03-09 14:20:33-06:00",
-        "files": ["persister.pp", "config.pp", "persister-config.yml.erb"]
+        "files": [
+            "manifests/persister.pp",
+            "manifests/persister/config.pp",
+            "templates/persister-config.yml.erb"]
       },
       {
         "hash": "8dc8415fabf2fda74c3ab9ba15c9d84139992582",
         "msg": "Influxdb RC11 has a minimum 1h retention policy\n\nChange-Id: I2a4f687ef0c8161e27d406d1e27c22791036e7e8",
         "cmtr": "bklei",
         "date": "2015-03-13 11:07:06-06:00",
-        "files": ["bootstrap.pp"]
+        "files": [
+            "manifests/influxdb/bootstrap.pp"]
       },
       {
         "hash": "3930651a0e6a1c339c71692a882a82c463f077cf",
         "msg": "Update to agent version 1.0.24\n\nChange-Id: I0233520384052064df1d8ac3888db2c0b5d91114",
         "cmtr": "Ryan Bak",
         "date": "2015-03-17 12:19:19-06:00",
-        "files": ["agent.pp", "config.pp", "agent.yaml.erb", "monasca-agent.init.erb"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/config.pp",
+            "templates/agent.yaml.erb",
+            "templates/monasca-agent.init.erb"]
       },
       {
         "hash": "d180619853971627559b653a8cdba05bc349467f",
         "msg": "Add notification configuration\n\nChange-Id: I391018fe11dbb16cd7609a4842054a1347060c37",
         "cmtr": "bklei",
         "date": "2015-03-22 11:57:02-06:00",
-        "files": ["monasca_stack.sh", "config.pp", "topics.pp", "notification.pp", "notification.conf.erb", "notification.yaml.erb"]
+        "files": [
+            "files/monasca_stack.sh",
+            "manifests/kafka/config.pp",
+            "manifests/kafka/topics.pp",
+            "manifests/notification.pp",
+            "templates/notification.conf.erb",
+            "templates/notification.yaml.erb"]
       },
       {
         "hash": "2575e467b023f895da3349114270ded724a1af47",
         "msg": "Group dimensions and arguments for nagios plugin\n\nThis allows users to specify arguments for checks that are region\nor node type specific, as well as include dimensions for those groupings\n\nChange-Id: Icacfe5663a7607ef0f83dcd489e645a97ca8c988",
         "cmtr": "Ryan Bak",
         "date": "2015-03-23 12:12:26-06:00",
-        "files": ["generate_nagios_instances.rb", "nagios_wrapper.pp"]
+        "files": [
+            "lib/puppet/parser/functions/generate_nagios_instances.rb",
+            "manifests/checks/nagios_wrapper.pp"]
       },
       {
         "hash": "b3431aaf7fdd7f6fcdf40b73efed1ff75b8076a3",
         "msg": "Place alarmdef dependency on monasca api\n\nChange-Id: I9ca97f1132d369b21c040ddf3062f8c5ce084237",
         "cmtr": "bklei",
         "date": "2015-03-24 07:41:12-06:00",
-        "files": ["alarmdefs.pp"]
+        "files": [
+            "manifests/alarmdefs.pp"]
       },
       {
         "hash": "770f44faa0185cd078dcf938a267b9600649595f",
         "msg": "Deliver our own startup scripts for monasca-api and monasca-thresh\n\nChange-Id: I800a29dbe8feeb558fc3feeada778c6914908a21",
         "cmtr": "bklei",
         "date": "2015-03-26 10:53:21-06:00",
-        "files": ["monasca-api.conf", "monasca-thresh", "api.pp", "thresh.pp", "persister-startup-script.erb"]
+        "files": [
+            "files/monasca-api.conf",
+            "files/monasca-thresh",
+            "manifests/api.pp",
+            "manifests/thresh.pp",
+            "templates/persister-startup-script.erb"]
       },
       {
         "hash": "7ec17ed5d2be7f8e834af0f902c9f7e42e9d27f2",
         "msg": "Restart monasca-agent if conf file changes\n\nChange-Id: Ia021028105e44e4dcac87c960051afca6a070ed9",
         "cmtr": "bklei",
         "date": "2015-03-31 13:45:17-06:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "c0d7dd46a10e359859386f5762ff967e0d881994",
         "msg": "Make api region separately configurable from agent\n\nChange-Id: Ia83fb1cc1c1c7c54e987c931fb8699879e29f7a6",
         "cmtr": "bklei",
         "date": "2015-04-04 10:31:35-06:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "21f004aafe3cc503f897fc3accf752e9a40669a1",
         "msg": "Add support for api and persister gzip\n\nChange-Id: Icb874f6ddcd718cb4068875ebd69f9e6143e7241",
         "cmtr": "bklei",
         "date": "2015-04-10 11:25:01-06:00",
-        "files": ["api.pp", "config.pp", "api-config.yml.erb", "persister-config.yml.erb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/persister/config.pp",
+            "templates/api-config.yml.erb",
+            "templates/persister-config.yml.erb"]
       },
       {
         "hash": "0e01715b268099af72dc3ee8c4b62727f675358b",
         "msg": "Add region support to libvirt plugin.\n\nChange-Id: Iaf937c512bfe17082211b64bb0f23c14e083f0f5",
         "cmtr": "Ryan Bak",
         "date": "2015-04-16 14:00:33-06:00",
-        "files": ["libvirt.pp", "libvirt.yaml.erb"]
+        "files": [
+            "manifests/checks/libvirt.pp",
+            "templates/checks/libvirt.yaml.erb"]
       },
       {
         "hash": "912253166166b1cdac7fce9b481312fbb590aa8f",
         "msg": "Allow monasca-agent install from wheels\n\nChange-Id: Ic4e5bf7a60e868aa7273c2006b1d3be974e40f96",
         "cmtr": "Ryan Bak",
         "date": "2015-04-23 14:07:50-06:00",
-        "files": ["agent.pp", "libvirt.pp", "mysql.pp"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/checks/libvirt.pp",
+            "manifests/checks/mysql.pp"]
       },
       {
         "hash": "3a1cabf7789df4f7bc672585a662b3335c461e6c",
         "msg": "Update agent default parameters\n\nnon_local_traffic: changed to false to match coded default\nlog_to_syslog: changed to false to match coded default\nvirtual_env: /var/www does not always exist\n\nChange-Id: Ic6bee6a90594eb9d7c6376f6df4d290f01aa6fe5",
         "cmtr": "Ryan Bak",
         "date": "2015-04-27 10:06:19-06:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "3fdd3e7f5e5ba7a5efef6bc9695ff3a405a34061",
         "msg": "Add support for vertica backend\n\nChange-Id: I4edefce014eab465ea34c92663d33acc9d04eef2",
         "cmtr": "bklei",
         "date": "2015-04-30 14:02:40-06:00",
-        "files": ["mon_alarms_schema.sql", "mon_grants.sql", "mon_metrics_schema.sql", "config.pp", "create_mon_db.sh.erb", "create_mon_db_cluster.sh.erb", "mon_schema.sql.erb", "mon_users.sql.erb"]
+        "files": [
+            "files/vertica/mon_alarms_schema.sql",
+            "files/vertica/mon_grants.sql",
+            "files/vertica/mon_metrics_schema.sql",
+            "manifests/vertica/config.pp",
+            "templates/vertica/create_mon_db.sh.erb",
+            "templates/vertica/create_mon_db_cluster.sh.erb",
+            "templates/vertica/mon_schema.sql.erb",
+            "templates/vertica/mon_users.sql.erb"]
       },
       {
         "hash": "cc3fc6d61182b770066e29174d6cb22f1e02520f",
         "msg": "Add vertica specific configuration to templates\n\nChange-Id: I979cf723ce5245d7282edfc547611063c52879db",
         "cmtr": "bklei",
         "date": "2015-05-01 14:32:50-06:00",
-        "files": ["monasca-api.conf", "persister.pp", "config.pp", "persister-config.yml.erb", "persister-startup-script.erb", "create_mon_db.sh.erb", "create_mon_db_cluster.sh.erb"]
+        "files": [
+            "files/monasca-api.conf",
+            "manifests/persister.pp",
+            "manifests/persister/config.pp",
+            "templates/persister-config.yml.erb",
+            "templates/persister-startup-script.erb",
+            "templates/vertica/create_mon_db.sh.erb",
+            "templates/vertica/create_mon_db_cluster.sh.erb"]
       },
       {
         "hash": "dcf3f71b81b14af019a264fdeedbdb5904559ac6",
         "msg": "Makes monasca roles configurable\n\nChange-Id: I5103dd9fba969de08059bf5367eac96e9eca38cd",
         "cmtr": "Ryan Bak",
         "date": "2015-05-04 13:57:24-06:00",
-        "files": ["api.pp", "auth.pp", "api-config.yml.erb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/keystone/auth.pp",
+            "templates/api-config.yml.erb"]
       },
       {
         "hash": "4171ea921bb3c731533b839984d401a64881e022",
         "msg": "Make persister more flexible for database type\n\nChange-Id: If8d7a0bd254b24224e64e7fed889e31ac43e8abf",
         "cmtr": "bklei",
         "date": "2015-05-04 16:15:27-06:00",
-        "files": ["params.pp", "persister.pp", "persister-config.yml.erb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/persister.pp",
+            "templates/persister-config.yml.erb"]
       },
       {
         "hash": "610ab282ccfbe5741564c4e3bd5eb6d33e2e8510",
         "msg": "Make api server have configurable backend db\n\nChange-Id: If7e063dbeea593d15b73c17e823cf0554e3b0294",
         "cmtr": "bklei",
         "date": "2015-05-06 11:45:17-06:00",
-        "files": ["monasca_stack.sh", "api.pp", "api-config.yml.erb", "persister-config.yml.erb"]
+        "files": [
+            "files/monasca_stack.sh",
+            "manifests/api.pp",
+            "templates/api-config.yml.erb",
+            "templates/persister-config.yml.erb"]
       },
       {
         "hash": "1299be941c2460a3ad6d20eff5a8293cf2a3a4c6",
         "msg": "Add check setup for system checks.\n\nChange-Id: If921cbd4abda73611ee633d786bd9c06e557825e",
         "cmtr": "Ryan Bak",
         "date": "2015-05-06 16:42:57-06:00",
-        "files": ["cpu.pp", "disk.pp", "cpu.pp", "disk.pp", "load.pp", "memory.pp", "load.pp", "memory.pp", "network.pp", "cpu.erb", "disk.erb", "load.erb", "memory.erb"]
+        "files": [
+            "manifests/checks/cpu.pp",
+            "manifests/checks/disk.pp",
+            "manifests/checks/instances/cpu.pp",
+            "manifests/checks/instances/disk.pp",
+            "manifests/checks/instances/load.pp",
+            "manifests/checks/instances/memory.pp",
+            "manifests/checks/load.pp",
+            "manifests/checks/memory.pp",
+            "manifests/checks/network.pp",
+            "templates/checks/cpu.erb",
+            "templates/checks/disk.erb",
+            "templates/checks/load.erb",
+            "templates/checks/memory.erb"]
       },
       {
         "hash": "e095ef29dc1993efb4fa2ad56934775da8ba4b2e",
         "msg": "Better generation of nagios check file\n\nChange-Id: I884297e4eec73ccf896704b272587344a629e04d",
         "cmtr": "Ryan Bak",
         "date": "2015-05-08 08:25:15-06:00",
-        "files": ["generate_nagios_instances.rb", "nagios_wrapper.pp", "nagios_wrapper.pp"]
+        "files": [
+            "None",
+            "manifests/checks/instances/nagios_wrapper.pp",
+            "manifests/checks/nagios_wrapper.pp"]
       },
       {
         "hash": "a98dc05dd8ed59181cad04618459c3d002f7b32a",
         "msg": "Remove automatic setup of service dimension\n\nChange-Id: Id973bb2f86c19fbf8fed9c92f05953d5e7fd4ad9",
         "cmtr": "Ryan Bak",
         "date": "2015-05-12 11:06:14-06:00",
-        "files": ["agent.pp", "agent.yaml.erb"]
+        "files": [
+            "manifests/agent.pp",
+            "templates/agent.yaml.erb"]
       },
       {
         "hash": "5880ae8c5ae0588dac5251c85e317bad5471f4e6",
         "msg": "Remove more automatic dimensions\n\nChange-Id: I27bd0772af52f3f20db64c0d2a37f02340d75a0d",
         "cmtr": "Ryan Bak",
         "date": "2015-05-12 12:03:39-06:00",
-        "files": ["agent.pp", "nagios_wrapper.pp"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/checks/nagios_wrapper.pp"]
       },
       {
         "hash": "569975deea65dd6e6033acaf9ca430a0cd03e608",
         "msg": "Update vertica projections for better performance\n\nUpdate for lint compliance as well\n\nChange-Id: I55f6b9a74c1c4be17c6df9c3436c5d990efb6100\nCloses-Bug: #1467625",
         "cmtr": "bklei",
         "date": "2015-06-22 13:56:17-06:00",
-        "files": ["Gemfile", "mon_metrics_schema.sql", "agent.pp", "alarmdefs.pp", "api.pp", "apache.pp", "cpu.pp", "disk.pp", "host_alive.pp", "http_check.pp", "libvirt.pp", "load.pp", "memory.pp", "mysql.pp", "nagios_wrapper.pp", "network.pp", "process.pp", "rabbitmq.pp", "zk.pp", "config.pp", "mysql.pp", "bootstrap.pp", "config.pp", "auth.pp", "notification.pp", "params.pp", "persister.pp", "config.pp", "config.pp", "thresh.pp", "config.pp"]
+        "files": [
+            "Gemfile",
+            "files/vertica/mon_metrics_schema.sql",
+            "manifests/agent.pp",
+            "manifests/alarmdefs.pp",
+            "manifests/api.pp",
+            "manifests/checks/apache.pp",
+            "manifests/checks/cpu.pp",
+            "manifests/checks/disk.pp",
+            "manifests/checks/host_alive.pp",
+            "manifests/checks/http_check.pp",
+            "manifests/checks/libvirt.pp",
+            "manifests/checks/load.pp",
+            "manifests/checks/memory.pp",
+            "manifests/checks/mysql.pp",
+            "manifests/checks/nagios_wrapper.pp",
+            "manifests/checks/network.pp",
+            "manifests/checks/process.pp",
+            "manifests/checks/rabbitmq.pp",
+            "manifests/checks/zk.pp",
+            "manifests/config.pp",
+            "manifests/db/mysql.pp",
+            "manifests/influxdb/bootstrap.pp",
+            "manifests/kafka/config.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/notification.pp",
+            "manifests/params.pp",
+            "manifests/persister.pp",
+            "manifests/persister/config.pp",
+            "manifests/storm/config.pp",
+            "manifests/thresh.pp",
+            "manifests/vertica/config.pp"]
       },
       {
         "hash": "f2c072f84e3e302bf18b931db38491fd26d0749f",
         "msg": "Add vertica utility vsql script\n\nChange-Id: I933d4fa3847b37c72377275b2b286fead02610f8",
         "cmtr": "bklei",
         "date": "2015-06-23 14:10:32-06:00",
-        "files": ["config.pp", "vsql.erb"]
+        "files": [
+            "manifests/vertica/config.pp",
+            "templates/vertica/vsql.erb"]
       },
       {
         "hash": "7bbb228a503030462fa18c2d035ee9e0f7bd0997",
         "msg": "Lint fixes for defined types\n\nChange-Id: Ie3b169bcbb3dfebacf0599d7cf0acd61e9ad31b9",
         "cmtr": "bklei",
         "date": "2015-06-29 17:14:33-06:00",
-        "files": ["apache.pp", "cpu.pp", "disk.pp", "host_alive.pp", "http_check.pp", "load.pp", "memory.pp", "mysql.pp", "nagios_wrapper.pp", "network.pp", "process.pp", "rabbitmq.pp", "zk.pp", "topics.pp", "config.pp", "startup_script.pp"]
+        "files": [
+            "manifests/checks/instances/apache.pp",
+            "manifests/checks/instances/cpu.pp",
+            "manifests/checks/instances/disk.pp",
+            "manifests/checks/instances/host_alive.pp",
+            "manifests/checks/instances/http_check.pp",
+            "manifests/checks/instances/load.pp",
+            "manifests/checks/instances/memory.pp",
+            "manifests/checks/instances/mysql.pp",
+            "manifests/checks/instances/nagios_wrapper.pp",
+            "manifests/checks/instances/network.pp",
+            "manifests/checks/instances/process.pp",
+            "manifests/checks/instances/rabbitmq.pp",
+            "manifests/checks/instances/zk.pp",
+            "manifests/kafka/topics.pp",
+            "manifests/persister/config.pp",
+            "manifests/storm/startup_script.pp"]
       },
       {
         "hash": "05ba6958a0f1c39c18d53b01404da3870fa71100",
         "msg": "keystone/auth: make service description configurable\n\nThis commit adds the service description as a class parameter in order to allow\nusers to update from a previous version if the service description is changed\n(incorrectly spelled or wrong description)\n\nChange-Id: I8ac30d7f3cca44b8bafbd816b7f61585f9637d01\nCloses-Bug: #1468407",
         "cmtr": "bklei",
         "date": "2015-07-01 08:52:16-06:00",
-        "files": ["auth.pp"]
+        "files": [
+            "manifests/keystone/auth.pp"]
       },
       {
         "hash": "01267f59d1e676a48e0cafd8968cc9467e9e94bf",
         "msg": "Update mysql schema definitions, fix thresh startup script dependency\n\nChange-Id: Ifdb64466c48441c002a4ce2eed6571521e25c3a1",
         "cmtr": "bklei",
         "date": "2015-07-06 16:44:31-06:00",
-        "files": ["thresh.pp", "mon.sql.erb"]
+        "files": [
+            "manifests/thresh.pp",
+            "templates/mon.sql.erb"]
       },
       {
         "hash": "1afca766593ec8969d13880c169c44439d92f3e9",
         "msg": "Change to support api config for remote database\n\nChange-Id: I5c8e484157e27645b9eaaddf7ca094b08ae5decd",
         "cmtr": "bklei",
         "date": "2015-07-13 15:12:02-06:00",
-        "files": ["api.pp", "thresh.pp", "api-config.yml.erb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/thresh.pp",
+            "templates/api-config.yml.erb"]
       },
       {
         "hash": "5570de21050abfe068c56cace0c9914e78ce22ea",
         "msg": "Add tag to package and service resources\n\nIn order to be able to take an action after all the packages of the\nmodule have been installed/updated or all the services have been\nstarted/restarted, we set a 'monasca-package' and 'monasca-service'\ntag for each package and service of this module.\n\nAt the moment, there is a generic openstack tag that is not specific\nenough if one wants to take action upon a single module change.\n\nUse case :\n\nIf an action needs to be taken after all the packages have been\ninstalled or updated : Package <| tag == 'monasca-package' |> -> X\n\nChange-Id: I4b7b4d96abe74dbb471b64f7f73e7c23768626c6",
         "cmtr": "Yanis Guenane",
         "date": "2015-07-22 22:19:14+02:00",
-        "files": ["api.pp", "notification.pp", "persister.pp", "config.pp", "thresh.pp"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/notification.pp",
+            "manifests/persister.pp",
+            "manifests/persister/config.pp",
+            "manifests/thresh.pp"]
       },
       {
         "hash": "d4c70c23035d52b5487a07eb2a40a2e5db46d74c",
         "msg": "Allow changing the checkConnectionWhileIdle flag for api\n\nChange-Id: I5c2f17577a13b74049aa7fb58b7d08306a9ffa12",
         "cmtr": "bklei",
         "date": "2015-08-11 10:18:31-06:00",
-        "files": ["api.pp", "api-config.yml.erb"]
+        "files": [
+            "manifests/api.pp",
+            "templates/api-config.yml.erb"]
       },
       {
         "hash": "fbfe8e3665d8863bfbfd8c65008dea44dc1542da",
         "msg": "Allow config of check idle connection for persister\n\nChange-Id: Ieede937128d14bc9c7e27613b62fa5d4f847a74b",
         "cmtr": "bklei",
         "date": "2015-08-12 11:25:27-06:00",
-        "files": ["config.pp", "persister-config.yml.erb"]
+        "files": [
+            "manifests/persister/config.pp",
+            "templates/persister-config.yml.erb"]
       },
       {
         "hash": "de4a54fcfba50e68a8a60e1ce5436a42a77043f9",
         "msg": "Add ability to set roles for monasca users\n\nAlso clarifies the use of some of the role arguments\n\nChange-Id: I8c389ac3c11db4769728c2da23a42bba0d80e3f1",
         "cmtr": "Ryan Bak",
         "date": "2015-09-03 12:14:35-06:00",
-        "files": ["api.pp", "auth.pp"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/keystone/auth.pp"]
       },
       {
         "hash": "3b2fd80781860ad27cc7ff06585b4cf07896df3b",
         "msg": "Refresh monasca-api service when startup script changes\n\nChange-Id: I086171a4c9d110d4b4e7a2f3d04959b1ec6549a8",
         "cmtr": "bklei",
         "date": "2015-10-06 14:10:17-06:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "7890aaf66bb614282ea26470fbce88a25e6d9875",
         "msg": "Add script to update vertica statistics\n\nChange-Id: Id0c07eb354074c798ae45a4da0e8450d1c2b1292",
         "cmtr": "bklei",
         "date": "2015-10-29 12:22:08-06:00",
-        "files": ["update_vertica_stats.sh", "config.pp"]
+        "files": [
+            "files/vertica/update_vertica_stats.sh",
+            "manifests/vertica/config.pp"]
       },
       {
         "hash": "693c8beb1bcaf3417fa37f847ad44acf14371eb5",
         "msg": "Change default monasca api port to 8070 to avoid murano conflict\n\nChange-Id: I4fb386debd244864770954bac35a8f06567f55b4",
         "cmtr": "bklei",
         "date": "2015-11-03 11:53:40-07:00",
-        "files": ["auth.pp", "params.pp", "monasca_alarmdefs_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "manifests/params.pp",
+            "spec/acceptance/monasca_alarmdefs_spec.rb"]
       },
       {
         "hash": "9ab39fd267c7e82bac32f4b70cc8a4edc203130d",
         "msg": "Clean up api and persister users/passwords, separate from dbadmin\n\nChange-Id: I52b8c63dd23a045566a523a0494577f1704c6cdc",
         "cmtr": "bklei",
         "date": "2015-12-01 09:53:19-07:00",
-        "files": ["params.pp", "config.pp", "config.pp", "api-config.yml.erb", "persister-config.yml.erb", "create_mon_db.sh.erb", "create_mon_db_cluster.sh.erb", "mon_schema.sql.erb", "mon_users.sql.erb", "vsql.erb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/persister/config.pp",
+            "manifests/vertica/config.pp",
+            "templates/api-config.yml.erb",
+            "templates/persister-config.yml.erb",
+            "templates/vertica/create_mon_db.sh.erb",
+            "templates/vertica/create_mon_db_cluster.sh.erb",
+            "templates/vertica/mon_schema.sql.erb",
+            "templates/vertica/mon_users.sql.erb",
+            "templates/vertica/vsql.erb"]
       },
       {
         "hash": "d4459057cb72deea0afdb4baee6fc5d2ee06c9f3",
         "msg": "Remove obsolete tenant parameter\n\nThe puppet-keystone module has removed the tenant parameter from the\nkeystone_user resource, so this update is needed for compatability.\n\nChange-Id: Ib11cf074acee2429f81882139e3409138585e45c",
         "cmtr": "Clayton O'Neill",
         "date": "2015-12-03 13:33:53+00:00",
-        "files": ["auth.pp"]
+        "files": [
+            "manifests/keystone/auth.pp"]
       },
       {
         "hash": "f4e1005f9ecc99c66e1f12992ff2286722d53944",
         "msg": "Use params class for api and pers settings\n\nSimplify how to set username and password via hiera,\nuse params for vertica settings.\n\nChange-Id: I73779412f8ab3f2356d2fa1563b3dbfc14b2e247",
         "cmtr": "bklei",
         "date": "2015-12-04 08:55:40-07:00",
-        "files": ["params.pp", "config.pp", "agent.yaml.erb", "nagios_wrapper.erb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/vertica/config.pp",
+            "templates/agent.yaml.erb",
+            "templates/checks/nagios_wrapper.erb"]
       },
       {
         "hash": "5010a21932a3f46f884cde0f4c8156d6084f9b22",
         "msg": "Add execution parallelism tunable to vertica resource pool creation\n\nChange-Id: I8b02793873c2937b547b87cf4d7a003c924d3410",
         "cmtr": "bklei",
         "date": "2015-12-17 16:27:24-07:00",
-        "files": ["config.pp", "mon_schema.sql.erb"]
+        "files": [
+            "manifests/vertica/config.pp",
+            "templates/vertica/mon_schema.sql.erb"]
       },
       {
         "hash": "c09271d9ff590c95629fe8b831217339b8f9c44b",
         "msg": "Make Keystone_endpoint match service by name/type\n\nSince a chance in puppet-keystone (1], we now match an endpoint with a\nservice name/type.\n)\n[1] http://git.openstack.org/cgit/openstack/puppet-keystone/commit/?id=0a4e06abb0f5b3f324464ff5219d2885816311ce\n\nChange-Id: I3b31b248816e7ff4d20afdbf2d9d2329a78cd73c\nCloses-Bug: #1528308",
         "cmtr": "Emilien Macchi",
         "date": "2015-12-22 18:09:33+01:00",
-        "files": ["auth.pp"]
+        "files": [
+            "manifests/keystone/auth.pp"]
       },
       {
         "hash": "0f477c86a343c9b27d53deddb47fd706194bec07",
         "msg": "Add script to prune data older than a retention period\n\nChange-Id: I8902bc61d830cc0c7f0e5dbae5aaf5b752cc80ce",
         "cmtr": "bklei",
         "date": "2016-01-05 14:35:36-07:00",
-        "files": ["config.pp", "prune_vertica.py.erb"]
+        "files": [
+            "manifests/vertica/config.pp",
+            "templates/vertica/prune_vertica.py.erb"]
       },
       {
         "hash": "f627cfb27fadaecbd0da8d1e866393d51402491a",
         "msg": "Remove explicit python-pip class declarations\n\nThe required packages for the virtual environments\nare instead handled through the python::requirements\nclass externally.\n\nChange-Id: Ifeebfff641de47e160305c5e443bb7187ed6a946",
         "cmtr": "bklei",
         "date": "2016-01-06 09:52:47-07:00",
-        "files": ["alarmdefs.pp", "config.pp"]
+        "files": [
+            "manifests/alarmdefs.pp",
+            "manifests/vertica/config.pp"]
       },
       {
         "hash": "2d1e5d4e9427c97f6207dfd2d4a86b333646c12a",
         "msg": "Fix for older versions of keystone module\n\nChange-Id: I080996899add629f21a66a0b203cf2b1dfc11eeb",
         "cmtr": "bklei",
         "date": "2016-01-06 15:46:36-07:00",
-        "files": ["auth.pp"]
+        "files": [
+            "manifests/keystone/auth.pp"]
       },
       {
         "hash": "51f21afb75fccee287282cca32781a0ac26e0732",
         "msg": "Add bootstrapping of notification methods\n\nChange-Id: I5719315855f8771e7be0d38097672170eb8e63d6",
         "cmtr": "bklei",
         "date": "2016-01-11 15:46:46-07:00",
-        "files": ["notification_assignments.json", "notification_config.json", "alarmdefs.pp", "bootstrap-alarm-definitions.py.erb"]
+        "files": [
+            "files/notification_assignments.json",
+            "files/notification_config.json",
+            "manifests/alarmdefs.pp",
+            "templates/bootstrap-alarm-definitions.py.erb"]
       },
       {
         "hash": "5c8461d781b56996770ca72244e4c4f4f89a563c",
         "msg": "Add support for symlinked agent virtualenv\n\nThis allows multiple virtualenv to be managed, allowing fresh rebuilds\nof the virtualenv when making changes.\n\nChange-Id: I4428a485dea87021ca642a773af57b35416f2a20",
         "cmtr": "Ryan Bak",
         "date": "2016-01-14 15:10:38-07:00",
-        "files": ["agent_requirements.txt", "agent.pp", "libvirt.pp", "mysql.pp", "auth.pp", "agent_instance.pp", "instance.pp", "supervisor.conf.erb"]
+        "files": [
+            "files/agent_requirements.txt",
+            "manifests/agent.pp",
+            "manifests/checks/libvirt.pp",
+            "manifests/checks/mysql.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/virtualenv/agent_instance.pp",
+            "manifests/virtualenv/instance.pp",
+            "templates/supervisor.conf.erb"]
       },
       {
         "hash": "86edf5d18caf1942e7733d670e3452fdb96c5227",
         "msg": "Refactor keystone service and endpoint to be more like other puppet modules\n\nAlso provide adminProjectName which is necessary if authenticating\nmonasca-api via username/password with keystone middleware.\n\nChange-Id: Idf676ab0e8db0e612376121efcb3cabe54245c0c",
         "cmtr": "bklei",
         "date": "2016-01-22 13:54:13-07:00",
-        "files": ["api.pp", "auth.pp", "params.pp", "api-config.yml.erb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/params.pp",
+            "templates/api-config.yml.erb"]
       },
       {
         "hash": "fcb082c499128de3c2f6aec66391364a832271f5",
         "msg": "Use puppet-openstack_spec_helper for Rakefile & spec_helper_acceptance\n\nChange-Id: I5da845d841e22bf6a6312f5e8f2a01373595048e",
         "cmtr": "bklei",
         "date": "2016-02-03 14:25:44-07:00",
-        "files": ["Gemfile", "Rakefile", "spec_helper_acceptance.rb", "apiserver.pp", "init.pp", "storm.pp"]
+        "files": [
+            "Gemfile",
+            "Rakefile",
+            "spec/spec_helper_acceptance.rb",
+            "tests/apiserver.pp",
+            "tests/init.pp",
+            "tests/storm.pp"]
       },
       {
         "hash": "b6c34684bf058caea27dca93f2b378b3b8bdf963",
         "msg": "Support dynamic mysql port\n\nChange-Id: I8049db89701c9ba9a46210f80ac4f24340d79e3c",
         "cmtr": "bklei",
         "date": "2016-02-24 09:33:13-07:00",
-        "files": ["api.pp", "mysql.pp", "notification.pp", "params.pp", "thresh.pp", "api-config.yml.erb", "notification.yaml.erb", "thresh-config.yml.erb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/db/mysql.pp",
+            "manifests/notification.pp",
+            "manifests/params.pp",
+            "manifests/thresh.pp",
+            "templates/api-config.yml.erb",
+            "templates/notification.yaml.erb",
+            "templates/thresh-config.yml.erb"]
       },
       {
         "hash": "1e27ee7dfa0132ef630b471d7ecb837e502187b2",
         "msg": "Add script to cleanup stale VM alarms\n\nChange-Id: I7296c0b46d66a55702a4f117f104c021913492e2",
         "cmtr": "Brad Klein",
         "date": "2016-03-21 15:09:37-06:00",
-        "files": ["alarmdefs.pp", "vm_alarm_cleanup.py.erb"]
+        "files": [
+            "manifests/alarmdefs.pp",
+            "templates/vm_alarm_cleanup.py.erb"]
       },
       {
         "hash": "3f73ab2563f40f77d83a34d88fe4feaa6f5c129f",
         "msg": "Minor changes to support kafka 0.9.0.1\n\nChange-Id: Ib5a2f02cf50f53b69ea47640eac87b3522328cda",
         "cmtr": "Brad Klein",
         "date": "2016-04-05 09:01:20-06:00",
-        "files": ["topics.pp"]
+        "files": [
+            "manifests/kafka/topics.pp"]
       },
       {
         "hash": "095d35ce1aa01126edae1fa55f90ea8ac6dda1c3",
         "msg": "Add ability to include libvirt scale group metadata\n\nChange-Id: I64698a3ba21b2e152ed8a9ba68cc21f9169cab8b",
         "cmtr": "Brad Klein",
         "date": "2016-04-20 15:09:47-06:00",
-        "files": ["libvirt.pp", "libvirt.yaml.erb"]
+        "files": [
+            "manifests/checks/libvirt.pp",
+            "templates/checks/libvirt.yaml.erb"]
       },
       {
         "hash": "4cf1d03f9f6a4bce321beded50225f7d80d3c9e9",
         "msg": "Fix for custom agent roles\n\nPreviously user_roles_agent and user_roles_user were ignored\n\nChange-Id: I5c69bbb4cc57b0dbbdbd3d1c2c4a65c2e0dbae58",
         "cmtr": "Ryan Bak",
         "date": "2016-05-05 15:30:55-06:00",
-        "files": ["auth.pp"]
+        "files": [
+            "manifests/keystone/auth.pp"]
       },
       {
         "hash": "218bc38f1b32d8dd54e2f2184032bb9d5050efa6",
         "msg": "Allow query limit to be configurable\n\nChange-Id: I42041df284eb418236d0bec82a6b6d3d721c917b",
         "cmtr": "Brad Klein",
         "date": "2016-05-12 07:35:37-06:00",
-        "files": ["api.pp", "api-config.yml.erb"]
+        "files": [
+            "manifests/api.pp",
+            "templates/api-config.yml.erb"]
       },
       {
         "hash": "69405495ac6ee0821d6932700c79c5d803688d62",
         "msg": "Add configuration of ovs plugin\n\nChange-Id: Iac96f1e86b9a55aee4c750e638d0c98541f15ea4",
         "cmtr": "Brad Klein",
         "date": "2016-05-24 08:57:31-06:00",
-        "files": ["ovs.pp", "ovs.yaml.erb"]
+        "files": [
+            "manifests/checks/ovs.pp",
+            "templates/checks/ovs.yaml.erb"]
       },
       {
         "hash": "b20ff86b2c8164f0bbe295f8d7509f5f05aac7fe",
         "msg": "Update monasca-agent init scripts\n\nBrings init.d and supervisor.conf up to date\n\nChange-Id: I5bf8c03d2c0c6ff0962a88747b9def82c57e65d1",
         "cmtr": "Ryan Bak",
         "date": "2016-05-24 15:49:52-06:00",
-        "files": ["agent.pp", "agent_instance.pp", "monasca-agent.init.erb", "supervisor.conf.erb"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/virtualenv/agent_instance.pp",
+            "templates/monasca-agent.init.erb",
+            "templates/supervisor.conf.erb"]
       },
       {
         "hash": "034da28451967c8cbc12bdc01fe1ea666024e645",
         "msg": "Update agent plugin for new options\n\nChange-Id: Iec34f0ab26763a80c9ed4d6b96156e4ccf83e43b",
         "cmtr": "Ryan Bak",
         "date": "2016-06-01 15:03:58-06:00",
-        "files": ["network.pp", "libvirt.pp", "network.pp", "libvirt.yaml.erb", "network.erb"]
+        "files": [
+            "manifests/checks/instances/network.pp",
+            "manifests/checks/libvirt.pp",
+            "manifests/checks/network.pp",
+            "templates/checks/libvirt.yaml.erb",
+            "templates/checks/network.erb"]
       },
       {
         "hash": "29c6e93c1186aa602e2b863659d2f556d88ce0ec",
         "msg": "Add flag to submit libvirt metrics as bits\n\nChange-Id: I6152c098fbcd917049619328605416e07a00e92f",
         "cmtr": "Ryan Bak",
         "date": "2016-06-06 09:16:39-06:00",
-        "files": ["libvirt.pp", "libvirt.yaml.erb"]
+        "files": [
+            "manifests/checks/libvirt.pp",
+            "templates/checks/libvirt.yaml.erb"]
       },
       {
         "hash": "1a4ae8a90322bbe520536eaa6417690a377fb886",
         "msg": "Allow vertica db hint for queries\n\nChange-Id: I8cfb34ed15a9b9eb68f6b5613584e781e93dba07",
         "cmtr": "Brad Klein",
         "date": "2016-06-08 10:08:27-06:00",
-        "files": ["api.pp", "api-config.yml.erb"]
+        "files": [
+            "manifests/api.pp",
+            "templates/api-config.yml.erb"]
       },
       {
         "hash": "46c945e2f8c4eb729fc401270734eaba941a2c4c",
         "msg": "Add support for periodic notification\n\nChange-Id: I024969c5e9568898db3401292a93535491fd45c6",
         "cmtr": "Brad Klein",
         "date": "2016-06-09 13:01:17-06:00",
-        "files": ["api.pp", "api-config.yml.erb", "mon.sql.erb"]
+        "files": [
+            "manifests/api.pp",
+            "templates/api-config.yml.erb",
+            "templates/mon.sql.erb"]
       },
       {
         "hash": "02d817c04c1e0bde738a27df96c82fec1fd07391",
         "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: I1835800001e4eef66822845fdeb202b4f1ba0100\nRelated-Bug: 1599113",
         "cmtr": "Sofer Athlan-Guyot",
         "date": "2016-07-07 12:11:53+02:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "1c53d1f87234687847dd14b5b279c8f499f52df3",
         "msg": "Update notification conf file for periodic notifications\n\nThis will default to the current (60 second) notifications,\nbut can be overridden with additional settings.  This is\nnecessary to install the latest monasca-notification with\nchanges for heat autoscaling.\n\nChange-Id: I0b403fcc32f905f0404aeddf4264cd5db732b1f3",
         "cmtr": "Brad Klein",
         "date": "2016-07-13 13:45:52-06:00",
-        "files": ["notification.pp", "notification.yaml.erb"]
+        "files": [
+            "manifests/notification.pp",
+            "templates/notification.yaml.erb"]
       },
       {
         "hash": "31d28a7c8779fb2956ce0232baecec2a75bd9d8b",
         "msg": "Update ovs plugin config file with latest settings\n\nChange-Id: If7b99422f3183bd8f0646eba2cd5476569e9eabe",
         "cmtr": "Brad Klein",
         "date": "2016-07-18 14:10:37-06:00",
-        "files": ["ovs.pp", "ovs.yaml.erb"]
+        "files": [
+            "manifests/checks/ovs.pp",
+            "templates/checks/ovs.yaml.erb"]
       },
       {
         "hash": "4b36f0a080eaef518b5ca764723368d464a49abf",
         "msg": "Update libvirt plugin configuration for latest agent.\n\nAlso start to conform to puppet-openstack standard parameter\ndocumentations and parameter defaults.\n\nChange-Id: I3d0417840e9a293cd9379f5f9ddf6686f4d77ed1",
         "cmtr": "Brad Klein",
         "date": "2016-07-19 16:06:00-06:00",
-        "files": ["libvirt.pp", "libvirt.yaml.erb"]
+        "files": [
+            "manifests/checks/libvirt.pp",
+            "templates/checks/libvirt.yaml.erb"]
       },
       {
         "hash": "a307cbd00ce655410781131adc8806d2da7029e7",
         "msg": "Add configuration of read-only api user roles.\n\nAlso do some documentation and parameter cleanup of this class\nto conform with puppet-openstack standards.\n\nChange-Id: Ib9a7901cf35171212642e29e27c09823cccd4f26",
         "cmtr": "Brad Klein",
         "date": "2016-08-01 13:49:45-06:00",
-        "files": ["api.pp", "api-config.yml.erb"]
+        "files": [
+            "manifests/api.pp",
+            "templates/api-config.yml.erb"]
       },
       {
         "hash": "0b8492dd226e2e3c0732905a2798150d825a2171",
         "msg": "Add configuration of solidfire plugin\n\nChange-Id: Ib6f0f0f832224f50bfe36d2371b4c51c8ae8ab30",
         "cmtr": "Brad Klein",
         "date": "2016-08-04 09:15:02-06:00",
-        "files": ["solidfire.pp", "solidfire.pp", "network.erb", "solidfire.erb"]
+        "files": [
+            "manifests/checks/instances/solidfire.pp",
+            "manifests/checks/solidfire.pp",
+            "templates/checks/network.erb",
+            "templates/checks/solidfire.erb"]
       },
       {
         "hash": "276d33a725fc77fa49c731ad9ee882dc095b2332",
         "msg": "Allow tuning of database connection thread pool settings\n\nChange-Id: I431f5f3fcdc934dcb6e65a29fcc43ed94a813095",
         "cmtr": "Brad Klein",
         "date": "2016-08-11 14:41:10-06:00",
-        "files": ["api.pp", "api-config.yml.erb"]
+        "files": [
+            "manifests/api.pp",
+            "templates/api-config.yml.erb"]
       },
       {
         "hash": "ab262769737892a0232db75af025a72661905f41",
         "msg": "Allow dynamic alarm and notification bootstrapping\n\nChange-Id: I10d1e0ab7a7c88b29fd05fbf4173317ac96434c9",
         "cmtr": "Brad Klein",
         "date": "2016-09-01 11:34:58-06:00",
-        "files": ["alarmdefs.pp", "alarm_definition_config.json.erb", "notification_assignments.json.erb", "notification_config.json.erb"]
+        "files": [
+            "manifests/alarmdefs.pp",
+            "templates/alarm_definition_config.json.erb",
+            "templates/notification_assignments.json.erb",
+            "templates/notification_config.json.erb"]
       },
       {
         "hash": "0338017c523470ec99adcf106980a117fecf3a00",
         "msg": "Add configuration of monasca agent vertica plugin\n\nChange-Id: I0529368ccd6de3e44037fa7234b9a46b967eaf63",
         "cmtr": "Brad Klein",
         "date": "2016-09-09 09:19:49-06:00",
-        "files": ["vertica.pp", "vertica.yaml.erb"]
+        "files": [
+            "manifests/checks/vertica.pp",
+            "templates/checks/vertica.yaml.erb"]
       },
       {
         "hash": "470edbc02bc1f174379b1ba551588c2e0dab7dde",
         "msg": "Set enable on agent service\n\nThis sets the enable flag on the agent service which will autostart the\nagent (if set) on reboot. Also this removes a non-sensical parameter on\na file resource that appears to be a typo.\n\nChange-Id: I5b49a276e89b88aefc9bf6ec0c22e6e18fa1cc26",
         "cmtr": "Matt Fischer",
         "date": "2016-09-14 01:41:58+00:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "0c7f731950ecbbe7d63f76a264a63e4f1efe66ae",
         "msg": "Fix puppet-lint before upgrading gem\n\nRemoving puppet-lint warnings\nin favor of upgrading to latest gem\n\n2016-09-13 21:09:38.667187 | manifests/agent.pp:124:WARNING: optional parameter listed before required parameter\n2016-09-13 21:09:38.667274 | manifests/agent.pp:125:WARNING: optional parameter listed before required parameter\n2016-09-13 21:09:38.667302 | manifests/agent.pp:126:WARNING: optional parameter listed before required parameter\n2016-09-13 21:09:38.667328 | manifests/agent.pp:127:WARNING: optional parameter listed before required parameter\n2016-09-13 21:09:38.667350 | manifests/kafka/topics.pp:27:WARNING: line has more than 140 characters\n2016-09-13 21:09:38.667373 | manifests/kafka/topics.pp:40:WARNING: line has more than 140 characters\n\nChange-Id: I0786132cf102be0d997ebeb5903d2fd1af681ba4",
         "cmtr": "Carlos Camacho",
         "date": "2016-09-15 16:36:34+02:00",
-        "files": ["agent.pp", "topics.pp"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/kafka/topics.pp"]
       },
       {
         "hash": "098d07d7c3be09674375fa91adeed0db6196dda9",
         "msg": "Better vertica partition defaults, new drop script\n\nChange-Id: Iebc96b72a62b8650e4cafa82f759b2847efa64f5",
         "cmtr": "Brad Klein",
         "date": "2016-09-15 15:28:15-06:00",
-        "files": ["mon_alarms_schema.sql", "mon_metrics_schema.sql", "config.pp", "drop_vertica_partitions.py.erb"]
+        "files": [
+            "files/vertica/mon_alarms_schema.sql",
+            "files/vertica/mon_metrics_schema.sql",
+            "manifests/vertica/config.pp",
+            "templates/vertica/drop_vertica_partitions.py.erb"]
       },
       {
         "hash": "d8859186cd2552da95d21fecc76a743d08a2ff8c",
         "msg": "Provide default service_name for keystone endpoint\n\nThis change updates the monasca::keystone::auth class to include a\ndefault service_name of 'monasca' so that if a user changes the\nauth_name, the service is still created as being related to\n'monasca'.\n\nChange-Id: Id973e70d27072c0478aae68f288ee5d638037b36\nCloses-Bug: #1590040",
         "cmtr": "Sharat Sharma",
         "date": "2016-10-02 12:20:29+05:18",
-        "files": ["auth.pp", "keystone-auth-name-dc84be6eb135881e.yaml"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "releasenotes/notes/keystone-auth-name-dc84be6eb135881e.yaml"]
       },
       {
         "hash": "27845d7f19f501fe8bbeacc5ae8661d2e6690011",
         "msg": "Add config of metadata for ovs plugin\n\nChange-Id: I206247eccb952f5ae528843d3f50035fc72d6ff0",
         "cmtr": "Brad Klein",
         "date": "2016-10-17 14:36:14-06:00",
-        "files": ["README.md", "ovs.pp", "monasca_checks_ovs_spec.rb", "spec_helper.rb", "ovs.yaml.erb", "monasca-agent.init.erb", "supervisor.conf.erb"]
+        "files": [
+            "README.md",
+            "manifests/checks/ovs.pp",
+            "spec/classes/monasca_checks_ovs_spec.rb",
+            "spec/spec_helper.rb",
+            "templates/checks/ovs.yaml.erb",
+            "templates/monasca-agent.init.erb",
+            "templates/supervisor.conf.erb"]
       },
       {
         "hash": "c1c9f0dd5245dccc4aee6ad853acc5281778b180",
         "msg": "Add new config values for rabbitmq check\n\nChange-Id: I229c412deee8dd8ae49a1771112c5bcd84d8e407",
         "cmtr": "Ryan Bak",
         "date": "2016-11-01 09:09:58-06:00",
-        "files": ["rabbitmq.pp", "monasca_checks_rabbitmq_spec.rb", "rabbitmq.erb"]
+        "files": [
+            "manifests/checks/instances/rabbitmq.pp",
+            "spec/classes/monasca_checks_rabbitmq_spec.rb",
+            "templates/checks/rabbitmq.erb"]
       },
       {
         "hash": "86955c96ace733452a8d32b127cd9410b53e0b77",
         "msg": "Add support for monasca-notification hipchat and slack\n\nAlso add spec test for the class and new parms\n\nChange-Id: Ic4132374446b417d6bd7f0ecd6451b0070dc74e3",
         "cmtr": "Brad Klein",
         "date": "2016-11-16 16:32:45-07:00",
-        "files": ["notification.pp", "monasca_notification_spec.rb", "notification.yaml.erb"]
+        "files": [
+            "manifests/notification.pp",
+            "spec/classes/monasca_notification_spec.rb",
+            "templates/notification.yaml.erb"]
       },
       {
         "hash": "eef07efe88486313ad71c6cbffece381934630d8",
         "msg": "Update for storm nimbus HA feature\n\nApache storm now supports nimbus.seeds option,\nin which case the nimbus startup script should be\non all nodes, instead of only one in the cluster.\n\nChange-Id: I660798e006605718035129758838e40ff1c972c3",
         "cmtr": "Brad Klein",
         "date": "2016-11-22 12:30:45-07:00",
-        "files": ["monasca_stack.sh", "config.pp"]
+        "files": [
+            "files/monasca_stack.sh",
+            "manifests/storm/config.pp"]
       },
       {
         "hash": "54ddc2f9b4b48e5b48c2f961ec6b483f1e3ce731",
         "msg": "Add adminRole option to api config\n\nIncludes basic tests for the affected classes and params\n\nChange-Id: I9e819bb89a2101c902aae8d17eef5e0adc8c7e86",
         "cmtr": "Ryan Bak",
         "date": "2016-11-29 13:00:45-07:00",
-        "files": [".fixtures.yml", "Puppetfile_extras", "api.pp", "auth.pp", "monasca_api_spec.rb", "monasca_keystone_auth_spec.rb", "api-config.yml.erb"]
+        "files": [
+            "None",
+            "Puppetfile_extras",
+            "manifests/api.pp",
+            "manifests/keystone/auth.pp",
+            "spec/classes/monasca_api_spec.rb",
+            "spec/classes/monasca_keystone_auth_spec.rb",
+            "templates/api-config.yml.erb"]
       },
       {
         "hash": "43937f00ea20b8b6a927b200cf139f761437d8ff",
         "msg": "Fix python-virtualenv references for puppet4\n\nIn order for this module to be used with puppet-python on puppet4, we\nneed to reference the virtualenv package by title (\"virtualenv\") instead\nof by name (\"python-virtualenv\").\n\nChange-Id: I24d40a499a805d8cdc1024e533ba8500115e4ea2",
         "cmtr": "Clayton O'Neill",
         "date": "2016-12-06 21:10:51+00:00",
-        "files": ["alarmdefs.pp", "notification.pp", "config.pp"]
+        "files": [
+            "manifests/alarmdefs.pp",
+            "manifests/notification.pp",
+            "manifests/vertica/config.pp"]
       },
       {
         "hash": "39465dfe315d61cfc3e761290fc9c10ae89355cb",
         "msg": "Add configuration of ovs publish_router_capacity flag\n\nChange-Id: I0431bee6f8cd92a6e01a4776f333af2e47454c1f",
         "cmtr": "Brad Klein",
         "date": "2017-01-27 07:59:26-07:00",
-        "files": ["ovs.pp", "monasca_checks_ovs_spec.rb", "ovs.yaml.erb"]
+        "files": [
+            "manifests/checks/ovs.pp",
+            "spec/classes/monasca_checks_ovs_spec.rb",
+            "templates/checks/ovs.yaml.erb"]
       },
       {
         "hash": "e966b524e273b6822379e088635beefca32e6c34",
         "msg": "Add configuration of host_aggregate_re for libvirt plugin\n\nChange-Id: I1380afc5144695156eb62929b4910eff15b2ae4b",
         "cmtr": "Brad Klein",
         "date": "2017-03-06 15:04:12-07:00",
-        "files": ["libvirt.pp", "monasca_checks_libvirt_spec.rb", "libvirt.yaml.erb"]
+        "files": [
+            "manifests/checks/libvirt.pp",
+            "spec/classes/monasca_checks_libvirt_spec.rb",
+            "templates/checks/libvirt.yaml.erb"]
       },
       {
         "hash": "151e23ba85050fbd86f5564f2119119f1804e560",
         "msg": "Fix lint issues to upgrade to puppet-lint 2.3\n\n2017-07-20 14:38:13.065997 | manifests/influxdb/bootstrap.pp:54:WARNING: arrow should be on the right operand's line\n2017-07-20 14:38:13.066083 | manifests/kafka/topics.pp:35:WARNING: arrow should be on the right operand's line\n2017-07-20 14:38:13.066114 | manifests/keystone/auth.pp:200:WARNING: arrow should be on the right operand's line\n2017-07-20 14:38:13.066151 | manifests/keystone/auth.pp:202:WARNING: arrow should be on the right operand's line\n2017-07-20 14:38:13.066176 | manifests/keystone/auth.pp:204:WARNING: arrow should be on the right operand's line\n2017-07-20 14:38:13.066201 | manifests/keystone/auth.pp:275:WARNING: arrow should be on the right operand's line\n2017-07-20 14:38:13.066226 | manifests/storm/config.pp:87:WARNING: arrow should be on the right operand's line\n2017-07-20 14:38:13.066250 | manifests/storm/config.pp:95:WARNING: arrow should be on the right operand's line\n2017-07-20 14:38:13.066275 | manifests/storm/config.pp:103:WARNING: arrow should be on the right operand's line\n\nChange-Id: I87efeefd690bd6dd89dfd4b670fe7972a8003e4b",
         "cmtr": "Carlos Camacho",
         "date": "2017-07-21 17:18:26+02:00",
-        "files": ["bootstrap.pp", "topics.pp", "auth.pp", "config.pp"]
+        "files": [
+            "manifests/influxdb/bootstrap.pp",
+            "manifests/kafka/topics.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/storm/config.pp"]
       },
       {
         "hash": "6ac8b46a20405093ffcb6cfe49cc46518119d064",
         "msg": "Fix resources for latest puppet\n\nThe unit tests for puppet 5 (running via latest) is failing on some\nmodules because the catalog created in the test doesn't contain the\nresources being referenced in requires/subscribes.\n\nChange-Id: I927d517d68bf23aea3837e985afdc8443c2b98c9\nCloses-Bug: #1729212",
         "cmtr": "ZhongShengping",
         "date": "2017-11-02 09:56:03+08:00",
-        "files": ["auth.pp", "agent_instance.pp"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "manifests/virtualenv/agent_instance.pp"]
       },
       {
         "hash": "96fb4746a7417df36b1d53942e7dfaa4f0ac9b7a",
         "msg": "Fix the smoke testing link\n\nDepends-On: https://review.openstack.org/#/c/587639/\nChange-Id: Ia321ce7519a017772f5704598ff8b595835a78d2",
         "cmtr": "Tobias Urdin",
         "date": "2018-07-31 23:33:47+02:00",
-        "files": ["init.pp"]
+        "files": [
+            "tests/init.pp"]
       },
       {
         "hash": "9507d9f59975e4a9929672761991ba9ff70329bd",
         "msg": "Update reno for stable/rocky\n\nChange-Id: I7ca3560a5310d377ad6953ad78ed7159bd946bbd",
         "cmtr": "Tobias Urdin",
         "date": "2018-08-22 20:23:06+02:00",
-        "files": ["init.pp", "index.rst", "rocky.rst"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/source/index.rst",
+            "releasenotes/source/rocky.rst"]
       }]
     }

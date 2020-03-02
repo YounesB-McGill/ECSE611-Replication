@@ -1,6 +1,22 @@
     {
       "url": "https://github.com/Mirantis/fuel-plugin-external-ceph",
-      "pp_files": ["volumes-and-ephemeral-compute.pp", "radosgw-keystone.pp", "volumes-controller.pp", "conf.pp", "radosgw_keystone.pp", "volumes_ephemeral.pp", "volumes_types.pp", "images.pp", "volumes.pp", "radosgw.pp", "volumes_controller.pp", "volumes-types.pp"],
+      "pp_files": [
+        "deployment_scripts/images.pp",
+        "deployment_scripts/radosgw.pp",
+        "deployment_scripts/puppet/modules/external_ceph/manifests/volumes_controller.pp",
+        "deployment_scripts/volumes-controller.pp",
+        "deployment_scripts/puppet/modules/external_ceph/manifests/volumes_ephemeral.pp",
+        "deployment_scripts/puppet/modules/external_ceph/manifests/conf.pp",
+        "deployment_scripts/puppet/modules/external_ceph/manifests/images.pp",
+        null,
+        "deployment_scripts/volumes-types.pp",
+        "deployment_scripts/puppet/modules/external_ceph/manifests/radosgw_keystone.pp",
+        "deployment_scripts/puppet/modules/external_ceph/manifests/volumes_types.pp",
+        "deployment_scripts/radosgw-keystone.pp",
+        "deployment_scripts/volumes.pp",
+        "deployment_scripts/volumes-and-ephemeral-compute.pp",
+        "deployment_scripts/conf.pp"
+      ],
       "pp_cmtrs": ["Dmitry Nikishov"],
       "num_pp_commits": 12,
       "num_tot_commits": 14,
@@ -9,83 +25,177 @@
         "msg": "Initial version\n\nChange-Id: I894a961d5f622f50eaddb7710692f053ab081efa",
         "cmtr": "Dmitry Nikishov",
         "date": "2016-03-11 16:59:32+03:00",
-        "files": [".gitignore", "LICENSE", "README.md", "components.yaml", "conf.pp", "deploy.sh", "ceph.conf", "keyring.bin.erb", "volumes.pp", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "network_roles.yaml", "node_roles.yaml", "pre_build_hook", ".gitkeep", ".gitkeep", "tasks.yaml", "volumes.yaml"]
+        "files": [
+            ".gitignore",
+            "LICENSE",
+            "README.md",
+            "components.yaml",
+            "deployment_scripts/conf.pp",
+            "deployment_scripts/deploy.sh",
+            "deployment_scripts/puppet/modules/external_ceph/templates/ceph.conf",
+            "deployment_scripts/puppet/modules/external_ceph/templates/keyring.bin.erb",
+            "deployment_scripts/volumes.pp",
+            "deployment_tasks.yaml",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "network_roles.yaml",
+            "node_roles.yaml",
+            "pre_build_hook",
+            "repositories/centos/.gitkeep",
+            "repositories/ubuntu/.gitkeep",
+            "tasks.yaml",
+            "volumes.yaml"]
       },
       {
         "hash": "0587980f1c5f7bdd07c10850bd214ae90bcbe595",
         "msg": "Basic integration with cinder, ephemeral\n\nChange-Id: Id3c65aa62d575c7ba698b20ba729a7b3b0303ec0",
         "cmtr": "Dmitry Nikishov",
         "date": "2016-03-17 06:03:51-07:00",
-        "files": ["conf.pp", "Puppetfile", "volumes-and-ephemeral-compute.pp", "volumes-controller.pp", "volumes.pp", "deployment_tasks.yaml", "pre_build_hook", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/conf.pp",
+            "deployment_scripts/puppet/Puppetfile",
+            "deployment_scripts/volumes-and-ephemeral-compute.pp",
+            "deployment_scripts/volumes-controller.pp",
+            "deployment_scripts/volumes.pp",
+            "deployment_tasks.yaml",
+            "pre_build_hook",
+            "tasks.yaml"]
       },
       {
         "hash": "fb4a9a821a5e234e22edb5f494c85336d083ac37",
         "msg": "Fixed Volumes and Ephemeral storage integration\n\nChange-Id: I0f63059a81fea5145d6235adfc634051056ca00e",
         "cmtr": "Dmitry Nikishov",
         "date": "2016-03-18 01:57:08-07:00",
-        "files": ["volumes-and-ephemeral-compute.pp", "volumes-controller.pp"]
+        "files": [
+            "deployment_scripts/volumes-and-ephemeral-compute.pp",
+            "deployment_scripts/volumes-controller.pp"]
       },
       {
         "hash": "9591e338c9c1989db09e9c4dcb5d08bba302a7c6",
         "msg": "Added integration with external glance\n\nChange-Id: I4fb1693f25dd01d5108eb70d2f40b9a31ac5b049",
         "cmtr": "Dmitry Nikishov",
         "date": "2016-03-21 06:10:35-07:00",
-        "files": ["conf.pp", "images.pp", "keyring.bin.erb", "deployment_tasks.yaml", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/conf.pp",
+            "deployment_scripts/images.pp",
+            "deployment_scripts/puppet/modules/external_ceph/templates/keyring.bin.erb",
+            "deployment_tasks.yaml",
+            "environment_config.yaml"]
       },
       {
         "hash": "cfc1f430c3f26e5d819a5101bdd1a9215a612c45",
         "msg": "Indroduced conditions for tasks\n\nChange-Id: I058ad64ae20a0056cd61de8ea52850a0717d8e5a",
         "cmtr": "Dmitry Nikishov",
         "date": "2016-03-22 00:05:30-07:00",
-        "files": ["images.pp", "Puppetfile", "volumes-and-ephemeral-compute.pp", "volumes-controller.pp", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/images.pp",
+            "deployment_scripts/puppet/Puppetfile",
+            "deployment_scripts/volumes-and-ephemeral-compute.pp",
+            "deployment_scripts/volumes-controller.pp",
+            "deployment_tasks.yaml",
+            "environment_config.yaml",
+            "metadata.yaml"]
       },
       {
         "hash": "15feadfb1de3f21b8f7d46d8570a2045c9be3518",
         "msg": "Implemented radosgw deployment\n\nChange-Id: Ia1d9678479ec6b606d4a6fb0d1188541f7875da7",
         "cmtr": "Dmitry Nikishov",
         "date": "2016-03-22 02:36:23-07:00",
-        "files": [".gitignore", "conf.pp", "keyring.bin.erb", "radosgw-keystone.pp", "radosgw.pp", "volumes.pp", "deployment_tasks.yaml", "environment_config.yaml"]
+        "files": [
+            ".gitignore",
+            "deployment_scripts/conf.pp",
+            "deployment_scripts/puppet/modules/external_ceph/templates/keyring.bin.erb",
+            "deployment_scripts/radosgw-keystone.pp",
+            "deployment_scripts/radosgw.pp",
+            "None",
+            "deployment_tasks.yaml",
+            "environment_config.yaml"]
       },
       {
         "hash": "4af62802f6eb8193f72e4a4c0f1ee9bc7fcfebc7",
         "msg": "Refactored UX\n\nChange-Id: I4da0d46a48bebd8fccee123bda12fafc858cc0a0",
         "cmtr": "Dmitry Nikishov",
         "date": "2016-03-29 01:00:34-07:00",
-        "files": ["components.yaml", "conf.pp", "keyring.bin.erb", "radosgw-keystone.pp", "radosgw.pp", "volumes-controller.pp", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml"]
+        "files": [
+            "components.yaml",
+            "deployment_scripts/conf.pp",
+            "deployment_scripts/puppet/modules/external_ceph/templates/keyring.bin.erb",
+            "deployment_scripts/radosgw-keystone.pp",
+            "None",
+            "deployment_scripts/volumes-controller.pp",
+            "deployment_tasks.yaml",
+            "environment_config.yaml",
+            "metadata.yaml"]
       },
       {
         "hash": "8e24239ef4cdd55f7632bf20d624c4d974e98548",
         "msg": "Made cinder integration multibackend-aware\n\nChange-Id: I3636642678dc4cb388fa64aac92af3051599826a",
         "cmtr": "Dmitry Nikishov",
         "date": "2016-03-30 13:10:59+03:00",
-        "files": ["conf.pp", "keyring.bin.erb", "volumes-controller.pp", "volumes-types.pp", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/conf.pp",
+            "deployment_scripts/puppet/modules/external_ceph/templates/keyring.bin.erb",
+            "deployment_scripts/volumes-controller.pp",
+            "deployment_scripts/volumes-types.pp",
+            "deployment_tasks.yaml",
+            "environment_config.yaml",
+            "metadata.yaml"]
       },
       {
         "hash": "9626f88f483c7eb03eba299398326b1f67bf6652",
         "msg": "Added README\n\nChange-Id: I0795f14fc1d98d33252eb9be368747b3e666f8e7",
         "cmtr": "Dmitry Nikishov",
         "date": "2016-05-04 11:08:23-05:00",
-        "files": ["README.md", "volumes-and-ephemeral-compute.pp", "environment_config.yaml", "metadata.yaml"]
+        "files": [
+            "README.md",
+            "deployment_scripts/volumes-and-ephemeral-compute.pp",
+            "environment_config.yaml",
+            "metadata.yaml"]
       },
       {
         "hash": "9d1b97ef48b81fc9111de5087d65b444e5605cae",
         "msg": "9.0 Port",
         "cmtr": "Dmitry Nikishov",
         "date": "2016-08-18 06:42:56+00:00",
-        "files": ["conf.pp", "images.pp", "conf.pp", "images.pp", "radosgw_keystone.pp", "volumes_controller.pp", "volumes_ephemeral.pp", "volumes_types.pp", "radosgw-keystone.pp", "volumes-and-ephemeral-compute.pp", "volumes-controller.pp", "volumes-types.pp", "deployment_tasks.yaml", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/conf.pp",
+            "deployment_scripts/images.pp",
+            "deployment_scripts/puppet/modules/external_ceph/manifests/conf.pp",
+            "deployment_scripts/puppet/modules/external_ceph/manifests/images.pp",
+            "deployment_scripts/puppet/modules/external_ceph/manifests/radosgw_keystone.pp",
+            "deployment_scripts/puppet/modules/external_ceph/manifests/volumes_controller.pp",
+            "deployment_scripts/puppet/modules/external_ceph/manifests/volumes_ephemeral.pp",
+            "deployment_scripts/puppet/modules/external_ceph/manifests/volumes_types.pp",
+            "deployment_scripts/radosgw-keystone.pp",
+            "deployment_scripts/volumes-and-ephemeral-compute.pp",
+            "deployment_scripts/volumes-controller.pp",
+            "deployment_scripts/volumes-types.pp",
+            "deployment_tasks.yaml",
+            "metadata.yaml"]
       },
       {
         "hash": "250052299a76d4e075b15a7ea2d9c7656b8b975f",
         "msg": "Removed the dedicated user for nova\n\nLibvirt allows to configure only one user\nfor RBD access. This means that there should be a\nsingle user for block volumes and ephemeral volumes.",
         "cmtr": "Dmitry Nikishov",
         "date": "2016-08-18 07:29:11+00:00",
-        "files": ["conf.pp", "volumes_ephemeral.pp", "keyring.bin.erb", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/external_ceph/manifests/conf.pp",
+            "deployment_scripts/puppet/modules/external_ceph/manifests/volumes_ephemeral.pp",
+            "deployment_scripts/puppet/modules/external_ceph/templates/keyring.bin.erb",
+            "environment_config.yaml"]
       },
       {
         "hash": "c2e4ca9f2c237352f3f537243f09d64b7d6c07b7",
         "msg": "Cleanup of plugin repo\n\n- Removed unused files\n- Made an adjustment for graph to not to start nova-compute\n  before enable_nova_compute_service task",
         "cmtr": "Dmitry Nikishov",
         "date": "2016-08-22 08:53:40+00:00",
-        "files": ["deploy.sh", "volumes_ephemeral.pp", "deployment_tasks.yaml", "network_roles.yaml", "node_roles.yaml", "tasks.yaml", "volumes.yaml"]
+        "files": [
+            "None",
+            "deployment_scripts/puppet/modules/external_ceph/manifests/volumes_ephemeral.pp",
+            "deployment_tasks.yaml",
+            "None",
+            "None",
+            "None",
+            "None"]
       }]
     }

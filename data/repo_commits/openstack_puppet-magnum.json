@@ -1,7 +1,36 @@
     {
       "url": "https://github.com/openstack/puppet-magnum",
-      "pp_files": ["logging.pp", "db.pp", "init.pp", "sync.pp", "certificates.pp", "postgresql.pp", "clients.pp", "cinder.pp", "heat.pp", "params.pp", "neutron.pp", "authtoken.pp", "config.pp", "policy.pp", "deps.pp", "glance.pp", "magnum.pp", "client.pp", "conductor.pp", "api.pp", "barbican.pp", "mysql.pp", "domain.pp", "apache.pp", "auth.pp", "nova.pp"],
-      "pp_cmtrs": ["Emilien Macchi", "Marcus Furlong", "Matthew J. Black", "David Moreau Simard", "Risto Laurikainen", "jacky06", "Tobias Urdin", "ZhongShengping", "Nate Potter", "Xingchao Yu", "wangqi", "Swapnil Kulkarni (coolsvap)", "zhubingbing", "Jake Yip", "Sharat Sharma", "Alex Schultz", "qiaomin", "Denis Egorenko", "Mohammed Naser", "Alfredo Moralejo", "Iury Gregory Melo Ferreira", "Michal Adamczyk"],
+      "pp_files": [
+        "manifests/clients/nova.pp",
+        "manifests/clients/cinder.pp",
+        "manifests/wsgi/apache.pp",
+        "manifests/deps.pp",
+        "manifests/clients/barbican.pp",
+        "manifests/conductor.pp",
+        "manifests/db/postgresql.pp",
+        "manifests/keystone/domain.pp",
+        "manifests/clients.pp",
+        "manifests/client.pp",
+        "manifests/init.pp",
+        "manifests/config.pp",
+        "manifests/logging.pp",
+        "examples/magnum.pp",
+        "manifests/api.pp",
+        "manifests/clients/glance.pp",
+        "manifests/db/mysql.pp",
+        "manifests/keystone/auth.pp",
+        "manifests/keystone/authtoken.pp",
+        "manifests/policy.pp",
+        "manifests/params.pp",
+        "tests/init.pp",
+        "manifests/clients/heat.pp",
+        "manifests/db/sync.pp",
+        "manifests/db.pp",
+        "manifests/clients/neutron.pp",
+        "manifests/clients/magnum.pp",
+        "manifests/certificates.pp"
+      ],
+      "pp_cmtrs": ["zhubingbing", "Alfredo Moralejo", "Risto Laurikainen", "wangqi", "ZhongShengping", "Swapnil Kulkarni (coolsvap)", "Sharat Sharma", "Jake Yip", "Alex Schultz", "David Moreau Simard", "Xingchao Yu", "qiaomin", "Iury Gregory Melo Ferreira", "Mohammed Naser", "Matthew J. Black", "jacky06", "Emilien Macchi", "Nate Potter", "Michal Adamczyk", "Marcus Furlong", "Tobias Urdin", "Denis Egorenko"],
       "num_pp_commits": 66,
       "num_tot_commits": 226,
       "commits": [{
@@ -9,461 +38,732 @@
         "msg": "puppet-magnum: Initial commit\n\nThis is the initial commit for puppet-magnum.\nIt has mostly been automatically generated using cookiecutter[1] and\nmsync[2]\n\n[1] https://github.com/openstack/puppet-openstack-cookiecutter\n[2] https://github.com/openstack/puppet-modulesync-configs\n\nChange-Id: Id43f377828837dba70745bbe66b51297e383e602",
         "cmtr": "Nate Potter",
         "date": "2015-11-12 15:52:15+00:00",
-        "files": [".gitignore", "Gemfile", "LICENSE", "README.md", "Rakefile", "ini_setting.rb", "magnum_config.rb", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "init.pp", "auth.pp", "logging.pp", "params.pp", "policy.pp", "metadata.json", "centos-70-x64.yml", "default.yml", "nodepool-centos7.yml", "nodepool-trusty.yml", "ubuntu-server-1404-x64.yml", "magnum_db_mysql_spec.rb", "magnum_db_postgresql_spec.rb", "magnum_db_spec.rb", "magnum_keystone_auth_spec.rb", "magnum_logging_spec.rb", "magnum_policy_spec.rb", "shared_examples.rb", "spec_helper.rb", "spec_helper_acceptance.rb", "ini_setting_spec.rb", "magnum_config_spec.rb", "init.pp"]
+        "files": [
+            ".gitignore",
+            "Gemfile",
+            "LICENSE",
+            "README.md",
+            "Rakefile",
+            "lib/puppet/provider/magnum_config/ini_setting.rb",
+            "lib/puppet/type/magnum_config.rb",
+            "manifests/config.pp",
+            "manifests/db.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "manifests/db/sync.pp",
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/logging.pp",
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "metadata.json",
+            "spec/acceptance/nodesets/centos-70-x64.yml",
+            "spec/acceptance/nodesets/default.yml",
+            "spec/acceptance/nodesets/nodepool-centos7.yml",
+            "spec/acceptance/nodesets/nodepool-trusty.yml",
+            "spec/acceptance/nodesets/ubuntu-server-1404-x64.yml",
+            "spec/classes/magnum_db_mysql_spec.rb",
+            "spec/classes/magnum_db_postgresql_spec.rb",
+            "spec/classes/magnum_db_spec.rb",
+            "spec/classes/magnum_keystone_auth_spec.rb",
+            "spec/classes/magnum_logging_spec.rb",
+            "spec/classes/magnum_policy_spec.rb",
+            "spec/shared_examples.rb",
+            "spec/spec_helper.rb",
+            "spec/spec_helper_acceptance.rb",
+            "spec/unit/provider/magnum_config/ini_setting_spec.rb",
+            "spec/unit/type/magnum_config_spec.rb",
+            "tests/init.pp"]
       },
       {
         "hash": "9b7ac7a647487bc0227c57d0cae61afa60bf3281",
         "msg": "Switch magnum to $::os_service_default\n\nSwitch to $::os_service_default all params in logging and db.\nChanges: logging.pp, db.pp and tests.\n\nChange-Id: Ic3ff963064fcb34f86056d88b6f2dce5e270fedc",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2015-12-03 15:24:51+00:00",
-        "files": ["db.pp", "logging.pp", "magnum_db_mysql_spec.rb", "magnum_db_postgresql_spec.rb", "magnum_db_spec.rb", "magnum_keystone_auth_spec.rb", "magnum_logging_spec.rb", "magnum_policy_spec.rb", "spec_helper.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/logging.pp",
+            "spec/classes/magnum_db_mysql_spec.rb",
+            "spec/classes/magnum_db_postgresql_spec.rb",
+            "spec/classes/magnum_db_spec.rb",
+            "spec/classes/magnum_keystone_auth_spec.rb",
+            "spec/classes/magnum_logging_spec.rb",
+            "spec/classes/magnum_policy_spec.rb",
+            "spec/spec_helper.rb"]
       },
       {
         "hash": "d6a21a402c94637d55950375bf2e58e926a01efd",
         "msg": "Make Keystone_endpoint match service by name/type\n\nSince a change in puppet-keystone[1], we not match an endpoint with a\nservice name/type.\n\n[1] http://git.openstack.org/cgit/openstack/puppet-keystone/commit/?id=0a4e06abb0f5b3f324464ff5219d2885816311ce\n\nChange-Id: I2c286ea141aea73f22d988b8e75f2244ef97335e\nCloses-bug: #1528308\nCo-Authored-By: Emilien Macchi <emilien@redhat.com>",
         "cmtr": "Nate Potter",
         "date": "2016-01-07 17:43:41+00:00",
-        "files": ["auth.pp", "magnum_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "spec/classes/magnum_keystone_auth_spec.rb"]
       },
       {
         "hash": "3cf806a21de250903775a3eae945457b38362258",
         "msg": "Update typos\n\nChange-Id: I90ffebf257a90a3d01876f0320dbdcb75d8c26c8",
         "cmtr": "Swapnil Kulkarni (coolsvap)",
         "date": "2016-01-08 03:34:53+00:00",
-        "files": ["mysql.pp"]
+        "files": [
+            "manifests/db/mysql.pp"]
       },
       {
         "hash": "5e13cef2a013c50665af05818a6ddcdeedbf8dba",
         "msg": "Initial commit of init.pp\n\nThis patch sets up the initial framework for init.pp with\nsome basic parameters and configuration options.\n\nChange-Id: I6b6e5dea0ba9dfd386eb61e2cea546a1a561e53a",
         "cmtr": "Denis Egorenko",
         "date": "2016-01-11 17:13:01+00:00",
-        "files": ["init.pp", "params.pp", "magnum_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/params.pp",
+            "spec/classes/magnum_init_spec.rb"]
       },
       {
         "hash": "3d873f56c13cf551bc74a90a2a18ce4606ffdb97",
         "msg": "Initial commit of api.pp\n\nThis patch sets up the inital framework for the magnum-api.\n\nChange-Id: Iad65be9f8487e582b713ad8b90e5d12b9664642c\nDepends-on: I6b6e5dea0ba9dfd386eb61e2cea546a1a561e53a",
         "cmtr": "Nate Potter",
         "date": "2016-01-13 18:39:16+00:00",
-        "files": ["api.pp", "params.pp", "magnum_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/params.pp",
+            "spec/classes/magnum_api_spec.rb"]
       },
       {
         "hash": "1e0a62983eded522dc2aa48efd73bbad133b0be0",
         "msg": "fix broken db sync\n\nmagnum::db::sync currently tries to use a pre-liberty command to\ndo the sync, and this command no longer exists. This commit changes\nthe command used and makes the db sync user configurable.\n\nChange-Id: Ic949a25c18f9b8b6d8988c527508c4274a0f56f6",
         "cmtr": "Marcus Furlong",
         "date": "2016-04-14 11:30:17+00:00",
-        "files": ["api.pp", "sync.pp", "magnum_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/db/sync.pp",
+            "spec/classes/magnum_api_spec.rb"]
       },
       {
         "hash": "ae4c4cc0d3d8ef44c8f793af8d6f227ce8e8b4d2",
         "msg": "Add magnum-conductor\n\nThis patch adds the magnum conductor package and service\nto puppet-magnum. With this it also does some cleaning up\nof param variable names to make them all consistent.\n\nChange-Id: Iede8efe1e66b30bafc4998b85f0cf9177689d24f",
         "cmtr": "Nate Potter",
         "date": "2016-04-22 14:43:43-07:00",
-        "files": ["conductor.pp", "db.pp", "init.pp", "params.pp", "basic_magnum_spec.rb", "magnum_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "manifests/db.pp",
+            "manifests/init.pp",
+            "manifests/params.pp",
+            "spec/acceptance/basic_magnum_spec.rb",
+            "spec/classes/magnum_conductor_spec.rb"]
       },
       {
         "hash": "47a3846d7751cd05cdebeb3539924545290e3332",
         "msg": "Use oslo module for logging , database and policy configuration\n\nChange-Id: I3ca0db893cdc819ca9349cae252bd2eb247c9fd9",
         "cmtr": "ZhongShengping",
         "date": "2016-05-06 14:33:16+08:00",
-        "files": ["db.pp", "logging.pp", "params.pp", "policy.pp", "metadata.json", "magnum_policy_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/logging.pp",
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "metadata.json",
+            "spec/classes/magnum_policy_spec.rb"]
       },
       {
         "hash": "18442571f2c037d65900d8f1ec8b8956be0e4db3",
         "msg": "Use oslo module for messaging (rabbit) configuration\n\nChange-Id: I75dbd9bf37d812a560a401eee2a293cee876a036",
         "cmtr": "ZhongShengping",
         "date": "2016-05-07 10:45:34+08:00",
-        "files": ["init.pp", "magnum_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/magnum_init_spec.rb"]
       },
       {
         "hash": "e941ab51fafc264296c47d8b772d15ed873efed0",
         "msg": "Various fixes\n\n- correcting \"host_ip\" entry to be \"host\" entry for magnum.conf\n- correcting \"userid\" to be \"rabbit_userid\" entry inside magnum.conf\n- db sync function\n- beaker tests are working on Ubuntu as well\n- update metadata.json with new openstacklib version\n- as we don't have a database parameters in main class we don't want to pickup values from it inside db class\n\nAdding:\n- client class with client package installation\n- examples folder with example which works with Mitaka release\n- spec for db_sync\n- adding nodesets spec for CentOS 7.2\n- adding class and spec for creating user and domain for trust setup: http://osdir.com/ml/openstack-dev/2016-02/msg02123.html\n- class to configure cert_manager_type properties\n\nKnown issues:\n- In CentOS/RDP cannot create magnum bay due to the neutron issues: https://bugs.launchpad.net/magnum/+bug/1575524\n- Trust domain and trust domain user has to be set to ID, not a names. Bug reported to magnum devs: https://bugs.launchpad.net/puppet-magnum/+bug/1581372\n\nChange-Id: Ib923f79da691b5c71bb1c4efba8935c774598888",
         "cmtr": "Michal Adamczyk",
         "date": "2016-05-16 07:48:21+00:00",
-        "files": ["magnum.pp", "api.pp", "certificates.pp", "client.pp", "conductor.pp", "db.pp", "sync.pp", "domain.pp", "params.pp", "basic_magnum_spec.rb", "centos-72-x64.yml", "magnum_api_spec.rb", "magnum_db_spec.rb", "magnum_db_sync_spec.rb", "magnum_keystone_domain_spec.rb"]
+        "files": [
+            "examples/magnum.pp",
+            "manifests/api.pp",
+            "manifests/certificates.pp",
+            "manifests/client.pp",
+            "manifests/conductor.pp",
+            "manifests/db.pp",
+            "manifests/db/sync.pp",
+            "manifests/keystone/domain.pp",
+            "manifests/params.pp",
+            "spec/acceptance/basic_magnum_spec.rb",
+            "spec/acceptance/nodesets/centos-72-x64.yml",
+            "spec/classes/magnum_api_spec.rb",
+            "spec/classes/magnum_db_spec.rb",
+            "spec/classes/magnum_db_sync_spec.rb",
+            "spec/classes/magnum_keystone_domain_spec.rb"]
       },
       {
         "hash": "6531e716b3347c38137ee2ca92d749373ae407f2",
         "msg": "Add support for db_max_retries param\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: I4ebdf862e39b05bf28805052144b7dbad42a15de\nCloses-Bug: 1579718",
         "cmtr": "ZhongShengping",
         "date": "2016-05-18 22:30:04+08:00",
-        "files": ["db.pp", "magnum_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "spec/classes/magnum_db_spec.rb"]
       },
       {
         "hash": "ea05e32977fc70295ebe75fd667063e2474b9dfc",
         "msg": "Remove verbose option in logging\n\nOption \"verbose\" from group \"DEFAULT\" is deprecated for removal.\nThe parameter has no effect, so remove it.\n\nChange-Id: I1b034c5863b385c11a29cc0d8a3c4b4cd0da8b56",
         "cmtr": "ZhongShengping",
         "date": "2016-05-19 20:21:36+08:00",
-        "files": ["logging.pp", "magnum_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "spec/classes/magnum_logging_spec.rb"]
       },
       {
         "hash": "7f00f1c1bba872a0b6bfc9db8091b2736373688a",
         "msg": "Add api_paste type/provider for magnum\n\nAdd magnum_api_paste_ini type/provider for magnum.\nAlso add ability to custom options to api_paste.ini in config.pp.\nAdd and update related unit tests.\nCloses-Bug:1483371\n\nChange-Id: I02ca8e8486b68009660c98ace943e6c0bf3dd9ea",
         "cmtr": "ZhongShengping",
         "date": "2016-05-22 19:38:17+08:00",
-        "files": ["ini_setting.rb", "magnum_api_paste_ini.rb", "config.pp", "magnum_config_spec.rb", "ini_setting_spec.rb", "magnum_api_paste_ini_spec.rb"]
+        "files": [
+            "lib/puppet/provider/magnum_api_paste_ini/ini_setting.rb",
+            "lib/puppet/type/magnum_api_paste_ini.rb",
+            "manifests/config.pp",
+            "spec/classes/magnum_config_spec.rb",
+            "spec/unit/provider/magnum_api_paste_ini/ini_setting_spec.rb",
+            "spec/unit/type/magnum_api_paste_ini_spec.rb"]
       },
       {
         "hash": "9db1f9ac6003667995638a4d0239f7a78289a7f3",
         "msg": "Drop all qpid related explanations\n\nQpid was removed in Mitaka from Oslo Messaging, so we\ncan remove all qpid related explanations.\n\nChange-Id: I2eb9ca6ce880460217285e882ddae100acca476f",
         "cmtr": "ZhongShengping",
         "date": "2016-05-25 15:44:35+08:00",
-        "files": ["logging.pp", "magnum_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "spec/classes/magnum_logging_spec.rb"]
       },
       {
         "hash": "808a0e7d0931b67b6785eb0688bfe429b6eee3d5",
         "msg": "Add purge_config option\n\nAdd the option in order to facilitate management.\nUser can ensure that only the options they hoped\nare configured.\n\nChange-Id: I4799d56657639bbeb1baca82db42bc4235347349",
         "cmtr": "ZhongShengping",
         "date": "2016-06-08 11:00:41+08:00",
-        "files": ["init.pp", "magnum_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/magnum_init_spec.rb"]
       },
       {
         "hash": "f199bbee0cd3b4efc4d2308d777488858ffdb936",
         "msg": "Fix magnum-db-sync orchestration\n\nMake sure magnum-db-sync runs after creating databases.\n\nChange-Id: I2aee8563c4c28ea78edd7da2c6372dadcba5d403",
         "cmtr": "Emilien Macchi",
         "date": "2016-06-13 10:19:37-04:00",
-        "files": ["mysql.pp", "postgresql.pp"]
+        "files": [
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp"]
       },
       {
         "hash": "e75d0af8f63ba2519e7c16071a0419d649a8d7ae",
         "msg": "Fix magnum default service type\n\nMagnum default service type changed from \"container\" to\n\"container-infra\". It is recommended to update the service\ntype at Keystone service catalog accordingly.\n\nChange-Id: I08606ebe0b0c60a4cfc59310a010d81cf438826f",
         "cmtr": "ZhongShengping",
         "date": "2016-07-05 15:36:09+08:00",
-        "files": ["auth.pp", "magnum_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "spec/classes/magnum_keystone_auth_spec.rb"]
       },
       {
         "hash": "987e53f94d5de2868a3e1b02108a6a8dd72c81b8",
         "msg": "Move magnum to authtoken\n\nAllow magnum to configure the keystone_authtoken section in\nmagnum.conf with all new parameters from Keystone Middleware\nusing the  keystone::resource::authtoken from puppet-keystone\nThis will also add support to authentication using Keystone v3.\n\nChange-Id: I4a69bd72e6114e287520548587a14ac0e44b1e84\nCloses-Bug: #1604463",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-08-26 16:19:02-03:00",
-        "files": ["magnum.pp", "api.pp", "authtoken.pp", "basic_magnum_spec.rb", "magnum_api_spec.rb", "magnum_keystone_authtoken_spec.rb"]
+        "files": [
+            "examples/magnum.pp",
+            "manifests/api.pp",
+            "manifests/keystone/authtoken.pp",
+            "spec/acceptance/basic_magnum_spec.rb",
+            "spec/classes/magnum_api_spec.rb",
+            "spec/classes/magnum_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "0a3695ebd084c69305166eaf3fd5b57d8cf3e660",
         "msg": "Add SSL support for magnum::api\n\nChange-Id: I120a52cfd1e29b1a6899112f1b950cd0eb0d60f0",
         "cmtr": "David Moreau Simard",
         "date": "2016-09-09 19:19:07+00:00",
-        "files": ["api.pp", "ssl-api-74d254dc2a0250ce.yaml", "magnum_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/ssl-api-74d254dc2a0250ce.yaml",
+            "spec/classes/magnum_api_spec.rb"]
       },
       {
         "hash": "cab5e191ad027a9f7be9d6c09f15e0ad0d8232bd",
         "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: I983008e9cdd46f64ee91712c602712d4eed31714\nCloses-Bug: #1628580",
         "cmtr": "Sharat Sharma",
         "date": "2016-09-29 12:23:09+05:18",
-        "files": ["sync.pp"]
+        "files": [
+            "manifests/db/sync.pp"]
       },
       {
         "hash": "0087b05e09b7e5b33dfca4f25fd0ba0b91b7e31e",
         "msg": "Add trustee_domain names to config\n\nThis commit adds the trustee_domain_name and trustee_domain_admin_name\nconfig options to the keystone domain configuration.\n\nChange-Id: I5a3061a3559b7c8c30997450aae826f381d5eb97\nCloses-bug: #1581372",
         "cmtr": "Nate Potter",
         "date": "2016-10-06 18:02:45+00:00",
-        "files": ["domain.pp", "add-trustee-name-configs-a38c5012090a01a0.yaml", "magnum_keystone_domain_spec.rb"]
+        "files": [
+            "manifests/keystone/domain.pp",
+            "releasenotes/notes/add-trustee-name-configs-a38c5012090a01a0.yaml",
+            "spec/classes/magnum_keystone_domain_spec.rb"]
       },
       {
         "hash": "75e298396e254fd093b436d4879b4ed5df10d1e6",
         "msg": "include ::openstacklib::defaults in params.pp\n\nThe ::openstacklib::defaults is default configuration for all\nopenstack-puppet module. This file is loaded in the params.pp\nof each class\n\nChange-Id: I70834ffa7a5b568b5e097c054332e8ea4c6dcad1",
         "cmtr": "Alex Schultz",
         "date": "2016-11-14 15:27:29+00:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "b2a83a660b166f086d8b74b97619047b9a3c94b3",
         "msg": "Deprecate rabbitmq connection parameters\n\nThe rabbitmq connection parameters have been deprecated in favor of the\ntransport_url setting.\n\nChange-Id: Ie6ba6d6a34f858e236a7f6ed7de3e94fe8964a80\nRelated-Bug: #1625198",
         "cmtr": "Alex Schultz",
         "date": "2016-11-14 15:29:32+00:00",
-        "files": ["init.pp", "rabbit-connection-params-deprecation-0550702bab0a1124.yaml", "basic_magnum_spec.rb", "magnum_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/rabbit-connection-params-deprecation-0550702bab0a1124.yaml",
+            "spec/acceptance/basic_magnum_spec.rb",
+            "spec/classes/magnum_init_spec.rb"]
       },
       {
         "hash": "c770219b12e31a3fde7e3947c06cb4c68b1ed43a",
         "msg": "Add magnum::clients class\n\nmagnum configuration contains some service clients configuration\nsection.\n\nIn order to work properly, magnum requires at least to configure\ncinder_client/region_name. This patch adds a new manifest\nmagnum::clients that take care of client basic configuration\nincluding region_name and endpoint_type. In future, more options\ncan be added.\n\nChange-Id: Ic33aba69873e0aeb79546fe25f158604229a54a5",
         "cmtr": "Alfredo Moralejo",
         "date": "2016-11-15 17:24:33+01:00",
-        "files": ["clients.pp", "add-clients-configuration-758a5b8cb4c16e1a.yaml", "basic_magnum_spec.rb", "magnum_clients_spec.rb"]
+        "files": [
+            "manifests/clients.pp",
+            "releasenotes/notes/add-clients-configuration-758a5b8cb4c16e1a.yaml",
+            "spec/acceptance/basic_magnum_spec.rb",
+            "spec/classes/magnum_clients_spec.rb"]
       },
       {
         "hash": "c5544a5a660a480336baaec7362c6b6909564ed3",
         "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nChange-Id: I7f3f97a54aec888d99c7405310afef8e1f3907f0",
         "cmtr": "ZhongShengping",
         "date": "2016-12-07 11:18:53+08:00",
-        "files": ["api.pp", "certificates.pp", "client.pp", "clients.pp", "conductor.pp", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "init.pp", "auth.pp", "authtoken.pp", "domain.pp", "logging.pp", "policy.pp", "external_install_mgmt_hook-a91729a7e9151378.yaml", "magnum_api_spec.rb", "magnum_db_sync_spec.rb", "magnum_init_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/certificates.pp",
+            "manifests/client.pp",
+            "manifests/clients.pp",
+            "manifests/conductor.pp",
+            "manifests/config.pp",
+            "manifests/db.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "manifests/db/sync.pp",
+            "manifests/deps.pp",
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/keystone/authtoken.pp",
+            "manifests/keystone/domain.pp",
+            "manifests/logging.pp",
+            "manifests/policy.pp",
+            "releasenotes/notes/external_install_mgmt_hook-a91729a7e9151378.yaml",
+            "spec/classes/magnum_api_spec.rb",
+            "spec/classes/magnum_db_sync_spec.rb",
+            "spec/classes/magnum_init_spec.rb"]
       },
       {
         "hash": "bc475a0d425600b39ce88090e4e07a7470dd5235",
         "msg": "Deprecate signing_dir option\n\nThe signing_dir is deprecated for removel because of PKI token format\nis no longer supported.\nUpdate warning message and release note.\n\nChange-Id: I693677504323503b25e2739212cf7a731bb43d67\nCloses-Bug: #1652700",
         "cmtr": "ZhongShengping",
         "date": "2016-12-28 14:11:45+08:00",
-        "files": ["authtoken.pp", "deprecate_signing_dir_parameter-81345a223f234569.yaml", "magnum_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_signing_dir_parameter-81345a223f234569.yaml",
+            "spec/classes/magnum_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "7013f5f9e1c69345cde82faafcda86b2b4dfcb8e",
         "msg": "Allow python-memcache install from authtoken class\n\nThe python-memcache package is required if using memcached. By\ndefault the package is not installed and the define has it set to\nfalse. This change allows managing the python-memcache package\ninstall from the authtoken class.\n\nChange-Id: I492f8eb4826140be3bfa041adb13b2a916a50bb8",
         "cmtr": "Matthew J. Black",
         "date": "2017-01-11 18:30:45-05:00",
-        "files": ["authtoken.pp", "authtoken_manage_memcache_package-ed76209f78d8491d.yaml", "magnum_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/authtoken_manage_memcache_package-ed76209f78d8491d.yaml",
+            "spec/classes/magnum_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "8f2b017482a31ce950d3c6bcc4d5ebe1f2184ef2",
         "msg": "Add unit test for client.pp\n\n1) Add unit test for magnum::client class.\n2) Fix package_ensure default value, the present should\n   be enclosed in single quotation marks in order to\n   indicate that it is string.\n\nChange-Id: I553491782e6c734ef8c6c15d1ba7fc4d5617e3a3",
         "cmtr": "ZhongShengping",
         "date": "2017-01-20 17:06:18+08:00",
-        "files": ["client.pp", "magnum_client_spec.rb"]
+        "files": [
+            "manifests/client.pp",
+            "spec/classes/magnum_client_spec.rb"]
       },
       {
         "hash": "f8801e28fbccb5d257f8bb428c0d4b549f69d3d0",
         "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should be\ninstalled before dbsync starts.\n\nChange-Id: Id9a20462b3b3c648e3d740df318a305c3fce08f4",
         "cmtr": "ZhongShengping",
         "date": "2017-01-22 21:45:48+08:00",
-        "files": ["deps.pp"]
+        "files": [
+            "manifests/deps.pp"]
       },
       {
         "hash": "8bbe766a700dcbe69f306fb9b49612d1c707371c",
         "msg": "Add control_exchange and rpc_response_timeout options\n\nAdd control_exchange to configure an exchange name for message.\nAdd rpc_response_timeout to configure seconds time for waiting\nfor a response from a call.\n\nChange-Id: I400b562f0b0d52f6d47e027fb2f12fab63cf511e",
         "cmtr": "ZhongShengping",
         "date": "2017-02-06 11:11:51+08:00",
-        "files": ["init.pp", "add_messaging_default_parameters-7a2e871359d23561.yaml", "magnum_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add_messaging_default_parameters-7a2e871359d23561.yaml",
+            "spec/classes/magnum_init_spec.rb"]
       },
       {
         "hash": "fa0dfc73f43e583447a7b20ed6c9625885574ebc",
         "msg": "Add notification_transport_url and notification_topics options\n\nAdd notification_transport_url to configure a URL representing the\nmessaging driver to use for notifications.\nAdd notification_topics to configure AMQP topic used for OpenStack\nnotifications.\n\nChange-Id: I7cc3a008486724a3ce566a91fbada9a4d65d5748",
         "cmtr": "ZhongShengping",
         "date": "2017-03-01 11:16:21+08:00",
-        "files": ["init.pp", "add_messaging_notification_parameters-a18945387119d67f.yaml", "magnum_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add_messaging_notification_parameters-a18945387119d67f.yaml",
+            "spec/classes/magnum_init_spec.rb"]
       },
       {
         "hash": "269fea9f3298da9ea6c1c350be1caf9b6150a452",
         "msg": "Remove deprecated keystone authtoken signing_dir option\n\nChange-Id: If73cab108b487243ffa5bcb91c5a5dd548b04321",
         "cmtr": "ZhongShengping",
         "date": "2017-07-07 09:59:20+08:00",
-        "files": ["authtoken.pp", "remove_deprecated_keystone_signing_dir_option-905222b966c58112.yaml"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/remove_deprecated_keystone_signing_dir_option-905222b966c58112.yaml"]
       },
       {
         "hash": "0f8b9f024ef2989984f2b7c2deb88fe472b900fb",
         "msg": "Allow cluster user trusts to be configured\n\nBy default, cluster user trusts are disabled however they are\nneeded if you want to have fully automated LBaaS integration.\n\nThis patch allows a user to enable or disable that option easily,\nleaving it to the service default by default for security.\n\nChange-Id: If6828e344855a06a650ec4c3fffbf89c5177eca8",
         "cmtr": "Mohammed Naser",
         "date": "2017-07-28 13:22:07-04:00",
-        "files": ["domain.pp", "allow-enable-cluster-user-trust-49bc0abdc8504532.yaml", "magnum_keystone_domain_spec.rb"]
+        "files": [
+            "manifests/keystone/domain.pp",
+            "releasenotes/notes/allow-enable-cluster-user-trust-49bc0abdc8504532.yaml",
+            "spec/classes/magnum_keystone_domain_spec.rb"]
       },
       {
         "hash": "f739aa363b7d536c8f561a1a1fbe81a09719de56",
         "msg": "Allow setting of the DB sync command path\n\nThe magnum-db-manage command is not necessarily located under /usr/bin\nif Magnum is installed in e.g. a virtualenv. In cases like this, it is\nuseful to let the module user specify a different path, such as the bin\ndirectory of a virtualenv.\n\nChange-Id: I0687683558a4a9ed445642b36b2ce7b7075e49f7",
         "cmtr": "Risto Laurikainen",
         "date": "2017-08-03 11:52:23+03:00",
-        "files": ["sync.pp", "magnum_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "spec/classes/magnum_db_sync_spec.rb"]
       },
       {
         "hash": "008810dfbdf5845b79a078813c681fb8b3a03039",
         "msg": "Deprecate oslo.messaging rpc_backend option parameter\n\nOslo.messaging uses the transport_url to represent the rpc and\nnotification messaging driver to use and its full configuration. The\nrpc_backend configuration option is deprecated for removal and\nshould not gate oslo.messaging driver configuration options.\n\nThis patch:\n* deprecate rpc_backend\n* remove conditional check\n* update spec tests\n* add release note\n\nChange-Id: I5bac059b9c06b691a140a6c7c28c766ec66c1bd9\nCloses-Bug: #1708976",
         "cmtr": "ZhongShengping",
         "date": "2017-08-07 14:28:54+08:00",
-        "files": ["init.pp", "deprecate_rpc_backend_parameter-1f01d048fe9497fc.yaml", "magnum_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/deprecate_rpc_backend_parameter-1f01d048fe9497fc.yaml",
+            "spec/classes/magnum_init_spec.rb"]
       },
       {
         "hash": "b7071d406cb41fab612765a566a3bd791201afeb",
         "msg": "Fix magnum cluster TLS cert generation\n\nMagnum cluster's cert creation requires admin_user, admin_password\nand admin_tenant_name to be set in [keystone_authtoken] section.\n\nChange-Id: Ice8e6537ac6796df032c4c4cf2a194d2214430fd\nCloses-Bug: #1670355",
         "cmtr": "Mohammed Naser",
         "date": "2017-09-05 13:09:49+00:00",
-        "files": ["authtoken.pp", "magnum_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "spec/classes/magnum_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "4fb1dec3dfd16c680bb9f23124bd3115dfe6348d",
         "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: I6edd1bbad778c2a9b44be9bcfc65c978b5e35132\nCloses-Bug: #1717144",
         "cmtr": "ZhongShengping",
         "date": "2017-09-14 11:38:55+08:00",
-        "files": ["authtoken.pp", "deprecate_revocation_cache_time_parameter-255ee73006a4dbf4.yaml", "magnum_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_revocation_cache_time_parameter-255ee73006a4dbf4.yaml",
+            "spec/classes/magnum_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "3bd8a92173b7e7349c5eb5ccb42e508a3396be36",
         "msg": "Configure *_domain_name to Default by default\n\nKeystone v2.0 API was removed so we have no choice but configuring\nuser_domain_name and project_domain_name otherwise it fallbacks to\nKeystone v2.0 and it fails. This patch sets the default value so we make\nsure Keystone v3 will be used out of the box for our users.\n\nChange-Id: I8df96dd9faf520fe0af21edb2cfa626b17d65727",
         "cmtr": "ZhongShengping",
         "date": "2017-10-13 14:35:06+08:00",
-        "files": ["authtoken.pp", "default_domain-b63fcbe67240bd42.yaml", "magnum_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/default_domain-b63fcbe67240bd42.yaml",
+            "spec/classes/magnum_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "f093af69a9956c8d07740c81df2c0a30314a7160",
         "msg": "Update group name of cert related options\n\nThe group name of cert related options have been changed from\nkeystone_authtoken to keystone_auth since Ocata[1].\n\nThis patch is aim to update them to avoid deprecated warning from oslo.config\n\n[1] https://github.com/openstack/magnum/blob/master/magnum/conf/keystone.py#L19\n\nChange-Id: Ic86eda5ca936e84da9a813aee8b6ceaa1c90eff7",
         "cmtr": "Xingchao Yu",
         "date": "2017-11-03 12:29:34+13:00",
-        "files": ["authtoken.pp", "magnum_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "spec/classes/magnum_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "05276d975818061d171e1d6e2ad703bc1fdcf9be",
         "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: I0a01c3b3cd8159a164d45ecddf52d028bbcef1c3",
         "cmtr": "ZhongShengping",
         "date": "2017-11-28 09:30:28+08:00",
-        "files": ["logging.pp", "log-json-d5138783135f23e9.yaml", "magnum_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "releasenotes/notes/log-json-d5138783135f23e9.yaml",
+            "spec/classes/magnum_logging_spec.rb"]
       },
       {
         "hash": "ffd62b6b1b01f6199bcab6c76388fbedd7063ff6",
         "msg": "Add trustee related parameters in magnum::keystone::domain\n\nThis patch adds domain_id, domain_admin_id, domain_admin_domain_name,\ndomain_admin_domain_id, roles, keystone_interface parameters in magnum::keystone::domain\nto manage related options in [trust] section.\n\nChange-Id: I5339d87a60950c054cacc459063165254d1508c7",
         "cmtr": "Xingchao Yu",
         "date": "2017-12-05 10:33:35+13:00",
-        "files": ["domain.pp", "add-trustee-options-a5377495406328bb.yaml", "magnum_keystone_domain_spec.rb"]
+        "files": [
+            "manifests/keystone/domain.pp",
+            "releasenotes/notes/add-trustee-options-a5377495406328bb.yaml",
+            "spec/classes/magnum_keystone_domain_spec.rb"]
       },
       {
         "hash": "73210b5516c788b37287bd6a86c3f1f1c77ebfd7",
         "msg": "Refactor class magnum::clients\n\nTo make a better support of OpenStack clients' configuration in Magnum,\nthis patch splits the original magnum::clients into services\nrelated classes and make it compatible with the old version.\n\nChange-Id: I2eb25717fd07833264f1e3b9919b59f917312427",
         "cmtr": "Xingchao Yu",
         "date": "2018-01-09 15:01:37+13:00",
-        "files": ["clients.pp", "barbican.pp", "cinder.pp", "glance.pp", "heat.pp", "magnum.pp", "neutron.pp", "nova.pp", "refactor_magnum_clients_configuration-4f81d65d49fb8d20.yaml", "magnum_clients_barbican_spec.rb", "magnum_clients_cinder_spec.rb", "magnum_clients_glance_spec.rb", "magnum_clients_heat_spec.rb", "magnum_clients_magnum_spec.rb", "magnum_clients_neutron_spec.rb", "magnum_clients_nova_spec.rb", "magnum_clients_spec.rb"]
+        "files": [
+            "manifests/clients.pp",
+            "manifests/clients/barbican.pp",
+            "manifests/clients/cinder.pp",
+            "manifests/clients/glance.pp",
+            "manifests/clients/heat.pp",
+            "manifests/clients/magnum.pp",
+            "manifests/clients/neutron.pp",
+            "manifests/clients/nova.pp",
+            "releasenotes/notes/refactor_magnum_clients_configuration-4f81d65d49fb8d20.yaml",
+            "spec/classes/magnum_clients_barbican_spec.rb",
+            "spec/classes/magnum_clients_cinder_spec.rb",
+            "spec/classes/magnum_clients_glance_spec.rb",
+            "spec/classes/magnum_clients_heat_spec.rb",
+            "spec/classes/magnum_clients_magnum_spec.rb",
+            "spec/classes/magnum_clients_neutron_spec.rb",
+            "spec/classes/magnum_clients_nova_spec.rb",
+            "spec/classes/magnum_clients_spec.rb"]
       },
       {
         "hash": "dabc9d9d1f45e896e5c905a3da9266907f720c01",
         "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nChange-Id: Ic5f73993ea4d71fc186272c624a906fcae2dcfa8\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
         "cmtr": "Emilien Macchi",
         "date": "2018-01-10 14:23:13-08:00",
-        "files": ["params.pp", "policy.pp", "magnum_policy_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "spec/classes/magnum_policy_spec.rb"]
       },
       {
         "hash": "ed246a7814bf33015eefb62b7eec3f41503f6e79",
         "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: Id372d8383c7d18cc2b653bc831b2d4adeb9b97f3",
         "cmtr": "ZhongShengping",
         "date": "2018-01-15 15:53:12+08:00",
-        "files": ["logging.pp", "add-use_journal-option-for-logging-9dd846f83cb4c3bf.yaml", "magnum_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "releasenotes/notes/add-use_journal-option-for-logging-9dd846f83cb4c3bf.yaml",
+            "spec/classes/magnum_logging_spec.rb"]
       },
       {
         "hash": "a2233bdb21207534d1d221ff1c5d7951696c3a40",
         "msg": "Add kombu_failover_strategy option\n\nAdds the kombu_failover_strategy option for configuring\noslo.messaging.rabbit. This will determines how the next RabbitMQ node\nis chosen in case the one we are currently connected to becomes\nunavailable.\n\nChange-Id: Icee91fe364967a443606d0287f58d06abc31f9fd\nCloses-Bug: #1748353",
         "cmtr": "ZhongShengping",
         "date": "2018-02-09 14:43:14+08:00",
-        "files": ["init.pp", "add_rabbit_kombu_options-8c59fd5ff9e66f74.yaml", "magnum_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add_rabbit_kombu_options-8c59fd5ff9e66f74.yaml",
+            "spec/classes/magnum_init_spec.rb"]
       },
       {
         "hash": "38e2f554ca0253fda7f0566464509926c44ce680",
         "msg": "remove duplicate word 'the' to fix typo\n\nChange-Id: Ib2d52cad692f6ba8152fb5183550719c5a711fb5",
         "cmtr": "wangqi",
         "date": "2018-02-24 04:17:50+00:00",
-        "files": ["clients.pp", "barbican.pp", "glance.pp", "heat.pp", "magnum.pp", "neutron.pp", "nova.pp"]
+        "files": [
+            "manifests/clients.pp",
+            "manifests/clients/barbican.pp",
+            "manifests/clients/glance.pp",
+            "manifests/clients/heat.pp",
+            "manifests/clients/magnum.pp",
+            "manifests/clients/neutron.pp",
+            "manifests/clients/nova.pp"]
       },
       {
         "hash": "785ab85b29eb990c3904678a3287d37445241277",
         "msg": "Fix mysql connection\n\nURL mysql://scott:***@some_host/some_db does not contain a '+drivername'\nportion, and will make use of a default driver. A full dbname+drivername://\nprotocol is recommended. For MySQL, it is strongly recommended that\nmysql+pymysql:// be specified for maximum service compatibility.\n\nChange-Id: Ic51da9a9d0c6380eeb4da85d192a5a19ebf96c79\nCloses-Bug: #1753342",
         "cmtr": "ZhongShengping",
         "date": "2018-03-05 08:57:21+08:00",
-        "files": ["db.pp", "magnum_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "spec/classes/magnum_db_spec.rb"]
       },
       {
         "hash": "f9dd363bc203ef0d76dc6a9cc213c6d9a689bc3b",
         "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: I632ec1cfcbe6085e27fa215d5d2efdeb625b736a\nCloses-Bug: #1755102",
         "cmtr": "ZhongShengping",
         "date": "2018-03-12 16:33:08+08:00",
-        "files": ["sync.pp", "openstack_db_tag-aa8292ddf63b0698.yaml", "magnum_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "releasenotes/notes/openstack_db_tag-aa8292ddf63b0698.yaml",
+            "spec/classes/magnum_db_sync_spec.rb"]
       },
       {
         "hash": "231940f0f43c4121562ad1d8770489411b042c8a",
         "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: I256a68a971671f1b6076e5fadffbb816fb3553cd\nCloses-Bug: #1757581",
         "cmtr": "ZhongShengping",
         "date": "2018-03-22 11:09:50+08:00",
-        "files": ["db.pp", "add-pool_timeout-option-for-db-8bd0ac3fcd103476.yaml", "magnum_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "releasenotes/notes/add-pool_timeout-option-for-db-8bd0ac3fcd103476.yaml",
+            "spec/classes/magnum_db_spec.rb"]
       },
       {
         "hash": "211551bec5b400356557b01bb9a1fec2423042e0",
         "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: I757e4a0d53afbf9ae9365b45827bc2303fcb9582",
         "cmtr": "ZhongShengping",
         "date": "2018-03-27 10:33:22+08:00",
-        "files": ["authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-bb003f5deb30850c.yaml"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/remove_deprecated_keystone_revocation_cache_time_option-bb003f5deb30850c.yaml"]
       },
       {
         "hash": "71097573612c0562329ff3e7697433e365742d77",
         "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: I68733b2be276fb6c3313fc116dfbaf18cf746ac2\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
         "cmtr": "ZhongShengping",
         "date": "2018-04-03 16:55:02+08:00",
-        "files": ["authtoken.pp", "deprecate_auth_uri_parameter-abd0e90c6e73a787.yaml", "magnum_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_auth_uri_parameter-abd0e90c6e73a787.yaml",
+            "spec/classes/magnum_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "4c18149d86fa5363b0149ebf18f83d04b40bdce7",
         "msg": "Debian is using python3-magnumclient\n\nChange-Id: I2467cb502ca3f1776ab10beeb9547fa7d27fcea7",
         "cmtr": "zhubingbing",
         "date": "2018-04-12 14:03:06+08:00",
-        "files": ["params.pp", "magnum_client_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "spec/classes/magnum_client_spec.rb"]
       },
       {
         "hash": "21ac4a6ed1b1a8f3895b76555870b3e0538238aa",
         "msg": "neat: missing : in $::os_service_default\n\nChange-Id: I1d5fae044d6b984e8c9b87ea003af75f9edf0e86",
         "cmtr": "zhubingbing",
         "date": "2018-05-11 14:02:40+08:00",
-        "files": ["authtoken.pp"]
+        "files": [
+            "manifests/keystone/authtoken.pp"]
       },
       {
         "hash": "fa57613789f3d93d45346fac12c36a62713e0459",
         "msg": "Replace port 35357 with 5000\n\nNow that the v2.0 API has been removed, we don't have a reason to\ninclude deployment instructions for two separate applications on\ndifferent ports.\n\nChange-Id: I168b731b37a714500a5600d0f5f95e229efa25fd",
         "cmtr": "qiaomin",
         "date": "2018-05-13 00:37:38+08:00",
-        "files": ["authtoken.pp", "magnum_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "spec/classes/magnum_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "d87868123b5e5964223ae8290497379d67747f75",
         "msg": "Fix the default parameter value in spec test\n\nThe default parameter value is 'SERVICE DEFAULT', not 'SERVICE_DEFAULT'.\n\nChange-Id: I2e58ea9d64cc5d45750560f92812540ed5e7d213\nCloses-Bug: #1690973",
         "cmtr": "Tobias Urdin",
         "date": "2018-05-15 15:17:11+02:00",
-        "files": ["init.pp", "magnum_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/magnum_init_spec.rb"]
       },
       {
         "hash": "2b14e1f3798f6f03ddeb887197c6d198c7f68753",
         "msg": "Remove deprecated rabbit params\n\nRemove the deprecated rabbit params which has been deprecated for\ntwo years. The default_transport_url has been present for a while\nnow and should be used.\n\nChange-Id: Iba521efa97f9cfd3510c77f93cd627551e442c53",
         "cmtr": "ZhongShengping",
         "date": "2018-05-24 10:50:40+08:00",
-        "files": ["init.pp", "remove-deprecated-rabbit-params-89f10f0abe8650d2.yaml", "magnum_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/remove-deprecated-rabbit-params-89f10f0abe8650d2.yaml",
+            "spec/classes/magnum_init_spec.rb"]
       },
       {
         "hash": "64de146f2a74e6f10f0d6d36f75b307d08753d9d",
         "msg": "Fix annotations\n\nChange-Id: I4f5b9f720083cdb404d655dcc77870aad2fdc243",
         "cmtr": "zhubingbing",
         "date": "2018-06-15 15:07:37+08:00",
-        "files": ["mysql.pp"]
+        "files": [
+            "manifests/db/mysql.pp"]
       },
       {
         "hash": "162203cd90c06230c2f458831319925c262fa3b2",
         "msg": "Fix typo in magnum::clients classes\n\nUsing magnum::clietns instead of magnum::clients\nfor the default values causing it to not work.\n\nChange-Id: Ie06d7ac340a00c1d249f5272e70d0244e4d74526",
         "cmtr": "Tobias Urdin",
         "date": "2018-07-05 11:28:33+02:00",
-        "files": ["barbican.pp", "glance.pp", "heat.pp", "magnum.pp", "neutron.pp", "nova.pp"]
+        "files": [
+            "manifests/clients/barbican.pp",
+            "manifests/clients/glance.pp",
+            "manifests/clients/heat.pp",
+            "manifests/clients/magnum.pp",
+            "manifests/clients/neutron.pp",
+            "manifests/clients/nova.pp"]
       },
       {
         "hash": "c1a475e0c99272e33b4b599ca0b812042c686603",
         "msg": "Add more rabbitmq options\n\nAdds the rabbit_ha_queues, rabbit_heartbeat_timeout_threshold\nand rabbit_heartbeat_rate parameters that is used to configure\noslo messaging.\n\nChange-Id: Iaf5679283e56f112b15d8440f57d708b525bb024",
         "cmtr": "Tobias Urdin",
         "date": "2018-07-05 12:03:47+02:00",
-        "files": ["init.pp", "add-rabbit-options-0e55ab16cdf4765b.yaml", "magnum_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add-rabbit-options-0e55ab16cdf4765b.yaml",
+            "spec/classes/magnum_init_spec.rb"]
       },
       {
         "hash": "86e943c3ca13aaa4b9278253b15622b755a5d866",
         "msg": "add oslo_messaging_rabbit/amqp_durable_queues option\n\nChange-Id: Ib541a3db459cb1725996acffdbe07dc452376060",
         "cmtr": "Jake Yip",
         "date": "2018-07-12 16:18:22+10:00",
-        "files": ["init.pp", "add_amqp_durable_queues-ebfd69769e01b67c.yaml", "magnum_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add_amqp_durable_queues-ebfd69769e01b67c.yaml",
+            "spec/classes/magnum_init_spec.rb"]
       },
       {
         "hash": "fbd5517abd1ae11eedeea9726a8daf704307079c",
         "msg": "add keystone_authtoken to conductor\n\nmagnum-conductor's keystone client appears to still require access to\nkeystone_authtoken auth_uri [1]\n\n[1] https://github.com/openstack/magnum/blob/stable/queens/magnum/common/keystone.py#L47\n\nChange-Id: Ic96b59db6c7b505afaa31f7d6b74ec621a2ba686",
         "cmtr": "Jake Yip",
         "date": "2018-07-12 16:22:24+10:00",
-        "files": ["conductor.pp", "magnum_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "spec/classes/magnum_conductor_spec.rb"]
       },
       {
         "hash": "c8fb3d1b5cadad66c298fb1b39068954a20d2208",
         "msg": "Add sqlite to validate_re\n\nWhen doing spec tests on your custom modules\nyou want to have as little dependencies as\npossible so specifying sqlite is the simplest.\n\nIf you specify mysql or postgresql you'll need\nyour custom testing grabing the upstream puppetlabs-mysql\nor puppetlabs-postgresql modules which just adds unnecessary\ndeps instead of a few bytes in a validate_re function.\n\nChange-Id: If25e8c0161bdd487f11460884883f42ea13074b3",
         "cmtr": "Tobias Urdin",
         "date": "2018-07-17 13:35:41+02:00",
-        "files": ["db.pp", "magnum_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "spec/classes/magnum_db_spec.rb"]
       },
       {
         "hash": "d7ad44293b2f42f1a9dce618b0e2ad66bfbb37f1",
         "msg": "Fix the smoke testing link\n\nChange-Id: I5e54f613a91a1967c7a72e9eebeb3edf7965406d",
         "cmtr": "jacky06",
         "date": "2018-07-30 12:31:32-04:00",
-        "files": ["init.pp"]
+        "files": [
+            "tests/init.pp"]
       },
       {
         "hash": "d59bd32b1ddd132d9c7c57dbd9b773f60dabafe8",
         "msg": "Add workers to magnum api and conductor\n\nThis patch adds two new parameters that can\nbe used to specify the number of workers for\nthe api and conductor services.\n\nChange-Id: I71dcfba1f162b395c3d9e68513dfcf9a099800df",
         "cmtr": "Tobias Urdin",
         "date": "2018-08-22 19:11:02+02:00",
-        "files": ["api.pp", "conductor.pp", "add-workers-1ae88b14d0638a82.yaml", "magnum_api_spec.rb", "magnum_conductor_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/conductor.pp",
+            "releasenotes/notes/add-workers-1ae88b14d0638a82.yaml",
+            "spec/classes/magnum_api_spec.rb",
+            "spec/classes/magnum_conductor_spec.rb"]
       },
       {
         "hash": "e16f87c6ac48986debd40852067ef6f7272ddd28",
         "msg": "Add Magnum API WSGI support\n\nAdds support for running the Magnum API under WSGI with Apache.\n\nChange-Id: I6c564992218a0802981eece5bff8b2a4a7a85f7c",
         "cmtr": "Tobias Urdin",
         "date": "2018-09-19 14:08:53+02:00",
-        "files": ["api.pp", "params.pp", "apache.pp", "magnum-api-wsgi-d0740524e4232379.yaml", "magnum_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/params.pp",
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/magnum-api-wsgi-d0740524e4232379.yaml",
+            "spec/classes/magnum_api_spec.rb"]
       }]
     }

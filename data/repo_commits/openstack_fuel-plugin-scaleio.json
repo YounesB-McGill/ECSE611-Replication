@@ -1,7 +1,56 @@
     {
       "url": "https://github.com/openstack/fuel-plugin-scaleio",
-      "pp_files": ["discovery_cluster.pp", "mdm.pp", "tb.pp", "cluster.pp", "compute.pp", "check_environment_configuration.pp", "init.pp", "scaleio.pp", "cinder.pp", "glance_delete_test_image.pp", "params.pp", "controller.pp", "configure_gateway.pp", "sdc_server.pp", "sds_server.pp", "install_scaleio.pp", "os.pp", "glance.pp", "configure_cinder.pp", "sdc.pp", "sds.pp", "resize_cluster.pp", "ha.pp", "gateway_configuration.pp", "enable_ha.pp", "environment.pp", "gateway.pp", "mdm_package.pp", "environment_existing_mdm_ips.pp", "configure_nova.pp", "glance_create_test_image.pp", "gateway_server.pp", "nova.pp", "create_volume_type.pp", "mdm_server.pp"],
-      "pp_cmtrs": ["Patrick Butler Monterde", "Adrian Moreno", "alexey-mr", "Andrey Pavlov", "Moreno, Adrian"],
+      "pp_files": [
+        "deployment_scripts/puppet/manifests/environment.pp",
+        "deployment_scripts/puppet/manifests/resize_cluster.pp",
+        "deployment_scripts/puppet/modules/scaleio_fuel/manifests/controller.pp",
+        "deployment_scripts/puppet/manifests/configure_cinder.pp",
+        "deployment_scripts/puppet/manifests/nova.pp",
+        "deployment_scripts/puppet/manifests/controller.pp",
+        "deployment_scripts/puppet/manifests/scaleio.pp",
+        "deployment_scripts/puppet/modules/scaleio_fuel/manifests/tb.pp",
+        "deployment_scripts/puppet/modules/scaleio_fuel/manifests/init.pp",
+        "deployment_scripts/puppet/manifests/discovery_cluster.pp",
+        "deployment_scripts/puppet/modules/scaleio_fuel/manifests/configure_gateway.pp",
+        "deployment_scripts/puppet/manifests/mdm_server.pp",
+        "deployment_scripts/puppet/manifests/sdc.pp",
+        "deployment_scripts/puppet/modules/scaleio_fuel/manifests/compute.pp",
+        "deployment_scripts/puppet/manifests/gateway.pp",
+        "deployment_scripts/puppet/manifests/sds_server.pp",
+        "deployment_scripts/puppet/manifests/enable_ha.pp",
+        "deployment_scripts/puppet/manifests/mdm_package.pp",
+        "deployment_scripts/puppet/manifests/os.pp",
+        "deployment_scripts/puppet/manifests/environment_existing_mdm_ips.pp",
+        "deployment_scripts/puppet/modules/scaleio_fuel/manifests/create_volume_type.pp",
+        "deployment_scripts/puppet/manifests/gateway_server.pp",
+        "deployment_scripts/puppet/manifests/configure_gateway.pp",
+        "deployment_scripts/puppet/manifests/configure_nova.pp",
+        "deployment_scripts/puppet/manifests/glance.pp",
+        "deployment_scripts/puppet/manifests/compute.pp",
+        "deployment_scripts/puppet/manifests/mdm.pp",
+        "deployment_scripts/puppet/modules/scaleio_fuel/manifests/gateway.pp",
+        "deployment_scripts/puppet/modules/scaleio_fuel/manifests/sds.pp",
+        "deployment_scripts/puppet/manifests/cinder.pp",
+        "deployment_scripts/puppet/manifests/cluster.pp",
+        "deployment_scripts/puppet/manifests/install_scaleio.pp",
+        "deployment_scripts/puppet/manifests/sdc_server.pp",
+        "deployment_scripts/puppet/manifests/tb.pp",
+        "deployment_scripts/puppet/manifests/sds.pp",
+        "deployment_scripts/puppet/modules/scaleio_fuel/manifests/params.pp",
+        "deployment_scripts/puppet/modules/scaleio_fuel/manifests/enable_ha.pp",
+        "deployment_scripts/puppet/manifests/glance_delete_test_image.pp",
+        null,
+        "deployment_scripts/puppet/modules/scaleio_fuel/manifests/gateway_configuration.pp",
+        "deployment_scripts/puppet/manifests/create_volume_type.pp",
+        "deployment_scripts/puppet/manifests/gateway_configuration.pp",
+        "deployment_scripts/puppet/modules/scaleio_fuel/manifests/ha.pp",
+        "deployment_scripts/puppet/modules/scaleio_fuel/manifests/configure_nova.pp",
+        "deployment_scripts/puppet/manifests/glance_create_test_image.pp",
+        "deployment_scripts/puppet/modules/scaleio_fuel/manifests/configure_cinder.pp",
+        "deployment_scripts/puppet/manifests/check_environment_configuration.pp",
+        "deployment_scripts/puppet/modules/scaleio_fuel/manifests/mdm.pp"
+      ],
+      "pp_cmtrs": ["alexey-mr", "Moreno, Adrian", "Andrey Pavlov", "Adrian Moreno", "Patrick Butler Monterde"],
       "num_pp_commits": 40,
       "num_tot_commits": 133,
       "commits": [{
@@ -9,279 +58,625 @@
         "msg": "Initial Commit for the ScaleIO Fuel Plugin\n\nChange-Id: I19f1769dee6951965978f8c2ec7f223a21b71c4e",
         "cmtr": "Patrick Butler Monterde",
         "date": "2015-09-22 08:50:42-07:00",
-        "files": ["CONTRIBUTING.md", "Fuel Plugins for ScaleIO.pptx", "README.md", "fuel-plugin-scaleio.vsd", ".gitkeep", "fuel-plugin-scaleio-Architecture.jpg", "LICENSE", "README.md", "Vagrantfile", "deploy.sh", "check_environment_configuration.pp", "controller.pp", "gateway.pp", "mdm.pp", "sds.pp", "tb.pp", "controller.pp", "gateway.pp", "init.pp", "mdm.pp", "params.pp", "sds.pp", "tb.pp", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "node_roles.yaml", "pre_build_hook", ".gitkeep", ".gitkeep", "tasks.yaml"]
+        "files": [
+            "CONTRIBUTING.md",
+            "Documentation/OS-Deployment-with-existing-ScaleIO/Fuel Plugins for ScaleIO.pptx",
+            "Documentation/OS-Deployment-with-existing-ScaleIO/README.md",
+            "Documentation/fuel-plugin-scaleio.vsd",
+            "Documentation/images/.gitkeep",
+            "Documentation/images/fuel-plugin-scaleio-Architecture.jpg",
+            "LICENSE",
+            "README.md",
+            "Vagrantfile",
+            "deployment_scripts/deploy.sh",
+            "deployment_scripts/puppet/manifests/check_environment_configuration.pp",
+            "deployment_scripts/puppet/manifests/controller.pp",
+            "deployment_scripts/puppet/manifests/gateway.pp",
+            "deployment_scripts/puppet/manifests/mdm.pp",
+            "deployment_scripts/puppet/manifests/sds.pp",
+            "deployment_scripts/puppet/manifests/tb.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/gateway.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/init.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/mdm.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/params.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/sds.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/tb.pp",
+            "deployment_tasks.yaml",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "node_roles.yaml",
+            "pre_build_hook",
+            "repositories/centos/.gitkeep",
+            "repositories/ubuntu/.gitkeep",
+            "tasks.yaml"]
       },
       {
         "hash": "bde3a6bc73af85483d7a8a7d80d4fdaa10ab7336",
         "msg": "clean repo\n\nChange-Id: I8799fdb5e7b197fa7fde32f1b5a484346457d038",
         "cmtr": "Moreno, Adrian",
         "date": "2015-10-13 15:24:20+02:00",
-        "files": ["CONTRIBUTING.md", "Fuel Plugins for ScaleIO.pptx", "README.md", "fuel-plugin-scaleio.vsd", ".gitkeep", "fuel-plugin-scaleio-Architecture.jpg", "LICENSE", "README.md", "Vagrantfile", "deploy.sh", "check_environment_configuration.pp", "controller.pp", "gateway.pp", "mdm.pp", "sds.pp", "tb.pp", "controller.pp", "gateway.pp", "init.pp", "mdm.pp", "params.pp", "sds.pp", "tb.pp", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "node_roles.yaml", "pre_build_hook", ".gitkeep", ".gitkeep", "tasks.yaml"]
+        "files": [
+            "None",
+            "Documentation/OS-Deployment-with-existing-ScaleIO/Fuel Plugins for ScaleIO.pptx",
+            "None",
+            "Documentation/fuel-plugin-scaleio.vsd",
+            "Documentation/images/.gitkeep",
+            "Documentation/images/fuel-plugin-scaleio-Architecture.jpg",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "repositories/centos/.gitkeep",
+            "repositories/ubuntu/.gitkeep",
+            "None"]
       },
       {
         "hash": "2170e26af5856ff2e473018e6cfecd1e46e66882",
         "msg": "Initial version\n\nChange-Id: Id419ab5c9e67362c980d6a526a0eb3ebe5151ffb",
         "cmtr": "Moreno, Adrian",
         "date": "2015-10-15 17:39:11+02:00",
-        "files": [".gitignore", "CONTRIBUTING.md", "Fuel Plugins for ScaleIO.pptx", "README.md", "fuel-plugin-scaleio.vsd", ".gitkeep", "fuel-plugin-scaleio-Architecture.jpg", "LICENSE", "README.md", "Vagrantfile", "deploy.sh", "check_environment_configuration.pp", "scaleio.pp", "gateway.pp", "init.pp", "mdm.pp", "params.pp", "sds.pp", "tb.pp", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "node_roles.yaml", "pre_build_hook", ".gitkeep", ".gitkeep", "tasks.yaml"]
+        "files": [
+            ".gitignore",
+            "CONTRIBUTING.md",
+            "Documentation/OS-Deployment-with-existing-ScaleIO/Fuel Plugins for ScaleIO.pptx",
+            "Documentation/OS-Deployment-with-existing-ScaleIO/README.md",
+            "Documentation/fuel-plugin-scaleio.vsd",
+            "Documentation/images/.gitkeep",
+            "Documentation/images/fuel-plugin-scaleio-Architecture.jpg",
+            "LICENSE",
+            "README.md",
+            "Vagrantfile",
+            "deployment_scripts/deploy.sh",
+            "deployment_scripts/puppet/manifests/check_environment_configuration.pp",
+            "deployment_scripts/puppet/manifests/scaleio.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/gateway.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/init.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/mdm.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/params.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/sds.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/tb.pp",
+            "deployment_tasks.yaml",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "node_roles.yaml",
+            "pre_build_hook",
+            "repositories/centos/.gitkeep",
+            "repositories/ubuntu/.gitkeep",
+            "tasks.yaml"]
       },
       {
         "hash": "785763c4cf6bed937d1ce58390df5e5e67b01df4",
         "msg": "dynamically generate SDS device hash from nodes\n\nChange-Id: I175295a59c178b0a0119a5bfe757b725622f7645",
         "cmtr": "Moreno, Adrian",
         "date": "2015-10-22 16:25:10+02:00",
-        "files": ["get_sds_devices.rb", "params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/puppet/parser/functions/get_sds_devices.rb",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/params.pp"]
       },
       {
         "hash": "ba4e031b6bed5de1a7e77384161f3bf2fbf3591f",
         "msg": "Added manifests and files to connect OpenStack with ScaleIO. Tasks not enabled yet. Updated to 0.2.0\n\nChange-Id: Ied20dd9bebe00d51668cba8415e6bef2d8ba7e08",
         "cmtr": "Adrian Moreno",
         "date": "2015-11-05 17:30:19+01:00",
-        "files": ["Vagrantfile", "compute.pp", "controller.pp", "scaleio.filters", "scaleio.py", "scaleiolibvirtdriver.py", "compute.pp", "controller.pp", "metadata.yaml", "tasks.yaml"]
+        "files": [
+            "Vagrantfile",
+            "deployment_scripts/puppet/manifests/compute.pp",
+            "deployment_scripts/puppet/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/files/scaleio.filters",
+            "deployment_scripts/puppet/modules/scaleio_fuel/files/scaleio.py",
+            "deployment_scripts/puppet/modules/scaleio_fuel/files/scaleiolibvirtdriver.py",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/compute.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/controller.pp",
+            "metadata.yaml",
+            "tasks.yaml"]
       },
       {
         "hash": "f41d7b8e514739f55930d883acd2616511fc05df",
         "msg": "added debug information in Cinder configuration\n\nChange-Id: I114af138e99136faeaf9a889db4973728333a559",
         "cmtr": "Adrian Moreno",
         "date": "2015-11-05 17:38:22+01:00",
-        "files": ["compute.pp", "controller.pp", "params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/compute.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/params.pp"]
       },
       {
         "hash": "d2c00bb0e6399f91cede37780c1d2bca53b0fc21",
         "msg": "added restrictions in UI fields\n\nChange-Id: Iaef548a06c264ec8b5a83a20693e6dae1d653148",
         "cmtr": "Adrian Moreno",
         "date": "2015-11-05 17:50:36+01:00",
-        "files": ["params.pp", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/params.pp",
+            "environment_config.yaml"]
       },
       {
         "hash": "2408cf93ca9cf24a2f9abe4a49f284b654e6335f",
         "msg": "Ignore the Gateway node when creating the SDS nodes hash\n\nChange-Id: I81bd9b61846d50dcd18927becba938fede14aaf7",
         "cmtr": "Adrian Moreno",
         "date": "2015-11-10 17:39:19+01:00",
-        "files": ["get_sds_devices.rb", "params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/puppet/parser/functions/get_sds_devices.rb",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/params.pp"]
       },
       {
         "hash": "017419f1dcbab6cb18be802d636bbea54d212f37",
         "msg": "Number of required controller nodes reduced to 3. SIO gateway now installs on all controller nodes.\n\nChange-Id: Ia090d681fa2c1775174294600ef9ca288abcf938",
         "cmtr": "Adrian Moreno",
         "date": "2015-11-17 11:32:26-08:00",
-        "files": ["init.pp", "mdm.pp", "params.pp", "tb.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/init.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/mdm.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/params.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/tb.pp"]
       },
       {
         "hash": "5da78e492bc616f909535b949836894f13da06bb",
         "msg": "Added manifests to enable HA on ScaleIO gateway\n\nChange-Id: I9f76bda294d1bb702e275aa1ca5d9a55039edb24",
         "cmtr": "Adrian Moreno",
         "date": "2015-11-17 16:01:42-08:00",
-        "files": ["controller.pp", "ha.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/ha.pp"]
       },
       {
         "hash": "7edcc84aa93628a4eeb3b0d2fc541f211dbe6e86",
         "msg": "Fixed bug in SIO gateway configuration\n\nChange-Id: Ib2f9cfbd82720051d3e0c722f13ff45a8fe6aed4",
         "cmtr": "Adrian Moreno",
         "date": "2015-11-18 09:26:54-08:00",
-        "files": ["scaleio", "get_sds_devices.rb", "controller.pp", "params.pp", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/scaleio",
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/puppet/parser/functions/get_sds_devices.rb",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/params.pp",
+            "metadata.yaml"]
       },
       {
         "hash": "1e1329e9c6a5e0194862b1d09c14d0af7b15b38e",
         "msg": "Added SDC component to compute node. Fixes issue when attaching volume to VM.\n\nChange-Id: I8d51e71a3a0225fddbc393e8607eab443e75aa5b",
         "cmtr": "Adrian Moreno",
         "date": "2015-11-23 17:58:01+01:00",
-        "files": ["sds.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/sds.pp"]
       },
       {
         "hash": "bdaaa0745858158b2ddf588005d18c3ef44155ef",
         "msg": "Gateway configuration to move port 80 to 8081\n\nChange-Id: I92c5b09274e76e205056958207d07f967377c379",
         "cmtr": "Adrian Moreno",
         "date": "2015-11-24 16:43:21+01:00",
-        "files": ["gateway_configuration.pp", "controller.pp", "gateway.pp", "gateway_configuration.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/gateway_configuration.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/controller.pp",
+            "None",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/gateway_configuration.pp"]
       },
       {
         "hash": "10fc8e7172c3ef0764785857b1cebca61c5f9296",
         "msg": "Added manifests to enable HA on ScaleIO Gateway. Not enabled yet\n\nChange-Id: I01fb9b3660c49c5ecc4e242895bfca6a6b964346",
         "cmtr": "Adrian Moreno",
         "date": "2015-11-24 16:44:55+01:00",
-        "files": ["enable_ha.pp", "port", "enable_ha.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/enable_ha.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/files/port",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/enable_ha.pp"]
       },
       {
         "hash": "a58ee7eac82bf8159cd53f244c8a045dcf460adc",
         "msg": "Added task to create a ScaleIO volume type with required extra specs\n\nChange-Id: Ica30f4d14c8489f9bf96dc3e36fcf9d8b88450e5",
         "cmtr": "Adrian Moreno",
         "date": "2015-11-24 16:44:59+01:00",
-        "files": ["create_volume_type.pp", "create_volume_type.pp", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/create_volume_type.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/create_volume_type.pp",
+            "tasks.yaml"]
       },
       {
         "hash": "3d7689eb2731f26e8541c8e1d56564b2cb3e1236",
         "msg": "Enabled HA on ScaleIO Gateway\n\nChange-Id: I08d609d00405abfdd54332cc6fe2bbf5dff8d982",
         "cmtr": "Adrian Moreno",
         "date": "2015-11-25 12:46:29+01:00",
-        "files": ["enable_ha.pp", "controller.pp", "enable_ha.pp", "metadata.yaml", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/enable_ha.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/enable_ha.pp",
+            "metadata.yaml",
+            "tasks.yaml"]
       },
       {
         "hash": "ff8575e352e5701891f42a67ad7e176ca540f4d3",
         "msg": "Fixed HAproxy SSL pass-through so that backend nodes handle HTTPS connections\n\nChange-Id: I20d489024a438ad1d8304c749f328099e683dc14",
         "cmtr": "Adrian Moreno",
         "date": "2015-11-25 13:04:34+01:00",
-        "files": ["enable_ha.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/enable_ha.pp"]
       },
       {
         "hash": "e9768080bf255491b6c4ffdc77e6db9d7caaa384",
         "msg": "Renamed manifests and tasks\n\nChange-Id: I1295351b21f063fc9591727eaf0c2eff36d88a9a",
         "cmtr": "Adrian Moreno",
         "date": "2015-11-25 17:34:58+01:00",
-        "files": ["check_environment_configuration.pp", "configure_cinder.pp", "configure_gateway.pp", "configure_nova.pp", "install_scaleio.pp", "configure_cinder.pp", "configure_gateway.pp", "configure_nova.pp", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/check_environment_configuration.pp",
+            "deployment_scripts/puppet/manifests/configure_cinder.pp",
+            "deployment_scripts/puppet/manifests/configure_gateway.pp",
+            "deployment_scripts/puppet/manifests/configure_nova.pp",
+            "deployment_scripts/puppet/manifests/install_scaleio.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/configure_cinder.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/configure_gateway.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/configure_nova.pp",
+            "tasks.yaml"]
       },
       {
         "hash": "7902f8d75fcd16fe4a379b786d06200537fb6509",
         "msg": "Code refactoring. Simplified plugin configuration from UI.\n\nChange-Id: I74a7e0f7fea3e19658ed58a66d0e7cc72c072ae8",
         "cmtr": "Adrian Moreno",
         "date": "2015-11-26 14:51:31+01:00",
-        "files": ["check_environment_configuration.pp", "params.pp", "environment_config.yaml", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/check_environment_configuration.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/params.pp",
+            "environment_config.yaml",
+            "metadata.yaml"]
       },
       {
         "hash": "51a54dfa0d3949a30e1f12699e652905e6fd528f",
         "msg": "Fixed bug when creating volume type. Updated to 0.2.9\n\nChange-Id: Ia67e270765ce54195f01c1fb5d71362294ff8572",
         "cmtr": "Adrian Moreno",
         "date": "2015-11-27 14:25:00+01:00",
-        "files": ["create_volume_type.pp", "params.pp", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/create_volume_type.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/params.pp",
+            "metadata.yaml"]
       },
       {
         "hash": "45b979fb18e3835b75e9c8b8d858ccb6d435fe4b",
         "msg": "Fixed provisioning type key. All volumes should be created with thin provisioning\n\nChange-Id: I897a303bd0e0d093695583bf5588df29d1e87afa",
         "cmtr": "Adrian Moreno",
         "date": "2015-12-09 18:15:43+01:00",
-        "files": ["create_volume_type.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/create_volume_type.pp"]
       },
       {
         "hash": "b810b87f186cf3ee8d8f661a2818de547fe713b0",
         "msg": "Fixed provisioning type key. All volumes should be created with thin provisioning\n\nChange-Id: I897a303bd0e0d093695583bf5588df29d1e87afa",
         "cmtr": "Adrian Moreno",
         "date": "2015-12-10 11:19:23+01:00",
-        "files": ["create_volume_type.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/create_volume_type.pp"]
       },
       {
         "hash": "82a567a07d2b55692a2a78683aa71a984734730e",
         "msg": "Use storage network instead of management network\n\nChange-Id: I60efb5c1d407dd5b3cd8aee67147bfd92c9af145",
         "cmtr": "Adrian Moreno",
         "date": "2015-12-15 16:52:26+01:00",
-        "files": [".gitignore", "get_sds_devices.rb", "enable_ha.pp", "init.pp", "params.pp", "metadata.yaml"]
+        "files": [
+            ".gitignore",
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/puppet/parser/functions/get_sds_devices.rb",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/enable_ha.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/init.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/params.pp",
+            "metadata.yaml"]
       },
       {
         "hash": "71faf9842b5eb37fc8c861ad8206d896f6f5c927",
         "msg": "Removes unused callhome configuration\n\nChange-Id: Id829c09c0567619dd8830a9f0a1264c32b39eb88",
         "cmtr": "Adrian Moreno",
         "date": "2016-01-13 15:18:13+01:00",
-        "files": ["mdm.pp", "params.pp", "tb.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/mdm.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/params.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/tb.pp"]
       },
       {
         "hash": "77d3d070ff0b50b8033852a6f6dc9ebd33d7ae92",
         "msg": "Adds support to ScaleIO 2.0 (WiP)\n\nChange-Id: Ifc7669b63c03198254605fc19dc40bdf334a551e",
         "cmtr": "Adrian Moreno",
         "date": "2016-01-13 16:19:25+01:00",
-        "files": ["scaleio", "params.pp", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/scaleio",
+            "deployment_scripts/puppet/modules/scaleio_fuel/manifests/params.pp",
+            "environment_config.yaml"]
       },
       {
         "hash": "bb0d4b80008c67ee8ee7921cb32268d7f5eaf2e6",
         "msg": "update version from https://github.com/cloudscaling/fuel-plugin-scaleio\n\nThis version supports ScaleIO 2.0.\nTested with Fuel 6.1, 7, 8.\n\nold version is available in branch scaleio_1.32\n\nChange-Id: I40b9db5882a57010e5e1ddd766b49bcd0e8db6c8",
         "cmtr": "Andrey Pavlov",
         "date": "2016-06-23 17:40:46+03:00",
-        "files": [".gitignore", ".gitmodules", "README.md", "check_environment_configuration.pp", "cinder.pp", "cluster.pp", "configure_cinder.pp", "configure_gateway.pp", "configure_nova.pp", "create_volume_type.pp", "discovery_cluster.pp", "enable_ha.pp", "environment.pp", "environment_existing_mdm_ips.pp", "gateway_server.pp", "install_scaleio.pp", "mdm_package.pp", "mdm_server.pp", "nova.pp", "os.pp", "resize_cluster.pp", "sdc.pp", "sdc_server.pp", "sds_server.pp", "java", "scaleio", "port", "scaleio.filters", "scaleio.py", "scaleiolibvirtdriver.py", "cluster_info.rb", "disks.rb", "env_info.rb", "ip_address_array.rb", "os_info.rb", "sds_config.rb", "convert_sds_config.rb", "get_pools_from_sds_config.rb", "get_sds_devices.rb", "configure_cinder.pp", "configure_gateway.pp", "configure_nova.pp", "create_volume_type.pp", "enable_ha.pp", "init.pp", "mdm.pp", "params.pp", "sds.pp", "tb.pp", "wait_for", "deployment_tasks.yaml", "TestPlanforScaleIOFuelPlugin.docx", "TestPlanforScaleIOFuelPlugin.pdf", "TestReportforScaleIOFuelPlugin.docx", "TestReportforScaleIOFuelPlugin.pdf", ".gitkeep", "build", "conf.py", "guide.rst", "SIO_Support.png", "deploy-result.png", "deploy.png", "devices_compute.png", "devices_controller.png", "network.png", "settings.png", "settings1.png", "settings2.png", "settings3.png", "settings_existing_cluster.png", "volume-type.png", "wizard.png", "index.rst", "installation.rst", "introduction.rst", "TestPlanforScaleIOFuelPlugin.docx", "TestPlanforScaleIOFuelPlugin.pages", "TestReportScaleIOFuelPlugin.docx", "TestReportScaleIOFuelPlugin.pages", "environment_config.yaml", "metadata.yaml", "pre_build_hook", "GConf2-2.28.0-6.el6.x86_64.rpm", "ORBit2-2.14.17-5.el6.x86_64.rpm", "giflib-4.1.6-3.1.el6.x86_64.rpm", "java-1.8.0-openjdk-1.8.0.65-0.b17.el6_7.x86_64.rpm", "java-1.8.0-openjdk-devel-1.8.0.65-0.b17.el6_7.x86_64.rpm", "java-1.8.0-openjdk-headless-1.8.0.65-0.b17.el6_7.x86_64.rpm", "jpackage-utils-1.7.5-3.14.el6.noarch.rpm", "libIDL-0.8.13-2.1.el6.x86_64.rpm", "mutt-1.5.20-7.20091214hg736b6a.el6.x86_64.rpm", "sgml-common-0.6.3-33.el6.noarch.rpm", "tokyocabinet-1.4.33-6.el6.x86_64.rpm", "ttmkfdir-3.0.9-32.1.el6.x86_64.rpm", "tzdata-2015e-1.el6.noarch.rpm", "tzdata-java-2015e-1.el6.noarch.rpm", "urlview-0.9-7.el6.x86_64.rpm", "xorg-x11-fonts-Type1-7.2-11.el6.noarch.rpm", "tasks.yaml"]
+        "files": [
+            ".gitignore",
+            ".gitmodules",
+            "README.md",
+            "None",
+            "deployment_scripts/puppet/manifests/cinder.pp",
+            "deployment_scripts/puppet/manifests/cluster.pp",
+            "None",
+            "None",
+            "None",
+            "None",
+            "deployment_scripts/puppet/manifests/discovery_cluster.pp",
+            "None",
+            "deployment_scripts/puppet/manifests/environment.pp",
+            "deployment_scripts/puppet/manifests/environment_existing_mdm_ips.pp",
+            "deployment_scripts/puppet/manifests/gateway_server.pp",
+            "None",
+            "deployment_scripts/puppet/manifests/mdm_package.pp",
+            "deployment_scripts/puppet/manifests/mdm_server.pp",
+            "deployment_scripts/puppet/manifests/nova.pp",
+            "deployment_scripts/puppet/manifests/os.pp",
+            "deployment_scripts/puppet/manifests/resize_cluster.pp",
+            "deployment_scripts/puppet/manifests/sdc.pp",
+            "deployment_scripts/puppet/manifests/sdc_server.pp",
+            "deployment_scripts/puppet/manifests/sds_server.pp",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/facter/cluster_info.rb",
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/facter/disks.rb",
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/facter/env_info.rb",
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/facter/ip_address_array.rb",
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/facter/os_info.rb",
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/facter/sds_config.rb",
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/puppet/parser/functions/convert_sds_config.rb",
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/puppet/parser/functions/get_pools_from_sds_config.rb",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "deployment_tasks.yaml",
+            "doc/TestPlanforScaleIOFuelPlugin.docx",
+            "doc/TestPlanforScaleIOFuelPlugin.pdf",
+            "doc/TestReportforScaleIOFuelPlugin.docx",
+            "doc/TestReportforScaleIOFuelPlugin.pdf",
+            "doc/source/_static/.gitkeep",
+            "doc/source/build",
+            "doc/source/conf.py",
+            "doc/source/guide.rst",
+            "doc/source/images/SIO_Support.png",
+            "doc/source/images/deploy-result.png",
+            "doc/source/images/deploy.png",
+            "doc/source/images/devices_compute.png",
+            "doc/source/images/devices_controller.png",
+            "doc/source/images/network.png",
+            "doc/source/images/settings.png",
+            "doc/source/images/settings1.png",
+            "doc/source/images/settings2.png",
+            "doc/source/images/settings3.png",
+            "doc/source/images/settings_existing_cluster.png",
+            "doc/source/images/volume-type.png",
+            "doc/source/images/wizard.png",
+            "doc/source/index.rst",
+            "doc/source/installation.rst",
+            "doc/source/introduction.rst",
+            "doc/testing/TestPlanforScaleIOFuelPlugin.docx",
+            "doc/testing/TestPlanforScaleIOFuelPlugin.pages",
+            "doc/testing/TestReportScaleIOFuelPlugin.docx",
+            "doc/testing/TestReportScaleIOFuelPlugin.pages",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "pre_build_hook",
+            "repositories/centos/GConf2-2.28.0-6.el6.x86_64.rpm",
+            "repositories/centos/ORBit2-2.14.17-5.el6.x86_64.rpm",
+            "repositories/centos/giflib-4.1.6-3.1.el6.x86_64.rpm",
+            "repositories/centos/java-1.8.0-openjdk-1.8.0.65-0.b17.el6_7.x86_64.rpm",
+            "repositories/centos/java-1.8.0-openjdk-devel-1.8.0.65-0.b17.el6_7.x86_64.rpm",
+            "repositories/centos/java-1.8.0-openjdk-headless-1.8.0.65-0.b17.el6_7.x86_64.rpm",
+            "repositories/centos/jpackage-utils-1.7.5-3.14.el6.noarch.rpm",
+            "repositories/centos/libIDL-0.8.13-2.1.el6.x86_64.rpm",
+            "repositories/centos/mutt-1.5.20-7.20091214hg736b6a.el6.x86_64.rpm",
+            "repositories/centos/sgml-common-0.6.3-33.el6.noarch.rpm",
+            "repositories/centos/tokyocabinet-1.4.33-6.el6.x86_64.rpm",
+            "repositories/centos/ttmkfdir-3.0.9-32.1.el6.x86_64.rpm",
+            "repositories/centos/tzdata-2015e-1.el6.noarch.rpm",
+            "repositories/centos/tzdata-java-2015e-1.el6.noarch.rpm",
+            "repositories/centos/urlview-0.9-7.el6.x86_64.rpm",
+            "repositories/centos/xorg-x11-fonts-Type1-7.2-11.el6.noarch.rpm",
+            "None"]
       },
       {
         "hash": "65dd97dc906ccd77f7693903355749a429976ab2",
         "msg": "Replace fuel_version comparison with specifig flag\n\nTo avoid bugs between different fuel versions\n\nChange-Id: Idcbc62dfafea3ee6f1c041dee59a4afe9c87c2a6",
         "cmtr": "alexey-mr",
         "date": "2016-07-16 15:44:58+03:00",
-        "files": ["cluster.pp", "environment.pp", "sds_server.pp", "sds_config.rb", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cluster.pp",
+            "deployment_scripts/puppet/manifests/environment.pp",
+            "deployment_scripts/puppet/manifests/sds_server.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/facter/sds_config.rb",
+            "environment_config.yaml"]
       },
       {
         "hash": "262e81d5b7135aaa8a382aeee52b5219cb1007a8",
         "msg": "use sio_name instead of name for puppet_scaleio calls\n\nChange-Id: Ia1952c62a77e1c730c5ba88dc73889c2e0763e8a",
         "cmtr": "Andrey Pavlov",
         "date": "2016-07-26 17:33:45+03:00",
-        "files": ["cluster.pp", "resize_cluster.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cluster.pp",
+            "deployment_scripts/puppet/manifests/resize_cluster.pp"]
       },
       {
         "hash": "15ff60d2f21b5ed333823386bab0d3c0ff5b3641",
         "msg": "rmcache support\n\nChange-Id: I43128909fac175a0931699a915788d505d7d9bf0",
         "cmtr": "alexey-mr",
         "date": "2016-08-02 18:01:18+03:00",
-        "files": ["cluster.pp", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cluster.pp",
+            "environment_config.yaml"]
       },
       {
         "hash": "a004feb65a51ae7fb327b9a929d811def234d7dd",
         "msg": "Fix grammar error in resource name\n\nChange-Id: Ic97bcf488a36b49af6454f558f5e6ef6c5355cf0",
         "cmtr": "alexey-mr",
         "date": "2016-08-02 18:45:37+03:00",
-        "files": ["sds_server.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/sds_server.pp"]
       },
       {
         "hash": "a9e89dec39072a4692b67a16329036fca5e4d494",
         "msg": "Fixed auto creation of protection domains\n\nChange-Id: If9bd3ad9a4537c05554361f543910bcc9ec68b74",
         "cmtr": "alexey-mr",
         "date": "2016-08-04 19:56:22+03:00",
-        "files": ["cluster.pp", "cluster_info.rb", "update_sds_to_pd_map.rb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cluster.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/facter/cluster_info.rb",
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/puppet/parser/functions/update_sds_to_pd_map.rb"]
       },
       {
         "hash": "f2138fe7ddb7b6dedc1e5daa4cf35b6078da046d",
         "msg": "fixed syntax by puppet-lint\n\nChange-Id: I739186518398928f47fa63b4c687dca8f19e02b9",
         "cmtr": "Andrey Pavlov",
         "date": "2016-08-05 20:44:38+03:00",
-        "files": ["cinder.pp", "cluster.pp", "discovery_cluster.pp", "environment.pp", "environment_existing_mdm_ips.pp", "gateway_server.pp", "mdm_package.pp", "mdm_server.pp", "nova.pp", "os.pp", "resize_cluster.pp", "sdc.pp", "sdc_server.pp", "sds_server.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cinder.pp",
+            "deployment_scripts/puppet/manifests/cluster.pp",
+            "deployment_scripts/puppet/manifests/discovery_cluster.pp",
+            "deployment_scripts/puppet/manifests/environment.pp",
+            "deployment_scripts/puppet/manifests/environment_existing_mdm_ips.pp",
+            "deployment_scripts/puppet/manifests/gateway_server.pp",
+            "deployment_scripts/puppet/manifests/mdm_package.pp",
+            "deployment_scripts/puppet/manifests/mdm_server.pp",
+            "deployment_scripts/puppet/manifests/nova.pp",
+            "deployment_scripts/puppet/manifests/os.pp",
+            "deployment_scripts/puppet/manifests/resize_cluster.pp",
+            "deployment_scripts/puppet/manifests/sdc.pp",
+            "deployment_scripts/puppet/manifests/sdc_server.pp",
+            "deployment_scripts/puppet/manifests/sds_server.pp"]
       },
       {
         "hash": "18c7be145dbd1c6d3b52d0fdaa26f105369bef13",
         "msg": "Glance over Cinder support\n\nChange-Id: Ib38a8bd3e5c02ab9214726ab313024fda46cd754",
         "cmtr": "alexey-mr",
         "date": "2016-08-10 14:26:42+03:00",
-        "files": ["glance.pp", "glance_create_test_image.pp", "glance_delete_test_image.pp", "sdc.pp", "sdc_server.pp", "glance_rootwrap.conf", "glance_sudoers", "deployment_tasks.yaml", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/glance.pp",
+            "deployment_scripts/puppet/manifests/glance_create_test_image.pp",
+            "deployment_scripts/puppet/manifests/glance_delete_test_image.pp",
+            "deployment_scripts/puppet/manifests/sdc.pp",
+            "deployment_scripts/puppet/manifests/sdc_server.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/files/glance_rootwrap.conf",
+            "deployment_scripts/puppet/modules/scaleio_fuel/files/glance_sudoers",
+            "deployment_tasks.yaml",
+            "environment_config.yaml"]
       },
       {
         "hash": "72b63c4c2ffd4434c57ee9320bf39a6152bbb304",
         "msg": "Don't use admin user for OS services.\n\nGenerate special front end user and use it instead of admin.\n\nChange-Id: I901da00321d5316215bf10b4627e1dd4c25de6ce",
         "cmtr": "alexey-mr",
         "date": "2016-08-10 14:44:16+03:00",
-        "files": ["cinder.pp", "cluster.pp", "environment.pp", "nova.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cinder.pp",
+            "deployment_scripts/puppet/manifests/cluster.pp",
+            "deployment_scripts/puppet/manifests/environment.pp",
+            "deployment_scripts/puppet/manifests/nova.pp"]
       },
       {
         "hash": "34dc52753b54b56cb63fa286482a49e70cdaf77c",
         "msg": "Add dependency for glance tasks from upload_cirros\n\nChange-Id: Ifbbf6ff98ff954b6f028cd2b29226f88837e7259",
         "cmtr": "alexey-mr",
         "date": "2016-08-11 11:21:30+03:00",
-        "files": ["cinder.pp", "cluster.pp", "discovery_cluster.pp", "environment.pp", "environment_existing_mdm_ips.pp", "gateway_server.pp", "glance.pp", "glance_create_test_image.pp", "glance_delete_test_image.pp", "mdm_package.pp", "mdm_server.pp", "nova.pp", "os.pp", "resize_cluster.pp", "sdc.pp", "sdc_server.pp", "sds_server.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cinder.pp",
+            "deployment_scripts/puppet/manifests/cluster.pp",
+            "deployment_scripts/puppet/manifests/discovery_cluster.pp",
+            "deployment_scripts/puppet/manifests/environment.pp",
+            "deployment_scripts/puppet/manifests/environment_existing_mdm_ips.pp",
+            "deployment_scripts/puppet/manifests/gateway_server.pp",
+            "deployment_scripts/puppet/manifests/glance.pp",
+            "deployment_scripts/puppet/manifests/glance_create_test_image.pp",
+            "deployment_scripts/puppet/manifests/glance_delete_test_image.pp",
+            "deployment_scripts/puppet/manifests/mdm_package.pp",
+            "deployment_scripts/puppet/manifests/mdm_server.pp",
+            "deployment_scripts/puppet/manifests/nova.pp",
+            "deployment_scripts/puppet/manifests/os.pp",
+            "deployment_scripts/puppet/manifests/resize_cluster.pp",
+            "deployment_scripts/puppet/manifests/sdc.pp",
+            "deployment_scripts/puppet/manifests/sdc_server.pp",
+            "deployment_scripts/puppet/manifests/sds_server.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "f129bdaa8fbbd73d0d6d8c6d5d13e49b33e5bc0f",
         "msg": "Keep other glance storeages in config\n\nAdd dependency for upload_cirros task to upload into cinder store.\n\nChange-Id: If60149d7b0c609ec41e493cfbcf32094109471a4",
         "cmtr": "alexey-mr",
         "date": "2016-08-11 12:04:21+03:00",
-        "files": ["glance.pp", "glance_create_test_image.pp", "glance_delete_test_image.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/glance.pp",
+            "None",
+            "None",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "6070c15791a24f4bafaed2414c5713ef07accd81",
         "msg": "Use default protection domain in nova according to SDS.\n\nEach compute node is SDS. So, to balance ephemeral volumes between\ndomains it is needed to use default domain according to assigned domain\nto the node.\n\nChange-Id: I5b7eddd276bda42250ce8c26f6d3510e886a8e13",
         "cmtr": "alexey-mr",
         "date": "2016-08-13 12:04:16+03:00",
-        "files": ["nova.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nova.pp"]
       },
       {
         "hash": "3fd9fb1fcaced891acbb85ff097227f562406f22",
         "msg": "Non-hyper-converged deployment support\n\nChange-Id: I7dd94514c0802ea7764d4d5d249bbd21f18eb2db",
         "cmtr": "alexey-mr",
         "date": "2016-09-06 17:05:14+03:00",
-        "files": ["cluster.pp", "environment.pp", "sds_server.pp", "cluster_info.rb", "disks.rb", "environment_config.yaml", "node_roles.yaml", "volumes.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cluster.pp",
+            "deployment_scripts/puppet/manifests/environment.pp",
+            "deployment_scripts/puppet/manifests/sds_server.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/facter/cluster_info.rb",
+            "deployment_scripts/puppet/modules/scaleio_fuel/lib/facter/disks.rb",
+            "environment_config.yaml",
+            "node_roles.yaml",
+            "volumes.yaml"]
       },
       {
         "hash": "5fd55dbd8161ef5ae32060b6e52ab98bdbfebab2",
         "msg": "Use FTP server as a source with ScaleIO packages\n\nChange-Id: If54a55ecad474841fb69aa5647ac3963ba3df60f",
         "cmtr": "alexey-mr",
         "date": "2016-11-14 12:35:46+03:00",
-        "files": ["gateway_server.pp", "mdm_package.pp", "sdc_server.pp", "sds_server.pp", "environment_config.yaml", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/gateway_server.pp",
+            "deployment_scripts/puppet/manifests/mdm_package.pp",
+            "deployment_scripts/puppet/manifests/sdc_server.pp",
+            "deployment_scripts/puppet/manifests/sds_server.pp",
+            "environment_config.yaml",
+            "pre_build_hook"]
       },
       {
         "hash": "589502118f2eb4284696409bfac360c3f6d09152",
         "msg": "Glance configuration is moved to scaleio openstack puppet module\n\nChange-Id: I8e77ab4aa6ffcbaa9ede310c642f3085b8b8021c",
         "cmtr": "alexey-mr",
         "date": "2016-11-17 13:25:51+03:00",
-        "files": ["glance.pp", ".gitkeep", "glance_rootwrap.conf", "glance_sudoers"]
+        "files": [
+            "deployment_scripts/puppet/manifests/glance.pp",
+            "deployment_scripts/puppet/modules/scaleio_fuel/files/.gitkeep",
+            "None",
+            "None"]
       }]
     }

@@ -1,7 +1,29 @@
     {
       "url": "https://github.com/openstack/puppet-aodh",
-      "pp_files": ["evaluator.pp", "logging.pp", "db.pp", "init.pp", "sync.pp", "postgresql.pp", "params.pp", "authtoken.pp", "config.pp", "policy.pp", "deps.pp", "notifier.pp", "aodh.pp", "client.pp", "api.pp", "mysql.pp", "listener.pp", "apache.pp", "auth.pp"],
-      "pp_cmtrs": ["Daniel Pawlik", "Emilien Macchi", "Pradeep Kilambi", "Ivan Chavero", "Xing Zhou", "Mehdi Abaakouk", "Benedikt Trefzer", "Matthew J. Black", "zhongshengping", "Sam Morrison", "Juan Antonio Osorio Robles", "jacky06", "Javier Pena", "caoyuan", "ZhongShengping", "Thomas Goirand", "Andrew Smith", "Tobias Urdin", "Maksym Yatsenko", "Gael Chamoulaud", "Matthias Bastian", "Swapnil Kulkarni (coolsvap)", "zhubingbing", "Carlos Camacho", "iberezovskiy", "Alex Schultz", "Sharat Sharma", "Sofer Athlan-Guyot", "Martin Mailand", "Denis Egorenko", "Mohammed Naser", "Iury Gregory Melo Ferreira", "Anastasiia Vlaskina", "Michael Chapman"],
+      "pp_files": [
+        "manifests/listener.pp",
+        "manifests/wsgi/apache.pp",
+        "manifests/auth.pp",
+        "manifests/deps.pp",
+        "manifests/db/postgresql.pp",
+        "manifests/notifier.pp",
+        "manifests/client.pp",
+        "manifests/init.pp",
+        "manifests/config.pp",
+        "manifests/logging.pp",
+        "manifests/api.pp",
+        "manifests/db/mysql.pp",
+        "manifests/keystone/auth.pp",
+        "manifests/keystone/authtoken.pp",
+        "manifests/policy.pp",
+        "manifests/params.pp",
+        "manifests/evaluator.pp",
+        "tests/init.pp",
+        "examples/aodh.pp",
+        "manifests/db/sync.pp",
+        "manifests/db.pp"
+      ],
+      "pp_cmtrs": ["zhubingbing", "Ivan Chavero", "Juan Antonio Osorio Robles", "Mehdi Abaakouk", "ZhongShengping", "Swapnil Kulkarni (coolsvap)", "zhongshengping", "Pradeep Kilambi", "Carlos Camacho", "Michael Chapman", "Sofer Athlan-Guyot", "Thomas Goirand", "Sharat Sharma", "Alex Schultz", "Maksym Yatsenko", "Sam Morrison", "iberezovskiy", "caoyuan", "Iury Gregory Melo Ferreira", "Daniel Pawlik", "Matthias Bastian", "Anastasiia Vlaskina", "Mohammed Naser", "Matthew J. Black", "Andrew Smith", "Martin Mailand", "jacky06", "Emilien Macchi", "Javier Pena", "Xing Zhou", "Gael Chamoulaud", "Benedikt Trefzer", "Tobias Urdin", "Denis Egorenko"],
       "num_pp_commits": 103,
       "num_tot_commits": 312,
       "commits": [{
@@ -9,720 +31,1067 @@
         "msg": "puppet-aodh: Initial commit\n\nThis is the initial commit for puppet-aodh.\nIt has been automatically generated using cookiecutter[1] and msync[2]\n\n[1] https://github.com/openstack/puppet-openstack-cookiecutter\n[2] https://github.com/openstack/puppet-modulesync-configs\n\nChange-Id: I17611e8608931cf69b8d9891620e901a8936e19e",
         "cmtr": "Emilien Macchi",
         "date": "2015-10-01 09:35:49-04:00",
-        "files": [".fixtures.yml", ".gitignore", "Gemfile", "LICENSE", "README.md", "Rakefile", "ini_setting.rb", "aodh_config.rb", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "init.pp", "auth.pp", "logging.pp", "params.pp", "policy.pp", "metadata.json", "centos-70-x64.yml", "default.yml", "nodepool-centos7.yml", "nodepool-trusty.yml", "ubuntu-server-1404-x64.yml", "aodh_db_mysql_spec.rb", "aodh_db_postgresql_spec.rb", "aodh_keystone_auth_spec.rb", "aodh_logging_spec.rb", "aodh_policy_spec.rb", "shared_examples.rb", "spec_helper.rb", "spec_helper_acceptance.rb", "ini_setting_spec.rb", "aodh_config_spec.rb", "init.pp"]
+        "files": [
+            ".fixtures.yml",
+            ".gitignore",
+            "Gemfile",
+            "LICENSE",
+            "README.md",
+            "Rakefile",
+            "lib/puppet/provider/aodh_config/ini_setting.rb",
+            "lib/puppet/type/aodh_config.rb",
+            "manifests/config.pp",
+            "manifests/db.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "manifests/db/sync.pp",
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/logging.pp",
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "metadata.json",
+            "spec/acceptance/nodesets/centos-70-x64.yml",
+            "spec/acceptance/nodesets/default.yml",
+            "spec/acceptance/nodesets/nodepool-centos7.yml",
+            "spec/acceptance/nodesets/nodepool-trusty.yml",
+            "spec/acceptance/nodesets/ubuntu-server-1404-x64.yml",
+            "spec/classes/aodh_db_mysql_spec.rb",
+            "spec/classes/aodh_db_postgresql_spec.rb",
+            "spec/classes/aodh_keystone_auth_spec.rb",
+            "spec/classes/aodh_logging_spec.rb",
+            "spec/classes/aodh_policy_spec.rb",
+            "spec/shared_examples.rb",
+            "spec/spec_helper.rb",
+            "spec/spec_helper_acceptance.rb",
+            "spec/unit/provider/aodh_config/ini_setting_spec.rb",
+            "spec/unit/type/aodh_config_spec.rb",
+            "tests/init.pp"]
       },
       {
         "hash": "2cbfc044a755596071c05241b72be3219672ca3f",
         "msg": "params: add aodh package & service names\n\nAdd RDO & UCA packages and services names.\n\nChange-Id: I58fc3f202ca439bc6b89a40d4977ae1fc0b25be2",
         "cmtr": "Emilien Macchi",
         "date": "2015-10-19 18:12:48-04:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "51bada50093344abe6d22b9e8e03e7f0b54a0df7",
         "msg": "auth: refactor to use *_url\n\nBe consistent with other modules and use *_url parameters.\n\nChange-Id: I2aea954d1246d3d70b7da33c5860da71560a8c59",
         "cmtr": "Emilien Macchi",
         "date": "2015-10-19 18:22:35-04:00",
-        "files": ["auth.pp", "aodh_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "spec/classes/aodh_keystone_auth_spec.rb"]
       },
       {
         "hash": "17a835e2e3ca10e10730c0eec60c48b9cf9ae48a",
         "msg": "First implementation of init class\n\n* Introduce basic parameters in init.pp\n* Rspec tests\n* Documentation\n* Beaker tests\n\nChange-Id: I61c4f1ca1571558490925f2874a274e3b427c3f0",
         "cmtr": "Emilien Macchi",
         "date": "2015-10-21 09:57:04-04:00",
-        "files": ["aodh.pp", "init.pp", "params.pp", "basic_aodh_spec.rb", "aodh_init_spec.rb"]
+        "files": [
+            "examples/aodh.pp",
+            "manifests/init.pp",
+            "manifests/params.pp",
+            "spec/acceptance/basic_aodh_spec.rb",
+            "spec/classes/aodh_init_spec.rb"]
       },
       {
         "hash": "5a2607a7d10e072e8b052590d4979b9baaa87538",
         "msg": "Update aodh::logging\n\nSynchronize logging class with other modules.\n\nChange-Id: I4b13bf8de4cf51ab64ef6e9fd92732e1a5023bcf",
         "cmtr": "Emilien Macchi",
         "date": "2015-10-21 09:57:44-04:00",
-        "files": ["logging.pp", "aodh_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "spec/classes/aodh_logging_spec.rb"]
       },
       {
         "hash": "54f857d36bfa8567e9f6f5f4f8d778377229c702",
         "msg": "Implement API service\n\n* Manifests to deploy Aodh API service\n* WSGI support\n* unit tests\n* acceptance tests\n* example manifest\n\nChange-Id: I648310ae05bae37b1790514d0e7fe0bbc5a7bdde",
         "cmtr": "Emilien Macchi",
         "date": "2015-10-21 10:00:29-04:00",
-        "files": ["aodh.pp", "api.pp", "params.pp", "apache.pp", "aodh_wsgi_apache_spec.rb", "aodh_api_spec.rb", "aodh_wsgi_apache_spec.rb"]
+        "files": [
+            "examples/aodh.pp",
+            "manifests/api.pp",
+            "manifests/params.pp",
+            "manifests/wsgi/apache.pp",
+            "spec/acceptance/aodh_wsgi_apache_spec.rb",
+            "spec/classes/aodh_api_spec.rb",
+            "spec/classes/aodh_wsgi_apache_spec.rb"]
       },
       {
         "hash": "fb8be800021cb24af00b69112e6e3acbe26eb7af",
         "msg": "api: fix default port to bind API service\n\nDue to a wrong copy paste, the default port was 8777 which is already\nused by Ceilemeter API service. Let's use the default Aodh: 8042.\n\nChange-Id: I5b51f7337f4381035849d2f2032e1063b428540d",
         "cmtr": "Emilien Macchi",
         "date": "2015-10-22 15:18:59-04:00",
-        "files": ["api.pp", "aodh_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "spec/classes/aodh_api_spec.rb"]
       },
       {
         "hash": "3c50874c7a0d65d2e75589b6aa383ab0a41511fb",
         "msg": "auth: fix doc for default port\n\nMake sure the doc is default to 8042 port.\n\nChange-Id: I5cd963dbcb69ad09d51d25cc2ca809a09344c02a",
         "cmtr": "Emilien Macchi",
         "date": "2015-10-22 16:05:16-04:00",
-        "files": ["auth.pp"]
+        "files": [
+            "manifests/keystone/auth.pp"]
       },
       {
         "hash": "1eeba2001b229dcecb6f034da9ba3ea9cb4360a4",
         "msg": "db: Use postgresql lib class for psycopg package\n\nThis patch introduce the same design than mysql for postgresql\nby requiring dedicated lib::python class instead of declaring\na new resource package within aodh module.\n\nThis patch also add unit tests for aodh::db class.\n\nChange-Id: I3f9ed49b44a9a7c89be06f40a5823cc24a66066e",
         "cmtr": "Gael Chamoulaud",
         "date": "2015-10-26 16:42:40+01:00",
-        "files": ["db.pp", "aodh_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "spec/classes/aodh_db_spec.rb"]
       },
       {
         "hash": "9510ce46e4d9d59a44fdb4e60a072d6577992bf7",
         "msg": "Implement Evaluator service\n\n* Manifest for evaluator and auth\n* acceptance\n* example\n* unit tests\n* Fix dbsync command and run it to make evaluator work\n\nChange-Id: I3e9f43ebeceaf62abed9412959c067c4bd4409da",
         "cmtr": "Emilien Macchi",
         "date": "2015-11-03 10:46:55-05:00",
-        "files": ["aodh.pp", "auth.pp", "mysql.pp", "postgresql.pp", "sync.pp", "evaluator.pp", "aodh_wsgi_apache_spec.rb", "aodh_auth_spec.rb", "aodh_evaluator_spec.rb"]
+        "files": [
+            "examples/aodh.pp",
+            "manifests/auth.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "manifests/db/sync.pp",
+            "manifests/evaluator.pp",
+            "spec/acceptance/aodh_wsgi_apache_spec.rb",
+            "spec/classes/aodh_auth_spec.rb",
+            "spec/classes/aodh_evaluator_spec.rb"]
       },
       {
         "hash": "78af0f02c3a8f21cfe28248705591c046972f0ce",
         "msg": "Implement Client class\n\nInstall ceilometerclient (aodhclient does not exist yet):\n\n* manifest\n* unit tests\n* acceptance tests\n* example manifest\n\nChange-Id: Ib644bd0896af71b5fd0379236c7650588fd407b2",
         "cmtr": "Emilien Macchi",
         "date": "2015-11-03 15:47:42+00:00",
-        "files": ["aodh.pp", "client.pp", "params.pp", "aodh_wsgi_apache_spec.rb", "aodh_client_spec.rb"]
+        "files": [
+            "examples/aodh.pp",
+            "manifests/client.pp",
+            "manifests/params.pp",
+            "spec/acceptance/aodh_wsgi_apache_spec.rb",
+            "spec/classes/aodh_client_spec.rb"]
       },
       {
         "hash": "6e30e9f4104d39d626d41c3e7fecbbc04dbac762",
         "msg": "Implement Notifier service\n\n* Manifest\n* Unit tests\n* Acceptance tests\n* Example manifest\n\nChange-Id: Ib0b82245fa9ffeb2c23bd26e2e7f3db6a0b6fe41",
         "cmtr": "Emilien Macchi",
         "date": "2015-11-03 15:47:56+00:00",
-        "files": ["aodh.pp", "notifier.pp", "aodh_wsgi_apache_spec.rb", "aodh_notifier_spec.rb"]
+        "files": [
+            "examples/aodh.pp",
+            "manifests/notifier.pp",
+            "spec/acceptance/aodh_wsgi_apache_spec.rb",
+            "spec/classes/aodh_notifier_spec.rb"]
       },
       {
         "hash": "42c34763bb4266e5315618a59082dc580eb13039",
         "msg": "Implement Listener service\n\n* Manifest\n* Unit tests\n* Acceptance tests\n* Example manifest\n\nChange-Id: Ib4a65547fee27f1d7dedf0c508ef544a5347b2e6",
         "cmtr": "Emilien Macchi",
         "date": "2015-11-04 20:37:29+00:00",
-        "files": ["aodh.pp", "listener.pp", "aodh_wsgi_apache_spec.rb", "aodh_listener_spec.rb"]
+        "files": [
+            "examples/aodh.pp",
+            "manifests/listener.pp",
+            "spec/acceptance/aodh_wsgi_apache_spec.rb",
+            "spec/classes/aodh_listener_spec.rb"]
       },
       {
         "hash": "cd0920ff960b4be9608a3b96555538feb260b925",
         "msg": "Tag all Aodh packages\n\nTag evaluator, listener and notifier.\n\nChange-Id: I2a581c186d1bd70b1a1657b4282953a59634ea10",
         "cmtr": "Emilien Macchi",
         "date": "2015-11-04 20:38:06+00:00",
-        "files": ["evaluator.pp", "listener.pp", "notifier.pp", "aodh_evaluator_spec.rb", "aodh_listener_spec.rb", "aodh_notifier_spec.rb"]
+        "files": [
+            "manifests/evaluator.pp",
+            "manifests/listener.pp",
+            "manifests/notifier.pp",
+            "spec/classes/aodh_evaluator_spec.rb",
+            "spec/classes/aodh_listener_spec.rb",
+            "spec/classes/aodh_notifier_spec.rb"]
       },
       {
         "hash": "a0b22ffe0a408697a962087d77b9a203d6a017de",
         "msg": "Support MongoDB as backend db\n\nhttp://docs.openstack.org/developer/aodh/install/manual.html#mongodb\nstates that MongoDB is the recommended storage backend for Aodh,\nadding support for it.\n\nChange-Id: I3542d01e2b294506d6d311a3e996a5f9ed4b9953",
         "cmtr": "Javier Pena",
         "date": "2015-11-26 17:11:58+01:00",
-        "files": ["db.pp", "params.pp", "aodh_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/params.pp",
+            "spec/classes/aodh_db_spec.rb"]
       },
       {
         "hash": "c86dd9741ad85a164442e57b34b0fc80ab89a698",
         "msg": "Remove qpid messaging support\n\nQpid messaging driver is removed from Oslo.messaging [1]\nTherefore, we cannot support it anymore.\n\n[1] I4a9cba314c4a2f24307504fa7b5427424268b114\n\nChange-Id: I9c4c04cbe4451380f67be067b5831d80fad48524",
         "cmtr": "Denis Egorenko",
         "date": "2015-12-07 20:19:32+03:00",
-        "files": ["init.pp", "aodh_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/aodh_init_spec.rb"]
       },
       {
         "hash": "86d3e7e214a536a88ee4f4c4e26b9e1e36d09ea8",
         "msg": "Switch aodh to use os_service_default fact\n\nThis change switches the aodh module to use the os_service_default\nfact for configuration options that default to '<SERVICE DEFAULT>'.\n\nRelated-bug: #1515273\nChange-Id: I05488c8bdcb5f54976a17aa25bf8a3b9d46627bb\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
         "cmtr": "Gael Chamoulaud",
         "date": "2015-12-08 10:31:29+01:00",
-        "files": ["init.pp", "logging.pp", "aodh_api_spec.rb", "aodh_evaluator_spec.rb", "aodh_init_spec.rb", "aodh_listener_spec.rb", "aodh_logging_spec.rb", "aodh_notifier_spec.rb", "spec_helper.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "spec/classes/aodh_api_spec.rb",
+            "spec/classes/aodh_evaluator_spec.rb",
+            "spec/classes/aodh_init_spec.rb",
+            "spec/classes/aodh_listener_spec.rb",
+            "spec/classes/aodh_logging_spec.rb",
+            "spec/classes/aodh_notifier_spec.rb",
+            "spec/spec_helper.rb"]
       },
       {
         "hash": "a18c7f87d9abee460a22e1c968386cd955400ce4",
         "msg": "Support of PyMySQL driver for MySQL backend\n\nThis change adds the ability to use the python-pymysql library as the\nbackend for MySQL connections.\n\nChange-Id: I7604cca9e2d7bf0b93c820adec5f937f72b64fa8",
         "cmtr": "Alex Schultz",
         "date": "2016-01-05 07:57:53-07:00",
-        "files": ["db.pp", "params.pp", "aodh_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/params.pp",
+            "spec/classes/aodh_db_spec.rb"]
       },
       {
         "hash": "292483b566494f1870f1d9fcafd5e242b7912108",
         "msg": "Update typo\n\nChange-Id: I81900a1e4afcd72f89a3c707926301249803f838",
         "cmtr": "Swapnil Kulkarni (coolsvap)",
         "date": "2016-01-08 03:33:49+00:00",
-        "files": ["mysql.pp"]
+        "files": [
+            "manifests/db/mysql.pp"]
       },
       {
         "hash": "3a6d9e8963d76b102acd67f67fc1c7b29148a990",
         "msg": "Rename typo on expirer service name\n\nThis parameter isn't used anywhere, but may be referenced\nby composition layers doing HA services, so the original is\nkept with deprecation notice\n\nChange-Id: I7449f6ddf469fa528dddaa6e49152909294e2df1",
         "cmtr": "Michael Chapman",
         "date": "2016-01-22 14:01:07+11:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "985b2ee77f48d2263b563c0420319eb53cc5efb3",
         "msg": "Implement gnocchi_url parameter\n\nIf we want Aodh able to talk to Gnocchi API, we need to configure\nDEFAULT/gnocchi_url parameter in Aodh configuration.\n\nThis patch aims to do that.\n\nChange-Id: Ib818b5ae4fa301c6c496fe800ae45c9b0a73222c",
         "cmtr": "Emilien Macchi",
         "date": "2016-01-28 13:04:24-05:00",
-        "files": ["init.pp", "aodh_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/aodh_init_spec.rb"]
       },
       {
         "hash": "bcc2d1a9e9ec5dfc5ba501d1916c5869cd0ef628",
         "msg": "Add support for alarm_history_time_to_live parameter\n\nThis parameter should be configured for Aodh instead of Ceilometer.\n\nChange-Id: I033599af813350911c001b7dcff1a90d6008cc67",
         "cmtr": "iberezovskiy",
         "date": "2016-03-04 21:22:53+03:00",
-        "files": ["init.pp", "aodh_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/aodh_init_spec.rb"]
       },
       {
         "hash": "4cc0e6498ff1715916f37977efe0105a5bf6c33a",
         "msg": "Add sync_db param to aodh api class\n\nChange-Id: Ibd7e8c2b7812dc45b29f4c422c442c9a3ffdf47d",
         "cmtr": "Pradeep Kilambi",
         "date": "2016-04-07 12:06:54-04:00",
-        "files": ["api.pp", "add-sync_db-to-aodh-dc2c52e0dcda72c1.yaml", "aodh_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/add-sync_db-to-aodh-dc2c52e0dcda72c1.yaml",
+            "spec/classes/aodh_api_spec.rb"]
       },
       {
         "hash": "4b22b9b289c02096e28eaacea2da5d373948d5c9",
         "msg": "Update AODH for using puppet-oslo\n\nThis commit switches using of oslo options to a puppet-oslo module:\n* oslo messaging notifications;\n* oslo messaging rabbitmq;\n* oslo log;\n* oslo db;\n\nChange-Id: I6a989915df2529febaf980ddedc11f699d49147e",
         "cmtr": "Denis Egorenko",
         "date": "2016-04-12 19:44:07+03:00",
-        "files": ["db.pp", "init.pp", "logging.pp", "metadata.json", "aodh_db_spec.rb", "aodh_init_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "metadata.json",
+            "spec/classes/aodh_db_spec.rb",
+            "spec/classes/aodh_init_spec.rb"]
       },
       {
         "hash": "0909cc7a58f5382b55c775f2d3454d8202dee1f9",
         "msg": "Add missing release note for switching to puppet-oslo\n\nPatch I6a989915df2529febaf980ddedc11f699d49147e missed release note,\nso this commit adds it.\n\nAlso updates policy file and cleans params file.\n\nChange-Id: I75a400258f629791b5dc2db6128c7d4107ef9375",
         "cmtr": "Denis Egorenko",
         "date": "2016-04-13 18:05:04+03:00",
-        "files": ["params.pp", "policy.pp", "switch_to_oslo-9953061b326b183d.yaml", "aodh_policy_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "releasenotes/notes/switch_to_oslo-9953061b326b183d.yaml",
+            "spec/classes/aodh_policy_spec.rb"]
       },
       {
         "hash": "4b6aaab2ed280d50b117d575516216ab3510670f",
         "msg": "Revert \"Add missing release note for switching to puppet-oslo\"\n\nThis reverts commit 0909cc7a58f5382b55c775f2d3454d8202dee1f9.\n\nIt broke Fuel noop CI due to policy being duplicated.\n\nChange-Id: Iecae8324f0998e6de456515c28b02669bfb06fdf",
         "cmtr": "Alex Schultz",
         "date": "2016-04-13 20:40:12+00:00",
-        "files": ["params.pp", "policy.pp", "switch_to_oslo-9953061b326b183d.yaml", "aodh_policy_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "None",
+            "spec/classes/aodh_policy_spec.rb"]
       },
       {
         "hash": "2009eef0f1ca3a8462f17a1609b8c17782353499",
         "msg": "Add missing release note for switching to puppet-oslo\n\nPatch I6a989915df2529febaf980ddedc11f699d49147e missed release note,\nso this commit adds it. This change also cleans up the missed params\nitems that are no longer needed.\n\nChange-Id: Ie808b926bf840cee739c8f7ede2b359d7de55bba",
         "cmtr": "Alex Schultz",
         "date": "2016-04-13 16:17:17-06:00",
-        "files": ["params.pp", "policy.pp", "switch_to_oslo-9953061b326b183d.yaml"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "releasenotes/notes/switch_to_oslo-9953061b326b183d.yaml"]
       },
       {
         "hash": "0cc0bde46386599c4e4e92f387cc2aecce941231",
         "msg": "Manage policy configuration file\n\nThis change includes the aodh_config configuration of the policy file in\nthe aodh::policy class.\n\nChange-Id: I1f13db69165dce3d8774ca14b43e2fa095ee881f\nDepends-On: I4e24d49ed7e84a3b5cb991e912ed320c393569e4",
         "cmtr": "Alex Schultz",
         "date": "2016-04-13 16:17:28-06:00",
-        "files": ["policy.pp", "aodh_policy_spec.rb"]
+        "files": [
+            "manifests/policy.pp",
+            "spec/classes/aodh_policy_spec.rb"]
       },
       {
         "hash": "e5eae81e3084676e11da9d51e8bc259545c6aa5c",
         "msg": "Remove Qpid support\n\nQpid support was removed in OpenStack/Mitaka, but deprecated in\npuppet-aodh. It's now totally removed in Newton.\n\nChange-Id: Ic78193899d3483b6e28d7701091bb016a592a72b",
         "cmtr": "Emilien Macchi",
         "date": "2016-04-17 14:42:22-04:00",
-        "files": ["init.pp", "logging.pp", "remove_qpid-fd39548434942726.yaml", "aodh_logging_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "releasenotes/notes/remove_qpid-fd39548434942726.yaml",
+            "spec/classes/aodh_logging_spec.rb"]
       },
       {
         "hash": "50487d95bd11eb54fd827329ab9b1b0916701c61",
         "msg": "Delete useless parameters\n\nThe lock_path and state_path parameters are not found in aodh.conf,\nso delete their comments.\n\nChange-Id: I2dc381c79a8234f91007f4dad694d8cf82124dc1",
         "cmtr": "ZhongShengping",
         "date": "2016-05-07 14:48:20+08:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "a06158ff358061854c5de8709fd2dbd9ac805b0d",
         "msg": "Add support for db_max_retries param\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: Iaf0d5ada30e0ea57d454ab1850cc61ee658cef64\nCloses-Bug: 1579718\nCo-Authored-By: Giulio Fidende <gfidente@redhat.com>",
         "cmtr": "Carlos Camacho",
         "date": "2016-05-09 15:05:15+02:00",
-        "files": ["db.pp", "aodh_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "spec/classes/aodh_db_spec.rb"]
       },
       {
         "hash": "d09f8483f13193fc13aa29c41d6242ac011111d1",
         "msg": "Update class params to os_service_default\n\nThis patch will update the parameters class\nusing the default fact $::os_service_default\n\nAlso the parameters order in the class doc\nis fixed and ordered according the class\nparameters.\n\nChange-Id: Iace9cd7e3706f8c9c500dcb9037e4e93a6217105",
         "cmtr": "Carlos Camacho",
         "date": "2016-05-10 11:41:27+02:00",
-        "files": ["db.pp", "Update-class-params-to-os_service_default-0b2eece145a53d3b.yaml", "aodh_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "releasenotes/notes/Update-class-params-to-os_service_default-0b2eece145a53d3b.yaml",
+            "spec/classes/aodh_db_spec.rb"]
       },
       {
         "hash": "d1d508a636f366a3cd8bb6fe0aed9ab867d4050e",
         "msg": "Add api_paste type/provider for aodh\n\nAdd aodh_api_paste_ini type/provider for aodh.\nAlso add the capability to configure api_paste.ini with config.pp.\nCloses-Bug:1483371\n\nChange-Id: Ia083df99901ccae646d5cc3c6414a3f126f1eac2",
         "cmtr": "ZhongShengping",
         "date": "2016-05-10 23:15:20+08:00",
-        "files": ["ini_setting.rb", "aodh_api_paste_ini.rb", "config.pp", "ini_setting_spec.rb", "aodh_api_paste_init.spec.rb"]
+        "files": [
+            "lib/puppet/provider/aodh_api_paste_ini/ini_setting.rb",
+            "lib/puppet/type/aodh_api_paste_ini.rb",
+            "manifests/config.pp",
+            "spec/unit/provider/aodh_api_paste_ini/ini_setting_spec.rb",
+            "spec/unit/type/aodh_api_paste_init.spec.rb"]
       },
       {
         "hash": "b81c6c29d545c57653cf49f4ff201a52cad6dee1",
         "msg": "Defaults to os_service_default for rabbit parameters\n\nUpdate default values for oslo rabbit parameters to os_service_default.\nAlso add missed kombu_compression parameter. Update unit tests\n\nChange-Id: I83c811cf1ff17ade60062a39be1e9dcb2b8345ac",
         "cmtr": "iberezovskiy",
         "date": "2016-05-11 17:31:04+03:00",
-        "files": ["init.pp", "aodh_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/aodh_init_spec.rb"]
       },
       {
         "hash": "8d8d68567f8db1dcceeee7a013067040f0f05a88",
         "msg": "Introduce support for oslo.messaging amqp driver configuration\n\nThis commit adds support for the oslo.messaging amqp rpc_backend\nwhich enables the AMQP 1.0 driver. A proposed feature for the\nNewton oslo.messaging release is an update to the AMQP 1.0 driver\nto support a stateless messaging interconnect for RPC traffic [1].\n\nThis patch:\n* use oslo::messaging::amqp resource\n* add new parameters for the oslo_messaging_amqp driver\n* update spec tests for amqp as alternate rpc_backend\n* add feature release note\n\n[1] https://blueprints.launchpad.net/oslo.messaging/+spec/amqp-dispatch-router\n\nChange-Id: Ica192f3b5da5f02745e25b6a6b7c344dcaf7cc99",
         "cmtr": "Andrew Smith",
         "date": "2016-05-12 14:46:01-04:00",
-        "files": ["init.pp", "add_oslo_messaging_amqp-371ec0eff31b5749.yaml", "aodh_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add_oslo_messaging_amqp-371ec0eff31b5749.yaml",
+            "spec/classes/aodh_init_spec.rb"]
       },
       {
         "hash": "b58adfcc3c00614457fd78aa12ae53d2c5232d25",
         "msg": "Deprecate verbose option\n\nOption \"verbose\" from group \"DEFAULT\" is deprecated for removal.\nThe parameter has no effect.\n\nIf this option is not set explicitly, there is no such warning.\n\nChange-Id: I03b278415861f58ffee810244b6eeabfa2e2127c",
         "cmtr": "ZhongShengping",
         "date": "2016-05-18 22:32:50+08:00",
-        "files": ["init.pp", "logging.pp", "deprecate_verbose_parameter-1af15c48612ac2a1.yaml", "aodh_wsgi_apache_spec.rb", "aodh_init_spec.rb", "aodh_logging_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "releasenotes/notes/deprecate_verbose_parameter-1af15c48612ac2a1.yaml",
+            "spec/acceptance/aodh_wsgi_apache_spec.rb",
+            "spec/classes/aodh_init_spec.rb",
+            "spec/classes/aodh_logging_spec.rb"]
       },
       {
         "hash": "f43e907fa8f86fb74d594a1c42de698f0d9083bb",
         "msg": "Deprecate use_syslog\n\n[DEFAULT/use_syslog] was deprecated in Mitaka [1]\ninit.pp logging.pp- deprecate use_syslog, add warning, remove reference\ntests - remove use_syslog and [DEFAULT/use_syslog] verification.\n\n[1]\nhttp://docs.openstack.org/mitaka/config-reference/tables/conf-changes/aodh.html\n\nDepends-On: I6ac357295744b4d0cd54f52998f66f138807cfed\nChange-Id: Ied554943b8bdca0b2f2728bcc62160cb2aa99909",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-05-25 01:26:40+00:00",
-        "files": ["init.pp", "logging.pp", "use_syslog-8829d3bda185a189.yaml", "aodh_logging_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "releasenotes/notes/use_syslog-8829d3bda185a189.yaml",
+            "spec/classes/aodh_logging_spec.rb"]
       },
       {
         "hash": "1d2c2e6cc1b24e6db74f9164612c394a88672882",
         "msg": "Add transport_url parameters for oslo.messaging\n\nThis commit adds the transport_url parameters for oslo.messaging. The url is\nof the form:\n\n  transport::/user:pass@host:port/virtual_host\n\nWhere the transport scheme specifies the rpc or notification backend as one of\nrabbit, amqp, zmq, etc. Oslo.messaging is deprecating the host, port and\nauth configuration options [1]. All drivers will get these options via the\ntransport_url.\n\nThis patch:\n* use oslo::messaging::default resource\n* use olso::messaging::notifications resource\n* add new parameters for transport_url(s)\n* update spec tests for added parameters\n* add feature release not\n\n[1] https://review.openstack.org/#/c/317285/\n\nChange-Id: If9e028cbcd0db4b8e472cbcd11407807f2a8c198",
         "cmtr": "Andrew Smith",
         "date": "2016-05-26 12:06:49-04:00",
-        "files": ["init.pp", "add_transport_url_parameters-648f7e1e691eabe5.yaml", "aodh_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add_transport_url_parameters-648f7e1e691eabe5.yaml",
+            "spec/classes/aodh_init_spec.rb"]
       },
       {
         "hash": "0a31dca4593c44be57a39961a1719b554693f478",
         "msg": "Revert \"Deprecate use_syslog\"\n\nThis option is not deprecated and still actual.\n\nThis reverts commit f43e907fa8f86fb74d594a1c42de698f0d9083bb.\n\nChange-Id: I9e9e0d303dc7516f66013673a0ba960705a3f115",
         "cmtr": "Denis Egorenko",
         "date": "2016-05-31 13:41:44+00:00",
-        "files": ["init.pp", "logging.pp", "use_syslog-8829d3bda185a189.yaml", "aodh_logging_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "None",
+            "spec/classes/aodh_logging_spec.rb"]
       },
       {
         "hash": "6251c3678791e8d80043f60e32c5c5f8257c4c11",
         "msg": "Add purge_config option\n\nAdd the option in order to facilitate management.\nUser can ensure that only the options they hoped\nare configured.\n\nChange-Id: I6b31aefe35329111323499b70bd8d94bc317c20d",
         "cmtr": "ZhongShengping",
         "date": "2016-06-03 23:32:02+08:00",
-        "files": ["init.pp", "aodh_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/aodh_init_spec.rb"]
       },
       {
         "hash": "ca6b879872dcb185e3c0dccbcc76a55b9af6d6df",
         "msg": "Provide default service_name for keystone endpoint\n\nThis change updates the aodh::keystone::auth class to include a default\nservice_name of 'aodh' so that if a user changes the auth_name, the\nservice is still created as being related to 'aodh'.  This improves the\nuser experiance when they want to customize the usernames for services.\n\nChange-Id: I9de75cbe7947282739e13e2f397ee7e919f7dc9f\nCloses-Bug: #1590040",
         "cmtr": "Alex Schultz",
         "date": "2016-06-07 10:51:01-06:00",
-        "files": ["auth.pp", "keystone-auth-name-6deb28333b29657e.yaml", "aodh_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "releasenotes/notes/keystone-auth-name-6deb28333b29657e.yaml",
+            "spec/classes/aodh_keystone_auth_spec.rb"]
       },
       {
         "hash": "97f89a91636efdbb82fe15e1fe2edafdd1aad9b0",
         "msg": "Update to include new aodhclient\n\nChange-Id: Ia5add80b74c6a708634eb88c7eec79ef9a10e0fb",
         "cmtr": "Pradeep Kilambi",
         "date": "2016-06-08 21:35:13+00:00",
-        "files": ["client.pp", "params.pp", "aodh_client_spec.rb"]
+        "files": [
+            "manifests/client.pp",
+            "manifests/params.pp",
+            "spec/classes/aodh_client_spec.rb"]
       },
       {
         "hash": "265c69301d3d5fbc310ae23442cd812100e43f4e",
         "msg": "Update auth parameters to support Keystone v3\n\nUpdate service_credentials and keystone_authtoken parameters to support\nKeystone v3 by default.\n\n* Add project_domain_name and user_domain_name, default to default\n  domain.\n* Add auth_type default to password.\n* Deprecate keystone_identity_uri and add auth_url.\n* Update tenant_name to project_name, in a transparent way.\n\nSee:\nhttp://www.jamielennox.net/blog/2015/02/23/v3-authentication-with-auth-token-middleware/\n\nChange-Id: I32bc862b2d8f654ba5696e5267fdd5d1d6dda6e0",
         "cmtr": "Emilien Macchi",
         "date": "2016-06-21 11:22:37-04:00",
-        "files": ["api.pp", "auth.pp", "auth_v3-0be3e28d8b1e1df7.yaml", "aodh_wsgi_apache_spec.rb", "aodh_api_spec.rb", "aodh_auth_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/auth.pp",
+            "releasenotes/notes/auth_v3-0be3e28d8b1e1df7.yaml",
+            "spec/acceptance/aodh_wsgi_apache_spec.rb",
+            "spec/classes/aodh_api_spec.rb",
+            "spec/classes/aodh_auth_spec.rb"]
       },
       {
         "hash": "8029f10859c09e0a6e82bbb43f002061d4b37dc1",
         "msg": "Add memcached_servers for keystone authtoken\n\nThis change adds the abiltity to manage the memcached servers for the\nkeystone authtoken configuration in aodh::api\n\nChange-Id: Idaf7728dafb39df71531759cf06029dd44dd39f2",
         "cmtr": "Alex Schultz",
         "date": "2016-06-30 11:09:47-06:00",
-        "files": ["api.pp", "keystone-authtoken-memcached-5c6b99784f80be7f.yaml", "aodh_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/keystone-authtoken-memcached-5c6b99784f80be7f.yaml",
+            "spec/classes/aodh_api_spec.rb"]
       },
       {
         "hash": "908e23e64c3c8ccad24a70cb7d813e104d1e0456",
         "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: Ic716b82ebb599dff75456d79a5538a75cf96303d\nRelated-Bug: 1599113\nDepends-On: I9d0a10d48124ee71ea80134ceef96436c8ee196e",
         "cmtr": "Sofer Athlan-Guyot",
         "date": "2016-07-06 12:11:18+02:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "75161dd0ca2fba54cc4d734d5c3ca3e97ccfeff5",
         "msg": "Move aodh to authtoken\n\nIn aodh::api, use keystone::resource::authtoken to configure\nkeystone_authtoken section in aodh.conf, with all parameters\nrequired to configure keystonemiddleware.\nThis patch will allow to deploy aodh to use Keystone v3 authentification.\n\nSome deprecations:\n- aodh::api::keystone_tenant is deprecated in favor of\n  aodh::keystone::authtoken::project_name.\n- aodh::api::keystone_user is deprecated in favor of\n  aodh::keystone::authtoken::username.\n- aodh::api::keystone_password is deprecated in favor of\n  aodh::keystone::authtoken::password.\n- aodh::api::keystone_project_domain_name is deprecated in favor of\n  aodh::keystone::authtoken::project_domain_name\n- aodh::api::keystone_user_domain_name is deprecated in favor of\n  aodh::keystone::authtoken::user_domain_name\n- aodh::api::keystone_auth_type is deprecated in favor of\n  aodh::keystone::authtoken::auth_type\n- aodh::api::keystone_auth_uri is deprecated in favor of\n  aodh::keystone::authtoken::auth_uri\n- aodh::api::keystone_identity_uri is deprecated in favor of\n  aodh::keystone::authtoken::auth_url\n- aodh::api::keystone_auth_url is deprecated in favor of\n  aodh::keystone::authtoken::auth_url\n- aodh::api::memcached_servers is deprecated in favor of\n  aodh::keystone::authtoken::memcached_servers\n\nChange-Id: Id8b3d8265f3554865fd77b291f235219b147efb9\nRelated-Bug: #1604463",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-08-19 04:27:46+00:00",
-        "files": ["aodh.pp", "api.pp", "authtoken.pp", "authtoken_resource-1b264c4c326a462c.yaml", "aodh_wsgi_apache_spec.rb", "aodh_api_spec.rb", "aodh_keystone_authtoken_spec.rb"]
+        "files": [
+            "examples/aodh.pp",
+            "manifests/api.pp",
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/authtoken_resource-1b264c4c326a462c.yaml",
+            "spec/acceptance/aodh_wsgi_apache_spec.rb",
+            "spec/classes/aodh_api_spec.rb",
+            "spec/classes/aodh_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "16ea22ac9c74360b184fc9e910029a38de578dd6",
         "msg": "Fix doc deprecated parameter\n\nThe documentation refers to keystone_identity_uri as being\ndeprecated in favor of aodh::keystone::authtoken::auth_uri\nwhen it really is aodh::keystone::authtoken::auth_url.\n\nChange-Id: I28f43b0e2ed1359811c68d2e0f25ff9eba17749c",
         "cmtr": "Ivan Chavero",
         "date": "2016-09-01 16:37:36-06:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "28900fdf58551859ff32a3336491d8dde0f69162",
         "msg": "Fix puppet-lint before upgrading gem\n\nRemoving puppet-lint warnings\nin favor of upgrading to latest gem\n\n2016-09-13 21:11:00.804153 | manifests/api.pp:196:WARNING: line has more than 140 characters\n\nChange-Id: I1b81576d5387769f6e48c970bff386e3dab32f32",
         "cmtr": "Carlos Camacho",
         "date": "2016-09-14 14:09:39+02:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "9aab28864fe9d12a42f10cb15aea6903628e281c",
         "msg": "Remove unnecesary spaces in log messages.\n\nSpaces added by mistake in some log messages.\n\nChange-Id: Ia787d1907cddb8cde21c11737f7976e1eec3366b",
         "cmtr": "Carlos Camacho",
         "date": "2016-09-26 13:51:12+02:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "40cb6417e0a1f3fb693b73ede91df747acffbdab",
         "msg": "Remove verbose\n\nSince we are in Ocata we should remove the\nverbose option that was deprecated\n\nChange-Id: Ic17e045b50e2bfe0011f111b04221e3eca8d81c5",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-09-27 19:30:21-03:00",
-        "files": ["init.pp", "logging.pp", "remove_verbose-62c2784e2c93656d.yaml"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "releasenotes/notes/remove_verbose-62c2784e2c93656d.yaml"]
       },
       {
         "hash": "bac067fff5a8194a7093e29a1845450a4e329183",
         "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: I6a19e10ec305f54232293fd9807217291bf50875\nCloses-Bug: #1628580",
         "cmtr": "Sharat Sharma",
         "date": "2016-09-29 06:56:58+00:00",
-        "files": ["sync.pp"]
+        "files": [
+            "manifests/db/sync.pp"]
       },
       {
         "hash": "d3b12f6937f8a20f7e1d4d64c05cc4c7f540c5a4",
         "msg": "Change worker defaults to ::os_workers\n\nThis patch changes the default worker count from ::processorcount to the\nnew ::os_workers fact. ::os_workers is based on the number of processors\n(currently cpu/4) but is capped at a maximum of 8 worker processors.\nThis is a much more reasonable default in general and prevents excessive\nresource consumption on systems with a large number of CPUs.\n\nChange-Id: Id7c5f3df32b4f350d93ed85b6293fe69e64c2cc3",
         "cmtr": "Maksym Yatsenko",
         "date": "2016-10-07 17:18:27+03:00",
-        "files": ["apache.pp", "os_workers_for_worker_count-d1ea2ef2beb0d686.yaml", "aodh_api_spec.rb", "aodh_db_sync_spec.rb", "aodh_evaluator_spec.rb", "aodh_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/os_workers_for_worker_count-d1ea2ef2beb0d686.yaml",
+            "spec/classes/aodh_api_spec.rb",
+            "spec/classes/aodh_db_sync_spec.rb",
+            "spec/classes/aodh_evaluator_spec.rb",
+            "spec/classes/aodh_wsgi_apache_spec.rb"]
       },
       {
         "hash": "e092f1ff8ba515321b4b04233fdb699029d48cbf",
         "msg": "Add option to enable Aodh's SSL middleware\n\nAodh is now using the HTTPProxyToWSGI middleware from\noslo.middlware in its default api-paste configuration [1]. This commit\ngives us the ability to enable/disable that middlware.\n\n[1] If2ada8a94c8e1ceacd4509605b4cd766a78f71d5\n\nChange-Id: I0981e152700ed4511b797011ebe18e857c1fed71",
         "cmtr": "Emilien Macchi",
         "date": "2016-10-12 19:31:31+00:00",
-        "files": ["api.pp", "adds-enable-proxy-headers-parsing-531db7e45428d03d.yaml", "aodh_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/adds-enable-proxy-headers-parsing-531db7e45428d03d.yaml",
+            "spec/classes/aodh_api_spec.rb"]
       },
       {
         "hash": "d4973455447bcee6beb3c85f1e373b338c0e325a",
         "msg": "Remove old authtoken options\n\nSince we are in ocata lets remove all\nold parameters in api to configure\nthe keystone_authtoken section\n\nChange-Id: I6d023c3092e735d5cc021169c43c847df446b2aa",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-10-31 16:02:46+00:00",
-        "files": ["api.pp", "authtoken.pp", "remove_old_authtoken_options-617be3ac3ec06ef2.yaml", "aodh_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/remove_old_authtoken_options-617be3ac3ec06ef2.yaml",
+            "spec/classes/aodh_api_spec.rb"]
       },
       {
         "hash": "e94824231f8dfe1c97c16592f7c793640946f6ba",
         "msg": "Deprecate rabbitmq connection parameters\n\nThe rabbitmq connection parameters have been deprecated in favor of the\ntransport_url setting.\n\nChange-Id: I097252390fa139a38922f19c2b3c4eedf8d4058f\nRelated-Bug: #1625198",
         "cmtr": "Alex Schultz",
         "date": "2016-11-01 07:44:02-06:00",
-        "files": ["init.pp", "rabbit-connection-params-deprecation-af7e100a211884d8.yaml", "aodh_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/rabbit-connection-params-deprecation-af7e100a211884d8.yaml",
+            "spec/acceptance/aodh_wsgi_apache_spec.rb"]
       },
       {
         "hash": "cb865e6e5bcad322dcbb832a710d3b113df53b83",
         "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nChange-Id: Ibc184a50cf16b7048e0f7249f8894d8661bb76fe",
         "cmtr": "ZhongShengping",
         "date": "2016-11-28 13:13:17+08:00",
-        "files": ["api.pp", "auth.pp", "client.pp", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "evaluator.pp", "init.pp", "auth.pp", "authtoken.pp", "listener.pp", "logging.pp", "notifier.pp", "policy.pp", "apache.pp", "external_install_mgmt_hook-891a29ef391d1921.yaml", "aodh_api_spec.rb", "aodh_client_spec.rb", "aodh_db_sync_spec.rb", "aodh_init_spec.rb", "aodh_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/auth.pp",
+            "manifests/client.pp",
+            "manifests/config.pp",
+            "manifests/db.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "manifests/db/sync.pp",
+            "manifests/deps.pp",
+            "manifests/evaluator.pp",
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/keystone/authtoken.pp",
+            "manifests/listener.pp",
+            "manifests/logging.pp",
+            "manifests/notifier.pp",
+            "manifests/policy.pp",
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/external_install_mgmt_hook-891a29ef391d1921.yaml",
+            "spec/classes/aodh_api_spec.rb",
+            "spec/classes/aodh_client_spec.rb",
+            "spec/classes/aodh_db_sync_spec.rb",
+            "spec/classes/aodh_init_spec.rb",
+            "spec/classes/aodh_wsgi_apache_spec.rb"]
       },
       {
         "hash": "cb067164ae8e9a0b7cc33719ddd6dd53cd8a1a97",
         "msg": "Add customization for wsgi process display name\n\nChange-Id: I53b156505e08625d56ed6a302cf5b5c30e8e288c\nRelated-Bug: #1626550",
         "cmtr": "Xing Zhou",
         "date": "2016-12-20 20:46:01+08:00",
-        "files": ["apache.pp", "aodh_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "spec/classes/aodh_wsgi_apache_spec.rb"]
       },
       {
         "hash": "dcfd625888cfe2caea233efda3638d5278a0a80e",
         "msg": "Deprecate signing_dir option\n\nThe signing_dir is deprecated for removel because of PKI token format\nis no longer supported.\nUpdate warning message and release note.\n\nChange-Id: I4b60cbf1c48bc344f1ea223afb35d268e9472ac8\nCloses-Bug: #1652700",
         "cmtr": "ZhongShengping",
         "date": "2016-12-27 10:17:47+08:00",
-        "files": ["authtoken.pp", "deprecate_signing_dir_parameter-8713d834e121596a.yaml", "aodh_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_signing_dir_parameter-8713d834e121596a.yaml",
+            "spec/classes/aodh_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "64ba3872cbdacb1b72eab04a9f1da5670a43daf1",
         "msg": "Allow python-memcache install from authtoken class\n\nThe python-memcache package is required if using memcached. By\ndefault the package is not installed and the define has it set to\nfalse. This change allows managing the python-memcache package\ninstall from the authtoken class.\n\nChange-Id: I56e335c77e1512acc3432275b2381b10ba919fb0",
         "cmtr": "Matthew J. Black",
         "date": "2017-01-11 18:26:16-05:00",
-        "files": ["authtoken.pp", "authtoken_manage_memcache_package-0f8a273cc241024f.yaml", "aodh_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/authtoken_manage_memcache_package-0f8a273cc241024f.yaml",
+            "spec/classes/aodh_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "093eeb5ecf9fcd44c3f55c5e0ec1195b1f218d0b",
         "msg": "Fix Ubuntu Ocata-m2 issues\n\n1) Update Ubuntu wsgi location\nThe location of the app.wsgi has changed from /usr/share/aodh-common to\n/usr/share/aodh.\n\n2) Install packages before apache\nThe apache module cleans up the vhost configurations and in Ubuntu the\npackaging is include a default configuration. To ensure this file is\nremoved at the right time, we should make sure we install our software\nbefore doing the apache configuration when running under apache.\n\nChange-Id: I272c03f19d7182c4a731a1ef0fcbc2b9c6ca0b97\nCloses-Bug: #1657293\nCloses-Bug: #1657847",
         "cmtr": "Alex Schultz",
         "date": "2017-01-19 10:41:03-07:00",
-        "files": ["params.pp", "apache.pp", "ubuntu-aodh-wsgi-update-866423c7b4d84731.yaml", "aodh_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/ubuntu-aodh-wsgi-update-866423c7b4d84731.yaml",
+            "spec/classes/aodh_wsgi_apache_spec.rb"]
       },
       {
         "hash": "a64faf3c7434359932364569d2dcb9c4b4ca0168",
         "msg": "Fix annotation of the ensure parameter\n\nChange-Id: I4fad09df5349d550d53191ef5aaeffda0002d69c",
         "cmtr": "ZhongShengping",
         "date": "2017-01-20 17:28:45+08:00",
-        "files": ["client.pp"]
+        "files": [
+            "manifests/client.pp"]
       },
       {
         "hash": "5189249185819c1c781b8b9ae13c16f0ea9c81f3",
         "msg": "Add control_exchange and rpc_response_timeout options\n\nAdd control_exchange to configure an exchange name for message.\nAdd rpc_response_timeout to configure seconds time for waiting\nfor a response from a call.\n\nChange-Id: I980d8a4532a90b2d94ebcfa06578616f09f23c6c",
         "cmtr": "ZhongShengping",
         "date": "2017-01-21 16:25:25+08:00",
-        "files": ["init.pp", "add_messaging_default_parameters-11598a3e99fe3496.yaml", "aodh_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add_messaging_default_parameters-11598a3e99fe3496.yaml",
+            "spec/classes/aodh_init_spec.rb"]
       },
       {
         "hash": "5edf926741356cee7a17d57879b9395db1613601",
         "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should be\ninstalled before dbsync starts.\n\nChange-Id: I2e38e34098cf31a0d7fa549334b01fc8c6f61be0",
         "cmtr": "ZhongShengping",
         "date": "2017-01-22 21:21:03+08:00",
-        "files": ["deps.pp"]
+        "files": [
+            "manifests/deps.pp"]
       },
       {
         "hash": "e50308cc6da360cbe1fdfdfa5ae4a3593a6949f7",
         "msg": "Install python-redis if coordination url uses it\n\nIf tooz coordination is enabled and url is using redis\nlets ensure python-redis is installed.\n\nChange-Id: Iefe933f45353810200ec9c76ffc92f051db7a5e6",
         "cmtr": "Emilien Macchi",
         "date": "2017-02-15 08:23:33-05:00",
-        "files": ["evaluator.pp", "params.pp", "install-python-redis-d695b95171f6c392.yaml", "aodh_evaluator_spec.rb"]
+        "files": [
+            "manifests/evaluator.pp",
+            "manifests/params.pp",
+            "releasenotes/notes/install-python-redis-d695b95171f6c392.yaml",
+            "spec/classes/aodh_evaluator_spec.rb"]
       },
       {
         "hash": "75d16a7a31f56abc4777f5a7421eaad68838f1d1",
         "msg": "Inconsistent package_ensure parameter name\n\nThe parameter name used to enforce package state is inconsistent across\nmanifests and modules. I settle on package_ensure since it's already\nwidely used.\n\nChange-Id: I4392919b99e51a11896ea88d7de431d01b99f8f3\nCloses-Bug: #1668732",
         "cmtr": "ZhongShengping",
         "date": "2017-03-08 16:39:55+08:00",
-        "files": ["init.pp", "deprecate_ensure_package_parameter-a239528713d6791f.yaml", "aodh_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/deprecate_ensure_package_parameter-a239528713d6791f.yaml",
+            "spec/classes/aodh_init_spec.rb"]
       },
       {
         "hash": "050a396c02c5f4116b4e9efa6ac2464812284186",
         "msg": "Remove deprecated keystone authtoken signing_dir option\n\nChange-Id: I4ac00bf888c5a755ca1b098d401d74024eb90600",
         "cmtr": "ZhongShengping",
         "date": "2017-07-07 09:37:12+08:00",
-        "files": ["authtoken.pp", "remove_deprecated_keystone_signing_dir_option-9bf754c49db3de39.yaml"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/remove_deprecated_keystone_signing_dir_option-9bf754c49db3de39.yaml"]
       },
       {
         "hash": "131a8be8be91d31d695a900ef5177fd68013f884",
         "msg": "Allow to configure evaluation interval\n\nThis change allows to change the period of alarm evaluation cycle.\n\nChange-Id: I0d6ffe6b2682dc94c4252727c0a42c53c22ccbd2",
         "cmtr": "Mehdi Abaakouk",
         "date": "2017-07-12 08:39:18+02:00",
-        "files": ["evaluator.pp", "aodh_evaluator_spec.rb"]
+        "files": [
+            "manifests/evaluator.pp",
+            "spec/classes/aodh_evaluator_spec.rb"]
       },
       {
         "hash": "03bd82ca15d1f0629eb89f4d5fab89ce0dee94a7",
         "msg": "Configure the Ceilometer project name\n\nThis change configures the Ceilometer project name.\n\nThis allow to use Aodh and Gnocchi alarms as non admin user.\n\nChange-Id: I8b8328a87997a3ba4e15bd711d266b564153a2d3",
         "cmtr": "Mehdi Abaakouk",
         "date": "2017-07-18 16:23:23+02:00",
-        "files": ["api.pp", "aodh_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "spec/classes/aodh_api_spec.rb"]
       },
       {
         "hash": "61aadfc5dd54a71ae0b3bdbbd75a6b82a4da7cc0",
         "msg": "Fix filename of api_paste.ini\n\nChange-Id: Ib5120da8ae706a1314700364597d53071e48607b\nCloses-Bug: #1706473",
         "cmtr": "ZhongShengping",
         "date": "2017-07-26 09:26:33+08:00",
-        "files": ["ini_setting.rb", "aodh_api_paste_ini.rb", "config.pp"]
+        "files": [
+            "lib/puppet/provider/aodh_api_paste_ini/ini_setting.rb",
+            "lib/puppet/type/aodh_api_paste_ini.rb",
+            "manifests/config.pp"]
       },
       {
         "hash": "c194351429dbf53bfb7b3deaade4e2fec2eb9dba",
         "msg": "Remove rpc_backend conditional for oslo.messaging driver options\n\nOslo.messaging uses the transport_url to represent the rpc and\nnotification messaging driver to use and its full configuration. The\nrpc_backend configuration option is deprecated for removal and\nshould not gate oslo.messaging driver configuration options.\n\nThis patch:\n* deprecate rpc_backend\n* remove conditional check\n* update spec tests\n* add release note\n\nChange-Id: Id779b3cc169bee0d30ae16b37a6e03004b2e0dcc",
         "cmtr": "Andrew Smith",
         "date": "2017-07-26 13:56:45-04:00",
-        "files": ["init.pp", "deprecate_rpc_backend_parameter-6cc58d196b92f815.yaml", "aodh_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/deprecate_rpc_backend_parameter-6cc58d196b92f815.yaml",
+            "spec/classes/aodh_init_spec.rb"]
       },
       {
         "hash": "73aa2a2e1676dc797cef1242941590cbca797de2",
         "msg": "Fix rpc_backend option warning\n\nThe value of rpc_backend option is undef, not $::os_service_default.\nso fix the if statement condition.\n\nDepends-On: I2899da67ed9da1497904f41f6fa38d59e10a4cf9\n\nChange-Id: I4d2aed89d17f0dff8698ba6c5d03e82698cf008b",
         "cmtr": "Mohammed Naser",
         "date": "2017-08-10 02:05:12+00:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "6a0225617f471c08577574aefb2f575e57466b86",
         "msg": "Support setting paste_config setting on api.\n\nChange-Id: I65ce3da1c8af997e0a659e0e65daab6ef645b8fa",
         "cmtr": "Sam Morrison",
         "date": "2017-08-18 14:52:02+10:00",
-        "files": ["api.pp", "add-api-paste-option-9c3ea5b862ddb283.yaml", "aodh_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/add-api-paste-option-9c3ea5b862ddb283.yaml",
+            "spec/classes/aodh_api_spec.rb"]
       },
       {
         "hash": "c477791fc9f87f1a1911f5827db81e8066392563",
         "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: I18389ff125c9f116b0f0682371698473e6974ac2\nCloses-Bug: #1717144",
         "cmtr": "ZhongShengping",
         "date": "2017-09-14 10:51:20+08:00",
-        "files": ["authtoken.pp", "deprecate_revocation_cache_time_parameter-176135a12245ef23.yaml", "aodh_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_revocation_cache_time_parameter-176135a12245ef23.yaml",
+            "spec/classes/aodh_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "5e0be79f84df944b1ae73f334e98a84f51117054",
         "msg": "add parameter to overwrite/add wsgi process options\n\nAdd parameter to apache_wsgi to allow overwrite\nand/or add additional wsgi process options.\n\nThis possibility was added to openstacklib\nwith Change-Id: I41914ce3361988d5db1695f09d21209772fdf548\n\nChange-Id: I93e1d46e1f7c3121f866251620bf88435d4084d1",
         "cmtr": "Benedikt Trefzer",
         "date": "2017-09-19 14:17:31+02:00",
-        "files": ["apache.pp", "wsgi_process_options-ebf94e8584345941.yaml", "aodh_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/wsgi_process_options-ebf94e8584345941.yaml",
+            "spec/classes/aodh_wsgi_apache_spec.rb"]
       },
       {
         "hash": "bc930629622e3b56fdf248ef5b1ef7d694a84952",
         "msg": "Accept empty strings for log_dir\n\nAn empty string is an acceptable value of this entry, and it forces\nlogging to stdout/stderr, which is useful when running on containers.\n\nChange-Id: I79d3df78d6c78dc767625d11c6c6e29192192da3",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-10-10 08:04:39+03:00",
-        "files": ["logging.pp"]
+        "files": [
+            "manifests/logging.pp"]
       },
       {
         "hash": "d262e03ec9d2c7db02b9ed67ba89a9640fbbe831",
         "msg": "Allow setting log files for apache vhost\n\nThis allows the setting of the error and access file logs, as well as\nthe access log format. This was done in a similar fashion as one can\nconfigure these ones in the keystone wsgi manifest.\n\nChange-Id: I0e42e5edacc10060c2906f21fd907845cda203a4",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-10-12 04:14:32+00:00",
-        "files": ["apache.pp", "aodh_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "spec/classes/aodh_wsgi_apache_spec.rb"]
       },
       {
         "hash": "fb86336bf74e838fe349da3701c77abf9b08d2f6",
         "msg": "apache wsgi: Exchange defaults for workers and threads\n\nDue to Python's GIL [1], we can't use multiple threads for running\nOpenStack services without a performance penalty, since the execution\nends up serialized, which defeats the purpose.\n\nInstead, we should use several processes, since this approach doesn't\nhave this limitation.\n\n[1] https://wiki.python.org/moin/GlobalInterpreterLock\n\nChange-Id: I3aa3757a991d4437d0921cb55c1d08b5c9179de1",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-10-13 08:47:48+00:00",
-        "files": ["apache.pp", "aodh_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "spec/classes/aodh_wsgi_apache_spec.rb"]
       },
       {
         "hash": "893a54e98430b93cc71524ea1df0fc1227d7d098",
         "msg": "Switch to use keystone v3\n\nKeystone v2 api's are removed in [1], so it's required\nto use keystone v3 otherwise all requests fallbacks to\nkeystone v2.0 and fails.\n\n[1] https://review.openstack.org/#/c/499783/\n\nChange-Id: Ie2794d5fb12785e7c620c4ec8e3ccc2fb64d9e3b\nCloses-Bug: #1723838",
         "cmtr": "zhongshengping",
         "date": "2017-10-31 04:12:32+00:00",
-        "files": ["auth.pp", "aodh_wsgi_apache_spec.rb", "aodh_auth_spec.rb"]
+        "files": [
+            "manifests/auth.pp",
+            "spec/acceptance/aodh_wsgi_apache_spec.rb",
+            "spec/classes/aodh_auth_spec.rb"]
       },
       {
         "hash": "a4e2b53a704162aa3c5746b13541fd9c8578ed72",
         "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: I2b5c6ac36e7c4fb37dbd69f7386c9ac9a99956c2",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-11-27 12:47:10+00:00",
-        "files": ["logging.pp", "log-json-6ef392e6118fc052.yaml", "aodh_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "releasenotes/notes/log-json-6ef392e6118fc052.yaml",
+            "spec/classes/aodh_logging_spec.rb"]
       },
       {
         "hash": "a36dca7216842d6d24e9bb9b013c7859c8e0f3c0",
         "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nChange-Id: I26091326a1b50e977612a2b34a03bf8a938bfb33\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
         "cmtr": "Emilien Macchi",
         "date": "2018-01-10 14:22:13-08:00",
-        "files": ["params.pp", "policy.pp", "aodh_policy_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "spec/classes/aodh_policy_spec.rb"]
       },
       {
         "hash": "60e55b725504210c45d57b3ca61c8554475d4728",
         "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: I3289fae9f08607767f7cf2be78a4f6eac512f963",
         "cmtr": "ZhongShengping",
         "date": "2018-01-15 15:22:11+08:00",
-        "files": ["logging.pp", "add-use_journal-option-for-logging-b33f111a41b4b3af.yaml", "aodh_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "releasenotes/notes/add-use_journal-option-for-logging-b33f111a41b4b3af.yaml",
+            "spec/classes/aodh_logging_spec.rb"]
       },
       {
         "hash": "7c8720ede864097e733471ff968ca37ac236b2ce",
         "msg": "Add some kombu options\n\nAdds the kombu_failover_strategy option for configuring\noslo.messaging.rabbit. This will determines how the next RabbitMQ node\nis chosen in case the one we are currently connected to becomes\nunavailable.\n\nChange-Id: I8c44d54bdefc22bd30d0bc35486354b09611680a\nCloses-Bug: #1748353",
         "cmtr": "ZhongShengping",
         "date": "2018-02-09 13:46:45+08:00",
-        "files": ["init.pp", "add_rabbit_kombu_options-97d7fd85fb17b366.yaml", "aodh_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add_rabbit_kombu_options-97d7fd85fb17b366.yaml",
+            "spec/classes/aodh_init_spec.rb"]
       },
       {
         "hash": "d4113232558e9cb7a385a812e31453d36086b5ef",
         "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: I8215df855b260b9421df121d136be2e77eab1346\nCloses-Bug: #1755102",
         "cmtr": "ZhongShengping",
         "date": "2018-03-12 16:33:05+08:00",
-        "files": ["sync.pp", "openstack_db_tag-987f513d508e7717.yaml", "aodh_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "releasenotes/notes/openstack_db_tag-987f513d508e7717.yaml",
+            "spec/classes/aodh_db_sync_spec.rb"]
       },
       {
         "hash": "261f5649aef71d6cae4a9112cbd44fa8c392f3c2",
         "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: Id6e7a30c6a94d6bf10ed924003dcf672e331c647\nCloses-Bug: #1757581",
         "cmtr": "ZhongShengping",
         "date": "2018-03-22 10:34:07+08:00",
-        "files": ["db.pp", "add-pool_timeout-option-for-db-e14f111a41b4b3af.yaml", "aodh_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "releasenotes/notes/add-pool_timeout-option-for-db-e14f111a41b4b3af.yaml",
+            "spec/classes/aodh_db_spec.rb"]
       },
       {
         "hash": "c0518d8082a290d0688729374f1e7ba199705c82",
         "msg": "Use the pbr generated wsgi binary file located in binary folder\n\nSince pbr 1.4.0, wsgi_scripts entrypoing is supported and it will\ngenerated a wsgi compatible binary file.\nNot yet supported on Debian systems.\n\nChange-Id: Ie9b0fe1b7923dbf68db665982eb6003c83c0b4a8",
         "cmtr": "ZhongShengping",
         "date": "2018-03-26 16:48:04+08:00",
-        "files": ["params.pp", "aodh_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "spec/classes/aodh_wsgi_apache_spec.rb"]
       },
       {
         "hash": "eab921548303d4ecb4d4508bb572316136b06671",
         "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: Ie62e4c4ec99b6b3ea73b78c54c30fc69faa3186d",
         "cmtr": "ZhongShengping",
         "date": "2018-03-27 10:33:19+08:00",
-        "files": ["authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-8a7fd1af36857679.yaml"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/remove_deprecated_keystone_revocation_cache_time_option-8a7fd1af36857679.yaml"]
       },
       {
         "hash": "7023c98764a6935a24c2c74d2df1fc463986dcd9",
         "msg": "Remove deprecated ensure_package option\n\nChange-Id: I5be8fdc2705988a0fdcc5d3801b67078e7acb2c3",
         "cmtr": "ZhongShengping",
         "date": "2018-03-29 12:01:15+08:00",
-        "files": ["init.pp", "remove_deprecated_ensure_package_option-825213ae8953e207.yaml"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/remove_deprecated_ensure_package_option-825213ae8953e207.yaml"]
       },
       {
         "hash": "f1237a940d1f5309292d815166628de7daeff759",
         "msg": "Deprecate auth_uri option\n\nOption \"auth_uri\" from group \"keystone_authtoken\" is deprecated[1].\nUse option \"www_authenticate_uri\" from group \"keystone_authtoken\".\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: I89f82693b22cc61c97f9df3fbbd2bdbfe482f549\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
         "cmtr": "ZhongShengping",
         "date": "2018-04-04 16:08:01+08:00",
-        "files": ["authtoken.pp", "deprecate_auth_uri_parameter-b30f270e53932965.yaml", "aodh_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_auth_uri_parameter-b30f270e53932965.yaml",
+            "spec/classes/aodh_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "12ade995442b4de36af6b339ba9a3802d667c417",
         "msg": "Debian is using Python 3\n\nACK Debian's switch to Python 3\n\nChange-Id: I2f88ba6a6ecd18f9d2719fff869045f4c5b9be69",
         "cmtr": "Thomas Goirand",
         "date": "2018-04-10 20:53:11+02:00",
-        "files": ["params.pp", "aodh_client_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "spec/classes/aodh_client_spec.rb"]
       },
       {
         "hash": "61d07624ce1e9eefa5c68c0d47cfd2d2d50096ac",
         "msg": "Replace port 35357 with 5000\n\nNow that the v2.0 API has been removed, we don't have a reason to\ninclude deployment instructions for two separate applications on\ndifferent ports. This change updates the guide to be consistent with\nrecent changes to the ubuntu packages:\n\nhttps://git.launchpad.net/~ubuntu-server-dev/ubuntu/+source/keystone/commit/?id=915d787af42096b0fad715e49759cd357e47787e\n\nChange-Id: I555e3559af1f8db9a14e0667969327ea06903c21",
         "cmtr": "caoyuan",
         "date": "2018-05-12 14:55:14+00:00",
-        "files": ["authtoken.pp", "aodh_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "spec/classes/aodh_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "bf5d06f64000a762779ef0ad9a8767cceec74bf3",
         "msg": "Remove deprecated parameters\n\nRemoves deprecated parameters that has been\ndeprecated for one cycle or more.\n\nChange-Id: Iaf45947643b0fb6495fa44c6410a7e6e98aac197",
         "cmtr": "Tobias Urdin",
         "date": "2018-05-19 23:44:56+02:00",
-        "files": ["init.pp", "aodh-remove-deprecated-7ee96f8d599028be.yaml", "aodh_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/aodh-remove-deprecated-7ee96f8d599028be.yaml",
+            "spec/classes/aodh_init_spec.rb"]
       },
       {
         "hash": "8dcbcbd564eb5f9b5738d9c45b019d0ce65f5634",
         "msg": "Fix annotations\n\nChange-Id: Ie0cc7c8bc7c136fac1cbeeee72faf1dbc8f6c1fa",
         "cmtr": "zhubingbing",
         "date": "2018-06-15 15:07:36+08:00",
-        "files": ["mysql.pp"]
+        "files": [
+            "manifests/db/mysql.pp"]
       },
       {
         "hash": "4df9382252d1c6b37cb2c0f7efe7139bda6cea0f",
         "msg": "Notify not only aodh-api service but also apache\n\nNot only the aodh-api service is notified but also the apache service if\nthe API is run using apache. This ensures apache is restarted on config\nchanges.\n\nChange-Id: I3967584431c547c2431c9b614de9db6416169567",
         "cmtr": "Matthias Bastian",
         "date": "2018-07-06 14:16:16+02:00",
-        "files": ["api.pp", "restart-apache-4c85888a2bafbaa8.yaml"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/restart-apache-4c85888a2bafbaa8.yaml"]
       },
       {
         "hash": "7d240874e0f4c80d384696678e7e3742ddb0ecf7",
         "msg": "Deprecate aodh::api::host and aodh::api::port\n\nBoth have no effect as aodh-api does not read them as of\nIefd6f4d9f76c69ed9b49483e1feda0b7dbe2cb81.\n\nChange-Id: I0da4dc1ba52bae5becd5e2a9c0f008cbe2907446",
         "cmtr": "Matthias Bastian",
         "date": "2018-07-06 14:16:48+02:00",
-        "files": ["api.pp", "deprecate-host-and-port-parameters-7aa4609a9a7d2104.yaml", "aodh_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/deprecate-host-and-port-parameters-7aa4609a9a7d2104.yaml",
+            "spec/classes/aodh_api_spec.rb"]
       },
       {
         "hash": "3d4f500e6f9dcaa185294622da21454091371402",
         "msg": "Deprecate aodh::gnocchi_url as it has no effect\n\nUsage of the gnocchi_url configuration option was removed from aodh in\nI41ef467750a403841ad96bfa7607ad63bd55702d.\n\nChange-Id: I49f9c44adb3d0dfabfbb701d41c99a8267bed5cf",
         "cmtr": "Matthias Bastian",
         "date": "2018-07-06 14:19:04+02:00",
-        "files": ["init.pp", "deprecate-gnocchi_url-parameter-415f98e9712ed768.yaml", "aodh_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/deprecate-gnocchi_url-parameter-415f98e9712ed768.yaml",
+            "spec/classes/aodh_init_spec.rb"]
       },
       {
         "hash": "a4f6673a021c2882d4af8b71a20cfa4d2552f57a",
         "msg": "Fix explicit endpoint configuration\n\nWhen trying to specify the endpoint type in the identity service catalog\nto use for communication with OpenStack services an outdated\nconfiguration option was written: endpoint_type was replaced by\ninterface in aodh.\n\nThis change therefore also deprecates the aodh::auth::auth_endpoint_type\nparameter in favor of a new aodh::auth::interface parameter.\n\nChange-Id: Ifca3ddc47e02752dcf8503e5691005382bb6073c",
         "cmtr": "Matthias Bastian",
         "date": "2018-07-06 14:19:48+02:00",
-        "files": ["auth.pp", "deprecate-auth_endpoint_type-parameter-405533a1bbb2fa2a.yaml", "aodh_auth_spec.rb"]
+        "files": [
+            "manifests/auth.pp",
+            "releasenotes/notes/deprecate-auth_endpoint_type-parameter-405533a1bbb2fa2a.yaml",
+            "spec/classes/aodh_auth_spec.rb"]
       },
       {
         "hash": "668cc00c50dd76d381937820ee6505cc322d10bf",
         "msg": "Changed an auth_url version to v3 in the in-file documentation\n\nChange-Id: Ic0445e8d0c7ac7afd3bb1ee2096fd85260abafe0",
         "cmtr": "Anastasiia Vlaskina",
         "date": "2018-07-09 14:48:16+02:00",
-        "files": ["auth.pp"]
+        "files": [
+            "manifests/auth.pp"]
       },
       {
         "hash": "33df930eab714e2dc9f62247ba2c5b226dc8fece",
         "msg": "Fix bug introduced by notify apache for aodh-api\n\nThe change [1] was wrong since it uses the wrong resource\nname for the puppetlabs-apache Service defintion [2].\n\nInstead of the revert this fixes it by changing it back to\nthe proper variable which has the value 'httpd'.\n\n[1] https://review.openstack.org/#/c/580618/\n[2] https://github.com/puppetlabs/puppetlabs-apache/blob/master/manifests/service.pp#L43\n\nChange-Id: If90241c5f0b74d1c72f222d40bd82e55ef6995c9",
         "cmtr": "Tobias Urdin",
         "date": "2018-07-14 13:44:05+02:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "6abe96a4df16d742438cb601ded0cd924d2ef617",
         "msg": "fix parameter indentations\n\nChange-Id: Ic41ef2fc76ad2685d4f2d985f4426c05b1915785",
         "cmtr": "Martin Mailand",
         "date": "2018-07-17 10:47:17+02:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "fb8128d0db32186f7cc53ff5cb5a5eb575001c08",
         "msg": "Added missing slave_connection param\n\nSlave_connection was available in main class, but it doesn't\nconfigure service correctly.\n\nChange-Id: I7a585c5481b80e5e0d12ad97271632c2abada1c1",
         "cmtr": "Daniel Pawlik",
         "date": "2018-07-20 10:44:21+00:00",
-        "files": ["db.pp", "aodh_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "spec/classes/aodh_db_spec.rb"]
       },
       {
         "hash": "82b983437baa5c383a20c44f00f9a5382b747418",
         "msg": "Fix the smoke testing link\n\nChange-Id: I4c9bb4cce4f1cba08483cdce6f946a63f5088d31",
         "cmtr": "jacky06",
         "date": "2018-07-30 12:31:24-04:00",
-        "files": ["init.pp"]
+        "files": [
+            "tests/init.pp"]
       },
       {
         "hash": "1ea9ed2e82626042512fc7c52044e9ff7d6f983e",
         "msg": "Improve restarting Apache\n\nThe previous approach could lead to restarting Apache after\nAnchor['aodh::service::end']. The new approach is already used in other\nPuppet modules and guarantees restarting Apache between the service\nanchors.\n\nChange-Id: Id88fe6c893964fa5f8dfd3e75c933615b9f6af40",
         "cmtr": "Matthias Bastian",
         "date": "2018-08-14 16:46:38+02:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "bd265b054b97c05d677bbc178a3842a5a5bb61d4",
         "msg": "Fix undef typo\n\nChange-Id: Idf09e87a4941f1cd3c8e929214348da3167978af",
         "cmtr": "Tobias Urdin",
         "date": "2018-09-23 15:31:09+02:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       }]
     }

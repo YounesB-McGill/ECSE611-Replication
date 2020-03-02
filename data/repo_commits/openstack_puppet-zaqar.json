@@ -1,7 +1,33 @@
     {
       "url": "https://github.com/openstack/puppet-zaqar",
-      "pp_files": ["wsgi.pp", "logging.pp", "init.pp", "sync.pp", "postgresql.pp", "server_instance.pp", "params.pp", "redis.pp", "authtoken.pp", "config.pp", "policy.pp", "trust.pp", "deps.pp", "client.pp", "auth_websocket.pp", "sqlalchemy.pp", "mysql.pp", "websocket.pp", "server.pp", "swift.pp", "mongodb.pp", "apache.pp", "auth.pp"],
-      "pp_cmtrs": ["Emilien Macchi", "Matthew J. Black", "Juan Antonio Osorio Robles", "Athlan-Guyot sofer", "Tobias Urdin", "ZhongShengping", "yatin", "Thomas Goirand", "Richard Raseley", "Swapnil Kulkarni (coolsvap)", "zhubingbing", "Sharat Sharma", "Alex Schultz", "Martin Andr\u00e9", "Denis Egorenko", "Iury Gregory Melo Ferreira", "Thomas Herve", "Dan Prince", "Deepak Jon"],
+      "pp_files": [
+        "manifests/management/mongodb.pp",
+        "manifests/messaging/redis.pp",
+        "manifests/messaging/swift.pp",
+        "manifests/wsgi/apache.pp",
+        "manifests/deps.pp",
+        "manifests/db/postgresql.pp",
+        "manifests/keystone/trust.pp",
+        "manifests/keystone/auth_websocket.pp",
+        "manifests/client.pp",
+        "manifests/init.pp",
+        "manifests/config.pp",
+        "manifests/logging.pp",
+        "manifests/db/mysql.pp",
+        "manifests/keystone/auth.pp",
+        "manifests/server.pp",
+        "manifests/keystone/authtoken.pp",
+        "manifests/params.pp",
+        "manifests/policy.pp",
+        "manifests/transport/websocket.pp",
+        "tests/init.pp",
+        "manifests/db/sync.pp",
+        "manifests/transport/wsgi.pp",
+        "manifests/management/sqlalchemy.pp",
+        "manifests/server_instance.pp",
+        "manifests/messaging/mongodb.pp"
+      ],
+      "pp_cmtrs": ["zhubingbing", "Thomas Herve", "Juan Antonio Osorio Robles", "ZhongShengping", "Swapnil Kulkarni (coolsvap)", "Thomas Goirand", "Sharat Sharma", "Alex Schultz", "Iury Gregory Melo Ferreira", "Deepak Jon", "Athlan-Guyot sofer", "Matthew J. Black", "Richard Raseley", "yatin", "Martin Andr\u00e9", "Emilien Macchi", "Dan Prince", "Tobias Urdin", "Denis Egorenko"],
       "num_pp_commits": 62,
       "num_tot_commits": 212,
       "commits": [{
@@ -9,433 +35,663 @@
         "msg": "puppet-zaqar: Initial commit\n\nThis is the initial commit for puppet-zaqar.\nIt has been automatically generated using cookiecutter[1] and msync[2]\n\n[1] https://github.com/openstack/puppet-openstack-cookiecutter\n[2] https://github.com/openstack/puppet-modulesync-configs\n\nChange-Id: Iaca8f89dd22320ec0e08bfb8ec9b5912ad68c9fb\nCo-Authored-By: yguenane@redhat.com",
         "cmtr": "Richard Raseley",
         "date": "2015-08-25 09:59:38-07:00",
-        "files": [".fixtures.yml", ".gitignore", "Gemfile", "LICENSE", "README.md", "Rakefile", "ini_setting.rb", "zaqar_config.rb", "config.pp", "mysql.pp", "postgresql.pp", "sync.pp", "init.pp", "auth.pp", "logging.pp", "policy.pp", "metadata.json", "centos-70-x64.yml", "default.yml", "nodepool-centos7.yml", "nodepool-trusty.yml", "ubuntu-server-1404-x64.yml", "zaqar_db_mysql_spec.rb", "zaqar_db_postgresql_spec.rb", "zaqar_keystone_auth_spec.rb", "zaqar_logging_spec.rb", "zaqar_policy_spec.rb", "shared_examples.rb", "spec_helper.rb", "spec_helper_acceptance.rb", "ini_setting_spec.rb", "zaqar_config_spec.rb", "init.pp"]
+        "files": [
+            ".fixtures.yml",
+            ".gitignore",
+            "Gemfile",
+            "LICENSE",
+            "README.md",
+            "Rakefile",
+            "lib/puppet/provider/zaqar_config/ini_setting.rb",
+            "lib/puppet/type/zaqar_config.rb",
+            "manifests/config.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "manifests/db/sync.pp",
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/logging.pp",
+            "manifests/policy.pp",
+            "metadata.json",
+            "spec/acceptance/nodesets/centos-70-x64.yml",
+            "spec/acceptance/nodesets/default.yml",
+            "spec/acceptance/nodesets/nodepool-centos7.yml",
+            "spec/acceptance/nodesets/nodepool-trusty.yml",
+            "spec/acceptance/nodesets/ubuntu-server-1404-x64.yml",
+            "spec/classes/zaqar_db_mysql_spec.rb",
+            "spec/classes/zaqar_db_postgresql_spec.rb",
+            "spec/classes/zaqar_keystone_auth_spec.rb",
+            "spec/classes/zaqar_logging_spec.rb",
+            "spec/classes/zaqar_policy_spec.rb",
+            "spec/shared_examples.rb",
+            "spec/spec_helper.rb",
+            "spec/spec_helper_acceptance.rb",
+            "spec/unit/provider/zaqar_config/ini_setting_spec.rb",
+            "spec/unit/type/zaqar_config_spec.rb",
+            "tests/init.pp"]
       },
       {
         "hash": "eaf21d19ee22a7f74c17ed900f393524bbee5877",
         "msg": "Make Keystone_endpoint match service by name/type\n\nSince a chance in puppet-keystone (1], we now match an endpoint with a\nservice name/type.\n)\n[1] http://git.openstack.org/cgit/openstack/puppet-keystone/commit/?id=0a4e06abb0f5b3f324464ff5219d2885816311ce\n\nChange-Id: Id31829908be2818ba5afe121caf79d97300dd20f\nCloses-Bug: #1528308",
         "cmtr": "Emilien Macchi",
         "date": "2015-12-22 18:13:36+01:00",
-        "files": ["auth.pp", "zaqar_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "spec/classes/zaqar_keystone_auth_spec.rb"]
       },
       {
         "hash": "8b454bc7ebff3a96f6d900dc0955c52e7e96068d",
         "msg": "Update typo\n\nChange-Id: Ia2e763e1a72157d17d03f1af885fe146eaf6bcc4",
         "cmtr": "Swapnil Kulkarni (coolsvap)",
         "date": "2016-01-08 03:32:14+00:00",
-        "files": ["mysql.pp"]
+        "files": [
+            "manifests/db/mysql.pp"]
       },
       {
         "hash": "5a0b65b1ea46ba0eeb3bb18d4e59086738e3274b",
         "msg": "Updated defaults for zaqar::keystone::auth\n\nUpdate the defaults for keystone::auth so that they are\nconsistent with the project (python-zaqarclient, etc.)\n\nChange-Id: I317fb47a1326eb577dd0fa8ec5eb2d7ac842c4af",
         "cmtr": "Dan Prince",
         "date": "2016-02-11 20:10:45-05:00",
-        "files": ["auth.pp", "zaqar_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "spec/classes/zaqar_keystone_auth_spec.rb"]
       },
       {
         "hash": "a5a474d4d87bdf37e1866e42ca7005a9db3aa75f",
         "msg": "Implement zaqar::init class\n\nThis configure high level (non-driver) settings for zaqar\nin addition to keystone auth settings.\n\nChange-Id: Iec49c7aca993fcb44e89d27b17c0aaadb24452d9",
         "cmtr": "Dan Prince",
         "date": "2016-02-16 14:34:08-05:00",
-        "files": ["init.pp", "params.pp", "zaqar_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/params.pp",
+            "spec/classes/zaqar_init_spec.rb"]
       },
       {
         "hash": "e55ebf275c4ded4ea4a7d5062b38585ccef39441",
         "msg": "Add zaqar::management::mongodb\n\nThis class is used to enable and configure the mongodb\nmanagement driver.\n\nChange-Id: I3d40e835d3bd51bc536e5cf111254907caeea67d",
         "cmtr": "Dan Prince",
         "date": "2016-02-16 14:34:10-05:00",
-        "files": ["mongodb.pp", "zaqar_management_mongodb_spec.rb"]
+        "files": [
+            "manifests/management/mongodb.pp",
+            "spec/classes/zaqar_management_mongodb_spec.rb"]
       },
       {
         "hash": "b731e48bf4c4fba3b80edfdd0e058a5241ee1aab",
         "msg": "Add zaqar::messaging::mongodb\n\nThis class is used to enable and configure the mongodb\nmessaging driver.\n\nChange-Id: I1843aa1506103f92dd3bb8057eca9d2120a5d7b1",
         "cmtr": "Dan Prince",
         "date": "2016-02-16 14:34:10-05:00",
-        "files": ["mongodb.pp", "zaqar_messaging_mongodb_spec.rb"]
+        "files": [
+            "manifests/messaging/mongodb.pp",
+            "spec/classes/zaqar_messaging_mongodb_spec.rb"]
       },
       {
         "hash": "ecadc5930d5d25c234fa5b8b99b2c12fe3e2dcf4",
         "msg": "Add zaqar::server class\n\nThis class manages the primary zaqar-server process.\n\nChange-Id: Ie062d1ff4dd2a3adef5bcc9d36eca2f67a39048c",
         "cmtr": "Dan Prince",
         "date": "2016-02-16 15:33:51-05:00",
-        "files": ["server.pp", "zaqar_server_spec.rb"]
+        "files": [
+            "manifests/server.pp",
+            "spec/classes/zaqar_server_spec.rb"]
       },
       {
         "hash": "e9b736c8eb5d6949a26e8c4b9061df86b35a9566",
         "msg": "Add zaqar::server_instance class.\n\nThis class manages N instances of zaqar-server each using an\nalternate /etc/zaqar/n.conf file to control select service\nsettings which take priority over settings in /etc/zaqar/zaqar.conf.\n\nThe primary use case for this class would be to enable websockets\nalongside of wsgi. The only way to do this with Zaqar today is\nto run multiple processes.\n\nChange-Id: Ib730206ece73efe57aca7df4a65c906e95cdd606",
         "cmtr": "Dan Prince",
         "date": "2016-02-17 08:23:57-05:00",
-        "files": ["server_instance.pp", "zaqar_server_instance_spec.rb", "zaqar.conf.erb"]
+        "files": [
+            "manifests/server_instance.pp",
+            "spec/classes/zaqar_server_instance_spec.rb",
+            "templates/zaqar.conf.erb"]
       },
       {
         "hash": "623ed3789bf4acfc961a2f2b31cf6c3bb5962b4d",
         "msg": "Add zaqar::transport::websocket class\n\nThis class helps manage zaqar transport settings for websockets.\n\nChange-Id: Idf9589785431c32ac2678351ca326e8a0d4d57d5",
         "cmtr": "Dan Prince",
         "date": "2016-02-17 08:23:58-05:00",
-        "files": ["websocket.pp", "zaqar_transport_websocket_spec.rb"]
+        "files": [
+            "manifests/transport/websocket.pp",
+            "spec/classes/zaqar_transport_websocket_spec.rb"]
       },
       {
         "hash": "6c05509bccbf58d8c6e08ca746d2f350e5d342a4",
         "msg": "Add zaqar::transport::wsgi class\n\nThis class helps manage zaqar transport settings for wsgi.\n\nChange-Id: I668ecc79f1684438beff620394711c6bb8f2cc34",
         "cmtr": "Dan Prince",
         "date": "2016-02-17 08:23:58-05:00",
-        "files": ["wsgi.pp", "zaqar_transport_wsgi_spec.rb"]
+        "files": [
+            "manifests/transport/wsgi.pp",
+            "spec/classes/zaqar_transport_wsgi_spec.rb"]
       },
       {
         "hash": "366deb93cb377ab160060000999f6309ed89b547",
         "msg": "Switch zaqar to use rspec-puppet-facts\n\nThis change updates the tests to use rspec-puppet-facts. Additionally\nthis change fixes the relationship in zaqar::server_instance for Debian\nbased systems.\n\nChange-Id: I03ce4ee17feec1f0ea7012ea116c9c12cf3bde5f",
         "cmtr": "Alex Schultz",
         "date": "2016-02-18 21:35:02-07:00",
-        "files": ["server_instance.pp", "zaqar_db_mysql_spec.rb", "zaqar_db_postgresql_spec.rb", "zaqar_init_spec.rb", "zaqar_keystone_auth_spec.rb", "zaqar_logging_spec.rb", "zaqar_management_mongodb_spec.rb", "zaqar_messaging_mongodb_spec.rb", "zaqar_policy_spec.rb", "zaqar_server_instance_spec.rb", "zaqar_server_spec.rb", "zaqar_transport_websocket_spec.rb", "zaqar_transport_wsgi_spec.rb", "zaqar_server_instance_spec.rb"]
+        "files": [
+            "manifests/server_instance.pp",
+            "spec/classes/zaqar_db_mysql_spec.rb",
+            "spec/classes/zaqar_db_postgresql_spec.rb",
+            "spec/classes/zaqar_init_spec.rb",
+            "spec/classes/zaqar_keystone_auth_spec.rb",
+            "spec/classes/zaqar_logging_spec.rb",
+            "spec/classes/zaqar_management_mongodb_spec.rb",
+            "spec/classes/zaqar_messaging_mongodb_spec.rb",
+            "spec/classes/zaqar_policy_spec.rb",
+            "None",
+            "spec/classes/zaqar_server_spec.rb",
+            "spec/classes/zaqar_transport_websocket_spec.rb",
+            "spec/classes/zaqar_transport_wsgi_spec.rb",
+            "spec/defines/zaqar_server_instance_spec.rb"]
       },
       {
         "hash": "ba00e81f1781935a4ffe9c57b485a8de1d03bcee",
         "msg": "Totally drop Qpid support\n\nQpid was removed in Mitaka from Oslo Messaging, so now we can\ndrop it in manifests.\n\nChange-Id: I5eb5a0b7fc5be00cdd98ef922aa66da679d1cb0a",
         "cmtr": "Denis Egorenko",
         "date": "2016-04-18 14:21:07+03:00",
-        "files": ["logging.pp", "drop_qpid-a85c88e538b885f8.yaml", "zaqar_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "releasenotes/notes/drop_qpid-a85c88e538b885f8.yaml",
+            "spec/classes/zaqar_logging_spec.rb"]
       },
       {
         "hash": "ac45966573f5dfa3c7072e0416919794fe65c1c2",
         "msg": "Use oslo module for logging and policy configuration\n\nChange-Id: I6a6c3dc4a54ac72ab212b3bd1a82d9f023876650",
         "cmtr": "ZhongShengping",
         "date": "2016-05-09 08:34:59+08:00",
-        "files": ["logging.pp", "policy.pp", "switch_to_oslo-14ef071d323c243a.yaml", "zaqar_logging_spec.rb", "zaqar_policy_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "manifests/policy.pp",
+            "releasenotes/notes/switch_to_oslo-14ef071d323c243a.yaml",
+            "spec/classes/zaqar_logging_spec.rb",
+            "spec/classes/zaqar_policy_spec.rb"]
       },
       {
         "hash": "ad63a4b9404a1e5b6ebf6d77bb2f22ea4532cfb9",
         "msg": "Add params to configure zaqar storage pipelines\n\nThis patch adds parameters to configure the storage/*_pipeline\nparameters for zaqar. These parameters are quite useful is you\nwish to recieve notifications for Zaqar. In particular the\nmessage_pipeline would often get set to 'zaqar.notification.notifier'\nso that messages that have been subscribed to could be recieved.\n\nZaqar upstream has these set to nothing upstream so for now\nsetting the default to $os_service_default seems reasonable.\n\nChange-Id: I14eade5ef0ac64f8856bfa455c4f9aaf51dd6c8d",
         "cmtr": "Dan Prince",
         "date": "2016-05-18 19:42:58-04:00",
-        "files": ["init.pp", "zaqar_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/zaqar_init_spec.rb"]
       },
       {
         "hash": "c2acaba000ca22d28f6807942f9a5fed3cb6fb90",
         "msg": "Provide default service_name for keystone endpoint\n\nThis change updates the zaqar::keystone::auth class to include a default\nservice_name of 'zaqar' so that if a user changes the auth_name, the\nservice is still created as being related to 'zaqar'.  This improves the\nuser experiance when they want to customize the usernames for services.\n\nChange-Id: I2977790c3558732c2a1773aa3ede834c1d62ca16\nCloses-Bug: #1590040",
         "cmtr": "ZhongShengping",
         "date": "2016-06-08 13:52:19+08:00",
-        "files": ["auth.pp", "keystone-auth-name-a147ec123b16221d.yaml", "zaqar_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "releasenotes/notes/keystone-auth-name-a147ec123b16221d.yaml",
+            "spec/classes/zaqar_keystone_auth_spec.rb"]
       },
       {
         "hash": "837dad71f2642222522f3c6c19a8333028928b0c",
         "msg": "Add zaqar::keystone::auth_websocket\n\nAdds a new zaqar::keystone::auth_websocket class to help\ncreate a 'messaging-websocket' Keystone endpoint. Users of\nzaqar websockets currently have to do substring replacement on the\nZaqar HTTP URLs... having a dedicated endpoint for websockets will\nbe much better.\n\nChange-Id: Idd3ca1765604d9a461f68fc7b4a18b23a3c19d5b",
         "cmtr": "Dan Prince",
         "date": "2016-07-07 15:56:59-04:00",
-        "files": ["auth_websocket.pp", "keystone_auth_websocket-c6977224866b0071.yaml", "zaqar_mongo_spec.rb", "zaqar_keystone_auth_websocket_spec.rb"]
+        "files": [
+            "manifests/keystone/auth_websocket.pp",
+            "releasenotes/notes/keystone_auth_websocket-c6977224866b0071.yaml",
+            "spec/acceptance/zaqar_mongo_spec.rb",
+            "spec/classes/zaqar_keystone_auth_websocket_spec.rb"]
       },
       {
         "hash": "1e4976ea586cae8383353eed26ae20ee509ad79f",
         "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: If0e6588783328df7a8edcf83a3fdffa419f0fa82\nRelated-Bug: 1599113",
         "cmtr": "Athlan-Guyot sofer",
         "date": "2016-07-08 09:04:30+00:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "24b18afe1861de4fea9a43480289d0dde0906942",
         "msg": "Add param to set max_messages_post_size\n\nChange-Id: I07a8b3c659a367f65b9d4cd700912a419e50a472",
         "cmtr": "Dan Prince",
         "date": "2016-07-20 15:16:29-04:00",
-        "files": ["init.pp", "zaqar_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/zaqar_init_spec.rb"]
       },
       {
         "hash": "6ddcb152e9f1d415172fba192eb67c0563f91d82",
         "msg": "Move zaqar to authtoken\n\nIn zaqar, use keystone::resource::authtoken to configure\nkeystone_authtoken section in the configuration file,\nwith all parameters required to configure keystonemiddleware.\nThis patch will allow to deploy zaqar to use Keystone v3 authentification.\n\nSome deprecations:\n- zaqar::identity_uri is deprecated in favor of\nzaqar::auth_url\n- zaqar::admin_user is deprecated in favor of\nzaqar::username\n- zaqar::admin_password is deprecated in favor of\nzaqar::password\n- zaqar::admin_tenant_name is deprecated in favor of\nzaqar::project_name\n\nChange-Id: Ie825ce4d88ca4a2a33a7ced6e413ddc59f28ef1c\nRelated-Bug: #1604463",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-07-24 16:50:00-03:00",
-        "files": ["init.pp", "authtoken-10653fde75334039.yaml", "zaqar_mongo_spec.rb", "zaqar_init_spec.rb", "zaqar_server_instance_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/authtoken-10653fde75334039.yaml",
+            "spec/acceptance/zaqar_mongo_spec.rb",
+            "spec/classes/zaqar_init_spec.rb",
+            "spec/defines/zaqar_server_instance_spec.rb"]
       },
       {
         "hash": "a95b356f0fc7531a61416fea3777b8abf9de0e6b",
         "msg": "Move authtoken to class\n\nUpdate module to work with the new schema for authtoken\n\nChange-Id: If7eca0a769651b13a996558e6318ac682eff24f6\nCloses-Bug: #1604463",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-08-04 12:25:34-03:00",
-        "files": ["init.pp", "authtoken.pp", "authtoken-4957c02d0d35b01a.yaml", "zaqar_mongo_spec.rb", "zaqar_init_spec.rb", "zaqar_keystone_authtoken_spec.rb", "zaqar_server_instance_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/authtoken-4957c02d0d35b01a.yaml",
+            "spec/acceptance/zaqar_mongo_spec.rb",
+            "spec/classes/zaqar_init_spec.rb",
+            "spec/classes/zaqar_keystone_authtoken_spec.rb",
+            "spec/defines/zaqar_server_instance_spec.rb"]
       },
       {
         "hash": "c510b3b66d7c5fdbe2463f30115d0a867e6e1cd5",
         "msg": "dbsync: don't require User resource\n\nUser[zaqar] is not in the catalog, don't try to require it, it doesn't\nexit!\n\nThe dbsync is run after package management so we're good.\n\nChange-Id: Ie642f9ec6e6acc0765bc88ec4438a01a5618563b",
         "cmtr": "Emilien Macchi",
         "date": "2016-09-14 22:02:01-04:00",
-        "files": ["sync.pp"]
+        "files": [
+            "manifests/db/sync.pp"]
       },
       {
         "hash": "abb350c4d97e92f8b7bcfd58f27104136e17b4a5",
         "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: Id89665099079ab5e4c468f7f30953762a248af01\nCloses-Bug: #1628580",
         "cmtr": "Sharat Sharma",
         "date": "2016-09-29 14:15:01+00:00",
-        "files": ["sync.pp"]
+        "files": [
+            "manifests/db/sync.pp"]
       },
       {
         "hash": "74361006531f80f71aef48979da7fb8e9bc8bb8c",
         "msg": "Add purge_config option\n\nAdd the option in order to facilitate management.\nUser can ensure that only the options they hoped\nare configured.\n\nChange-Id: Iade2197388b1aa114f2fd9e2ab53a62f1f45c4e9",
         "cmtr": "ZhongShengping",
         "date": "2016-10-27 00:36:46+08:00",
-        "files": ["init.pp", "zaqar_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/zaqar_init_spec.rb"]
       },
       {
         "hash": "641be0c1e0ba961f6570d6754d60d932dc6075f1",
         "msg": "Remove old authtoken options\n\nSince we are in ocata lets remove all old parameters in api\nto configure the keystone_authtoken section\n\nChange-Id: I4950c5dba0eb257412fe2d2d39f1780b431c05d4",
         "cmtr": "Alex Schultz",
         "date": "2016-11-18 00:54:16+00:00",
-        "files": ["init.pp", "authtoken.pp", "remove_old_authtoken_options-af00c2e849bc8aa4.yaml", "zaqar_init_spec.rb", "zaqar_server_spec.rb", "zaqar_server_instance_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/remove_old_authtoken_options-af00c2e849bc8aa4.yaml",
+            "spec/classes/zaqar_init_spec.rb",
+            "spec/classes/zaqar_server_spec.rb",
+            "spec/defines/zaqar_server_instance_spec.rb"]
       },
       {
         "hash": "7cf66df9e1c3b791b07a63fd6196d24bdc6dab42",
         "msg": "Add support for Debian system\n\nWe can add suport for Debian system due to have the\nzaqar package in Debian system.\nThe Debian system does not support the use of services to run\na second instance, because there is no zaqar-server@.service\nin zaqar package, so do not test it. I will Re-test it after\nthe zaqar package solve the problem.\n\nChange-Id: I026b7d8f2b5994114d5a319200ed7c7d099b4fb5",
         "cmtr": "ZhongShengping",
         "date": "2016-11-29 12:53:23+08:00",
-        "files": ["params.pp", "zaqar_mongo_spec.rb", "zaqar_init_spec.rb", "zaqar_server_spec.rb", "zaqar_server_instance_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "spec/acceptance/zaqar_mongo_spec.rb",
+            "spec/classes/zaqar_init_spec.rb",
+            "spec/classes/zaqar_server_spec.rb",
+            "spec/defines/zaqar_server_instance_spec.rb"]
       },
       {
         "hash": "a85d3bc12c4075971d71a839f031a308b4bf509d",
         "msg": "Fix lint issue\n\nChange-Id: I17aa1e00ca1bba58a41b47cf3c8cdf98b5b6ab5d",
         "cmtr": "ZhongShengping",
         "date": "2016-11-30 10:45:23+08:00",
-        "files": ["mongodb.pp", "mongodb.pp"]
+        "files": [
+            "manifests/management/mongodb.pp",
+            "manifests/messaging/mongodb.pp"]
       },
       {
         "hash": "c54428f524299edc94af6b6c6fa7cdfa0c1771c7",
         "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nChange-Id: If4f585264f5f5a15549855d97b532866d91f5215",
         "cmtr": "ZhongShengping",
         "date": "2016-12-07 16:49:58+08:00",
-        "files": ["config.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "init.pp", "auth.pp", "auth_websocket.pp", "authtoken.pp", "logging.pp", "mongodb.pp", "mongodb.pp", "policy.pp", "server.pp", "server_instance.pp", "websocket.pp", "wsgi.pp", "external_install_mgmt_hook-a872455f51a38612.yaml", "zaqar_init_spec.rb"]
+        "files": [
+            "manifests/config.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "manifests/db/sync.pp",
+            "manifests/deps.pp",
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/keystone/auth_websocket.pp",
+            "manifests/keystone/authtoken.pp",
+            "manifests/logging.pp",
+            "manifests/management/mongodb.pp",
+            "manifests/messaging/mongodb.pp",
+            "manifests/policy.pp",
+            "manifests/server.pp",
+            "manifests/server_instance.pp",
+            "manifests/transport/websocket.pp",
+            "manifests/transport/wsgi.pp",
+            "releasenotes/notes/external_install_mgmt_hook-a872455f51a38612.yaml",
+            "spec/classes/zaqar_init_spec.rb"]
       },
       {
         "hash": "c21c7126f855d793314a7633148453084644f8cd",
         "msg": "Add test for sync\n\nChange-Id: I01d0d5f50b294a4b9593a651f50cf7b5a2fddd70",
         "cmtr": "ZhongShengping",
         "date": "2016-12-12 16:41:13+08:00",
-        "files": ["sync.pp", "zaqar_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "spec/classes/zaqar_db_sync_spec.rb"]
       },
       {
         "hash": "fa7c8ba47358ad82b6bca984463a31c5176f3900",
         "msg": "Deprecate signing_dir option\n\nThe signing_dir is deprecated for removel because of PKI token format\nis no longer supported.\nUpdate warning message and release note.\n\nChange-Id: If82b345969da11d2187a7919fd213275f1cf8339\nCloses-Bug: #1652700",
         "cmtr": "ZhongShengping",
         "date": "2016-12-28 14:43:37+08:00",
-        "files": ["authtoken.pp", "deprecate_signing_dir_parameter-e139a3349813f233.yaml", "zaqar_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_signing_dir_parameter-e139a3349813f233.yaml",
+            "spec/classes/zaqar_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "aaaa38c198734b9aee4b3d32491c2473c1fc943b",
         "msg": "Allow python-memcache install from authtoken class\n\nThe python-memcache package is required if using memcached. By\ndefault the package is not installed and the define has it set to\nfalse. This change allows managing the python-memcache package\ninstall from the authtoken class.\n\nChange-Id: Id0d980618cd3816172e491b20058d540d6d1ed41",
         "cmtr": "Matthew J. Black",
         "date": "2017-01-11 18:36:16-05:00",
-        "files": ["authtoken.pp", "authtoken_manage_memcache_package-55f01f617aaa8db0.yaml", "zaqar_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/authtoken_manage_memcache_package-55f01f617aaa8db0.yaml",
+            "spec/classes/zaqar_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "c08abdc641af0109530e803ca02716ce121bddf2",
         "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should\nbe installed before dbsync starts.\n\nChange-Id: If5d4076315df5d4d5c9672a8265c126bf4d06ab8",
         "cmtr": "Deepak Jon",
         "date": "2017-01-27 12:09:17+00:00",
-        "files": ["deps.pp"]
+        "files": [
+            "manifests/deps.pp"]
       },
       {
         "hash": "889be1090443b29b4de018168ba93a19fa9272b8",
         "msg": "Add support for the swift backend\n\nThis adds support for running swift as the messaging backend of Zaqar,\nand SQLAlchemy as the management backend.\n\nChange-Id: I448d303d01e33a0d89625d7ff442b652838d9c36",
         "cmtr": "Thomas Herve",
         "date": "2017-02-14 14:18:10+01:00",
-        "files": ["init.pp", "mongodb.pp", "sqlalchemy.pp", "mongodb.pp", "swift.pp", "zaqar_swift_spec.rb", "zaqar_init_spec.rb", "zaqar_management_mongodb_spec.rb", "zaqar_management_sqlalchemy_spec.rb", "zaqar_messaging_mongodb_spec.rb", "zaqar_messaging_swift_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/management/mongodb.pp",
+            "manifests/management/sqlalchemy.pp",
+            "manifests/messaging/mongodb.pp",
+            "manifests/messaging/swift.pp",
+            "spec/acceptance/zaqar_swift_spec.rb",
+            "spec/classes/zaqar_init_spec.rb",
+            "spec/classes/zaqar_management_mongodb_spec.rb",
+            "spec/classes/zaqar_management_sqlalchemy_spec.rb",
+            "spec/classes/zaqar_messaging_mongodb_spec.rb",
+            "spec/classes/zaqar_messaging_swift_spec.rb"]
       },
       {
         "hash": "4a5a1fd46dd6d83b45b6dd24eb5b30efa93ff9fa",
         "msg": "Allow deployment of Zaqar WSGI with Apache\n\nChange-Id: If91894176abdfae2820c2e13723c87f5ef8fb153",
         "cmtr": "Thomas Herve",
         "date": "2017-02-22 13:13:12-05:00",
-        "files": ["params.pp", "server.pp", "apache.pp", "metadata.json", "apache_wsgi-4e0a5968cea688c1.yaml", "zaqar_mongo_spec.rb", "zaqar_swift_spec.rb", "zaqar_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/server.pp",
+            "manifests/wsgi/apache.pp",
+            "metadata.json",
+            "releasenotes/notes/apache_wsgi-4e0a5968cea688c1.yaml",
+            "spec/acceptance/zaqar_mongo_spec.rb",
+            "spec/acceptance/zaqar_swift_spec.rb",
+            "spec/classes/zaqar_wsgi_apache_spec.rb"]
       },
       {
         "hash": "c7354c9934ca0ca6d3dae5c18ec7d9b489014a15",
         "msg": "Allow configuration of Zaqar keystone roles\n\nTo be able to use the swift backend, we may need to configure Zaqar to\nhave the proper role to access Swift. This exposes the roles parameter\nto allow that.\n\nChange-Id: I9ce1bbc18d02383a5cdd3edbcf8c65c90165fb53",
         "cmtr": "Thomas Herve",
         "date": "2017-03-02 11:52:22+01:00",
-        "files": ["auth.pp", "keystone_roles-a4c663156355bb51.yaml", "zaqar_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "releasenotes/notes/keystone_roles-a4c663156355bb51.yaml",
+            "spec/classes/zaqar_keystone_auth_spec.rb"]
       },
       {
         "hash": "d1e35d4e6be64a45286d211b1bc6842f8d8ea7f7",
         "msg": "Fix db-sync\n\nThis fixes the command used to sync zaqar database.\n\nChange-Id: I9e57885796a6ba2efe8d7a16528d582163ae896a",
         "cmtr": "Thomas Herve",
         "date": "2017-03-07 22:14:59+01:00",
-        "files": ["sync.pp", "fix-db-sync-a31c186c92c9d684.yaml", "zaqar_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "releasenotes/notes/fix-db-sync-a31c186c92c9d684.yaml",
+            "spec/classes/zaqar_db_sync_spec.rb"]
       },
       {
         "hash": "ec305d3b3c8a51f94be4fb8d997f8b0f15f6fe9b",
         "msg": "Add logging options\n\nThis adds various logging options to the services, and it particular\nsets log_dir by default.\n\nChange-Id: Icd0936777e7dfea2dd4a1d1e3f7d6abb11e3e7ae",
         "cmtr": "Thomas Herve",
         "date": "2017-04-13 09:56:28+02:00",
-        "files": ["logging.pp", "zaqar_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "spec/classes/zaqar_logging_spec.rb"]
       },
       {
         "hash": "19462cb3eebf0cf7c7451eaa612769a6225cef26",
         "msg": "Add the setting log level\n\nIncrease the setting log level in the synchronization database.\n\nChange-Id: Ia2fc51601ed54837c2b5e7da34e9ea12f1d0bf62\nCloses-Bug: #1683567",
         "cmtr": "ZhongShengping",
         "date": "2017-04-18 11:42:25+08:00",
-        "files": ["sync.pp", "zaqar_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "spec/classes/zaqar_db_sync_spec.rb"]
       },
       {
         "hash": "03ec6b471152e77ba89f31ff6918cd139497073b",
         "msg": "include policy class in api.pp\n\nLike we do in other modules, include zaqar::policy class in\nzaqar::server so users can define policies without taking care of the\nclass.\n\nChange-Id: I9f549f11bd4e939ad41ff77c51dd2f32338621c8",
         "cmtr": "Emilien Macchi",
         "date": "2017-06-15 14:14:28-04:00",
-        "files": ["server.pp", "zaqar_server_spec.rb"]
+        "files": [
+            "manifests/server.pp",
+            "spec/classes/zaqar_server_spec.rb"]
       },
       {
         "hash": "673da3b664b4da03a57183588769497251e81e2f",
         "msg": "Remove deprecated keystone authtoken signing_dir option\n\nChange-Id: I7127fa24716b12f44e77f76dda83952a4b73efc2",
         "cmtr": "ZhongShengping",
         "date": "2017-07-07 10:01:29+08:00",
-        "files": ["authtoken.pp", "remove_deprecated_keystone_signing_dir_option-a7428d6b354975d2.yaml"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/remove_deprecated_keystone_signing_dir_option-a7428d6b354975d2.yaml"]
       },
       {
         "hash": "610d9bc987ac1639d76fbc8bd940285777c110ee",
         "msg": "Expose websocket notification settings\n\nThis exposes new settings for the websocket service.\n\nChange-Id: I75d5708bec88d9834f2cb4cbad414233854520ad",
         "cmtr": "Thomas Herve",
         "date": "2017-07-12 14:56:44+02:00",
-        "files": ["websocket.pp", "zaqar_transport_websocket_spec.rb"]
+        "files": [
+            "manifests/transport/websocket.pp",
+            "spec/classes/zaqar_transport_websocket_spec.rb"]
       },
       {
         "hash": "9b0dd8fed5be14f3415d63b8bdc1487fc5a97137",
         "msg": "Allow configuration of trust notifier\n\nTo be able to use the trust notifier, we need to fill the trustee\nsection in the configuration.\n\nChange-Id: Ibba7af4983303f3b85aa399f77391ba6bc984e8d",
         "cmtr": "Thomas Herve",
         "date": "2017-07-19 14:25:26+02:00",
-        "files": ["init.pp", "trust.pp", "zaqar_keystone_trust_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/keystone/trust.pp",
+            "spec/classes/zaqar_keystone_trust_spec.rb"]
       },
       {
         "hash": "a1de9e33578fd608e9099dab7f60f5e9b6e996e6",
         "msg": "Add zaqar client install support\n\nChange-Id: I8719facdbbc397c45cec7934ba275f3de8589093",
         "cmtr": "ZhongShengping",
         "date": "2017-08-03 09:37:40+08:00",
-        "files": ["client.pp", "params.pp", "zaqar_client_spec.rb"]
+        "files": [
+            "manifests/client.pp",
+            "manifests/params.pp",
+            "spec/classes/zaqar_client_spec.rb"]
       },
       {
         "hash": "9dd0d769cadb76a365f9dcef36f49ca4e9a68bcf",
         "msg": "Include logging by default\n\nFor the logging settings to work by default, we need to include the\nmodule in init.\n\nChange-Id: Iac2510028ec3499d2b21645b83cbb0e322ec4e2b",
         "cmtr": "Thomas Herve",
         "date": "2017-08-03 14:39:26+02:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "a868904ac04c4f68c0aafac0d7d68840a64d702a",
         "msg": "Add support for redis message store\n\nThis adds new class to setup redis as the messaging backend.\n\nChange-Id: I0ef259f2dfcc661a30b5a55c23eac3eb1240f462",
         "cmtr": "Thomas Herve",
         "date": "2017-08-30 21:41:32+02:00",
-        "files": ["redis.pp", "redis_support-8a25b7ec5975e501.yaml", "zaqar_messaging_redis_spec.rb"]
+        "files": [
+            "manifests/messaging/redis.pp",
+            "releasenotes/notes/redis_support-8a25b7ec5975e501.yaml",
+            "spec/classes/zaqar_messaging_redis_spec.rb"]
       },
       {
         "hash": "200fe99e638e2f38710a9b014c7b12c9db0075bb",
         "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: Ib7caf25e92ebc2dc11ddc3b952da2f2c9ff616cb\nCloses-Bug: #1717144",
         "cmtr": "ZhongShengping",
         "date": "2017-09-14 12:26:58+08:00",
-        "files": ["authtoken.pp", "deprecate_revocation_cache_time_parameter-0a9bc588f581c61c.yaml", "zaqar_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_revocation_cache_time_parameter-0a9bc588f581c61c.yaml",
+            "spec/classes/zaqar_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "5691df168ebff0ec08918ea1a3c4cf512331c8f1",
         "msg": "Set *_domain_name vars to 'Default' by default\n\nKeystone v2 api's are removed in [1], so it's required\nto set user_domain_name and project_domain_name otherwise\nall requests fallbacks to keystone v2.0 and fails.\n\n[1] https://review.openstack.org/#/c/499783/\n\nChange-Id: Id3737874408887900e1d8b6b87758f64469892b0",
         "cmtr": "yatin",
         "date": "2017-10-06 11:18:53+05:18",
-        "files": ["authtoken.pp", "trust.pp", "zaqar_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "manifests/keystone/trust.pp",
+            "spec/classes/zaqar_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "37f5779e1cd79fc1a6310d448d5cdcf3239f66ec",
         "msg": "Allow setting log files for apache vhost\n\nThis allows the setting of the error and access file logs, as well as\nthe access log format. This was done in a similar fashion as one can\nconfigure these ones in the keystone wsgi manifest.\n\nChange-Id: I4d82b2d15ae597b8cd2018b6d5c58e9959971daf",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-10-09 15:54:34+00:00",
-        "files": ["apache.pp", "zaqar_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "spec/classes/zaqar_wsgi_apache_spec.rb"]
       },
       {
         "hash": "7da4e498d4713871a287f9c381b6cb0d53213e1e",
         "msg": "apache wsgi: Exchange defaults for workers and threads\n\nDue to Python's GIL [1], we can't use multiple threads for running\nOpenStack services without a performance penalty, since the execution\nends up serialized, which defeats the purpose.\n\nInstead, we should use several processes, since this approach doesn't\nhave this limitation.\n\n[1] https://wiki.python.org/moin/GlobalInterpreterLock\n\nChange-Id: I18c1e796e43a168042900b8202ad3ce8488d3908",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-10-13 09:59:22+03:00",
-        "files": ["apache.pp", "zaqar_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "spec/classes/zaqar_wsgi_apache_spec.rb"]
       },
       {
         "hash": "a3a99c2b9c0033bb171750f1289988c29fc25c3a",
         "msg": "add parameter to overwrite/add wsgi process options\n\nAdd parameter to apache_wsgi to allow overwrite\nand/or add additional wsgi process options.\n\nThis possibility was added to openstacklib\nwith Change-Id: I41914ce3361988d5db1695f09d21209772fdf548\nlease enter the commit message for your changes. Lines starting\n\nChange-Id: Ibb04420a730bb0fdccc30fe6e81d4b0f5fc6ebc2",
         "cmtr": "ZhongShengping",
         "date": "2017-10-23 14:16:14+08:00",
-        "files": ["apache.pp", "wsgi_process_options-bba8611358c14afd.yaml", "zaqar_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/wsgi_process_options-bba8611358c14afd.yaml",
+            "spec/classes/zaqar_wsgi_apache_spec.rb"]
       },
       {
         "hash": "f68f5e92179c1f49726dca98796307ad3c8bb4fb",
         "msg": "Fix typo in config options\n\nSome drivers:transport:websocket options had dashes instead of\nunderscore which caused zaqar to ignore them.\n\nChange-Id: I0a0d0ddf5704415745868d39d763df0e43a21a61\nCo-Authored-By: Thomas Hervé <therve@redhat.com>\nRelated-Bug: #1727406\nCloses-Bug: #1730179",
         "cmtr": "Martin André",
         "date": "2017-11-06 10:01:10+01:00",
-        "files": ["websocket.pp", "zaqar_transport_websocket_spec.rb"]
+        "files": [
+            "manifests/transport/websocket.pp",
+            "spec/classes/zaqar_transport_websocket_spec.rb"]
       },
       {
         "hash": "67e70cab9b7a1c45591089235c7036efe4b03011",
         "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: I0476f2af30761b571c342f8a7aa901ce87754611",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-11-27 14:28:22+02:00",
-        "files": ["logging.pp", "log-json-73790092ddf0cc73.yaml", "zaqar_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "releasenotes/notes/log-json-73790092ddf0cc73.yaml",
+            "spec/classes/zaqar_logging_spec.rb"]
       },
       {
         "hash": "bdd660ccdb0528c8abd0530c6aa35bb3ea61a768",
         "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nRelated-Bug: #1742154\nChange-Id: I10b322d05042fdef23758d46906cf57aa9def97f",
         "cmtr": "Emilien Macchi",
         "date": "2018-01-12 05:12:01+00:00",
-        "files": ["params.pp", "policy.pp", "zaqar_policy_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "spec/classes/zaqar_policy_spec.rb"]
       },
       {
         "hash": "55d6e99e93f3853d22059aaabcc3310d81f4abfe",
         "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: I37a497fd795eba5b7fb350a044bdb31e46a90ae6",
         "cmtr": "ZhongShengping",
         "date": "2018-01-15 17:40:19+08:00",
-        "files": ["logging.pp", "add-use_journal-option-for-logging-91f73f2743593a70.yaml", "zaqar_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "releasenotes/notes/add-use_journal-option-for-logging-91f73f2743593a70.yaml",
+            "spec/classes/zaqar_logging_spec.rb"]
       },
       {
         "hash": "d2891b9670d41c97c3f8d31e0e2971c72167616d",
         "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: I468f796bc344f91510e977dd07cfd563174c66dd\nCloses-Bug: #1755102",
         "cmtr": "ZhongShengping",
         "date": "2018-03-12 16:33:11+08:00",
-        "files": ["sync.pp", "openstack_db_tag-8af96261543c1429.yaml", "zaqar_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "releasenotes/notes/openstack_db_tag-8af96261543c1429.yaml",
+            "spec/classes/zaqar_db_sync_spec.rb"]
       },
       {
         "hash": "afbc7455bb579f58781c38652b8a5d552853a6de",
         "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: I6e864bc01bcdd61172906d42e37661f5e3dfc66f",
         "cmtr": "ZhongShengping",
         "date": "2018-03-27 10:33:24+08:00",
-        "files": ["authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-b7ad476357a5b5ae.yaml"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/remove_deprecated_keystone_revocation_cache_time_option-b7ad476357a5b5ae.yaml"]
       },
       {
         "hash": "19dc2c1e2f341d842dbf3a49f274ed66e8458abf",
         "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: Icf6c42182b10cdfb07461923f7fd41fccb0f9013\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
         "cmtr": "ZhongShengping",
         "date": "2018-04-03 16:55:05+08:00",
-        "files": ["authtoken.pp", "deprecate_auth_uri_parameter-80533e3b4554b3fd.yaml", "zaqar_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_auth_uri_parameter-80533e3b4554b3fd.yaml",
+            "spec/classes/zaqar_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "e2ca4a65d9d0133d903d63a1c566739839cae7e0",
         "msg": "Debian is using python3-zaqarclient\n\nChange-Id: Iedf33a913bd6854f418d11d655204245f20d684c",
         "cmtr": "zhubingbing",
         "date": "2018-04-12 11:51:35+08:00",
-        "files": ["params.pp", "zaqar_client_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "spec/classes/zaqar_client_spec.rb"]
       },
       {
         "hash": "dc2cc876f53fe0e05c4efa9dc129bf97e09d1690",
         "msg": "Debian is using Python 3: Fix path to wsgi/app.py\n\nUse /usr/lib/python3 instead of /usr/lib/python2.7\n\nChange-Id: I79c138bb9baeefc9ed88acdae46c8699b4614884",
         "cmtr": "Thomas Goirand",
         "date": "2018-05-04 10:19:33+02:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "596c91afe012240695b67d61aecfaefbb6726450",
         "msg": "neat: missing : in $::os_service_default\n\nChange-Id: Iceff6ad742623e181c29dce01a726be5d34f5b23",
         "cmtr": "zhubingbing",
         "date": "2018-05-11 14:02:40+08:00",
-        "files": ["authtoken.pp"]
+        "files": [
+            "manifests/keystone/authtoken.pp"]
       },
       {
         "hash": "33f1550841a8b0fd49c309ef4393cf39d27778d2",
         "msg": "Fix annotations\n\nChange-Id: Iafb904df67d9de7c9dac06cf911419e13405f029",
         "cmtr": "zhubingbing",
         "date": "2018-06-15 15:07:38+08:00",
-        "files": ["mysql.pp"]
+        "files": [
+            "manifests/db/mysql.pp"]
       },
       {
         "hash": "d03c7d6ee66e962749df07f897339a68b7dff846",
         "msg": "Replace port 35357 with 5000\n\nChange-Id: I981e0545bb0722b324ae792c82601f7b0534ae49",
         "cmtr": "Tobias Urdin",
         "date": "2018-07-18 10:29:33+02:00",
-        "files": ["authtoken.pp", "trust.pp", "zaqar_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "manifests/keystone/trust.pp",
+            "spec/classes/zaqar_keystone_authtoken_spec.rb"]
       }]
     }

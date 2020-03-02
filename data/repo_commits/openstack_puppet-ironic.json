@@ -1,7 +1,67 @@
     {
       "url": "https://github.com/openstack/puppet-ironic",
-      "pp_files": ["tftpboot_file.pp", "logging.pp", "db.pp", "auth_inspector.pp", "drac.pp", "init.pp", "sync.pp", "postgresql.pp", "ilo.pp", "cinder.pp", "redfish.pp", "staging.pp", "params.pp", "inspector_sync.pp", "cors.pp", "neutron.pp", "ironic_config_to_swift_uuid.pp", "authtoken.pp", "config.pp", "host_access.pp", "policy.pp", "bifrost.pp", "hardware_interface.pp", "deps.pp", "service_catalog.pp", "glance.pp", "conductor.pp", "client.pp", "common.pp", "api.pp", "agent.pp", "deploy.pp", "site.pp", "mysql.pp", "inspector.pp", "online_data_migrations.pp", "pxe_filter.pp", "swift.pp", "ipmi.pp", "pxe.pp", "interfaces.pp", "ironic_config_to_net_uuid.pp", "dnsmasq.pp", "ansible.pp", "apache.pp", "auth.pp", "ssh.pp", "ironic.pp"],
-      "pp_cmtrs": ["Lukas Bezdicka", "Yanis Guenane", "Emilien Macchi", "Mykyta Karpin", "Xing Zhou", "Yolanda Robla", "Julia Kreger", "Tony Breeds", "Dan Radez", "Jiri Stransky", "Matthew J. Black", "Ricardo Carrillo Cruz", "Joe Talerico", "Lucas Alvares Gomes", "Sebastien Badia", "Marcellin Fom Tchassem", "Soren Hansen", "Juan Antonio Osorio Robles", "Daniel Abad", "Harry Rybacki", "Javier Pena", "Derek Higgins", "Andrey Shestakov", "Tobias Urdin", "ZhongShengping", "Dan Trainor", "Andrew Smith", "Thomas Goirand", "Maksym Yatsenko", "Ryan Hallisey", "Gael Chamoulaud", "Mateusz Kowalski", "Xingchao Yu", "Dougal Matthews", "Harald Jensas", "Carlos Camacho", "Vasyl Saienko", "zhubingbing", "Adam Vinsh", "vsaienko", "Harald Jens\u00e5s", "Mathieu Gagne\u0301", "Colleen Murphy", "James Slagle", "Alex Schultz", "iberezovskiy", "Sharat Sharma", "qiaomin", "Sofer Athlan-Guyot", "Martin Andr\u00e9", "zhulingjie", "nanhai.liao", "Caio Oliveira", "Matt Fischer", "Dmitry Tantsur", "Denis Egorenko", "Ben Nemec", "Iury Gregory Melo Ferreira", "John Trowbridge", "Gon\u00e9ri Le Bouder", "Dan Prince", "Miles Gould"],
+      "pp_files": [
+        "manifests/db/mysql/host_access.pp",
+        "manifests/inspector/cors.pp",
+        "manifests/inspector/db.pp",
+        "spec/fixtures/manifests/site.pp",
+        "manifests/drivers/ssh.pp",
+        "manifests/neutron.pp",
+        "manifests/inspector/db/postgresql.pp",
+        "manifests/wsgi/apache.pp",
+        "manifests/inspector/client.pp",
+        "manifests/api/authtoken.pp",
+        "manifests/inspector/db/sync.pp",
+        "manifests/drivers/interfaces.pp",
+        "manifests/swift.pp",
+        "manifests/deps.pp",
+        "manifests/drivers/staging.pp",
+        "manifests/drivers/redfish.pp",
+        "manifests/conductor.pp",
+        "manifests/inspector/pxe_filter/dnsmasq.pp",
+        "manifests/cinder.pp",
+        "manifests/db/postgresql.pp",
+        "manifests/keystone/auth_inspector.pp",
+        "manifests/drivers/deploy.pp",
+        "manifests/drivers/ilo.pp",
+        "examples/ironic_config_to_net_uuid.pp",
+        "manifests/drivers/ipmi.pp",
+        "manifests/drivers/pxe.pp",
+        "manifests/inspector/pxe_filter.pp",
+        "manifests/drivers/inspector.pp",
+        "examples/ironic_config_to_swift_uuid.pp",
+        "manifests/drivers/ansible.pp",
+        "manifests/pxe/common.pp",
+        "manifests/drivers/drac.pp",
+        "manifests/client.pp",
+        "manifests/inspector/db/mysql.pp",
+        "manifests/init.pp",
+        "manifests/config.pp",
+        "manifests/logging.pp",
+        "manifests/inspector/authtoken.pp",
+        "examples/ironic.pp",
+        "manifests/api.pp",
+        "manifests/service_catalog.pp",
+        "manifests/inspector.pp",
+        "manifests/drivers/hardware_interface.pp",
+        "manifests/db/mysql.pp",
+        "manifests/keystone/auth.pp",
+        "manifests/policy.pp",
+        "manifests/params.pp",
+        "manifests/cors.pp",
+        "manifests/pxe/tftpboot_file.pp",
+        "manifests/db/online_data_migrations.pp",
+        "manifests/bifrost.pp",
+        "manifests/pxe.pp",
+        "manifests/drivers/agent.pp",
+        "manifests/glance.pp",
+        "manifests/db/sync.pp",
+        "manifests/db/inspector_sync.pp",
+        null,
+        "manifests/db.pp",
+        "manifests/inspector/logging.pp"
+      ],
+      "pp_cmtrs": ["Gon\u00e9ri Le Bouder", "zhubingbing", "vsaienko", "Derek Higgins", "Harry Rybacki", "Dan Trainor", "Juan Antonio Osorio Robles", "Joe Talerico", "Dan Radez", "Tony Breeds", "Harald Jensas", "ZhongShengping", "Adam Vinsh", "Carlos Camacho", "Sofer Athlan-Guyot", "nanhai.liao", "Mykyta Karpin", "Thomas Goirand", "Sharat Sharma", "Alex Schultz", "Sebastien Badia", "Miles Gould", "Mathieu Gagne\u0301", "Mateusz Kowalski", "Maksym Yatsenko", "Yolanda Robla", "Xingchao Yu", "qiaomin", "iberezovskiy", "Lukas Bezdicka", "Dmitry Tantsur", "Ricardo Carrillo Cruz", "Matt Fischer", "Marcellin Fom Tchassem", "Iury Gregory Melo Ferreira", "Jiri Stransky", "John Trowbridge", "Yanis Guenane", "Andrey Shestakov", "zhulingjie", "Dougal Matthews", "Matthew J. Black", "Andrew Smith", "Harald Jens\u00e5s", "Ben Nemec", "Ryan Hallisey", "Martin Andr\u00e9", "Emilien Macchi", "Javier Pena", "Daniel Abad", "Xing Zhou", "Caio Oliveira", "Dan Prince", "Gael Chamoulaud", "Julia Kreger", "Tobias Urdin", "Denis Egorenko", "James Slagle", "Vasyl Saienko", "Colleen Murphy", "Soren Hansen", "Lucas Alvares Gomes"],
       "num_pp_commits": 238,
       "num_tot_commits": 597,
       "commits": [{
@@ -9,1665 +69,2600 @@
         "msg": "First commit with basic manifests\n\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
         "cmtr": "Emilien Macchi",
         "date": "2013-11-25 20:59:48+01:00",
-        "files": ["Gemfile", "Gemfile.lock", "LICENSE", "Rakefile", "ironic.rb", "ini_setting.rb", "ironic_config.rb", "client.pp", "mysql.pp", "host_access.pp", "init.pp", "auth.pp", "params.pp", "ironic_client_spec.rb", "ironic_db_mysql_spec.rb", "ironic_init_spec.rb", "ironic_keystone_auth_spec.rb", "ironic_db_mysql_host_access_spec.rb", "site.pp", "shared_examples.rb", "spec_helper.rb", "ironic_spec.rb"]
+        "files": [
+            "Gemfile",
+            "Gemfile.lock",
+            "LICENSE",
+            "Rakefile",
+            "lib/puppet/provider/ironic.rb",
+            "lib/puppet/provider/ironic_config/ini_setting.rb",
+            "lib/puppet/type/ironic_config.rb",
+            "manifests/client.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/mysql/host_access.pp",
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/params.pp",
+            "spec/classes/ironic_client_spec.rb",
+            "spec/classes/ironic_db_mysql_spec.rb",
+            "spec/classes/ironic_init_spec.rb",
+            "spec/classes/ironic_keystone_auth_spec.rb",
+            "spec/defines/ironic_db_mysql_host_access_spec.rb",
+            "spec/fixtures/manifests/site.pp",
+            "spec/shared_examples.rb",
+            "spec/spec_helper.rb",
+            "spec/unit/provider/ironic_spec.rb"]
       },
       {
         "hash": "02cf11fe19d901b78697bcec06e4e8b6c387ab0f",
         "msg": "spec: fix default keystone type for ironic",
         "cmtr": "Sebastien Badia",
         "date": "2013-11-26 17:22:39+01:00",
-        "files": ["ironic_keystone_auth_spec.rb", "site.pp"]
+        "files": [
+            "spec/classes/ironic_keystone_auth_spec.rb",
+            "spec/fixtures/manifests/site.pp"]
       },
       {
         "hash": "6f3e70d24f295199fcc78f2ed27007a593bc1180",
         "msg": "params: cosmetics (s/if/case)",
         "cmtr": "Sebastien Badia",
         "date": "2013-11-26 17:26:07+01:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "99ec6a778a8065edb2a8d13e9c8ee5fd41291623",
         "msg": "params: fix osfamily RedHat",
         "cmtr": "Sebastien Badia",
         "date": "2013-11-26 17:37:18+01:00",
-        "files": ["params.pp", "ironic_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "spec/classes/ironic_keystone_auth_spec.rb"]
       },
       {
         "hash": "21fe9fd4c794d29bd67fab86932418ae4dc6c772",
         "msg": "Small improvements\n\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
         "cmtr": "Emilien Macchi",
         "date": "2013-11-29 05:38:50+01:00",
-        "files": ["client.pp", "init.pp", "ironic_db_mysql_spec.rb"]
+        "files": [
+            "manifests/client.pp",
+            "manifests/init.pp",
+            "spec/classes/ironic_db_mysql_spec.rb"]
       },
       {
         "hash": "65faf63162c842c6e4c3eefff49cd0d2ee9ce5f6",
         "msg": "API, Conductor, Drivers, Specs\n\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
         "cmtr": "Emilien Macchi",
         "date": "2013-11-30 01:08:04+01:00",
-        "files": ["README.md", "ironic.pp", "ini_setting.rb", "ironic_config.rb", "api.pp", "conductor.pp", "ipmi.pp", "pxe.pp", "init.pp", "params.pp", "ironic_api_spec.rb", "ironic_conductor_spec.rb", "ironic_drivers_ipmi_spec.rb", "ironic_drivers_pxe_spec.rb"]
+        "files": [
+            "README.md",
+            "examples/ironic.pp",
+            "lib/puppet/provider/ironic_config/ini_setting.rb",
+            "lib/puppet/type/ironic_config.rb",
+            "manifests/api.pp",
+            "manifests/conductor.pp",
+            "manifests/drivers/ipmi.pp",
+            "manifests/drivers/pxe.pp",
+            "manifests/init.pp",
+            "manifests/params.pp",
+            "spec/classes/ironic_api_spec.rb",
+            "spec/classes/ironic_conductor_spec.rb",
+            "spec/classes/ironic_drivers_ipmi_spec.rb",
+            "spec/classes/ironic_drivers_pxe_spec.rb"]
       },
       {
         "hash": "f5c924daf828c35c3f81da96132fa0d887fc10c2",
         "msg": "Init support\n\n- init.pp\n- unit tests for init\n- small fix in pxe\n- README update\n- example for ironic deployment\n\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
         "cmtr": "Emilien Macchi",
         "date": "2013-12-01 02:36:28+01:00",
-        "files": ["README.md", "ironic.pp", "pxe.pp", "init.pp", "ironic_init_spec.rb"]
+        "files": [
+            "README.md",
+            "examples/ironic.pp",
+            "manifests/drivers/pxe.pp",
+            "manifests/init.pp",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "1e4d0bfead64767b90006fe7bddfc1d931fffa75",
         "msg": "Rename nova by ironic\n\nSigned-off-by: Emilien Macchi <emilien.macchi@enovance.com>",
         "cmtr": "Emilien Macchi",
         "date": "2013-12-02 10:07:06+01:00",
-        "files": ["ironic.pp"]
+        "files": [
+            "examples/ironic.pp"]
       },
       {
         "hash": "fc71256766707e96f249e5a3de6c06bdf2d8156d",
         "msg": "Use database_ prefix for database parameters\n\nA prefix is required to avoid any confusion about\nthe purpose of those parameters.\n\npuppet-nova uses database_ for those parameters. It makes sense\nto use the same in puppet-ironic.\n\nThis change breaks backward compatibility.\n\nChange-Id: Id78f5c41a7d0ab0e9fe2430d1f8b9a2cc6a66e05",
         "cmtr": "Mathieu Gagné",
         "date": "2013-12-22 23:17:13-05:00",
-        "files": ["init.pp", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "ba4df161b18c54fee96dbad1bc26045aab19c4f5",
         "msg": "Ensure database backend package is installed\n\nInstall database backend package according to database connection.\n\nChange-Id: I927b80dc88f3120d6b4265c7aaa94d706780f50c",
         "cmtr": "Mathieu Gagné",
         "date": "2013-12-23 02:17:20-05:00",
-        "files": ["init.pp", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "f95e82c4983eb26c21dfe22f32ae8dae3cdd497d",
         "msg": "Remove circular dependency\n\nChange-Id: Ic0d36934b40ced90564a1e1ad79ec1138fd39767",
         "cmtr": "Soren Hansen",
         "date": "2014-07-10 16:14:05+02:00",
-        "files": ["api.pp", "conductor.pp"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/conductor.pp"]
       },
       {
         "hash": "f8184a7846fcbfcc8e2603744f8da8fb11018af9",
         "msg": "Add arguments for configuring Keystone credentials\n\nChange-Id: I5523633c68a4e24829024f02937418b3c64df32f",
         "cmtr": "Soren Hansen",
         "date": "2014-07-11 10:21:29+02:00",
-        "files": ["api.pp", "ironic_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "spec/classes/ironic_api_spec.rb"]
       },
       {
         "hash": "8012b9538fc9f58adae1cad9f8c03519695021b3",
         "msg": "Hide secrets from puppet logs\n\nCurrently secrets like rabbit_password or admin_password are laked in puppet \nlogs when changed.  This commit added secret parameter to password and\ndatabases params.\n\nChange-Id: I205b54d24be202095a2eae7356d63107523e0c92\nCloses-Bug: #1328448",
         "cmtr": "Sebastien Badia",
         "date": "2014-07-22 13:10:18+00:00",
-        "files": ["init.pp", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "08f8dc5865859b8ff5144699966db154fe26018a",
         "msg": "Migrate mysql backend to use openstacklib::db::mysql\n\nImplements: blueprint commmon-openstack-database-resource\nChange-Id: Ic2711c675fb4a02d7d8e58e1060bded7c72774e6",
         "cmtr": "Colleen Murphy",
         "date": "2014-08-12 11:21:18-07:00",
-        "files": [".fixtures.yml", "Modulefile", "mysql.pp", "host_access.pp", "ironic_db_mysql_spec.rb", "ironic_init_spec.rb", "ironic_db_mysql_host_access_spec.rb"]
+        "files": [
+            ".fixtures.yml",
+            "Modulefile",
+            "manifests/db/mysql.pp",
+            "None",
+            "spec/classes/ironic_db_mysql_spec.rb",
+            "spec/classes/ironic_init_spec.rb",
+            "None"]
       },
       {
         "hash": "a8b26db75a67966085b6ae9c4a3c9fc03785a1db",
         "msg": "policy.json: Allow one to manage them from the puppet module\n\nThis commit allow a deployer to manage the policies via this module\nIt relies on augeas to change only the policy needed. The init takes\na hash of policies and apply them.\n\nChange-Id: I8bd71a740294394009b2ad581121a9999956b5d0",
         "cmtr": "Yanis Guenane",
         "date": "2014-11-10 15:06:03-05:00",
-        "files": ["api.pp", "policy.pp", "ironic_api_spec.rb", "ironic_policy_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/policy.pp",
+            "spec/classes/ironic_api_spec.rb",
+            "spec/classes/ironic_policy_spec.rb"]
       },
       {
         "hash": "a34629f956c97fb99fd1a9fc74127db970d53e12",
         "msg": "Refactorise Keystone resources management\n\nRefactorise the code of Keystone resources management with backward\ncompatibility since we don't modify the unit tests.\n\nChange-Id: I1c130653a9594984dc59cc719e87bbfc40d88132\nImplements: blueprint common-openstack-identity-resource",
         "cmtr": "Emilien Macchi",
         "date": "2014-11-21 10:28:40-05:00",
-        "files": ["auth.pp"]
+        "files": [
+            "manifests/keystone/auth.pp"]
       },
       {
         "hash": "7f5d4ed6940b5ee2371af02f1b8b09da7d3f0bfc",
         "msg": "Fix Ironic modules so services properly run in Juno\n\nInitially, the module was not creating an ironic.conf file and now\nit does.  The configurations that are being put into the ironic.conf\nfile come straight out of the documentation.\n\nThe ironic-conductor service requires the execution of 'ironic-dbsync'\nbefore it can be active.\n\nIn the params module, the 'RedHat' packages and services were named\nincorrectly or were otherwise missing.\n\nChange-Id: I73cecc590038fa7d9518453c448bfc243ddedff1",
         "cmtr": "Ryan Hallisey",
         "date": "2015-01-22 17:10:39-05:00",
-        "files": ["ironic.pp", "api.pp", "init.pp", "params.pp", "ironic_api_spec.rb", "ironic_init_spec.rb"]
+        "files": [
+            "examples/ironic.pp",
+            "manifests/api.pp",
+            "manifests/init.pp",
+            "manifests/params.pp",
+            "spec/classes/ironic_api_spec.rb",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "e959e047595a116a34a3ed9d5b2020c32447e6d3",
         "msg": "Expose enabled_drivers\n\nAllow enabled_drivers to be modified for configurations where additional\ndrivers besides just the default pxe_ipmitool need to be used.\n\nCo-Authored-By: Emilien Macchi <emilien@redhat.com>\n\nChange-Id: I6390f39bb583f44c23506006f0496b9ebb18205d",
         "cmtr": "Emilien Macchi",
         "date": "2015-03-09 14:57:24-04:00",
-        "files": ["init.pp", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "d8db1bb8eec2758aef360a133541ab36469da7b0",
         "msg": "Adds ability to override service name for service catalog\n\nInstead of forcing the name of the service in the service catalog to match\nauth_name, this allows the ability to explicitly set the service name,\nspearately from auth_name. If service_name is not specified, it's value\ndefaults to the value of auth_name (which maintains the current\nbehavior.)\n\nChange-Id: I4e7e122924ab56702ac325c6574a741ae905c70c\nCloses-bug: #1359755\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
         "cmtr": "Gael Chamoulaud",
         "date": "2015-03-20 14:02:37+01:00",
-        "files": ["auth.pp", "ironic_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "spec/classes/ironic_keystone_auth_spec.rb"]
       },
       {
         "hash": "036fb80b8dcf8aa62a0e52c0d2c5f0aad51eb3a4",
         "msg": "Make user creation optional when creating service.\n\nIn some cases it is useful to be able to just configure\nthe service in Keystone and not the service user. This\nis the case when e.g. a read only LDAP backend is used.\nAdded a parameter configure_user (defaults to true).\n\nChange-Id: I610c9c238de9a1be0203a9dc5bb8845d3eb753ea\nCloses-Bug: 1360232\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
         "cmtr": "Gael Chamoulaud",
         "date": "2015-03-20 14:35:32+01:00",
-        "files": ["auth.pp", "ironic_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "spec/classes/ironic_keystone_auth_spec.rb"]
       },
       {
         "hash": "1b44b7d826813a4628683754091774d945223ac2",
         "msg": "Add Puppet 4.x lint checks\n\n- This changes the puppet-lint requirement to 1.1.x, so that we can use\n  puppet-lint plugins. Most of these plugins are for 4.x compat, but some just\n  catch common errors.\n\nChange-Id: Ic47d53384592637dd27c3d0851fe24861ee1ed81\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
         "cmtr": "Gael Chamoulaud",
         "date": "2015-03-20 17:15:32+01:00",
-        "files": ["Gemfile", "ironic.pp", "api.pp", "client.pp", "conductor.pp", "init.pp"]
+        "files": [
+            "Gemfile",
+            "examples/ironic.pp",
+            "manifests/api.pp",
+            "manifests/client.pp",
+            "manifests/conductor.pp",
+            "manifests/init.pp"]
       },
       {
         "hash": "2b73d57d212af46cbc400dea21e2f918a4d2495c",
         "msg": "Fix rabbitmq support\n\nIronic was missing SSL and amqp_durable_queues for\nrabbitmq.\n\nChange-Id: Iadc7ac8481d52d7764345d50b5d3ffd9bc31999f",
         "cmtr": "Gael Chamoulaud",
         "date": "2015-03-25 08:47:43+01:00",
-        "files": ["init.pp", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "952bed761bbf967e9298c4bbe6baca613b67af2d",
         "msg": "Tag all Ironic packages\n\nSome users wish to override the default package provider by their own.\n\nTag all packages with the 'openstack' to allow mass resource attributes\noverride using resource collectors.\n\nCloses-bug: #1391209\n\nChange-Id: I4ad01a9f55deb441fec12ffa0541584fb5e07478\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
         "cmtr": "Gael Chamoulaud",
         "date": "2015-03-28 19:43:07+01:00",
-        "files": ["api.pp", "client.pp", "conductor.pp", "init.pp", "ironic_api_spec.rb", "ironic_conductor_spec.rb", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/client.pp",
+            "manifests/conductor.pp",
+            "manifests/init.pp",
+            "spec/classes/ironic_api_spec.rb",
+            "spec/classes/ironic_conductor_spec.rb",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "6e07d11c7a4dc6026341f75fd9124daf9a425f5a",
         "msg": "MySQL: change default MySQL collate to utf8_general_ci\n\nInstall & configure MySQL database by using utf8_general_ci collation\nwhich is the way documented in OpenStack [1] and already the default\nin puppetlabs-mysql [2].\n\n[1] http://goo.gl/GA5gyZ\n[2] https://github.com/puppetlabs/puppetlabs-mysql/blob/master/manifests/db.pp#L7\n\nChange-Id: I5b07cb4c76af31d0ab9bd552b7aa03f720641f6e\nCloses-bug: #1446375",
         "cmtr": "Emilien Macchi",
         "date": "2015-04-21 18:59:02-04:00",
-        "files": ["mysql.pp", "ironic_db_mysql_spec.rb"]
+        "files": [
+            "manifests/db/mysql.pp",
+            "spec/classes/ironic_db_mysql_spec.rb"]
       },
       {
         "hash": "9e3a449a996bbf713d00560ec3d08bb7670fae65",
         "msg": "Run dbsync as root and don't manage /etc/ironic & ironic.conf ownership\n\nUbuntu packaging is running dbsync command as root during ironic-common\npostinstall script so when Puppet tries to run dbsync again, it fails\nbecause it is run with ironic user.\nSo we need to run dbsync as root for now.\nThis is a temporary patch until it's changed in Packaging.\n\nAlso, don't manage user /etc/ironic & ironic.conf ownership and chmod to be packaging agnostic\n(ubuntu & fedora use different permissions) and allow Puppet\nidempotency.\n\nChange-Id: Ia3571e4a212d9493604494bce5592da0831d9d7a\nPartial-bug: #1450942",
         "cmtr": "Emilien Macchi",
         "date": "2015-05-04 15:26:28-04:00",
-        "files": ["init.pp", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "4a81b07a062dbf7a7a9ba9b4f1c72ae61421b1e2",
         "msg": "db: Add postgresql support\n\nAdd postgresql support to ironic module\n\nChange-Id: I6d78adada4b411a7ebd402407dfe6ee87aeab85b",
         "cmtr": "Sebastien Badia",
         "date": "2015-05-22 10:41:38-07:00",
-        "files": [".fixtures.yml", "postgresql.pp", "ironic_db_postgresql_spec.rb"]
+        "files": [
+            ".fixtures.yml",
+            "manifests/db/postgresql.pp",
+            "spec/classes/ironic_db_postgresql_spec.rb"]
       },
       {
         "hash": "af76d786f6ed87ce17b768b5f7d47e9bfa7eb4a4",
         "msg": "Move rabbit/kombu settings to oslo_messaging_rabbit section\n\nKilo oslo-messaging deprecates rabbit/kombu settings in the\nDEFAULT section.\n\nMove these settings to proper oslo_messaging_rabbit section.\n\nChange-Id: I9e5413e7165d7417e89e1dc684657d2c45517817\nCloses-bug: 1444161\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
         "cmtr": "Gael Chamoulaud",
         "date": "2015-06-08 17:27:35+00:00",
-        "files": ["init.pp", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "ff4b7226557f580a29ded42b1942f16986d00c56",
         "msg": "Introduce public_url, internal_url and admin_url\n\nThis change deprecates the following parameters:\n- port (replaced by public/internal/admin_url)\n- public_protocol (replaced by public_url)\n- public_address (replaced by public_url)\n- public_port (replaced by public_url)\n- internal_address (replaced by internal_url)\n- admin_address (replaced by admin_url)\n\nAdd deprecation warnings if any of those values are provided\nwhile maintaining full backward compatibility.\n\nCloses-bug: #1274979\nChange-Id: Ia5b1b583cbab54d286fba6eb204ff4aa99513f24",
         "cmtr": "Mathieu Gagné",
         "date": "2015-06-11 16:49:56-04:00",
-        "files": ["auth.pp", "ironic_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "spec/classes/ironic_keystone_auth_spec.rb"]
       },
       {
         "hash": "960baa08d5c3d351ae40b86408fbf4612e5903f5",
         "msg": "keystone/auth: make service description configurable\n\nThis commit adds the service description as a class parameter in order to allow\nusers to update from a previous version if the service description is changed\n(incorrectly spelled or wrong description).\n\nThis commit also fix the Ironic service description, 'Ironic Networking Service'\nseems to be a too quick sed of a neutron manifest.\n\nCloses-Bug: #1468407\nChange-Id: I8ad187ae171b6e6c9841b18012a04a504ca75c5f",
         "cmtr": "Sebastien Badia",
         "date": "2015-06-25 08:44:30+00:00",
-        "files": ["auth.pp", "ironic_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "spec/classes/ironic_keystone_auth_spec.rb"]
       },
       {
         "hash": "45c6ec17044057eec990a37acefa9613ec784555",
         "msg": "lint: Fix lint issues (missing documentation for define types)\n\nThe gem 'puppet-lint-param-docs' was bumped to 1.2.0 and now handle\nclass and define type. This patch fix lint issues (missing documentation).\n\nChange-Id: I9899719b9e81c1769a4577cbe1d35caeee231785",
         "cmtr": "Sebastien Badia",
         "date": "2015-06-25 11:34:06+02:00",
-        "files": ["api.pp", "conductor.pp", "init.pp"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/conductor.pp",
+            "manifests/init.pp"]
       },
       {
         "hash": "8700c82533ea638bfff3bea9177f25f9940a09bb",
         "msg": "Allow customization of force_power_state_during_sync\n\nChange-Id: I1a321266e1de5a15e81a7a5cb592064e0ffcbf09\nCloses-Bug: 1470037",
         "cmtr": "Jiri Stransky",
         "date": "2015-07-01 15:12:37+02:00",
-        "files": ["conductor.pp", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "4ad6a50a4bcba6ea4c5719a58572409fdaad7ab6",
         "msg": "Add ironic::config class\n\nOther modules provide an X::config class to be able to specify\nparameters that are not yet part of the module. Ironic was missing this\nfeature. This commit aims to add it for puppet-ironic.\n\nChange-Id: I65a59c6078260d9947d7b0e0e569527875c01d06",
         "cmtr": "Yanis Guenane",
         "date": "2015-07-20 11:57:58+02:00",
-        "files": ["config.pp", "ironic_config_spec.rb"]
+        "files": [
+            "manifests/config.pp",
+            "spec/classes/ironic_config_spec.rb"]
       },
       {
         "hash": "49dc0e100f3a9a8d68fddc38133002977c9e2f3c",
         "msg": "Add tag to package and service resources\n\nIn order to be able to take an action after all the packages of the\nmodule have been installed/updated or all the services have been\nstarted/restarted, we set a 'ironic-package' and 'ironic-service' tag\nfor each package and service of this module.\n\nAt the moment, there is a generic openstack tag that is not specific\nenough if one wants to take action upon a single module change.\n\nUse case :\n\nIf an action needs to be taken after all the packages have been\ninstalled or updated : Package <| tag == 'ironic-package' |> -> X\n\nChange-Id: I7cea635625e841db05a5163e7b7ea5a138c3c307",
         "cmtr": "Yanis Guenane",
         "date": "2015-07-22 20:27:38+02:00",
-        "files": ["api.pp", "conductor.pp", "init.pp", "ironic_api_spec.rb", "ironic_conductor_spec.rb", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/conductor.pp",
+            "manifests/init.pp",
+            "spec/classes/ironic_api_spec.rb",
+            "spec/classes/ironic_conductor_spec.rb",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "48bf5c3adf0b3145c5c4e3332ab0d76bf2b6a3a3",
         "msg": "Creation of ironic::db::sync\n\nIn order to standardize the way dbsync are run across our modules,\nwe create a new class ironic::db::sync.\nThis class will be included if sync_db is enabled.\n\nBy making this transition the ironic::db::sync class\ncan be returned by the ENC.\n\nA use case would be in an highly available environment, with 3 galera\nnodes, include ironic on every node with sync_db set to false\nand have the ENC return ironic::db::sync just for one node.\n\nChange-Id: I79829a1744a98f3c9b8ad6f71fd2f5e5924e463e",
         "cmtr": "Yanis Guenane",
         "date": "2015-07-23 10:15:55+02:00",
-        "files": ["mysql.pp", "sync.pp", "init.pp", "ironic_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/mysql.pp",
+            "manifests/db/sync.pp",
+            "manifests/init.pp",
+            "spec/classes/ironic_db_sync_spec.rb"]
       },
       {
         "hash": "95eeb73c4c3cb54c337cf20f369c79ddbe2823a9",
         "msg": "Add bifrost manifest\n\nBifrost is a set of Ansible playbooks to install Ironic in\nstandalone mode and enrolling and deploying baremetal servers\n\nChange-Id: I1f31c8a59d82112d998fb3555c9f55d5c850093d",
         "cmtr": "Ricardo Carrillo Cruz",
         "date": "2015-08-04 17:12:43+02:00",
-        "files": [".fixtures.yml", "ironic.pp", "bifrost.pp", "metadata.json", "ironic_bifrost_spec.rb", "baremetal.json.erb", "group_vars_all.erb"]
+        "files": [
+            ".fixtures.yml",
+            "examples/ironic.pp",
+            "manifests/bifrost.pp",
+            "metadata.json",
+            "spec/classes/ironic_bifrost_spec.rb",
+            "templates/baremetal.json.erb",
+            "templates/group_vars_all.erb"]
       },
       {
         "hash": "93c68b626f3b9c6d4d04ebba2250defef3e0cc12",
         "msg": "Fixed the comment for port in ironic api.pp\n\nChange-Id: Ia9e5557aa178ab101b33789ba9f3fadea8a0712a\nCloses-bug: #1483608",
         "cmtr": "nanhai.liao",
         "date": "2015-08-12 11:33:17+08:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "69fa70013893a323a7cf62bc57963bd7a86bab04",
         "msg": "Rely on autorequire for config resource ordering\n\nCurrently we specify the ordering of config resources wherever it is\nnecessary based on the presence of the file it will write to, or the\npresence of the package in charge of providing the file it will write\nto.\n\nThose kind of ordering can be specified directly at the resource level\nusing the autorequire mechanism. With this patch, any config resource\nwill make sure the package in charge of providing the file will be\ninstalled first.\n\nChange-Id: I121f3cf146d9909cd549bd2e252f8cc645e5a030",
         "cmtr": "Yanis Guenane",
         "date": "2015-08-12 19:07:12+02:00",
-        "files": ["ironic_config.rb", "api.pp", "conductor.pp", "init.pp", "ironic_api_spec.rb", "ironic_conductor_spec.rb", "ini_setting_spec.rb", "ironic_config_spec.rb"]
+        "files": [
+            "lib/puppet/type/ironic_config.rb",
+            "manifests/api.pp",
+            "manifests/conductor.pp",
+            "manifests/init.pp",
+            "spec/classes/ironic_api_spec.rb",
+            "spec/classes/ironic_conductor_spec.rb",
+            "spec/unit/provider/ironic_config/ini_setting_spec.rb",
+            "spec/unit/type/ironic_config_spec.rb"]
       },
       {
         "hash": "5baf8d135ccf858df8a918461c730272f1f609d9",
         "msg": "Put configuration files under configurable folder\n\nInstead of putting baremetal.json and groupvars/all on the\ngit repo folder for Bifrost, just create a folder (which defaults\nto /etc/bifrost) and put those files in there.\nThis will avoid having a dirty bifrost git repo and having issues\nwhenever the Bifrost git repo is updated.\nNote, you will need to run\n'ansible-playbook -e @/etc/bifrost/bifrost_global_vars ...' in order\nto load the configuration file variables at execution time.\nCheck http://docs.ansible.com/ansible/playbooks_variables.html for\nmore info.\n\nChange-Id: Id0f5711f6f4e18cf67586e2445d8bd09c5db7ca9",
         "cmtr": "Ricardo Carrillo Cruz",
         "date": "2015-08-24 18:48:47+00:00",
-        "files": ["README.md", "bifrost.pp", "ironic_bifrost_spec.rb", "bifrost_global_vars.erb"]
+        "files": [
+            "README.md",
+            "manifests/bifrost.pp",
+            "spec/classes/ironic_bifrost_spec.rb",
+            "templates/bifrost_global_vars.erb"]
       },
       {
         "hash": "490699ff66e26d4291c3460813170d69fa1556f5",
         "msg": "Add support for identity_uri.\n\nThis patch adds the ability to set a new identity_uri parameter.\nIt also deprecates the old auth_host, auth_port, auth_protocol,\nand auth_admin_prefix parameters. Logic is in place so that\nusers of the deprecated settings should have a smooth upgrade\nprocess and get deprecation warnings until they adopt the\nnew settings.\n\nChange-Id: Ibcc63d82b6e7b9de6ef12209a43f39a4cdecb5a2",
         "cmtr": "Dan Prince",
         "date": "2015-09-14 13:30:39-04:00",
-        "files": ["api.pp", "ironic_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "spec/classes/ironic_api_spec.rb"]
       },
       {
         "hash": "b28cafe7183ddae7963f1436d5271bb8025c02f9",
         "msg": "Allow customization of db sync command line\n\n Add  parameter to ironic::db::sync class to allow\n end-users to add command line parameters to the db_sync command.\n\nChange-Id: I8cf3b47a99e828a338aad617d43272725c9b7419\nPartial-bug: 1472740",
         "cmtr": "vsaienko",
         "date": "2015-09-21 17:21:49+03:00",
-        "files": ["sync.pp", "ironic_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "spec/classes/ironic_db_sync_spec.rb"]
       },
       {
         "hash": "40ca41aecd3893f9e632a11948d849207913de6a",
         "msg": "Put all the logging related parameters to the logging class\n\nCurrently logging configuration is splitted in two distinct classes,\nthe init.pp and the logging.pp classes. This review aims to centralize\nall logging related parameters in a single class, the logging.pp one.\n\nThe impacted parameters are :\n\n  * use_syslog\n  * use_stderr\n  * log_facility\n  * verbose\n  * debug\n  * log_dir\n\nThis change remains backward compatible with what is currently in place.\n\nChange-Id: I41ad2ed3b75d8e939f47a465b191a2b99694f18a",
         "cmtr": "Yanis Guenane",
         "date": "2015-10-01 09:14:17+02:00",
-        "files": ["init.pp", "logging.pp", "ironic_init_spec.rb", "ironic_logging_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "spec/classes/ironic_init_spec.rb",
+            "spec/classes/ironic_logging_spec.rb"]
       },
       {
         "hash": "0358830fa758847788e1b5aa0452cfb5725135ea",
         "msg": "Add ironic-inspector support\n\nAdd the ability to configure the ironic-inspector service\nfor doing introspection of bare metal nodes.\n\nCloses-Bug: 1486197\nChange-Id: I9b2917a2c3f6afe75dc295c81d09f7a12856007f",
         "cmtr": "John Trowbridge",
         "date": "2015-10-06 09:17:41-04:00",
-        "files": ["ini_setting.rb", "ironic_inspector_config.rb", "inspector_sync.pp", "inspector.pp", "params.pp", "basic_ironic_spec.rb", "inspector_db_sync_spec.rb", "ironic_inspector_spec.rb", "ini_setting_spec.rb", "ironic_inspector_config_spec.rb", "inspector_dnsmasq_http.erb", "inspector_dnsmasq_tftp.erb", "inspector_ipxe.erb", "inspector_pxelinux_cfg.erb"]
+        "files": [
+            "lib/puppet/provider/ironic_inspector_config/ini_setting.rb",
+            "lib/puppet/type/ironic_inspector_config.rb",
+            "manifests/db/inspector_sync.pp",
+            "manifests/inspector.pp",
+            "manifests/params.pp",
+            "spec/acceptance/basic_ironic_spec.rb",
+            "spec/classes/inspector_db_sync_spec.rb",
+            "spec/classes/ironic_inspector_spec.rb",
+            "spec/unit/provider/ironic_inspector_config/ini_setting_spec.rb",
+            "spec/unit/type/ironic_inspector_config_spec.rb",
+            "templates/inspector_dnsmasq_http.erb",
+            "templates/inspector_dnsmasq_tftp.erb",
+            "templates/inspector_ipxe.erb",
+            "templates/inspector_pxelinux_cfg.erb"]
       },
       {
         "hash": "8724c8f4a27e3e30fbae1e3dd1edfb573ffb652d",
         "msg": "Simplify rpc_backend parameter\n\nIt is no longer necessary to specify the whole python namespace\nfor the backends, and\nhttp://docs.openstack.org/developer/oslo.messaging/opts.html lists\nthe short versions.\n\nThis patch maintains backwards compatibility with the previous\ndefault value in case it is explicitly used.\n\nChange-Id: Iefbc6720547b7380819bc3920ffbfe5b014144e3",
         "cmtr": "Javier Pena",
         "date": "2015-10-09 18:48:10+02:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "d26ba53da9bf80886191d38982dcad9a4325f034",
         "msg": "Introduce ironic::db class\n\nCurrent modules[1][2][3] implements a\n<component>::db class that is not implemented in ironic.\n\nThis commit aims to apply here the same logic.\n\n[1] https://github.com/openstack/puppet-nova/blob/master/manifests/db.pp\n[2] https://github.com/openstack/puppet-designate/blob/master/manifests/db.pp\n[3] https://github.com/openstack/puppet-ceilometer/blob/master/manifests/db.pp\n\nChange-Id: I62fc13c749ff801daa7fb9701d4c12646272e1a3",
         "cmtr": "Yanis Guenane",
         "date": "2015-10-12 15:14:32+02:00",
-        "files": ["db.pp", "init.pp", "params.pp", "ironic_db_spec.rb", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/init.pp",
+            "manifests/params.pp",
+            "spec/classes/ironic_db_spec.rb",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "098d998a9dd126ad0c19679c1234bc71517e071f",
         "msg": "db: Use postgresql lib class for psycopg package\n\nThis patch introduce the same design than mysql for postgresql\nby requiring dedicated lib::python class instead of declaring\na new resource package within ironic module.\n\nChange-Id: Ib3071679d9d2f0bca12169c6ad66f45b5f9b6d1a",
         "cmtr": "Sebastien Badia",
         "date": "2015-10-20 16:29:04+02:00",
-        "files": ["db.pp", "params.pp", "ironic_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/params.pp",
+            "spec/classes/ironic_db_spec.rb"]
       },
       {
         "hash": "090b50a5168edbede89778ae9d6d0a50e5d606f0",
         "msg": "Change section name for AMQP qpid parameters\n\nAccording to docs for liberty and kilo [1,2] should be\nsection 'oslo_messaging_qpid' instead of 'DEFAULT'.\n\n[1] http://docs.openstack.org/liberty/config-reference/content/configuring-rpc.html\n[2] http://docs.openstack.org/kilo/config-reference/content/configuring-rpc.html\n\nChange-Id: I608bb10eb2a6670e03f5519ac9bf7a43becabadc",
         "cmtr": "Denis Egorenko",
         "date": "2015-10-21 15:56:27+03:00",
-        "files": ["init.pp", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "cfdaced52a1d17fc229215bef787d88c95d1fa57",
         "msg": "Change section name for AMQP rabbit parameters\n\nParameter 'amqp_durable_queues' under section 'DEFAULT' now is\ndeprecated since Liberty and should be placed under certain\nrpc backend section [1,2]\n\n[1] https://github.com/openstack/oslo.messaging/blob/liberty/oslo_messaging/_drivers/amqp.py#L36\n[2] http://docs.openstack.org/liberty/config-reference/content/configuring-rpc.html\n\nChange-Id: I0d15f77e6905179398aee1d246e99f03e0796334",
         "cmtr": "Denis Egorenko",
         "date": "2015-10-21 20:16:01+03:00",
-        "files": ["init.pp", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "4fbee7da578c7eb88e3642442e553c6ddbfa8fc9",
         "msg": "Ironic $::os_service_default for db and logging\n\nSwitch to $::os_service_default all params in logging and db.\nChanges: logging.pp, db.pp and tests.\n\nRelated-bug: #1515273\n\nChange-Id: Ib0245e8b679010974624faf5dda3e6d6e957cda7",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2015-11-25 13:50:46+00:00",
-        "files": ["db.pp", "logging.pp", "inspector_db_sync_spec.rb", "ironic_api_spec.rb", "ironic_client_spec.rb", "ironic_conductor_spec.rb", "ironic_db_mysql_spec.rb", "ironic_db_spec.rb", "ironic_drivers_ipmi_spec.rb", "ironic_drivers_pxe_spec.rb", "ironic_init_spec.rb", "ironic_inspector_spec.rb", "ironic_keystone_auth_spec.rb", "ironic_logging_spec.rb", "ironic_policy_spec.rb", "spec_helper.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/logging.pp",
+            "spec/classes/inspector_db_sync_spec.rb",
+            "spec/classes/ironic_api_spec.rb",
+            "spec/classes/ironic_client_spec.rb",
+            "spec/classes/ironic_conductor_spec.rb",
+            "spec/classes/ironic_db_mysql_spec.rb",
+            "spec/classes/ironic_db_spec.rb",
+            "spec/classes/ironic_drivers_ipmi_spec.rb",
+            "spec/classes/ironic_drivers_pxe_spec.rb",
+            "spec/classes/ironic_init_spec.rb",
+            "spec/classes/ironic_inspector_spec.rb",
+            "spec/classes/ironic_keystone_auth_spec.rb",
+            "spec/classes/ironic_logging_spec.rb",
+            "spec/classes/ironic_policy_spec.rb",
+            "spec/spec_helper.rb"]
       },
       {
         "hash": "d9611fab1c512fe7f5771472d0cfba825c39c4d8",
         "msg": "[inspector] Specify SELinux type context for tftp dir\n\nWe create a /tftpboot/ dir in the root directory without\nspecifying a SELinux type context, so it gets default_t. The\ntftp process is not allowed read permission on default_t, and\nas a result the ironic-inspector-dnsmasq service fails to\nstart.\n\nThe fix is to specify a type context of tftpdir_t when\ncreating the /tftpboot/ directory.\n\nThis patch also pulls the /tftpboot/ directory out of the if\nblock relating only to tftp configuration. The /tftpboot/\ndirectory is also used by iPXE/http for the undionly.kpxe\nchainloading image.\n\nChange-Id: Id20802b457a8c75d8b1af04a2d2f56b6b776536e\nCloses-Bug: 1515630",
         "cmtr": "John Trowbridge",
         "date": "2015-12-02 13:12:00-05:00",
-        "files": ["inspector.pp", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "7295160b34ef0b894d4cc8da59542a8014ab6be5",
         "msg": "Support of PyMySQL driver for MySQL backend\n\nAdd the ability to use python-pymysql library as backend for MySQL\nconnections.\n\nUpdate acceptance tests to use pyMySQL.\n\nChange-Id: Id1f036b475e85f208fd906c3a79ce08535f05ac2\nDocs: https://wiki.openstack.org/wiki/PyMySQL_evaluation",
         "cmtr": "Javier Pena",
         "date": "2015-12-03 10:14:25+01:00",
-        "files": ["db.pp", "params.pp", "basic_ironic_spec.rb", "ironic_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/params.pp",
+            "spec/acceptance/basic_ironic_spec.rb",
+            "spec/classes/ironic_db_spec.rb"]
       },
       {
         "hash": "52cf1ca6c1e0c38a1a1616d45d630f2efd6e46e6",
         "msg": "Remove qpid messaging support\n\nQpid messaging driver is removed from Oslo.messaging [1]\nTherefore, we cannot support it anymore.\n\n[1] I4a9cba314c4a2f24307504fa7b5427424268b114\n\nChange-Id: I11ea3f58dc48b12dd6a536c3d56e57b7c48e6810",
         "cmtr": "Denis Egorenko",
         "date": "2015-12-07 20:35:06+03:00",
-        "files": ["init.pp", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "62eeed05093434d5ee3ac269b99ff21b6c8a4301",
         "msg": "Remove unused cluster_id parameter\n\nChange-Id: I38256bcaa094582b608c41b686dec0421a6c24b5",
         "cmtr": "Matt Fischer",
         "date": "2015-12-07 22:50:52-07:00",
-        "files": ["mysql.pp"]
+        "files": [
+            "manifests/db/mysql.pp"]
       },
       {
         "hash": "12e15ba21a296ac9778754ff3db6187a9c503045",
         "msg": "Add uefi_pxe_bootfile_name parameter\n\nAdd uefi_pxe_bootfile_name parameter with the default value from Ironic\nmaster.\n\nChange-Id: Ia7d51e08778c9d1083a40dbc252000689f3bba49",
         "cmtr": "Emilien Macchi",
         "date": "2015-12-17 10:39:35-05:00",
-        "files": ["pxe.pp", "ironic_drivers_pxe_spec.rb"]
+        "files": [
+            "manifests/drivers/pxe.pp",
+            "spec/classes/ironic_drivers_pxe_spec.rb"]
       },
       {
         "hash": "1777e6c0316b6643d27e2e7efcc2bd5b26c01bd4",
         "msg": "Make Keystone_endpoint match service by name/type\n\nSince a chance in puppet-keystone (1], we now match an endpoint with a\nservice name/type.\n)\n[1] http://git.openstack.org/cgit/openstack/puppet-keystone/commit/?id=0a4e06abb0f5b3f324464ff5219d2885816311ce\n\nChange-Id: Ie62c22c1bbfd1fbd224cc4858cdf3ffaa2e6a8ea\nCloses-Bug: #1528308",
         "cmtr": "Emilien Macchi",
         "date": "2015-12-22 18:07:28+01:00",
-        "files": ["auth.pp", "ironic_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "spec/classes/ironic_keystone_auth_spec.rb"]
       },
       {
         "hash": "efaf9daa1bf967927a37188525482c847be45015",
         "msg": "Do not use notify for db-sync from main init class\n\nIf we want to use db-sync only on some node (for example, primary node)\nand don't want run it on another we will get resource not found error\nfor notify in package ironic-common on db-sync.\n\nAlso db/sync class already contains all needed notifies on ironic-package\ntag, so it also is duplicate.\n\nChange-Id: I29939384bf96b82d9124307222a239b8aa95336b\nRelated-bug: #1529046",
         "cmtr": "Denis Egorenko",
         "date": "2015-12-24 11:34:08+00:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "81b70e55e293ff269b0601483d2f8a4583bcde97",
         "msg": "Remove duplicate rabbit_virtual_host\n\nThe init.pp file contains two rabbit_virtual_host variables\n\nChange-Id: Id44362a9abc88c39fbe7284cf277492db6de14d6",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-01-04 13:26:41+00:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "739a22f4219a9eb230b89cff634330ef139d14b0",
         "msg": "Add ironic::keystone::auth_inspector\n\nThis patch adds a class to help configure Keystone for\nuse with the Ironic Inspector service.\n\nThe primary motivation here is to actually put an endpoint\nfor the Ironic Inspector service into the keystone service\ncatalog.\n\nChange-Id: I297c672d99a36fc740f981aced066aaf70987a53",
         "cmtr": "Dan Prince",
         "date": "2016-01-04 15:56:45-05:00",
-        "files": ["auth_inspector.pp", "basic_ironic_spec.rb", "ironic_keystone_auth_inspector_spec.rb"]
+        "files": [
+            "manifests/keystone/auth_inspector.pp",
+            "spec/acceptance/basic_ironic_spec.rb",
+            "spec/classes/ironic_keystone_auth_inspector_spec.rb"]
       },
       {
         "hash": "8ce321ae46d76f0cf93e951f5ab716484534cbee",
         "msg": "Add uefi_pxe_config_template parameter\n\nAdd uefi_pxe_config_template parameter with the default value from\nIronic master.\n\nChange-Id: Ibf6a0c6a7702f24895969b2db0e0740274ce9b91",
         "cmtr": "Lucas Alvares Gomes",
         "date": "2016-01-05 15:54:16+00:00",
-        "files": ["pxe.pp", "ironic_drivers_pxe_spec.rb"]
+        "files": [
+            "manifests/drivers/pxe.pp",
+            "spec/classes/ironic_drivers_pxe_spec.rb"]
       },
       {
         "hash": "271da81d458ecb92c17a613b354e73e6c06f8ff6",
         "msg": "Enable changing list of inspection collectors\n\nInspection collectors are IPA plugins that collect additional information\nfor inspection. This patch allow changing their list, with default remaining\nthe same (for now).\n\nChange-Id: I1e5ea1cd5ee24872375cd53d3eebf14b1082d874",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-01-06 12:54:19+01:00",
-        "files": ["inspector.pp", "ironic_inspector_spec.rb", "inspector_ipxe.erb", "inspector_pxelinux_cfg.erb"]
+        "files": [
+            "manifests/inspector.pp",
+            "spec/classes/ironic_inspector_spec.rb",
+            "templates/inspector_ipxe.erb",
+            "templates/inspector_pxelinux_cfg.erb"]
       },
       {
         "hash": "3654632762e7f274b31d17e587485999adf3e166",
         "msg": "Allow to configure api_workers\n\nAdd api/api_workers configuration with a new parameter.\n\nChange-Id: I01c83a6daa3909d4d9b1cb559836b7b5e54c7c7e",
         "cmtr": "Emilien Macchi",
         "date": "2016-01-06 10:53:36-05:00",
-        "files": ["api.pp", "basic_ironic_spec.rb", "ironic_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "spec/acceptance/basic_ironic_spec.rb",
+            "spec/classes/ironic_api_spec.rb"]
       },
       {
         "hash": "2af5037a07ba6ab734b28c19e5fd6ce3e207d3d7",
         "msg": "Implement WSGI support for Ironic API\n\n* Using the same method as other OpenStack modules, add WSGI support in\n  manifests.\n* Change functional testing to run apache by default.\n\nChange-Id: I96047373b8ee27eade21e1b5b466d8bb7259ddb8",
         "cmtr": "Emilien Macchi",
         "date": "2016-01-07 15:05:04-05:00",
-        "files": ["api.pp", "params.pp", "apache.pp", "ironic_wsgi_apache_spec.rb", "ironic_api_spec.rb", "ironic_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/params.pp",
+            "manifests/wsgi/apache.pp",
+            "spec/acceptance/ironic_wsgi_apache_spec.rb",
+            "spec/classes/ironic_api_spec.rb",
+            "spec/classes/ironic_wsgi_apache_spec.rb"]
       },
       {
         "hash": "fc36b718f928f497f2639efd459fe35834827063",
         "msg": "Use identity_uri and auth_uri by default\n\nDrop old auth_ parameters that were deprecated, to use by default\nidentity_uri and auth_uri.\n\nAlso deprecate auth_version which has no effect when using identity_uri\nand auth_uri.\n\nIt keeps default values from before.\nCloses-Bug: #1528963\n\nChange-Id: I624ee69268ceaf9adf075509c5f2a5359aef1ff1",
         "cmtr": "Emilien Macchi",
         "date": "2016-01-08 10:53:15-05:00",
-        "files": ["api.pp", "ironic_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "spec/classes/ironic_api_spec.rb"]
       },
       {
         "hash": "4dd2bff699dad3a29dddd778cf3e9a940e44a935",
         "msg": "Fix duplicate parameters and drop mock\n\nThis change removes the duplicate parameters from the main ironic class.\nWith the update to 3.8.5, this now shows up as a syntax error in the\nsyntax jobs. We should only define these parameters once.\n\nAlso mock is not used anywhere in the module, let's drop it.\nThis patch will help to hit this bug:\nhttps://launchpad.net/bugs/1492636\n\nChange-Id: Iaa6acafdc771118c74f85f3332f01b58d233743b\nCloses-Bug: #1537251\nCo-Authored-By: Emilien Macchi <emilien@redhat.com>",
         "cmtr": "Alex Schultz",
         "date": "2016-01-23 09:42:57-07:00",
-        "files": ["Gemfile", "init.pp", "auth.pp", "spec_helper.rb"]
+        "files": [
+            "Gemfile",
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "spec/spec_helper.rb"]
       },
       {
         "hash": "d258a9169b328cce0841a9b972e3af18eba942d3",
         "msg": "[inspector] allow changing list of processing hooks\n\nProcessing hooks are ironic-inspector plugins for the data processing\npipeline. This change enables appending new hooks to the default list.\n\nChange-Id: Iaad957831242149378b9991553442056bbe419e4",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-02-10 10:29:15+01:00",
-        "files": ["inspector.pp", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "a70ee4fb7e56dc1d8a34063366463df0a6504454",
         "msg": "Add api_paste type/provider for Ironic\n\nAdd ironic_api_paste_ini type/provider for Ironic.\nAlso add the capability to configure api-paste.ini with config.pp.\nCloses-bug: #1483371\n\nChange-Id: I0a5ba71e577b87ad469fd624a73033a1a8ea6b82",
         "cmtr": "ZhongShengping",
         "date": "2016-02-16 09:23:11+08:00",
-        "files": ["ini_setting.rb", "ironic_api_paste_ini.rb", "config.pp", "ironic_config_spec.rb", "ini_setting_spec.rb", "ironic_api_paste_ini_spec.rb"]
+        "files": [
+            "lib/puppet/provider/ironic_api_paste_ini/ini_setting.rb",
+            "lib/puppet/type/ironic_api_paste_ini.rb",
+            "manifests/config.pp",
+            "spec/classes/ironic_config_spec.rb",
+            "spec/unit/provider/ironic_api_paste_ini/ini_setting_spec.rb",
+            "spec/unit/type/ironic_api_paste_ini_spec.rb"]
       },
       {
         "hash": "5704275b694435ba3fda4e8bd2516e00344ff2d0",
         "msg": "[inspector] allow sending random kernel arguments to the IPA\n\nIPA accepts plenty of kernel arguments, adding all them explicitly\nmay be not practical. New option ramdisk_kernel_args allows to set\na string to append to the kernel command line when booting IPA.\n\nThe first use case that comes to my mind is ipa-inspection-benchmarks\noption, enabling benchmarking during inspection.\n\nChange-Id: Id6bb8f38beb299e72fb5ab0e4d9a89ac00a47df2",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-02-16 15:07:17+01:00",
-        "files": ["inspector.pp", "ironic_inspector_spec.rb", "inspector_ipxe.erb", "inspector_pxelinux_cfg.erb"]
+        "files": [
+            "manifests/inspector.pp",
+            "spec/classes/ironic_inspector_spec.rb",
+            "templates/inspector_ipxe.erb",
+            "templates/inspector_pxelinux_cfg.erb"]
       },
       {
         "hash": "77974fd8385bd03c03efbfcad4b3bc6b32cc5652",
         "msg": "Change Baremetal to Bare Metal to be consistent with Ironic.\n\nChange-Id: Ifbde271ff33aa79cf3f6b1b293b92698ca999213",
         "cmtr": "Dougal Matthews",
         "date": "2016-02-19 14:14:50+00:00",
-        "files": ["auth_inspector.pp", "ironic_keystone_auth_inspector_spec.rb"]
+        "files": [
+            "manifests/keystone/auth_inspector.pp",
+            "spec/classes/ironic_keystone_auth_inspector_spec.rb"]
       },
       {
         "hash": "794d9c1a84f68bdfb27d13adaa8ec62d686d7549",
         "msg": "[inspector] create a separate class for configuring logging\n\nAlso makes the default log directory /var/log/ironic-inspector.\nAlso default \"debug\" to the service default, not to \"false\".\n\nChange-Id: If243d78ce16d43135533cd61526172948d2f6ede",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-03-09 14:02:38+01:00",
-        "files": ["inspector.pp", "logging.pp", "ironic_inspector_logging_spec.rb", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "manifests/inspector/logging.pp",
+            "spec/classes/ironic_inspector_logging_spec.rb",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "4de0c4be20be7469a160441ea2cfdc61c7ae2074",
         "msg": "add ipxe_timeout parameter to ironic::drivers::pxe\n\nThis parameter is used to adjust the default value to ipxe through\nthe --timeout parameter.\n\nChange-Id: Ic5306c6714705bc68ea5bfe756ba980a6ac54b21\nReferences:\nReview: I472dfb73044df50849c9cf72de90e59151698376",
         "cmtr": "Gonéri Le Bouder",
         "date": "2016-03-18 16:33:06-04:00",
-        "files": ["pxe.pp", "ironic_drivers_pxe_spec.rb"]
+        "files": [
+            "manifests/drivers/pxe.pp",
+            "spec/classes/ironic_drivers_pxe_spec.rb"]
       },
       {
         "hash": "527917904019cea89d2568f14299714a7d0fec98",
         "msg": "Allow chainloading of Inspector ramdisk over UEFI\n\nTo send the Inspector ramdisk over HTTP rather than TFTP, we must first\nsend an iPXE boot image that knows how to speak HTTP, and then instruct\nit to \"chainload\" the inspector ramdisk. Previously, we could only do\nthis if the machine being introspected had BIOS firmware. However, most\nmodern servers now use UEFI firmware, which requires a different iPXE\nboot image (as described at http://ipxe.org/howto/chainloading).\n\nWe must specify the initrd in the iPXE `kernel` line to avoid the\nproblem described at http://forum.ipxe.org/showthread.php?tid=7589.\n\nWe include the iPXE binary images directly in the files/ subdirectory\nand serve them from the puppet master. This is because\n\n - while there is a Debian package that contains both images, there is\n   currently no package for Red Hat systems that contains the UEFI\n   image;\n - downloading the images from ipxe.org would make our users vulnerable\n   to any attack affecting that site.\n\nChange-Id: I1f08578d4005c33feed84d4783a7a7693d13920c\nDepends-On: I7dc191a38132db5fc2c68846c036d5b45061b398",
         "cmtr": "Miles Gould",
         "date": "2016-03-23 12:02:44+00:00",
-        "files": ["ipxe.efi", "undionly.kpxe", "inspector.pp", "ironic_inspector_spec.rb", "inspector_dnsmasq_http.erb", "inspector_ipxe.erb"]
+        "files": [
+            "files/ipxe.efi",
+            "files/undionly.kpxe",
+            "manifests/inspector.pp",
+            "spec/classes/ironic_inspector_spec.rb",
+            "templates/inspector_dnsmasq_http.erb",
+            "templates/inspector_ipxe.erb"]
       },
       {
         "hash": "51e0ac559383538db0c011e245fd3f3e93ef5b45",
         "msg": "expose the ipxe_enabled parameter\n\nThis parameter defines is IPXE should by used instead of the standard\nPXE client.\n\nChange-Id: Idbab91c3915c958f0ee1d7cd4d85748fd82ef9ed",
         "cmtr": "Gonéri Le Bouder",
         "date": "2016-03-29 10:04:36-04:00",
-        "files": ["pxe.pp", "ironic_drivers_pxe_spec.rb"]
+        "files": [
+            "manifests/drivers/pxe.pp",
+            "spec/classes/ironic_drivers_pxe_spec.rb"]
       },
       {
         "hash": "96a8eec98ccdd90865c473dce69a08959d6ff242",
         "msg": "expose pxe/pxe_bootfile_name\n\nChange-Id: Iff651d2c690a972e8f8dd68c15de4ddf5c5e3efb",
         "cmtr": "Gonéri Le Bouder",
         "date": "2016-03-30 10:07:11-04:00",
-        "files": ["pxe.pp", "ironic_drivers_pxe_spec.rb"]
+        "files": [
+            "manifests/drivers/pxe.pp",
+            "spec/classes/ironic_drivers_pxe_spec.rb"]
       },
       {
         "hash": "f52194740f49d999664d0ca71371ddf28d2d5d75",
         "msg": "Don't back up ipxe boot image files\n\nOn at least some platforms, this is triggering the linked bug,\nwhich makes the module non-idempotent.  Per [1], setting backup to\nfalse works around the problem.\n\n1: http://stackoverflow.com/questions/29540964/puppet-could-not-back-up-file-got-passed-new-contents-for-sum/29606349\n\nChange-Id: I75375b59e6a6193e8d553408c846b179fac3e083\nCloses-Bug: 1564006",
         "cmtr": "Ben Nemec",
         "date": "2016-03-30 20:37:43+00:00",
-        "files": ["inspector.pp", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "b94bbf24af5555a94871ed2ed9e44ef31014f118",
         "msg": "Revert \"Allow chainloading of Inspector ramdisk over UEFI\"\n\nThat commit included binary blobs, which were not acceptable to\ndownstream packagers.\n\nThis reverts commit 527917904019cea89d2568f14299714a7d0fec98.\n\nChange-Id: I3a97400af4bb44d5b41b846ffb1f766c1712b61a",
         "cmtr": "Miles Gould",
         "date": "2016-04-06 17:40:14+01:00",
-        "files": ["ipxe.efi", "undionly.kpxe", "inspector.pp", "ironic_inspector_spec.rb", "inspector_dnsmasq_http.erb", "inspector_ipxe.erb"]
+        "files": [
+            "files/ipxe.efi",
+            "files/undionly.kpxe",
+            "manifests/inspector.pp",
+            "spec/classes/ironic_inspector_spec.rb",
+            "templates/inspector_dnsmasq_http.erb",
+            "templates/inspector_ipxe.erb"]
       },
       {
         "hash": "7dc6e9f9e3cea6309eba88aa87b35548ffe3a977",
         "msg": "Expose an option to enable/disable cleaning\n\nThis patch exposes option [conductor]automated_clean.\nCurrently TripleO is using its deprecated analog \"clean_nodes\"\nto disable node cleaning (which breaks TripleO workflow).\n\nChange-Id: I4e6b7f1b13be735319d20c01786b078f9678b0a7",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-04-07 15:14:29+02:00",
-        "files": ["conductor.pp", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "a7e66a34a43cc7d8d4ebb30d805374cd081df294",
         "msg": "Allow chainloading of Inspector ramdisk over UEFI\n\nTo send the Inspector ramdisk over HTTP rather than TFTP, we must first\nsend an iPXE boot image that knows how to speak HTTP, and then instruct\nit to \"chainload\" the inspector ramdisk. Previously, we could only do\nthis if the machine being introspected had BIOS firmware. However, most\nmodern servers now use UEFI firmware, which requires a different iPXE\nboot image (as described at http://ipxe.org/howto/chainloading).\n\nWe must specify the initrd in the iPXE `kernel` line to avoid the\nproblem described at http://forum.ipxe.org/showthread.php?tid=7589.\n\nChange-Id: I9cb102178bee8039a8cfc157154ecbd315aba871",
         "cmtr": "Miles Gould",
         "date": "2016-04-08 17:25:37+01:00",
-        "files": ["inspector.pp", "ironic_inspector_spec.rb", "inspector_dnsmasq_http.erb", "inspector_ipxe.erb"]
+        "files": [
+            "manifests/inspector.pp",
+            "spec/classes/ironic_inspector_spec.rb",
+            "templates/inspector_dnsmasq_http.erb",
+            "templates/inspector_ipxe.erb"]
       },
       {
         "hash": "516bb6cc2bcad5682e360b6ff0c84b4a5ce81c42",
         "msg": "Copy iPXE ROMs into /tftpboot\n\nPreviously we assumed that they're put there by some external process\n(eg this is performed by instack-undercloud in TripleO).\n\nChange-Id: I82ecd63e212b41b80adba2e679fb1d0cb81dbde7",
         "cmtr": "Miles Gould",
         "date": "2016-04-11 09:16:40+01:00",
-        "files": ["inspector.pp", "params.pp", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "manifests/params.pp",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "d0e53354b938fcb8188bffd3bcdeffcfa42a3d0e",
         "msg": "Totally drop Qpid support\n\nQpid was removed in Mitaka from Oslo Messaging, so now we can\ndrop it in manifests.\n\nChange-Id: I2536cc611b29c1cb75b942cf8c103aafe8c1f49a",
         "cmtr": "Denis Egorenko",
         "date": "2016-04-18 14:08:10+03:00",
-        "files": ["init.pp", "logging.pp", "logging.pp", "drop_qpid-5648277d914993c1.yaml", "ironic_inspector_logging_spec.rb", "ironic_logging_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/inspector/logging.pp",
+            "manifests/logging.pp",
+            "releasenotes/notes/drop_qpid-5648277d914993c1.yaml",
+            "spec/classes/ironic_inspector_logging_spec.rb",
+            "spec/classes/ironic_logging_spec.rb"]
       },
       {
         "hash": "76cb4f73e08fe17bf781355c87cfa87771ff9b40",
         "msg": "install ipmitool on ubuntu if driver enabled\n\nIf pxe_ipmitool driver is enabled, install ipmitool package on Ubuntu.\n\nSee https://bugs.launchpad.net/cloud-archive/+bug/1572800\nto be fixed in packaging one day.\n\nIn the meantime, automatically install it, and fix orchestration to make\nsure the package is installed before ironic-conductor get started\notherwise service will fail to load the driver.\n\nChange-Id: I34014d3c44876091f698023c6b896f3d55b7756d",
         "cmtr": "Emilien Macchi",
         "date": "2016-04-20 22:28:03-04:00",
-        "files": ["conductor.pp", "init.pp", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "manifests/init.pp",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "a632be23fdca526e88b2508eb722a94025244206",
         "msg": "Switch ironic to use puppet-oslo module\n\nMessaging (rabbit), db and logging parameters\nare configured using puppet-oslo module\n\nAdditional changes:\n\n* switch messaging related parameters to\n  $::os_service_default as they are used\n  in oslo::messaging_rabbit define\n* add rpc_response_timeout option as it is\n  used in oslo module and needed by tripleo\n* update unit tests\n\nDepends-On: I1ccf3dc5c69733d0b1ae6eb5c22f8c80f1c89161\nChange-Id: Ic9b302490dfab401f97808c63afabefed2e86199",
         "cmtr": "Mykyta Karpin",
         "date": "2016-04-28 11:00:14+03:00",
-        "files": ["db.pp", "init.pp", "logging.pp", "params.pp", "metadata.json", "switch_to_oslo_messaging-3dabb3d90892b881.yaml", "ironic_db_spec.rb", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "manifests/params.pp",
+            "metadata.json",
+            "releasenotes/notes/switch_to_oslo_messaging-3dabb3d90892b881.yaml",
+            "spec/classes/ironic_db_spec.rb",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "9d56010c8cfad98e6b5cc7bc097f3c148428de68",
         "msg": "iPXE: retry on failure during introspection\n\nEnsure iPXE retry to boot from the network in case of failure.\n--timeout is required to avoid an unlimited freeze, the goto loop is\nhere to force iPXE to retry the download. imgfree ensure the image get\nclean.\n\nReferences:\n I0fbb40c711a707ae9fae186e9afbe62b79168e28\n I472dfb73044df50849c9cf72de90e59151698376\n Issue: #1326656\n\nChange-Id: I6782f6499a8a8a9706415b3c9b22d41a9abb2e30",
         "cmtr": "Gonéri Le Bouder",
         "date": "2016-04-29 19:39:54-04:00",
-        "files": ["inspector.pp", "ironic_inspector_spec.rb", "inspector_ipxe.erb"]
+        "files": [
+            "manifests/inspector.pp",
+            "spec/classes/ironic_inspector_spec.rb",
+            "templates/inspector_ipxe.erb"]
       },
       {
         "hash": "ba159e362dc76456397ec7b5dcf1bdae6f5fd915",
         "msg": "Use oslo module for policy configuration\n\nChange-Id: I4ee31c89df82d1d18dddc5c391b8ba2f8a6989bf",
         "cmtr": "ZhongShengping",
         "date": "2016-05-06 14:48:51+08:00",
-        "files": ["policy.pp", "ironic_policy_spec.rb"]
+        "files": [
+            "manifests/policy.pp",
+            "spec/classes/ironic_policy_spec.rb"]
       },
       {
         "hash": "79691a6d40046a9488bbc373535506a3fba33a31",
         "msg": "Add support for the oslo db_max_retries parameter\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: I0ab7ed83df6afc164a6bd47cf0eb3eda56e2a41c\nCloses-Bug: 1579718",
         "cmtr": "ZhongShengping",
         "date": "2016-05-10 21:22:23+08:00",
-        "files": ["db.pp", "ironic_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "spec/classes/ironic_db_spec.rb"]
       },
       {
         "hash": "05d474c3b219af82dcdfab7bb6bd2a6c0e6cdbcc",
         "msg": "allow to configure my_ip parameter\n\nmy_ip is useful to compute some parameter, for glance & neutron urls.\n\nChange-Id: Ia283451647630b23bda19d3a14a17339ce258e17",
         "cmtr": "Emilien Macchi",
         "date": "2016-05-11 17:34:46-04:00",
-        "files": ["init.pp", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "ff55034d089784c657385bd4a386a6132203c88d",
         "msg": "Implement ironic::drivers::deploy class\n\nDeploy the options defined in ironic.drivers.modules.deploy_utils\nin a new class: ironic::drivers::deploy.\n\nChange-Id: Iccac750ae2aeecab3fc29b4c6938d47aeca2cea9",
         "cmtr": "Emilien Macchi",
         "date": "2016-05-12 14:44:43-04:00",
-        "files": ["deploy.pp", "drivers_deploy-7ffce6be5dc9883c.yaml", "ironic_wsgi_apache_spec.rb", "ironic_drivers_deploy_spec.rb"]
+        "files": [
+            "manifests/drivers/deploy.pp",
+            "releasenotes/notes/drivers_deploy-7ffce6be5dc9883c.yaml",
+            "spec/acceptance/ironic_wsgi_apache_spec.rb",
+            "spec/classes/ironic_drivers_deploy_spec.rb"]
       },
       {
         "hash": "5c4d023a7734ac7ed18ac8d15a702b47be5cc6ea",
         "msg": "Revert \"allow to configure my_ip parameter\"\n\nThis has broken TripleO. There is a patch[1] up to update TripleO,\nbut it does much more than just configure my_ip via the Puppet\nmodule, and there is no confirmation that it has even been tested\nsince we can't get far enough to actually exercise Ironic to do a\ndeployment in CI.\n\n[1] Ibaa55b2d4264b07faeb307893ef746ed0eb1df0c\n\nPartial-Bug: 1581479\nThis reverts commit 05d474c3b219af82dcdfab7bb6bd2a6c0e6cdbcc.\n\nChange-Id: I1db1baf6506d22c29a4e25fbe574e3df8578cb72",
         "cmtr": "James Slagle",
         "date": "2016-05-13 11:31:09+00:00",
-        "files": ["init.pp", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "1077bf2c5370fc1187bdd0e659928b6cd1c2d248",
         "msg": "Introduce support for oslo.messaging amqp driver configuration\n\nThis commit adds support for the oslo.messaging amqp rpc_backend\nwhich enables the AMQP 1.0 driver. A proposed feature for the\nNewton oslo.messaging release is an update to the AMQP 1.0 driver\nto support a stateless messaging interconnect for RPC traffic [1].\n\nThis patch:\n* use oslo::messaging::amqp resource\n* add new parameters for the oslo_messaging_amqp driver\n* update spec tests for amqp as alternate rpc_backend\n* add feature release note\n\n[1] https://blueprints.launchpad.net/oslo.messaging/+spec/amqp-dispatch-router\n\nChange-Id: Ieb0c8ca718984f2b0b35238bf5274c2e93ce8260",
         "cmtr": "Andrew Smith",
         "date": "2016-05-13 08:13:32-04:00",
-        "files": ["init.pp", "add_oslo_messaging_amqp-27bd89e08e019a7c.yaml", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add_oslo_messaging_amqp-27bd89e08e019a7c.yaml",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "735c139416fc14d2fcce0e4347058a39c2f5f5c8",
         "msg": "Revert \"Revert \"allow to configure my_ip parameter\"\"\n\nThis reverts commit 5c4d023a7734ac7ed18ac8d15a702b47be5cc6ea.\n\nChange-Id: Ica0498ae93d77484c26715794d17dccddf0d2771",
         "cmtr": "Emilien Macchi",
         "date": "2016-05-16 15:37:48+02:00",
-        "files": ["init.pp", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "bf6842e525f6b98324d2e31b5be6ef85012a90dd",
         "msg": "Add public_endpoint parameter\n\npublic_endpoint allows to set URL to use when building the links to the API\nresources.\nIf the API is operating behind a proxy, user will want to change this to\nrepresent the proxy's URL.\n\nChange-Id: Ic85497dd957cf1de738da728c1b0f5b87fecfb79",
         "cmtr": "Andrey Shestakov",
         "date": "2016-05-17 13:38:04+00:00",
-        "files": ["api.pp", "ironic_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "spec/classes/ironic_api_spec.rb"]
       },
       {
         "hash": "f7b1ed08577affd20b4d3cf045b2cbf37c3291a4",
         "msg": "Deprecate verbose option in logging\n\nOption \"verbose\" from group \"DEFAULT\" is deprecated for removal.\nThe parameter has no effect.\n-Deprecated verbose for logging and init\n-Remove verbose in README\n-Remove verbose from tests.\n\nIf this option is not set explicitly, there is no such warning.\n\nChange-Id: I1195b682a9aed4acbb2f198eeee043a9d8ee0ae4",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-05-18 00:08:41-03:00",
-        "files": ["README.md", "init.pp", "logging.pp", "logging.pp", "verbose-deprecation-3ad00934a7310ca8.yaml", "ironic_wsgi_apache_spec.rb", "ironic_init_spec.rb", "ironic_inspector_logging_spec.rb", "ironic_logging_spec.rb"]
+        "files": [
+            "README.md",
+            "manifests/init.pp",
+            "manifests/inspector/logging.pp",
+            "manifests/logging.pp",
+            "releasenotes/notes/verbose-deprecation-3ad00934a7310ca8.yaml",
+            "spec/acceptance/ironic_wsgi_apache_spec.rb",
+            "spec/classes/ironic_init_spec.rb",
+            "spec/classes/ironic_inspector_logging_spec.rb",
+            "spec/classes/ironic_logging_spec.rb"]
       },
       {
         "hash": "f09ef1dc2efa46d309591b24ce4c7d8cfa9e03ce",
         "msg": "Add transport_url parameter for oslo.messaging\n\nThis commit adds the transport_url parameter for oslo.messaging. The\nurl is of the form:\n\n  transport://user:pass@host1:port[,hostN:portN]/virtual_host\n\nWhere the transport scheme specifies the rpc or notification backend\nas one of rabbit, amqp, zmq, etc. Oslo.messaging is deprecating the\nhost, port, and auth configuration options [1]. All drivers will get\nthese options via the transport_url.\n\nThis patch:\n* use oslo::messaging::default resource\n* add parameter for transport_url\n* update spec test\n* add feature release note\n\n[1] https://review.openstack.org/#/c/317285/\n\nChange-Id: I29525aabbea99e36546643f4e80d4970fc2a04ac",
         "cmtr": "Andrew Smith",
         "date": "2016-05-27 12:25:02-04:00",
-        "files": ["init.pp", "add_transport_url_parameter-61fed8f4428a1b8e.yaml", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add_transport_url_parameter-61fed8f4428a1b8e.yaml",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "9ecbe382814684fd1020c1d16bba2d043c92348b",
         "msg": "[inspector] Update authentication parameters\n\nInspector has switched to keystoneauth and authentication plugins,\nthis change makes puppet-ironic use them. Also this change exposes\nauth_strategy parameter disabling keystone support completely.\n\nThis change removes deprecation warnings on inspector start up.\n\nChange-Id: Icb0948c3fc085c76c3309ab1ad194a978922bfdb",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-06-01 15:31:22+02:00",
-        "files": ["inspector.pp", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "14448a4c419e26132980c851f1c36043e899000a",
         "msg": "Remove deprecated keystone::auth options\n\nChange-Id: Ic94e1688ed5fb840fba7890f36aac2a415d1c6c0",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-06-03 01:44:48-03:00",
-        "files": ["auth.pp", "remove_deprecated_keystone_auth_options-af722a0d8ab900ad.yaml", "ironic_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "releasenotes/notes/remove_deprecated_keystone_auth_options-af722a0d8ab900ad.yaml",
+            "spec/classes/ironic_keystone_auth_spec.rb"]
       },
       {
         "hash": "33729b34403150b5b669e0db9e0c8331f03b14d3",
         "msg": "Add purge_config option\n\nAdd the option in order to facilitate management.\nUser can ensure that only the options they hoped\nare configured.\n\nChange-Id: I9106b9a5693e1d566a93b57888e675f2f7cb386c",
         "cmtr": "ZhongShengping",
         "date": "2016-06-08 10:53:04+08:00",
-        "files": ["init.pp", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "f21260370ff6f28b8d5034b239458f1eb0c98daa",
         "msg": "Change default service_name to 'ironic'\n\nWhile we were already able to pick an independent auth_name and\nservice_name; the service_name was defaulting to auth_name. Now it\nhas a value of its own to be consistent with other modules.\n\nChange-Id: I6fee7965ec51928df9a81cacbcf60aebadb7becf\nRelated-Bug: #1590040",
         "cmtr": "Marcellin Fom Tchassem",
         "date": "2016-06-09 13:09:00+00:00",
-        "files": ["auth.pp", "keystone-auth-name-8084c0621055b72a.yaml", "ironic_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "releasenotes/notes/keystone-auth-name-8084c0621055b72a.yaml",
+            "spec/classes/ironic_keystone_auth_spec.rb"]
       },
       {
         "hash": "5109bf74612d5234e87c6a80040c82a79454460e",
         "msg": "stop managing /etc/ironic and ironic.conf\n\nThey should be managed by packaging.\n\nChange-Id: I2073298312b2fadd5c1c7cf011b8610b0ec122a4",
         "cmtr": "Emilien Macchi",
         "date": "2016-06-13 12:21:50-04:00",
-        "files": ["init.pp", "config_dir-e902bfe9ed578bd9.yaml", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/config_dir-e902bfe9ed578bd9.yaml",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "f58917ea161bec621f8709d9284ba0da5b71148a",
         "msg": "Allow to configure swift_account\n\nThis patch allows to configure swift_account ironic conductor\noption.\n\nReference:\n[0] https://github.com/openstack/ironic/blob/master/etc/ironic/ironic.conf.sample#L982\n\nChange-Id: Id1a5dd8921c8a1ba7e516c89ce4e2acb54f1a4ee",
         "cmtr": "Vasyl Saienko",
         "date": "2016-06-15 13:01:10+03:00",
-        "files": ["conductor.pp", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "b4339b55cef101d13d1889d30bb79a94304f0d0e",
         "msg": "Allow to configure cleaning_network_uuid\n\nThis patch allows to configure cleaning_network_uuid\nironic conductor option.\n\nReference:\n[0] https://github.com/openstack/ironic/blob/master/etc/ironic/ironic.conf.sample#L1485\n\nChange-Id: I130cc05c71ad6cec9f84c350a7019ef3f91fe9b6",
         "cmtr": "Vasyl Saienko",
         "date": "2016-06-16 10:31:10+03:00",
-        "files": ["conductor.pp", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "95d0af7ec87399f89a0628b415fe8b7a819afa17",
         "msg": "Add memcached_servers for keystone authtoken\n\nThis change adds the abiltity to manage the memcached servers for the\nkeystone authtoken configuration in ironic::api\n\nChange-Id: I43af512ffd7662366534128ef2e5836d5a506252",
         "cmtr": "Alex Schultz",
         "date": "2016-06-30 15:15:07-06:00",
-        "files": ["api.pp", "keystone-authtoken-memcached-d1cf897d37c4f1ce.yaml", "ironic_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/keystone-authtoken-memcached-d1cf897d37c4f1ce.yaml",
+            "spec/classes/ironic_api_spec.rb"]
       },
       {
         "hash": "7526bfa4faf8b0b3762c22a71b52e2cd13db1193",
         "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: I15dfca3d411b6da653718627549f186da704e6ae\nRelated-Bug: 1599113",
         "cmtr": "Sofer Athlan-Guyot",
         "date": "2016-07-08 10:08:56+02:00",
-        "files": ["params.pp", "ironic_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "spec/classes/ironic_wsgi_apache_spec.rb"]
       },
       {
         "hash": "270b0cb7c77127e964468bbc39ec51c681b41ab8",
         "msg": "[inspection] allow to configure HTTP port\n\nWe currently allow changing the HTTP port for Ironic iPXE support,\nbut we don't allow the same for ironic-inspector. This patch fixes it.\n\nChange-Id: I62effb9d0196474a3768ef7e80528f730df8a543\nCloses-Bug: #1602976",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-07-14 14:19:35+02:00",
-        "files": ["inspector.pp", "ironic_inspector_spec.rb", "inspector_dnsmasq_http.erb", "inspector_ipxe.erb"]
+        "files": [
+            "manifests/inspector.pp",
+            "spec/classes/ironic_inspector_spec.rb",
+            "templates/inspector_dnsmasq_http.erb",
+            "templates/inspector_ipxe.erb"]
       },
       {
         "hash": "f7264d59826a573c9a0f5df6eff95f9ecf418449",
         "msg": "Make ironic-inspector's listen_address configurable\n\nChange-Id: Ibbab2f708f4db623de13ddc89de20fca039a2d15\nCloses-Bug: #1603757",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2016-07-18 16:57:12+03:00",
-        "files": ["inspector.pp", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "7b139119003b7001280c72a5ea5b432e430ac8ff",
         "msg": "Allow to configure [ssh] section in ironic config\n\nAllow to configure libvirt_uri from [ssh] section.\n\nChange-Id: I5f38fed9ffbe1b2dad650a2b0dd6c6ce4c145e87",
         "cmtr": "Emilien Macchi",
         "date": "2016-07-27 10:38:56-04:00",
-        "files": ["ssh.pp", "ssh-6b157a993886618d.yaml", "ironic_drivers_ssh_spec.rb"]
+        "files": [
+            "manifests/drivers/ssh.pp",
+            "releasenotes/notes/ssh-6b157a993886618d.yaml",
+            "spec/classes/ironic_drivers_ssh_spec.rb"]
       },
       {
         "hash": "4b243d49923b95a4cce010b7f4a4af9dcca93131",
         "msg": "Add CORS settings\n\nAllow configuring CORS settings.\n\nChange-Id: Ie6b4c87e84da24fc73250ee49a6d391adba9208f",
         "cmtr": "Martin André",
         "date": "2016-08-12 10:10:22+02:00",
-        "files": ["cors.pp", "ironic_cors-8b2f2bdaaa4b51f4.yaml", "ironic_cors_spec.rb"]
+        "files": [
+            "manifests/cors.pp",
+            "releasenotes/notes/ironic_cors-8b2f2bdaaa4b51f4.yaml",
+            "spec/classes/ironic_cors_spec.rb"]
       },
       {
         "hash": "d9a7a53115242e3a4a0842f53be9e44600c32c89",
         "msg": "conductor: add api_url parameter\n\nAllow to configure conductor/api_url parameter.\n\nChange-Id: I558b53591b14ed43c725a4d0e0a67401adc7d2f0",
         "cmtr": "Emilien Macchi",
         "date": "2016-08-15 16:13:13-04:00",
-        "files": ["conductor.pp", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "eef5b11679e1c0e96a782f51f5e0c8aa6abfb3bd",
         "msg": "Configure keystone authtoken options\n\nAdd ironic api and inspector authtoken classes to\nconfigure keystone authtoken related parameters.\nUnit tests are updated accordingly.\n\nDeprecate some parameters in api and inspectore classes:\n  - ironic::api|inspector::admin_tenant_name is deprecated\n    in favor of ironic::api|inspector::authtoken::project_name.\n  - ironic::api|inspector::admin_user is deprecated\n    in favor of ironic::api|inspector::authtoken::username.\n  - ironic::api|inspector::admin_password is deprecated\n    in favor of ironic::api|inspector::authtoken::password.\n  - ironic::api|inspector::identity_uri is deprecated\n    in favor of ironic::api|inspector::authtoken::auth_uri.\n  - ironic::api|inspector::auth_uri is deprecated\n    in favor of ironic::api|inspector::authtoken::auth_uri.\n  - ironic::api::memcached_servers is deprecated\n    in favor of ironic::api::authtoken::memcached_servers.\n\nCloses-bug: #1604463\n\nChange-Id: Idcb9557ab0b42b2a0dba7cf2ab6a5ccf52dd1d23",
         "cmtr": "iberezovskiy",
         "date": "2016-08-18 13:43:10+03:00",
-        "files": ["ironic.rb", "api.pp", "authtoken.pp", "inspector.pp", "authtoken.pp", "authtoken-6daf653ffcd619c5.yaml", "ironic_api_authtoken_spec.rb", "ironic_api_spec.rb", "ironic_inspector_authtoken_spec.rb", "ironic_inspector_spec.rb", "ironic_spec.rb"]
+        "files": [
+            "lib/puppet/provider/ironic.rb",
+            "manifests/api.pp",
+            "manifests/api/authtoken.pp",
+            "manifests/inspector.pp",
+            "manifests/inspector/authtoken.pp",
+            "releasenotes/notes/authtoken-6daf653ffcd619c5.yaml",
+            "spec/classes/ironic_api_authtoken_spec.rb",
+            "spec/classes/ironic_api_spec.rb",
+            "spec/classes/ironic_inspector_authtoken_spec.rb",
+            "spec/classes/ironic_inspector_spec.rb",
+            "spec/unit/provider/ironic_spec.rb"]
       },
       {
         "hash": "17a49854785b0de88c09409c4ea0aa0edb71f9a4",
         "msg": "Allow to set provisioning_network_uuid\n\nThis patch allows to configure provisioning_network_uuid\nironic conductor option.\n\nChange-Id: I5f7cade7e38eff77fd0c2e2d0e2d8fba6d91f0f3\nRelated-Bug: #1526403",
         "cmtr": "Vasyl Saienko",
         "date": "2016-08-22 11:12:01+03:00",
-        "files": ["conductor.pp", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "c403458a7451469b227867962df5817b74315d45",
         "msg": "Configure cleaning parameters\n\nAdds new parameter cleaning_disk_erase which, if set, configures\nappropriate clean steps to achieve either full erasure, erasure of\ndisk metadata or no erasing actions.\n\nAlso allow configuring whether to fall back from hard disk shredding\nif ATA secure erase fails for some reason.\n\nChange-Id: I5fdaa2ee115bc850df3d1efec2d2aa8ac2c4062e",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-08-24 13:03:17+02:00",
-        "files": ["conductor.pp", "cleaning-erase-2f8b60ae729c86e4.yaml", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "releasenotes/notes/cleaning-erase-2f8b60ae729c86e4.yaml",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "c07444ebfb02c61f3f712373e1b2978a7dd34dc1",
         "msg": "Support ironic-lib package and orchestrate Ironic upgrade\n\nThe ironic-lib package is required on all Ironic nodes and is now\nmanaged by puppet-ironic.\nWhen upgrading Ironic, we need to notify the services if common & lib\npackages are updated.\n\nChange-Id: I7ee4f71ece9908e29a8aa3ad89245500e7827787",
         "cmtr": "Emilien Macchi",
         "date": "2016-08-25 15:43:20-04:00",
-        "files": ["init.pp", "params.pp", "ironic-lib-3e668497a18a9b2c.yaml", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/params.pp",
+            "releasenotes/notes/ironic-lib-3e668497a18a9b2c.yaml",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "b5d2769041fc6787d88e34331b09701c285131a2",
         "msg": "Clean up ironic::drivers::pxe\n\nDetect boot file name and boot templates based on ipxe_enabled (unfortunately,\nthat required an explicit default for ipxe_enabled instead of os_service_default).\n\nSwitch quite a few parameters to os_service_default, where our defaults don't differ\nfrom upstream defaults. TFTP root path is left alone, as it will be refactored soon.\n\nDeprecate three parameters that do not exist in ironic (at least now).\n\nChange-Id: Ic6844bf313a08b8481d3474185d08d878ff52b5a",
         "cmtr": "Lukas Bezdicka",
         "date": "2016-08-26 18:53:01+02:00",
-        "files": ["pxe.pp", "drivers-pxe-5ced870285f654ad.yaml", "ironic_drivers_pxe_spec.rb"]
+        "files": [
+            "manifests/drivers/pxe.pp",
+            "releasenotes/notes/drivers-pxe-5ced870285f654ad.yaml",
+            "spec/classes/ironic_drivers_pxe_spec.rb"]
       },
       {
         "hash": "3ef3fb14198c3bba01c2ffc0d4fab1742a4671a7",
         "msg": "Move parameters from ironic::drivers::deploy to ironic::conductor\n\nBoth http_url and http_root are no longer specific to the PXE driver,\nthey can be used by several drivers for different purpose.\nAlso ironic::drivers::deploy is a confusing name: there is no \"deploy driver\"\nin Ironic, we have deploy interface, with several implementations.\n\nThis change deprecates ironic::drivers::deploy and moves its parameters\nto ironic::conductor where they actually belong.\n\nChange-Id: I513d826e3af2dd3b9e754f8845e3a6602b142550",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-08-30 09:21:26+02:00",
-        "files": ["conductor.pp", "deploy.pp", "drivers-deploy-e97b41f507b402fb.yaml", "ironic_wsgi_apache_spec.rb", "ironic_conductor_spec.rb", "ironic_drivers_deploy_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "manifests/drivers/deploy.pp",
+            "releasenotes/notes/drivers-deploy-e97b41f507b402fb.yaml",
+            "spec/acceptance/ironic_wsgi_apache_spec.rb",
+            "spec/classes/ironic_conductor_spec.rb",
+            "None"]
       },
       {
         "hash": "f96b696a6e09b21aecf592cda1b3439713a5f6d1",
         "msg": "Move enabled_drivers to ironic::conductor manifest\n\nThe drivers belong to the conductor. Even worse, different conductors can\nhave a different set of enabled drivers, so creating this option for API\nmakes no sense at all.\n\nInstalling ipmitool also moved there, as it's required on conductor.\n\nChange-Id: I897706dca19b46a67bd33fa95e79184dea42de0b",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-08-30 10:27:00+02:00",
-        "files": ["conductor.pp", "init.pp", "enabled-drivers-9a1e109bda75cf04.yaml", "ironic_wsgi_apache_spec.rb", "ironic_conductor_spec.rb", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "manifests/init.pp",
+            "releasenotes/notes/enabled-drivers-9a1e109bda75cf04.yaml",
+            "spec/acceptance/ironic_wsgi_apache_spec.rb",
+            "spec/classes/ironic_conductor_spec.rb",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "0376a5f55d8741139eaba9407e3863c7aabca4fc",
         "msg": "Introduce ironic::pxe class\n\nWe should provide option to setup PXE in order to remove PXE setup\nfrom tripleo elements. Class ironic::pxe will setup tftpboot and\nhttpboot and class ironic::pxe::common will take care of common\ndependancies between ironic, ironic inspector and pxe driver.\n\nChange-Id: I8b83eff694316755e4dd2dbcde7b569472893bc5",
         "cmtr": "Lukas Bezdicka",
         "date": "2016-08-30 16:42:15+02:00",
-        "files": ["pxe.pp", "inspector.pp", "params.pp", "pxe.pp", "common.pp", "tftpboot_file.pp", "metadata.json", "introduce_ironic_pxe_class-45bfc04e6e6d4d3b.yaml", "ironic_inspector_spec.rb", "ironic_pxe_spec.rb", "inspector_dnsmasq_http.erb", "inspector_dnsmasq_tftp.erb", "inspector_ipxe.erb"]
+        "files": [
+            "manifests/drivers/pxe.pp",
+            "manifests/inspector.pp",
+            "manifests/params.pp",
+            "manifests/pxe.pp",
+            "manifests/pxe/common.pp",
+            "manifests/pxe/tftpboot_file.pp",
+            "metadata.json",
+            "releasenotes/notes/introduce_ironic_pxe_class-45bfc04e6e6d4d3b.yaml",
+            "spec/classes/ironic_inspector_spec.rb",
+            "spec/classes/ironic_pxe_spec.rb",
+            "templates/inspector_dnsmasq_http.erb",
+            "templates/inspector_dnsmasq_tftp.erb",
+            "templates/inspector_ipxe.erb"]
       },
       {
         "hash": "7b74836af5c620b94a072a55c34cad1b77cdb147",
         "msg": "Support configuration and dependencies for iLO and Drac drivers\n\nProvides two new manifests for installing the dependencies for these\ndrivers (python-dracclient and python-proliantutils).\n\nAlso provides a couple of useful options for the iLO driver.\n\nChange-Id: Ibf1ed5253aacbbd88157d34d0c91bb909afb644c",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-09-02 12:27:20+02:00",
-        "files": ["drac.pp", "ilo.pp", "ilo-drac-2e42b985b41159ce.yaml", "ironic_drivers_drac_spec.rb", "ironic_drivers_ilo_spec.rb"]
+        "files": [
+            "manifests/drivers/drac.pp",
+            "manifests/drivers/ilo.pp",
+            "releasenotes/notes/ilo-drac-2e42b985b41159ce.yaml",
+            "spec/classes/ironic_drivers_drac_spec.rb",
+            "spec/classes/ironic_drivers_ilo_spec.rb"]
       },
       {
         "hash": "730df0a37b571cf94ef26d1c6b680253e407d9c6",
         "msg": "Add ironic::drivers::agent manifest\n\nAllows configuring a few IPA-related parameters.\n\nChange-Id: If2c6987d0f38aecabf41c09505c4f0dca1116034",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-09-02 12:29:38+02:00",
-        "files": ["conductor.pp", "agent.pp", "agent-params-108552435cb995be.yaml", "ironic_conductor_spec.rb", "ironic_drivers_agent_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "manifests/drivers/agent.pp",
+            "releasenotes/notes/agent-params-108552435cb995be.yaml",
+            "spec/classes/ironic_conductor_spec.rb",
+            "spec/classes/ironic_drivers_agent_spec.rb"]
       },
       {
         "hash": "5a60bb6d0b71da4f07ada97dbd022323766434b4",
         "msg": "Allow configuring Glance to use Swift tempurls\n\nThis is required for quite a few drivers, e.g. the whole agent_* family\nand iLO virtual media deploy.\n\nChange-Id: Id447d83e86847c92bea89d706d50ac8b46c469fa",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-09-05 13:41:05+02:00",
-        "files": ["conductor.pp", "tempurl-a17299b4db71a815.yaml", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "releasenotes/notes/tempurl-a17299b4db71a815.yaml",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "66817defef97b7859001fe6b919e1d424b2bbf97",
         "msg": "Allow storing config drives in Swift instead of the database\n\nChange-Id: Ia0a8f543997033d71a222cb098e57a356f03fa98",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-09-12 13:29:00+02:00",
-        "files": ["conductor.pp", "configdrive-swift-c1f2d644be91916d.yaml", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "releasenotes/notes/configdrive-swift-c1f2d644be91916d.yaml",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "88656e9d44405eb2fb3b4957378c2e799d294baf",
         "msg": "Fix puppet-lint before upgrading gem\n\nRemoving puppet-lint warnings in favor of\nupgrading the puppet-lint gem\n\n2016-09-13 21:05:00.043653 | examples/ironic.pp:55:WARNING: unquoted node name found\n2016-09-13 21:05:00.043728 | examples/ironic.pp:84:WARNING: unquoted node name found\n2016-09-13 21:05:00.043749 | manifests/api.pp:120:WARNING: line has more than 140 characters\n2016-09-13 21:05:00.043767 | manifests/api.pp:124:WARNING: line has more than 140 characters\n2016-09-13 21:05:00.043785 | manifests/api.pp:128:WARNING: line has more than 140 characters\n2016-09-13 21:05:00.043803 | manifests/api.pp:132:WARNING: line has more than 140 characters\n2016-09-13 21:05:00.043822 | manifests/api.pp:136:WARNING: line has more than 140 characters\n2016-09-13 21:05:00.043840 | manifests/api.pp:140:WARNING: line has more than 140 characters\n2016-09-13 21:05:00.043858 | manifests/api.pp:196:WARNING: line has more than 140 characters\n2016-09-13 21:05:00.043877 | manifests/inspector.pp:233:WARNING: line has more than 140 characters\n2016-09-13 21:05:00.043910 | manifests/inspector.pp:237:WARNING: line has more than 140 characters\n2016-09-13 21:05:00.043929 | manifests/inspector.pp:241:WARNING: line has more than 140 characters\n2016-09-13 21:05:00.043947 | manifests/inspector.pp:245:WARNING: line has more than 140 characters\n2016-09-13 21:05:00.043965 | manifests/inspector.pp:249:WARNING: line has more than 140 characters\n2016-09-13 21:05:00.043984 | manifests/inspector.pp:325:WARNING: line has more than 140 characters\n\nChange-Id: I2fd5466639b5fd8eb709b8f2f55984c073a0c99d",
         "cmtr": "Carlos Camacho",
         "date": "2016-09-14 11:26:16+02:00",
-        "files": ["ironic.pp", "api.pp", "inspector.pp"]
+        "files": [
+            "examples/ironic.pp",
+            "manifests/api.pp",
+            "manifests/inspector.pp"]
       },
       {
         "hash": "003d656de0340a0b4e1bef87877d9523486c848b",
         "msg": "Ironic pxe support, Don't manage tftpd-hpa service\n\ntftpd-hpa isn't installed in this module by a package\nso don't manage the service.\n\nChange-Id: I177197e04122f551b171d6477a8ce6abd171678f",
         "cmtr": "Adam Vinsh",
         "date": "2016-09-15 13:16:58-06:00",
-        "files": ["pxe.pp", "ironic_pxe_spec.rb"]
+        "files": [
+            "manifests/pxe.pp",
+            "spec/classes/ironic_pxe_spec.rb"]
       },
       {
         "hash": "3c90605aec261fa117b4971d73a36a44530dad68",
         "msg": "Ironic PXE support - corect paths and permissions\n\nThe /tftpboot/pxelinux.cfg path should be provided by ironic::pxe\nclass and it should have correct selinux context.\n\nThe /httpboot/inspector.ipxe should be owned by ironic-inspector\nand should have httpd_sys_content_t selinux context.\n\nThe /tftpboot/pxelinux.cfg/default should be owned by ironic-inspector.\n\nResolves: rhbz#1376288\nChange-Id: I91b256b27d0ac82e26026f66732b992c4e7c3cee",
         "cmtr": "Lukas Bezdicka",
         "date": "2016-09-16 17:11:13+02:00",
-        "files": ["inspector.pp", "pxe.pp", "ironic_inspector_spec.rb", "ironic_pxe_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "manifests/pxe.pp",
+            "spec/classes/ironic_inspector_spec.rb",
+            "spec/classes/ironic_pxe_spec.rb"]
       },
       {
         "hash": "9fe25f3a23bbb5cbcc839868471d688fc446e873",
         "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nChange-Id: I31c023824e428ad0fc3dad30b4d3103aaa747597",
         "cmtr": "Adam Vinsh",
         "date": "2016-09-17 17:11:05-06:00",
-        "files": ["api.pp", "authtoken.pp", "bifrost.pp", "client.pp", "conductor.pp", "config.pp", "cors.pp", "db.pp", "inspector_sync.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "agent.pp", "ipmi.pp", "pxe.pp", "ssh.pp", "init.pp", "inspector.pp", "authtoken.pp", "logging.pp", "auth.pp", "auth_inspector.pp", "logging.pp", "policy.pp", "pxe.pp", "common.pp", "tftpboot_file.pp", "apache.pp", "external-hooks-ebebbb5d72f14f9f.yaml", "ironic_api_spec.rb", "ironic_conductor_spec.rb", "ironic_inspector_spec.rb", "ironic_pxe_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/api/authtoken.pp",
+            "manifests/bifrost.pp",
+            "manifests/client.pp",
+            "manifests/conductor.pp",
+            "manifests/config.pp",
+            "manifests/cors.pp",
+            "manifests/db.pp",
+            "manifests/db/inspector_sync.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "manifests/db/sync.pp",
+            "manifests/deps.pp",
+            "manifests/drivers/agent.pp",
+            "manifests/drivers/ipmi.pp",
+            "manifests/drivers/pxe.pp",
+            "manifests/drivers/ssh.pp",
+            "manifests/init.pp",
+            "manifests/inspector.pp",
+            "manifests/inspector/authtoken.pp",
+            "manifests/inspector/logging.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/keystone/auth_inspector.pp",
+            "manifests/logging.pp",
+            "manifests/policy.pp",
+            "manifests/pxe.pp",
+            "manifests/pxe/common.pp",
+            "manifests/pxe/tftpboot_file.pp",
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/external-hooks-ebebbb5d72f14f9f.yaml",
+            "spec/classes/ironic_api_spec.rb",
+            "spec/classes/ironic_conductor_spec.rb",
+            "spec/classes/ironic_inspector_spec.rb",
+            "spec/classes/ironic_pxe_spec.rb"]
       },
       {
         "hash": "b979667b1acbc604a13f69294c87a5babf8d7bd6",
         "msg": "Remove unnecesary spaces in log messages.\n\nSpaces added by mistake in some log messages.\n\nChange-Id: I64b6b0cc60476500d91bd9eb9331619caa5b592e",
         "cmtr": "Carlos Camacho",
         "date": "2016-09-27 17:23:37+02:00",
-        "files": ["api.pp", "inspector.pp"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/inspector.pp"]
       },
       {
         "hash": "a2cfc7e7778ab2dc8316d613fd014a664940609d",
         "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: I00051bf680df897fa039fe63a737c518924f448e\nCloses-Bug: #1628580",
         "cmtr": "Sharat Sharma",
         "date": "2016-09-29 12:16:55+05:18",
-        "files": ["sync.pp"]
+        "files": [
+            "manifests/db/sync.pp"]
       },
       {
         "hash": "ac03904702ebf183330490f9926d18c4317b6d75",
         "msg": "[inspector] create a separate database configuration for ironic-inspector\n\nThis service has a separate database that can be configured.\nThis patch is essentially a copy-paste from ironic::db.\n\nChange-Id: Ib4d3548e76a9314592d8b66707df1987d7cfc5b9",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-10-04 13:27:27+02:00",
-        "files": ["inspector_sync.pp", "inspector.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "inspector-db-ddfdc7d17628f969.yaml", "ironic_wsgi_apache_spec.rb", "inspector_db_sync_spec.rb", "ironic_inspector_db_mysql_spec.rb", "ironic_inspector_db_postgresql_spec.rb", "ironic_inspector_db_spec.rb", "ironic_inspector_db_sync_spec.rb", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/db/inspector_sync.pp",
+            "manifests/inspector.pp",
+            "manifests/inspector/db.pp",
+            "manifests/inspector/db/mysql.pp",
+            "manifests/inspector/db/postgresql.pp",
+            "manifests/inspector/db/sync.pp",
+            "releasenotes/notes/inspector-db-ddfdc7d17628f969.yaml",
+            "spec/acceptance/ironic_wsgi_apache_spec.rb",
+            "None",
+            "spec/classes/ironic_inspector_db_mysql_spec.rb",
+            "spec/classes/ironic_inspector_db_postgresql_spec.rb",
+            "spec/classes/ironic_inspector_db_spec.rb",
+            "spec/classes/ironic_inspector_db_sync_spec.rb",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "d5d026a0164337211609b5008d0e11f79bf0a594",
         "msg": "Change worker defaults to ::os_workers\n\nThis patch changes the default worker count from ::processorcount to the\nnew ::os_workers fact. ::os_workers is based on the number of processors\n(currently cpu/4) but is capped at a maximum of 8 worker processors.\nThis is a much more reasonable default in general and prevents excessive\nresource consumption on systems with a large number of CPUs.\n\nChange-Id: Ib03ad48060349921b94fc4c794b3e02f41ad979d",
         "cmtr": "Maksym Yatsenko",
         "date": "2016-10-07 15:52:35+03:00",
-        "files": ["apache.pp", "os_workers_for_worker_count-24578f84123bd2ea.yaml", "ironic_api_spec.rb", "ironic_db_postgresql_spec.rb", "ironic_db_sync_spec.rb", "ironic_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/os_workers_for_worker_count-24578f84123bd2ea.yaml",
+            "spec/classes/ironic_api_spec.rb",
+            "spec/classes/ironic_db_postgresql_spec.rb",
+            "spec/classes/ironic_db_sync_spec.rb",
+            "spec/classes/ironic_wsgi_apache_spec.rb"]
       },
       {
         "hash": "2e4c586a6d93f0fd08142cf88a8549fa4801f9da",
         "msg": "start ironic-(api|inspector) after Keystone_endpoint\n\nThis patch make sure we start Ironic API and Ironic Inspector after\nKeystone_endpoint. If we don't do that, it's possible Ironic starts\nbefore having Keystone resource in place, and Ironic won't\nstart correctly.\n\nChange-Id: I7beff1dc93e1d825922e53d272927d57c706717b",
         "cmtr": "Emilien Macchi",
         "date": "2016-10-07 11:20:54-04:00",
-        "files": ["api.pp", "inspector.pp"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/inspector.pp"]
       },
       {
         "hash": "18cc687589b6e35ef4bc31a7121ecec2fe9e4466",
         "msg": "Fix documentation for log_dir parameter\n\nChange-Id: If3ca39111a501e6768ecc94a5bf5f22b3a94879b\nPartial-Bug: #1600294",
         "cmtr": "Mykyta Karpin",
         "date": "2016-10-10 16:56:16+03:00",
-        "files": ["init.pp", "logging.pp", "logging.pp", "fix_log_dir_documentation-ae6c760e36c26a29.yaml"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/inspector/logging.pp",
+            "manifests/logging.pp",
+            "releasenotes/notes/fix_log_dir_documentation-ae6c760e36c26a29.yaml"]
       },
       {
         "hash": "5a44afdd021b2c5dc091f6ad2760a050e5d2c829",
         "msg": "Allow configuring default_boot_option\n\nChange-Id: I4d7dca4a64e5819da81b0d2ce689b994d0557736\nRelated-Bug: #1619339",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-10-13 14:02:34+02:00",
-        "files": ["conductor.pp", "default_boot_option-09992dff723b9167.yaml", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "releasenotes/notes/default_boot_option-09992dff723b9167.yaml",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "1467ac82ab7ac4c0dc0038b15076ac47106f982a",
         "msg": "Remove verbose\n\nSince we are in Ocata we should remove the\nverbose option that was deprecated\n\nChange-Id: Ibd066842d0c9f825c3f7a0220c58e003f4ee2d2e",
         "cmtr": "Caio Oliveira",
         "date": "2016-10-24 20:15:42+00:00",
-        "files": ["init.pp", "logging.pp", "logging.pp", "remove_verbose-cc22967ed7edbd00.yaml"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/inspector/logging.pp",
+            "manifests/logging.pp",
+            "releasenotes/notes/remove_verbose-cc22967ed7edbd00.yaml"]
       },
       {
         "hash": "54097080e3a975c464f45ba43bb0b2a42641d50c",
         "msg": "Add enable_proxy_headers_parsing option\n\nThe patch enables paste middleware to handle SSL requests through\nHTTPProxyToWSGI middleware.\n\nChange-Id: I367333809b7c2d9888b425d2db5e8033554db2c6",
         "cmtr": "ZhongShengping",
         "date": "2016-10-28 20:11:21+08:00",
-        "files": ["api.pp", "add_enable_proxy_header_parsing-1837e35d317e74f7.yaml", "ironic_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/add_enable_proxy_header_parsing-1837e35d317e74f7.yaml",
+            "spec/classes/ironic_api_spec.rb"]
       },
       {
         "hash": "77c06e6a2025d64650ba38ae5e2198f090872d0a",
         "msg": "Fix common options position in params.pp\n\nThese parameters are common for both systems,\nthey could be moved out from 'case'.\n\nChange-Id: I694b75a329dcaad4ef7bfec9efbc2e7327c99224",
         "cmtr": "ZhongShengping",
         "date": "2016-11-09 08:32:21+08:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "be101ecbb7052887ba79ec503a99952615e7d4fc",
         "msg": "Deprecate rabbitmq connection parameters\n\nThe rabbitmq connection parameters have been deprecated in favor of the\ntransport_url setting.\n\nChange-Id: I5f644bf79ce46586fd8d1517969a2a57178e7d3c\nRelated-Bug: #1625198",
         "cmtr": "Alex Schultz",
         "date": "2016-11-09 07:48:26-07:00",
-        "files": ["init.pp", "rabbit-connection-params-deprecation-ab8842cdfbadc64a.yaml", "ironic_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/rabbit-connection-params-deprecation-ab8842cdfbadc64a.yaml",
+            "spec/acceptance/ironic_wsgi_apache_spec.rb"]
       },
       {
         "hash": "17634d7969fae2cfa9ef524e634d6318daa02ebb",
         "msg": "Adding detect_boot_mode option\n\nAllow users to update the boot_mode in ironic inspector. Default is set\nto $::os_service_default (false).\n\nChange-Id: I9a1c558790560f4ba7feebf41f46d3b9231a5250",
         "cmtr": "Joe Talerico",
         "date": "2016-11-14 06:32:35-05:00",
-        "files": ["inspector.pp", "adding_inspector_boot_mode-5bb8a41e75c33622.yaml", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "releasenotes/notes/adding_inspector_boot_mode-5bb8a41e75c33622.yaml",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "8b5b630c3ceb3e508e7ea4ab43fbf549b00dc8fa",
         "msg": "Remove old authtoken options\n\nSince we are in ocata lets remove all old parameters\nto configure the keystone_authtoken section\n\nChange-Id: Ibab5e0489e1070ffed319ad214027fd1b40735a0",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-11-22 00:38:06-03:00",
-        "files": ["api.pp", "authtoken.pp", "inspector.pp", "authtoken.pp", "remove_old_authtoken_options-b96d5e3f327267a3.yaml", "ironic_wsgi_apache_spec.rb", "ironic_api_spec.rb", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/api/authtoken.pp",
+            "manifests/inspector.pp",
+            "manifests/inspector/authtoken.pp",
+            "releasenotes/notes/remove_old_authtoken_options-b96d5e3f327267a3.yaml",
+            "spec/acceptance/ironic_wsgi_apache_spec.rb",
+            "spec/classes/ironic_api_spec.rb",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "6cfed073dcfa451e5e54ee3219b58c5ce6d2e787",
         "msg": "Deprecate cleaning_network_uuid and provisioning_network_uuid\n\nReplaced with new names without _uuid postfix, as these options now\naccept network names as well.\n\nChange-Id: Ice8e6ef2f48085f2689e2b2588a5a811ff58f3b2",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-12-05 10:48:03+01:00",
-        "files": ["conductor.pp", "net-names-6cd340d982bd5113.yaml", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "releasenotes/notes/net-names-6cd340d982bd5113.yaml",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "10a08090fda214153ee584e66c2c251c9b902cb2",
         "msg": "Deprecate disabling UEFI support for inspection\n\nWe only did that because our repositories didn't have necessary firmware\nfiles. Not it seems like all distros ship them, there is no point in disabling\nUEFI support.\n\nChange-Id: I0f242a7e1c28c4007b3c2d955dbd3b29086e92f1",
         "cmtr": "Dmitry Tantsur",
         "date": "2016-12-07 13:21:31+01:00",
-        "files": ["inspector.pp", "no-disable-uefi-a143b0b143d0b1db.yaml"]
+        "files": [
+            "manifests/inspector.pp",
+            "releasenotes/notes/no-disable-uefi-a143b0b143d0b1db.yaml"]
       },
       {
         "hash": "a6f7d3b7aec9879d2a4ccd448dc9f5d067e6a4d9",
         "msg": "tftp: listen to both IPv4 and IPv6\n\ntftp should listen to both IPv4 and IPv6 to enable cases where\nthe ironic deploy network is on a IPv6 network.\n\nChange-Id: Ib0f28b0b414c2d261e715791b98faf84183c7f40\nPartial-bug: #1628234",
         "cmtr": "Derek Higgins",
         "date": "2016-12-14 22:53:09+00:00",
-        "files": ["pxe.pp", "ironic_pxe_spec.rb"]
+        "files": [
+            "manifests/pxe.pp",
+            "spec/classes/ironic_pxe_spec.rb"]
       },
       {
         "hash": "c82488ee9ba2343432fbdf69f34c31bb1b8ced6e",
         "msg": "Add customization for wsgi process display name\n\nChange-Id: Id8e03b29af49fd78e75dbc0d5badd897a64f7714\nRelated-Bug: #1626550",
         "cmtr": "Xing Zhou",
         "date": "2016-12-21 14:01:07+08:00",
-        "files": ["apache.pp", "ironic_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "spec/classes/ironic_wsgi_apache_spec.rb"]
       },
       {
         "hash": "bc5b85357b2f6ac643d2124ea358e327c90ff979",
         "msg": "Deprecate signing_dir option\n\nThe signing_dir is deprecated for removel because of PKI token format\nis no longer supported.\nUpdate warning message and release note.\n\nChange-Id: I32ee73ea8a7d2bde856b226a76616e1ca291d92c\nCloses-Bug: #1652700",
         "cmtr": "ZhongShengping",
         "date": "2017-01-03 09:39:20+08:00",
-        "files": ["authtoken.pp", "authtoken.pp", "deprecate_signing_dir_parameter-171235a2345ef589.yaml", "ironic_api_authtoken_spec.rb", "ironic_inspector_authtoken_spec.rb"]
+        "files": [
+            "manifests/api/authtoken.pp",
+            "manifests/inspector/authtoken.pp",
+            "releasenotes/notes/deprecate_signing_dir_parameter-171235a2345ef589.yaml",
+            "spec/classes/ironic_api_authtoken_spec.rb",
+            "spec/classes/ironic_inspector_authtoken_spec.rb"]
       },
       {
         "hash": "69192ac296067778beae33891b591de93cc21d69",
         "msg": "Allow python-memcache install from authtoken class\n\nThe python-memcache package is required if using memcached. By\ndefault the package is not installed and the define has it set to\nfalse. This change allows managing the python-memcache package\ninstall from the authtoken class.\n\nChange-Id: I31a1bfe905bb40c6eae4fa27d85b834669bf5415",
         "cmtr": "Matthew J. Black",
         "date": "2017-01-11 17:55:27-05:00",
-        "files": ["authtoken.pp", "authtoken.pp", "authtoken_manage_memcache_package-b317cf6b989ae388.yaml", "ironic_api_authtoken_spec.rb", "ironic_inspector_authtoken_spec.rb"]
+        "files": [
+            "manifests/api/authtoken.pp",
+            "manifests/inspector/authtoken.pp",
+            "releasenotes/notes/authtoken_manage_memcache_package-b317cf6b989ae388.yaml",
+            "spec/classes/ironic_api_authtoken_spec.rb",
+            "spec/classes/ironic_inspector_authtoken_spec.rb"]
       },
       {
         "hash": "12cbf53aeb2decf1b8ed5c38116456d90f6a9503",
         "msg": "Configure ironic-inspector parameters related to node discovery\n\n* node_not_found_hook specifies hook to run when nodes is not found on lookup\n* discovery_default_driver specifies the default driver for new nodes\n\nChange-Id: Iddd6d65950b2846883e64af327a34d8bec2dd20d",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-01-20 14:30:39+01:00",
-        "files": ["inspector.pp", "node-not-found-hook-1695393c50f6692b.yaml", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "releasenotes/notes/node-not-found-hook-1695393c50f6692b.yaml",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "95c5da5ae8d0e72ea0d197594db37f2b3f9efd20",
         "msg": "Fix deprecated cleaning_network_uuid and provisioning_network_uuid\n\nThey got broken during deprecation due to incorrect use of pick().\nThis patch fixes it. Report: https://bugzilla.redhat.com/show_bug.cgi?id=1412754\n\nChange-Id: Ibfb40840c8ee82628fd22525d2a291780de62298",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-01-20 16:45:07+01:00",
-        "files": ["conductor.pp", "cleaning-network-compat-9e1ea13a8d96522b.yaml"]
+        "files": [
+            "manifests/conductor.pp",
+            "releasenotes/notes/cleaning-network-compat-9e1ea13a8d96522b.yaml"]
       },
       {
         "hash": "35c1e050c74113fb94b0a1bd5367484c870d8f1f",
         "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should be\ninstalled before dbsync starts.\n\nChange-Id: If3a7708f2b48d17195e62a01f46eee2e87155a98",
         "cmtr": "ZhongShengping",
         "date": "2017-01-22 21:44:35+08:00",
-        "files": ["deps.pp"]
+        "files": [
+            "manifests/deps.pp"]
       },
       {
         "hash": "d991f285e8554828e29353393253ff4a04077bfb",
         "msg": "Add ironic::drivers::interfaces class\n\nThis patch adds a new class ironic::drivers::interfaces that\nwill configure interfaces on ironic conductor side.\nThis patch allows to configure enabled_network_interfaces field.\n\nDepends-On: I67495196c3334f51ed034f4ca6e32a3e01a58f15\nChange-Id: I8ea64b23eb476cedf47527e1659174d51905eb23\nRelated-Bug: #1526403",
         "cmtr": "Mykyta Karpin",
         "date": "2017-01-25 11:25:19+02:00",
-        "files": ["interfaces.pp", "drivers_interfaces-d8fdbbb80ef2033b.yaml", "ironic_drivers_interfaces_spec.rb"]
+        "files": [
+            "manifests/drivers/interfaces.pp",
+            "releasenotes/notes/drivers_interfaces-d8fdbbb80ef2033b.yaml",
+            "spec/classes/ironic_drivers_interfaces_spec.rb"]
       },
       {
         "hash": "c8ad960a4cb5608bbaf3f5c7cfb1c75b50a0f849",
         "msg": "Deprecate inspector::enable_setting_ipmi_credentials\n\nThis option was deprecated upstream. Also reset its default to\n$::os_service_default (which is actually the same as previous value).\n\nChange-Id: If34b438ee31cf206729f7cf5b8fe230cafad38ae\nPartial-Bug: #1654318",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-01-31 14:17:23+01:00",
-        "files": ["inspector.pp", "ipmi-cred-42c1bb301132f016.yaml", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "releasenotes/notes/ipmi-cred-42c1bb301132f016.yaml",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "c995ec4840beb8a4aff7cc53f13c7c4089b0a2e2",
         "msg": "Add separate manifest for configuring access to glance\n\nWithout these parameters ironic uses keystone_authtoken credentials.\nThis is deprecated since Newton and can be removed at any moment.\n\nThis patch provides a manifest to configure separate credentials\nand moves other related parameters to it.\n\nChange-Id: I1b367308fb4dd82a7c8702a5d4301dcfd3f24a34\nPartial-Bug: #1661250",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-02-06 12:25:48+01:00",
-        "files": ["glance.pp", "init.pp", "glance-manifest-8fbe400720ffc60e.yaml", "ironic_glance_spec.rb", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/glance.pp",
+            "manifests/init.pp",
+            "releasenotes/notes/glance-manifest-8fbe400720ffc60e.yaml",
+            "spec/classes/ironic_glance_spec.rb",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "ee74484b3aedcda52521440d7b75bf39f33635a1",
         "msg": "Add separate manifest for configuring access to neutron\n\nWithout these parameters ironic uses keystone_authtoken credentials.\nThis is deprecated since Newton and can be removed at any moment.\n\nThis patch provides a manifest to configure separate credentials\nand moves other related parameters to it.\n\nReset [neutron]url to os_service_default to allow ironic to guess it,\nrather then using a value that it probably wrong.\n\nChange-Id: I7a9a78521c3495f04ca0a9f625b0d844ee56c56a\nPartial-Bug: #1661250",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-02-07 10:52:17+01:00",
-        "files": ["api.pp", "init.pp", "neutron.pp", "neutron-manifest-8fbe400720ffc60e.yaml", "ironic_api_spec.rb", "ironic_init_spec.rb", "ironic_neutron_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/init.pp",
+            "manifests/neutron.pp",
+            "releasenotes/notes/neutron-manifest-8fbe400720ffc60e.yaml",
+            "spec/classes/ironic_api_spec.rb",
+            "spec/classes/ironic_init_spec.rb",
+            "spec/classes/ironic_neutron_spec.rb"]
       },
       {
         "hash": "15d216c6b94fdfafda5211ebcd3728424b68dddc",
         "msg": "Move glance paremeters related to temporary URLs to ironic::glance\n\nThis was missed when ironic::glance was created. These paremeters related\nto how glance generates temporary URLs for images in swift.\n\nChange-Id: Ia188f9b6618ef8a13d874729a9b556102cda57f0\nRelated-Bug: #1661250",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-02-07 16:49:51+01:00",
-        "files": ["conductor.pp", "glance.pp", "glance-swift-fb8562dbf5f9269c.yaml", "ironic_conductor_spec.rb", "ironic_glance_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "manifests/glance.pp",
+            "releasenotes/notes/glance-swift-fb8562dbf5f9269c.yaml",
+            "spec/classes/ironic_conductor_spec.rb",
+            "spec/classes/ironic_glance_spec.rb"]
       },
       {
         "hash": "57e997515bd545659f0e25346e38748911e1a246",
         "msg": "Add separate manifest for configuring access to swift\n\nWithout these parameters ironic uses keystone_authtoken credentials.\nThis is deprecated since Newton and can be removed at any moment.\n\nChange-Id: I072cd20c7027ceb9aa0260428d6df136a25263eb\nPartial-Bug: #1661250",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-02-08 09:49:46+01:00",
-        "files": ["swift.pp", "swift-manifest-3e64c5cf13de40e7.yaml", "ironic_swift_spec.rb"]
+        "files": [
+            "manifests/swift.pp",
+            "releasenotes/notes/swift-manifest-3e64c5cf13de40e7.yaml",
+            "spec/classes/ironic_swift_spec.rb"]
       },
       {
         "hash": "9041a3af23dff4685ae2d3ba13277c741e5b2056",
         "msg": "Multiple DHCP Subnets for Ironic Inspector\n\nAdd parameter 'dnsmasq_ip_subnets' and enable template to\nconfigure dhcp-range and dhcp-option 'option:router' for\nadditional subnets in Ironic Inspector dnsmasq.\n\nImplements: blueprint tripleo-routed-networks-ironic-inspector\nCloses-Bug: #1637503\nChange-Id: Ie49b07ffe948576f5d9330cf11ee014aef4b282d",
         "cmtr": "Harald Jensas",
         "date": "2017-02-22 13:21:08+01:00",
-        "files": ["inspector.pp", "routed-networks-ironic-inspector-7ccc2087fc83c052.yaml", "ironic_inspector_spec.rb", "inspector_dnsmasq_http.erb", "inspector_dnsmasq_tftp.erb"]
+        "files": [
+            "manifests/inspector.pp",
+            "releasenotes/notes/routed-networks-ironic-inspector-7ccc2087fc83c052.yaml",
+            "spec/classes/ironic_inspector_spec.rb",
+            "templates/inspector_dnsmasq_http.erb",
+            "templates/inspector_dnsmasq_tftp.erb"]
       },
       {
         "hash": "9673aabd4f0e56e1bdbe44128be37e7088f7ec38",
         "msg": "Install ironic-common in pxe module if not defined\n\nThis will help resolve issues in configuring the ironic-inspector\nwith docker which uses an isolated puppet run to generate\nironic-inspector configs.\n\nChange-Id: Iff05045ee5f5ed69777689d4fcc0bae6362d2b72\nCloses-bug: #1666287",
         "cmtr": "Dan Prince",
         "date": "2017-03-01 14:24:15-05:00",
-        "files": ["init.pp", "pxe.pp"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/pxe.pp"]
       },
       {
         "hash": "b57b665e1d36707e1be12f04a49e1337ff355315",
         "msg": "Add keystone domain parameters for ironic config group in ironic-inspector\n\nThese are used to configure the keystone session for the ironicclient\nthat's used in ironic-inspector. If we use keystone v3, these are\nneeded.\n\nChange-Id: I26ce9a608e6a5fbc1497062063c45cc93c2378a7",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-03-09 14:28:06+02:00",
-        "files": ["inspector.pp", "Add-domain-parameters-for-ironic-inspectors-ironic-config-group-8ffa4cb0a7f92200.yaml", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "releasenotes/notes/Add-domain-parameters-for-ironic-inspectors-ironic-config-group-8ffa4cb0a7f92200.yaml",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "30ee1f425b2a467ed1b14318c62f2ad5108fdfb3",
         "msg": "Add keystone domain parameters for swift config group in ironic-inspector\n\nThese are used to configure the keystone session for the swiftclient\nthat's used in ironic-inspector. If we use keystone v3, these are\nneeded.\n\nChange-Id: Icb2a058d08325fba4bdb934e265938741ed7d4ee",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-03-09 14:28:51+02:00",
-        "files": ["inspector.pp", "Add-domain-parameters-for-ironic-inspectors-swift-config-group-926b5498cb7dabaf.yaml", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "releasenotes/notes/Add-domain-parameters-for-ironic-inspectors-swift-config-group-926b5498cb7dabaf.yaml",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "90f862ce25842367e5065e4fd588933dc6784eed",
         "msg": "Deprecate 'dnsmasq_ip_range' replaced by 'dnsmasq_ip_subnets'\n\nWith support for multiple subnets in Ironic Inspector dnsmasq\na new parameter 'dnsmasq_ip_subnets' was added. With this new\nparameter the 'dnsmasq_ip_range' is redundant and should be\ndeprecated.\n\nChange-Id: I07cbdd5e5573df23d6bdbfff4588cd870be933d9",
         "cmtr": "Harald Jensas",
         "date": "2017-03-13 16:22:35+01:00",
-        "files": ["inspector.pp", "routed-networks-ironic-inspector-7ccc2087fc83c052.yaml", "ironic_inspector_spec.rb", "inspector_dnsmasq_http.erb", "inspector_dnsmasq_tftp.erb"]
+        "files": [
+            "manifests/inspector.pp",
+            "releasenotes/notes/routed-networks-ironic-inspector-7ccc2087fc83c052.yaml",
+            "spec/classes/ironic_inspector_spec.rb",
+            "templates/inspector_dnsmasq_http.erb",
+            "templates/inspector_dnsmasq_tftp.erb"]
       },
       {
         "hash": "f60b27493ae85babc19b35961e57189ba32eb23d",
         "msg": "Add domain parameters to switch, neutron and glance auth modules\n\nThese are required to use Identity v3 authentication with them.\n\nChange-Id: I50068d5f29641fb0f01cf1ded3487bb44b324558\nRelated-Bug: #1661250",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-03-14 16:42:15+01:00",
-        "files": ["glance.pp", "neutron.pp", "swift.pp", "swift-glance-neutron-idv3-e235313691da667b.yaml", "ironic_glance_spec.rb", "ironic_neutron_spec.rb", "ironic_swift_spec.rb"]
+        "files": [
+            "manifests/glance.pp",
+            "manifests/neutron.pp",
+            "manifests/swift.pp",
+            "releasenotes/notes/swift-glance-neutron-idv3-e235313691da667b.yaml",
+            "spec/classes/ironic_glance_spec.rb",
+            "spec/classes/ironic_neutron_spec.rb",
+            "spec/classes/ironic_swift_spec.rb"]
       },
       {
         "hash": "3cff64247465270158bf5093ccec4d375e08f842",
         "msg": "Support new driver configuration options\n\nAllows enabling hardware types in addition to classic drivers.\n\nAlso allows providing enabled and default implementations for all\nhardware interfaces (not only network one).\n\nRequired for TripleO blueprint ironic-driver-composition.\nChange-Id: Iaec6c52fcee66dc1bba315dcd6facd902b59d7f5\nRelated-Bug: #1524745",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-03-14 19:39:09+01:00",
-        "files": ["conductor.pp", "hardware_interface.pp", "interfaces.pp", "driver-interfaces-189be236ebc05337.yaml", "ironic_conductor_spec.rb", "ironic_drivers_interfaces_spec.rb", "ironic_drivers_hardware_interface_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "manifests/drivers/hardware_interface.pp",
+            "manifests/drivers/interfaces.pp",
+            "releasenotes/notes/driver-interfaces-189be236ebc05337.yaml",
+            "spec/classes/ironic_conductor_spec.rb",
+            "spec/classes/ironic_drivers_interfaces_spec.rb",
+            "spec/defines/ironic_drivers_hardware_interface_spec.rb"]
       },
       {
         "hash": "dc9e1c170b12a416f2214af011a2d9a382e00016",
         "msg": "Add deps to all that is needed\n\n1) Add deps to all that is needed.\n2) Fix lint issue.\n\nChange-Id: I37c56dbad911193179a8912ec4916afc786b4d32",
         "cmtr": "ZhongShengping",
         "date": "2017-03-15 17:39:42+08:00",
-        "files": ["drac.pp", "hardware_interface.pp", "ilo.pp", "ipmi.pp", "ssh.pp"]
+        "files": [
+            "manifests/drivers/drac.pp",
+            "manifests/drivers/hardware_interface.pp",
+            "manifests/drivers/ilo.pp",
+            "manifests/drivers/ipmi.pp",
+            "manifests/drivers/ssh.pp"]
       },
       {
         "hash": "09cb07a7c918c8120e42d4af1ea278058a8e71f0",
         "msg": "Add separate manifest for configuring access from ironic to inspector\n\nWithout these parameters ironic uses keystone_authtoken credentials.\nThis is deprecated since Newton and can be removed at any moment.\n\nAlso introduce \"enabled\" and \"service_url\" options for completeness.\n\nChange-Id: I652db2b74924789d1431a89af8e07a68699de697\nPartial-Bug: #1661250",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-03-15 16:24:08+01:00",
-        "files": ["inspector.pp", "inspector-manifest-77e1cb21ba93b55c.yaml", "ironic_drivers_inspector_spec.rb"]
+        "files": [
+            "manifests/drivers/inspector.pp",
+            "releasenotes/notes/inspector-manifest-77e1cb21ba93b55c.yaml",
+            "spec/classes/ironic_drivers_inspector_spec.rb"]
       },
       {
         "hash": "a3ca538547169674e05b74cda6e0fd12104b76c4",
         "msg": "Add separate manifest for configuring access to the service catalog\n\nWithout these parameters ironic uses keystone_authtoken credentials.\nThis is deprecated since Newton and can be removed at any moment.\n\nChange-Id: I5e4caf484636069dd0cb80abe1f29a6613b4874f\nPartial-Bug: #1661250",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-03-15 16:25:56+01:00",
-        "files": ["service_catalog.pp", "service_catalog-manifest-49d5dd0784109d93.yaml", "ironic_service_catalog_spec.rb"]
+        "files": [
+            "manifests/service_catalog.pp",
+            "releasenotes/notes/service_catalog-manifest-49d5dd0784109d93.yaml",
+            "spec/classes/ironic_service_catalog_spec.rb"]
       },
       {
         "hash": "afac29a623e20161cef56e09d4ebcd87786e0e47",
         "msg": "Remove deprecated options for ironic::drivers::pxe\n\ndeploy_kernel, deploy_ramdisk and pxe_deploy_timeout parameters\ndo nothing and will be removed soon\n\nChange-Id: Ie4480f89b7f60dfe1282b47216633578f1a00539",
         "cmtr": "ZhongShengping",
         "date": "2017-03-16 22:08:01+08:00",
-        "files": ["pxe.pp", "remove_deprecated_driver_pxe_options-5619a2354d87632f.yaml"]
+        "files": [
+            "manifests/drivers/pxe.pp",
+            "releasenotes/notes/remove_deprecated_driver_pxe_options-5619a2354d87632f.yaml"]
       },
       {
         "hash": "3b47f7f07b93984852b986cb980b5cd9186e1ea2",
         "msg": "Deprecate ironic::drivers::ssh as *_ssh drivers will be removed soon\n\nThis comes a bit late, the drivers have been deprecated since Newton actually.\nThey will be removed in Pike, so this patch has to be backported to Ocata also.\n\nChange-Id: I9c2e1cdcfe809dbc6a031c7c77eec47da7ed55ec",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-03-17 11:25:45+01:00",
-        "files": ["ssh.pp", "ssh-deprecation-6430bc2b82789f8a.yaml"]
+        "files": [
+            "manifests/drivers/ssh.pp",
+            "releasenotes/notes/ssh-deprecation-6430bc2b82789f8a.yaml"]
       },
       {
         "hash": "40ce146986c11709470f8a5e213293f3bba481e5",
         "msg": "Fix lint issue\n\nChange-Id: Ia2a0d6add11f24bcc60cbb85cd055d77f3400abd",
         "cmtr": "ZhongShengping",
         "date": "2017-03-22 16:09:03+08:00",
-        "files": ["conductor.pp", "ironic_glance_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "spec/classes/ironic_glance_spec.rb"]
       },
       {
         "hash": "ff48eb8f73100e409789546c21a2bc415dbb56c5",
         "msg": "Restart dnsmasq when config changes\n\nChange-Id: I77374ca0b9262bd5fb627909e6fcfe73d3cf615b\nCloses-bug: #1672854",
         "cmtr": "Derek Higgins",
         "date": "2017-03-23 11:16:22+00:00",
-        "files": ["inspector.pp"]
+        "files": [
+            "manifests/inspector.pp"]
       },
       {
         "hash": "8a80e6fb46c87cc799ec572e83ee31c39c91afd4",
         "msg": "Add ability to translate net name to UUID\n\nThis patch adds ability to translate network name to UUID when\nsetting options in ironic_config.\n\nFor example to translate network name to uuid for provision_network,\ncleaning_network:\n\nironic_config {\n  'neutron/cleaning_network': value => 'baremetal', transform_to => 'net_uuid';\n  'neutron/provisioning_network': value => 'baremetal', transform_to => 'net_uuid';\n}\n\nor by defining ::ironic::conductor class with the following variables:\n\nclass {'::ironic::conductor':\n  cleaning_network_name     => 'cleaning_network',\n  provisioning_network_name => 'provisioning_network'\n}\n\nChange-Id: I7ee49c6fec7fcbddbd06e401272e83325c8fdc73",
         "cmtr": "Vasyl Saienko",
         "date": "2017-03-27 10:45:11+03:00",
-        "files": ["ironic_config_to_net_uuid.pp", "ironic.rb", "ini_setting.rb", "ironic_config.rb", "conductor.pp", "add_net_name_to_uuid_transformation-81a91758991935d0.yaml", "ironic_conductor_spec.rb"]
+        "files": [
+            "examples/ironic_config_to_net_uuid.pp",
+            "lib/puppet/provider/ironic.rb",
+            "lib/puppet/provider/ironic_config/ini_setting.rb",
+            "lib/puppet/type/ironic_config.rb",
+            "manifests/conductor.pp",
+            "releasenotes/notes/add_net_name_to_uuid_transformation-81a91758991935d0.yaml",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "5736ebba4cb2c7782ce1a1cd9112f754080bf8a6",
         "msg": "Add ability to translate swift account project name to UUID\n\nThis patch adds ability to translate swift account project name to UUID and update\nglance/swift_account option in the following format 'AUTH_uuid'.\n\nBy either calling ironic_config directly:\n\n  ironic_config {\n    'glance/swift_account': value => 'swift_account_project_name', transform_to => 'project_uuid'\n  }\n\nor by defining ::ironic::glance class:\n\n  class{'::ironic::glance':\n    swift_account_project_name => 'project_name'\n  }\n\nChange-Id: I1df2e069b7922f64c0971551bf57d7c06bd318e2",
         "cmtr": "Vasyl Saienko",
         "date": "2017-03-28 10:04:19+03:00",
-        "files": ["ironic_config_to_swift_uuid.pp", "ini_setting.rb", "glance.pp", "ironic_config_get_swift_account_project_uuid-c4c5af7095f51c78.yaml", "ironic_glance_spec.rb"]
+        "files": [
+            "examples/ironic_config_to_swift_uuid.pp",
+            "lib/puppet/provider/ironic_config/ini_setting.rb",
+            "manifests/glance.pp",
+            "releasenotes/notes/ironic_config_get_swift_account_project_uuid-c4c5af7095f51c78.yaml",
+            "spec/classes/ironic_glance_spec.rb"]
       },
       {
         "hash": "507d3877138a4fc1696e35734a860459962b61d7",
         "msg": "Allow to set port_setup_delay ironic::conductor param\n\nThis patch allows to configure port_setup_delay by setting\n::ironic::config::port_setup_delay variable.\n\nChange-Id: I53548ac2c47296aef5553477a522ab764c2a67bd",
         "cmtr": "Vasyl Saienko",
         "date": "2017-03-28 14:56:24+00:00",
-        "files": ["conductor.pp", "add_port_setup_delay_param-e28595863d31117e.yaml", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "releasenotes/notes/add_port_setup_delay_param-e28595863d31117e.yaml",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "7f7418bcf803c9e77c5ceb2b970ed29001df3492",
         "msg": "oslo log: check puppet resource instead of actual config in spec\n\nadditional changes:\n\n- switched ironic::inspector::logging class to oslo::log\n\nChange-Id: Iac2f06754a9e71b8a971c9c246be4e678e7b914f",
         "cmtr": "Mykyta Karpin",
         "date": "2017-03-28 18:07:10+03:00",
-        "files": ["logging.pp", "ironic_inspector_logging_spec.rb", "ironic_logging_spec.rb"]
+        "files": [
+            "manifests/inspector/logging.pp",
+            "spec/classes/ironic_inspector_logging_spec.rb",
+            "spec/classes/ironic_logging_spec.rb"]
       },
       {
         "hash": "65186a41ddc285a2099c696a0ffc03990522a217",
         "msg": "Clean up deprecated items supposed to be removed in Ocata and Pike\n\n* Support for disabling UEFI in inspector\n* Authtoken signing_dir argument\n* ironic::drivers::deploy manifest\n* ironic::db::inspector_sync manifest\n* enabled_drivers and rabbit_user from init manifest\n\nThis change leaves out the following deprecation\n* Implicit including of ironic::pxe in inspector (due to unclear CI problems)\n* Other rabbit_* parameters (THT still uses them, sigh)\n\nChange-Id: Ibf1c64bb5a6538610dfd9529526f203374b4e7da",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-04-03 14:00:59+02:00",
-        "files": ["authtoken.pp", "conductor.pp", "inspector_sync.pp", "deploy.pp", "init.pp", "inspector.pp", "authtoken.pp", "newton-deprecations-4a65e92bf2e1dedb.yaml", "ironic_inspector_spec.rb", "inspector_dnsmasq_http.erb"]
+        "files": [
+            "manifests/api/authtoken.pp",
+            "manifests/conductor.pp",
+            "None",
+            "None",
+            "manifests/init.pp",
+            "manifests/inspector.pp",
+            "manifests/inspector/authtoken.pp",
+            "releasenotes/notes/newton-deprecations-4a65e92bf2e1dedb.yaml",
+            "spec/classes/ironic_inspector_spec.rb",
+            "templates/inspector_dnsmasq_http.erb"]
       },
       {
         "hash": "bf00e679016b60b421a9af353dd09dcaef514926",
         "msg": "Fix user in sync.pp\n\nThe bug[0] is fixed, so we can fix the user.\n\n[0] https://bugs.launchpad.net/cloud-archive/+bug/1450942\n\nChange-Id: I89bdeec3f9723605acad29b90328ad0479b15ffc",
         "cmtr": "ZhongShengping",
         "date": "2017-04-18 15:45:22+08:00",
-        "files": ["sync.pp", "ironic_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "spec/classes/ironic_db_sync_spec.rb"]
       },
       {
         "hash": "804bb619d585a38e1a3912953c8a9f18a5022187",
         "msg": "Support configuring the Redfish driver\n\nPart of TripleO blueprint redfish-support\n\nChange-Id: Icd065cec7114fc026b658ede0d78be2e777c15aa",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-04-24 13:54:41+02:00",
-        "files": ["redfish.pp", "redfish-4afc29a2ff07917f.yaml", "ironic_drivers_redfish_spec.rb"]
+        "files": [
+            "manifests/drivers/redfish.pp",
+            "releasenotes/notes/redfish-4afc29a2ff07917f.yaml",
+            "spec/classes/ironic_drivers_redfish_spec.rb"]
       },
       {
         "hash": "fc2adf7fb8700769dca6fba3c9d650761cb5be2d",
         "msg": "Add support of ironic-inspector-client\n\nChange-Id: Ibe76a9535f6fab9cbd20abed55318047a6e83152",
         "cmtr": "Xingchao Yu",
         "date": "2017-04-25 16:40:29+08:00",
-        "files": ["client.pp", "params.pp", "add-inspector-client-support-170474ec8e08046c.yaml", "ironic_inspector_client_spec.rb"]
+        "files": [
+            "manifests/inspector/client.pp",
+            "manifests/params.pp",
+            "releasenotes/notes/add-inspector-client-support-170474ec8e08046c.yaml",
+            "spec/classes/ironic_inspector_client_spec.rb"]
       },
       {
         "hash": "6071888f14b668195dc4404ec4176e284fb03c57",
         "msg": "Make kernel and ramdisk filename configurable\n\nThis patch add two params in inspector_pxelinux_cfg template,\nto make kernel and ramdisk filename configurable.\n\nChange-Id: I5a421cd6135d001763e4d83da778ab33e5b1baca",
         "cmtr": "Xingchao Yu",
         "date": "2017-05-05 09:31:26+08:00",
-        "files": ["inspector.pp", "make-inspector_pxelinux_cfg-configurable-fb1d39933770c70d.yaml", "inspector_ipxe.erb", "inspector_pxelinux_cfg.erb"]
+        "files": [
+            "manifests/inspector.pp",
+            "releasenotes/notes/make-inspector_pxelinux_cfg-configurable-fb1d39933770c70d.yaml",
+            "templates/inspector_ipxe.erb",
+            "templates/inspector_pxelinux_cfg.erb"]
       },
       {
         "hash": "1bf55a9f36e1ab876f487b26f2d93e7186f8eeaf",
         "msg": "Add parameter add_ports in ironic-inspector\n\nChange-Id: I86afd850c6a747974f56eb84bf1c965c02881e33",
         "cmtr": "Xingchao Yu",
         "date": "2017-05-11 09:36:25+08:00",
-        "files": ["inspector.pp", "add-inspector-parameters-add_ports-a254b910883edb08.yaml", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "releasenotes/notes/add-inspector-parameters-add_ports-a254b910883edb08.yaml",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "670cd7d353f57b2068731d53d9d315408e93c5eb",
         "msg": "Remove useless annotation admin_password\n\nChange-Id: I37b2a20a02bbf4f76724c610019a2862554f0b32",
         "cmtr": "ZhongShengping",
         "date": "2017-05-16 15:09:22+08:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "0ca7ce70b7c55f291863dc4179fafb986166f847",
         "msg": "Change owner of inspector.conf to ironic-inspector\n\nBy default permissions of inspector.conf are root:root what does\nnot work when service is run as ironic-inspector user. This patch\nchanges ownership to ironic-inspector:ironic-inspector\n\nChange-Id: I89f4764d3846d28a05c02c7462c5775f8c5719b9\nCloses-Bug: #1691468",
         "cmtr": "Mateusz Kowalski",
         "date": "2017-05-17 17:00:56+02:00",
-        "files": ["inspector.pp", "inspector-config-file-permissions-9f414647e89c7d47.yaml", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "releasenotes/notes/inspector-config-file-permissions-9f414647e89c7d47.yaml",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "0430a78f8a60bb9540280446685c39e56ddbfe68",
         "msg": "Add manifest ironic::cinder for configuring access to the volume service\n\nThis is the part of ongoing boot-from-volume work.\n\nChange-Id: I2f0eb779b711e57f1532b1227896542d0ecffc89\nRelated-Bug: #1559691",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-06-09 17:03:34+02:00",
-        "files": ["cinder.pp", "cinder-manifest-7176a14b96b3daab.yaml", "ironic_cinder_spec.rb"]
+        "files": [
+            "manifests/cinder.pp",
+            "releasenotes/notes/cinder-manifest-7176a14b96b3daab.yaml",
+            "spec/classes/ironic_cinder_spec.rb"]
       },
       {
         "hash": "c5a5729063673df66223eba9a4c3d706f4ce03c1",
         "msg": "Add CORS support to ironic::inspector\n\nExtend ironic::inspector by adding CORS support\n\nChange-Id: I8c3a6c5e1e7d4521134ea68d36aee5aa9b7f1679\nPartial-Bug: 1695202",
         "cmtr": "Dan Trainor",
         "date": "2017-06-09 14:11:27-04:00",
-        "files": ["cors.pp", "add-cors-support-to-ironic-inspector-24e958a5b3226d5e.yaml", "ironic_inspector_cors_spec.rb"]
+        "files": [
+            "manifests/inspector/cors.pp",
+            "manifests/releasenotes/notes/add-cors-support-to-ironic-inspector-24e958a5b3226d5e.yaml",
+            "spec/classes/ironic_inspector_cors_spec.rb"]
       },
       {
         "hash": "90b78634df653eb3f7ab095ed1b3ef30297e4088",
         "msg": "Fix dependency references\n\nThe latest version of puppet now reports these as catalog failures so\nthis change removes the unnecessary Package and Service references\nsince those are already handled by ironic::deps and fixes the invalid\nanchor reference.\n\nChange-Id: I3ef0165c844c36d72f8b1042ac7d482ac4209667\nCloses-Bug: #1702964",
         "cmtr": "ZhongShengping",
         "date": "2017-07-10 16:35:47+08:00",
-        "files": ["bifrost.pp", "pxe.pp", "ironic_bifrost_spec.rb", "ironic_pxe_spec.rb"]
+        "files": [
+            "manifests/bifrost.pp",
+            "manifests/pxe.pp",
+            "spec/classes/ironic_bifrost_spec.rb",
+            "spec/classes/ironic_pxe_spec.rb"]
       },
       {
         "hash": "e6dc73d822e0ee30b851ce624ef9ff81abe23f13",
         "msg": "Stop including ironic::pxe from ironic::inspector\n\nThis was deprecated back in Newton.\n\nChange-Id: Ic5e4cd7a5e62491edbaeebb059803f806fab8e02",
         "cmtr": "Alex Schultz",
         "date": "2017-07-18 11:23:41-06:00",
-        "files": ["inspector.pp", "inspector-pxe-4338e86b88a7f572.yaml", "ironic_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "releasenotes/notes/inspector-pxe-4338e86b88a7f572.yaml",
+            "spec/acceptance/ironic_wsgi_apache_spec.rb"]
       },
       {
         "hash": "84a4c0117f5e31f4184fa2d11de0e7e47aaea6fa",
         "msg": "Support configuring enabled and default storage interface(s)\n\nChange-Id: Id6a00a3829b9494cd726bf8e72979ba3ae757028",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-07-19 17:22:55+02:00",
-        "files": ["interfaces.pp", "storage-interface-8ea3e132df74a361.yaml", "ironic_drivers_interfaces_spec.rb"]
+        "files": [
+            "manifests/drivers/interfaces.pp",
+            "releasenotes/notes/storage-interface-8ea3e132df74a361.yaml",
+            "spec/classes/ironic_drivers_interfaces_spec.rb"]
       },
       {
         "hash": "7f382e8e97f4b20b41de906075c79b65c1794623",
         "msg": "Deprecate oslo.messaging rpc_backend option parameter\n\nOslo.messaging uses the transport_url to represent the rpc and\nnotification messaging driver to use and its full configuration. The\nrpc_backend configuration option is deprecated for removal and\nshould not gate oslo.messaging driver configuration options.\n\nThis patch:\n* deprecate rpc_backend\n* remove conditional check\n* update spec tests\n* add release note\n\nChange-Id: I548d2321dca280b6b00188851d7741b1c4433772",
         "cmtr": "Andrew Smith",
         "date": "2017-07-27 09:00:05-04:00",
-        "files": ["init.pp", "deprecate_rpc_backend_parameter-fbd7e70470551823.yaml", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/deprecate_rpc_backend_parameter-fbd7e70470551823.yaml",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "bf5a8ee3fc68ff5a608e1bfbf2c1fef09b16490b",
         "msg": "Add a class to run the db online_data_migrations\n\nThis adds support for running the online_data_migrations which needs\nto happen after a dbsync when you upgrade to Pike. If it's not run,\nupgrade from Pike to Queens won't work in the future.\n\nChange-Id: I548c80cf138b661ba3a5e45a6dfe8711f3322ed0\nCloses-Bug: #1708149",
         "cmtr": "Alex Schultz",
         "date": "2017-08-09 02:40:43+00:00",
-        "files": ["online_data_migrations.pp", "deps.pp", "init.pp", "online-data-migrations-3bcad0ba520dc739.yaml", "ironic_db_online_data_migrations_spec.rb"]
+        "files": [
+            "manifests/db/online_data_migrations.pp",
+            "manifests/deps.pp",
+            "manifests/init.pp",
+            "releasenotes/notes/online-data-migrations-3bcad0ba520dc739.yaml",
+            "spec/classes/ironic_db_online_data_migrations_spec.rb"]
       },
       {
         "hash": "100f4341d9fe8af8c825a0e749b899ac7f576ceb",
         "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: I8c2345478f65861f5702149fc3407155b0889baf\nCloses-Bug: #1717144",
         "cmtr": "ZhongShengping",
         "date": "2017-09-14 11:34:54+08:00",
-        "files": ["authtoken.pp", "authtoken.pp", "deprecate_revocation_cache_time_parameter-096a16bac4a618c7.yaml", "ironic_api_authtoken_spec.rb", "ironic_inspector_authtoken_spec.rb"]
+        "files": [
+            "manifests/api/authtoken.pp",
+            "manifests/inspector/authtoken.pp",
+            "releasenotes/notes/deprecate_revocation_cache_time_parameter-096a16bac4a618c7.yaml",
+            "spec/classes/ironic_api_authtoken_spec.rb",
+            "spec/classes/ironic_inspector_authtoken_spec.rb"]
       },
       {
         "hash": "d86a38c7efa968c23e9342791ef77988f899ac66",
         "msg": "Removed deprecated support for setting IPMI credentials\n\nCloses-Bug: #1654318\nChange-Id: Idc613717cfbeabc173ef5853c08d97a273913c12",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-09-19 14:09:26+02:00",
-        "files": ["inspector.pp", "ipmi-cred-removal-f31d0ae9504b970f.yaml", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "releasenotes/notes/ipmi-cred-removal-f31d0ae9504b970f.yaml",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "98cda9d19325b0703a30a11dd7059d6ee036d0d5",
         "msg": "Remove support for already removed SSH drivers\n\nChange-Id: I4d8d0b139ac9da70409be0c9c36822cbb9b52c26",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-09-19 14:17:20+02:00",
-        "files": ["ssh.pp", "ssh-removal-07d9adf11526e322.yaml", "ironic_drivers_ssh_spec.rb"]
+        "files": [
+            "None",
+            "releasenotes/notes/ssh-removal-07d9adf11526e322.yaml",
+            "None"]
       },
       {
         "hash": "5a71880b54533a049adb9f203a241a22b123dd62",
         "msg": "Allow setting log files for apache vhost\n\nThis allows the setting of the error and access file logs, as well as\nthe access log format. This was done in a similar fashion as one can\nconfigure these ones in the keystone wsgi manifest.\n\nChange-Id: Id64898df6389ee7d00c8d14841ee5d999e84fee3",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-10-06 16:47:09+03:00",
-        "files": ["apache.pp", "configure-access-and-error-log-files-0181077a3d0e9d20.yaml", "ironic_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/configure-access-and-error-log-files-0181077a3d0e9d20.yaml",
+            "spec/classes/ironic_wsgi_apache_spec.rb"]
       },
       {
         "hash": "dbc4f7ad2a58fd518ec7276ea27fb7b895a6aeae",
         "msg": "Accept empty strings for log_dir\n\nAn empty string is an acceptable value of this entry, and it forces\nlogging to stdout/stderr, which is useful when running on containers.\n\nChange-Id: I79a53d59f948c19b22f883d120e1afed7439d643",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-10-06 16:56:46+03:00",
-        "files": ["logging.pp", "accept-empty-strings-log-dir-fc9ebec7543ea3a5.yaml", "ironic_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "releasenotes/notes/accept-empty-strings-log-dir-fc9ebec7543ea3a5.yaml",
+            "spec/classes/ironic_logging_spec.rb"]
       },
       {
         "hash": "9381f9722bccd99d5ac8c42b7119898a9e0f5a48",
         "msg": "Configure *_domain_name to Default by default\n\nKeystone v2.0 API was removed so we have no choice but configuring\nuser_domain_name and project_domain_name otherwise it fallbacks to\nKeystone v2.0 and it fails. This patch sets the default value so we make\nsure Keystone v3 will be used out of the box for our users.\n\nChange-Id: Ica121aa31705551052448a853fb8908732e749cf",
         "cmtr": "Harry Rybacki",
         "date": "2017-10-06 10:23:03-04:00",
-        "files": ["authtoken.pp", "cinder.pp", "inspector.pp", "glance.pp", "inspector.pp", "authtoken.pp", "neutron.pp", "service_catalog.pp", "swift.pp", "default-domain-ac0128c3e0820ff6.yaml", "ironic_api_authtoken_spec.rb", "ironic_cinder_spec.rb", "ironic_drivers_inspector_spec.rb", "ironic_glance_spec.rb", "ironic_inspector_authtoken_spec.rb", "ironic_inspector_spec.rb", "ironic_neutron_spec.rb", "ironic_service_catalog_spec.rb", "ironic_swift_spec.rb"]
+        "files": [
+            "manifests/api/authtoken.pp",
+            "manifests/cinder.pp",
+            "manifests/drivers/inspector.pp",
+            "manifests/glance.pp",
+            "manifests/inspector.pp",
+            "manifests/inspector/authtoken.pp",
+            "manifests/neutron.pp",
+            "manifests/service_catalog.pp",
+            "manifests/swift.pp",
+            "releasenotes/notes/default-domain-ac0128c3e0820ff6.yaml",
+            "spec/classes/ironic_api_authtoken_spec.rb",
+            "spec/classes/ironic_cinder_spec.rb",
+            "spec/classes/ironic_drivers_inspector_spec.rb",
+            "spec/classes/ironic_glance_spec.rb",
+            "spec/classes/ironic_inspector_authtoken_spec.rb",
+            "spec/classes/ironic_inspector_spec.rb",
+            "spec/classes/ironic_neutron_spec.rb",
+            "spec/classes/ironic_service_catalog_spec.rb",
+            "spec/classes/ironic_swift_spec.rb"]
       },
       {
         "hash": "b02d9c3056ea9bc5381d33e3fdeb19deafde85a8",
         "msg": "apache wsgi: Exchange defaults for workers and threads\n\nDue to Python's GIL [1], we can't use multiple threads for running\nOpenStack services without a performance penalty, since the execution\nends up serialized, which defeats the purpose.\n\nInstead, we should use several processes, since this approach doesn't\nhave this limitation.\n\n[1] https://wiki.python.org/moin/GlobalInterpreterLock\n\nChange-Id: I023e8982246672a0e99284e5e8f90fc16d87695d",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-10-13 10:02:34+03:00",
-        "files": ["apache.pp", "ironic_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "spec/classes/ironic_wsgi_apache_spec.rb"]
       },
       {
         "hash": "516107376678dfba18a43f34be35800b3fee7be6",
         "msg": "add parameter to overwrite/add wsgi process options\n\nAdd parameter to apache_wsgi to allow overwrite\nand/or add additional wsgi process options.\n\nThis possibility was added to openstacklib\nwith Change-Id: I41914ce3361988d5db1695f09d21209772fdf548\nlease enter the commit message for your changes. Lines starting\n\nChange-Id: I81620b1ee5b4167c819f96474459e3af4770913c",
         "cmtr": "ZhongShengping",
         "date": "2017-10-23 14:02:19+08:00",
-        "files": ["apache.pp", "wsgi_process_options-b01aa3d1442febfe.yaml", "ironic_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/wsgi_process_options-b01aa3d1442febfe.yaml",
+            "spec/classes/ironic_wsgi_apache_spec.rb"]
       },
       {
         "hash": "3c41398138a789754ab2652595edf79cdc75c172",
         "msg": "Conditionalize syslinux requirement\n\nA non-bios architecture will not have a syslinux package and\ntherefore cannot assume that it must be installed.\n\nChange-Id: I02e2cb556efe94c68f63e1b919b66cc1a5b9e5b1",
         "cmtr": "Dan Radez",
         "date": "2017-10-23 12:01:29-04:00",
-        "files": ["pxe.pp", "conditionalize-syslinux-install-89865f7320f94d88.yaml", "ironic_pxe_spec.rb"]
+        "files": [
+            "manifests/pxe.pp",
+            "releasenotes/notes/conditionalize-syslinux-install-89865f7320f94d88.yaml",
+            "spec/classes/ironic_pxe_spec.rb"]
       },
       {
         "hash": "179690bb93d6924517d7b22706e2b004ca4fab75",
         "msg": "ironic upgrade: change ownership for ironic-dbsync.log\n\nCommit bf00e679016b60b421a9af353dd09dcaef514926 broke upgrades of existing\nironic deployments, as it tries running ironic-dbsync from \"ironic\" user,\nwhile the existing ironic-dbsync.log file is owned by root.\n\nThis change adds creating a file resource with the correct ACLs before\nrunning ironic-dbsync.\n\nChange-Id: Ia3e8b7d8add933cd8a53f1c4e92dc3c4479009eb",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-11-07 13:55:43+01:00",
-        "files": ["sync.pp", "ironic-dbsync-3816e081122eb137.yaml", "ironic_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "releasenotes/notes/ironic-dbsync-3816e081122eb137.yaml",
+            "spec/classes/ironic_db_sync_spec.rb"]
       },
       {
         "hash": "b6ecd21a67a877802cfd1cb758bc907e837b2d56",
         "msg": "Allow setting inspector timeout value\n\nAllow overriding default timeout value after which introspection\nof the node fails.\n\nChange-Id: I74adb998a41ebf8c7ede72a547bbab9173834236\nCloses-bug: #1733417",
         "cmtr": "Mateusz Kowalski",
         "date": "2017-11-22 09:48:01+01:00",
-        "files": ["conductor.pp", "inspector.pp", "inspector-timeout-value-8fd160aecb0693fc.yaml", "ironic_conductor_spec.rb", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "manifests/inspector.pp",
+            "releasenotes/notes/inspector-timeout-value-8fd160aecb0693fc.yaml",
+            "spec/classes/ironic_conductor_spec.rb",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "7a8ed2c60ec456138335a915f081327b7b4fac87",
         "msg": "Add ironic::drivers::ansible to configure the ansible deploy interface\n\nChange-Id: I55aecb95bc3ab1264487bcda5870b6e4fc7aa787\nRelated: blueprint ansible-deploy\nDepends-On: I43f54688287953ccb1c2836437aea76236e6560b",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-11-23 17:08:02+01:00",
-        "files": ["ansible.pp", "ansible-deploy-b6c4fa172efe30fb.yaml", "ironic_drivers_ansible_spec.rb"]
+        "files": [
+            "manifests/drivers/ansible.pp",
+            "releasenotes/notes/ansible-deploy-b6c4fa172efe30fb.yaml",
+            "spec/classes/ironic_drivers_ansible_spec.rb"]
       },
       {
         "hash": "2b88d9219eb75c1bec1dd3301c147c562bde0834",
         "msg": "Add ironic::drivers::staging to install ironic-staging-drivers\n\nChange-Id: Ibef8f33f306b9d3b598698345ce3b0978f62a2ad\nPartially-Implements: blueprint ovirt-driver",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-11-24 13:23:14+01:00",
-        "files": ["staging.pp", "params.pp", "staging-drivers-a44cc0fbec155897.yaml", "ironic_drivers_staging_spec.rb"]
+        "files": [
+            "manifests/drivers/staging.pp",
+            "manifests/params.pp",
+            "releasenotes/notes/staging-drivers-a44cc0fbec155897.yaml",
+            "spec/classes/ironic_drivers_staging_spec.rb"]
       },
       {
         "hash": "907e5b96137f7a4dd104effec904e5450faefd49",
         "msg": "Support setting the default_resource_class option\n\nChange-Id: I4f27bc75e04229fa836c386c4800979074e2827e\nDepends-On: I58232d9c92d6ffca49d334e5fb7078bce19f1cb4\nCloses-Bug: #1732190",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-11-27 12:11:32+01:00",
-        "files": ["init.pp", "default-resource-class-4af1e38d78dc2659.yaml", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/default-resource-class-4af1e38d78dc2659.yaml",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "7cb857b21dba987b204f3a84fd0f71fb11237c81",
         "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: I110e7593d38307cc520f5d5fb5d0cdb382082393",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-11-27 14:49:18+02:00",
-        "files": ["logging.pp", "logging.pp", "log-json-d9478055054bf6f9.yaml", "ironic_inspector_logging_spec.rb", "ironic_logging_spec.rb"]
+        "files": [
+            "manifests/inspector/logging.pp",
+            "manifests/logging.pp",
+            "releasenotes/notes/log-json-d9478055054bf6f9.yaml",
+            "spec/classes/ironic_inspector_logging_spec.rb",
+            "spec/classes/ironic_logging_spec.rb"]
       },
       {
         "hash": "6183b17fc387ac1eb9e1bf41cf9d2dc83f5bcb7b",
         "msg": "Use ipmi/command_retry_timeout instead of retry_timeout\n\nThe latter is now deprecated and will be silently ignored in the\nfuture.\n\nChange-Id: I5e858e66a8bbc45c4e45df7e57338c59bce0430f\nCloses-bug: #1734322",
         "cmtr": "Mateusz Kowalski",
         "date": "2017-12-01 16:22:43+01:00",
-        "files": ["conductor.pp", "ipmi.pp", "deprecate-ipmi-retry-timeout-5a16a6593127ecac.yaml", "ironic_conductor_spec.rb", "ironic_drivers_ipmi_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "manifests/drivers/ipmi.pp",
+            "releasenotes/notes/deprecate-ipmi-retry-timeout-5a16a6593127ecac.yaml",
+            "spec/classes/ironic_conductor_spec.rb",
+            "spec/classes/ironic_drivers_ipmi_spec.rb"]
       },
       {
         "hash": "18d90c9a110ce64a634309d45af4f4dd771d5afb",
         "msg": "Expose swift_container and swift_endpoint_url in ironic::glance\n\nUnfortunately, ironic cannot detect swift_endpoint_url from the service\ncatalog, so it has to be provided for 'ansible' and 'direct' deploy methods.\n\nChange-Id: I9b19625ed7d86a7827e0c3ef16de1ef9b0976eb0\nRelated: blueprint ansible-deploy",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-12-07 16:52:44+01:00",
-        "files": ["glance.pp", "swift-container-endpoint-1bbb0f848a57a6a6.yaml", "ironic_glance_spec.rb"]
+        "files": [
+            "manifests/glance.pp",
+            "releasenotes/notes/swift-container-endpoint-1bbb0f848a57a6a6.yaml",
+            "spec/classes/ironic_glance_spec.rb"]
       },
       {
         "hash": "2dae296b457912cbc26eb9b3cb0eef53c78fcd92",
         "msg": "Make ironic::drivers::ansible actually install required packages\n\nIt is assumed that ansible is installed, but realistically it does\nnot have to. This change install ansible and systemd-python (the latter\nrequired for correct logging in the driver).\n\nChange-Id: I50d15bdd210fa444a0354e3b38acf21ec9d0ac30",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-12-08 17:13:15+01:00",
-        "files": ["ansible.pp", "params.pp", "ansible-packages-b22b04fd68c9836a.yaml", "ironic_drivers_ansible_spec.rb"]
+        "files": [
+            "manifests/drivers/ansible.pp",
+            "manifests/params.pp",
+            "releasenotes/notes/ansible-packages-b22b04fd68c9836a.yaml",
+            "spec/classes/ironic_drivers_ansible_spec.rb"]
       },
       {
         "hash": "c0122b74946aaaa03d6d9fc65e02c191ad4c681d",
         "msg": "Add an option to specify the tftp bind host IP\n\nChange-Id: Iea204fe993ecc9e3a273491c083e06a78ee0e19d",
         "cmtr": "Derek Higgins",
         "date": "2017-12-15 13:49:00+00:00",
-        "files": ["pxe.pp", "tftp-bind-ip-0a042cd836dd53f9.yaml", "ironic_pxe_spec.rb"]
+        "files": [
+            "manifests/pxe.pp",
+            "releasenotes/notes/tftp-bind-ip-0a042cd836dd53f9.yaml",
+            "spec/classes/ironic_pxe_spec.rb"]
       },
       {
         "hash": "ca56d8237a70506965e287a3f411705ada2e6da2",
         "msg": "ansible: allow configuring default_* configuration parameters\n\nChange-Id: Icf3304b6d47eb13f2cd214d385d714b6287d6828\nDepends-On: Ib198c07c1d414c0d78950e5d98a5176e12a7df13\nCloses-Bug: #1736409",
         "cmtr": "Dmitry Tantsur",
         "date": "2017-12-21 15:30:58+01:00",
-        "files": ["ansible.pp", "ansible-defaults-86a775df15fca45d.yaml", "ironic_drivers_ansible_spec.rb"]
+        "files": [
+            "manifests/drivers/ansible.pp",
+            "releasenotes/notes/ansible-defaults-86a775df15fca45d.yaml",
+            "spec/classes/ironic_drivers_ansible_spec.rb"]
       },
       {
         "hash": "c547a02bddac2c8acba703ffa64de22b8c743d69",
         "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nChange-Id: Idff05735bd2e2155253cd96eafc5e1e7c28b03b5\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
         "cmtr": "Emilien Macchi",
         "date": "2018-01-11 16:08:36+00:00",
-        "files": ["params.pp", "policy.pp", "ironic_policy_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "spec/classes/ironic_policy_spec.rb"]
       },
       {
         "hash": "339735f25ddb035957f0c2f8a16e3f6aa82f6665",
         "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: I18ec0f9eb40624042dcdb4897b11be56190ddc00",
         "cmtr": "ZhongShengping",
         "date": "2018-01-15 15:51:46+08:00",
-        "files": ["logging.pp", "add-use_journal-option-for-logging-bb188924ad2f8d6c.yaml", "ironic_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "releasenotes/notes/add-use_journal-option-for-logging-bb188924ad2f8d6c.yaml",
+            "spec/classes/ironic_logging_spec.rb"]
       },
       {
         "hash": "dd2b63c6f6336a870dd39756ef3d9e0224f96b45",
         "msg": "online_data_migrations: allow passing command line params to migrations\n\nThe existing extra_params only works for generic ironic-dbsync arguments\n(like --config-file), but not for arguments specific to migrations\n(like --max-count).\n\nChange-Id: I693738c8b4f7b99082fca56137af6cbe24c06213\nRelated-Bug: #1690185",
         "cmtr": "Dmitry Tantsur",
         "date": "2018-01-19 15:26:22+01:00",
-        "files": ["online_data_migrations.pp", "migration-params-f9ec055f4ab5e98d.yaml", "ironic_db_online_data_migrations_spec.rb"]
+        "files": [
+            "manifests/db/online_data_migrations.pp",
+            "releasenotes/notes/migration-params-f9ec055f4ab5e98d.yaml",
+            "spec/classes/ironic_db_online_data_migrations_spec.rb"]
       },
       {
         "hash": "61a4bb876064f19786a1af59d9f358c16912a115",
         "msg": "Add kombu_failover_strategy option\n\nAdds the kombu_failover_strategy option for configuring\noslo.messaging.rabbit. This will determines how the next RabbitMQ node\nis chosen in case the one we are currently connected to becomes\nunavailable.\n\nChange-Id: Ie6f1028f351fdd7a0b6608b6c9a6672d04bdbddc\nCloses-Bug: #1748353",
         "cmtr": "ZhongShengping",
         "date": "2018-02-09 14:38:17+08:00",
-        "files": ["init.pp", "add_rabbit_kombu_options-925c20fdd3bde3f0.yaml", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add_rabbit_kombu_options-925c20fdd3bde3f0.yaml",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "1f694ff1a42282b62c2330ea7f1e6b421ec43f51",
         "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: If6394558b373f85e61840f538a3e2e1105cfe98c\nCloses-Bug: #1755102",
         "cmtr": "ZhongShengping",
         "date": "2018-03-14 08:30:22+08:00",
-        "files": ["sync.pp", "sync.pp", "openstack_db_tag-92785ba5669c7b28.yaml", "ironic_db_sync_spec.rb", "ironic_inspector_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "manifests/inspector/db/sync.pp",
+            "releasenotes/notes/openstack_db_tag-92785ba5669c7b28.yaml",
+            "spec/classes/ironic_db_sync_spec.rb",
+            "spec/classes/ironic_inspector_db_sync_spec.rb"]
       },
       {
         "hash": "731b563675778d85f871625dd9bb5c43dd477d44",
         "msg": "inspector: allow configuring always_store_ramdisk_logs\n\nChange-Id: Ic2385603281a9c611d451bf0a99b80c9881bf2ac",
         "cmtr": "Dmitry Tantsur",
         "date": "2018-03-15 14:50:09+01:00",
-        "files": ["inspector.pp", "always_store_ramdisk_logs-cec708576c54b399.yaml", "ironic_inspector_spec.rb"]
+        "files": [
+            "manifests/inspector.pp",
+            "releasenotes/notes/always_store_ramdisk_logs-cec708576c54b399.yaml",
+            "spec/classes/ironic_inspector_spec.rb"]
       },
       {
         "hash": "76e4a89922164803ba8d1d51dd076ec54d2db7e5",
         "msg": "inspector: configure \"dnsmasq\" DHCP filter\n\nCo-Authored-By: Harald Jensås <hjensas@redhat.com>\nRelated-Bug: #1756075\nChange-Id: I056cdadc025f35d8b6fd22f510a7c0a8e259a1f0",
         "cmtr": "Harald Jensås",
         "date": "2018-03-15 14:52:09+01:00",
-        "files": ["inspector.pp", "pxe_filter.pp", "dnsmasq.pp", "ironic-inspector-pxe-filter-dnsmasq-98af54c3cbf105c8.yaml", "ironic_inspector_pxe_filter_dnsmasq_spec.rb", "ironic_inspector_pxe_filter_spec.rb", "ironic_inspector_spec.rb", "inspector_dnsmasq_http.erb", "inspector_dnsmasq_tftp.erb"]
+        "files": [
+            "manifests/inspector.pp",
+            "manifests/inspector/pxe_filter.pp",
+            "manifests/inspector/pxe_filter/dnsmasq.pp",
+            "releasenotes/notes/ironic-inspector-pxe-filter-dnsmasq-98af54c3cbf105c8.yaml",
+            "spec/classes/ironic_inspector_pxe_filter_dnsmasq_spec.rb",
+            "spec/classes/ironic_inspector_pxe_filter_spec.rb",
+            "spec/classes/ironic_inspector_spec.rb",
+            "templates/inspector_dnsmasq_http.erb",
+            "templates/inspector_dnsmasq_tftp.erb"]
       },
       {
         "hash": "78740fe6fa8eac3793c30fc0067dcc09608eb80f",
         "msg": "Add support for configuring rescue mode\n\nTripleO blueprint ironic-rescue\n\nChange-Id: Ib11f60bed3f68fc7030a7fe71583798901f674ea",
         "cmtr": "Dmitry Tantsur",
         "date": "2018-03-22 12:36:55+01:00",
-        "files": ["conductor.pp", "interfaces.pp", "ironic-rescue-d1c28e3f4b67c14c.yaml", "ironic_conductor_spec.rb", "ironic_drivers_interfaces_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "manifests/drivers/interfaces.pp",
+            "releasenotes/notes/ironic-rescue-d1c28e3f4b67c14c.yaml",
+            "spec/classes/ironic_conductor_spec.rb",
+            "spec/classes/ironic_drivers_interfaces_spec.rb"]
       },
       {
         "hash": "975499ba031cc8334edfcbffc50d0a696ff649ef",
         "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: I49a310f53a56708915b40d1617e6c6e8ad989c0f",
         "cmtr": "ZhongShengping",
         "date": "2018-03-27 10:33:24+08:00",
-        "files": ["authtoken.pp", "authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-9cb40c11d4a4e31a.yaml"]
+        "files": [
+            "manifests/api/authtoken.pp",
+            "manifests/inspector/authtoken.pp",
+            "releasenotes/notes/remove_deprecated_keystone_revocation_cache_time_option-9cb40c11d4a4e31a.yaml"]
       },
       {
         "hash": "0f3ff5e94818f0689ff5b5fe11f0fa01916c127b",
         "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: I09095ca8bb36420f77cd2e372d7b478f28930fc8\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
         "cmtr": "ZhongShengping",
         "date": "2018-04-03 16:55:02+08:00",
-        "files": ["authtoken.pp", "authtoken.pp", "deprecate_auth_uri_parameter-9c3b5d66452043fa.yaml", "ironic_api_authtoken_spec.rb", "ironic_inspector_authtoken_spec.rb"]
+        "files": [
+            "manifests/api/authtoken.pp",
+            "manifests/inspector/authtoken.pp",
+            "releasenotes/notes/deprecate_auth_uri_parameter-9c3b5d66452043fa.yaml",
+            "spec/classes/ironic_api_authtoken_spec.rb",
+            "spec/classes/ironic_inspector_authtoken_spec.rb"]
       },
       {
         "hash": "798a165ad6f2b9b3faa05367b820e9d9b57a6c00",
         "msg": "Debian is using python3-ironicclient\n\nChange-Id: Icbfe6fe57bb3c32788f5675f9e4a7e4742860760",
         "cmtr": "zhubingbing",
         "date": "2018-04-12 13:33:18+08:00",
-        "files": ["params.pp", "ironic_client_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "spec/classes/ironic_client_spec.rb"]
       },
       {
         "hash": "06c01b006dfadc91cb502d51ced3b6e9d3422642",
         "msg": "Fix app.wsgi path in Debian\n\nDebian is using /usr/lib/python3, not /usr/lib/python2.7. This patch\nfixes that problem.\n\nChange-Id: I14f8a29b085a5ae8b1d0456739cece110a3d9853",
         "cmtr": "Thomas Goirand",
         "date": "2018-05-04 10:15:19+02:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "6699a8225991ef2f052126a79b5c7e6e022e927c",
         "msg": "Debian is using Python 3\n\nThis patch fixes numerous issues with puppet-ironic assuming that Debian\nuses Python 2.7.\n\nChange-Id: I166ebf38df22f4f819303c60fff93e77c260fd1e",
         "cmtr": "Thomas Goirand",
         "date": "2018-05-09 11:54:02+02:00",
-        "files": ["drac.pp", "ilo.pp", "redfish.pp", "params.pp", "ironic_db_spec.rb", "ironic_init_spec.rb", "ironic_inspector_db_spec.rb"]
+        "files": [
+            "manifests/drivers/drac.pp",
+            "manifests/drivers/ilo.pp",
+            "manifests/drivers/redfish.pp",
+            "manifests/params.pp",
+            "spec/classes/ironic_db_spec.rb",
+            "spec/classes/ironic_init_spec.rb",
+            "spec/classes/ironic_inspector_db_spec.rb"]
       },
       {
         "hash": "9be8befb75ed387ac1d025cc1dd34699770f4e4a",
         "msg": "neat: missing : in $::os_service_default\n\nChange-Id: I69cad61c0e765bd82a2fc5f80ac506ce3c2fac39",
         "cmtr": "zhubingbing",
         "date": "2018-05-11 14:02:39+08:00",
-        "files": ["authtoken.pp", "authtoken.pp"]
+        "files": [
+            "manifests/api/authtoken.pp",
+            "manifests/inspector/authtoken.pp"]
       },
       {
         "hash": "4ad193f9f2d6072d3bc770dba087c6578f2f2125",
         "msg": "Replace port 35357 with 5000\n\nNow that the v2.0 API has been removed, we don't have a reason to\ninclude deployment instructions for two separate applications on\ndifferent ports.\n\nChange-Id: Ibbb4136bacdfb36c619ed246fa0257d62a36cac7",
         "cmtr": "qiaomin",
         "date": "2018-05-13 00:49:44+08:00",
-        "files": ["authtoken.pp", "authtoken.pp", "ironic_api_authtoken_spec.rb", "ironic_inspector_authtoken_spec.rb", "ironic_spec.rb"]
+        "files": [
+            "manifests/api/authtoken.pp",
+            "manifests/inspector/authtoken.pp",
+            "spec/classes/ironic_api_authtoken_spec.rb",
+            "spec/classes/ironic_inspector_authtoken_spec.rb",
+            "spec/unit/provider/ironic_spec.rb"]
       },
       {
         "hash": "aca09199979cae3fdf1ec921b6dca4d0e5156c07",
         "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nCloses-Bug: #1757581\n\nChange-Id: Ia7b26a2243f06ff6d20fb10b32b355cfb8d41a41",
         "cmtr": "ZhongShengping",
         "date": "2018-05-23 15:30:38+08:00",
-        "files": ["db.pp", "db.pp", "add-pool_timeout-option-for-db-e13f121a41b4b3af.yaml", "ironic_db_spec.rb", "ironic_inspector_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/inspector/db.pp",
+            "releasenotes/notes/add-pool_timeout-option-for-db-e13f121a41b4b3af.yaml",
+            "spec/classes/ironic_db_spec.rb",
+            "spec/classes/ironic_inspector_db_spec.rb"]
       },
       {
         "hash": "39c790de6da67beda8884a3392ee5f44eed1fcca",
         "msg": "Add support for db_max_retries param\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: I91ee4d1fe255f0225b499ecf565bd91b89fc47bf\nReleated-Bug: #1579718",
         "cmtr": "ZhongShengping",
         "date": "2018-05-23 15:45:35+08:00",
-        "files": ["db.pp", "add_db_max_retries-a1d3176323e781a5.yaml", "ironic_inspector_db_spec.rb"]
+        "files": [
+            "manifests/inspector/db.pp",
+            "releasenotes/notes/add_db_max_retries-a1d3176323e781a5.yaml",
+            "spec/classes/ironic_inspector_db_spec.rb"]
       },
       {
         "hash": "31dd4df0c21ee272b7182a33d072bf4f28a40d54",
         "msg": "Remove deprecated rabbit params\n\nRemove the deprecated rabbit params which has been deprecated for\ntwo years. The default_transport_url has been present for a while\nnow and should be used.\n\nChange-Id: I8930a36096f9e93152585cb962d37c1da497e540",
         "cmtr": "ZhongShengping",
         "date": "2018-05-24 14:13:58+08:00",
-        "files": ["init.pp", "remove-deprecated-rabbit-params-a42913217a36cea3.yaml", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/remove-deprecated-rabbit-params-a42913217a36cea3.yaml",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "2ad919015906102043118a81e0df4ccf9d857f7a",
         "msg": "Remove deprecated parameters\n\nRemoves deprecated parameters that has been\ndeprecated for one cycle or more.\n\nChange-Id: I0c29a346e0df44bce5e4c661b4b8a77f9e126fc7",
         "cmtr": "Tobias Urdin",
         "date": "2018-06-13 13:45:27+02:00",
-        "files": ["api.pp", "conductor.pp", "ipmi.pp", "glance.pp", "init.pp", "inspector.pp", "neutron.pp", "remove-deprecated-867b573ee02efb55.yaml", "ironic_inspector_spec.rb", "inspector_dnsmasq_http.erb", "inspector_dnsmasq_tftp.erb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/conductor.pp",
+            "manifests/drivers/ipmi.pp",
+            "manifests/glance.pp",
+            "manifests/init.pp",
+            "manifests/inspector.pp",
+            "manifests/neutron.pp",
+            "releasenotes/notes/remove-deprecated-867b573ee02efb55.yaml",
+            "spec/classes/ironic_inspector_spec.rb",
+            "templates/inspector_dnsmasq_http.erb",
+            "templates/inspector_dnsmasq_tftp.erb"]
       },
       {
         "hash": "c9907ac8741a3e1d619d5425e8de8109e2b64de8",
         "msg": "Adds the configuration of bios interfaces\n\nIt allows to set the enabled_bios_interfaces and default_bios_interface.\nCurrently only no-bios interface is possible to add.\n\nChange-Id: I4960b55382b4ef60fefc147a2ae4fca3daa9432b",
         "cmtr": "Yolanda Robla",
         "date": "2018-06-15 08:40:21+02:00",
-        "files": ["interfaces.pp", "add-bios-interface-921d92b603dd287d.yaml", "ironic_drivers_interfaces_spec.rb"]
+        "files": [
+            "manifests/drivers/interfaces.pp",
+            "releasenotes/notes/add-bios-interface-921d92b603dd287d.yaml",
+            "spec/classes/ironic_drivers_interfaces_spec.rb"]
       },
       {
         "hash": "56616c819ca964513559bd3e2300dcdc6d943643",
         "msg": "Fix annotations\n\nChange-Id: I0707fc3146f2680a898a5e64ddf9dafa879e2dd1",
         "cmtr": "zhubingbing",
         "date": "2018-06-15 15:07:37+08:00",
-        "files": ["mysql.pp", "mysql.pp"]
+        "files": [
+            "manifests/db/mysql.pp",
+            "manifests/inspector/db/mysql.pp"]
       },
       {
         "hash": "d04996c9d32b1d5c408120c424eb2c5e866043f0",
         "msg": "Deprecate and unset the enabled_drivers option\n\nThe classic drivers are being removed, with the removal of pxe_ipmitool\nalready planned. The enabled_drivers option is deprecated in this change\nand is made no-op, since there are no more classic drivers to enable\nwith it. We also force it to be empty, since the ironic team is planning\non a validate that is not set on ironic-conductor start up.\n\nChange-Id: I6e02f59807c98643923d1c2333fcb25114735f25",
         "cmtr": "Dmitry Tantsur",
         "date": "2018-06-27 17:41:37+02:00",
-        "files": ["conductor.pp", "deprecate-enabled-drivers-23273798306f9086.yaml", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "releasenotes/notes/deprecate-enabled-drivers-23273798306f9086.yaml",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "5310a06d4611ede31980e08cf1662ef1beaaad6f",
         "msg": "Expose power sync parameters\n\nA busy environment is likely to tune these parameters, let's expose them.\n\nChange-Id: Ide6de7f7a147e15b2941706f282455baa9d8f671",
         "cmtr": "Dmitry Tantsur",
         "date": "2018-07-03 16:51:47+02:00",
-        "files": ["conductor.pp", "power-sync-parameters-d168a56a376b9c1e.yaml", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "releasenotes/notes/power-sync-parameters-d168a56a376b9c1e.yaml",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "b52c09b11e42811fd1af07751f0321a06fc42fa6",
         "msg": "Expose power_failure_recovery_interval\n\nChange-Id: I2133d3266d5f224546e3d28ffa0a7ed3c6ad15ae",
         "cmtr": "Dmitry Tantsur",
         "date": "2018-07-03 16:58:19+02:00",
-        "files": ["conductor.pp", "power-failure-recovery-fb7f74944bc499b4.yaml", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "releasenotes/notes/power-failure-recovery-fb7f74944bc499b4.yaml",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "75477a9754ffeb4580624b6c5d8edb00ef9b033e",
         "msg": "Add support for configuring ppc64le nodes\n\nThe aim of this change to the enable puppet-ironic as used by tripleo to\nconfigure ironic and the tftp services in a way that \"just works\" with\ntripleo.\n\nIt adds the ability to tweak ironic's command retry and spacing values\nas well as creating architecture specific config and bootfile mappings\n\nBlueprint: multiarch-support\nChange-Id: Ia64dd21b55474d402315ba7c05e28604fff3aea8",
         "cmtr": "Tony Breeds",
         "date": "2018-07-07 17:51:19+10:00",
-        "files": ["ipmi.pp", "pxe.pp", "inspector.pp", "pxe.pp", "ironic_drivers_ipmi_spec.rb", "ironic_drivers_pxe_spec.rb", "ironic_inspector_spec.rb", "ironic_pxe_spec.rb", "inspector_dnsmasq_tftp.erb"]
+        "files": [
+            "manifests/drivers/ipmi.pp",
+            "manifests/drivers/pxe.pp",
+            "manifests/inspector.pp",
+            "manifests/pxe.pp",
+            "spec/classes/ironic_drivers_ipmi_spec.rb",
+            "spec/classes/ironic_drivers_pxe_spec.rb",
+            "spec/classes/ironic_inspector_spec.rb",
+            "spec/classes/ironic_pxe_spec.rb",
+            "templates/inspector_dnsmasq_tftp.erb"]
       },
       {
         "hash": "e887095302d3df05516dfe32fe28711d210fba85",
         "msg": "Expose oslo messaging notification parameters\n\nA deployment using ceilometer for notifications might tune this\nparameters.\n\nChange-Id: If37a8acea7eedebccad27f6e830f65b61cece54b",
         "cmtr": "Daniel Abad",
         "date": "2018-07-12 15:04:26+02:00",
-        "files": ["init.pp", "add-oslo-notifications-5e841e11f7843329.yaml"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add-oslo-notifications-5e841e11f7843329.yaml"]
       },
       {
         "hash": "3f905ff7a55a597da4f52edc763c071a813ba721",
         "msg": "Notify apache for ironic api in wsgi\n\nIf ironic is in apache wsgi we must make sure\nits notified on service refreshes.\n\nChange-Id: I8f72f360c36f36acea3616fd1b09946ba5ba20c5",
         "cmtr": "Tobias Urdin",
         "date": "2018-07-17 20:25:25+02:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "bca7eb56502aadc258d41eaa728308370b4800a1",
         "msg": "Support ironic::conductor::conductor_group parameter\n\nChange-Id: Ia74085a7906c1c36afafb91d285e47f53c933e45",
         "cmtr": "Dmitry Tantsur",
         "date": "2018-07-30 13:52:47+02:00",
-        "files": ["conductor.pp", "conductor-group-eb58837b4ae709e5.yaml", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "releasenotes/notes/conductor-group-eb58837b4ae709e5.yaml",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "a14f9ec73fcc0d910f122389859013965551dbbb",
         "msg": "Support ironic::conductor::default_boot_mode parameter\n\nChange-Id: I34bacb5cd1bf20b61dba454ccce2638ee14185c7",
         "cmtr": "Dmitry Tantsur",
         "date": "2018-07-30 13:59:45+02:00",
-        "files": ["conductor.pp", "default-boot-mode-1dc27454b02a56e5.yaml", "ironic_conductor_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "releasenotes/notes/default-boot-mode-1dc27454b02a56e5.yaml",
+            "spec/classes/ironic_conductor_spec.rb"]
       },
       {
         "hash": "fb6abbd06c7ba5f2ab836f0c03953855d7bbdaae",
         "msg": "Changes for Rocky cycle deprecations\n\n* ironic::conductor::inspect_timeout now sets inspect_wait_timeout\n* ironic::drivers::inspector::enabled is now deprecated (noop)\n\nChange-Id: If14d1212f7eda0cc44b7802e0788b65de63d7666",
         "cmtr": "Dmitry Tantsur",
         "date": "2018-07-30 20:30:36+02:00",
-        "files": ["conductor.pp", "inspector.pp", "inspector-enabled-f0eedadbf4d6c3c1.yaml", "ironic_conductor_spec.rb", "ironic_drivers_inspector_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "manifests/drivers/inspector.pp",
+            "releasenotes/notes/inspector-enabled-f0eedadbf4d6c3c1.yaml",
+            "spec/classes/ironic_conductor_spec.rb",
+            "spec/classes/ironic_drivers_inspector_spec.rb"]
       },
       {
         "hash": "037cd2cb5d332ba178d78390a3f5bcd75ce1e9e3",
         "msg": "Correct default number of threads\n\nThe default number of threads does not match the default\ntested upstream[1], which can return errors for users when\nrequests begin backing up in the webserver due to a lack\nof resources and the nature of the ironic API having some\nsynchronous requests.\n\nUpstream ironic, as of the Rocky cycle, executed with uwsgi\nwhich is configured for the same process count algorithm,\nbut enable threds. There does not appear to be an upper bound\nto that setting, but accoriding to mod_wsgi documentation[3],\nthe default is 15 threads. The example shipped with ironic[4]\ndefaults to 10, which also seems to be a valid configuration.\n\n[1]: https://git.openstack.org/cgit/openstack/ironic/tree/devstack/lib/ironic?h=stable/rocky#n1129\n[2]: http://git.openstack.org/cgit/openstack-dev/devstack/tree/lib/apache#n267\n[3]: https://modwsgi.readthedocs.io/en/develop/configuration-directives/WSGIDaemonProcess.html\n[4]: https://git.openstack.org/cgit/openstack/ironic/tree/etc/apache2/ironic?h=stable/rocky#n21\n\nStory: #2003464\nTask: #24724\nrhbz: #1613995\n\nChange-Id: I327219f96cfc0a69643ab6369cb8e831251f799c",
         "cmtr": "Julia Kreger",
         "date": "2018-08-16 15:08:04-07:00",
-        "files": ["apache.pp", "update-threads-to-match-upstream-6fda517d7f6d1448.yaml", "ironic_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/update-threads-to-match-upstream-6fda517d7f6d1448.yaml",
+            "spec/classes/ironic_wsgi_apache_spec.rb"]
       },
       {
         "hash": "27bf3a0591d50f70642954b3b19613131bbedeee",
         "msg": "Expose the notification_level paramenter\n\nAfter merging https://review.openstack.org/#/c/581786/\noslo notifications are unusable in ironic unless the\nnotification_level parameter is set. Thus, there is a\nneed to expose this parameter via puppet\n\nChange-Id: I737501a010e310354c36d7b879132c9fefbff86e",
         "cmtr": "Daniel Abad",
         "date": "2018-08-30 16:35:44+02:00",
-        "files": ["init.pp", "add-notification-level-7d21ada84df44ca5.yaml", "ironic_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add-notification-level-7d21ada84df44ca5.yaml",
+            "spec/classes/ironic_init_spec.rb"]
       },
       {
         "hash": "2897bb29676e44dbebab8437d629d30f84488650",
         "msg": "Configure image_download_source and force_raw_images\n\nThese two options (together with existing stream_raw_images) allow fine-tuning\nhow exactly the images are served when using the direct deploy interface.\n\nChange-Id: I843a6b3fcbe880d3bcde55a1750502b5e618421f",
         "cmtr": "Emilien Macchi",
         "date": "2018-09-11 10:56:10-06:00",
-        "files": ["conductor.pp", "agent.pp", "image-download-source-f4882929aa669b30.yaml", "ironic_conductor_spec.rb", "ironic_drivers_agent_spec.rb"]
+        "files": [
+            "manifests/conductor.pp",
+            "manifests/drivers/agent.pp",
+            "releasenotes/notes/image-download-source-f4882929aa669b30.yaml",
+            "spec/classes/ironic_conductor_spec.rb",
+            "spec/classes/ironic_drivers_agent_spec.rb"]
       },
       {
         "hash": "38480756d7f84cd30f6df0549851398440aa0547",
         "msg": "Expose the endpoint_override parameter\n\nAfter the deprecation of the parameters \"service_url\" from\ngroup \"inspector\" and \"api_url\" from group \"conductor\", we need\nto expose the \"endpoint_override\" in groups \"inspector\" and\n\"service_catalog\"\n\nChange-Id: Iae5d8913f64665327024841c2af709bea3c25b49",
         "cmtr": "Daniel Abad",
         "date": "2018-09-12 17:52:48+02:00",
-        "files": ["inspector.pp", "service_catalog.pp", "add-endpoint-override-ed2a335077e5fc24.yaml", "ironic_drivers_inspector_spec.rb", "ironic_service_catalog_spec.rb"]
+        "files": [
+            "manifests/drivers/inspector.pp",
+            "manifests/service_catalog.pp",
+            "releasenotes/notes/add-endpoint-override-ed2a335077e5fc24.yaml",
+            "spec/classes/ironic_drivers_inspector_spec.rb",
+            "spec/classes/ironic_service_catalog_spec.rb"]
       },
       {
         "hash": "b9415d8f83940f042bdf15c09fff36d1a359270b",
         "msg": "Provide more useful fail message\n\nChange-Id: I8b1a168bb94249c27d1bcbec56ed08a8c0fb56ce\nCloses-Bug: #1792719",
         "cmtr": "zhulingjie",
         "date": "2018-09-13 20:37:49-04:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "7a4fb04a42604230b42ca1fec2a8a749d43e92e2",
         "msg": "Add missing endpoint_override params\n\nAfter merging https://review.openstack.org/#/c/602070/\nthe endpoint_override param was missing in cinder, glance,\nneutron and swift config sections.\n\nChange-Id: Ic2f720ca50671a34f00ed7d5c118b897f795f046",
         "cmtr": "Daniel Abad",
         "date": "2018-09-18 14:10:23+02:00",
-        "files": ["cinder.pp", "glance.pp", "neutron.pp", "swift.pp", "ironic_cinder_spec.rb", "ironic_glance_spec.rb", "ironic_neutron_spec.rb", "ironic_swift_spec.rb"]
+        "files": [
+            "manifests/cinder.pp",
+            "manifests/glance.pp",
+            "manifests/neutron.pp",
+            "manifests/swift.pp",
+            "spec/classes/ironic_cinder_spec.rb",
+            "spec/classes/ironic_glance_spec.rb",
+            "spec/classes/ironic_neutron_spec.rb",
+            "spec/classes/ironic_swift_spec.rb"]
       }]
     }

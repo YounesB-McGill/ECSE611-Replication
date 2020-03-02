@@ -1,7 +1,32 @@
     {
       "url": "https://github.com/openstack/puppet-barbican",
-      "pp_files": ["logging.pp", "dogtag.pp", "db.pp", "init.pp", "sync.pp", "postgresql.pp", "worker.pp", "params.pp", "kmip.pp", "authtoken.pp", "config.pp", "policy.pp", "deps.pp", "client.pp", "simple_crypto.pp", "api.pp", "p11_crypto.pp", "mysql.pp", "quota.pp", "notification.pp", "apache.pp", "auth.pp"],
-      "pp_cmtrs": ["Emilien Macchi", "Mykyta Karpin", "Xing Zhou", "Matthew J. Black", "Sebastien Badia", "Juan Antonio Osorio Robles", "jacky06", "Tobias Urdin", "ZhongShengping", "Andrew Smith", "Maksym Yatsenko", "Matthew J Black", "Swapnil Kulkarni (coolsvap)", "zhubingbing", "Ade Lee", "Sharat Sharma", "Alex Schultz", "qiaomin", "Sofer Athlan-Guyot", "Denis Egorenko", "Mohammed Naser", "Iury Gregory Melo Ferreira"],
+      "pp_files": [
+        "manifests/quota.pp",
+        "manifests/wsgi/apache.pp",
+        "manifests/api/logging.pp",
+        "manifests/deps.pp",
+        "manifests/plugins/kmip.pp",
+        "manifests/db/postgresql.pp",
+        "manifests/plugins/p11_crypto.pp",
+        "manifests/client.pp",
+        "manifests/init.pp",
+        "manifests/config.pp",
+        "manifests/logging.pp",
+        "manifests/worker.pp",
+        "manifests/api.pp",
+        "manifests/db/mysql.pp",
+        "manifests/keystone/auth.pp",
+        "manifests/keystone/authtoken.pp",
+        "manifests/plugins/dogtag.pp",
+        "manifests/policy.pp",
+        "manifests/params.pp",
+        "manifests/keystone/notification.pp",
+        "tests/init.pp",
+        "manifests/db/sync.pp",
+        "manifests/db.pp",
+        "manifests/plugins/simple_crypto.pp"
+      ],
+      "pp_cmtrs": ["zhubingbing", "Juan Antonio Osorio Robles", "Ade Lee", "Matthew J Black", "ZhongShengping", "Swapnil Kulkarni (coolsvap)", "Sofer Athlan-Guyot", "Mykyta Karpin", "Sharat Sharma", "Alex Schultz", "Sebastien Badia", "Maksym Yatsenko", "qiaomin", "Iury Gregory Melo Ferreira", "Mohammed Naser", "Matthew J. Black", "Andrew Smith", "jacky06", "Emilien Macchi", "Xing Zhou", "Tobias Urdin", "Denis Egorenko"],
       "num_pp_commits": 91,
       "num_tot_commits": 268,
       "commits": [{
@@ -9,636 +34,960 @@
         "msg": "puppet-barbican: Initial commit\n\nThis is the initial commit for puppet-barbican.\nIt has been automatically generated using cookiecutter[1] and msync[2]\n\n[1] https://github.com/openstack/puppet-openstack-cookiecutter\n[2] https://github.com/openstack/puppet-modulesync-configs\n\nChange-Id: I52b10cb17701bba20ad64d3f4cc15950c1038c54",
         "cmtr": "Emilien Macchi",
         "date": "2015-10-02 08:50:49-04:00",
-        "files": [".fixtures.yml", ".gitignore", "Gemfile", "LICENSE", "README.md", "Rakefile", "ini_setting.rb", "barbican_config.rb", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "init.pp", "auth.pp", "logging.pp", "params.pp", "policy.pp", "metadata.json", "centos-70-x64.yml", "default.yml", "nodepool-centos7.yml", "nodepool-trusty.yml", "ubuntu-server-1404-x64.yml", "barbican_db_mysql_spec.rb", "barbican_db_postgresql_spec.rb", "barbican_keystone_auth_spec.rb", "barbican_logging_spec.rb", "barbican_policy_spec.rb", "shared_examples.rb", "spec_helper.rb", "spec_helper_acceptance.rb", "ini_setting_spec.rb", "barbican_config_spec.rb", "init.pp"]
+        "files": [
+            ".fixtures.yml",
+            ".gitignore",
+            "Gemfile",
+            "LICENSE",
+            "README.md",
+            "Rakefile",
+            "lib/puppet/provider/barbican_config/ini_setting.rb",
+            "lib/puppet/type/barbican_config.rb",
+            "manifests/config.pp",
+            "manifests/db.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "manifests/db/sync.pp",
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/logging.pp",
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "metadata.json",
+            "spec/acceptance/nodesets/centos-70-x64.yml",
+            "spec/acceptance/nodesets/default.yml",
+            "spec/acceptance/nodesets/nodepool-centos7.yml",
+            "spec/acceptance/nodesets/nodepool-trusty.yml",
+            "spec/acceptance/nodesets/ubuntu-server-1404-x64.yml",
+            "spec/classes/barbican_db_mysql_spec.rb",
+            "spec/classes/barbican_db_postgresql_spec.rb",
+            "spec/classes/barbican_keystone_auth_spec.rb",
+            "spec/classes/barbican_logging_spec.rb",
+            "spec/classes/barbican_policy_spec.rb",
+            "spec/shared_examples.rb",
+            "spec/spec_helper.rb",
+            "spec/spec_helper_acceptance.rb",
+            "spec/unit/provider/barbican_config/ini_setting_spec.rb",
+            "spec/unit/type/barbican_config_spec.rb",
+            "tests/init.pp"]
       },
       {
         "hash": "520a4941b64db204c045ea5eaf351e2305f44393",
         "msg": "db: Use postgresql lib class for psycopg package\n\nThis patch introduce the same design than mysql for postgresql\nby requiring dedicated lib::python class instead of declaring\na new resource package within barbican module.\n\nThis patch also add unit tests for barbican::db class.\n\nChange-Id: I336cf39e55f1c145cde9849ac4dc81b9cd95f8ed",
         "cmtr": "Sebastien Badia",
         "date": "2015-10-20 15:17:22+02:00",
-        "files": ["db.pp", "params.pp", "barbican_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/params.pp",
+            "spec/classes/barbican_db_spec.rb"]
       },
       {
         "hash": "e2e560642af96107b93872b0c0072b66c0658dab",
         "msg": "Barbican $::os_service_default for db and logging\n\nSwitch to $::os_service_default all params in logging and db.\nChanges: logging.pp, db.pp and tests.\n\nRelated-bug: #1515273\n\nChange-Id: I291db92684e6f31aca2bffa55ed2f3832e905a43",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2015-11-25 13:49:59+00:00",
-        "files": ["db.pp", "logging.pp", "barbican_db_mysql_spec.rb", "barbican_db_postgresql_spec.rb", "barbican_db_spec.rb", "barbican_keystone_auth_spec.rb", "barbican_logging_spec.rb", "barbican_policy_spec.rb", "spec_helper.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/logging.pp",
+            "spec/classes/barbican_db_mysql_spec.rb",
+            "spec/classes/barbican_db_postgresql_spec.rb",
+            "spec/classes/barbican_db_spec.rb",
+            "spec/classes/barbican_keystone_auth_spec.rb",
+            "spec/classes/barbican_logging_spec.rb",
+            "spec/classes/barbican_policy_spec.rb",
+            "spec/spec_helper.rb"]
       },
       {
         "hash": "395e69546ffac4c280d3ae1b44b7d19bcb3926bc",
         "msg": "Make Keystone_endpoint match service by name/type\n\nSince a chance in puppet-keystone (1], we now match an endpoint with a\nservice name/type.\n)\n[1] http://git.openstack.org/cgit/openstack/puppet-keystone/commit/?id=0a4e06abb0f5b3f324464ff5219d2885816311ce\n\nChange-Id: I237f92ce3a656fbcc14117405a351ba219f2bba1\nCloses-Bug: #1528308",
         "cmtr": "Emilien Macchi",
         "date": "2015-12-22 18:05:08+01:00",
-        "files": ["auth.pp", "barbican_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "spec/classes/barbican_keystone_auth_spec.rb"]
       },
       {
         "hash": "10a3b84530b72986ee84989273dd4ec2835e3f60",
         "msg": "Support of PyMySQL driver for MySQL backend\n\nThis change adds the ability to use the python-pymysql library as the\nbackend for MySQL connections.\n\nChange-Id: I366eaf8b6d8fedee805d8e02308f9bd8f79fb925",
         "cmtr": "Alex Schultz",
         "date": "2016-01-05 07:50:09-07:00",
-        "files": ["db.pp", "params.pp", "barbican_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/params.pp",
+            "spec/classes/barbican_db_spec.rb"]
       },
       {
         "hash": "2e6da0bce73d920b9ad1175e37dd940a57e58b4b",
         "msg": "Update typo\n\nChange-Id: I773cf0c2405900b0b1cf91f67b93ba7ec5d30781",
         "cmtr": "Swapnil Kulkarni (coolsvap)",
         "date": "2016-01-08 03:32:50+00:00",
-        "files": ["mysql.pp"]
+        "files": [
+            "manifests/db/mysql.pp"]
       },
       {
         "hash": "23ee15728c48fbd201d495425235ecd8cc837eb9",
         "msg": "Add barbican client class and params\n\nAdded top level parameters such as the barbican package names,\nservice names etc.  These will be referenced in subsequent patches.\n\nChange-Id: Ic4d97dd17e07627d845ab194c1a1e64ff223bf33",
         "cmtr": "Ade Lee",
         "date": "2016-03-28 23:46:55-04:00",
-        "files": ["client.pp", "params.pp", "barbican_client_spec.rb"]
+        "files": [
+            "manifests/client.pp",
+            "manifests/params.pp",
+            "spec/classes/barbican_client_spec.rb"]
       },
       {
         "hash": "b4b51d1ffbc0cc400d0b3b08e39ad50d02eb9ef4",
         "msg": "Moved logging to barbican-api module\n\nChange-Id: I4ca0a1edb96e6a7c5104b844a1c68a36ae3b4ef0",
         "cmtr": "Ade Lee",
         "date": "2016-03-28 23:46:55-04:00",
-        "files": ["logging.pp", "barbican_api_logging_spec.rb"]
+        "files": [
+            "manifests/api/logging.pp",
+            "spec/classes/barbican_api_logging_spec.rb"]
       },
       {
         "hash": "f1955b243cd5cfae66e8ae3105df6660548bc77d",
         "msg": "Add helper files to configure paste file and barbican.conf\n\nChange-Id: I6109ffe44132caa827c362684cbccad2303a39ca",
         "cmtr": "Ade Lee",
         "date": "2016-03-28 23:46:56-04:00",
-        "files": ["ini_setting.rb", "barbican_api_paste_ini.rb", "config.pp", "ini_setting_spec.rb", "barbican_api_paste_ini_spec.rb"]
+        "files": [
+            "lib/puppet/provider/barbican_api_paste_ini/ini_setting.rb",
+            "lib/puppet/type/barbican_api_paste_ini.rb",
+            "manifests/config.pp",
+            "spec/unit/provider/barbican_api_paste_ini/ini_setting_spec.rb",
+            "spec/unit/type/barbican_api_paste_ini_spec.rb"]
       },
       {
         "hash": "25b05e654069248597db105c9695d490493f5bad",
         "msg": "Add barbican-api manifest\n\nIncluded database, service and queue settings.\nAlso used new puppet-oslo::messaging_rabbit for rabbit config.\n\nChange-Id: I0c05ab44ce636d6797f901595f4e7cf214f8f81f",
         "cmtr": "Ade Lee",
         "date": "2016-03-28 23:46:56-04:00",
-        "files": ["api.pp", "sync.pp", "basic_barbican_spec.rb", "barbican_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/db/sync.pp",
+            "spec/acceptance/basic_barbican_spec.rb",
+            "spec/classes/barbican_api_spec.rb"]
       },
       {
         "hash": "ee996875dc0529d6fc754f9d4b1d094e470ab028",
         "msg": "api: update messaging class\n\npuppet-oslo did a non-backward compatible change this week, it's an\nexperimental module and we renamed the rabbit class.\n\nDepends-On: I3e460ca8543e2f145a4e6abd4fdb79bcadb8d5b8\nChange-Id: I58909970b7ee1f575b66ba806673c378d517c54b",
         "cmtr": "Emilien Macchi",
         "date": "2016-03-31 15:21:03-04:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "00abb7c54d22488b4b7e9f700aafd86b5278ca45",
         "msg": "Add quota and secret limit parameters to barbican-api manifest\n\nChange-Id: I512e8c5a5ffa4442a68b41e7b0783ee7b90279c1",
         "cmtr": "Ade Lee",
         "date": "2016-03-31 16:02:02-04:00",
-        "files": ["api.pp", "quota.pp", "basic_barbican_spec.rb", "barbican_api_spec.rb", "barbican_quota_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/quota.pp",
+            "spec/acceptance/basic_barbican_spec.rb",
+            "spec/classes/barbican_api_spec.rb",
+            "spec/classes/barbican_quota_spec.rb"]
       },
       {
         "hash": "74c76bdadbcc7f48ba754aab4beec7955f32ebaa",
         "msg": "Add keystone notification options to barbican-api manifest\n\nChange-Id: Ifc3f016611268f3dc7d9e39428b423852536982d",
         "cmtr": "Ade Lee",
         "date": "2016-04-01 10:14:18-04:00",
-        "files": ["notification.pp", "basic_barbican_spec.rb", "barbican_keystone_notification_spec.rb"]
+        "files": [
+            "manifests/keystone/notification.pp",
+            "spec/acceptance/basic_barbican_spec.rb",
+            "spec/classes/barbican_keystone_notification_spec.rb"]
       },
       {
         "hash": "54453c18138233bbde47e355512961e07e792abc",
         "msg": "Added settings for cert and secret store plugins\n\nAlso added pk11 backend plugin settings\n\nChange-Id: Iee47b68835449a29521f4e55e981a46f9d152498",
         "cmtr": "Ade Lee",
         "date": "2016-04-01 11:17:08-04:00",
-        "files": ["ini_setting.rb", "openstackconfig.rb", "barbican_config.rb", "api.pp", "p11_crypto.pp", "simple_crypto.pp", "basic_barbican_spec.rb", "barbican_api_spec.rb", "barbican_plugins_p11_crypto_spec.rb", "barbican_plugins_simple_crypto_spec.rb", "openstackconfig.rb", "barbican_config_spec.rb"]
+        "files": [
+            "None",
+            "lib/puppet/provider/barbican_config/openstackconfig.rb",
+            "lib/puppet/type/barbican_config.rb",
+            "manifests/api.pp",
+            "manifests/plugins/p11_crypto.pp",
+            "manifests/plugins/simple_crypto.pp",
+            "spec/acceptance/basic_barbican_spec.rb",
+            "spec/classes/barbican_api_spec.rb",
+            "spec/classes/barbican_plugins_p11_crypto_spec.rb",
+            "spec/classes/barbican_plugins_simple_crypto_spec.rb",
+            "spec/unit/provider/barbican_config/openstackconfig.rb",
+            "None"]
       },
       {
         "hash": "b976af0a80e0a8ff965cb78e9f213e97ef2f4815",
         "msg": "Added KMIP plugin settings to barbican-api manifest\n\nChange-Id: I15cedaee297b02cde862f6b5ff691376332baa28",
         "cmtr": "Ade Lee",
         "date": "2016-04-01 11:29:53-04:00",
-        "files": ["kmip.pp", "barbican_plugins_kmip_spec.rb"]
+        "files": [
+            "manifests/plugins/kmip.pp",
+            "spec/classes/barbican_plugins_kmip_spec.rb"]
       },
       {
         "hash": "88c421500b804d5ac203e38be6f024e8ed848707",
         "msg": "Added Dogtag settings for barbican-api\n\nChange-Id: Ib5ebd78da4e7709a0ec0d7b90d27a4bd8e5f23c9",
         "cmtr": "Ade Lee",
         "date": "2016-04-01 11:31:57-04:00",
-        "files": ["dogtag.pp", "barbican_plugins_dogtag_spec.rb"]
+        "files": [
+            "manifests/plugins/dogtag.pp",
+            "spec/classes/barbican_plugins_dogtag_spec.rb"]
       },
       {
         "hash": "98837d8259781f3915b7ae2e8b73042e080d07ed",
         "msg": "Modify ensure_package parameter in dogtag plugin\n\nThis was a comment missed in the last review.\nNo need for ensure_package to be dependent on barbican::api\n\nChange-Id: If291e226243b33e2f81b675a95ebfa959e99e799",
         "cmtr": "Ade Lee",
         "date": "2016-04-05 14:49:21-04:00",
-        "files": ["dogtag.pp", "barbican_plugins_dogtag_spec.rb"]
+        "files": [
+            "manifests/plugins/dogtag.pp",
+            "spec/classes/barbican_plugins_dogtag_spec.rb"]
       },
       {
         "hash": "62a96ddad00a9273f47bdf6fe7badd489ae813d4",
         "msg": "Totally drop Qpid support\n\nQpid was removed in Mitaka from Oslo Messaging, so now we can\ndrop it in manifests.\n\nChange-Id: I2a3e61d21036471c6331e6388656a3e691d8bd4a",
         "cmtr": "Denis Egorenko",
         "date": "2016-04-19 17:31:46+03:00",
-        "files": ["api.pp", "logging.pp", "barbican_api_logging_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/api/logging.pp",
+            "spec/classes/barbican_api_logging_spec.rb"]
       },
       {
         "hash": "1ff2fb3913a229593be3c2f76f7cbb8601ea3fe2",
         "msg": "Use oslo module to configure oslo related parameters\n\nConfigure database, logging and policy options using\npuppet-oslo module\n\nChange-Id: Ia7ed3484c0b3cce92728471cf70f6dc9a7ca3c6e",
         "cmtr": "ZhongShengping",
         "date": "2016-05-06 14:34:10+08:00",
-        "files": ["logging.pp", "db.pp", "params.pp", "policy.pp", "metadata.json", "barbican_db_spec.rb", "barbican_policy_spec.rb"]
+        "files": [
+            "manifests/api/logging.pp",
+            "manifests/db.pp",
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "metadata.json",
+            "spec/classes/barbican_db_spec.rb",
+            "spec/classes/barbican_policy_spec.rb"]
       },
       {
         "hash": "aa2165e7d7f29ff0226dfb5a1be463cdaa49f9b9",
         "msg": "Make database parameters match upstream\n\nUpdates the database parameters to actually match what upstream\nbarbican uses in its config file:\n\nhttp://git.openstack.org/cgit/openstack/barbican/tree/etc/barbican/barbican.conf#n41\n\nWithout these changes I get db sync failures w/ barbican when\nusing MySQL.\n\nChange-Id: Ia79f3d1bed0c2a66ed17ae2ee91ca70c73f6c434\nCo-Authored-By: Alex Schultz <aschultz@mirantis.com>",
         "cmtr": "Alex Schultz",
         "date": "2016-05-10 18:49:35+00:00",
-        "files": ["db.pp", "sync.pp", "barbican_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/db/sync.pp",
+            "spec/classes/barbican_db_spec.rb"]
       },
       {
         "hash": "366c0c47a2726a981c49151268db0e42ff044a06",
         "msg": "Add support for the oslo db_max_retries parameter\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: Ief8fe19b1b45cf275f35c05e044ebf226b835311\nCloses-Bug: 1579718",
         "cmtr": "ZhongShengping",
         "date": "2016-05-11 22:14:31+08:00",
-        "files": ["db.pp", "barbican_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "spec/classes/barbican_db_spec.rb"]
       },
       {
         "hash": "bf14bf1feb11f6a318780a208ec2a24822af7eb1",
         "msg": "Added keystone config to barbican api manifest\n\nThe acceptance test now has a barbican API server that runs in\na gunicorn instance that uses keystone as an authentication source.\n\nWe specify the snakeoil plugin because its a more useful and realistic\nplugin to use in acceptance tests.\n\nFixed barbican manifest to not require including barbican::api,\nand fixed typo in dogtag spec.\n\nAdded option to not autocreate the database.  This allows use of\nmysql and dbsync when creating the database.\n\nFixed a couple of package tags.\n\nChange-Id: I7c25f8692a4388874b05ab561602553f37e4961b\nDepends-On: Ia79f3d1bed0c2a66ed17ae2ee91ca70c73f6c434\nDepends-On: Ic36fd606fe06202b0ca5b8eeaf5c5bdc2a5708fd",
         "cmtr": "Ade Lee",
         "date": "2016-05-12 18:34:05-04:00",
-        "files": ["api.pp", "auth.pp", "dogtag.pp", "basic_barbican_spec.rb", "barbican_api_spec.rb", "barbican_plugins_dogtag_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/plugins/dogtag.pp",
+            "spec/acceptance/basic_barbican_spec.rb",
+            "spec/classes/barbican_api_spec.rb",
+            "spec/classes/barbican_plugins_dogtag_spec.rb"]
       },
       {
         "hash": "ff8615d1f004e7284ff2ca20bd4e3b7141c4a1fb",
         "msg": "Added apache component\nAdd test and mods for deployment as an apache module\n\nChange-Id: I6f693c0aa41af7190b4466910795a07546347ce5",
         "cmtr": "Ade Lee",
         "date": "2016-05-13 10:05:43-04:00",
-        "files": ["api.pp", "params.pp", "apache.pp", "basic_barbican_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/params.pp",
+            "manifests/wsgi/apache.pp",
+            "spec/acceptance/basic_barbican_spec.rb"]
       },
       {
         "hash": "d0b6140df4ed1284747b39b8473e00c4dea672d4",
         "msg": "Update keystone configuration code\n\nUpstream Barbican has moved to keystone v3.  This patch\nmakes the necessary modifications to the keystone config\ncode.\n\nChange-Id: I5ffe3820d3d26dbc3012dc362bcbf0da41c3d155",
         "cmtr": "Ade Lee",
         "date": "2016-05-23 11:12:46-04:00",
-        "files": ["api.pp", "barbican_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "spec/classes/barbican_api_spec.rb"]
       },
       {
         "hash": "429c7da22c1d4f089584dec4460c6862edd2333a",
         "msg": "Remove verbose option in logging\n\nOption \"verbose\" from group \"DEFAULT\" is deprecated for removal.\nThe parameter has no effect.\nRemove verbose for logging api and acceptance.\n\nChange-Id: I4b0c12db4add7b36bca2397d4ddebebe90beaec5",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-05-23 14:42:37-03:00",
-        "files": ["logging.pp", "basic_barbican_spec.rb"]
+        "files": [
+            "manifests/api/logging.pp",
+            "spec/acceptance/basic_barbican_spec.rb"]
       },
       {
         "hash": "d6edd665b5a9ed45d08f34c043da6a60f1e234c8",
         "msg": "Add spec tests for barbican_wsgi\n\nCover Barbican::Wsgi::Apache class with spec tests.\n\nAlso update dependencies between barbican-api package and services.\n\nChange-Id: Ic6126e774b0a172e89da5721feeff35ade5e3030",
         "cmtr": "Denis Egorenko",
         "date": "2016-05-25 13:12:33+03:00",
-        "files": ["api.pp", "apache.pp", "barbican_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/wsgi/apache.pp",
+            "spec/classes/barbican_wsgi_apache_spec.rb"]
       },
       {
         "hash": "64e9e1e599a9172417a5c1a135f20b36f7ad8e28",
         "msg": "Add SSL options\n\nRefer to the following link, there are SSL options\nin barbican.conf, so we can configure them.\n\nhttp://git.openstack.org/cgit/openstack/barbican/tree/etc/barbican/barbican.conf\n\nChange-Id: Id0ad701bab2f4ad5de75a3d72c991b8c838d5146",
         "cmtr": "ZhongShengping",
         "date": "2016-06-01 08:38:43+08:00",
-        "files": ["api.pp", "barbican_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "spec/classes/barbican_api_spec.rb"]
       },
       {
         "hash": "8c217ced44de9b9f1ddb97f807ae0cc24528b4bf",
         "msg": "Remove useless parameter\n\nThe paste_config parameter is not used in any place,\nso we can delete it.\n\nChange-Id: I92aa9e06df82efa437cc744245866348da3de171",
         "cmtr": "ZhongShengping",
         "date": "2016-06-07 09:26:58+08:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "dadb8de7a85fe3bc7ae0729631a9f3e49de11f8d",
         "msg": "Change default service_name to 'barbican'\n\nWhile we were already able to pick an independent auth_name and\nservice_name; the service_name was defaulting to auth_name. Now it\nhas a value of its own to be consistent with other modules.\n\nRelated-Bug: #1590040\nChange-Id: Ied45e546667b7c04e9b511a3ae23c529ad78e7df",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2016-06-08 10:18:42+03:00",
-        "files": ["auth.pp", "barbican_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "spec/classes/barbican_keystone_auth_spec.rb"]
       },
       {
         "hash": "63c72cda5a7d2c463a0c3e1ca62e9efdc209656d",
         "msg": "Fix three issues breaking CI\n\n1. Change cert plugin from snakeoil to simple_certificate\n\nThe snakeoil plugin offers more functionality, but requires a little\nmore setup.  Ultimately, though, we will likely replace this plugin\nwith the dogtag plugin, if we do not disable the cert functionality\naltogether.\n\nFor now, as at least one plugin is required, we use the\nsimple_certificate plugin, which requires no setup.\n\n2. Make sure Barbican packaging is installed before db-sync\n\nCI is currently failing because db-sync does not work, python-pymysql is\ninstalled *after* running db-sync and this is wrong.\n\nThis patch makes sure things like this don't happen anymore.\n\n3. Move keystone settings to barbican.conf\n\nThe current settings (in barbican-api-paste.ini) were not working\nand putting them in barbican.conf is more in line with other projects.\n\nChange-Id: Ifa3171f794be527c8df66894572ebf2f893986da",
         "cmtr": "Ade Lee",
         "date": "2016-07-07 21:20:34-04:00",
-        "files": ["api.pp", "sync.pp", "basic_barbican_spec.rb", "barbican_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/db/sync.pp",
+            "spec/acceptance/basic_barbican_spec.rb",
+            "spec/classes/barbican_api_spec.rb"]
       },
       {
         "hash": "9c6101d764e9e8eb8aa8ddc4779ac67f054a169f",
         "msg": "Fix db sync\n\nThe 'barbican-db-manage' script is deprecated.\nUse the new 'barbican-manage' utility instead.\n\nChange-Id: Ic7efa90860fd147ffc244cc8d9a5908cbdc168b0",
         "cmtr": "Emilien Macchi",
         "date": "2016-07-08 12:35:03+00:00",
-        "files": ["sync.pp"]
+        "files": [
+            "manifests/db/sync.pp"]
       },
       {
         "hash": "3b109d995056998a98fab3d0ef9ba752f2a36a7b",
         "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: Idb6d7b43900739bee09acb60cac26d7014a45917\nRelated-Bug: 1599113\nDepends-On: I9d0a10d48124ee71ea80134ceef96436c8ee196e",
         "cmtr": "Sofer Athlan-Guyot",
         "date": "2016-07-12 11:26:32+02:00",
-        "files": ["params.pp", "barbican_api_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "spec/classes/barbican_api_spec.rb"]
       },
       {
         "hash": "96d6a1d1ce46fcc430e72007021b9104e059bebd",
         "msg": "keystone: use auth_type and not auth_plugin\n\nauth_plugin is deprecated in favor of auth_type.\n\nChange-Id: I6bd1442101d276f538f184a1e2a63360f06a93f8",
         "cmtr": "Emilien Macchi",
         "date": "2016-07-18 14:37:28-04:00",
-        "files": ["api.pp", "barbican_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "spec/classes/barbican_api_spec.rb"]
       },
       {
         "hash": "31e84abe7f775455d224f399e54774bb4326f156",
         "msg": "db: remove useless pick\n\nDo not try to look for parameters in ::barbican that doesn't exist.\n\nChange-Id: Ib3fc6b5673fb3c8d59717edd073071f88af331a9",
         "cmtr": "Emilien Macchi",
         "date": "2016-07-28 07:53:17-04:00",
-        "files": ["db.pp"]
+        "files": [
+            "manifests/db.pp"]
       },
       {
         "hash": "39d742bd66734a3b00abcade318803d5173c2f63",
         "msg": "Fix dependency name for DB's creation manifests\n\nCurrently during creation DB for barbican service we have wrong\ndependency on db-sync command: it has incorrect name. This patch\nfixes this problem.\n\nChange-Id: I7a51c1a3baae5fd96b75cc73acd4c8c3e2c4ade5",
         "cmtr": "Denis Egorenko",
         "date": "2016-08-05 12:28:19+03:00",
-        "files": ["mysql.pp", "postgresql.pp"]
+        "files": [
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp"]
       },
       {
         "hash": "0df44cb07c86b0cff43ec0fd4638fa3ca6e271dc",
         "msg": "Move barbican to authtoken\n\nCreate a new class to handle all configuration for\nkeystone_authtoken section in configuration file using\nkeystone::resource::authtoken\n\nThis patch is not backward compatible:\n- we have change auth_type in api.pp to auth_strategy,\nbecause auth_type is related to keystone authentication.\n- removed all parameters related to keystone_authtoken\nfrom api.pp and moved to authtoken.pp\n\nChange-Id: I2dee8a3d1c399234941f96d8f21f49526777f501\nDepends-On: I94914ed5a8b5c1447606547b31ed46bb72b4de01\nRelated-Bug: #1604463",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-08-14 01:55:50-03:00",
-        "files": ["api.pp", "authtoken.pp", "basic_barbican_spec.rb", "barbican_api_spec.rb", "barbican_keystone_authtoken_spec.rb", "barbican_plugins_dogtag_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/keystone/authtoken.pp",
+            "spec/acceptance/basic_barbican_spec.rb",
+            "spec/classes/barbican_api_spec.rb",
+            "spec/classes/barbican_keystone_authtoken_spec.rb",
+            "spec/classes/barbican_plugins_dogtag_spec.rb"]
       },
       {
         "hash": "93f885f0c13e51f68505fb6b6d4ba158ad9932b4",
         "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: I38f0c42faa1dba167bd7b37c63f13ba64f1bb7db\nCloses-Bug: #1628580",
         "cmtr": "Sharat Sharma",
         "date": "2016-09-29 15:07:24+00:00",
-        "files": ["sync.pp"]
+        "files": [
+            "manifests/db/sync.pp"]
       },
       {
         "hash": "866aabb8bd554e66fe46bf58e628253591409c75",
         "msg": "Change worker defaults to ::os_workers\n\nThis patch changes the default worker count from ::processorcount to the\nnew ::os_workers fact. ::os_workers is based on the number of processors\n(currently cpu/4) but is capped at a maximum of 8 worker processors.\nThis is a much more reasonable default in general and prevents excessive\nresource consumption on systems with a large number of CPUs.\n\nChange-Id: I4a9b2e6cc9d8f5b91f148ac61b4a36b201a27056",
         "cmtr": "Maksym Yatsenko",
         "date": "2016-10-07 17:26:30+03:00",
-        "files": ["apache.pp", "os_workers_for_worker_count-a07f74e0418709e5.yaml", "barbican_api_spec.rb", "barbican_db_postgresql_spec.rb", "barbican_keystone_notification_spec.rb", "barbican_plugins_dogtag_spec.rb", "barbican_plugins_kmip_spec.rb", "barbican_plugins_p11_crypto_spec.rb", "barbican_plugins_simple_crypto_spec.rb", "barbican_quota_spec.rb", "barbican_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/os_workers_for_worker_count-a07f74e0418709e5.yaml",
+            "spec/classes/barbican_api_spec.rb",
+            "spec/classes/barbican_db_postgresql_spec.rb",
+            "spec/classes/barbican_keystone_notification_spec.rb",
+            "spec/classes/barbican_plugins_dogtag_spec.rb",
+            "spec/classes/barbican_plugins_kmip_spec.rb",
+            "spec/classes/barbican_plugins_p11_crypto_spec.rb",
+            "spec/classes/barbican_plugins_simple_crypto_spec.rb",
+            "spec/classes/barbican_quota_spec.rb",
+            "spec/classes/barbican_wsgi_apache_spec.rb"]
       },
       {
         "hash": "0ad1693f7c1b697d61d88cf281b9a7513b372c27",
         "msg": "Fix documentation for log_dir parameter\n\nChange-Id: I175636c155e967a0f81a3aceab976befe5bfb864\nPartial-Bug: #1600294",
         "cmtr": "Mykyta Karpin",
         "date": "2016-10-10 18:26:26+03:00",
-        "files": ["logging.pp", "fix_log_dir_documentation-1dc5a829b4cc265d.yaml"]
+        "files": [
+            "manifests/api/logging.pp",
+            "releasenotes/notes/fix_log_dir_documentation-1dc5a829b4cc265d.yaml"]
       },
       {
         "hash": "d1764c670a10f56bb61e85d92e65e34e2c5837c0",
         "msg": "Update barbican for Debian based systems\n\nThere are barbican packages available for debian based systems\nbut the current module is designed to work with redhat based\nsystems only right now.\n\nChange-Id: I4ab2e6ecf6626f4c647299eeec3cd5b3d3fbdaa9",
         "cmtr": "Matthew J. Black",
         "date": "2016-10-10 12:17:01-04:00",
-        "files": ["api.pp", "params.pp", "apache.pp", "fix_ubuntu_install-20a799586184762a.yaml", "basic_barbican_spec.rb", "barbican_api_logging_spec.rb", "barbican_api_spec.rb", "barbican_client_spec.rb", "barbican_db_mysql_spec.rb", "barbican_db_spec.rb", "barbican_keystone_notification_spec.rb", "barbican_plugins_kmip_spec.rb", "barbican_plugins_p11_crypto_spec.rb", "barbican_plugins_simple_crypto_spec.rb", "barbican_quota_spec.rb", "barbican_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/params.pp",
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/fix_ubuntu_install-20a799586184762a.yaml",
+            "spec/acceptance/basic_barbican_spec.rb",
+            "spec/classes/barbican_api_logging_spec.rb",
+            "spec/classes/barbican_api_spec.rb",
+            "spec/classes/barbican_client_spec.rb",
+            "spec/classes/barbican_db_mysql_spec.rb",
+            "spec/classes/barbican_db_spec.rb",
+            "spec/classes/barbican_keystone_notification_spec.rb",
+            "spec/classes/barbican_plugins_kmip_spec.rb",
+            "spec/classes/barbican_plugins_p11_crypto_spec.rb",
+            "spec/classes/barbican_plugins_simple_crypto_spec.rb",
+            "spec/classes/barbican_quota_spec.rb",
+            "spec/classes/barbican_wsgi_apache_spec.rb"]
       },
       {
         "hash": "25f2899ef866253face0cdd51604951b135fb52e",
         "msg": "Manage package created apache config file\n\nThe Ubuntu Cloud Archive barbican-api package deposits a config file in\n/etc/apache2/conf-enable, and then enables it. This configuration has a\nduplicate definition for the WSGI process that is used by puppet. This\nwill cause apache to not start, or reload. The new behavior is to modify\nthe package deposited file of the new file names, as a comment like done\nwith the puppet-horizon package. RedHat family was added for parity.\n\nChange-Id: I5c857a342000d04fe87c314c12bded78975d0c97\nCloses-Bug: 1633850",
         "cmtr": "Matthew J Black",
         "date": "2016-10-16 08:56:34-04:00",
-        "files": ["params.pp", "apache.pp", "fix_existing_wsgi_conf_from_packaging-f407b04e30ee44e2.yaml", "barbican_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/fix_existing_wsgi_conf_from_packaging-f407b04e30ee44e2.yaml",
+            "spec/classes/barbican_wsgi_apache_spec.rb"]
       },
       {
         "hash": "6aca1ad5301c0284a9584f1e8d68fb7bf8ed2c44",
         "msg": "Add enable_proxy_headers_parsing option\n\nThe patch enables paste middleware to handle SSL requests through\nHTTPProxyToWSGI middleware.\n\nChange-Id: I8107b6328fe103b16a65a8556f3ef9d0a38c2cf9",
         "cmtr": "ZhongShengping",
         "date": "2016-10-28 19:58:35+08:00",
-        "files": ["api.pp", "add_enable_proxy_header_parsing-235a92e233f6741d.yaml", "barbican_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/add_enable_proxy_header_parsing-235a92e233f6741d.yaml",
+            "spec/classes/barbican_api_spec.rb"]
       },
       {
         "hash": "f26dee3503cef632ae6fc2667302fdc217840791",
         "msg": "Deprecate rabbitmq connection parameters\n\nThe rabbitmq connection parameters have been deprecated in favor of the\ntransport_url setting.\n\nChange-Id: Ie69a46f645436b1abd5b26f5fdbe1d3ac01549b8\nRelated-Bug: #1625198",
         "cmtr": "Alex Schultz",
         "date": "2016-11-01 07:42:02-06:00",
-        "files": ["api.pp", "rabbit-connection-params-deprecation-6a7aa014d3da98d4.yaml", "barbican_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/rabbit-connection-params-deprecation-6a7aa014d3da98d4.yaml",
+            "spec/classes/barbican_api_spec.rb"]
       },
       {
         "hash": "6fe2171f318bba5c4030117f6910e1744b44a818",
         "msg": "Fix common options position in params.pp\n\nThese parameters are common for both systems,\nthey could be moved out from 'case'.\n\nChange-Id: Ic46e79f8d89210d554db516710b6bc260983188b",
         "cmtr": "ZhongShengping",
         "date": "2016-11-08 09:32:06+08:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "bc47dbcea89a21641401266797635e868f3fcc9c",
         "msg": "Remove old authtoken options\n\nSince we are in ocata lets remove all old parameters in api\nto configure the keystone_authtoken section\n\nChange-Id: I4d44e7a6e1623acfd73345e0877a9fcd8f128ca8",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-11-08 19:50:50-03:00",
-        "files": ["api.pp", "authtoken.pp", "remove_old_authtoken_options-bf1cd0acf3f65056.yaml"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/remove_old_authtoken_options-bf1cd0acf3f65056.yaml"]
       },
       {
         "hash": "76daad4fedcfb7df6375cf60cfc83fec750bb308",
         "msg": "Switch to openstacklib to configure apache httpd\n\n1) The patch aims to switch to openstacklib to configure apache httpd.\n2) Update releated to spec test.\n\nChange-Id: I018791006da307ec908bc8f2530e95c718d26fdf",
         "cmtr": "ZhongShengping",
         "date": "2016-11-23 13:39:11+08:00",
-        "files": ["apache.pp", "barbican_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "spec/classes/barbican_wsgi_apache_spec.rb"]
       },
       {
         "hash": "e12dfaefd7266703579550e9be90ecc5b7cacdfc",
         "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nChange-Id: If0175f5719ec72871febcec04785d63f56fd3d2b",
         "cmtr": "ZhongShengping",
         "date": "2016-11-25 17:44:49+08:00",
-        "files": ["api.pp", "logging.pp", "client.pp", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "auth.pp", "authtoken.pp", "notification.pp", "dogtag.pp", "kmip.pp", "p11_crypto.pp", "simple_crypto.pp", "policy.pp", "quota.pp", "apache.pp", "external_install_mgmt_hook-8715781a2fe9134f.yaml", "barbican_api_spec.rb", "barbican_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/api/logging.pp",
+            "manifests/client.pp",
+            "manifests/config.pp",
+            "manifests/db.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "manifests/db/sync.pp",
+            "manifests/deps.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/keystone/authtoken.pp",
+            "manifests/keystone/notification.pp",
+            "manifests/plugins/dogtag.pp",
+            "manifests/plugins/kmip.pp",
+            "manifests/plugins/p11_crypto.pp",
+            "manifests/plugins/simple_crypto.pp",
+            "manifests/policy.pp",
+            "manifests/quota.pp",
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/external_install_mgmt_hook-8715781a2fe9134f.yaml",
+            "spec/classes/barbican_api_spec.rb",
+            "spec/classes/barbican_wsgi_apache_spec.rb"]
       },
       {
         "hash": "c2729fc885528c15716aae62d927e4dc93dca17b",
         "msg": "Unknown variable: '::barbican::database_pool_size'\n\nRemove the useless parameter\n\nCloses-Bug: #1651020\nChange-Id: I40a41803c29100d4ad6c352841dbd927e424e1c0",
         "cmtr": "ZhongShengping",
         "date": "2016-12-19 14:09:52+08:00",
-        "files": ["db.pp"]
+        "files": [
+            "manifests/db.pp"]
       },
       {
         "hash": "c684aea79e82198f73f7057085d9a8904600d139",
         "msg": "Add oslo_messaging_notifications support\n\nAdding the ability to configure the oslo_messaging_notifications\nsettings.\n\nChange-Id: Ic52db4a96187438e0c8f8d4ebdc3d7bde3523c1e",
         "cmtr": "Alex Schultz",
         "date": "2016-12-20 13:46:49-07:00",
-        "files": ["api.pp", "notification_transport_url-ff4afeed02b55280.yaml", "barbican_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/notification_transport_url-ff4afeed02b55280.yaml",
+            "spec/classes/barbican_api_spec.rb"]
       },
       {
         "hash": "64b2553598c61feef83276448356f50cf322a0f5",
         "msg": "Add customization for wsgi process display name\n\nChange-Id: I1c8cc8f9a695738f91402373d5d9bac93de24d16\nRelated-Bug: #1626550",
         "cmtr": "Xing Zhou",
         "date": "2016-12-21 15:11:06+08:00",
-        "files": ["apache.pp", "barbican_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "spec/classes/barbican_wsgi_apache_spec.rb"]
       },
       {
         "hash": "34644420e1afa616da881688f8dd4851f2ea0c1d",
         "msg": "Deprecate signing_dir option\n\nThe signing_dir is deprecated for removel because of PKI token format\nis no longer supported.\nUpdate warning message and release note.\n\nChange-Id: Ibabd9a446078d38ec7c12a5a4a21a97d992881ff\nCloses-Bug: #1652700",
         "cmtr": "ZhongShengping",
         "date": "2016-12-27 17:05:57+08:00",
-        "files": ["authtoken.pp", "deprecate_signing_dir_parameter-87135a9713d2345f.yaml", "barbican_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_signing_dir_parameter-87135a9713d2345f.yaml",
+            "spec/classes/barbican_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "eeb2aa8a1541b2c197c7e208297cd4919cdb1e6f",
         "msg": "Allow python-memcache install from authtoken class\n\nThe python-memcache package is required if using memcached. By\ndefault the package is not installed and the define has it set to\nfalse. This change allows managing the python-memcache package\ninstall from the authtoken class.\n\nChange-Id: I7aeccac5720adbaf7791ae9f782d223e9a2aaaf9",
         "cmtr": "Matthew J. Black",
         "date": "2017-01-11 17:25:31-05:00",
-        "files": ["authtoken.pp", "authtoken_manage_memcache_package-7410646a7d6bb8a1.yaml", "barbican_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/authtoken_manage_memcache_package-7410646a7d6bb8a1.yaml",
+            "spec/classes/barbican_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "f371c9f2cfde02e1823eed486562f9658acc590e",
         "msg": "Add control_exchange and rpc_response_timeout options\n\nAdd control_exchange to configure an exchange name for message.\nAdd rpc_response_timeout to configure seconds time for waiting\nfor a response from a call.\n\nChange-Id: I05586dbb4b1599007eda2de546da135b9215cd19",
         "cmtr": "ZhongShengping",
         "date": "2017-01-21 21:20:41+08:00",
-        "files": ["api.pp", "add_messaging_default_parameters-9581a23f2e119345.yaml", "barbican_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/add_messaging_default_parameters-9581a23f2e119345.yaml",
+            "spec/classes/barbican_api_spec.rb"]
       },
       {
         "hash": "ff430e9f6a5ea978e4aa3c63482b02846fb1775f",
         "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should be\ninstalled before dbsync starts.\n\nChange-Id: I342409a7a6af9d340457cf57db2a13d41029a60e",
         "cmtr": "ZhongShengping",
         "date": "2017-01-22 21:28:47+08:00",
-        "files": ["deps.pp"]
+        "files": [
+            "manifests/deps.pp"]
       },
       {
         "hash": "4ad8b2ce95310c93a7fcae5277f7966133388fb5",
         "msg": "Inconsistent package_ensure parameter name\n\nThe parameter name used to enforce package state is inconsistent across\nmanifests and modules. I settle on package_ensure since it's already\nwidely used.\n\nChange-Id: Ibd0ae9f702bdc740948d7530ab5729ec80c4ce2a\nCloses-Bug: #1668732",
         "cmtr": "ZhongShengping",
         "date": "2017-03-08 16:44:14+08:00",
-        "files": ["api.pp", "deprecate_ensure_package_parameter-71a2359813d234ef.yaml"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/deprecate_ensure_package_parameter-71a2359813d234ef.yaml"]
       },
       {
         "hash": "9f2b5f534dfb6de15d7d7d474d05c410bf5a3834",
         "msg": "Fix deprecated rabbit parameters\n\nThe deprecated rabbit parameters are in class barbican::api, so fix it.\n\nChange-Id: Ibfa8f537a53a4fd041304e7381c8983c47233cf2",
         "cmtr": "ZhongShengping",
         "date": "2017-03-22 15:59:19+08:00",
-        "files": ["api.pp", "rabbit-connection-params-deprecation-6a7aa014d3da98d4.yaml"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/rabbit-connection-params-deprecation-6a7aa014d3da98d4.yaml"]
       },
       {
         "hash": "f37379225c7e6d533e742a727acf0bbeda3580ea",
         "msg": "Password should be secured\n\nChange-Id: I1e98635022c398ab1710d2bdabf1ae6b9f568eb6\nCloses-Bug: #1676708",
         "cmtr": "ZhongShengping",
         "date": "2017-03-28 16:13:37+08:00",
-        "files": ["kmip.pp", "barbican_plugins_kmip_spec.rb"]
+        "files": [
+            "manifests/plugins/kmip.pp",
+            "spec/classes/barbican_plugins_kmip_spec.rb"]
       },
       {
         "hash": "0cecc8603865ba8a2e87629dde893594e6bd6ac3",
         "msg": "Remove explicit log file for barbican\n\nThe log file cannot be written to when running under apache so let's\nswitch to the default value and rely on apache for logging.\n\nChange-Id: Icbaecc894d1b9370c6a27da16b0bd59cd8039018",
         "cmtr": "Alex Schultz",
         "date": "2017-03-30 16:03:32-06:00",
-        "files": ["logging.pp", "remove-explicit-log-237870e1de2fc4d8.yaml", "barbican_api_logging_spec.rb"]
+        "files": [
+            "manifests/api/logging.pp",
+            "releasenotes/notes/remove-explicit-log-237870e1de2fc4d8.yaml",
+            "spec/classes/barbican_api_logging_spec.rb"]
       },
       {
         "hash": "4e1159c23ae046c5a0bfb35fdc69ae349195bd8e",
         "msg": "oslo log: check puppet resource instead of actual config in spec\n\nChange-Id: I54060701ff4d82ad35e0f4ebac1f4905a6300ffe",
         "cmtr": "Mykyta Karpin",
         "date": "2017-04-05 13:09:35+03:00",
-        "files": ["logging.pp", "barbican_api_logging_spec.rb"]
+        "files": [
+            "manifests/api/logging.pp",
+            "spec/classes/barbican_api_logging_spec.rb"]
       },
       {
         "hash": "c7b3b489e6ecffe13436457888fd78b2c9875b26",
         "msg": "Increase the setting log level\n\nIncrease the setting log level in the synchronization database.\n\nChange-Id: Idfbcec022b629f66df9a52c84700f5b67a70cbcf\nCloses-Bug: #1683567",
         "cmtr": "ZhongShengping",
         "date": "2017-04-18 10:57:54+08:00",
-        "files": ["sync.pp", "barbican_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "spec/classes/barbican_db_sync_spec.rb"]
       },
       {
         "hash": "7da4ea078404a83dc64aba1ea5237ed8eae092d9",
         "msg": "include policy class in api.pp\n\nLike we do in other modules, include barbican::policy class in\nbarbican::api so users can define policies without taking care of the\nclass.\n\nChange-Id: I5eb4fb17c3ba4a644efdc67ef4b60615c8e6831e",
         "cmtr": "Emilien Macchi",
         "date": "2017-06-15 14:00:01-04:00",
-        "files": ["api.pp", "barbican_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "spec/classes/barbican_api_spec.rb"]
       },
       {
         "hash": "55acfdf0483042c05ee1bf08c19899a203492bad",
         "msg": "Remove deprecated keystone authtoken signing_dir option\n\nChange-Id: I3ff98337ff10750c0fda5379e336ea5e7ac6e44a",
         "cmtr": "ZhongShengping",
         "date": "2017-07-07 09:58:06+08:00",
-        "files": ["authtoken.pp", "remove_deprecated_keystone_signing_dir_option-a564b0aa9dd7d970.yaml"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/remove_deprecated_keystone_signing_dir_option-a564b0aa9dd7d970.yaml"]
       },
       {
         "hash": "16651dc5f5acd411b43be0be2ad8f4c774b12b85",
         "msg": "Deprecate oslo.messaging rpc_backend option parameter\n\nOslo.messaging uses the transport_url to represent the rpc and\nnotification messaging driver to use and its full configuration. The\nrpc_backend configuration option is deprecated for removal and\nshould not gate oslo.messaging driver configuration options.\n\nThis patch:\n* deprecate rpc_backend\n* remove conditional check\n* add release note\n\nChange-Id: I00948197fef80ce54a9a382d251b54e39053f7a7",
         "cmtr": "Andrew Smith",
         "date": "2017-07-27 15:35:52-04:00",
-        "files": ["api.pp", "deprecate_rpc_backend_parameter-2fca9c3b1b04818e.yaml"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/deprecate_rpc_backend_parameter-2fca9c3b1b04818e.yaml"]
       },
       {
         "hash": "275436a982d27f1b187bced292f46ad3a81c9980",
         "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: Ie4e84d00ba741c394eaca459e4e1d7beca5375f4\nCloses-Bug: #1717144",
         "cmtr": "ZhongShengping",
         "date": "2017-09-14 10:56:27+08:00",
-        "files": ["authtoken.pp", "deprecate_revocation_cache_time_parameter-4fd841f78fab2160.yaml", "barbican_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_revocation_cache_time_parameter-4fd841f78fab2160.yaml",
+            "spec/classes/barbican_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "7a8801de45218d21afd243e3de875ca52373eb64",
         "msg": "Allow setting log files for apache vhost\n\nThis allows the setting of the error and access file logs, as well as\nthe access log format. This was done in a similar fashion as one can\nconfigure these ones in the keystone wsgi manifest.\n\nChange-Id: Ifad53a620a14c97ba96e9c30652f0b0291cbcfe3",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-10-06 14:23:25+03:00",
-        "files": ["apache.pp", "barbican_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "spec/classes/barbican_wsgi_apache_spec.rb"]
       },
       {
         "hash": "9aa994c9a46cff369c90364dd6ea9bbc055f0fbd",
         "msg": "Configure *_domain_name to Default by default\n\nKeystone v2.0 API was removed so we have no choice but configuring\nuser_domain_name and project_domain_name otherwise it fallbacks to\nKeystone v2.0 and it fails. This patch sets the default value so we make\nsure Keystone v3 will be used out of the box for our users.\n\nChange-Id: I27631d4c6a81e7fa50b2f5154d87d0def8e3a875\nCo-Authored-By: Harry Rybacki <hrybacki@redhat.com>",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-10-06 16:04:14+03:00",
-        "files": ["authtoken.pp", "default-domain-9dfa58f4f4cfc425.yaml", "barbican_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/default-domain-9dfa58f4f4cfc425.yaml",
+            "spec/classes/barbican_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "19d93ead0a3ea03208eebd8228abb8cd878487e7",
         "msg": "apache wsgi: Exchange defaults for workers and threads\n\nDue to Python's GIL [1], we can't use multiple threads for running\nOpenStack services without a performance penalty, since the execution\nends up serialized, which defeats the purpose.\n\nInstead, we should use several processes, since this approach doesn't\nhave this limitation.\n\n[1] https://wiki.python.org/moin/GlobalInterpreterLock\n\nChange-Id: Id0a4d32e6b9f039b08ace5519fb64468000ecfee",
         "cmtr": "Mohammed Naser",
         "date": "2017-10-13 14:23:30+00:00",
-        "files": ["apache.pp", "barbican_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "spec/classes/barbican_wsgi_apache_spec.rb"]
       },
       {
         "hash": "06efa9d0019e78089283c4fdd02ee8dddb3ca5a5",
         "msg": "add parameter to overwrite/add wsgi process options\n\nAdd parameter to apache_wsgi to allow overwrite\nand/or add additional wsgi process options.\n\nThis possibility was added to openstacklib\nwith Change-Id: I41914ce3361988d5db1695f09d21209772fdf548\nlease enter the commit message for your changes. Lines starting\n\nChange-Id: I42a3ae79439466890bf2efdd850c28d11a909fbc",
         "cmtr": "ZhongShengping",
         "date": "2017-10-23 13:49:05+08:00",
-        "files": ["apache.pp", "wsgi_process_options-82e2ad99fc73445b.yaml", "barbican_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/wsgi_process_options-82e2ad99fc73445b.yaml",
+            "spec/classes/barbican_wsgi_apache_spec.rb"]
       },
       {
         "hash": "c5d0c3ec34114391985e0058ac1d345f54858bb4",
         "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: I9a1b4f43826d060c56af6d42900da5e26060bc8a",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-11-27 14:58:40+02:00",
-        "files": ["logging.pp", "log-json-108f050adf1a4a3e.yaml", "barbican_api_logging_spec.rb"]
+        "files": [
+            "manifests/api/logging.pp",
+            "releasenotes/notes/log-json-108f050adf1a4a3e.yaml",
+            "spec/classes/barbican_api_logging_spec.rb"]
       },
       {
         "hash": "303f85c92b89132ae714079ad5200ebcb66abc6e",
         "msg": "Add support for multiple backends\n\nThis will be essential for allowing migrations to\ndifferent (more secure) plugins\n\nChange-Id: Ib45708fa6f8770b7737fff1990cc86e71e4bd634",
         "cmtr": "Ade Lee",
         "date": "2017-12-04 16:51:09-05:00",
-        "files": ["api.pp", "dogtag.pp", "kmip.pp", "p11_crypto.pp", "simple_crypto.pp", "add-multiple-backend-config-158138b82dfd3dca.yaml", "barbican_api_spec.rb", "barbican_plugins_dogtag_spec.rb", "barbican_plugins_kmip_spec.rb", "barbican_plugins_p11_crypto_spec.rb", "barbican_plugins_simple_crypto_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/plugins/dogtag.pp",
+            "manifests/plugins/kmip.pp",
+            "manifests/plugins/p11_crypto.pp",
+            "manifests/plugins/simple_crypto.pp",
+            "releasenotes/notes/add-multiple-backend-config-158138b82dfd3dca.yaml",
+            "spec/classes/barbican_api_spec.rb",
+            "spec/classes/barbican_plugins_dogtag_spec.rb",
+            "spec/classes/barbican_plugins_kmip_spec.rb",
+            "spec/classes/barbican_plugins_p11_crypto_spec.rb",
+            "spec/classes/barbican_plugins_simple_crypto_spec.rb"]
       },
       {
         "hash": "035c0bb808c6bade9fb2e8fa717657e8e897e251",
         "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nChange-Id: I9f0aed7d3f2945a4e5195dbf0a3b122acb039a19\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
         "cmtr": "Emilien Macchi",
         "date": "2018-01-10 14:22:17-08:00",
-        "files": ["params.pp", "policy.pp", "barbican_policy_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "spec/classes/barbican_policy_spec.rb"]
       },
       {
         "hash": "16f5fa7242e107eb7a5e48bda48b97048ffd68d3",
         "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: I6a113466e110a92addb9b217b57a59be13f7aed9",
         "cmtr": "ZhongShengping",
         "date": "2018-01-15 15:25:34+08:00",
-        "files": ["logging.pp", "add-use_journal-option-for-logging-8dfac5372d73397c.yaml", "barbican_api_logging_spec.rb"]
+        "files": [
+            "manifests/api/logging.pp",
+            "releasenotes/notes/add-use_journal-option-for-logging-8dfac5372d73397c.yaml",
+            "spec/classes/barbican_api_logging_spec.rb"]
       },
       {
         "hash": "80b2b56169eda06f68b42adba15095e7cf07c2ce",
         "msg": "Add some kombu options\n\nAdds the kombu_failover_strategy option for configuring\noslo.messaging.rabbit. This will determines how the next RabbitMQ node\nis chosen in case the one we are currently connected to becomes\nunavailable.\n\nChange-Id: I450966c0fc782671c51b8560c162a172f5f315ba\nCloses-Bug: #1748353",
         "cmtr": "ZhongShengping",
         "date": "2018-02-09 14:02:05+08:00",
-        "files": ["api.pp", "add_rabbit_kombu_options-81a0ef4ac97e5a3a.yaml", "barbican_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/add_rabbit_kombu_options-81a0ef4ac97e5a3a.yaml",
+            "spec/classes/barbican_api_spec.rb"]
       },
       {
         "hash": "ff2403fd22f698bf5e80294faab94c5cb8502b5d",
         "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: Ic1de9ab495c83ae3300c5597dfa527d3b7ab7168\nCloses-Bug: #1755102",
         "cmtr": "ZhongShengping",
         "date": "2018-03-12 16:33:05+08:00",
-        "files": ["sync.pp", "openstack_db_tag-afedb8332112f9ef.yaml", "barbican_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "releasenotes/notes/openstack_db_tag-afedb8332112f9ef.yaml",
+            "spec/classes/barbican_db_sync_spec.rb"]
       },
       {
         "hash": "a51b1e0d667ace3afe005a89ce71105f899a2a92",
         "msg": "Call sync secret store on db-sync\n\nDue to race conditions when doing the secret store sync in the code, we\nopted for requiring the command to be explicitly called. This reflects\nthe new requirement by adding the secret store sync in the db-sync\nmanifest.\n\nChange-Id: I61544d2defa3fd7f28c312ce94a753f36a2b7d30\nRelated-Bug: #1738863",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2018-03-20 11:06:38+02:00",
-        "files": ["sync.pp", "barbican_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "spec/classes/barbican_db_sync_spec.rb"]
       },
       {
         "hash": "4c639cb127678904b3ceb6892393089508d548ee",
         "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: I603e20dc124cc1c68025382b35ac6e2003fae772\nCloses-Bug: #1757581",
         "cmtr": "ZhongShengping",
         "date": "2018-03-22 11:09:50+08:00",
-        "files": ["db.pp", "add-pool_timeout-option-for-db-a8344ba5b761b823.yaml", "barbican_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "releasenotes/notes/add-pool_timeout-option-for-db-a8344ba5b761b823.yaml",
+            "spec/classes/barbican_db_spec.rb"]
       },
       {
         "hash": "add33824e46ff1b61e512ba83158876f8fbf1e5c",
         "msg": "Configure dogtag_plugin_nss_password as secret\n\nParameter dogtag_plugin/nss_password should be configured as a secret.\n\nChange-Id: I920b82d83200e68ed4d0ed69b3fcdfe8d52fc6cd\nCloses-Bug: #1758232",
         "cmtr": "ZhongShengping",
         "date": "2018-03-23 15:08:50+08:00",
-        "files": ["dogtag.pp", "barbican_plugins_dogtag_spec.rb"]
+        "files": [
+            "manifests/plugins/dogtag.pp",
+            "spec/classes/barbican_plugins_dogtag_spec.rb"]
       },
       {
         "hash": "f6298b468bb4c7d5b5e2f7412370119dfdbce7bb",
         "msg": "Use the pbr generated wsgi binary file located in binary folder\n\nSince pbr 1.4.0, wsgi_scripts entrypoing is supported and it will\ngenerated a wsgi compatible binary file.\n\nChange-Id: Icd23a34d98c19aa495c70015c911daad9a863af8",
         "cmtr": "ZhongShengping",
         "date": "2018-03-26 15:37:53+08:00",
-        "files": ["params.pp", "barbican_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "spec/classes/barbican_wsgi_apache_spec.rb"]
       },
       {
         "hash": "b72c58da065df8bf71d0040a6ab4f2cffe6618aa",
         "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: Ib609a8e31b88986ed1f9d0e9731549059f0f7a12",
         "cmtr": "ZhongShengping",
         "date": "2018-03-27 10:33:20+08:00",
-        "files": ["authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-90da063e956a79eb.yaml"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/remove_deprecated_keystone_revocation_cache_time_option-90da063e956a79eb.yaml"]
       },
       {
         "hash": "8fc5ab3224bda9647d1e2fd94e5b03e63c6cd7f5",
         "msg": "Remove deprecated ensure_package option\n\nChange-Id: Ia368b6d359d20fe84e438bda23e558a5b71ed918",
         "cmtr": "ZhongShengping",
         "date": "2018-03-29 12:01:16+08:00",
-        "files": ["api.pp", "remove_deprecated_ensure_package_option-93527d0ab3e932f0.yaml"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/remove_deprecated_ensure_package_option-93527d0ab3e932f0.yaml"]
       },
       {
         "hash": "e2564755c2070d58f88215dde31236f14eae5c61",
         "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: I34a4a90e23683f5938b3047c31899ffae1dadd73\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
         "cmtr": "ZhongShengping",
         "date": "2018-04-03 16:54:58+08:00",
-        "files": ["authtoken.pp", "deprecate_auth_uri_parameter-87162cb2efcf10b8.yaml", "barbican_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_auth_uri_parameter-87162cb2efcf10b8.yaml",
+            "spec/classes/barbican_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "bfbb8e8a86c4a44d45672a182372b31049651353",
         "msg": "Debian is using python3-barbicanclient\n\nChange-Id: I97ef57eb9d77e2773d6e805fc6e3ad623925d51a",
         "cmtr": "zhubingbing",
         "date": "2018-04-12 10:31:39+08:00",
-        "files": ["params.pp", "barbican_client_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "spec/classes/barbican_client_spec.rb"]
       },
       {
         "hash": "dea80f2eb9afc3a37105e50cd80d3526e8e88dae",
         "msg": "Debian: fix barbican-api setup\n\nCurrently, it's not possible to use eventlet in Debian because the test\nhas been made on $::osfamily == 'Debian' instead of $::os_package_type.\n\nAlso, in Debian, the barbican-api service was never stopped before\nconfiguring Apache, therefore, starting Apache just failed.\n\nThis patch also adds the $::barbican::params::api_service_name var if\nusing Debian packages.\n\nChange-Id: Ide559f8fdc58ed3539325acd6696cec23c3de65b",
         "cmtr": "Tobias Urdin",
         "date": "2018-05-09 10:20:40+02:00",
-        "files": ["api.pp", "params.pp"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/params.pp"]
       },
       {
         "hash": "0ea5301b4d81bc8b42117169b35a7120de036eeb",
         "msg": "neat: missing : in $::os_service_default\n\nChange-Id: Ie392eefc30bb4c5cc3fdfe6e00d468304c6d5cde",
         "cmtr": "zhubingbing",
         "date": "2018-05-11 14:22:11+08:00",
-        "files": ["authtoken.pp"]
+        "files": [
+            "manifests/keystone/authtoken.pp"]
       },
       {
         "hash": "a72f5c634d66ec7daea0b72c3a5363ae1985b9f6",
         "msg": "Switch to www_authenticate_uri\n\nChange-Id: I6be207d037209c16d291db02997e1ba337513f46",
         "cmtr": "zhubingbing",
         "date": "2018-05-11 14:43:26+08:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "a6f0c70c3f134c5490f600cfe7b27a3a72bbade3",
         "msg": "Replace port 35357 with 5000\n\nNow that the v2.0 API has been removed, we don't have a reason to\ninclude deployment instructions for two separate applications on\ndifferent ports.\n\nChange-Id: Id4cccbb31bcaef6343e90b504438e31bbc0f69db",
         "cmtr": "qiaomin",
         "date": "2018-05-13 00:46:53+08:00",
-        "files": ["authtoken.pp", "barbican_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "spec/classes/barbican_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "9d6f124480d2a43482a24e0e3f467f2473c07bf2",
         "msg": "Remove deprecated parameters\n\nRemoves deprecated parameters that has been\ndeprecated for one cycle or more.\n\nChange-Id: Ie56580c1f1980ed52bb2d390143767c416c4ba19",
         "cmtr": "Tobias Urdin",
         "date": "2018-05-20 02:09:13+02:00",
-        "files": ["api.pp", "barbican-remove-deprecated-325f3a73e4f58e7b.yaml", "barbican_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/barbican-remove-deprecated-325f3a73e4f58e7b.yaml",
+            "spec/classes/barbican_api_spec.rb"]
       },
       {
         "hash": "5c2a603d82adac3341df1b815c580915c0e4837e",
         "msg": "Fix annotations\n\nChange-Id: Icd87be09e88b26592e472addef9b554e8a7b0fa1",
         "cmtr": "zhubingbing",
         "date": "2018-06-15 15:07:36+08:00",
-        "files": ["mysql.pp"]
+        "files": [
+            "manifests/db/mysql.pp"]
       },
       {
         "hash": "87d6ae39701f08a8011a8dd5a5cc304c28f98913",
         "msg": "Notify apache for barbican api in wsgi\n\nChange-Id: I5cf9330181e13e041715719ea3d639809f57f3bc",
         "cmtr": "Tobias Urdin",
         "date": "2018-07-17 20:26:34+02:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "8eac97d5bcaea6f2e4fd2065421a80cda85064a3",
         "msg": "Fix the smoke testing link\n\nChange-Id: If8a565a786512f4ed3cf3a4ec8c3e4e7ea96b98b",
         "cmtr": "jacky06",
         "date": "2018-07-30 12:31:47-04:00",
-        "files": ["init.pp"]
+        "files": [
+            "tests/init.pp"]
       },
       {
         "hash": "34e6f3a462484a9477950bace67cfc943ae7c07d",
         "msg": "Add barbican::worker class\n\nAdds new barbican::worker class that can be used to manage\nthe package and service for barbican-worker.\n\nChange-Id: Ifb9104523f5f4c44bf14d150a7189ccfebafb6bf",
         "cmtr": "Tobias Urdin",
         "date": "2018-08-30 15:22:54+02:00",
-        "files": ["worker.pp", "worker-class-a35a35e71399695f.yaml", "barbican_worker_spec.rb"]
+        "files": [
+            "manifests/worker.pp",
+            "releasenotes/notes/worker-class-a35a35e71399695f.yaml",
+            "spec/classes/barbican_worker_spec.rb"]
       }]
     }

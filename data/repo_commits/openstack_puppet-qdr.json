@@ -1,7 +1,17 @@
     {
       "url": "https://github.com/openstack/puppet-qdr",
-      "pp_files": ["service.pp", "config.pp", "init.pp", "qdr_listener.pp", "params.pp", "site.pp", "install.pp"],
-      "pp_cmtrs": ["Carlos Camacho", "Emilien Macchi", "ZhongShengping", "Andrew Smith", "Alex Schultz", "Martin M\u00e1gr", "zhulingjie", "ajssmith"],
+      "pp_files": [
+        "lib/puppet/provider/qdr_listener/qdr_listener.pp",
+        "manifests/init.pp",
+        "manifests/config.pp",
+        "examples/site.pp",
+        null,
+        "manifests/install.pp",
+        "examples/init.pp",
+        "manifests/service.pp",
+        "manifests/params.pp"
+      ],
+      "pp_cmtrs": ["ajssmith", "Emilien Macchi", "Martin M\u00e1gr", "Alex Schultz", "Carlos Camacho", "zhulingjie", "ZhongShengping", "Andrew Smith"],
       "num_pp_commits": 31,
       "num_tot_commits": 101,
       "commits": [{
@@ -9,216 +19,340 @@
         "msg": "initial commit for qpid-dispatch puppet module",
         "cmtr": "Andrew Smith",
         "date": "2016-03-04 09:15:50-05:00",
-        "files": ["Gemfile", "README.md", "Rakefile", "init.pp", "qdmanage.rb", "qdr_listener.pp", "qdr_listener.rb", "qdr_listener.rb~", "config.pp", "init.pp", "install.pp", "params.pp", "service.pp", "metadata.json", "init_spec.rb", "spec_helper.rb", "qdrouterd.conf.erb"]
+        "files": [
+            "Gemfile",
+            "README.md",
+            "Rakefile",
+            "examples/init.pp",
+            "lib/puppet/provider/qdr_listener/qdmanage.rb",
+            "lib/puppet/provider/qdr_listener/qdr_listener.pp",
+            "lib/puppet/type/qdr_listener.rb",
+            "lib/puppet/type/qdr_listener.rb~",
+            "manifests/config.pp",
+            "manifests/init.pp",
+            "manifests/install.pp",
+            "manifests/params.pp",
+            "manifests/service.pp",
+            "metadata.json",
+            "spec/classes/init_spec.rb",
+            "spec/spec_helper.rb",
+            "templates/qdrouterd.conf.erb"]
       },
       {
         "hash": "ea4e07f278e3961db2f554a07413901ae968d47d",
         "msg": "Delete qdr_listener.pp",
         "cmtr": "ajssmith",
         "date": "2016-03-07 09:15:52-05:00",
-        "files": ["qdr_listener.pp"]
+        "files": [
+            "None"]
       },
       {
         "hash": "8e29ebb39b87b1fd87d50b9623aef770e077b8ce",
         "msg": "Pass at Debian, sasl support and lint cleanup",
         "cmtr": "Andrew Smith",
         "date": "2016-03-16 15:08:17-04:00",
-        "files": ["config.pp", "init.pp", "install.pp", "params.pp", "service.pp"]
+        "files": [
+            "manifests/config.pp",
+            "manifests/init.pp",
+            "manifests/install.pp",
+            "manifests/params.pp",
+            "manifests/service.pp"]
       },
       {
         "hash": "d07b49cc5982d500e499b337a64d48d41012953e",
         "msg": "Set up service home for log output",
         "cmtr": "Andrew Smith",
         "date": "2016-03-16 16:27:29-04:00",
-        "files": ["config.pp", "params.pp"]
+        "files": [
+            "manifests/config.pp",
+            "manifests/params.pp"]
       },
       {
         "hash": "730bb29c09162491b18a525004b3dddc1c470659",
         "msg": "Fix log file access",
         "cmtr": "Andrew Smith",
         "date": "2016-03-17 09:56:06-04:00",
-        "files": ["config.pp", "params.pp"]
+        "files": [
+            "manifests/config.pp",
+            "manifests/params.pp"]
       },
       {
         "hash": "292f6e5d971d2c62cf7f41c3207deeddfe984b02",
         "msg": "Added example, apt install refactor",
         "cmtr": "Andrew Smith",
         "date": "2016-03-18 09:38:12-04:00",
-        "files": ["init.pp", "qdmanage.rb", "qdr_listener.rb", "config.pp", "install.pp", "params.pp"]
+        "files": [
+            "None",
+            "lib/puppet/provider/qdr_listener/qdmanage.rb",
+            "lib/puppet/type/qdr_listener.rb",
+            "manifests/config.pp",
+            "manifests/install.pp",
+            "manifests/params.pp"]
       },
       {
         "hash": "65960835cb604afd0cede5d32838b4f4850d4264",
         "msg": "Added example, apt install refactor",
         "cmtr": "Andrew Smith",
         "date": "2016-03-18 09:43:51-04:00",
-        "files": ["site.pp"]
+        "files": [
+            "examples/site.pp"]
       },
       {
         "hash": "3b7668cc8db649ac815ed2fd7ea36cc9cef9d2fb",
         "msg": "Fixed package ensure",
         "cmtr": "Andrew Smith",
         "date": "2016-03-18 10:06:33-04:00",
-        "files": ["install.pp", "params.pp"]
+        "files": [
+            "manifests/install.pp",
+            "manifests/params.pp"]
       },
       {
         "hash": "9b0c69085d84d2401672e9bd4a80b52a0f611446",
         "msg": "Ensure service home directory for sasl to create db",
         "cmtr": "Andrew Smith",
         "date": "2016-03-18 10:53:50-04:00",
-        "files": ["config.pp"]
+        "files": [
+            "manifests/config.pp"]
       },
       {
         "hash": "c1c3e174bd9be11f54b656672906f8f35b6a40a7",
         "msg": "missing sasl install for debian",
         "cmtr": "Andrew Smith",
         "date": "2016-03-18 11:37:54-04:00",
-        "files": ["site.pp", "install.pp"]
+        "files": [
+            "examples/site.pp",
+            "manifests/install.pp"]
       },
       {
         "hash": "003be79394332ffd9b19b4fee2fed10c95f18993",
         "msg": "Some cleanup and refactoring",
         "cmtr": "Andrew Smith",
         "date": "2016-03-18 13:10:23-04:00",
-        "files": ["init.pp", "install.pp", "params.pp"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/install.pp",
+            "manifests/params.pp"]
       },
       {
         "hash": "a4d1bb19a65bf99e6c0c176056535081a4e67a87",
         "msg": "Fixed type for debian service name",
         "cmtr": "Andrew Smith",
         "date": "2016-03-18 13:32:59-04:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "1495562f9eb936d27355ef60525c008bbc5be8e0",
         "msg": "Added ssl profile to template",
         "cmtr": "Andrew Smith",
         "date": "2016-04-07 16:36:53-04:00",
-        "files": ["params.pp", "qdrouterd.conf.erb"]
+        "files": [
+            "manifests/params.pp",
+            "templates/qdrouterd.conf.erb"]
       },
       {
         "hash": "8704500c2153a6be8c40918e4c715d358b30c5c6",
         "msg": "Add LICENSE file",
         "cmtr": "Andrew Smith",
         "date": "2016-04-14 08:44:01-04:00",
-        "files": ["LICENSE", "params.pp"]
+        "files": [
+            "LICENSE",
+            "manifests/params.pp"]
       },
       {
         "hash": "ca199fd7376c061158dd96ae3fb728efbccd8618",
         "msg": "set default ssl paths",
         "cmtr": "Andrew Smith",
         "date": "2016-04-14 11:36:50-04:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "ba869b9570967db1d78fae9068c7784b2cbc3fde",
         "msg": "Added basic rspec tests",
         "cmtr": "Andrew Smith",
         "date": "2016-04-15 14:58:07-04:00",
-        "files": ["init.pp", "params.pp", "init_spec.rb", "spec_helper.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/params.pp",
+            "spec/classes/init_spec.rb",
+            "spec/spec_helper.rb"]
       },
       {
         "hash": "bda4c1a6f1baa0e7fc711690d4960f38c0da6671",
         "msg": "fix check on threads",
         "cmtr": "Andrew Smith",
         "date": "2016-04-15 15:16:15-04:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "911e05eab46e0d40e22f9ac174574fcef5777b7e",
         "msg": "Schema updates and spec tests",
         "cmtr": "Andrew Smith",
         "date": "2016-06-07 10:35:52-04:00",
-        "files": ["qdmanage.rb", "qdmanage.rb", "qdr_connector.rb", "qdr_user.rb", "init.pp", "params.pp", "init_spec.rb", "qdr_connector_spec.rb", "qdr_listener_spec.rb", "qdr_user_spec.rb", "qdrouterd.conf.erb"]
+        "files": [
+            "lib/puppet/provider/qdr_connector/qdmanage.rb",
+            "lib/puppet/provider/qdr_listener/qdmanage.rb",
+            "lib/puppet/type/qdr_connector.rb",
+            "lib/puppet/type/qdr_user.rb",
+            "manifests/init.pp",
+            "manifests/params.pp",
+            "spec/classes/init_spec.rb",
+            "spec/unit/type/qdr_connector_spec.rb",
+            "spec/unit/type/qdr_listener_spec.rb",
+            "spec/unit/type/qdr_user_spec.rb",
+            "templates/qdrouterd.conf.erb"]
       },
       {
         "hash": "b374043ed1742bb7d2e6997c958e8c437d6eba27",
         "msg": "Add address type and refactor parameters",
         "cmtr": "Andrew Smith",
         "date": "2016-07-14 12:39:52-04:00",
-        "files": ["README.md", "qdmanage.rb", "qdr_address.rb", "config.pp", "init.pp", "install.pp", "params.pp", "service.pp", "init_spec.rb", "qdr_address_spec.rb", "qdr_listener_spec.rb", "qdrouterd.conf.erb"]
+        "files": [
+            "README.md",
+            "lib/puppet/provider/qdr_address/qdmanage.rb",
+            "lib/puppet/type/qdr_address.rb",
+            "manifests/config.pp",
+            "manifests/init.pp",
+            "manifests/install.pp",
+            "manifests/params.pp",
+            "manifests/service.pp",
+            "spec/classes/init_spec.rb",
+            "spec/unit/type/qdr_address_spec.rb",
+            "spec/unit/type/qdr_listener_spec.rb",
+            "templates/qdrouterd.conf.erb"]
       },
       {
         "hash": "6527742aed7af3861cd6e25c6c9f9f0fc78c1ab7",
         "msg": "Fix typo and transposition",
         "cmtr": "Andrew Smith",
         "date": "2016-07-14 14:40:39-04:00",
-        "files": ["init.pp", "qdrouterd.conf.erb"]
+        "files": [
+            "manifests/init.pp",
+            "templates/qdrouterd.conf.erb"]
       },
       {
         "hash": "75bb0b5c3e76c308eced3f95f2a4d61d9de93c3e",
         "msg": "Fix puppet-qdr testing\n\nThis change updates the puppet-qdr module to leverage the\npuppet-openstack_spec_helper for unit testing and common dependency\nmanagement for spec tests. Additionally this change fixes the lint\nissues with the module.\n\nChange-Id: I62d6b60712e237a8b4daf654879a4f1912fb9ec6",
         "cmtr": "Alex Schultz",
         "date": "2016-10-13 15:30:05-06:00",
-        "files": [".gitignore", "Gemfile", "Rakefile", "init.pp", "install.pp", "metadata.json", "centos-70-x64.yml", "default.yml", "nodepool-centos7.yml", "nodepool-trusty.yml", "nodepool-xenial.yml", "ubuntu-server-1404-x64.yml", "shared_examples.rb", "spec_helper.rb", "spec_helper_acceptance.rb", "qdr_address_spec.rb"]
+        "files": [
+            ".gitignore",
+            "Gemfile",
+            "Rakefile",
+            "manifests/init.pp",
+            "manifests/install.pp",
+            "metadata.json",
+            "spec/acceptance/nodesets/centos-70-x64.yml",
+            "spec/acceptance/nodesets/default.yml",
+            "spec/acceptance/nodesets/nodepool-centos7.yml",
+            "spec/acceptance/nodesets/nodepool-trusty.yml",
+            "spec/acceptance/nodesets/nodepool-xenial.yml",
+            "spec/acceptance/nodesets/ubuntu-server-1404-x64.yml",
+            "spec/shared_examples.rb",
+            "spec/spec_helper.rb",
+            "spec/spec_helper_acceptance.rb",
+            "spec/unit/type/qdr_address_spec.rb"]
       },
       {
         "hash": "f8a02e887f2102ef94331034de6b4bd8ec6fceb1",
         "msg": "Fix lint job\n\nFix some lint issues.\n\nChange-Id: I9e852a8b054221036cf559138170fec5e7c2f702",
         "cmtr": "Emilien Macchi",
         "date": "2016-11-25 11:57:26-05:00",
-        "files": ["config.pp", "init.pp", "install.pp", "service.pp"]
+        "files": [
+            "manifests/config.pp",
+            "manifests/init.pp",
+            "manifests/install.pp",
+            "manifests/service.pp"]
       },
       {
         "hash": "df0e57b4d69fdff3e5f8805372574d8f96a2db18",
         "msg": "Update router_worker_threads to os_workers\n\nThis patch:\n* re-factors install\n* configures params based on osfamily\n* Adds tests to ensure config updates\n* Updates template for change in conf schema\n* Adds ssl profile to the configuration\n\nChange-Id: I92f466b46da11d8e087e6d6d9532326fce33e47c",
         "cmtr": "Andrew Smith",
         "date": "2017-01-10 08:51:01-05:00",
-        "files": ["config.pp", "init.pp", "install.pp", "params.pp", "metadata.json", "init_spec.rb", "qdrouterd.conf.erb"]
+        "files": [
+            "manifests/config.pp",
+            "manifests/init.pp",
+            "manifests/install.pp",
+            "manifests/params.pp",
+            "metadata.json",
+            "spec/classes/init_spec.rb",
+            "templates/qdrouterd.conf.erb"]
       },
       {
         "hash": "3dc5db2659cf069e6c2902cfb102484588f5e4fc",
         "msg": "Remove sasldb file as parameter for qdr_user type\n\nChange-Id: Id6ebc4ce8b0ffdb0be92a758dbf89c84c3274725",
         "cmtr": "Andrew Smith",
         "date": "2017-01-16 15:39:30-05:00",
-        "files": ["README.md", "site.pp", "sasl.rb", "qdr_user.rb"]
+        "files": [
+            "README.md",
+            "examples/site.pp",
+            "lib/puppet/provider/qdr_user/sasl.rb",
+            "lib/puppet/type/qdr_user.rb"]
       },
       {
         "hash": "359729340b40e470d45e31587ed4691aa2e53f29",
         "msg": "Add external listener, connector and address configuration\n\nChange-Id: Iffdda83411ff508dc07540ea437e2ccb1f06e8c6",
         "cmtr": "Andrew Smith",
         "date": "2017-05-24 10:48:01-04:00",
-        "files": ["init.pp", "init_spec.rb", "qdrouterd.conf.erb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/init_spec.rb",
+            "templates/qdrouterd.conf.erb"]
       },
       {
         "hash": "95c0eb47b24e1594d60ab5676edce0b2ce7330b3",
         "msg": "Fix lint issues to upgrade to puppet-lint 2.3\n\n2017-07-20 14:46:22.341413 | manifests/init.pp:204:WARNING: arrow should be on the right operand's line\n2017-07-20 14:46:22.341547 | manifests/init.pp:205:WARNING: arrow should be on the right operand's line\n\nChange-Id: I26779b1c3d6095552bcbc130b363a4013b7b568f",
         "cmtr": "Carlos Camacho",
         "date": "2017-07-20 20:44:42+02:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "a48d12200a7cacb21d38ecb441ebd4532a2ab13a",
         "msg": "Change default log location for qdrouterd service\n\nChange-Id: Ia3bc189b3ddf27db9325dffada6d36adc1aab463\nCloses-Bug: 1706091",
         "cmtr": "Andrew Smith",
         "date": "2017-07-24 10:48:20-04:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "f4ca69af3d9f9e22bf19ea4acd1f1d22edba0ec4",
         "msg": "Remove extra spaces\n\nChange-Id: Id4f859029b4377a61eee825dbd96ea518e988ca5",
         "cmtr": "ZhongShengping",
         "date": "2017-07-27 08:36:59+08:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "537c1b23d58707eadf90f06c5c2d616055fef804",
         "msg": "Update ensurable for qdr types and directory\n\nThese updates were found to be necessary for puppet-opentstack-integration\nscenario to run succesfully.\n\nThis patch:\n*pass block to ensurable for qdr types\n*add routerd log directory\n\nChange-Id: If06b558ac6c1b2a926b10de389e6af23cec84d28",
         "cmtr": "Andrew Smith",
         "date": "2017-07-28 13:23:22-04:00",
-        "files": ["qdr_address.rb", "qdr_connector.rb", "qdr_listener.rb", "qdr_log.rb", "qdr_user.rb", "config.pp", "init_spec.rb"]
+        "files": [
+            "lib/puppet/type/qdr_address.rb",
+            "lib/puppet/type/qdr_connector.rb",
+            "lib/puppet/type/qdr_listener.rb",
+            "lib/puppet/type/qdr_log.rb",
+            "lib/puppet/type/qdr_user.rb",
+            "manifests/config.pp",
+            "spec/classes/init_spec.rb"]
       },
       {
         "hash": "af35d35c5f131ff5f698b3752755b903b0fc0ee3",
         "msg": "Support edge mode\n\nThis patch enables to set QDR to edge mode. For more info please check:\nhttps://qpid.apache.org/releases/qpid-dispatch-0.5/man/qdrouterd.conf.html\n\nChange-Id: If9e3658d304c3071f53ecb1c42796d2603875fcd",
         "cmtr": "Martin Mágr",
         "date": "2018-06-06 22:31:04+02:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "f07ef2180f3ec9e159197b4e53e60d8ee4061ffb",
         "msg": "Provide more useful fail message\n\nChange-Id: Iddbe3c238d430d340d2abdc7b36f1bcfef19644a\nCloses-Bug: #1792718",
         "cmtr": "zhulingjie",
         "date": "2018-09-13 20:27:30-04:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       }]
     }

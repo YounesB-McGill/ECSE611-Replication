@@ -1,6 +1,16 @@
     {
       "url": "https://github.com/openstack/fuel-plugin-onos",
-      "pp_files": ["preliminary.pp", "service.pp", "ovs.pp", "neutron.pp", "config.pp", "init.pp", "onos-service.pp", "install.pp"],
+      "pp_files": [
+        "deployment_scripts/puppet/manifests/neutron.pp",
+        "deployment_scripts/puppet/modules/onos/manifests/install.pp",
+        "deployment_scripts/puppet/manifests/onos-service.pp",
+        "deployment_scripts/puppet/manifests/ovs.pp",
+        "deployment_scripts/puppet/modules/onos/manifests/service.pp",
+        "deployment_scripts/puppet/modules/onos/manifests/config.pp",
+        "deployment_scripts/puppet/modules/onos/manifests/init.pp",
+        "deployment_scripts/puppet/manifests/install.pp",
+        "deployment_scripts/puppet/manifests/preliminary.pp"
+      ],
       "pp_cmtrs": ["dongfeng"],
       "num_pp_commits": 1,
       "num_tot_commits": 2,
@@ -9,6 +19,30 @@
         "msg": "fuel plugin onos\n\nChange-Id: I030d45d6655a58c2a79b61ee8e2cb10dfe85a945",
         "cmtr": "dongfeng",
         "date": "2015-11-13 16:50:44+08:00",
-        "files": ["LICENSE", "README.md", "install.pp", "neutron.pp", "onos-service.pp", "ovs.pp", "preliminary.pp", "install_jdk8.tar", "networking-onos.tar", "onos_config.sh", "config.pp", "init.pp", "install.pp", "service.pp", "onos.erb", "cluster.json.erb", "onos.conf.erb", "tablets.json.erb", "environment_config.yaml", "metadata.yaml", "pre_build_hook", ".gitkeep", ".gitkeep", "tasks.yaml"]
+        "files": [
+            "LICENSE",
+            "README.md",
+            "deployment_scripts/puppet/manifests/install.pp",
+            "deployment_scripts/puppet/manifests/neutron.pp",
+            "deployment_scripts/puppet/manifests/onos-service.pp",
+            "deployment_scripts/puppet/manifests/ovs.pp",
+            "deployment_scripts/puppet/manifests/preliminary.pp",
+            "deployment_scripts/puppet/modules/onos/files/install_jdk8.tar",
+            "deployment_scripts/puppet/modules/onos/files/networking-onos.tar",
+            "deployment_scripts/puppet/modules/onos/files/onos_config.sh",
+            "deployment_scripts/puppet/modules/onos/manifests/config.pp",
+            "deployment_scripts/puppet/modules/onos/manifests/init.pp",
+            "deployment_scripts/puppet/modules/onos/manifests/install.pp",
+            "deployment_scripts/puppet/modules/onos/manifests/service.pp",
+            "deployment_scripts/puppet/modules/onos/templates/centos/onos.erb",
+            "deployment_scripts/puppet/modules/onos/templates/cluster.json.erb",
+            "deployment_scripts/puppet/modules/onos/templates/debian/onos.conf.erb",
+            "deployment_scripts/puppet/modules/onos/templates/tablets.json.erb",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "pre_build_hook",
+            "repositories/centos/.gitkeep",
+            "repositories/ubuntu/.gitkeep",
+            "tasks.yaml"]
       }]
     }

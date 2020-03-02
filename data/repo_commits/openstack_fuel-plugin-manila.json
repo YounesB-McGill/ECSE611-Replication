@@ -1,6 +1,81 @@
     {
       "url": "https://github.com/openstack/fuel-plugin-manila",
-      "pp_files": ["logging.pp", "keystone.pp", "db.pp", "init.pp", "sync.pp", "data.pp", "postgresql.pp", "site_data.pp", "cinder.pp", "backends.pp", "params.pp", "master2.pp", "ui.pp", "init_controller.pp", "ganesha.pp", "neutron.pp", "populate_hiera.pp", "init_share.pp", "start_share.pp", "config.pp", "nova_single_network.pp", "master.pp", "glusternative.pp", "client.pp", "type.pp", "notify.pp", "start_controller.pp", "db-sync.pp", "api.pp", "type_set.pp", "image_upload.pp", "install_sd.pp", "netapp.pp", "conf.pp", "override_hiera.pp", "rabbitmq.pp", "share.pp", "glusterfs.pp", "init_data.pp", "generic.pp", "mysql.pp", "site.pp", "install.pp", "ssh_keygen.pp", "quota.pp", "site_share.pp", "glusternfs.pp", "haproxy.pp", "standalone.pp", "initd.pp", "nova_network.pp", "service_instance.pp", "meta.pp", "auth.pp", "fs.pp", "start_data.pp", "nova.pp", "services.pp", "neutron_single_network.pp", "image.pp", "scheduler.pp"],
+      "pp_files": [
+        "deployment_scripts/puppet/modules/manila/share/glusterfs.pp",
+        "deployment_scripts/puppet/modules/manila/share/netapp.pp",
+        "deployment_scripts/puppet/modules/manila/backend/generic.pp",
+        "deployment_scripts/puppet/manifests/ui.pp",
+        "deployment_scripts/puppet/manifests/db.pp",
+        "deployment_scripts/puppet/manifests/db-sync.pp",
+        "deployment_scripts/puppet/modules/manila_auxiliary/manifests/init.pp",
+        "deployment_scripts/puppet/manifests/site_share.pp",
+        "deployment_scripts/puppet/modules/manila/backend/glusternative.pp",
+        "deployment_scripts/puppet/modules/manila/quota.pp",
+        "deployment_scripts/puppet/modules/manila/network/standalone.pp",
+        "deployment_scripts/puppet/manifests/init_share.pp",
+        "deployment_scripts/puppet/manifests/notify.pp",
+        "deployment_scripts/puppet/modules/manila/db.pp",
+        "deployment_scripts/puppet/modules/manila_auxiliary/manifests/ssh_keygen.pp",
+        "deployment_scripts/puppet/modules/manila/config.pp",
+        "deployment_scripts/puppet/modules/manila/backend/glusterfs.pp",
+        "deployment_scripts/puppet/modules/manila/db/mysql.pp",
+        "deployment_scripts/puppet/modules/manila/network/neutron.pp",
+        "deployment_scripts/puppet/modules/manila/backend/netapp.pp",
+        "deployment_scripts/puppet/modules/manila/rabbitmq.pp",
+        "deployment_scripts/puppet/manifests/populate_hiera.pp",
+        "deployment_scripts/puppet/modules/manila_auxiliary/tests/init.pp",
+        "deployment_scripts/puppet/manifests/haproxy.pp",
+        "deployment_scripts/puppet/modules/manila_auxiliary/manifests/haproxy.pp",
+        "deployment_scripts/puppet/manifests/master2.pp",
+        "deployment_scripts/puppet/manifests/site_data.pp",
+        "deployment_scripts/puppet/modules/manila_auxiliary/manifests/initd.pp",
+        "deployment_scripts/puppet/modules/manila_auxiliary/manifests/services.pp",
+        "deployment_scripts/puppet/modules/manila_auxiliary/manifests/backend/netapp.pp",
+        "deployment_scripts/puppet/modules/manila/keystone/auth.pp",
+        "deployment_scripts/puppet/modules/manila/backend/glusternfs.pp",
+        "deployment_scripts/puppet/modules/manila/share.pp",
+        "deployment_scripts/puppet/modules/manila_auxiliary/manifests/data.pp",
+        "deployment_scripts/puppet/modules/manila_auxiliary/manifests/meta.pp",
+        "deployment_scripts/puppet/modules/manila/type.pp",
+        "deployment_scripts/puppet/modules/manila/logging.pp",
+        "deployment_scripts/puppet/modules/manila_auxiliary/manifests/backend/generic.pp",
+        "deployment_scripts/puppet/manifests/init_controller.pp",
+        "deployment_scripts/puppet/modules/manila/db/sync.pp",
+        "deployment_scripts/puppet/modules/manila/scheduler.pp",
+        "deployment_scripts/puppet/manifests/start_controller.pp",
+        "deployment_scripts/puppet/modules/manila_auxiliary/manifests/ui.pp",
+        "deployment_scripts/puppet/modules/manila/ganesha.pp",
+        "deployment_scripts/puppet/modules/manila/network/neutron_single_network.pp",
+        "deployment_scripts/puppet/modules/manila/db/postgresql.pp",
+        "deployment_scripts/puppet/manifests/override_hiera.pp",
+        "deployment_scripts/puppet/modules/manila_auxiliary/manifests/fs.pp",
+        "deployment_scripts/puppet/modules/manila/volume/cinder.pp",
+        "deployment_scripts/puppet/modules/manila/network/nova_single_network.pp",
+        "deployment_scripts/puppet/modules/manila/type_set.pp",
+        "deployment_scripts/puppet/modules/manila/network/nova_network.pp",
+        "deployment_scripts/puppet/modules/manila/share/generic.pp",
+        "deployment_scripts/puppet/manifests/meta.pp",
+        "deployment_scripts/puppet/manifests/install.pp",
+        "deployment_scripts/puppet/modules/manila_auxiliary/manifests/image.pp",
+        "deployment_scripts/puppet/modules/manila/backends.pp",
+        "deployment_scripts/puppet/manifests/site.pp",
+        "deployment_scripts/puppet/modules/manila/compute/nova.pp",
+        "deployment_scripts/puppet/manifests/image_upload.pp",
+        "deployment_scripts/puppet/manifests/start_share.pp",
+        "deployment_scripts/puppet/modules/manila/service_instance.pp",
+        "deployment_scripts/puppet/manifests/init_data.pp",
+        "deployment_scripts/puppet/modules/manila/params.pp",
+        null,
+        "deployment_scripts/puppet/manifests/generic.pp",
+        "deployment_scripts/puppet/manifests/master.pp",
+        "deployment_scripts/puppet/modules/manila_auxiliary/manifests/conf.pp",
+        "deployment_scripts/puppet/modules/manila/api.pp",
+        "deployment_scripts/puppet/manifests/keystone.pp",
+        "deployment_scripts/puppet/manifests/start_data.pp",
+        "deployment_scripts/puppet/manifests/install_sd.pp",
+        "deployment_scripts/puppet/modules/manila/client.pp",
+        "deployment_scripts/puppet/modules/manila/init.pp"
+      ],
       "pp_cmtrs": ["Igor Gajsin", "\u201cugoday\u201d"],
       "num_pp_commits": 36,
       "num_tot_commits": 165,
@@ -9,251 +84,494 @@
         "msg": "add the manila puppet module",
         "cmtr": "Igor Gajsin",
         "date": "2016-07-04 14:00:21+03:00",
-        "files": ["deploy.sh", "api.pp", "generic.pp", "glusterfs.pp", "glusternative.pp", "glusternfs.pp", "netapp.pp", "backends.pp", "client.pp", "nova.pp", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "ganesha.pp", "init.pp", "auth.pp", "logging.pp", "neutron.pp", "neutron_single_network.pp", "nova_network.pp", "nova_single_network.pp", "standalone.pp", "params.pp", "quota.pp", "rabbitmq.pp", "scheduler.pp", "service_instance.pp", "share.pp", "generic.pp", "glusterfs.pp", "netapp.pp", "type.pp", "type_set.pp", "cinder.pp"]
+        "files": [
+            "None",
+            "deployment_scripts/puppet/modules/manila/api.pp",
+            "deployment_scripts/puppet/modules/manila/backend/generic.pp",
+            "deployment_scripts/puppet/modules/manila/backend/glusterfs.pp",
+            "deployment_scripts/puppet/modules/manila/backend/glusternative.pp",
+            "deployment_scripts/puppet/modules/manila/backend/glusternfs.pp",
+            "deployment_scripts/puppet/modules/manila/backend/netapp.pp",
+            "deployment_scripts/puppet/modules/manila/backends.pp",
+            "deployment_scripts/puppet/modules/manila/client.pp",
+            "deployment_scripts/puppet/modules/manila/compute/nova.pp",
+            "deployment_scripts/puppet/modules/manila/config.pp",
+            "deployment_scripts/puppet/modules/manila/db.pp",
+            "deployment_scripts/puppet/modules/manila/db/mysql.pp",
+            "deployment_scripts/puppet/modules/manila/db/postgresql.pp",
+            "deployment_scripts/puppet/modules/manila/db/sync.pp",
+            "deployment_scripts/puppet/modules/manila/ganesha.pp",
+            "deployment_scripts/puppet/modules/manila/init.pp",
+            "deployment_scripts/puppet/modules/manila/keystone/auth.pp",
+            "deployment_scripts/puppet/modules/manila/logging.pp",
+            "deployment_scripts/puppet/modules/manila/network/neutron.pp",
+            "deployment_scripts/puppet/modules/manila/network/neutron_single_network.pp",
+            "deployment_scripts/puppet/modules/manila/network/nova_network.pp",
+            "deployment_scripts/puppet/modules/manila/network/nova_single_network.pp",
+            "deployment_scripts/puppet/modules/manila/network/standalone.pp",
+            "deployment_scripts/puppet/modules/manila/params.pp",
+            "deployment_scripts/puppet/modules/manila/quota.pp",
+            "deployment_scripts/puppet/modules/manila/rabbitmq.pp",
+            "deployment_scripts/puppet/modules/manila/scheduler.pp",
+            "deployment_scripts/puppet/modules/manila/service_instance.pp",
+            "deployment_scripts/puppet/modules/manila/share.pp",
+            "deployment_scripts/puppet/modules/manila/share/generic.pp",
+            "deployment_scripts/puppet/modules/manila/share/glusterfs.pp",
+            "deployment_scripts/puppet/modules/manila/share/netapp.pp",
+            "deployment_scripts/puppet/modules/manila/type.pp",
+            "deployment_scripts/puppet/modules/manila/type_set.pp",
+            "deployment_scripts/puppet/modules/manila/volume/cinder.pp"]
       },
       {
         "hash": "6694e5fd76d1aae003b490e51cd2b89709c130fb",
         "msg": "Getting ready for the first deploy",
         "cmtr": "Igor Gajsin",
         "date": "2016-07-04 15:05:35+03:00",
-        "files": ["README.md", "components.yaml", "notify.pp", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "node_roles.yaml", "volumes.yaml"]
+        "files": [
+            "README.md",
+            "components.yaml",
+            "deployment_scripts/puppet/manifests/notify.pp",
+            "deployment_tasks.yaml",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "node_roles.yaml",
+            "volumes.yaml"]
       },
       {
         "hash": "ae55c359f9bb7baa8733ed21a44348980b716f42",
         "msg": "create the manila_auxiliary puppet modules",
         "cmtr": "Igor Gajsin",
         "date": "2016-07-05 14:58:01+03:00",
-        "files": ["override_hiera.pp", "populate_hiera.pp", "populate_hiera.pp~", "Gemfile", "README.md", "Rakefile", "init.pp", "metadata.json", "init_spec.rb", "spec_helper.rb", "init.pp", "check-list.org", "check-list.org~", "fuel-plugin-manila-1.0-1.0.0-1.noarch.rpm", "node_roles.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/override_hiera.pp",
+            "deployment_scripts/puppet/manifests/populate_hiera.pp",
+            "deployment_scripts/puppet/manifests/populate_hiera.pp~",
+            "deployment_scripts/puppet/modules/manila_auxiliary/Gemfile",
+            "deployment_scripts/puppet/modules/manila_auxiliary/README.md",
+            "deployment_scripts/puppet/modules/manila_auxiliary/Rakefile",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/init.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/metadata.json",
+            "deployment_scripts/puppet/modules/manila_auxiliary/spec/classes/init_spec.rb",
+            "deployment_scripts/puppet/modules/manila_auxiliary/spec/spec_helper.rb",
+            "deployment_scripts/puppet/modules/manila_auxiliary/tests/init.pp",
+            "docs/check-list.org",
+            "docs/check-list.org~",
+            "fuel-plugin-manila-1.0-1.0.0-1.noarch.rpm",
+            "node_roles.yaml"]
       },
       {
         "hash": "f9710db0040b30d955a37ab1208fb1372620698d",
         "msg": "add the populate_hiera functiona and some jump around puppets",
         "cmtr": "Igor Gajsin",
         "date": "2016-07-06 13:46:53+03:00",
-        "files": ["populate_hiera.pp", "api.pp", "generic.pp", "glusterfs.pp", "glusternative.pp", "glusternfs.pp", "netapp.pp", "backends.pp", "client.pp", "nova.pp", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "ganesha.pp", "init.pp", "auth.pp", "logging.pp", "neutron.pp", "neutron_single_network.pp", "nova_network.pp", "nova_single_network.pp", "standalone.pp", "params.pp", "quota.pp", "rabbitmq.pp", "scheduler.pp", "service_instance.pp", "share.pp", "generic.pp", "glusterfs.pp", "netapp.pp", "type.pp", "type_set.pp", "cinder.pp", "populate_hiera.rb", "populate_hiera.rb~", "fuel-plugin-manila-1.0-1.0.0-1.noarch.rpm", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/populate_hiera.pp",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "deployment_scripts/puppet/modules/manila_auxiliary/lib/puppet/parser/functions/populate_hiera.rb",
+            "deployment_scripts/puppet/modules/manila_auxiliary/lib/puppet/parser/functions/populate_hiera.rb~",
+            "fuel-plugin-manila-1.0-1.0.0-1.noarch.rpm",
+            "pre_build_hook"]
       },
       {
         "hash": "01ffc91fb96650392b58fa0422ae1d90ecbcdd6b",
         "msg": "add endpoints",
         "cmtr": "Igor Gajsin",
         "date": "2016-07-06 16:44:05+03:00",
-        "files": ["keystone.pp", "check-list.org"]
+        "files": [
+            "deployment_scripts/puppet/manifests/keystone.pp",
+            "docs/check-list.org"]
       },
       {
         "hash": "f409e7a23f0f812c5454e5f6940dcb728e0997f2",
         "msg": "work with tasks",
         "cmtr": "“ugoday”",
         "date": "2016-07-07 12:50:51+03:00",
-        "files": ["keystone.pp", "override_hiera.pp", "populate_hiera.pp", "deployment_tasks.yaml", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/keystone.pp",
+            "None",
+            "deployment_scripts/puppet/manifests/populate_hiera.pp",
+            "deployment_tasks.yaml",
+            "metadata.yaml"]
       },
       {
         "hash": "8b53020c7a5cbd0ec52a391ef55135aa9e88288b",
         "msg": "initial database support\n\nCreate the manila user, database and grant permission to it.\n\nChange-Id: I36cbbdbb75ee346d8268faa45505813675f46331",
         "cmtr": "Igor Gajsin",
         "date": "2016-07-26 19:52:03+03:00",
-        "files": ["db.pp", "keystone.pp", "populate_hiera.pp", "manila", "deployment_tasks.yaml", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/db.pp",
+            "deployment_scripts/puppet/manifests/keystone.pp",
+            "deployment_scripts/puppet/manifests/populate_hiera.pp",
+            "deployment_scripts/puppet/modules/manila",
+            "deployment_tasks.yaml",
+            "metadata.yaml"]
       },
       {
         "hash": "c6fda073b619679ca86597210615697bb5aece0d",
         "msg": "install manila packages\n\nAdd manila projects as submodules and switch its to stable/mitaka.\nFix requirements to be compatible with ubuntu 14.04.\nChange pre_build_hook to building deb packages from python source\ncode.\n\nChange-Id: I3300c3f58d9df39ed452d64e60846fad20056fca",
         "cmtr": "Igor Gajsin",
         "date": "2016-07-27 19:59:09+03:00",
-        "files": [".gitmodules", "install.pp", "deployment_tasks.yaml", "metadata.yaml", "pre_build_hook", "manila", "manila-ui", "python-manilaclient"]
+        "files": [
+            ".gitmodules",
+            "deployment_scripts/puppet/manifests/install.pp",
+            "deployment_tasks.yaml",
+            "metadata.yaml",
+            "pre_build_hook",
+            "repositories/python/manila",
+            "repositories/python/manila-ui",
+            "repositories/python/python-manilaclient"]
       },
       {
         "hash": "cf0f7f89111decb31bb7818ee7d4d64f4dbc79b6",
         "msg": "Install set of files and directory structure for manila\n\nChange-Id: I691591ddfc04c605ccf72e279abc416d11ab7fc3",
         "cmtr": "Igor Gajsin",
         "date": "2016-07-29 14:56:34+03:00",
-        "files": ["install.pp", "api-paste.ini", "logging_sample.conf", "policy.json", "rootwrap.conf", "share.filters", "fs.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/install.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/files/api-paste.ini",
+            "deployment_scripts/puppet/modules/manila_auxiliary/files/logging_sample.conf",
+            "deployment_scripts/puppet/modules/manila_auxiliary/files/policy.json",
+            "deployment_scripts/puppet/modules/manila_auxiliary/files/rootwrap.conf",
+            "deployment_scripts/puppet/modules/manila_auxiliary/files/share.filters",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/fs.pp"]
       },
       {
         "hash": "c6d90bc61c23fb52f8d0156c3379666e8c92a3a8",
         "msg": "configure manila\n\nFirst approach to make configuration files\n\nChange-Id: Ifbbd1b38402e5140d7884246dfd6bdb53870449a",
         "cmtr": "Igor Gajsin",
         "date": "2016-07-29 15:41:50+03:00",
-        "files": ["site.pp", "manila"]
+        "files": [
+            "deployment_scripts/puppet/manifests/site.pp",
+            "repositories/python/manila"]
       },
       {
         "hash": "e6e9575e27da7978b2418c1b88aa24bda9d532ab",
         "msg": "add init files\n\nChange-Id: I923289f414643124b353db14ada8bcb75f02577f",
         "cmtr": "Igor Gajsin",
         "date": "2016-08-01 16:15:29+03:00",
-        "files": ["install.pp", "fs.pp", "init.pp", "initd.pp", "init.erb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/install.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/fs.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/init.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/initd.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/templates/init.erb"]
       },
       {
         "hash": "c71556cf3ae78da1d90143404565977c5e880f79",
         "msg": "fix small bugs, that prevent deploy\n\nChange-Id: I4103c5c13b64c32c9c9aa6bebb716860ada3eb86",
         "cmtr": "Igor Gajsin",
         "date": "2016-08-01 17:25:57+03:00",
-        "files": ["install.pp", "site.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/install.pp",
+            "deployment_scripts/puppet/manifests/site.pp"]
       },
       {
         "hash": "a56de2fdfdfef2f34d10e76729946a7f230a8aeb",
         "msg": "haproxy and firewall\n\nChange-Id: I956a759a704f3bdc8195adae5bdbc82475b7a9c0",
         "cmtr": "Igor Gajsin",
         "date": "2016-08-02 12:05:56+03:00",
-        "files": ["haproxy.pp", "site.pp", "haproxy.pp", "deployment_tasks.yaml", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/haproxy.pp",
+            "deployment_scripts/puppet/manifests/site.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/haproxy.pp",
+            "deployment_tasks.yaml",
+            "metadata.yaml"]
       },
       {
         "hash": "7a683204b872049ee189eb3698206eb48dc22f21",
         "msg": "add the manila-manage db-sync command\n\nChange-Id: I7fbb55386f90e08e41570e0310c461e7c3a77625",
         "cmtr": "Igor Gajsin",
         "date": "2016-08-02 17:52:58+03:00",
-        "files": ["site.pp", "fs.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/site.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/fs.pp"]
       },
       {
         "hash": "ecd6cac77aa0d72fabaf5ae1727487fff58d83e4",
         "msg": "add service image\n\nAdd the manfiests for add service image to glance\n\nChange-Id: I6b19a36f2d4a0755c0f3434ff71b7db810c64d87",
         "cmtr": "Igor Gajsin",
         "date": "2016-08-03 16:55:07+03:00",
-        "files": ["db.pp", "install.pp", "populate_hiera.pp", "site.pp", "upload_cirros.rb", "image.pp", "environment_config.yaml", "metadata.yaml", "post_install.sh"]
+        "files": [
+            "deployment_scripts/puppet/manifests/db.pp",
+            "deployment_scripts/puppet/manifests/install.pp",
+            "deployment_scripts/puppet/manifests/populate_hiera.pp",
+            "deployment_scripts/puppet/manifests/site.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/files/upload_cirros.rb",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/image.pp",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "post_install.sh"]
       },
       {
         "hash": "04839b9a61ccb64366ac2a20cada8c4ba9b4f5cb",
         "msg": "fix populate hiera\n\nChange-Id: I8b09ead7e83d20fb57d2cdf92ca5af91e2c17532",
         "cmtr": "Igor Gajsin",
         "date": "2016-08-03 18:08:13+03:00",
-        "files": ["populate_hiera.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/populate_hiera.pp"]
       },
       {
         "hash": "9e79defcd413076c80af69bdc9bbed21d7b66adc",
         "msg": "fix a lot of typo and mistakes\n\nChange-Id: I9668967b8ac4a817fb6dc00de0daeda47d0281ef",
         "cmtr": "Igor Gajsin",
         "date": "2016-08-03 19:51:56+03:00",
-        "files": ["install.pp", "populate_hiera.pp", "image.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/install.pp",
+            "deployment_scripts/puppet/manifests/populate_hiera.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/image.pp"]
       },
       {
         "hash": "985756f14f8271c2d459ef73fea5e2b1f606ddca",
         "msg": "multiple improvement for generic driver\n\nChange-Id: I3fa289bbcdde897ec6dd2d06d1100718c5d416fc",
         "cmtr": "Igor Gajsin",
         "date": "2016-08-05 20:03:01+03:00",
-        "files": ["install.pp", "site.pp", "generic.pp", "data.pp", "ssh_keygen.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/install.pp",
+            "deployment_scripts/puppet/manifests/site.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/backend/generic.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/data.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/ssh_keygen.pp"]
       },
       {
         "hash": "d0745c23a2a87eb9dd977acb663f18cc6bad6720",
         "msg": "rewrite site.pp to stop using puppet-manila manifests\n\nChange-Id: I5afe8759ee0df65254d917d13d5568292f3ba7d3",
         "cmtr": "Igor Gajsin",
         "date": "2016-08-11 12:26:25+03:00",
-        "files": ["install.pp", "site.pp", "manila-common", "meta.sh", "conf.pp", "data.pp", "fs.pp", "init.pp", "meta.pp", "services.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/install.pp",
+            "deployment_scripts/puppet/manifests/site.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/files/manila-common",
+            "deployment_scripts/puppet/modules/manila_auxiliary/files/meta.sh",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/conf.pp",
+            "None",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/fs.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/init.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/meta.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/services.pp"]
       },
       {
         "hash": "95967424c93ac6ede64144072b27f6c1de4eccc8",
         "msg": "Add manila-ui to horizon\n\nChange-Id: I224c67c8a0406b72e3bfda63a61433dcf1639d81",
         "cmtr": "Igor Gajsin",
         "date": "2016-08-12 15:53:13+03:00",
-        "files": ["site.pp", "meta.pp", "ui.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/site.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/meta.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/ui.pp"]
       },
       {
         "hash": "f6e7db8f0cd537d0a894c2ce0c47391db5784b1a",
         "msg": "add imlicit ordering\n\nChange-Id: I8afc76b26911ef02c0ad26ae16e1f9627f558cef",
         "cmtr": "Igor Gajsin",
         "date": "2016-08-15 16:45:48+03:00",
-        "files": ["site.pp", "generic.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/site.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/backend/generic.pp"]
       },
       {
         "hash": "625726195b3303f90ccd636ea4cafb3c819226e8",
         "msg": "fix syntax error in site.pp\n\nChange-Id: I576a3a41cca478f0917403b0a5788ae7e8ebdafb",
         "cmtr": "Igor Gajsin",
         "date": "2016-08-16 16:50:23+03:00",
-        "files": ["site.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/site.pp"]
       },
       {
         "hash": "9c28d305c72800ec705917efb69aacdfb4222db9",
         "msg": "move generation of passwords and ssh keys to master node\n\nChange-Id: If22761b75ed18fb95af6f43c54a7a1d50e8c109a",
         "cmtr": "Igor Gajsin",
         "date": "2016-08-17 15:12:37+03:00",
-        "files": ["image_upload.pp", "install.pp", "master.pp", "master2.pp", "site.pp", "image.pp", "ssh_keygen.pp", "deployment_tasks.yaml", "gen_password.sh", "post_install.sh"]
+        "files": [
+            "deployment_scripts/puppet/manifests/image_upload.pp",
+            "deployment_scripts/puppet/manifests/install.pp",
+            "deployment_scripts/puppet/manifests/master.pp",
+            "deployment_scripts/puppet/manifests/master2.pp",
+            "deployment_scripts/puppet/manifests/site.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/image.pp",
+            "None",
+            "deployment_tasks.yaml",
+            "gen_password.sh",
+            "post_install.sh"]
       },
       {
         "hash": "c83d0ff273759c268b48c745f4a3aeb1fdebad44",
         "msg": "add manila-share and manila-data roles\n\nChange-Id: I2a08ba0b74edd76f71771531f3617a8bfec6d50f",
         "cmtr": "Igor Gajsin",
         "date": "2016-08-24 18:51:15+03:00",
-        "files": ["init_controller.pp", "init_data.pp", "init_share.pp", "install.pp", "install_sd.pp", "site.pp", "site_data.pp", "site_share.pp", "meta.sh", "services.pp", "deployment_tasks.yaml", "todo.org", "metadata.yaml", "node_roles.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/init_controller.pp",
+            "deployment_scripts/puppet/manifests/init_data.pp",
+            "deployment_scripts/puppet/manifests/init_share.pp",
+            "deployment_scripts/puppet/manifests/install.pp",
+            "deployment_scripts/puppet/manifests/install_sd.pp",
+            "deployment_scripts/puppet/manifests/site.pp",
+            "deployment_scripts/puppet/manifests/site_data.pp",
+            "deployment_scripts/puppet/manifests/site_share.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/files/meta.sh",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/services.pp",
+            "deployment_tasks.yaml",
+            "docs/todo.org",
+            "metadata.yaml",
+            "node_roles.yaml"]
       },
       {
         "hash": "2751b141bd5d2b001a2d4df6e3b25c32e85e83e4",
         "msg": "The refactoring\n\nChange-Id: Iec735a7a4107770c490d904dc31754defa5409bf",
         "cmtr": "Igor Gajsin",
         "date": "2016-08-26 18:33:29+03:00",
-        "files": ["generic.pp", "install.pp", "install_sd.pp", "master2.pp", "meta.pp", "site.pp", "site_data.pp", "site_share.pp", "start_controller.pp", "start_data.pp", "start_share.pp", "ui.pp", "generic.pp", "initd.pp", "ui.pp", "deployment_tasks.yaml", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/generic.pp",
+            "deployment_scripts/puppet/manifests/install.pp",
+            "None",
+            "None",
+            "deployment_scripts/puppet/manifests/meta.pp",
+            "deployment_scripts/puppet/manifests/site.pp",
+            "None",
+            "None",
+            "deployment_scripts/puppet/manifests/start_controller.pp",
+            "deployment_scripts/puppet/manifests/start_data.pp",
+            "deployment_scripts/puppet/manifests/start_share.pp",
+            "deployment_scripts/puppet/manifests/ui.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/backend/generic.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/initd.pp",
+            "None",
+            "deployment_tasks.yaml",
+            "metadata.yaml"]
       },
       {
         "hash": "df35ec624e74292393231f581a5e6413a1e5e998",
         "msg": "add the tls support\n\nChange-Id: I15e89f295ec0b4ea2fd408d58a089263b4ca8ff8",
         "cmtr": "Igor Gajsin",
         "date": "2016-08-30 17:05:31+03:00",
-        "files": ["keystone.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/keystone.pp"]
       },
       {
         "hash": "d6d2e39f93071aa51bd6b7686e03bdf7e7db8bd9",
         "msg": "add self signed certificate\n\nChange-Id: Iac97080af3cb08f31a3109e136fe22ed920dd03a",
         "cmtr": "Igor Gajsin",
         "date": "2016-09-01 14:25:35+03:00",
-        "files": ["site.pp", "init.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/site.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/init.pp"]
       },
       {
         "hash": "140f32576e60d43cd4fd7a1d4ffd5cf946df30d9",
         "msg": "fix config-generator for amqp_hosts\n\nChange-Id: I3ac9f6f232518322b9dffd862222147d54a89054",
         "cmtr": "Igor Gajsin",
         "date": "2016-09-14 16:33:22+03:00",
-        "files": ["site.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/site.pp"]
       },
       {
         "hash": "125770abffd04e8fb0db695902c02bbf34c85834",
         "msg": "add support of NetApp driver\n\nChange-Id: Ieef16ddfec9785221954c06c35d5a2df8a06c469",
         "cmtr": "Igor Gajsin",
         "date": "2016-09-16 16:35:39+03:00",
-        "files": ["site.pp", "start_share.pp", "netapp.pp", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/site.pp",
+            "deployment_scripts/puppet/manifests/start_share.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/manifests/backend/netapp.pp",
+            "environment_config.yaml"]
       },
       {
         "hash": "02d05319ad66268d4ad35df80195ec8b44877715",
         "msg": "remove unused manifest populate_hiera.pp\n\nChange-Id: I7a394a7ec61f413e8276da93967ab3b0309fbc85",
         "cmtr": "Igor Gajsin",
         "date": "2016-09-20 17:54:04+03:00",
-        "files": ["populate_hiera.pp"]
+        "files": [
+            "None"]
       },
       {
         "hash": "9901bb7d1984b00691a13ab5f71fed8067f3c53a",
         "msg": "add explicit apt preferences\n\nChange-Id: I71b4e33790deb62010c0aaa30b0f7345028ce178",
         "cmtr": "Igor Gajsin",
         "date": "2016-09-23 18:18:14+03:00",
-        "files": ["install.pp", "fuel-plugin-manila.pref"]
+        "files": [
+            "deployment_scripts/puppet/manifests/install.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/files/fuel-plugin-manila.pref"]
       },
       {
         "hash": "4158d1311439ba0155992b7a6099d812be7da3be",
         "msg": "rename the manila packages\n\nThe plugin build it's own packages for manila instead stored in the\nubuntu repositories. For avoiding confusing between them plugin's\npackages were renaimed.\n\nChange-Id: Iba2add1e01a7f5677bf7793e12c97ce3d3fb8ac1",
         "cmtr": "Igor Gajsin",
         "date": "2016-09-26 17:25:26+03:00",
-        "files": ["install.pp", "fuel-plugin-manila.pref", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/install.pp",
+            "None",
+            "pre_build_hook"]
       },
       {
         "hash": "15f3e8d5221a1391387d434285a64ef853024ccb",
         "msg": "prevent to execute unnecessary tasks when redeploy\n\nChange-Id: I8c61f9a207016a8a867062fa250f5b89749d2add",
         "cmtr": "Igor Gajsin",
         "date": "2016-09-27 12:46:17+03:00",
-        "files": ["db-sync.pp", "start_controller.pp", "start_data.pp", "start_share.pp", "deployment_tasks.yaml", "gen_keys.sh", "gen_password.sh"]
+        "files": [
+            "deployment_scripts/puppet/manifests/db-sync.pp",
+            "deployment_scripts/puppet/manifests/start_controller.pp",
+            "deployment_scripts/puppet/manifests/start_data.pp",
+            "deployment_scripts/puppet/manifests/start_share.pp",
+            "deployment_tasks.yaml",
+            "gen_keys.sh",
+            "gen_password.sh"]
       },
       {
         "hash": "c09287c523b5b59a445c2f54fd962d566bbbe82c",
         "msg": "Fix installation\n\nThere was the unexpected problem. Suddenly the python-heat package\ndepends on the python-manilaclient package in ubuntu. And when the\nplugin removes python-maniliaclient for changes this by its own ones,\nthis action destroys the heat completely.\n\nThis patch  provides the workaround of that.\n\nChange-Id: I5f6d963a1783eba838afdb93eef19108b70d5417\nCloses-bug: #1628063",
         "cmtr": "Igor Gajsin",
         "date": "2016-09-28 18:03:29+03:00",
-        "files": ["install.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/install.pp"]
       },
       {
         "hash": "8038e5961374a63fab1cd1f8c239d45b388e1725",
         "msg": "use latest manilaclient from pip\n\nChange-Id: I6031a2f029600a4c222bcc464e9d667ed173ec44",
         "cmtr": "Igor Gajsin",
         "date": "2016-10-06 19:29:34+03:00",
-        "files": ["install.pp", "meta.sh"]
+        "files": [
+            "deployment_scripts/puppet/manifests/install.pp",
+            "deployment_scripts/puppet/modules/manila_auxiliary/files/meta.sh"]
       },
       {
         "hash": "745d82a438382c8af584086aeaf25b641673f8c6",
         "msg": "fix type in the install.pp\n\nChange-Id: Ia990d110c2b87ec42d30d85fcba56d111ec935d2",
         "cmtr": "Igor Gajsin",
         "date": "2016-10-07 15:02:46+03:00",
-        "files": ["install.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/install.pp"]
       }]
     }

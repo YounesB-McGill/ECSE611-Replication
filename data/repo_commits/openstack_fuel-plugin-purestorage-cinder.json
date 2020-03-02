@@ -1,7 +1,19 @@
     {
       "url": "https://github.com/openstack/fuel-plugin-purestorage-cinder",
-      "pp_files": ["pure.pp", "compute.pp", "init.pp", "cinder.pp", "params.pp", "controller.pp", "common.pp"],
-      "pp_cmtrs": ["Simon Dodsley", "sdodsley", "Patrick East"],
+      "pp_files": [
+        "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/common.pp",
+        "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/init.pp",
+        null,
+        "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/compute.pp",
+        "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/params.pp",
+        "deployment_scripts/puppet/manifests/compute.pp",
+        "deployment_scripts/puppet/manifests/controller.pp",
+        "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp",
+        "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/cinder.pp",
+        "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/backend/pure.pp",
+        "deployment_scripts/puppet/manifests/cinder.pp"
+      ],
+      "pp_cmtrs": ["Patrick East", "sdodsley", "Simon Dodsley"],
       "num_pp_commits": 25,
       "num_tot_commits": 55,
       "commits": [{
@@ -9,174 +21,278 @@
         "msg": "Fuel Plugin for Pure Storage\n\nThe Pure Storage Cinder Fuel plugin provides an automated\nmethod to insert the necessary lines into the cinder.conf file.\n\nThe plugin extends the Fuel GUI to provide the necessary entry\nlocations for the information for the configuration file.\n\nChange-Id: Ia620669da1564f75b9572b721f484c2d572bfce1",
         "cmtr": "sdodsley",
         "date": "2015-10-05 11:47:49-04:00",
-        "files": ["LICENSE", "README.md", "compute.pp", "controller.pp", "99-pure-storage.rules", "multipath.conf.stub", "pure.pp", "common.pp", "compute.pp", "controller.pp", "init.pp", "params.pp", "deployment_tasks.yaml", "purestorage-cinder-guide.rst", "environment_config.yaml", "metadata.yaml", "pre_build_hook", ".gitkeep", ".gitkeep", "purestorage-plugin-specs.rst"]
+        "files": [
+            "LICENSE",
+            "README.md",
+            "deployment_scripts/puppet/manifests/compute.pp",
+            "deployment_scripts/puppet/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/files/99-pure-storage.rules",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/files/multipath.conf.stub",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/backend/pure.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/common.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/compute.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/init.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/params.pp",
+            "deployment_tasks.yaml",
+            "docs/purestorage-cinder-guide.rst",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "pre_build_hook",
+            "repositories/centos/.gitkeep",
+            "repositories/ubuntu/.gitkeep",
+            "specs/purestorage-plugin-specs.rst"]
       },
       {
         "hash": "200d8420f6dc5b66ed819d248eaf08d359ddb57a",
         "msg": "Update puppet files with corrected syntax\n\nFixing bugs in the code to allow other people to access\nthe latest codebase of this plugin\n\nChange-Id: I866447618da4b0aa3c89745e9832278d4ee7a569",
         "cmtr": "sdodsley",
         "date": "2015-10-11 10:08:40-04:00",
-        "files": ["pure.pp", "common.pp", "compute.pp", "controller.pp", "purestorage-cinder-guide.rst", "metadata.yaml", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/backend/pure.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/common.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/compute.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp",
+            "docs/purestorage-cinder-guide.rst",
+            "metadata.yaml",
+            "tasks.yaml"]
       },
       {
         "hash": "e33ca8853997b9f1b8717fe33a5bec79930e2914",
         "msg": "Final modifications to FUEL plugin\n\nAdd protocol code ready to future-proof code for FC capable FUEL, and\nensure backend pure class is correctly defined\n\nChange-Id: I727185251493ee24d592e97e590c7418fd9010dd",
         "cmtr": "sdodsley",
         "date": "2015-10-14 18:21:46-04:00",
-        "files": ["pure.pp", "controller.pp", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/backend/pure.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp",
+            "None",
+            "environment_config.yaml",
+            "metadata.yaml"]
       },
       {
         "hash": "27d3d4df8651a43049bd626052a0db6c5407c41d",
         "msg": "Update for Liberty Release of Fuel Plugin\n\nChange-Id: I0853e5361084b660c229c16aad956d63550f73b8\n\nRollup stable/kilo changes to Liberty version\n\nOnly deploy on cinder nodes - no need to specify controller node as nothing is done\nto the controller node\n\nChange-Id: I0014b8e572d15f19b1daf551f3a5fe712dd8c894",
         "cmtr": "sdodsley",
         "date": "2015-10-22 09:46:51-04:00",
-        "files": ["README.md", "cinder.pp", "pure.pp", "cinder.pp", "purestorage-cinder-guide.rst", "environment_config.yaml", "metadata.yaml", "purestorage-plugin-specs.rst", "tasks.yaml"]
+        "files": [
+            "README.md",
+            "deployment_scripts/puppet/manifests/cinder.pp",
+            "None",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/cinder.pp",
+            "docs/purestorage-cinder-guide.rst",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "specs/purestorage-plugin-specs.rst",
+            "tasks.yaml"]
       },
       {
         "hash": "2a94ed5eaae0e457221f4a986375810fe337115f",
         "msg": "Amend code after Mirantis Feedback\n\nRemove centos release - no supported in 7.0\nRemove commented out lines in common.pp manifst\nMove controller references to cinder as no actual controller node deployment is\nrequired - just on a node with the cinder service\nUpdated Fuel PRM after code change\n\nAdd new RPM with latest changes caused by\nChange-Id: Ia355da360853b4db4a197d9bba525e9786edd8ce",
         "cmtr": "sdodsley",
         "date": "2015-10-22 09:55:06-04:00",
-        "files": ["common.pp", "fuel-plugin-purestorage-cinder-1.0-1.0.0-1.noarch.rpm"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/common.pp",
+            "fuel-plugin-purestorage-cinder-1.0-1.0.0-1.noarch.rpm"]
       },
       {
         "hash": "0f8327acc62a922df6916c151e20bf7fc7889bc8",
         "msg": "Replay Mirantis comments from Stable/Kilo\n\nChange-Id: I781d35e069f6185812f285dc2189931498d4fe83",
         "cmtr": "sdodsley",
         "date": "2015-10-27 02:26:15-04:00",
-        "files": ["controller.pp", "controller.pp", "purestorage-cinder-guide.rst", "fuel-plugin-purestorage-cinder-2.0-2.0.0-1.noarch.rpm", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp",
+            "docs/purestorage-cinder-guide.rst",
+            "fuel-plugin-purestorage-cinder-2.0-2.0.0-1.noarch.rpm",
+            "tasks.yaml"]
       },
       {
         "hash": "90398b6a9958c0f0b4f814565bf8fc4f330ffb24",
         "msg": "Update with Glance Image Cache parameters\n\nWIP - needs to have tenant and user IDs added\nFix typo\nChange-Id: Id1261b4dcdee1b0ca8b3db1ac384c1db82f5851c",
         "cmtr": "sdodsley",
         "date": "2015-10-29 11:21:00-04:00",
-        "files": ["controller.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp"]
       },
       {
         "hash": "f11baa8dbd9bc4e2930d952ed9e9f1909dc776b1",
         "msg": "Fix typo\n\nChange-Id: I0cdb082c4080d18b144ff6dbd9546ac138b47bf6",
         "cmtr": "sdodsley",
         "date": "2015-11-05 19:29:11-05:00",
-        "files": ["controller.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp"]
       },
       {
         "hash": "deb7ef5d8a71b3e1c34c7ec8b8388510a4854b1f",
         "msg": "Update code to start looking at glance image cache params\n\nChange-Id: Icdcb6a7745ddfb8dbe870ddac990a415018431d0",
         "cmtr": "sdodsley",
         "date": "2015-11-24 11:03:32-05:00",
-        "files": ["controller.pp", "environment_config.yaml", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp",
+            "environment_config.yaml",
+            "metadata.yaml"]
       },
       {
         "hash": "956a2574654493f9a4199703039f43d0f4c44c2e",
         "msg": "New FCZM code and MPIO file and doc updates\n\nAdded FC backend code and updated GUI yaml layout\nReformat yaml and text, remove principal_switch_wwn as\ndeprecated and fix fc-zone-manager stanza build section\nReorder options\nAdd in option to use manual or automatic FCZM - change\nYAML conditions for this and add in code check for this\ncondition\n\nAdd multipath.conf file with Pure defaults\n\nUpdate docs to include API and VIP instructions and multipath\nnotes and known issues\n\nChange-Id: Ia3a524f0a48689a502c73f3bde93c189c4e74751",
         "cmtr": "sdodsley",
         "date": "2016-01-22 14:40:50-05:00",
-        "files": ["multipath.conf", "common.pp", "controller.pp", "API-Collection.png", "VIP-Collection.png", "purestorage-cinder-guide.rst", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/files/multipath.conf",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/common.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp",
+            "docs/figures/API-Collection.png",
+            "docs/figures/VIP-Collection.png",
+            "docs/purestorage-cinder-guide.rst",
+            "environment_config.yaml"]
       },
       {
         "hash": "afbe409075546ec3805987fece2416f957912343",
         "msg": "Implement custom function to generate keystone-like ID\n\nGenerate a random 32 charaqcter hex string to use as\na keystone-like ID.\n\nThis is required for the glance image-cache for cinder\ntenant and user IDs to be entered into cinder.conf\n\nChange-Id: I5e12eef26b6f9e2dba28be870bee38dbd6ebf2c9",
         "cmtr": "sdodsley",
         "date": "2016-01-28 13:38:27-05:00",
-        "files": ["controller.pp", "get_random_id.rb"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp",
+            "lib/puppet/parser/functions/get_random_id.rb"]
       },
       {
         "hash": "822a852d8d0bf741ba043b2c3f631eec94bc8d57",
         "msg": "Add UNMAP support for Nova Instances\n\nAdd hw_disk_discard = unmap to allow TRIM/UNMAP support for\nimages that support it.\n\nChange-Id: Ie02d17fb1d0b93a02630702fc5b0cc670534e486",
         "cmtr": "Simon Dodsley",
         "date": "2016-02-04 12:36:44-05:00",
-        "files": ["compute.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/compute.pp"]
       },
       {
         "hash": "0d24222b7f385e0449008e1b1d3ee7c8d16ab4b1",
         "msg": "Relocate common function\n\nChange-Id: Ie25ae0c8dce8e05b7f0f058449709309c88ff1a4",
         "cmtr": "Simon Dodsley",
         "date": "2016-02-16 14:46:06-05:00",
-        "files": ["get_random_id.rb", "common.pp", "compute.pp", "controller.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/lib/puppet/parser/functions/get_random_id.rb",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/common.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/compute.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp"]
       },
       {
         "hash": "b30de2e8a0b4689c8a6f70c6848cc0da7a79a778",
         "msg": "Code fixes\n\nChange-Id: I3b55bc97ff7f157d2dcc4b250b66169af2e6b93f",
         "cmtr": "Simon Dodsley",
         "date": "2016-02-18 09:58:44-05:00",
-        "files": ["get_random_id.rb", "controller.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/lib/puppet/parser/functions/get_random_id.rb",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp"]
       },
       {
         "hash": "6d0896010413365643cf02bc2464695ada98e388",
         "msg": "Only add Glance Image Cache info if needed\n\nOnly add the parameters for the Glance Image Cache is\nthis has been selected to be enabled in the Fuel GUI\n\nAlso make sure the Cinder tenant and user IDs are\n32 characters long.\nChange-Id: I2f11ceda93fb13bf94db4774b79dd02c20cf0613",
         "cmtr": "Simon Dodsley",
         "date": "2016-03-02 13:43:33-05:00",
-        "files": ["get_random_id.rb", "controller.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/lib/puppet/parser/functions/get_random_id.rb",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp"]
       },
       {
         "hash": "eb2a678908ae43f19f5c6a74da74db813ea9d93a",
         "msg": "Remove comma from enabled_backends\n\nAs there is no way to correctly pick up existing\nenabled_backends from Fuel we have no need to add\nthe backends parameters with a comma to the\nenabled_backends that is being set.\n\nIf you have 2 Cinder plugins enabled then the last one\nto run overwrite enabled_backends anyway. This needs\nto be investigated by Mirantis\n\nChange-Id: Ifeb72c2bad5285ef11d524c078dc62cebbb758f8",
         "cmtr": "Simon Dodsley",
         "date": "2016-03-02 17:56:48-05:00",
-        "files": ["controller.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp"]
       },
       {
         "hash": "72a57df5370b92ed6f513eff2aee84136797744b",
         "msg": "Interim fix for Mirantis bug (https://bugs.launchpad.net/fuel/+bug/1547048)\n\nRun 3 sepeerate commands in an exec() call instead of the\nusual pip provider call to make pip respond correctly\nand not crash\n\nChange-Id: Ic9449395d1aa0fcf02442adcd495e058383197fc",
         "cmtr": "Simon Dodsley",
         "date": "2016-03-11 09:12:04-05:00",
-        "files": ["controller.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp"]
       },
       {
         "hash": "be7dcd61b7f575dc1afe43ebd080bf8a99fb8d08",
         "msg": "Implement Consistency Groups Option\n\nAdd GUI radio button to allow selection of consistency groups.\nDefault is false, but if true then provide a modified policy.json\nfile with CG parameters configured correctly.\n\nChange-Id: I73b2dd592c4d66945943470269d52245f05d67e8",
         "cmtr": "Simon Dodsley",
         "date": "2016-03-11 16:46:19-05:00",
-        "files": ["policy.json", "controller.pp", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/files/policy.json",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp",
+            "environment_config.yaml"]
       },
       {
         "hash": "e6a06b9c035cfc13adc59e2b81d43453f03da3ac",
         "msg": "Update Plugin to support Mitaka\n\nUpdate Fuel version numbers where needed.\nUpdate Fuel plugin version number where needed.\nAdd new image in docs to aid with pre-configure of array.\nMove hiera parameters to puppet manifests and\nparameterize corresponding classes.\nFix regex for replication retention parameters\n\nChange-Id: I265b33ef85315cc5a909221bfe2116ff2e85bc7e",
         "cmtr": "Simon Dodsley",
         "date": "2016-03-29 16:22:33-04:00",
-        "files": ["README.md", "compute.pp", "controller.pp", "compute.pp", "controller.pp", "array_gui_user_guide.png", "purestorage-cinder-guide.rst", "environment_config.yaml", "metadata.yaml"]
+        "files": [
+            "README.md",
+            "deployment_scripts/puppet/manifests/compute.pp",
+            "deployment_scripts/puppet/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/compute.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp",
+            "docs/figures/array_gui_user_guide.png",
+            "docs/purestorage-cinder-guide.rst",
+            "environment_config.yaml",
+            "metadata.yaml"]
       },
       {
         "hash": "2056e74df9c4ca9fdc368b06f7410021b39644c1",
         "msg": "Use join() to concatrenate strings and ensure variables match\n\nChange-Id: I2711c7d61a9c727c156d096a3412b49423df1323",
         "cmtr": "Simon Dodsley",
         "date": "2016-05-17 15:51:20-04:00",
-        "files": ["controller.pp", "controller.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp"]
       },
       {
         "hash": "dd4f169c59d2f4b3b3a5a407dddcd0e74091b4e4",
         "msg": "Make Glance Image Cahe code idempotent\n\nInstead of creating random 32 character user and project IDs\nfor cinder internal user and tenant, use keystone to create\nthem and then obtain the IDs using an exec call as there is\nno keystone call to get this information.\n\nAdd custom facts to get keystone data for internal tenant\nand user.\n\nAdd volume type for Pure volumes and set default volume type\nto be Pure if multibackend.\n\nChange-Id: I24906fafe5216b7153ef67c0c529663bb66db6aa",
         "cmtr": "Simon Dodsley",
         "date": "2016-06-08 22:10:14-04:00",
-        "files": ["controller.pp", "cinder_tenant.rb", "cinder_user.rb", "controller.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/lib/facter/cinder_tenant.rb",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/lib/facter/cinder_user.rb",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp"]
       },
       {
         "hash": "97d19b64ca3c360dd6c29771bba825b98d0e9e24",
         "msg": "Make glance image cache IDs idempotent\n\nThere is no easy way to get a keystone user or tenant ID through\npuppet, so in the interim we will use a random string for each\nof these.\n\nhey are arbitrary values anyway and don't need to link to a true\nuser or tenant.\n\nChange-Id: I005436ba206753a0ab7a627fb10d66d194eba1f1",
         "cmtr": "Simon Dodsley",
         "date": "2016-06-24 14:13:56-04:00",
-        "files": ["controller.pp", "deployment_tasks.yaml", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp",
+            "deployment_tasks.yaml",
+            "environment_config.yaml"]
       },
       {
         "hash": "26dd95d2c41fed201a2ad065c62f00cf0b326247",
         "msg": "Final fix for idempotent code\n\nHard code cinder internal tenant and user IDs\n\nChange-Id: I7ab7afb4f4d38dc8e35bf7b6c6db419fd92fdff6",
         "cmtr": "Simon Dodsley",
         "date": "2016-07-04 21:32:14-04:00",
-        "files": ["controller.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp"]
       },
       {
         "hash": "922547e57c662aa1eea3e28acf4b92b2cf997557",
         "msg": "Remove multibackend option from plugin\n\nAs Cinder is deprecating the use of the DEFAULT stanza for\ndriver definitions and moving every driver to its own stanza\nwe are going to force multibacked to be true and therefore\nremoving the option from the GUI and all other references\nto it.\n\nChange-Id: I70bf4ad5c428ec0e0de3322f4da8680b54924d65",
         "cmtr": "Simon Dodsley",
         "date": "2016-07-07 23:19:09-04:00",
-        "files": ["controller.pp", "controller.pp", "cinder-purestorage-mitaka-plugin-1.png", "environment_config.yaml", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/controller.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp",
+            "doc/source/_static/cinder-purestorage-mitaka-plugin-1.png",
+            "environment_config.yaml",
+            "metadata.yaml"]
       },
       {
         "hash": "7e4404adb496ab13dd0605475d2ac03d35e0f7f2",
         "msg": "Get checks passing\n\nFirst changes: Make the puppet-lint tool happy\n\nWe skip a handful of checks, but at least now should catch some of the more simple stuff. This also formats the files a little more consistently.\n\nSecond change: Update the docs makefile so we can actually build the pdf with the expected commands\n\nChange-Id: Ia8e9224cad38baf5e4602f9be7af828dcffe6bbb",
         "cmtr": "Patrick East",
         "date": "2016-11-15 17:57:31-08:00",
-        "files": ["common.pp", "compute.pp", "controller.pp", "Makefile"]
+        "files": [
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/common.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/compute.pp",
+            "deployment_scripts/puppet/modules/plugin_purestorage_cinder/manifests/controller.pp",
+            "doc/Makefile"]
       }]
     }

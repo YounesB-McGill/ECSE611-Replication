@@ -1,7 +1,30 @@
     {
       "url": "https://github.com/openstack/puppet-vitrage",
-      "pp_files": ["logging.pp", "db.pp", "vitrage.pp", "init.pp", "sync.pp", "persistor.pp", "postgresql.pp", "params.pp", "graph.pp", "config.pp", "policy.pp", "authtoken.pp", "collector.pp", "deps.pp", "notifier.pp", "client.pp", "api.pp", "mysql.pp", "apache.pp", "auth.pp"],
-      "pp_cmtrs": ["Emilien Macchi", "Matthew J. Black", "zhongshengping", "huang.zhiping", "jacky06", "Tobias Urdin", "ZhongShengping", "yatin", "Andrew Smith", "Maksym Yatsenko", "Swapnil Kulkarni (coolsvap)", "zhubingbing", "Carlos Camacho", "Eyal", "Sharat Sharma", "Alex Schultz", "Mohammed Naser", "mgrosz", "Alfredo Moralejo", "Iury Gregory Melo Ferreira"],
+      "pp_files": [
+        "manifests/persistor.pp",
+        "manifests/collector.pp",
+        "manifests/wsgi/apache.pp",
+        "manifests/auth.pp",
+        "manifests/deps.pp",
+        "manifests/db/postgresql.pp",
+        "manifests/notifier.pp",
+        "manifests/client.pp",
+        "manifests/init.pp",
+        "manifests/config.pp",
+        "manifests/logging.pp",
+        "manifests/api.pp",
+        "examples/vitrage.pp",
+        "manifests/db/mysql.pp",
+        "manifests/keystone/auth.pp",
+        "manifests/keystone/authtoken.pp",
+        "manifests/policy.pp",
+        "manifests/params.pp",
+        "tests/init.pp",
+        "manifests/db/sync.pp",
+        "manifests/db.pp",
+        "manifests/graph.pp"
+      ],
+      "pp_cmtrs": ["zhubingbing", "Alfredo Moralejo", "ZhongShengping", "zhongshengping", "Swapnil Kulkarni (coolsvap)", "Carlos Camacho", "Sharat Sharma", "Alex Schultz", "Maksym Yatsenko", "Eyal", "Iury Gregory Melo Ferreira", "Mohammed Naser", "Matthew J. Black", "Andrew Smith", "yatin", "jacky06", "huang.zhiping", "Emilien Macchi", "mgrosz", "Tobias Urdin"],
       "num_pp_commits": 66,
       "num_tot_commits": 195,
       "commits": [{
@@ -9,461 +32,688 @@
         "msg": "puppet-vitrage: Initial commit\n\nThis is the initial commit for puppet-vitrage.\nIt has been automatically generated using cookiecutter[1] and msync[2]\n\n[1] https://github.com/openstack/puppet-openstack-cookiecutter\n[2] https://github.com/openstack/puppet-modulesync-configs\n\nChange-Id: Ieb46f034ed35fb5e3c187f78f730139b469d9cf4",
         "cmtr": "mgrosz",
         "date": "2015-12-17 07:53:19+02:00",
-        "files": [".gitignore", "Gemfile", "LICENSE", "README.md", "Rakefile", "ini_setting.rb", "vitrage_config.rb", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "init.pp", "auth.pp", "logging.pp", "params.pp", "policy.pp", "metadata.json", "centos-70-x64.yml", "default.yml", "nodepool-centos7.yml", "nodepool-trusty.yml", "ubuntu-server-1404-x64.yml", "vitrage_db_mysql_spec.rb", "vitrage_db_postgresql_spec.rb", "vitrage_db_spec.rb", "vitrage_keystone_auth_spec.rb", "vitrage_logging_spec.rb", "vitrage_policy_spec.rb", "shared_examples.rb", "spec_helper.rb", "spec_helper_acceptance.rb", "ini_setting_spec.rb", "vitrage_config_spec.rb", "init.pp"]
+        "files": [
+            ".gitignore",
+            "Gemfile",
+            "LICENSE",
+            "README.md",
+            "Rakefile",
+            "lib/puppet/provider/vitrage_config/ini_setting.rb",
+            "lib/puppet/type/vitrage_config.rb",
+            "manifests/config.pp",
+            "manifests/db.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "manifests/db/sync.pp",
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/logging.pp",
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "metadata.json",
+            "spec/acceptance/nodesets/centos-70-x64.yml",
+            "spec/acceptance/nodesets/default.yml",
+            "spec/acceptance/nodesets/nodepool-centos7.yml",
+            "spec/acceptance/nodesets/nodepool-trusty.yml",
+            "spec/acceptance/nodesets/ubuntu-server-1404-x64.yml",
+            "spec/classes/vitrage_db_mysql_spec.rb",
+            "spec/classes/vitrage_db_postgresql_spec.rb",
+            "spec/classes/vitrage_db_spec.rb",
+            "spec/classes/vitrage_keystone_auth_spec.rb",
+            "spec/classes/vitrage_logging_spec.rb",
+            "spec/classes/vitrage_policy_spec.rb",
+            "spec/shared_examples.rb",
+            "spec/spec_helper.rb",
+            "spec/spec_helper_acceptance.rb",
+            "spec/unit/provider/vitrage_config/ini_setting_spec.rb",
+            "spec/unit/type/vitrage_config_spec.rb",
+            "tests/init.pp"]
       },
       {
         "hash": "479098069f1137ff8f4b803d7dad3d77436db754",
         "msg": "Make Keystone_endpoint match service by name/type\n\nSince a chance in puppet-keystone (1], we now match an endpoint with a\nservice name/type.\n[1] http://git.openstack.org/cgit/openstack/puppet-keystone/commit/?id=0a4e06abb0f5b3f324464ff5219d2885816311ce\n\nChange-Id: I64088fb3fa7615eef41e566d67bed79dd8b1463c\nCloses-Bug: #1528308",
         "cmtr": "Emilien Macchi",
         "date": "2015-12-22 18:13:30+01:00",
-        "files": ["auth.pp", "vitrage_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "spec/classes/vitrage_keystone_auth_spec.rb"]
       },
       {
         "hash": "a09b375f34ad3639e6cd0cb899dc8f6ff7bfdc8f",
         "msg": "Support of PyMySQL driver for MySQL backend\n\nThis change adds the ability to use the python-pymysql library as the\nbackend for MySQL connections.\n\nChange-Id: I7b4390e0e4fe1f004e2c28df76fdbb9300114647",
         "cmtr": "Alex Schultz",
         "date": "2016-01-05 07:53:35-07:00",
-        "files": ["db.pp", "params.pp", "vitrage_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/params.pp",
+            "spec/classes/vitrage_db_spec.rb"]
       },
       {
         "hash": "b83f0d457142a53776bb8ab7ab853951604befb2",
         "msg": "Update typo\n\nChange-Id: I2ad0f969df5147e5c1c30a128c50222cb6670356",
         "cmtr": "Swapnil Kulkarni (coolsvap)",
         "date": "2016-01-08 03:34:25+00:00",
-        "files": ["mysql.pp"]
+        "files": [
+            "manifests/db/mysql.pp"]
       },
       {
         "hash": "291564e4f00ad50bc9c441c27d273dd7df469717",
         "msg": "add api_paste_ini configuration\n\nChange-Id: Id2e9eb23fb8cf3cd21b85c3fb3e1f60e034860cc",
         "cmtr": "Eyal",
         "date": "2016-05-17 10:10:56+03:00",
-        "files": ["ini_setting.rb", "vitrage_api_paste_ini.rb", "config.pp", "vitrage_config_spec.rb", "ini_setting_spec.rb", "vitrage_api_paste_ini_spec.rb"]
+        "files": [
+            "lib/puppet/provider/vitrage_api_paste_ini/ini_setting.rb",
+            "lib/puppet/type/vitrage_api_paste_ini.rb",
+            "manifests/config.pp",
+            "spec/classes/vitrage_config_spec.rb",
+            "spec/unit/provider/vitrage_api_paste_ini/ini_setting_spec.rb",
+            "spec/unit/type/vitrage_api_paste_ini_spec.rb"]
       },
       {
         "hash": "fddcd61e9915d5eee0d30635cd4102cb216feb67",
         "msg": "Switch to oslo log\n\n* configured using puppet oslo module instead of manual configuration\n* update the metadata.json with the dependency\n* remove verbose from logging\n  This option is deprecated in Mitaka and has been removed in Newton\n  ref: https://review.openstack.org/#/c/314573/\n\nChange-Id: Iea4e4470abd58b09b6a136c3757624ba0d941a90",
         "cmtr": "Eyal",
         "date": "2016-05-19 09:42:00+03:00",
-        "files": ["logging.pp", "metadata.json", "vitrage_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "metadata.json",
+            "spec/classes/vitrage_logging_spec.rb"]
       },
       {
         "hash": "326cf3889fbc5d593a2578c0946d65a19d9b441c",
         "msg": "change vitrage endpoint description and type\n\n* change the type and description\n* remove version from url\n\nChange-Id: I853235fb551628f0b82a39c29e46027f8f4ede1f",
         "cmtr": "Eyal",
         "date": "2016-05-19 15:35:49+03:00",
-        "files": ["auth.pp", "vitrage_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "spec/classes/vitrage_keystone_auth_spec.rb"]
       },
       {
         "hash": "df32501f110b46229d4220b8ba3a94dba8059ba0",
         "msg": "add api module and vitrage wsgi module\n\n* update the params module with new parameters\n* use wsgi if api is in httpd mode\n\nChange-Id: I1e3445327beb7447fdc400e9ed2abf3a76eff9da",
         "cmtr": "Eyal",
         "date": "2016-05-25 09:02:13+03:00",
-        "files": ["api.pp", "params.pp", "apache.pp", "vitrage_api_spec.rb", "vitrage_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/params.pp",
+            "manifests/wsgi/apache.pp",
+            "spec/classes/vitrage_api_spec.rb",
+            "spec/classes/vitrage_wsgi_apache_spec.rb"]
       },
       {
         "hash": "223d161b44bb053fa8c8a51e12f09cec90a44dc5",
         "msg": "Add vitrage auth and client class\n\n* auth.pp for vitrage authentication\n* client.pp for vitrage client installation\n\nChange-Id: I7bb2a372908614871eaca8c1aed82aaf002e4b90",
         "cmtr": "Eyal",
         "date": "2016-05-30 18:04:55+03:00",
-        "files": ["auth.pp", "client.pp", "params.pp", "vitrage_auth_spec.rb", "vitrage_client_spec.rb"]
+        "files": [
+            "manifests/auth.pp",
+            "manifests/client.pp",
+            "manifests/params.pp",
+            "spec/classes/vitrage_auth_spec.rb",
+            "spec/classes/vitrage_client_spec.rb"]
       },
       {
         "hash": "98cc8f89da71070ad90529225b7cc623466b7843",
         "msg": "Add vitrage graph class\n\nChange-Id: Ibc53be11ab7e0e0604e8b4cd3c140c17fb1d6ca7",
         "cmtr": "Eyal",
         "date": "2016-06-01 09:31:20+03:00",
-        "files": ["graph.pp", "init.pp", "params.pp", "vitrage_graph_spec.rb"]
+        "files": [
+            "manifests/graph.pp",
+            "manifests/init.pp",
+            "manifests/params.pp",
+            "spec/classes/vitrage_graph_spec.rb"]
       },
       {
         "hash": "b7621647cfb096029563e962ae75dfaed7e002c3",
         "msg": "Switch vitrage to oslo\n\nThe db and policy options are configured using puppet oslo module.\n\nChange-Id: I828d107f07c4fccefbf126e7b14deb4463f87ddb",
         "cmtr": "ZhongShengping",
         "date": "2016-06-02 10:21:16+08:00",
-        "files": ["db.pp", "params.pp", "policy.pp", "vitrage_db_spec.rb", "vitrage_policy_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "spec/classes/vitrage_db_spec.rb",
+            "spec/classes/vitrage_policy_spec.rb"]
       },
       {
         "hash": "caa4e47bea9160ac07796e9fef222111c3ec06e1",
         "msg": "Fix parameters comments\n\nFix comments format.\nAdd default values.\n\nChange-Id: I000c184b573a9b6f487d8fd4f06e656131ac4af4",
         "cmtr": "ZhongShengping",
         "date": "2016-06-12 09:44:14+08:00",
-        "files": ["api.pp", "auth.pp", "client.pp", "db.pp", "mysql.pp", "postgresql.pp", "auth.pp", "logging.pp", "params.pp", "policy.pp"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/auth.pp",
+            "manifests/client.pp",
+            "manifests/db.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/logging.pp",
+            "manifests/params.pp",
+            "manifests/policy.pp"]
       },
       {
         "hash": "4e0f86f13afce265db2c3abf25c0e349fa44f966",
         "msg": "Add vitrage notifier class\n\nChange-Id: Ic27d39b0caa94aef889e39f425924bda426d64fe",
         "cmtr": "Eyal",
         "date": "2016-06-21 13:12:08+03:00",
-        "files": ["notifier.pp", "params.pp", "vitrage_notifier_spec.rb"]
+        "files": [
+            "manifests/notifier.pp",
+            "manifests/params.pp",
+            "spec/classes/vitrage_notifier_spec.rb"]
       },
       {
         "hash": "3d9c68e0ee9e65c469914f778cca02cd76578279",
         "msg": "update init.pp and add example file\n\nChange-Id: Ia360afc448c61ece0f2a498705a41d7f13af08cd",
         "cmtr": "Eyal",
         "date": "2016-07-05 10:16:42+03:00",
-        "files": ["vitrage.pp", "init.pp", "vitrage_init_spec.rb"]
+        "files": [
+            "examples/vitrage.pp",
+            "manifests/init.pp",
+            "spec/classes/vitrage_init_spec.rb"]
       },
       {
         "hash": "4fcb53a0ee4846261db164512c5e584db036d7b1",
         "msg": "update example file with endpoint creation\n\nChange-Id: I83457065ccdd9d6e336a2feec36b784178222e9e",
         "cmtr": "Eyal",
         "date": "2016-07-24 16:02:42+03:00",
-        "files": ["vitrage.pp"]
+        "files": [
+            "examples/vitrage.pp"]
       },
       {
         "hash": "3aa4a17860a53817d82328cd3b57df38db67a232",
         "msg": "Move Vitrage to authtoken\n\n-Remove authtoken parameters from api.pp and tests\n-Add authtoken class with all parameters to configure\nkeystone_authtoken section in configuration file.\n\nChange-Id: I4d72037b3c8f8b86ba93e00822d9133cf5391275\nRelated-Bug: #1604463",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-08-05 13:24:05-03:00",
-        "files": ["api.pp", "authtoken.pp", "vitrage_api_spec.rb", "vitrage_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/keystone/authtoken.pp",
+            "spec/classes/vitrage_api_spec.rb",
+            "spec/classes/vitrage_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "fa8e86ae9ef1754b8614c03895e9c753cb78df17",
         "msg": "Fix authtoken and metadata\n\n-Fix identation in authtoken class doc\n-Fix metadata to require puppet-keystone\n\nChange-Id: Icb708bac2770e8ef83fe842b7e22948510b9124c",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-08-15 11:26:14-03:00",
-        "files": ["authtoken.pp", "metadata.json"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "metadata.json"]
       },
       {
         "hash": "d8e91b4d41906bb90439889b1fdbb67671067b20",
         "msg": "Fix puppet-lint before upgrading gem\n\nRemoving 140 chars limit exeeded in favor\nof upgrading puppet-lint\n\n2016-09-14 08:00:15.128339 | manifests/api.pp:87:WARNING: line has more than 140 characters\n\nChange-Id: I1e7c0c9743adcd880bd756c43e6c95bdde7b1ba5",
         "cmtr": "Carlos Camacho",
         "date": "2016-09-14 10:34:33+02:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "7184672d8a2c5d6709e81ffd8ac13a832be164b2",
         "msg": "Remove unnecesary spaces in log messages.\n\nSpaces added by mistake in some log messages.\n\nChange-Id: Ifa05d0643ab3e66e11e94aff5955e53c64e7a736",
         "cmtr": "Carlos Camacho",
         "date": "2016-09-26 14:32:47+02:00",
-        "files": ["api.pp"]
+        "files": [
+            "manifests/api.pp"]
       },
       {
         "hash": "2c0dcf88a1a0fd7e29df5452b0590842e960f388",
         "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: Ic6094bb265879bd6ad14beeb3a966a79d4d3b3ea\nCloses-Bug: #1628580",
         "cmtr": "Sharat Sharma",
         "date": "2016-09-29 09:13:46+00:00",
-        "files": ["sync.pp"]
+        "files": [
+            "manifests/db/sync.pp"]
       },
       {
         "hash": "01dbd1308cfb4d26aea6f3edd81ddf4cc68d654c",
         "msg": "Change worker defaults to ::os_workers\n\nThis patch changes the default worker count from ::processorcount to the\nnew ::os_workers fact. ::os_workers is based on the number of processors\n(currently cpu/4) but is capped at a maximum of 8 worker processors.\nThis is a much more reasonable default in general and prevents excessive\nresource consumption on systems with a large number of CPUs.\n\nChange-Id: I00f93bc5030a794d16fae8dadef7f0396332d80f",
         "cmtr": "Maksym Yatsenko",
         "date": "2016-10-08 02:20:22+03:00",
-        "files": ["apache.pp", "os_workers_for_worker_count-071c71584192e3f3.yaml", "vitrage_api_spec.rb", "vitrage_db_postgresql_spec.rb", "vitrage_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/os_workers_for_worker_count-071c71584192e3f3.yaml",
+            "spec/classes/vitrage_api_spec.rb",
+            "spec/classes/vitrage_db_postgresql_spec.rb",
+            "spec/classes/vitrage_wsgi_apache_spec.rb"]
       },
       {
         "hash": "5542e5ad92b67f10b6c3a78dab079a2884e308c0",
         "msg": "Add support for db_max_retries param\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: Ibe03fcbf2cec154ae51753fb916705b8b5dcad4d\nCloses-Bug: 1579718",
         "cmtr": "ZhongShengping",
         "date": "2016-10-27 23:05:39+08:00",
-        "files": ["db.pp", "vitrage_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "spec/classes/vitrage_db_spec.rb"]
       },
       {
         "hash": "10bdf4f769dfd88833f122d16e5d1dfdd029fb38",
         "msg": "Add enable_proxy_headers_parsing option\n\nThe patch enables paste middleware to handle SSL requests through\nHTTPProxyToWSGI middleware.\n\nChange-Id: Iff08aa323fa63978ec8666610f197fa6038a2c28",
         "cmtr": "ZhongShengping",
         "date": "2016-10-28 20:32:57+08:00",
-        "files": ["api.pp", "add_enable_proxy_header_parsing-1e76d9125938e219.yaml", "vitrage_api_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "releasenotes/notes/add_enable_proxy_header_parsing-1e76d9125938e219.yaml",
+            "spec/classes/vitrage_api_spec.rb"]
       },
       {
         "hash": "eeb9d722afc6ba660d5980da5e5a7e48418e7b8e",
         "msg": "include ::openstacklib::defaults in params.pp\n\nThe ::openstacklib::defaults is default configuration for all\nopenstack-puppet module. This file is loaded in the params.pp\nof each class\n\nChange-Id: I43dcb204c1d1ba777ad05fe04378d15eaa0a0203",
         "cmtr": "ZhongShengping",
         "date": "2016-11-08 11:41:41+08:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "418b9c1602b6efb0c457acd359bccba96e151a92",
         "msg": "Deprecate rabbitmq connection parameters\n\nThe rabbitmq connection parameters have been deprecated in favor of the\ntransport_url setting.\n\nChange-Id: I30258476791a5e1a000d232455cb4d1b843b85ff\nRelated-Bug: #1625198",
         "cmtr": "Alex Schultz",
         "date": "2016-11-10 16:02:27-07:00",
-        "files": ["init.pp", "vitrage_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/vitrage_init_spec.rb"]
       },
       {
         "hash": "0fa819aafa15390a07163cd96e410636a34b9260",
         "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nChange-Id: I9265926488573daeba3acfcd8659caef3e37b9e2",
         "cmtr": "ZhongShengping",
         "date": "2016-12-07 16:09:31+08:00",
-        "files": ["api.pp", "auth.pp", "client.pp", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "graph.pp", "init.pp", "auth.pp", "authtoken.pp", "logging.pp", "notifier.pp", "policy.pp", "apache.pp", "vitrage_api_spec.rb", "vitrage_graph_spec.rb", "vitrage_init_spec.rb", "vitrage_notifier_spec.rb", "vitrage_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/api.pp",
+            "manifests/auth.pp",
+            "manifests/client.pp",
+            "manifests/config.pp",
+            "manifests/db.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "manifests/db/sync.pp",
+            "manifests/deps.pp",
+            "manifests/graph.pp",
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/keystone/authtoken.pp",
+            "manifests/logging.pp",
+            "manifests/notifier.pp",
+            "manifests/policy.pp",
+            "manifests/wsgi/apache.pp",
+            "spec/classes/vitrage_api_spec.rb",
+            "spec/classes/vitrage_graph_spec.rb",
+            "spec/classes/vitrage_init_spec.rb",
+            "spec/classes/vitrage_notifier_spec.rb",
+            "spec/classes/vitrage_wsgi_apache_spec.rb"]
       },
       {
         "hash": "2941b3f939e1654de5eb4d63514adf84de786ef3",
         "msg": "Remove signing_dir option\n\nThe signing_dir is deprecated for removel because PKI token format\nis no longer supported.\n\nChange-Id: I8eca92237301a26a014b95b138211cb655d88f7e\nCloses-Bug: #1652700",
         "cmtr": "ZhongShengping",
         "date": "2016-12-28 14:38:22+08:00",
-        "files": ["authtoken.pp", "vitrage_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "spec/classes/vitrage_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "19150dae42f0c814f6c1020d78fd5424f31ccbd4",
         "msg": "Allow python-memcache install from authtoken class\n\nThe python-memcache package is required if using memcached. By\ndefault the package is not installed and the define has it set to\nfalse. This change allows managing the python-memcache package\ninstall from the authtoken class.\n\nChange-Id: Ia27c33e963f35140e161737ae06afc241df0b117",
         "cmtr": "Matthew J. Black",
         "date": "2017-01-11 18:41:55-05:00",
-        "files": ["authtoken.pp", "authtoken_manage_memcache_package-6b33e3bbf61c8e07.yaml", "vitrage_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/authtoken_manage_memcache_package-6b33e3bbf61c8e07.yaml",
+            "spec/classes/vitrage_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "22e9ab0feddbe266aa0fd7eaf5aba9d849808137",
         "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should be\ninstalled before dbsync starts.\n\nChange-Id: I8f3fa5dd43c36f6253509327ddbf9563204b773c",
         "cmtr": "ZhongShengping",
         "date": "2017-01-22 22:06:01+08:00",
-        "files": ["deps.pp"]
+        "files": [
+            "manifests/deps.pp"]
       },
       {
         "hash": "76fe44c7f02d6a218072c3e46b98986b3291a5c2",
         "msg": "Add control_exchange and rpc_response_timeout options\n\nAdd control_exchange to configure an exchange name for message.\nAdd rpc_response_timeout to configure seconds time for waiting\nfor a response from a call.\n\nChange-Id: I40e284d72ac10c7d0b22b57d33401d1211b9232e",
         "cmtr": "ZhongShengping",
         "date": "2017-02-08 17:19:50+08:00",
-        "files": ["init.pp", "vitrage_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/vitrage_init_spec.rb"]
       },
       {
         "hash": "54082ea086ed044be8180f6253f8484c40ab3ef1",
         "msg": "Update auth parameters to support Keystone v3\n\nUpdate service_credentials to support Keystone v3 by default.\n\n* Add project_domain_name and user_domain_name, default to default\ndomain.\n* Add auth_type default to password.\n* Update tenant_name to project_name, in a transparent way.\n\n\n\nChange-Id: I4743bfe1fa0e6ab1763985239b2de273e4aeb4c0",
         "cmtr": "Eyal",
         "date": "2017-02-14 06:10:53+00:00",
-        "files": ["auth.pp", "vitrage_api_spec.rb", "vitrage_auth_spec.rb"]
+        "files": [
+            "manifests/auth.pp",
+            "spec/classes/vitrage_api_spec.rb",
+            "spec/classes/vitrage_auth_spec.rb"]
       },
       {
         "hash": "2183b6f3f4fac6ef63104d509d596250d840c8a6",
         "msg": "Inconsistent package_ensure parameter name\n\nThe parameter name used to enforce package state is inconsistent across\nmanifests and modules. I settle on package_ensure since it's already\nwidely used.\n\nChange-Id: I52a903ad06efff389a731c845b8c8a1958bfdad5\nCloses-Bug: #1668732",
         "cmtr": "ZhongShengping",
         "date": "2017-03-08 18:03:44+08:00",
-        "files": ["init.pp", "vitrage_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/vitrage_init_spec.rb"]
       },
       {
         "hash": "3cd1fa6a4ffb5ad3d05ab35f0c24eaeb33d30581",
         "msg": "keep backward compatibility in logging\n\ncurrently puppet-openstack-integration for vitrage is in debug true\nbut it doesnt work this change will fix it\n\nChange-Id: I60df55889d3da68f89e6cb5983663f61fc2edc47",
         "cmtr": "Eyal",
         "date": "2017-03-14 08:53:50+02:00",
-        "files": ["logging.pp", "vitrage_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "spec/classes/vitrage_logging_spec.rb"]
       },
       {
         "hash": "49a49a9ae193685009eee2959f063bc7e37b1de1",
         "msg": "add new paramters to vitrage class\n\nadd the ability to use diffrent parameters then default\nfor viterage\n\ndatasources type and snapshots_interval\n\nChange-Id: I554e1a34fba135b52d7b92ba23702c3dadd2f1da",
         "cmtr": "Eyal",
         "date": "2017-03-21 10:24:48+02:00",
-        "files": ["init.pp", "vitrage_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/vitrage_init_spec.rb"]
       },
       {
         "hash": "2422f26b2df5cfb45d1d2b7da068eff001386cec",
         "msg": "Add the setting log level\n\nIncrease the setting log level in the synchronization database.\n\nChange-Id: Ia38512b1c97ecbca556605e760584376d8725dd9\nCloses-Bug: #1683567",
         "cmtr": "ZhongShengping",
         "date": "2017-04-18 11:37:21+08:00",
-        "files": ["sync.pp", "vitrage_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "spec/classes/vitrage_db_sync_spec.rb"]
       },
       {
         "hash": "c5365cee79170441f485a112a80bb79669519677",
         "msg": "Add class to manage vitrage-collector service\n\nNew service vitrage-collector has been added to vitrage\nin https://review.openstack.org/#/c/474560.\n\nThis patch adds support for this new service.\n\nChange-Id: I1d18f6c0d38bb66e03ab2977570310cb2357015c",
         "cmtr": "Alfredo Moralejo",
         "date": "2017-06-26 11:10:05+02:00",
-        "files": ["collector.pp", "params.pp", "vitrage_wsgi_apache_spec.rb", "vitrage_collector_spec.rb"]
+        "files": [
+            "manifests/collector.pp",
+            "manifests/params.pp",
+            "spec/acceptance/vitrage_wsgi_apache_spec.rb",
+            "spec/classes/vitrage_collector_spec.rb"]
       },
       {
         "hash": "4efb8e8df587b184987f0e9a0965565b3e6928d2",
         "msg": "Add customization for wsgi process displayname\n\nChange-Id: I9877cce106597709da53c8c2f552344daaf9c41b\nRelated-Bug: #1626550",
         "cmtr": "Alex Schultz",
         "date": "2017-07-13 15:52:00-06:00",
-        "files": ["apache.pp", "vitrage_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "spec/classes/vitrage_wsgi_apache_spec.rb"]
       },
       {
         "hash": "089ea93ee15e1abf5715c710981aa9955dbc0802",
         "msg": "Fix filename of api-paste.ini\n\nChange-Id: I7507c81948b14705c79cf0b11ae362ce79b5504e\nCloses-Bug: #1706473",
         "cmtr": "ZhongShengping",
         "date": "2017-07-26 09:31:51+08:00",
-        "files": ["ini_setting.rb", "vitrage_api_paste_ini.rb", "config.pp"]
+        "files": [
+            "lib/puppet/provider/vitrage_api_paste_ini/ini_setting.rb",
+            "lib/puppet/type/vitrage_api_paste_ini.rb",
+            "manifests/config.pp"]
       },
       {
         "hash": "37ce8b45e6e457f448d5d7f09d51a774b78be23d",
         "msg": "Remove rpc_backend conditional for oslo.messaging driver options\n\nOslo.messaging uses the transport_url to represent the rpc and\nnotification messaging driver to use and its full configuration. The\nrpc_backend configuration option is deprecated for removal and\nshould not gate oslo.messaging driver configuration options.\n\nThis patch:\n* deprecate rpc_backend\n* remove conditional check\n* update spec tests\n* add release note\n\nChange-Id: I2700421a187d8f815ba42a4160c46659876f854e",
         "cmtr": "Andrew Smith",
         "date": "2017-07-26 13:52:49-04:00",
-        "files": ["init.pp", "deprecate_rpc_backend_parameter-3b1fd613e7d10904.yaml", "vitrage_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/deprecate_rpc_backend_parameter-3b1fd613e7d10904.yaml",
+            "spec/classes/vitrage_init_spec.rb"]
       },
       {
         "hash": "e5f1e917b6a8f7f6b9827ac419b5a846e60e7451",
         "msg": "Fix rpc_backend option warning and test failed\n\n1) The value of rpc_backend option is 'rabbit', not $::os_service_default.\nso fix the if statement condition.\n2) Fix unit test.\n\nCloses-Bug: #1708976\n\nChange-Id: Ie407c576f8f45856f63bd843f3c7b88876683f5a",
         "cmtr": "ZhongShengping",
         "date": "2017-08-07 11:22:19+08:00",
-        "files": ["init.pp", "vitrage_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/vitrage_init_spec.rb"]
       },
       {
         "hash": "149618bd8259a1fce6ab12ffb0717c10d0828689",
         "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message.\n\nChange-Id: I630565efc7803efe3c96cf476f389e90bcd42f6e\nCloses-Bug: #1717144",
         "cmtr": "ZhongShengping",
         "date": "2017-09-14 12:22:25+08:00",
-        "files": ["authtoken.pp", "vitrage_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "spec/classes/vitrage_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "624199560bdf68badc5683fb6af31b6101833b84",
         "msg": "Accept empty strings for log_dir\n\nAn empty string is an acceptable value of this entry, and it forces\nlogging to stdout/stderr, which is useful when running on containers.\n\nChange-Id: Idabeecc10657d96102d496e8204ef92a420a62b7",
         "cmtr": "ZhongShengping",
         "date": "2017-10-12 09:44:45+08:00",
-        "files": ["logging.pp"]
+        "files": [
+            "manifests/logging.pp"]
       },
       {
         "hash": "3a15286a8a0760e912e53283a872984bb225282d",
         "msg": "Allow setting log files for apache vhost\n\nThis allows the setting of the error and access file logs, as well as\nthe access log format. This was done in a similar fashion as one can\nconfigure these ones in the keystone wsgi manifest.\n\nChange-Id: Ie2a4c15d48b678371516cd2e20b019737b8ee742",
         "cmtr": "ZhongShengping",
         "date": "2017-10-12 09:47:54+08:00",
-        "files": ["apache.pp", "vitrage_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "spec/classes/vitrage_wsgi_apache_spec.rb"]
       },
       {
         "hash": "57c2e664dcb4b9553016a2ba2b6589ac9c72332b",
         "msg": "Revert \"Allow setting log files for apache vhost\"\n\nWe did not cut a stable/pike release for this module.  This patch\nwill remove a functionality which is incompatible with the\nstable/pike branch and it will be restored in master.\n\nThis reverts commit 3a15286a8a0760e912e53283a872984bb225282d.\n\nChange-Id: I76b6e36e230db4951cff218ee8581401d7078466",
         "cmtr": "Mohammed Naser",
         "date": "2017-10-13 13:28:52-04:00",
-        "files": ["apache.pp", "vitrage_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "spec/classes/vitrage_wsgi_apache_spec.rb"]
       },
       {
         "hash": "7fd74fc141031001972ae0b1193189986f37840e",
         "msg": "Revert \"Revert \"Allow setting log files for apache vhost\"\"\n\nThis reverts commit e8fc275e3cf729f6c890eefc96faa6a6d0b06cf2.\n\nChange-Id: I556f740f0fbc9372598afe551681cfcbc76800a5",
         "cmtr": "Mohammed Naser",
         "date": "2017-10-13 13:28:56-04:00",
-        "files": ["apache.pp", "vitrage_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "spec/classes/vitrage_wsgi_apache_spec.rb"]
       },
       {
         "hash": "3f78b85cbf2bc1eb2232010a8c78549dd3764632",
         "msg": "Switch to use keystone v3\n\nKeystone v2 api's are removed in [1], so it's required\nto use keystone v3 otherwise all requests fallbacks to\nkeystone v2.0 and fails.\n\n[1] https://review.openstack.org/#/c/499783/\n\nChange-Id: I0464d6b37c3e269d3bdc1eb5034ec751f977b6a8\nCloses-Bug: #1723838",
         "cmtr": "ZhongShengping",
         "date": "2017-10-19 15:33:52+08:00",
-        "files": ["auth.pp", "vitrage_wsgi_apache_spec.rb", "vitrage_auth_spec.rb"]
+        "files": [
+            "manifests/auth.pp",
+            "spec/acceptance/vitrage_wsgi_apache_spec.rb",
+            "spec/classes/vitrage_auth_spec.rb"]
       },
       {
         "hash": "d57cecf1c486bf12494c3a5dcebabe24d973c031",
         "msg": "Configure *_domain_name to Default by default\n\nKeystone v2.0 API was removed so we have no choice but configuring\nuser_domain_name and project_domain_name otherwise it fallbacks to\nKeystone v2.0 and it fails. This patch sets the default value so we make\nsure Keystone v3 will be used out of the box for our users.\n\nChange-Id: I722d3d730a57a2106b1e9db99020c475bdd15fb5",
         "cmtr": "zhongshengping",
         "date": "2017-10-23 00:58:29+00:00",
-        "files": ["authtoken.pp", "default_domain-8403fba2483f6a63.yaml", "vitrage_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/default_domain-8403fba2483f6a63.yaml",
+            "spec/classes/vitrage_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "0ef4004e85039e6d5231df9b9db912787ac4abf3",
         "msg": "add parameter to overwrite/add wsgi process options\n\nAdd parameter to apache_wsgi to allow overwrite\nand/or add additional wsgi process options.\n\nThis possibility was added to openstacklib\nwith Change-Id: I41914ce3361988d5db1695f09d21209772fdf548\nlease enter the commit message for your changes. Lines starting\n\nChange-Id: I477745910b2f03e75d5faa280825c5ca45daae27",
         "cmtr": "zhongshengping",
         "date": "2017-10-30 01:55:06+00:00",
-        "files": ["apache.pp", "wsgi_process_options-86ddc92c18e3eb87.yaml", "vitrage_wsgi_apache_spec.rb"]
+        "files": [
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/wsgi_process_options-86ddc92c18e3eb87.yaml",
+            "spec/classes/vitrage_wsgi_apache_spec.rb"]
       },
       {
         "hash": "eb4a954f2b353e411146c72f15be7f6841c5cd94",
         "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: I2416a66dbb8719192d6e342ee9c58d639a86db41",
         "cmtr": "ZhongShengping",
         "date": "2017-11-28 09:46:53+08:00",
-        "files": ["logging.pp", "log-json-56713a3350875e18.yaml", "vitrage_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "releasenotes/notes/log-json-56713a3350875e18.yaml",
+            "spec/classes/vitrage_logging_spec.rb"]
       },
       {
         "hash": "528d14b4c361fe52ba6fd21191266385d49031fd",
         "msg": "Update db-sync command\n\nChange-Id: Id3d72c6f34e697a1c90d52b192ca81d0ec4f0552",
         "cmtr": "Emilien Macchi",
         "date": "2017-12-28 16:54:08-08:00",
-        "files": ["sync.pp", "vitrage_wsgi_apache_spec.rb", "vitrage_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "spec/acceptance/vitrage_wsgi_apache_spec.rb",
+            "spec/classes/vitrage_db_sync_spec.rb"]
       },
       {
         "hash": "2f61c54b8a4d64f698cb42babbe5331230a86953",
         "msg": "Introduce vitrage::persistor\n\nChange-Id: I34b7c0d151bd94f5aac31dd166246accbbcb69c0",
         "cmtr": "Emilien Macchi",
         "date": "2018-01-02 21:21:31-08:00",
-        "files": ["params.pp", "persistor.pp", "persistor-0cb9b81c46a8bf57.yaml", "vitrage_persistor_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/persistor.pp",
+            "releasenotes/notes/persistor-0cb9b81c46a8bf57.yaml",
+            "spec/classes/vitrage_persistor_spec.rb"]
       },
       {
         "hash": "adc19e93a2d3bc23b90c532c74cc37b491468c1f",
         "msg": "Allow to configure notifiers\n\nChange-Id: I2fadae52aa59e3ee0fe74ddd3973a3e0863adca1",
         "cmtr": "Emilien Macchi",
         "date": "2018-01-04 10:43:46-08:00",
-        "files": ["notifier.pp", "vitrage_notifier_spec.rb"]
+        "files": [
+            "manifests/notifier.pp",
+            "spec/classes/vitrage_notifier_spec.rb"]
       },
       {
         "hash": "7c18d5ac7ace63d16f1681642502b52839b61fd3",
         "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nChange-Id: I10db340eeb00824864d0048ebb8a2df1acff98ef\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
         "cmtr": "Emilien Macchi",
         "date": "2018-01-10 14:24:00-08:00",
-        "files": ["params.pp", "policy.pp", "vitrage_policy_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "spec/classes/vitrage_policy_spec.rb"]
       },
       {
         "hash": "f687aa3909288ad4c4f34d5da89afa97139fb400",
         "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: I51411d8fcea59d828f2d1c6c179d78c9ab516a0e",
         "cmtr": "ZhongShengping",
         "date": "2018-01-15 17:37:24+08:00",
-        "files": ["logging.pp", "add-use_journal-option-for-logging-96ae85ddf08d29ef.yaml", "vitrage_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "releasenotes/notes/add-use_journal-option-for-logging-96ae85ddf08d29ef.yaml",
+            "spec/classes/vitrage_logging_spec.rb"]
       },
       {
         "hash": "5e6e68140d5a9a157160fd2e7b7767374d82a153",
         "msg": "Rename persistor config opt\n\nvitrage has renamed 'persistor/persist_events' config\noption in [1], similar change is required in puppet-vitrage.\n\n[1] https://review.openstack.org/#/c/530650\n\nChange-Id: I140dddd7baae00b11cbb50f3cf2d1a3b6b7e162b",
         "cmtr": "yatin",
         "date": "2018-01-16 15:19:35+05:18",
-        "files": ["persistor.pp", "rename_persistor_config_params-2898e5dd42fdd5f3.yaml", "vitrage_persistor_spec.rb"]
+        "files": [
+            "manifests/persistor.pp",
+            "releasenotes/notes/rename_persistor_config_params-2898e5dd42fdd5f3.yaml",
+            "spec/classes/vitrage_persistor_spec.rb"]
       },
       {
         "hash": "f647323eda384fbc42b0e3fe2ec03f9ac122e7b2",
         "msg": "Add kombu_failover_strategy option\n\nAdds the kombu_failover_strategy option for configuring\noslo.messaging.rabbit. This will determines how the next RabbitMQ node\nis chosen in case the one we are currently connected to becomes\nunavailable.\n\nChange-Id: I4556053733b57d806294119d3ec2361428011565\nCloses-Bug: #1748353",
         "cmtr": "ZhongShengping",
         "date": "2018-02-09 15:11:22+08:00",
-        "files": ["init.pp", "add_rabbit_kombu_options-9b167119946ec445.yaml", "vitrage_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add_rabbit_kombu_options-9b167119946ec445.yaml",
+            "spec/classes/vitrage_init_spec.rb"]
       },
       {
         "hash": "c9b4316df44154d9baf74dbe8dd0839ba8bed7d2",
         "msg": "Fix mysql connection\n\nURL mysql://scott:***@some_host/some_db does not contain a '+drivername'\nportion, and will make use of a default driver. A full dbname+drivername://\nprotocol is recommended. For MySQL, it is strongly recommended that\nmysql+pymysql:// be specified for maximum service compatibility.\n\nChange-Id: I8646f135ca2fa28c1858a900bac21acdadb08401\nCloses-Bug: #1753342",
         "cmtr": "ZhongShengping",
         "date": "2018-03-05 09:01:00+08:00",
-        "files": ["db.pp", "vitrage_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "spec/classes/vitrage_db_spec.rb"]
       },
       {
         "hash": "ca291e7ee9766989cb1ec89f992206e68882325c",
         "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: I86811c7e3c38106eb9ed45180970344e060ed7e7\nCloses-Bug: #1755102",
         "cmtr": "ZhongShengping",
         "date": "2018-03-12 16:34:35+08:00",
-        "files": ["sync.pp", "openstack_db_tag-b63b1eccf6075b52.yaml", "vitrage_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "releasenotes/notes/openstack_db_tag-b63b1eccf6075b52.yaml",
+            "spec/classes/vitrage_db_sync_spec.rb"]
       },
       {
         "hash": "4d529fdd47e2cbea414a32362c796b2fbd5645e3",
         "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: Ie8b3d5bbdfaea4a557b52eb33a0830a8bde0e9c8\nCloses-Bug: #1757581",
         "cmtr": "ZhongShengping",
         "date": "2018-03-22 11:09:51+08:00",
-        "files": ["db.pp", "add-pool_timeout-option-for-db-9511cbe6db20fc43.yaml", "vitrage_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "releasenotes/notes/add-pool_timeout-option-for-db-9511cbe6db20fc43.yaml",
+            "spec/classes/vitrage_db_spec.rb"]
       },
       {
         "hash": "e6fc31d0ad67b488c25a28188446e0a3aefd6ad8",
         "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: I4494127d11456a237af33cc969bde2dae081ce9c\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nDepends-On: I1bb3489acf1f591eefbad91bdbb666b21a53238a\nCloses-Bug: #1759098",
         "cmtr": "ZhongShengping",
         "date": "2018-04-05 09:57:37+08:00",
-        "files": ["authtoken.pp", "deprecate_auth_uri_parameter-8c906f4509fae5fd.yaml", "vitrage_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_auth_uri_parameter-8c906f4509fae5fd.yaml",
+            "spec/classes/vitrage_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "ce75a80f8b75a0a7c7c58600302a90235bd91537",
         "msg": "Debian is using python3-vitrageclient\n\nChange-Id: If75b85bd2daa17abcf7036b50e5a8008c4195d93\nDepends-On: I1bb3489acf1f591eefbad91bdbb666b21a53238a",
         "cmtr": "zhubingbing",
         "date": "2018-04-12 15:11:22+08:00",
-        "files": ["params.pp", "vitrage_client_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "spec/classes/vitrage_client_spec.rb"]
       },
       {
         "hash": "febd164f4a3c4cf558679996476e3a4eee899ed3",
         "msg": "Remove deprecated rpc_backend param\n\nRemove the deprecated rpc_backend param which has been deprecated for\ntwo years. The default_transport_url has been present for a while\nnow and should be used.\n\nChange-Id: I98aaa75dfdc49f5cf55a7dfe4d4cc686e4cc1155",
         "cmtr": "ZhongShengping",
         "date": "2018-05-24 11:20:18+08:00",
-        "files": ["init.pp", "remove-deprecated-rabbit-params-bf69afc64a71c765.yaml"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/remove-deprecated-rabbit-params-bf69afc64a71c765.yaml"]
       },
       {
         "hash": "51c9915c4322c225c84af306b83d0b7c2ad2eecc",
         "msg": "Replace port 35357 with 5000 for \"auth_url\"\n\nBased on the change in Keystone Install Guide [1],\nthis patch replace port 35357 with 5000 for \"auth_url\".\n\nFor more details, please check similar changes which have been done\non other projects: Nova [2], Neutron [3], Cinder [4], Glance [5].\n\n[1] https://review.openstack.org/#/c/541857\n[2] https://review.openstack.org/#/c/562812\n[3] https://review.openstack.org/#/c/566491\n[4] https://review.openstack.org/#/c/565464\n[5] https://review.openstack.org/#/c/558932\n\nChange-Id: I13ed19989321e80771a62ed43cfaaf37a35425bd",
         "cmtr": "huang.zhiping",
         "date": "2018-05-26 17:17:31+08:00",
-        "files": ["authtoken.pp", "vitrage_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "spec/classes/vitrage_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "fdca0ac18a8d2177945c36b5f8b27bbd23dccfe3",
         "msg": "Fix annotations\n\nChange-Id: I6f3abdb0de2e2b70f5b01a1257c53cc5e180e99c",
         "cmtr": "zhubingbing",
         "date": "2018-06-15 15:07:38+08:00",
-        "files": ["mysql.pp"]
+        "files": [
+            "manifests/db/mysql.pp"]
       },
       {
         "hash": "be197699c46fe36d15ae18e16f1cd36b0c8a5701",
         "msg": "Replace port 35357 with 5000\n\nChange-Id: I5d5881bcb372206a07c847cb892f0447ceb834c6",
         "cmtr": "Tobias Urdin",
         "date": "2018-07-18 10:31:43+02:00",
-        "files": ["vitrage.pp"]
+        "files": [
+            "examples/vitrage.pp"]
       },
       {
         "hash": "75f8f31c7a05267458f1adb6e68b73ffd461d238",
         "msg": "Fix the smoke testing link\n\nChange-Id: I68e4171857a581fe1b82a7c698e239b02285756f",
         "cmtr": "jacky06",
         "date": "2018-07-30 12:31:36-04:00",
-        "files": ["init.pp"]
+        "files": [
+            "tests/init.pp"]
       }]
     }

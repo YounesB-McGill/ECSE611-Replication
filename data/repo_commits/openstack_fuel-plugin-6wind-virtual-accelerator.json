@@ -1,7 +1,26 @@
     {
       "url": "https://github.com/openstack/fuel-plugin-6wind-virtual-accelerator",
-      "pp_files": ["service.pp", "neutron_conf_controller.pp", "config.pp", "external_repo.pp", "init.pp", "6wind_repo.pp", "start_va.pp", "nova_conf.pp", "neutron_conf_compute.pp", "configure_va.pp", "install_va.pp", "install.pp", "neutron_conf.pp"],
-      "pp_cmtrs": ["Francesco Santoro", "Vincent JARDIN"],
+      "pp_files": [
+        "deployment_scripts/puppet/manifests/external_repo.pp",
+        "deployment_scripts/puppet/modules/virtual_accelerator/manifests/neutron_conf.pp",
+        "deployment_scripts/puppet/modules/virtual_accelerator/manifests/neutron_conf_controller.pp",
+        "deployment_scripts/puppet/manifests/install_va.pp",
+        "deployment_scripts/puppet/modules/virtual_accelerator/manifests/service.pp",
+        "deployment_scripts/puppet/modules/virtual_accelerator/manifests/install.pp",
+        "deployment_scripts/puppet/manifests/neutron_conf_compute.pp",
+        null,
+        "deployment_scripts/puppet/modules/virtual_accelerator/manifests/neutron_conf_compute.pp",
+        "deployment_scripts/puppet/modules/virtual_accelerator/manifests/nova_conf.pp",
+        "deployment_scripts/puppet/manifests/neutron_conf.pp",
+        "deployment_scripts/puppet/modules/virtual_accelerator/manifests/init.pp",
+        "deployment_scripts/puppet/manifests/nova_conf.pp",
+        "deployment_scripts/puppet/manifests/neutron_conf_controller.pp",
+        "deployment_scripts/puppet/manifests/start_va.pp",
+        "deployment_scripts/puppet/manifests/6wind_repo.pp",
+        "deployment_scripts/puppet/manifests/configure_va.pp",
+        "deployment_scripts/puppet/modules/virtual_accelerator/manifests/config.pp"
+      ],
+      "pp_cmtrs": ["Vincent JARDIN", "Francesco Santoro"],
       "num_pp_commits": 22,
       "num_tot_commits": 52,
       "commits": [{
@@ -9,153 +28,259 @@
         "msg": "6wind-virtual-accelerator-plugin: initial commit\n\nThis initial commit creates and populates the 6WIND virtual\naccelerator fuel plugin.\nIt is based on the Fuel Plugins 3.0 skeleton and it uses puppet\nmodules for deployment tasks.\n\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>\nAcked-by: Samuel Gauthier <samuel.gauthier@6wind.com>\nAcked-by: Vincent Jardin <vincent.jardin@6wind.com>\n\nChange-Id: Iea2ab728669d89a209bfe03d13a66a48f5c5b510",
         "cmtr": "Francesco Santoro",
         "date": "2016-02-09 11:32:57+01:00",
-        "files": ["LICENSE", "README.md", "configure_va.pp", "external_repo.pp", "install_va.pp", "start_va.pp", "6wind-ppa.pref", "config_va.sh", "config.pp", "init.pp", "install.pp", "service.pp", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "node_roles.yaml", ".gitkeep"]
+        "files": [
+            "LICENSE",
+            "README.md",
+            "deployment_scripts/puppet/manifests/configure_va.pp",
+            "deployment_scripts/puppet/manifests/external_repo.pp",
+            "deployment_scripts/puppet/manifests/install_va.pp",
+            "deployment_scripts/puppet/manifests/start_va.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/files/6wind-ppa.pref",
+            "deployment_scripts/puppet/modules/virtual_accelerator/files/config_va.sh",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/config.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/init.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/install.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/service.pp",
+            "deployment_tasks.yaml",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "node_roles.yaml",
+            "repositories/ubuntu/.gitkeep"]
       },
       {
         "hash": "308030bb9fe33eee10678aef42562a4fc89092ca",
         "msg": "6wind-virtual-accelerator-plugin: retrieve 6wind packages from repo\n\nThis patch updates virtual accelerator installation procedure to use\nnew 6wind repository.\nThe same repository system is used for 6wind openstack extensions\npackage download.\nTo allow these downloads the user need to upload a credentials package\n(provided by 6wind) in base64 encoding.\nThis procedure is a workaround and it should be replaced with direct\nupload of the package when corresponding fuel bug will be solved\n(https://bugs.launchpad.net/fuel/+bug/1545795).\n\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>\nAcked-by:\n\nChange-Id: Ia28a84043db712ad2840b6cd7f8981db04e67078",
         "cmtr": "Francesco Santoro",
         "date": "2016-03-25 09:41:35+01:00",
-        "files": ["README.md", "6wind_repo.pp", "external_repo.pp", "6wind-ppa.pref", "6wind-virtual-accelerator.pref", "cpu-cgroup.conf", "config.pp", "init.pp", "install.pp", "service.pp", "deployment_tasks.yaml", "environment_config.yaml"]
+        "files": [
+            "README.md",
+            "deployment_scripts/puppet/manifests/6wind_repo.pp",
+            "deployment_scripts/puppet/manifests/external_repo.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/files/6wind-ppa.pref",
+            "deployment_scripts/puppet/modules/virtual_accelerator/files/6wind-virtual-accelerator.pref",
+            "deployment_scripts/puppet/modules/virtual_accelerator/files/cpu-cgroup.conf",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/config.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/init.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/install.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/service.pp",
+            "deployment_tasks.yaml",
+            "environment_config.yaml"]
       },
       {
         "hash": "452751d036d0c8d9a4f7248bbbd96ce2563de192",
         "msg": "6wind-virtual-accelerator-plugin: disable security group ipset\n\nThis patch adds an option to configure compute and network nodes to\ndisable ipset (plugin default behavior) via the Web UI.\n\nChange-Id: I10546822f27bc5e695fcf2113cbcdedfc220e304\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>",
         "cmtr": "Francesco Santoro",
         "date": "2016-03-25 14:56:29+01:00",
-        "files": ["neutron_conf.pp", "init.pp", "neutron_conf.pp", "deployment_tasks.yaml", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/neutron_conf.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/init.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/neutron_conf.pp",
+            "deployment_tasks.yaml",
+            "environment_config.yaml"]
       },
       {
         "hash": "d714747cf740cc614fd981fd7ab4d765b47288c3",
         "msg": "fuel-plugin-6wind-virtual-accelerator: use new names for certificates\n\nThis patch updates the names of the certificates used for 6WIND\nrepository retrieval to be compliant with most recent credentials package.\n\nChange-Id: I8172bac19fd7a4cb62e5ef67f74b5f1a1a9fc9c3\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>\nAcked-by:",
         "cmtr": "Francesco Santoro",
         "date": "2016-04-04 17:55:31+02:00",
-        "files": ["6wind_repo.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/6wind_repo.pp"]
       },
       {
         "hash": "6932c1e54b6d35a1f33f9a1c0847ebbda7847ffd",
         "msg": "6wind-va-plugin: small fixes to ipset disable option\n\nLet's disable security group ipset even when advanced options are\ndisabled and just on \"primary-controller\" nodes.\n\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>\n\nChange-Id: I1e28fcb96aa187088d4fe3adeb93a32b8bd3df5b",
         "cmtr": "Francesco Santoro",
         "date": "2016-04-08 09:54:56+02:00",
-        "files": ["neutron_conf.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/neutron_conf.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "c1336faa6acb750d9eabf5fbfa21a01e8fc206e0",
         "msg": "6wind-va-plugin: set vcpu_pin_set before starting VA service\n\nThis patch computes the vcpu_pin_set before starting the virtual accelerator\nservice since we may not be able to retrieve this information when the\nservice is already running.\n\nChange-Id: I19d2e56e8ddd09d2c3248484b4794fe506e151d8\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>",
         "cmtr": "Francesco Santoro",
         "date": "2016-04-08 09:54:56+02:00",
-        "files": ["service.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/service.pp"]
       },
       {
         "hash": "7c4810e25bc18eff43a8c13fa112fc1e7017da73",
         "msg": "6wind-va-plugin: use common 6WIND repo for openstack extensions\n\nLet's retrieve the 6WIND openstack extensions package directly from\nvirtual accelerator repository and use the regular repo preference file\ninstead of the embedded one.\n\nChange-Id: Ie0e00251a9772107b80a2f5fce8f3bf615ac3a3d\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>",
         "cmtr": "Francesco Santoro",
         "date": "2016-04-08 09:54:56+02:00",
-        "files": ["6wind_repo.pp", "6wind-virtual-accelerator.pref"]
+        "files": [
+            "deployment_scripts/puppet/manifests/6wind_repo.pp",
+            "None"]
       },
       {
         "hash": "c309df02a2f75484f8e2672d8c37af8a421b4436",
         "msg": "6wind-virtual-accelerator-plugin: use service instead of exec\n\nThis patch reworks the scripts to use the puppet service resource\ninstead of calling services using exec.\n\nChange-Id: Ib28ca7100a24a57f1b9074ef7eee6d079308233b\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>",
         "cmtr": "Francesco Santoro",
         "date": "2016-06-03 10:01:23+02:00",
-        "files": ["config.pp", "neutron_conf.pp", "service.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/config.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/neutron_conf.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/service.pp"]
       },
       {
         "hash": "84de58e02e0c6430b458dda2cd3226a638fa7279",
         "msg": "6wind-virtual-accelerator-plugin: update apparmor exit status\n\nWhen redeploying environments it may be possible that Linux\napparmor has already been configured (by a previous Fuel deployment\nwith the plugin).\nIn this case the apparmor command will fail since the configuration\nit tries to enforce is already present (254 is returned as exit code).\nThis patch adds this exit code to the list of correct values in\nthe specific puppet exec.\n\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>\n\nChange-Id: I21617eee0a17b1e52b1f00f8a9905e4ad0b1a61e",
         "cmtr": "Francesco Santoro",
         "date": "2016-06-03 10:01:23+02:00",
-        "files": ["config.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/config.pp"]
       },
       {
         "hash": "a9c08301ac2389ea2b6745d070e090fb7d1212c3",
         "msg": "6wind-virtual-accelerator-plugin: use 6wind_ prefix for license file\n\nThis patch renames the license file to use the 6wind_ prefix in order to make\neasier for users to find and understand this file.\n\nChange-Id: I5329278bb852420eee456a28ea73749d8679083a\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>",
         "cmtr": "Francesco Santoro",
         "date": "2016-06-03 15:57:31+02:00",
-        "files": ["config.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/config.pp"]
       },
       {
         "hash": "83577ade809a992f7f766670ae64e417efc71f53",
         "msg": "6wind-virtual-accelerator-plugin: va typo\n\nUpdate the typos of virtual accelerator -> Virtual Accelerator.\n\nChange-Id: I44b87a5947647a944ae3239a4ec83fadb9dc2a65\nSigned-off-by: Vincent JARDIN <vincent.jardin@6wind.com>",
         "cmtr": "Vincent JARDIN",
         "date": "2016-06-09 09:52:44+02:00",
-        "files": ["init.pp", "appendix.rst", "conf.py", "activation.png", "advanced.png", "index.rst", "installation.rst", "introduction.rst", "user-guide.rst", "environment_config.yaml", "metadata.yaml", "spec-1.0.rst", "README", "compute_check_stats_after.sh", "run_tests.sh"]
+        "files": [
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/init.pp",
+            "doc/source/appendix.rst",
+            "doc/source/conf.py",
+            "doc/source/images/activation.png",
+            "doc/source/images/advanced.png",
+            "doc/source/index.rst",
+            "doc/source/installation.rst",
+            "doc/source/introduction.rst",
+            "doc/source/user-guide.rst",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "spec/spec-1.0.rst",
+            "tests/README",
+            "tests/compute_check_stats_after.sh",
+            "tests/run_tests.sh"]
       },
       {
         "hash": "b385d3a0e379e7ba1abed4d4c8ea918a9f03bbc8",
         "msg": "6wind-virtual-accelerator-plugin: rework parameters displaying\n\nWith the 6WIND Virtual Accelerator 1.3.2 some advanced parameters have been\ndismissed and the default value of others has changed.\nThis patch updates both these parameters in the Web UI and documentation.\n\nMoreover the \"License File\" upload section has been moved to be always visible.\n\nChange-Id: I1a8ee3bb2dd2068505a39bbe09fcbda4aac07514\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>",
         "cmtr": "Francesco Santoro",
         "date": "2016-06-24 16:20:35+02:00",
-        "files": ["config.pp", "init.pp", "activation.png", "advanced.png", "installation.rst", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/config.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/init.pp",
+            "doc/source/images/activation.png",
+            "doc/source/images/advanced.png",
+            "doc/source/installation.rst",
+            "environment_config.yaml"]
       },
       {
         "hash": "773111dacfbfc9ca9b0c0f7f0ef7946621dd90db",
         "msg": "fuel-plugin-virtual-accelerator: keep apparmor libvirt profile\n\nThis commit changes the hugepages mount point chosen by virtual accelerator\nin order to use one authorized by apparmor for libvirt (/dev/hugepages).\nThanks to this patch we can now keep the apparmor libvirt profile.\n\nChange-Id: I27eb4841f7e8350c234a0b11a28b363704bf22e9\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>",
         "cmtr": "Francesco Santoro",
         "date": "2016-06-29 16:45:34+02:00",
-        "files": ["config.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/config.pp"]
       },
       {
         "hash": "51b6fcd8b3cb379c99bbfe9688a912474d36fb01",
         "msg": "6wind-virtual-accelerator-plugin: add option for cpu host emulation\n\nThis patch adds an option to enable/disable the cpu host emulation for\nguests.\n\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>\n\nChange-Id: I8826b3662069368ce2dff30bb45558595d08ba63\n(cherry picked from commit fa106a27358d9517676f9cad0eba339a6fe7498f)\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>",
         "cmtr": "Francesco Santoro",
         "date": "2016-07-15 11:52:48+02:00",
-        "files": ["init.pp", "service.pp", "user-guide.rst", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/init.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/service.pp",
+            "doc/source/user-guide.rst",
+            "environment_config.yaml"]
       },
       {
         "hash": "2ac6b2387b21845b2411db13eb5b26aa080e3904",
         "msg": "6wind-virtual-accelerator-plugin: workaround for ceilometer bug\n\nWhen ceilometer is enabled on controller node and the plugin is active,\nthe environment deployment fails on the compute node hitting a bug similar\nto https://bugs.launchpad.net/fuel/+bug/1603446.\n\nMore details available here:\nhttps://github.com/openstack/fuel-library/blob/stable/8.0/deployment/puppet/osnailyfacter/lib/facter/libvirt_package_version.rb\nhttps://github.com/openstack/fuel-library/blob/stable/8.0/deployment/puppet/openstack/manifests/ceilometer.pp#L201\n\nIn particular the problem is visible when Fuel wants to add the ceilometer\nuser to the libvirt group. This group does not exist since the\nlibvirt package provided by 6WIND uses the libvirtd group instead.\n\nWith this patch the plugin simply creates an additional 'libvirt' group to\navoid command failures.\n\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>\n\nChange-Id: I463d15f470bf97dd028020f3c7ba9e8e49ac4cb5",
         "cmtr": "Francesco Santoro",
         "date": "2016-08-31 17:19:07+02:00",
-        "files": ["external_repo.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/external_repo.pp"]
       },
       {
         "hash": "e6f8bf2b89523903954fd5721597a384da69ceac",
         "msg": "6wind-virtual-accelerator-plugin: add support for multiple product version\n\nThis patch adds a field to define which version of 6WIND Virtual\nAccelerator will be installed.\nMoreover the default value now points to the last stable version thus we\nneed to make sure to disable ipset ONLY when using the Virtual\nAccelerator 1.3.\n\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>\n\nChange-Id: Ia314535b520b4ac9e916a497366f075095d57335",
         "cmtr": "Francesco Santoro",
         "date": "2016-09-01 10:32:39+02:00",
-        "files": ["6wind_repo.pp", "init.pp", "neutron_conf.pp", "activation.png", "advanced.png", "installation.rst", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/6wind_repo.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/init.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/neutron_conf.pp",
+            "doc/source/images/activation.png",
+            "doc/source/images/advanced.png",
+            "doc/source/installation.rst",
+            "environment_config.yaml"]
       },
       {
         "hash": "5f4ee260a915ed857524597f7afc8e5c882e1ab1",
         "msg": "6wind-virtual-accelerator-plugin: support for Mellanox NICs\n\nThis commit enables support for 6WIND Virtual Accelerator addon for\nMellanox NICs support.\n\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>\n\nChange-Id: I57d9c3ac29fffda0d77058dd637df03a15ec5ada",
         "cmtr": "Francesco Santoro",
         "date": "2016-09-01 10:33:29+02:00",
-        "files": ["init.pp", "install.pp", "activation.png", "advanced.png", "installation.rst", "user-guide.rst", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/init.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/install.pp",
+            "doc/source/images/activation.png",
+            "doc/source/images/advanced.png",
+            "doc/source/installation.rst",
+            "doc/source/user-guide.rst",
+            "environment_config.yaml"]
       },
       {
         "hash": "26aeb3be1f10caabdb6ee406c876028a664b395a",
         "msg": "6wind-virtual-accelerator-plugin: basic Fuel 9 support\n\nThis commit adds basic plugin support for Fuel 9.\nIn particular this patch should be considered a first version\nsince it does not leverage the new Fuel 9 NFV experimental\nfeatures.\nActually these NFV features have to be disabled to avoid\ndeployment failures.\n\nChange-Id: Ie0beae198b2b3439c96741efd892b36961dd671e\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>",
         "cmtr": "Francesco Santoro",
         "date": "2016-09-05 16:20:03+02:00",
-        "files": ["neutron_conf.pp", "service.pp", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/neutron_conf.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/service.pp",
+            "metadata.yaml"]
       },
       {
         "hash": "bf94308fd5ba1414ce3e68badd336df64cf2d267",
         "msg": "6wind-virtual-accelerator-plugin: postpone 6wind extension installation\n\nThis patch postpones 6wind-openstack-extension in the post deployment\nphase to make sure that nova compute is already installed.\nThis scenario should not happen but let's make sure.\n\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>\n\nChange-Id: I92bea776cc0aa354aede88ef00316b8762841b83",
         "cmtr": "Francesco Santoro",
         "date": "2016-10-10 15:04:37+02:00",
-        "files": ["install.pp", "service.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/install.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/service.pp"]
       },
       {
         "hash": "bdea8de7494bd4eabc46bfaf015a9fc73785722d",
         "msg": "6wind-virtual-accelerator-plugin: use new task for nova configuration\n\nLet's move all the nova configuration performed on the\ncompute + virtual accelerator node in a dedicated deployment task.\n\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>\n\nChange-Id: I1d01f6a4770193db9c5eee4386441d15f766576c",
         "cmtr": "Francesco Santoro",
         "date": "2016-10-10 15:44:00+02:00",
-        "files": ["nova_conf.pp", "nova_conf.pp", "service.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/nova_conf.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/nova_conf.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/service.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "d3f2e1fdc6c373ecb42c3ef1bc8d230d6ca51847",
         "msg": "6wind-virtual-accelerator-plugin: implement security group deactivation\n\nThis patch reworks plugin to:\n\n - remove the possibility to disable ipset since starting from\n   Virtual Accelerator 1.4 ipset are fully supported.\n\n - allow neutron security groups deactivation to benefit from better\n   performances.\n\nDisabling security groups needs (different) configurations on controller and\ncompute nodes. For this reason this patch moves all the node specific\nneutron configuration in specific tasks for a better separation of code.\n\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>\nCloses-bug: #1631953\n\nChange-Id: I030d41751811831144be0b640ae19e56f22a8f0b",
         "cmtr": "Francesco Santoro",
         "date": "2016-11-29 16:17:48+01:00",
-        "files": ["neutron_conf.pp", "neutron_conf_compute.pp", "neutron_conf_controller.pp", "init.pp", "neutron_conf_compute.pp", "neutron_conf_controller.pp", "nova_conf.pp", "deployment_tasks.yaml", "user-guide.rst", "environment_config.yaml"]
+        "files": [
+            "None",
+            "deployment_scripts/puppet/manifests/neutron_conf_compute.pp",
+            "deployment_scripts/puppet/manifests/neutron_conf_controller.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/init.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/neutron_conf_compute.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/neutron_conf_controller.pp",
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/nova_conf.pp",
+            "deployment_tasks.yaml",
+            "doc/source/user-guide.rst",
+            "environment_config.yaml"]
       },
       {
         "hash": "4a224054c3470b1ab76f0ad8fc37a759876fd952",
         "msg": "6wind-virtual-accelerator-plugin: fix to license file installation\n\nAlways install virtual accelerator license file (if available)\n\nChange-Id: I9189fd1582318d8bfeb3831f545b4c9b1f9d9dec\nCloses-bug: 1632712\nSigned-off-by: Francesco Santoro <francesco.santoro@6wind.com>",
         "cmtr": "Francesco Santoro",
         "date": "2016-11-29 16:17:48+01:00",
-        "files": ["config.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/virtual_accelerator/manifests/config.pp"]
       }]
     }

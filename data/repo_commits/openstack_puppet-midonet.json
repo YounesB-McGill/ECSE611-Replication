@@ -1,7 +1,43 @@
     {
       "url": "https://github.com/openstack/puppet-midonet",
-      "pp_files": ["cli.pp", "centos.pp", "ubuntu.pp", "cluster.pp", "init.pp", "cassandra.pp", "midonet_api.pp", "quickstart.pp", "params.pp", "midonet_agent.pp", "network_creation.pp", "augeas.pp", "mem.pp", "subscription.pp", "static.pp", "interface_up.pp", "zookeeper.pp", "midonet_cli.pp", "agent.pp", "scrapper.pp", "vhost.pp", "install.pp", "analytics.pp", "run.pp", "neutron_plugin.pp", "repository.pp", "services.pp"],
-      "pp_cmtrs": ["Carmela Rubinos", "Sam Morrison", "Alex Ruiz Estradera", "Richard Raseley", "Jaume Devesa", "sandip-calsoft", "Antoni Segura Puimedon", "Alejandro Andreu"],
+      "pp_files": [
+        "manifests/midonet_api/run.pp",
+        "manifests/resources/interface_up.pp",
+        "manifests/analytics/services.pp",
+        "manifests/cluster.pp",
+        "manifests/mem/vhost.pp",
+        "manifests/gateway/static.pp",
+        "manifests/neutron_plugin.pp",
+        "manifests/cluster/install.pp",
+        "manifests/cli.pp",
+        "manifests/repository/centos.pp",
+        "manifests/midonet_cli.pp",
+        "manifests/repository.pp",
+        "manifests/midonet_api.pp",
+        "manifests/midonet_agent/install.pp",
+        "manifests/init.pp",
+        "manifests/agent/run.pp",
+        "manifests/cluster/subscription.pp",
+        "manifests/midonet_api/install.pp",
+        "manifests/cassandra.pp",
+        "manifests/analytics/quickstart.pp",
+        "manifests/cluster/run.pp",
+        "manifests/params.pp",
+        "test/init.pp",
+        "manifests/agent/install.pp",
+        "manifests/agent/scrapper.pp",
+        "manifests/midonet_agent/run.pp",
+        "manifests/repository/ubuntu.pp",
+        "manifests/mem.pp",
+        "manifests/agent.pp",
+        null,
+        "manifests/midonet_agent.pp",
+        "manifests/resources/network_creation.pp",
+        "manifests/analytics.pp",
+        "manifests/midonet_api/augeas.pp",
+        "manifests/zookeeper.pp"
+      ],
+      "pp_cmtrs": ["sandip-calsoft", "Alejandro Andreu", "Alex Ruiz Estradera", "Jaume Devesa", "Carmela Rubinos", "Richard Raseley", "Sam Morrison", "Antoni Segura Puimedon"],
       "num_pp_commits": 186,
       "num_tot_commits": 381,
       "commits": [{
@@ -9,1301 +45,1820 @@
         "msg": "Move arrakis here\n\nMost of the arrakis code moved here, using puppet-cassandra and\npuppet-zookeeper as dependencies\n\nChange-Id: I6bdfb80457c500e2c6ea98aeaa9e7c074757c6c7",
         "cmtr": "Jaume Devesa",
         "date": "2015-06-08 17:45:07+02:00",
-        "files": [".gitignore", ".kitchen.yml", "Gemfile", "Puppetfile", "README.md", "Rakefile", "common.yaml", "hiera.yaml", "12.04.yaml", "14.04.yaml", "common.yaml", "6.yaml", "7.yaml", "common.yaml", "midonet-api.xml", "init.pp", "midonet_agent.pp", "install.pp", "run.pp", "midonet_api.pp", "augeas.pp", "install.pp", "run.pp", "midonet_cli.pp", "neutron_plugin.pp", "repository.pp", "centos.pp", "ubuntu.pp", "metadata.json", "midolman.conf.erb", "keystone_config.xml.erb", "mockauth_config.xml.erb", "web.xml.erb", "midonet.ini.erb", "zoo.cfg.erb", "zookeeper-env.sh.erb", "init.pp", "verify_server.bats"]
+        "files": [
+            ".gitignore",
+            ".kitchen.yml",
+            "Gemfile",
+            "Puppetfile",
+            "README.md",
+            "Rakefile",
+            "data/common.yaml",
+            "data/hiera.yaml",
+            "data/osfamily/Debian/12.04.yaml",
+            "data/osfamily/Debian/14.04.yaml",
+            "data/osfamily/Debian/common.yaml",
+            "data/osfamily/RedHat/6.yaml",
+            "data/osfamily/RedHat/7.yaml",
+            "data/osfamily/RedHat/common.yaml",
+            "files/midonet-api/midonet-api.xml",
+            "manifests/init.pp",
+            "manifests/midonet_agent.pp",
+            "manifests/midonet_agent/install.pp",
+            "manifests/midonet_agent/run.pp",
+            "manifests/midonet_api.pp",
+            "manifests/midonet_api/augeas.pp",
+            "manifests/midonet_api/install.pp",
+            "manifests/midonet_api/run.pp",
+            "manifests/midonet_cli.pp",
+            "manifests/neutron_plugin.pp",
+            "manifests/repository.pp",
+            "manifests/repository/centos.pp",
+            "manifests/repository/ubuntu.pp",
+            "metadata.json",
+            "templates/midonet-agent/midolman.conf.erb",
+            "templates/midonet-api/keystone_config.xml.erb",
+            "templates/midonet-api/mockauth_config.xml.erb",
+            "templates/midonet-api/web.xml.erb",
+            "templates/neutron_plugin/midonet.ini.erb",
+            "templates/zookeeper/zoo.cfg.erb",
+            "templates/zookeeper/zookeeper-env.sh.erb",
+            "test/init.pp",
+            "test/integration/default/bats/verify_server.bats"]
       },
       {
         "hash": "74bcc6babd3eea77568a9881a6d09a9e92b6010f",
         "msg": "Creating the .midonetrc file\n\nIntroduce rspec tests for this functionality\n\nChange-Id: Ib52d2d3d7cfe4301af0f423d186fe01c3590918f",
         "cmtr": "Jaume Devesa",
         "date": "2015-06-10 15:41:04+02:00",
-        "files": [".fixtures.yml", ".gitignore", "Rakefile", "ini_setting.rb", "midonet_client_conf.rb", "midonet_cli.pp", "metadata.json", "midonet_client_spec.rb", "spec_helper.rb", "verify_server.bats"]
+        "files": [
+            ".fixtures.yml",
+            ".gitignore",
+            "Rakefile",
+            "lib/puppet/provider/midonet_client_conf/ini_setting.rb",
+            "lib/puppet/type/midonet_client_conf.rb",
+            "manifests/midonet_cli.pp",
+            "metadata.json",
+            "spec/classes/midonet_client_spec.rb",
+            "spec/spec_helper.rb",
+            "test/integration/default/bats/verify_server.bats"]
       },
       {
         "hash": "d7ee219e48878ca5ac7edcadb107129157924eb3",
         "msg": "Fix midonet-api connector\n\nThe api did run, but with errors. This patch fixes it.\n\nChange-Id: Iea162b7e95832b04a041cc832591110ee2f4f38d",
         "cmtr": "Jaume Devesa",
         "date": "2015-06-25 18:33:03+02:00",
-        "files": ["midonet_api.pp", "run.pp"]
+        "files": [
+            "manifests/midonet_api.pp",
+            "manifests/midonet_api/run.pp"]
       },
       {
         "hash": "66e78c3509308437a512d20a31664dcbdee15b26",
         "msg": "Introduce host registration\n\nThis patch adds a new Puppet custom type to let puppet deployers to\nregister one host to a MidoNet tunnel zone:\n\n  midonet_host_registration {'host1'\n    midonet_api_endpoint => '..',\n    username             => '..',\n    password             => '..'\n  }\n\nUser and password are the credentials of the user admin who performs the\naction.\n\nIf the tunnel zone (tzone0 by default) is not informed, it will create\nit.\n\nChange-Id: I5b2fbce9c75aa949053b11f35d4ca239507e950b",
         "cmtr": "Jaume Devesa",
         "date": "2015-06-29 14:49:55+02:00",
-        "files": ["Gemfile", "ini_setting.rb", "midonet_api_caller.rb", "midonet_host_registry.rb", "init.pp", "install.pp", "midonet_spec.rb", "spec_helper.rb", "midonet_api_caller_spec.rb", "midonet_host_registry_spec.rb"]
+        "files": [
+            "Gemfile",
+            "lib/puppet/provider/midonet_client_conf/ini_setting.rb",
+            "lib/puppet/provider/midonet_host_registry/midonet_api_caller.rb",
+            "lib/puppet/type/midonet_host_registry.rb",
+            "manifests/init.pp",
+            "manifests/midonet_api/install.pp",
+            "spec/acceptance/midonet_spec.rb",
+            "spec/spec_helper.rb",
+            "spec/unit/puppet/provider/midonet_host_registry/midonet_api_caller_spec.rb",
+            "spec/unit/puppet/type/midonet_host_registry_spec.rb"]
       },
       {
         "hash": "56bb8f5ff067447ae605c86100b2b006bfe65eac",
         "msg": "Typo error on repository class\n\nThere was an error in a comment\n\nChange-Id: I182c41ec0efeb9e85207775e5a594a1668778d8b",
         "cmtr": "Carmela Rubinos",
         "date": "2015-07-08 12:56:49+02:00",
-        "files": ["centos.pp"]
+        "files": [
+            "manifests/repository/centos.pp"]
       },
       {
         "hash": "675eb25a8ce8f3b226dca6f6732f8f918bcabf48",
         "msg": "Deprecate MidoNet's puppet-zookeeper\n\nSeveral changes to deprecate the MidoNet's zookeeper module. Deric's\nZookeeper:\n\n  https://github.com/deric/puppet-zookeeper\n\nIs well mantained and it has much more functionality. So the commit\nreplaces the dependencies and sets some changes to adapt to the new\nmodule.\n\nI have kept the ::midonet::zookeeper manifest to maintain backwards\ncompatiblity with tools that use MidoNet 2015.01 version.\n\nSo the ::midonet::zookeeper manifest is just a gangway to the actual's\nderic one now.\n\nChange-Id: I6e6ebe8c9fea2e3d3195d9890b1c89362bd23d58",
         "cmtr": "Jaume Devesa",
         "date": "2015-07-15 18:23:10+02:00",
-        "files": [".fixtures.yml", "README.md", "common.yaml", "zookeeper_servers.rb", "init.pp", "zookeeper.pp", "metadata.json", "midonet_zookeeper_spec.rb", "zookeeper_servers_spec.rb", "spec_helper_acceptance.rb"]
+        "files": [
+            ".fixtures.yml",
+            "README.md",
+            "data/common.yaml",
+            "lib/puppet/parser/functions/zookeeper_servers.rb",
+            "manifests/init.pp",
+            "manifests/zookeeper.pp",
+            "metadata.json",
+            "spec/classes/midonet_zookeeper_spec.rb",
+            "spec/functions/zookeeper_servers_spec.rb",
+            "spec/spec_helper_acceptance.rb"]
       },
       {
         "hash": "3a1cb076dd7e1a4e3dc9fb087ddfac6928525dd3",
         "msg": "Rely `puppet-cassandra` for backwards compatibility\n\nWith the release of `puppet-cassandra`, we can create a manifest that\nmaintains old `::midonet::cassandra` and passes parameters to the new\nmodule to keep backwards compatibility.\n\nChange-Id: I37cf934f97a9ab341739137018ceeb1854aed45a",
         "cmtr": "Jaume Devesa",
         "date": "2015-07-17 14:37:26+02:00",
-        "files": [".fixtures.yml", "common.yaml", "common.yaml", "common.yaml", "cassandra.pp", "init.pp", "midonet_spec.rb", "default.yml", "midonet_cassandra_spec.rb", "spec_helper_acceptance.rb"]
+        "files": [
+            ".fixtures.yml",
+            "data/common.yaml",
+            "data/osfamily/Debian/common.yaml",
+            "data/osfamily/RedHat/common.yaml",
+            "manifests/cassandra.pp",
+            "manifests/init.pp",
+            "spec/acceptance/midonet_spec.rb",
+            "spec/acceptance/nodesets/default.yml",
+            "spec/classes/midonet_cassandra_spec.rb",
+            "spec/spec_helper_acceptance.rb"]
       },
       {
         "hash": "d3f759a25fe2968d55581325342b505fc0ec1553",
         "msg": "Set the 'cfg_dir' attribute on ZooKeeper\n\nCentOS and Debian services run zookeeper from /etc/zookeeper/zoo.cfg\ninstead of the default '/etc/zookeeper/conf/zoo.cfg' in zookeeper\npuppet module\n\nChange-Id: I6555fac308a3e825e1f702966e4d49311f00decf",
         "cmtr": "Jaume Devesa",
         "date": "2015-07-17 14:53:50+02:00",
-        "files": ["zookeeper.pp"]
+        "files": [
+            "manifests/zookeeper.pp"]
       },
       {
         "hash": "31058e7887db616ca71f0479aba0781326de0ead",
         "msg": "Add `client_ip` at zookeeper config\n\nLet the DevOps choose the IP from where to listen ZooKeeper client\nrequests.\n\nChange-Id: I35c1ed56ea0ba417d9a50539760bc553026d27cd",
         "cmtr": "Jaume Devesa",
         "date": "2015-07-22 12:17:17+02:00",
-        "files": ["zookeeper.pp", "midonet_zookeeper_spec.rb"]
+        "files": [
+            "manifests/zookeeper.pp",
+            "spec/classes/midonet_zookeeper_spec.rb"]
       },
       {
         "hash": "455be27e745bce7b36608052980a9ac69601dae4",
         "msg": "Add 'bind_address' to Tomcat configuration\n\nFor production environments, is much better to bind a single internal\naddress instead of all of them.\n\nChange-Id: I788041541f41cc6ec08a4926cc3f4bc38234e031",
         "cmtr": "Jaume Devesa",
         "date": "2015-07-23 10:53:39+02:00",
-        "files": ["midonet_api.pp", "run.pp"]
+        "files": [
+            "manifests/midonet_api.pp",
+            "manifests/midonet_api/run.pp"]
       },
       {
         "hash": "6a54710212fbc37f75d57d4ba2f6c3af64e81411",
         "msg": "Enable tomcat when restarting\n\nSeting `enable=>true` will make Tomcat to spawn on start the machine.\n\nChange-Id: I380296c38ac1733c4cecca6e519c9a9f17cb5fdf",
         "cmtr": "Jaume Devesa",
         "date": "2015-07-23 16:35:24+02:00",
-        "files": ["run.pp"]
+        "files": [
+            "manifests/midonet_api/run.pp"]
       },
       {
         "hash": "6cd07804bfb8989704f0bd1a318f9f5486c4b707",
         "msg": "Add Repository Configurability for RDO and EPEL\n\nThis change adds the ability to choose not to manage EPEL and RDO repositories when choosing to install Midonet's repositories.\n\nChange-Id: I38cc599f39b6b3b8d00b6691293b24d3d51e6604",
         "cmtr": "Richard Raseley",
         "date": "2015-08-03 10:11:37-07:00",
-        "files": ["common.yaml", "repository.pp", "centos.pp"]
+        "files": [
+            "data/osfamily/RedHat/common.yaml",
+            "manifests/repository.pp",
+            "manifests/repository/centos.pp"]
       },
       {
         "hash": "6826f52a00e901f99685dc81baba5a5af57b786d",
         "msg": "Make the midolman service enabled\n\nIf the machine goes down, we want the midolman service to spawn\nautomatically.\n\nChange-Id: I3d88c8cbc77f0b30272c2a58cef510ad7600082d",
         "cmtr": "Jaume Devesa",
         "date": "2015-08-07 09:35:42+02:00",
-        "files": ["run.pp"]
+        "files": [
+            "manifests/midonet_agent/run.pp"]
       },
       {
         "hash": "c2850369ef59ccc2eef0857c14e82eaee2134391",
         "msg": "Revert \"Make the midolman service enabled\"\n\nThis reverts commit 6826f52a00e901f99685dc81baba5a5af57b786d.\nCentOS 6.5 does not support enable service midolman",
         "cmtr": "Jaume Devesa",
         "date": "2015-08-07 11:10:27+02:00",
-        "files": ["run.pp"]
+        "files": [
+            "manifests/midonet_agent/run.pp"]
       },
       {
         "hash": "53ed3b454426dbce5f8db788f437d9b4e7ff81f8",
         "msg": "[MDT-40] Fix dependency cycle to apt::key/apt::source\n\nThis patch fix a dependency cycle problem due to apt::source\nclass is already declaring the resource apt::key and we were forcing\nthe reverse dependency ordering in midonet::repository::ubuntu\n\nChange-Id: Ifd16de6d74e7bf060de81474209222f3ff7f7356",
         "cmtr": "Carmela Rubinos",
         "date": "2015-08-08 13:21:13+02:00",
-        "files": ["ubuntu.pp"]
+        "files": [
+            "manifests/repository/ubuntu.pp"]
       },
       {
         "hash": "2223cc9df65b7fe7d063e1d551e8907e0b252f6e",
         "msg": "Add patch to fix dependencies handling on custom provider\n\nThis patch adds a new Puppet.feature called faraday based on this:\nhttps://projects.puppetlabs.com/issues/14822 , which allows to make\ndependencies available during the puppet run to be used by the custom\nproviders/types without needing successive runs or failing catalog\ncompilation.\n\nChange-Id: I1f84aa3133605abb38d697c1a593216aafe3e7ef",
         "cmtr": "Carmela Rubinos",
         "date": "2015-08-18 11:46:12+02:00",
-        "files": ["7.yaml", "common.yaml", "faraday.rb", "midonet_api_caller.rb", "init.pp"]
+        "files": [
+            "data/osfamily/RedHat/7.yaml",
+            "data/osfamily/RedHat/common.yaml",
+            "lib/puppet/feature/faraday.rb",
+            "lib/puppet/provider/midonet_host_registry/midonet_api_caller.rb",
+            "manifests/init.pp"]
       },
       {
         "hash": "fcd14e263b33daaf5f661b590b189cb16872a035",
         "msg": "Remove the constraint for Centos6-Juno\n\nSome deployment tools, like Fuel, deploy on CentOS 6 + Juno and we\nshould be compatible with it. So we need to remove the constraint that\ndon't let you assign Juno to Centos 6\n\nChange-Id: I9b08c97e2fe7b89f4c226ca7d159d25d2a085e25",
         "cmtr": "Jaume Devesa",
         "date": "2015-08-18 13:40:14+02:00",
-        "files": ["centos.pp"]
+        "files": [
+            "manifests/repository/centos.pp"]
       },
       {
         "hash": "4b530c02c96cade7d9d136e636cd4439ceb38e2d",
         "msg": "Added the ability to manage tomcat & java setup\n\nAdded $manage_app_server and $install_java params in order to be able to\nwhether install tomcat & java or not, and avoid puppet executions to\nfail because of duplicated class declarations.\n\nChange-Id: I644e448a28ca324a9c3be4866642db220db988f5",
         "cmtr": "Antoni Segura Puimedon",
         "date": "2015-09-14 19:36:13+02:00",
-        "files": ["README.md", "common.yaml", "install.pp", "install.pp"]
+        "files": [
+            "README.md",
+            "data/common.yaml",
+            "manifests/midonet_agent/install.pp",
+            "manifests/midonet_api/install.pp"]
       },
       {
         "hash": "9a54db9438cdfea77b5ef7cd151c166c5eca1847",
         "msg": "Remove all require::repository statements\n\nA component already installed should be configured without set the\nrepository and try to install every time.\n\nChange-Id: I34f3b13c317e4ed9959f0553a4cc0b839c56804c",
         "cmtr": "Jaume Devesa",
         "date": "2015-10-22 12:14:37+02:00",
-        "files": ["install.pp", "run.pp", "midonet_api.pp", "augeas.pp", "install.pp", "run.pp", "midonet_cli.pp", "neutron_plugin.pp"]
+        "files": [
+            "manifests/midonet_agent/install.pp",
+            "manifests/midonet_agent/run.pp",
+            "manifests/midonet_api.pp",
+            "manifests/midonet_api/augeas.pp",
+            "manifests/midonet_api/install.pp",
+            "manifests/midonet_api/run.pp",
+            "manifests/midonet_cli.pp",
+            "manifests/neutron_plugin.pp"]
       },
       {
         "hash": "a4bb534be34a806811df51874a5bba132ca24724",
         "msg": "Removing the 'test' directory\n\nBATS framework was the first one to provide integrity tests to puppet\nmodule. We don't need it anymore since we have migrated to beaker.\nRemove the code.\n\nChange-Id: Ie6e23a29ac9bd2b33d019eae6839a5e4e26b3ff1",
         "cmtr": "Jaume Devesa",
         "date": "2015-11-05 16:46:00+01:00",
-        "files": ["init.pp", "verify_server.bats"]
+        "files": [
+            "None",
+            "None"]
       },
       {
         "hash": "20b854ef5138e61b7b315d2f7a99c2f42e11421a",
         "msg": "Moving puppet-midonet to OpenStack gerrit\n\nModify the .gitreview file, since this project belongs to OpenStack from\nnow on.\n\nModify Rakefile to adapt to OpenStack gerrit's test.\n\nChange-Id: I91e6a433dbbef61db59f9dfe1609a7368bf55c11",
         "cmtr": "Jaume Devesa",
         "date": "2016-01-12 15:47:56+01:00",
-        "files": [".gitignore", ".gitreview", "Gemfile", "Puppetfile", "Rakefile", "cassandra.pp", "zookeeper.pp", "metadata.json", "midonet_spec_todo.rb", "centos-70-x64.yml", "default.yml", "nodepool-centos7.yml", "nodepool-trusty.yml", "ubuntu-server-1404-x64.yml", "midonet_cassandra_spec.rb", "midonet_zookeeper_spec.rb", "zookeeper_servers_spec.rb", "spec_helper.rb", "spec_helper_acceptance.rb"]
+        "files": [
+            ".gitignore",
+            ".gitreview",
+            "Gemfile",
+            "Puppetfile",
+            "Rakefile",
+            "None",
+            "None",
+            "metadata.json",
+            "spec/acceptance/midonet_spec_todo.rb",
+            "spec/acceptance/nodesets/centos-70-x64.yml",
+            "spec/acceptance/nodesets/default.yml",
+            "spec/acceptance/nodesets/nodepool-centos7.yml",
+            "spec/acceptance/nodesets/nodepool-trusty.yml",
+            "spec/acceptance/nodesets/ubuntu-server-1404-x64.yml",
+            "None",
+            "None",
+            "None",
+            "spec/spec_helper.rb",
+            "spec/spec_helper_acceptance.rb"]
       },
       {
         "hash": "907a1866294662b51d8ea8e2efe80b1343a04bff",
         "msg": "fix agent and api classes relations\n\nWhen classes are included or declared inside other classes, they are\nnot contained by default, unlike other resources. This means that if\na class A establishes a relation with a class B, A's subclasses won't\nestablish any relationship with B, which will be harmful when\nordering.\n\nWithout this change, to perform something before midonet_agent is\ninstalled, one would have to refer to:\n\n-> Class['midonet::midonet_agent::install']\n\nwhich breaks encapsulation principles. After this change,\n\n-> Class['midonet::midonet_agent'] works as expected.\n\nChange-Id: Ie6ee75a074f7a33adb51efb60a773813b0f68827",
         "cmtr": "Antoni Segura Puimedon",
         "date": "2016-02-09 10:26:50+01:00",
-        "files": ["midonet_agent.pp", "midonet_api.pp"]
+        "files": [
+            "manifests/midonet_agent.pp",
+            "manifests/midonet_api.pp"]
       },
       {
         "hash": "000f371e7d5bba26d4e8bc2527754a86822b8751",
         "msg": "repository update relation fix\n\nBefore this change, the matching was wrong, as the command that was\ndefined in the class was the path to the executable, but the title\nwas that of the class declaration, 'update-midonet-repos'.\n\nChange-Id: I1497e5318e86d96213c4295a6517a77c6a6f5ccb",
         "cmtr": "Antoni Segura Puimedon",
         "date": "2016-02-09 10:27:21+01:00",
-        "files": ["centos.pp", "ubuntu.pp"]
+        "files": [
+            "manifests/repository/centos.pp",
+            "manifests/repository/ubuntu.pp"]
       },
       {
         "hash": "880199aeabe848e9a2551aadf62e91b00bff39b5",
         "msg": "Make midonet_agent control interface configurable\n\nCurrently this is hard coded to be eth0\n\nChange-Id: I88898607ba120b28419fa659840f69512942dda4",
         "cmtr": "Sam Morrison",
         "date": "2016-02-11 11:19:38+11:00",
-        "files": ["midonet_agent.pp", "run.pp", "midolman.conf.erb"]
+        "files": [
+            "manifests/midonet_agent.pp",
+            "manifests/midonet_agent/run.pp",
+            "templates/midonet-agent/midolman.conf.erb"]
       },
       {
         "hash": "7a567fea42e372b527b96fc6a9b1da8e18c008fd",
         "msg": "Don't manage catalina_base variable for tomcat.\n\nThis should be managed in the tomcat class and there is already a default\nfor it there.\n\nChange-Id: I710b672c29d916eb878035ffca2f0bf8c33e2157",
         "cmtr": "Sam Morrison",
         "date": "2016-02-12 09:34:11+11:00",
-        "files": ["midonet_api.pp", "run.pp"]
+        "files": [
+            "manifests/midonet_api.pp",
+            "manifests/midonet_api/run.pp"]
       },
       {
         "hash": "0bccc3f787b6fec6e423c09b8918e679a7ea0e24",
         "msg": "Remove references to non existant zookeeper and cassandra classes\n\nThe midonet::zookeper and midonet::cassandra classes don't exist.\n\nChange-Id: I37ac0a5b3242fb57644d2838ee88c11be6b7c611",
         "cmtr": "Sam Morrison",
         "date": "2016-05-04 14:39:46+10:00",
-        "files": ["README.md", "common.yaml", "common.yaml", "common.yaml", "init.pp", "zoo.cfg.erb", "zookeeper-env.sh.erb"]
+        "files": [
+            "README.md",
+            "data/common.yaml",
+            "data/osfamily/Debian/common.yaml",
+            "data/osfamily/RedHat/common.yaml",
+            "manifests/init.pp",
+            "None",
+            "None"]
       },
       {
         "hash": "9a033fb81a127d25ceea1e7c70c7331a616277b7",
         "msg": "Adds initial version of params.pp\n\nChange-Id: Iae3c59646ae4c784718e04dc13520cc48a264611",
         "cmtr": "Alejandro Andreu",
         "date": "2016-07-07 15:07:42+02:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "d7e85fb851347f316990ee205861aaa76522ea84",
         "msg": "midonet::repository::centos to support only CentOS 7\n\nChange-Id: Ia74ee1eb750ac5dc5d09269b0bd30b6f49a16356",
         "cmtr": "Alejandro Andreu",
         "date": "2016-07-08 07:50:46+00:00",
-        "files": ["centos.pp"]
+        "files": [
+            "manifests/repository/centos.pp"]
       },
       {
         "hash": "675a957eef45b5061343891fb5e7571f2dddbb96",
         "msg": "Add basic params.pp\n\nChange-Id: Ib00f3e21e878b90f078f85ba9893760c4050f49f",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-08 07:55:52+00:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "f58c4f1986763d5133826f14783e99fe5173407f",
         "msg": "Update Ubuntu Repository manifest\n\nChange-Id: Iee653f1375e1e251ebf27fb8b66713f74db3780b",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-08 13:08:56+02:00",
-        "files": ["ubuntu.pp"]
+        "files": [
+            "manifests/repository/ubuntu.pp"]
       },
       {
         "hash": "ed7af03a9e0c8df57f7434c98732d5b8062b2eb5",
         "msg": "Update Centos Repository Manifest\n\nChange-Id: I2dd8245aaeabf30c898a945f0cdc49b44c2c44bf",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-08 13:10:21+02:00",
-        "files": ["centos.pp"]
+        "files": [
+            "manifests/repository/centos.pp"]
       },
       {
         "hash": "c5bfd66226b939773b33ef792097545daa4b16f4",
         "msg": "Adapts midonet::repository to new format\n\nChange-Id: I142cde24ece4e2bac50b4da872dac9f7470985d9",
         "cmtr": "Alejandro Andreu",
         "date": "2016-07-08 14:38:54+02:00",
-        "files": ["repository.pp"]
+        "files": [
+            "manifests/repository.pp"]
       },
       {
         "hash": "c58f6408d8ce75bce9fb6b2dfcdd6b4a39c6589c",
         "msg": "Adds misc repository for Ubuntu and CentOS\nas it's needed by midolman later on\n\nChange-Id: Ic2294ec4bfd142c3146087f5cdbc04316ceb1a4f",
         "cmtr": "Alejandro Andreu",
         "date": "2016-07-11 12:41:46+02:00",
-        "files": ["centos.pp", "ubuntu.pp"]
+        "files": [
+            "manifests/repository/centos.pp",
+            "manifests/repository/ubuntu.pp"]
       },
       {
         "hash": "9513dc7baa10eba442c8d90abe44f715edac03e1",
         "msg": "Adds manifests to install the MN agent\n\nChange-Id: I9ceb5acbc17d9b8ec4fc6b925edbd82840b5573f",
         "cmtr": "Alejandro Andreu",
         "date": "2016-07-11 14:12:18+00:00",
-        "files": ["agent.pp", "install.pp", "run.pp", "install.pp", "midolman.conf.erb", "midolman.conf.erb"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/agent/install.pp",
+            "manifests/agent/run.pp",
+            "None",
+            "templates/agent/midolman.conf.erb",
+            "None"]
       },
       {
         "hash": "154b051241551e10afb39db7d4cec30dfbcd53c9",
         "msg": "Parametrize midonet::agent::run class\n\nChange-Id: I9e41f913b67158efa3c148e50a94fdd389a39331",
         "cmtr": "Alejandro Andreu",
         "date": "2016-07-11 17:20:40+02:00",
-        "files": ["agent.pp", "run.pp"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/agent/run.pp"]
       },
       {
         "hash": "689d27d0603afde8ce9928d386ef45baa0d30cdc",
         "msg": "Ensures that managing Java in Ubuntu 14.04 is effective\n\nChange-Id: I7e540069850138cd1c6c9bda1f8c0f174058ef5b",
         "cmtr": "Alejandro Andreu",
         "date": "2016-07-13 06:50:35+00:00",
-        "files": ["install.pp", "midonet_agent_install_spec.rb"]
+        "files": [
+            "manifests/agent/install.pp",
+            "spec/classes/midonet_agent_install_spec.rb"]
       },
       {
         "hash": "9538a6ca7d5597b6cdddb8030857146ab9f4e3af",
         "msg": "Parametrizes correctly midonet::agent\n\nChange-Id: Id54c021336e2ca48cf361a9dd74db1e0e77c1031",
         "cmtr": "Alejandro Andreu",
         "date": "2016-07-18 08:22:43+00:00",
-        "files": ["agent.pp", "install.pp", "run.pp", "midonet_agent_run_spec.rb"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/agent/install.pp",
+            "manifests/agent/run.pp",
+            "spec/classes/midonet_agent_run_spec.rb"]
       },
       {
         "hash": "5c8bb3e4cdfbd66429b2943e88346651f5c8538c",
         "msg": "Initial commit for MN Cluster\n\nChange-Id: Ic49335035a443d6a21a9575327c769c626e5bbe9",
         "cmtr": "Alejandro Andreu",
         "date": "2016-07-18 08:47:37+00:00",
-        "files": ["cluster.pp", "install.pp", "run.pp", "keystone_config.xml.erb", "midonet.conf.erb", "mockauth_config.xml.erb", "web.xml.erb"]
+        "files": [
+            "manifests/cluster.pp",
+            "manifests/cluster/install.pp",
+            "manifests/cluster/run.pp",
+            "templates/cluster/keystone_config.xml.erb",
+            "templates/cluster/midonet.conf.erb",
+            "templates/cluster/mockauth_config.xml.erb",
+            "templates/cluster/web.xml.erb"]
       },
       {
         "hash": "aa462e4f0c0c79cb08527173d2f59b5dddcb4559",
         "msg": "Add Midonet CLI\n\nChange-Id: Ie1bee96546b1e78af56d3b79d984233a02f9a7ad",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-18 11:21:55+02:00",
-        "files": ["midonet_cli.pp", "midonet_cli_spec.rb", "midonet_repository_spec.rb", "midonet_cli_spec.rb"]
+        "files": [
+            "manifests/midonet_cli.pp",
+            "spec/acceptance/midonet_cli_spec.rb",
+            "spec/acceptance/midonet_repository_spec.rb",
+            "spec/classes/midonet_cli_spec.rb"]
       },
       {
         "hash": "6f8945c1c00be35563dc1966b1bcde79dc6c2cc1",
         "msg": "Polishes midonet::cluster class\n\nChange-Id: I2e045da630481555febea56920a0fe100e948aab",
         "cmtr": "Alejandro Andreu",
         "date": "2016-07-18 13:31:30+02:00",
-        "files": ["cluster.pp", "run.pp", "mn-cluster_config.sh.erb"]
+        "files": [
+            "manifests/cluster.pp",
+            "manifests/cluster/run.pp",
+            "templates/cluster/mn-cluster_config.sh.erb"]
       },
       {
         "hash": "9819f7ad1c3324b83bc7c86fdcd3c75fbe6245aa",
         "msg": "Adds unit tests for midonet::cluster::*\n\nChange-Id: Id6119ac7e0984a46e0712614a28a4acddc1964d3",
         "cmtr": "Alejandro Andreu",
         "date": "2016-07-18 15:14:04+02:00",
-        "files": ["install.pp", "midonet_cluster_install_spec.rb", "midonet_cluster_run_spec.rb", "midonet_cluster_spec.rb"]
+        "files": [
+            "manifests/cluster/install.pp",
+            "spec/classes/midonet_cluster_install_spec.rb",
+            "spec/classes/midonet_cluster_run_spec.rb",
+            "spec/classes/midonet_cluster_spec.rb"]
       },
       {
         "hash": "adba7da9e9bfec41d6031ef4000c25505a2925d9",
         "msg": "Extends midonet::agent\n\nChange-Id: Ie23f6fd16d0bfa3cdc6627fc607aab53e7c4957d",
         "cmtr": "Alejandro Andreu",
         "date": "2016-07-18 17:28:11+02:00",
-        "files": ["agent.pp", "run.pp", "midonet_agent_spec.rb", "midonet_agent_run_spec.rb", "midonet_agent_spec.rb", "mn-agent_config.sh.erb"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/agent/run.pp",
+            "spec/acceptance/midonet_agent_spec.rb",
+            "spec/classes/midonet_agent_run_spec.rb",
+            "spec/classes/midonet_agent_spec.rb",
+            "templates/agent/mn-agent_config.sh.erb"]
       },
       {
         "hash": "5de0b3d2d96f06e5e3d477be22b820695488a6d0",
         "msg": "Update neutron plugin package names\n\nChange-Id: I02b15c51b2f5977ab0012c23aeb36da6e18236da",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-21 10:00:03+00:00",
-        "files": ["neutron_plugin.pp"]
+        "files": [
+            "manifests/neutron_plugin.pp"]
       },
       {
         "hash": "dc00480345ec8b27c9ecaab5a11bb7ce20eac429",
         "msg": "Add temp puppet-neutron dependency and fix faraday pkg declaration\n\nChange-Id: Idc7e3424caf2ee32d8c3287e73cfb5a8035bea8c",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-21 12:44:07+00:00",
-        "files": ["Puppetfile", "init.pp", "params.pp"]
+        "files": [
+            "Puppetfile",
+            "manifests/init.pp",
+            "manifests/params.pp"]
       },
       {
         "hash": "b3d09e49a71c5d87a4c7e8d02d6b00f00dce0dab",
         "msg": "Add keystone_port as parametrizable option to midonet_cluster\n\nChange-Id: I2677b2a5487b51546d0f46541c7e23c24c0001ca",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-21 15:17:52+00:00",
-        "files": ["cluster.pp", "run.pp", "mn-cluster_config.sh.erb"]
+        "files": [
+            "manifests/cluster.pp",
+            "manifests/cluster/run.pp",
+            "templates/cluster/mn-cluster_config.sh.erb"]
       },
       {
         "hash": "5f6864e54ff5c1f14c54c580c3d64fb35c1300bd",
         "msg": "Move parameters to correct section\n\nChange-Id: I38799f45c459f72b0231c30542741ebedcd0e667",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-21 18:25:07+02:00",
-        "files": ["midonet_cli.pp"]
+        "files": [
+            "manifests/midonet_cli.pp"]
       },
       {
         "hash": "81ea354df2ad445dbeb15b4f57318b3773dc42a9",
         "msg": "lint fixes on repository::centos manifest\n\nChange-Id: I2eda7d08b2126fbaedc3724a00b4caf667f595c5",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-22 15:01:11+02:00",
-        "files": ["centos.pp"]
+        "files": [
+            "manifests/repository/centos.pp"]
       },
       {
         "hash": "5ae5ac2dc235b34cdaba996033e11cd00360b104",
         "msg": "Update Neutron_Plugin to v5\n\nChange-Id: I073f83d51aa2fe4642cdbf0e3e060b937f9c4ee7",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-22 15:17:48+00:00",
-        "files": ["neutron_plugin.pp"]
+        "files": [
+            "manifests/neutron_plugin.pp"]
       },
       {
         "hash": "2d24fd63ab2baddbe8f93d23314863a9bcb29a7e",
         "msg": "Adapt Init.pp to v5\n\nChange-Id: Iadd1ae13772dc2683e109279adfe42079903f1f7",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-22 16:24:14+00:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "a161a1d79f515c962ffec3b8154b92b031b6709e",
         "msg": "Add port/host vars to cluster\n\nChange-Id: I6f9c1bc84b550ece75de604eb403df403d5a484e",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-22 16:25:12+00:00",
-        "files": ["cluster.pp", "run.pp", "mn-cluster_config.sh.erb"]
+        "files": [
+            "manifests/cluster.pp",
+            "manifests/cluster/run.pp",
+            "templates/cluster/mn-cluster_config.sh.erb"]
       },
       {
         "hash": "eeb3aafa56c2a6439567d9be421a1831d41f2183",
         "msg": "Update neutron_plugin to v5\n\nChange-Id: I0befd55e7e92f4a0e1a691cc375c3792dfcb394c",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-22 16:25:56+00:00",
-        "files": ["neutron_plugin.pp"]
+        "files": [
+            "manifests/neutron_plugin.pp"]
       },
       {
         "hash": "ca67ca5d43e5cc655f37105857336068ac55f1ae",
         "msg": "Fix ml2 package variable name\n\nChange-Id: I8ecbd66aeae34a280e00cd5b6481e89077a98ceb",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-25 10:46:48+02:00",
-        "files": ["neutron_plugin.pp"]
+        "files": [
+            "manifests/neutron_plugin.pp"]
       },
       {
         "hash": "60c2743048d0f66e10f8890d4279b7f48e44be03",
         "msg": "adding MEM manager changes\n\nChange-Id: Ibc5b03b1cf510603af914a821e49a5c3fd5e33d9",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-26 12:09:22+00:00",
-        "files": ["Puppetfile", "mem.pp", "vhost.pp", "params.pp", "metadata.json", "midonet_mem_manager_spec.rb", "midonet_mem_manager_spec.rb", "client.js.erb"]
+        "files": [
+            "Puppetfile",
+            "manifests/mem.pp",
+            "manifests/mem/vhost.pp",
+            "manifests/params.pp",
+            "metadata.json",
+            "spec/acceptance/midonet_mem_manager_spec.rb",
+            "spec/classes/midonet_mem_manager_spec.rb",
+            "templates/client.js.erb"]
       },
       {
         "hash": "f0324311a044a59f002a418b4625d8545c6f0b75",
         "msg": "Adds GW type/class (both BGP and static uplinks)\n\nChange-Id: I52a6cce14566469d67c07fd488972a245bc7b73f",
         "cmtr": "Alejandro Andreu",
         "date": "2016-07-26 15:52:50+02:00",
-        "files": ["functions", "midonet_api_caller.rb", "midonet_api_caller.rb", "midonet_gateway.rb", "midonet_gateway_bgp.rb", "static.pp", "midonet_cluster_spec.rb", "midonet_gateway_static_spec.rb", "midonet_api_caller_spec.rb", "midonet_api_caller_spec.rb", "midonet_gateway_bgp_spec.rb", "midonet_gateway_spec.rb", "create_fake_uplink_l2.sh.erb", "midorc.erb"]
+        "files": [
+            "files/gateway/functions",
+            "None",
+            "lib/puppet/provider/midonet_gateway_bgp/midonet_api_caller.rb",
+            "None",
+            "lib/puppet/type/midonet_gateway_bgp.rb",
+            "manifests/gateway/static.pp",
+            "None",
+            "spec/classes/midonet_gateway_static_spec.rb",
+            "spec/unit/puppet/provider/midonet_gateway/midonet_api_caller_spec.rb",
+            "spec/unit/puppet/provider/midonet_gateway_bgp/midonet_api_caller_spec.rb",
+            "spec/unit/puppet/type/midonet_gateway_bgp_spec.rb",
+            "None",
+            "templates/gateway/create_fake_uplink_l2.sh.erb",
+            "templates/gateway/midorc.erb"]
       },
       {
         "hash": "27a96320b46788251f91fd9d38fba5bff8c68b2c",
         "msg": "Fix init.pp agent declaration\n\nChange-Id: I9787ce85ad00db52651767b14eb366e587c853fd",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-26 16:24:03+00:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "8e2c562cb7d1f9e879b4f69f46d129045cc9e2d8",
         "msg": "Add Old fashioned to new CentOs7 interface name conversion function\n\nChange-Id: I9326dbad4d05521913c2a3769679a93ec56db6e4",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-27 08:09:05+00:00",
-        "files": ["c7_int_name.rb", "network_creation.pp"]
+        "files": [
+            "lib/puppet/parser/functions/c7_int_name.rb",
+            "manifests/resources/network_creation.pp"]
       },
       {
         "hash": "1298819ee0f3b20686517c049652d1984d746a1f",
         "msg": "Modify default midonet cluster api url\n\nChange-Id: I2b1f73e62003bdb10755751fe926394faa99ca7d",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-27 11:05:00+02:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "aad8e408a7345a82034c01c69b3c682298682ed4",
         "msg": "Fix keystone port\n\nChange-Id: I9baadf2c94d3c7b702599f4d2ae3e90d2ede3ce1",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-07-27 13:19:17+02:00",
-        "files": ["run.pp"]
+        "files": [
+            "manifests/cluster/run.pp"]
       },
       {
         "hash": "9a170d618d2a90e42f97c7b74ddc6bc7a28d7492",
         "msg": "Templatizes JVM configuration for Midolman\n\nChange-Id: I798d051fc050d9f5492859c4292d4ae9e6373418",
         "cmtr": "Alejandro Andreu",
         "date": "2016-07-28 12:26:20+02:00",
-        "files": ["Gemfile", "Puppetfile", "agent.pp", "run.pp", "cli.pp", "cluster.pp", "run.pp", "midonet_agent_spec.rb", "midonet_cli_spec.rb", "midonet_cluster_spec.rb", "default.yml", "midonet_agent_run_spec.rb", "midonet_cli_spec.rb", "midolman-env.sh.erb", "midonet-cluster-env.sh.erb"]
+        "files": [
+            "Gemfile",
+            "Puppetfile",
+            "manifests/agent.pp",
+            "manifests/agent/run.pp",
+            "manifests/cli.pp",
+            "manifests/cluster.pp",
+            "manifests/cluster/run.pp",
+            "spec/acceptance/midonet_agent_spec.rb",
+            "spec/acceptance/midonet_cli_spec.rb",
+            "spec/acceptance/midonet_cluster_spec.rb",
+            "spec/acceptance/nodesets/default.yml",
+            "spec/classes/midonet_agent_run_spec.rb",
+            "spec/classes/midonet_cli_spec.rb",
+            "templates/agent/midolman-env.sh.erb",
+            "templates/cluster/midonet-cluster-env.sh.erb"]
       },
       {
         "hash": "c93a0916eba67461c99a529f58d7f410f85c913b",
         "msg": "Get rid of midonet_api since it is now the cluster\n\nChange-Id: I6587f2e7dbf27c2e37ba285c878b395349f2f507",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-08-02 16:06:36+02:00",
-        "files": ["midonet_api.pp", "midonet_client_old.rb"]
+        "files": [
+            "None",
+            "None"]
       },
       {
         "hash": "fc909df8bb629e19d0181ad6e0a27e6a5879a57b",
         "msg": "Add midonet-cluster-mem if its mem install\n\nChange-Id: I930b03f238d1ac6c4188e910a808989b11fda980",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-08-02 20:03:44+02:00",
-        "files": ["cluster.pp"]
+        "files": [
+            "manifests/cluster.pp"]
       },
       {
         "hash": "6896c591b4ce73cf3aef65ca08bede2d9f5b7ea8",
         "msg": "adding files for jmx scrapper module\n\nChange-Id: I1dc9ff15d453e3533e8dc12b11afb178c69cbdd0",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-08-03 09:18:32+00:00",
-        "files": ["agent.pp", "scrapper.pp", "midonet_agent_spec.rb"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/agent/scrapper.pp",
+            "spec/acceptance/midonet_agent_spec.rb"]
       },
       {
         "hash": "89501f3581d13b755f5c001a4e06281a357705e7",
         "msg": "Remove repository instantiation from the cluster\n\nWe are removing it from there because repository\nits supposed to be instantiated from elsewhere\n\nChange-Id: I7d6f2ebe4e952253ddccffe5f9a15b107b624930",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-08-03 15:43:53+02:00",
-        "files": ["cluster.pp", "install.pp", "init.pp", "midonet_cluster_install_spec.rb"]
+        "files": [
+            "manifests/cluster.pp",
+            "manifests/cluster/install.pp",
+            "manifests/init.pp",
+            "spec/classes/midonet_cluster_install_spec.rb"]
       },
       {
         "hash": "6235b1aca1d0cadbcd0b326209f2d6335578b3a0",
         "msg": "Fix init.pp\n\nChange-Id: Id9613555e23e7687568cbf0d3b542102a9a38f96",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-08-03 19:42:05+02:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "c33da76fecd5aab3020f18b73fbf49e08533766b",
         "msg": "Faraday RPMs can now be installed properly\n\nChange-Id: I6dabc4e4284deeb7ac055442681d91f2f881aa04",
         "cmtr": "Alejandro Andreu",
         "date": "2016-08-04 17:38:18+02:00",
-        "files": ["init.pp", "params.pp"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/params.pp"]
       },
       {
         "hash": "1d649de947537ad5075fc4d4dd47aba344ee7c5b",
         "msg": "Fix default keystone port\n\nChange-Id: I2de2f6f5c7852615eb9ac5b575954a768d9d44d3",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-08-04 18:32:44+02:00",
-        "files": ["cluster.pp", "run.pp"]
+        "files": [
+            "manifests/cluster.pp",
+            "manifests/cluster/run.pp"]
       },
       {
         "hash": "7abe2d7ccc9d62c1807702d5f7b8cb0a5c9de319",
         "msg": "Remove the package networking midonet installation\n\nWe are removing it from here since it is installed\non the neutron plugin itself\n\nChange-Id: I6480aa20cf6da2a679541b2f58b3a41f0866b4a0",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-08-05 11:58:20+02:00",
-        "files": ["neutron_plugin.pp"]
+        "files": [
+            "manifests/neutron_plugin.pp"]
       },
       {
         "hash": "57a3979092fea5e73936e6e5de0a4f8ddf3d322e",
         "msg": "Faraday RPMs now can be installed (for sure)\n\nChange-Id: I35ea059ac51fca100c3d3bb9063cc6d5275147b6",
         "cmtr": "Alejandro Andreu",
         "date": "2016-08-05 16:52:10+02:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "e41ae83995d74ed4987ed89f1142cf0e0889265e",
         "msg": "adding changes of analytics box\n\nChange-Id: Ic76fd1072378879b82c8f60aa621bd694d13d447",
         "cmtr": "sandip-calsoft",
         "date": "2016-08-08 05:59:42+00:00",
-        "files": ["Puppetfile", "analytics.pp", "services.pp", "midonet_analytics_spec.rb"]
+        "files": [
+            "Puppetfile",
+            "manifests/analytics.pp",
+            "manifests/analytics/services.pp",
+            "spec/acceptance/midonet_analytics_spec.rb"]
       },
       {
         "hash": "333a6c56387847db54374cbc599e6fc2a141c122",
         "msg": "Fixes typo on init.pp\n\nChange-Id: I3059ceb6a040bdc280762e8c155d2d61f6e3dd51",
         "cmtr": "Alejandro Andreu",
         "date": "2016-08-08 09:40:17+02:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "5c8a20713b2ddfab97762ef09e81d8538ebb3577",
         "msg": "Ensures faraday and multipart-post is installed through rubygems\n\nChange-Id: I00e9069bd6555077de82f32a0a620b6094a2942c",
         "cmtr": "Alejandro Andreu",
         "date": "2016-08-08 12:48:28+02:00",
-        "files": ["init.pp", "params.pp"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/params.pp"]
       },
       {
         "hash": "47d776013b0d34a33b55d874fc4883e25d7de9e5",
         "msg": "Solves issues with variable scoping\n\nChange-Id: I390cf50cba156d627926b2aea2bee20743dd05f2",
         "cmtr": "Alejandro Andreu",
         "date": "2016-08-08 14:47:58+02:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "f2fbd5c9b6a5c254eb09a0441cc90ea8fe9926e1",
         "msg": "Enables tenant_name parameter for midonet_host_registry type\n\nChange-Id: I111480fd77c427f96613f288d184fee26395e675",
         "cmtr": "Alejandro Andreu",
         "date": "2016-08-09 17:59:40+02:00",
-        "files": ["midonet_api_caller.rb", "midonet_host_registry.rb", "init.pp", "midonet_host_registry_spec.rb"]
+        "files": [
+            "lib/puppet/provider/midonet_host_registry/midonet_api_caller.rb",
+            "lib/puppet/type/midonet_host_registry.rb",
+            "manifests/init.pp",
+            "spec/unit/puppet/type/midonet_host_registry_spec.rb"]
       },
       {
         "hash": "6f337db2d44e5f783c594b8ba988299eaf0f6c6d",
         "msg": "added changes for quickstart of analytics services\n\nChange-Id: Iafe99e3baa5e0335e5464b607eba42c4e1e6c3b9",
         "cmtr": "sandip-calsoft",
         "date": "2016-08-11 05:16:36+00:00",
-        "files": ["Puppetfile", "analytics.pp", "quickstart.pp", "midonet_analytics_spec.rb", "midonet_mem_manager_spec.rb", "analytics_settings.erb", "analytics_settings.sh.erb", "midonet.conf.erb"]
+        "files": [
+            "Puppetfile",
+            "manifests/analytics.pp",
+            "manifests/analytics/quickstart.pp",
+            "spec/acceptance/midonet_analytics_spec.rb",
+            "spec/acceptance/midonet_mem_manager_spec.rb",
+            "templates/analytics/analytics_settings.erb",
+            "templates/analytics/analytics_settings.sh.erb",
+            "templates/analytics/midonet.conf.erb"]
       },
       {
         "hash": "55e4c6c68e4436a6dfa004ee757ef0663fd5e3e2",
         "msg": "Edge router & stuff can now be created\n\nChange-Id: I4aa69df97212cc12782d473ab9e42898b9189e0c",
         "cmtr": "Alejandro Andreu",
         "date": "2016-08-11 10:17:03+02:00",
-        "files": ["c7_int_name.rb", "static.pp", "network_creation.pp", "create_fake_uplink_l2.sh.erb", "midorc.erb"]
+        "files": [
+            "lib/puppet/parser/functions/c7_int_name.rb",
+            "manifests/gateway/static.pp",
+            "manifests/resources/network_creation.pp",
+            "templates/gateway/create_fake_uplink_l2.sh.erb",
+            "templates/gateway/midorc.erb"]
       },
       {
         "hash": "f81ca7fc8af04d82129adf34e5b768824a77bd57",
         "msg": "Tweaks create_fake_uplink_l2.sh script\n\nChange-Id: I64389c86525a07673df1e2b227b1af180b15df4d",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-08-12 15:12:31+00:00",
-        "files": ["static.pp", "midonet_gateway_static_spec.rb", "create_fake_uplink_l2.sh.erb"]
+        "files": [
+            "manifests/gateway/static.pp",
+            "spec/classes/midonet_gateway_static_spec.rb",
+            "templates/gateway/create_fake_uplink_l2.sh.erb"]
       },
       {
         "hash": "a82a238d3c2b7c330dda1b8141e98434960bbfbe",
         "msg": "Replaces hostname by fqdn on network_creation resource\n\nChange-Id: I75a2930de0fc23cf44a35ad3dfef460368dd3f81",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-08-12 15:12:52+00:00",
-        "files": ["network_creation.pp"]
+        "files": [
+            "manifests/resources/network_creation.pp"]
       },
       {
         "hash": "2eedb1b51abee5ddd5d0604570f5ed63e61c224e",
         "msg": "Add more contains\n\nChange-Id: Ic8378ce66fffc5260e09af2070a65043f66a6ce4",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-08-16 16:06:36+02:00",
-        "files": ["agent.pp", "cluster.pp"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/cluster.pp"]
       },
       {
         "hash": "d45751184b6de203794cb788a735fc3e877f1f08",
         "msg": "Fix the c7 conversion function\n\nChange-Id: I6b6a185518cdb28ff8a3bc443c6143d185128c56",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-08-17 15:29:30+02:00",
-        "files": ["c7_int_name.rb", "network_creation.pp", "midonet_agent_spec.rb", "midonet_cluster_spec.rb"]
+        "files": [
+            "lib/puppet/parser/functions/c7_int_name.rb",
+            "manifests/resources/network_creation.pp",
+            "spec/acceptance/midonet_agent_spec.rb",
+            "spec/acceptance/midonet_cluster_spec.rb"]
       },
       {
         "hash": "79de9c11f4bc7d6d4ce35fb83966784806f0452e",
         "msg": "Fixes several bugs\n\nChange-Id: I990313a1b606e995a41abfe94b7afb18b8b35a3c",
         "cmtr": "Alejandro Andreu",
         "date": "2016-08-22 12:30:08+02:00",
-        "files": ["agent.pp", "run.pp", "analytics.pp", "quickstart.pp", "cluster.pp", "run.pp", "static.pp", "vhost.pp", "network_creation.pp", "midonet_gateway_static_spec.rb", "create_fake_uplink_l2.sh.erb"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/agent/run.pp",
+            "manifests/analytics.pp",
+            "manifests/analytics/quickstart.pp",
+            "manifests/cluster.pp",
+            "manifests/cluster/run.pp",
+            "manifests/gateway/static.pp",
+            "manifests/mem/vhost.pp",
+            "manifests/resources/network_creation.pp",
+            "spec/classes/midonet_gateway_static_spec.rb",
+            "templates/gateway/create_fake_uplink_l2.sh.erb"]
       },
       {
         "hash": "bce8b4ee81b1d4b1d1670391d375616030ff7dff",
         "msg": "Changes default heap size for midonet\n\nChange-Id: I4a759a546359fedeed829fe3118958f7c040dd1e",
         "cmtr": "Alejandro Andreu",
         "date": "2016-08-23 10:45:24+02:00",
-        "files": ["run.pp", "run.pp"]
+        "files": [
+            "manifests/agent/run.pp",
+            "manifests/cluster/run.pp"]
       },
       {
         "hash": "3e1b84a3566a1b10f78bdb94aa7fb34ad31d27ef",
         "msg": "Fix the midonet role\n\nChange-Id: Ib17b95f5a6a7137c91eb92a2472513d45ea15f86",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-08-24 08:11:19+00:00",
-        "files": ["host_id.rb", "midonet_api_caller.rb", "midonet_host_registry.rb", "init.pp", "network_creation.pp", "host_id_spec.rb", "midonet_api_caller_spec.rb", "midonet_host_registry_spec.rb"]
+        "files": [
+            "lib/puppet/parser/functions/host_id.rb",
+            "lib/puppet/provider/midonet_host_registry/midonet_api_caller.rb",
+            "lib/puppet/type/midonet_host_registry.rb",
+            "manifests/init.pp",
+            "manifests/resources/network_creation.pp",
+            "spec/functions/host_id_spec.rb",
+            "spec/unit/puppet/provider/midonet_host_registry/midonet_api_caller_spec.rb",
+            "spec/unit/puppet/type/midonet_host_registry_spec.rb"]
       },
       {
         "hash": "c5f623c61202654f52788638e1ff64c4a6561304",
         "msg": "BGP working now on puppet-midonet\n\nChange-Id: Ic5bd6e8301a3e2fc4ac5b85ea745b0f70f305751",
         "cmtr": "Alejandro Andreu",
         "date": "2016-08-26 10:50:00+02:00",
-        "files": ["midonet_api_caller.rb", "midonet_gateway_bgp.rb", "interface_up.pp", "midonet_api_caller_spec.rb", "midonet_api_caller_spec.rb", "midonet_gateway_bgp_spec.rb"]
+        "files": [
+            "lib/puppet/provider/midonet_gateway_bgp/midonet_api_caller.rb",
+            "lib/puppet/type/midonet_gateway_bgp.rb",
+            "manifests/resources/interface_up.pp",
+            "None",
+            "spec/unit/puppet/provider/midonet_gateway_bgp/midonet_api_caller_spec.rb",
+            "spec/unit/puppet/type/midonet_gateway_bgp_spec.rb"]
       },
       {
         "hash": "65364a2ae39d773adcb520d7b7a9a2264ee330c2",
         "msg": "Remove unnecessary, old files\n\nChange-Id: I1df779d19a9a2c78dfb0dd63ba19e9fee35b656c",
         "cmtr": "Alejandro Andreu",
         "date": "2016-08-26 16:31:56+02:00",
-        "files": ["augeas.pp", "install.pp", "run.pp"]
+        "files": [
+            "None",
+            "None",
+            "None"]
       },
       {
         "hash": "8771787f7cc18191586405fcfcc08782c7e002ba",
         "msg": "Adapt to 5.2.x\n\nChange-Id: I847c850d905092d012883a189980fd4607ad8aba",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-09-02 12:47:03+02:00",
-        "files": ["scrapper.pp", "mem.pp", "vhost.pp", "repository.pp", "midonet_repository_spec.rb", "client.js.erb"]
+        "files": [
+            "manifests/agent/scrapper.pp",
+            "manifests/mem.pp",
+            "manifests/mem/vhost.pp",
+            "manifests/repository.pp",
+            "spec/classes/midonet_repository_spec.rb",
+            "templates/manager/client.js.erb"]
       },
       {
         "hash": "c7934a962483c019611bf6cf82376c1565076271",
         "msg": "added changes for ssl and vhost\n\nChange-Id: I986e3652dfd69684161536306474c3cc70dec755",
         "cmtr": "sandip-calsoft",
         "date": "2016-09-02 14:43:27+00:00",
-        "files": ["mem.pp", "vhost.pp", "params.pp", "client.js.erb"]
+        "files": [
+            "manifests/mem.pp",
+            "manifests/mem/vhost.pp",
+            "manifests/params.pp",
+            "templates/client.js.erb"]
       },
       {
         "hash": "b636d32eeadc52d0b9d30813294225d016973718",
         "msg": "added subscriptions parameters in client.js\n\nChange-Id: Ia2ce7e1170da46d0aff1358b65137fffc456d951",
         "cmtr": "sandip-calsoft",
         "date": "2016-09-07 07:03:54+00:00",
-        "files": ["mem.pp", "client.js.erb", "client.js.erb"]
+        "files": [
+            "manifests/mem.pp",
+            "None",
+            "templates/manager/client.js.erb"]
       },
       {
         "hash": "8e4b1344468a601e99be7fbbe661ea740be11fa6",
         "msg": "adding changes for analytics quickstart\n\nChange-Id: I9a205c889dc2352f3a52eecaf63d9d6ee45b002c",
         "cmtr": "sandip-calsoft",
         "date": "2016-09-07 11:18:32+00:00",
-        "files": ["quickstart.pp", "cluster.pp", "run.pp", "analytics_settings.erb"]
+        "files": [
+            "manifests/analytics/quickstart.pp",
+            "manifests/cluster.pp",
+            "manifests/cluster/run.pp",
+            "templates/analytics/analytics_settings.erb"]
       },
       {
         "hash": "90e3b469d85264928b6e59f00d5ace6c2088d724",
         "msg": "Add mod ssl\n\nChange-Id: Ie349a29ef2990c73866e7864f47d4235ac44a015",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-09-07 14:44:35+02:00",
-        "files": ["vhost.pp"]
+        "files": [
+            "manifests/mem/vhost.pp"]
       },
       {
         "hash": "c902aa6bfdcabbc031d0f009f69cf306361161ed",
         "msg": "added service running for midonet-analytics\n\nChange-Id: I71f3617d0379d4cafec6731d0d378a2622b39db3",
         "cmtr": "sandip-calsoft",
         "date": "2016-09-08 06:50:41+00:00",
-        "files": ["services.pp"]
+        "files": [
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "f634605551e9aa1d1570a400b9c5c3ba015bab26",
         "msg": "added require for midonet-analytics\n\nChange-Id: I763fc8144936d54d1ef354b67d4bbd706c828ea2",
         "cmtr": "sandip-calsoft",
         "date": "2016-09-09 06:50:26+00:00",
-        "files": ["services.pp"]
+        "files": [
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "ef7a5b184bcb046a3ecf49c66ca61aa9c6dcab57",
         "msg": "Dont use deprecated params for ubuntu repos\n\nChange-Id: I10d487759577838660575738ecc3d8b107e6dc19",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-09-12 10:01:19+02:00",
-        "files": ["ubuntu.pp", "midonet_repository_ubuntu_spec.rb"]
+        "files": [
+            "manifests/repository/ubuntu.pp",
+            "spec/classes/midonet_repository_ubuntu_spec.rb"]
       },
       {
         "hash": "abb1a33fe68fa94d26c192ba92d462fec0ec47e1",
         "msg": "changed analytics_ip to cluster_ip for apt_trace_host variable\n\nChange-Id: I81aa4312f6dc8e7ed14fd84df0be87253018e911",
         "cmtr": "sandip-calsoft",
         "date": "2016-09-12 08:41:56+00:00",
-        "files": ["mem.pp"]
+        "files": [
+            "manifests/mem.pp"]
       },
       {
         "hash": "d2caad83d2418f0e87dbaa23b98822672a57f2e7",
         "msg": "Make cluster tenant name and keystone proto config\n\nChange-Id: I6c20ca4f2d0536f9d93ce7dc1df4784127eb870b",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-09-12 14:21:50+02:00",
-        "files": ["cluster.pp", "run.pp", "mn-cluster_config.sh.erb"]
+        "files": [
+            "manifests/cluster.pp",
+            "manifests/cluster/run.pp",
+            "templates/cluster/mn-cluster_config.sh.erb"]
       },
       {
         "hash": "ab8b59704ba8458296885f45a0f0f9cf681c03a3",
         "msg": "added changes for mem and insights integration\n\nChange-Id: I757a80e1f2b8121983ad1c5595f594221a3ffa63",
         "cmtr": "sandip-calsoft",
         "date": "2016-09-19 05:55:51+00:00",
-        "files": ["cluster.pp", "run.pp", "mem.pp", "vhost.pp", "params.pp", "analytics_settings.erb", "client.js.erb"]
+        "files": [
+            "manifests/cluster.pp",
+            "manifests/cluster/run.pp",
+            "manifests/mem.pp",
+            "manifests/mem/vhost.pp",
+            "manifests/params.pp",
+            "templates/analytics/analytics_settings.erb",
+            "templates/manager/client.js.erb"]
       },
       {
         "hash": "4a6443d24977f56ff720d244a592c7834366ed10",
         "msg": "Add more checks to gateway static!\n\nChange-Id: Iad76ea91038bc60c21116e7c2485818a641cbdc0",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-09-23 11:59:03+02:00",
-        "files": ["static.pp", "midonet_gateway_static_spec.rb", "create_fake_uplink_l2.sh.erb"]
+        "files": [
+            "manifests/gateway/static.pp",
+            "spec/classes/midonet_gateway_static_spec.rb",
+            "templates/gateway/create_fake_uplink_l2.sh.erb"]
       },
       {
         "hash": "195d3799cc5d76820565ea18f55a0aa8a10314ca",
         "msg": "Fix shellscript for gateway static\n\nChange-Id: I40001520f6175aa31bde51a33a7b13685d83ffcc",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-09-23 16:13:48+02:00",
-        "files": ["static.pp", "create_fake_uplink_l2.sh.erb"]
+        "files": [
+            "manifests/gateway/static.pp",
+            "templates/gateway/create_fake_uplink_l2.sh.erb"]
       },
       {
         "hash": "6928e9ac68e2fcf2d693bb5565e4e3bad3cf4a48",
         "msg": "added code for mem subscriptions\n\nChange-Id: Ic08eb7df9af8251355fad0d9d28661dd88601270",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-09-23 15:05:49+00:00",
-        "files": [".gitkeep", "run.pp"]
+        "files": [
+            "files/subscriptions/.gitkeep",
+            "manifests/cluster/run.pp"]
       },
       {
         "hash": "c0013fd8ed8fa5f53677abe7e85fcf2d4b61dc48",
         "msg": "Add configurable heap size\n\nChange-Id: I6566aaafbc0a728dc5fd29a8d7920ecd82cf7822",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-09-26 10:11:35+02:00",
-        "files": ["analytics.pp"]
+        "files": [
+            "manifests/analytics.pp"]
       },
       {
         "hash": "bd5bf4d0cb18bc4462ffbbbbb1ba6eff088bf7e8",
         "msg": "Adds additional ensures to midonet::{cli,cluster}\n\nChange-Id: I8d32bfae8571e3d6f916c14c316e0787c954c892",
         "cmtr": "Alejandro Andreu",
         "date": "2016-09-26 13:19:16+02:00",
-        "files": ["cli.pp", "cluster.pp", "install.pp"]
+        "files": [
+            "manifests/cli.pp",
+            "manifests/cluster.pp",
+            "manifests/cluster/install.pp"]
       },
       {
         "hash": "89a8625f45c00f0e12e540e3f0a4bc26ff971cfd",
         "msg": "midonet-cluster config will only run if necessary\n\nChange-Id: I28dbef8a29adf64c29cbe2dce8bf6d25847f89b3",
         "cmtr": "Alejandro Andreu",
         "date": "2016-09-26 16:37:39+02:00",
-        "files": ["cluster.pp", "run.pp"]
+        "files": [
+            "manifests/cluster.pp",
+            "manifests/cluster/run.pp"]
       },
       {
         "hash": "c18a188f612899f4f7c8cb65dbb1ee0292267cdc",
         "msg": "Containing is now proper on midonet::cluster\n\nChange-Id: I9fc643b750a3a94e1b1d6ae61695a7ad5a775041",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-09-29 07:53:23+00:00",
-        "files": ["cluster.pp"]
+        "files": [
+            "manifests/cluster.pp"]
       },
       {
         "hash": "613121e657e8258f5bba4373f2aa116e6c8c8183",
         "msg": "Avoid reassign vars\n\nChange-Id: I3b8eb39aa6b297b2f3ea83807e8581f031d58a09",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-09-29 10:16:11+02:00",
-        "files": ["static.pp", "create_fake_uplink_l2.sh.erb"]
+        "files": [
+            "manifests/gateway/static.pp",
+            "templates/gateway/create_fake_uplink_l2.sh.erb"]
       },
       {
         "hash": "a207191af766b1ab21627d10c8e49ce7919e436e",
         "msg": "'biosdevname' package now set to 'present' instad of 'latest' due to problems with TripleO\n\nChange-Id: I1155b843337aa8a37d6324c48b3bf12a405526c6",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-04 17:03:38+00:00",
-        "files": ["network_creation.pp"]
+        "files": [
+            "manifests/resources/network_creation.pp"]
       },
       {
         "hash": "a74150b45c338e8808ebd4bfa43b86eadde5320e",
         "msg": "Makes network_creation work on Puppet 4\n\nChange-Id: I6e426395ace490f4bfcc4a0a4eea8f17a46b040b",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-04 17:04:04+00:00",
-        "files": ["network_creation.pp"]
+        "files": [
+            "manifests/resources/network_creation.pp"]
       },
       {
         "hash": "008accd8d16866e2e36dae928dc96b429adb9189",
         "msg": "Dont include repository because this will break fuel\n\nChange-Id: Ia4e60f88f3487341454e268cee03539a23ed1b0a",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-07 16:27:03+02:00",
-        "files": ["agent.pp", "midonet_agent_spec.rb"]
+        "files": [
+            "manifests/agent.pp",
+            "spec/classes/midonet_agent_spec.rb"]
       },
       {
         "hash": "a921acff388e98e10cdb10aae3c890218115b8d2",
         "msg": "Fix agent require\n\nChange-Id: I12c541a2d166735c83869e0576fa1558e65895e2",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-07 18:38:03+02:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "8acd7d8111ccc4553ba9a1d0d59d064a55b740e6",
         "msg": "Fix agent on Debian\n\nChange-Id: I7764e6fe071d2f8f32cd1025e81239da55079f05",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-10 09:59:47+02:00",
-        "files": ["install.pp"]
+        "files": [
+            "manifests/agent/install.pp"]
       },
       {
         "hash": "178a9d1c4c077707314877e292ba116a8ac50797",
         "msg": "Add insights ssl config for vhost\n\nChange-Id: I2ab7798415ddced036633e273b159868f60d80ea",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-10 11:18:10+02:00",
-        "files": ["vhost.pp"]
+        "files": [
+            "manifests/mem/vhost.pp"]
       },
       {
         "hash": "8bcabdf254e191970e48509d190adb75b707c89c",
         "msg": "Don't break installers modular approach\n\nChange-Id: If601c6a2bd6cfc20c8525527537c65a3337d0f5a",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-11 10:11:05+02:00",
-        "files": ["analytics.pp", "install.pp"]
+        "files": [
+            "manifests/analytics.pp",
+            "manifests/cluster/install.pp"]
       },
       {
         "hash": "5ad53798a14da2de247a6b53dbb3c4374e7ab12f",
         "msg": "Dont break high level installers on agent\n\nChange-Id: I93820498dcb14952e3aa4fd1de510c287ad58331",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-11 12:35:22+02:00",
-        "files": ["agent.pp", "scrapper.pp"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/agent/scrapper.pp"]
       },
       {
         "hash": "7311a28622872992193b2b6c4e5c2f3235142afa",
         "msg": "Fix mem vhost duplicate vars\n\nChange-Id: I0f0e5deb12f70f3f8167e5843773ceec958453a9",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-11 15:40:04+02:00",
-        "files": ["vhost.pp"]
+        "files": [
+            "manifests/mem/vhost.pp"]
       },
       {
         "hash": "f7f7bc3dc2db01ef634e7938aa248e307d67ff82",
         "msg": "Dont force repository on MEM\n\nChange-Id: Ie04fc61b027a7323042054b7f7cd314f7cc12646",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-11 17:03:19+02:00",
-        "files": ["mem.pp"]
+        "files": [
+            "manifests/mem.pp"]
       },
       {
         "hash": "27246e6f784f82a4e889882d1cd352160e77a04f",
         "msg": "Make the Apache mod configuration an option, so we don't break fuel\n\nChange-Id: I5c9b4f184660a0b11e8cb77f2d0907319545ee7a",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-11 19:18:52+02:00",
-        "files": ["vhost.pp"]
+        "files": [
+            "manifests/mem/vhost.pp"]
       },
       {
         "hash": "6cf231332b60986dd18979a0181f32cec9b9a3d7",
         "msg": "Removes unused parameters from network_creation\n\nChange-Id: I41d5b78c1db091d59ce4a978e9969fd294100014",
         "cmtr": "Alejandro Andreu",
         "date": "2016-10-17 12:43:10+02:00",
-        "files": ["network_creation.pp"]
+        "files": [
+            "manifests/resources/network_creation.pp"]
       },
       {
         "hash": "3a5c09621caab5022a0f1dab69b3b3e516d3595d",
         "msg": "Remove naive include repository since this breaks mem\n\nChange-Id: I10069edbf65373f7357842a311349491211f6f5b",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-17 14:11:36+02:00",
-        "files": ["services.pp"]
+        "files": [
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "135abd4c2aa75bfbcc4cbc064ec82b78887ae13e",
         "msg": "Remove java dependency from analytics\n\nChange-Id: I248fceee01909bd239052e2e9741ba925bb70243",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-18 16:03:30+02:00",
-        "files": ["services.pp", "midonet_agent_spec.rb", "midonet_cluster_spec.rb"]
+        "files": [
+            "manifests/analytics/services.pp",
+            "spec/acceptance/midonet_agent_spec.rb",
+            "spec/acceptance/midonet_cluster_spec.rb"]
       },
       {
         "hash": "b2597de0ca6facfa986a0a49c8615391c24b1d24",
         "msg": "Fix analytics dep issues\n\nChange-Id: I3fff1b146cfde56b2301f027c51ed115ea5caad2",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-19 10:39:09+02:00",
-        "files": ["scrapper.pp", "analytics.pp"]
+        "files": [
+            "manifests/agent/scrapper.pp",
+            "manifests/analytics.pp"]
       },
       {
         "hash": "9017ee6fbcad947d4b718247bbb4366e67db91b8",
         "msg": "Re-parametrize mem.pp as it doesn't really work on older puppet versions\n\nChange-Id: Ia9fda872e030745d249a5feeea2fc17de255e045",
         "cmtr": "Alejandro Andreu",
         "date": "2016-10-19 13:51:54+02:00",
-        "files": ["mem.pp"]
+        "files": [
+            "manifests/mem.pp"]
       },
       {
         "hash": "93244fc8d286e2d4e4d9ec2c2629dd21e7066266",
         "msg": "Requests to /midonet-manager now work properly when SSL is not enabled for MEM\n\nChange-Id: I9aca54df5f978761ac63b720d8880ba618c73d16",
         "cmtr": "Alejandro Andreu",
         "date": "2016-10-19 15:47:00+02:00",
-        "files": ["mem.pp"]
+        "files": [
+            "manifests/mem.pp"]
       },
       {
         "hash": "8968fdfe7f6ca3dd3366b24af3e6b58f3b2fdcfa",
         "msg": "Let some time for midonet tools to install\n\nChange-Id: I11d268cd1bca799884eae4d5765d2b357ad35188",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-19 15:47:37+02:00",
-        "files": ["services.pp"]
+        "files": [
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "5d299c749f3c164aabfd6c22d72467e20ca54e8a",
         "msg": "Revert \"Let some time for midonet tools to install\"\n\nThis reverts commit 8968fdfe7f6ca3dd3366b24af3e6b58f3b2fdcfa.\n\nChange-Id: I4b437de3aac845444b54b6d2af3578a152d718ec",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-19 14:44:03+00:00",
-        "files": ["services.pp"]
+        "files": [
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "fec0cefb9ffaee2b3638b489ada8deda945b4faa",
         "msg": "Ensure correct ordering on MEM insights\n\nThe .conf file must be created BEFORE\nrunning the service for analytics\nbecause otherwise it doesnt know\nwhere to find zookeeper nodes.\n\nChange-Id: I8d8791ea0714ebd5ca9fe796f634a0fba9b64fa0",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-19 18:03:48+02:00",
-        "files": ["analytics.pp"]
+        "files": [
+            "manifests/analytics.pp"]
       },
       {
         "hash": "ad64b8cbbb747426a664a1f56497f5f9d23880d6",
         "msg": "Create the midonet folder before anything\n\nChange-Id: If91b360c983e5579e039b5d54b3d06a1108de12a",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-20 10:21:46+02:00",
-        "files": ["quickstart.pp"]
+        "files": [
+            "manifests/analytics/quickstart.pp"]
       },
       {
         "hash": "797098cc4e03fa2e413f5132bb2c7e3805f5fd71",
         "msg": "Fix analytics\n\nChange-Id: Ic9879a20b6b0e7eb7a2299604d5018705501faca",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-21 12:56:55+02:00",
-        "files": ["agent.pp", "run.pp", "analytics.pp", "mem.pp", "mn-agent_config.sh.erb", "client.js.erb"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/agent/run.pp",
+            "manifests/analytics.pp",
+            "manifests/mem.pp",
+            "templates/agent/mn-agent_config.sh.erb",
+            "templates/manager/client.js.erb"]
       },
       {
         "hash": "0d8e98bd51e72aa84b18ff33f4d5fa54ce93446b",
         "msg": "Fix dep cycle\n\nChange-Id: I09a9c6457f1f5fdbfc2f3165f7338eaef00ffd4f",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-21 14:23:10+02:00",
-        "files": ["analytics.pp"]
+        "files": [
+            "manifests/analytics.pp"]
       },
       {
         "hash": "fd029680f94ae4cac8499025feb93db432212fc1",
         "msg": "Fix dep cycle\n\nChange-Id: I02bf69c2e62e3b0d8493acc807465d894f8c7e8c",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-21 15:43:15+02:00",
-        "files": ["analytics.pp"]
+        "files": [
+            "manifests/analytics.pp"]
       },
       {
         "hash": "7f249b7f32ecfe8f83d588913a7db31d3544f489",
         "msg": "Fix logstash for ubuntu 14\n\nChange-Id: I68498e7048a061a7a6b495949b77e3a72156f2ee",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-21 18:17:10+02:00",
-        "files": ["analytics.pp", "services.pp"]
+        "files": [
+            "manifests/analytics.pp",
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "ce7fca909d8b72762e3b22794dc64077f34b2495",
         "msg": "Fix analytics ( for sure )\n\nChange-Id: Ifceb6c40b9c88cffe68501318bc7c00bf38c7d37",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-24 09:51:59+02:00",
-        "files": ["analytics.pp", "services.pp"]
+        "files": [
+            "manifests/analytics.pp",
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "a16a553f3cf939952bd4726d13dd01871be992e2",
         "msg": "Analytics cycle\n\nChange-Id: I88240729c0bf927d9f698470c957641622110a19",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-24 10:51:16+02:00",
-        "files": ["services.pp"]
+        "files": [
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "2a66b9758b5b855c8d06d62f58a58817cacb71a0",
         "msg": "Dep cycle\n\nChange-Id: Ic92ef31daed70ff22c3e38a234ef78544823556f",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-24 11:44:57+02:00",
-        "files": ["services.pp"]
+        "files": [
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "42f1a44ea3cebc8a54109385fcf5ba83938176c9",
         "msg": "logstash default file removal\n\nChange-Id: Ic3c0bc15978c1f86c722202c04e2d8ee2250d061",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-24 12:53:03+02:00",
-        "files": ["services.pp"]
+        "files": [
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "fd22ada928d4e3fdf53c5f4a17796525ad3fd54d",
         "msg": "Fix file absent\n\nChange-Id: I188b4786cefaa52bbf12b910a46e335556d34461",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-10-24 14:31:02+02:00",
-        "files": ["services.pp"]
+        "files": [
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "f322aa9671ce1ec8914195d4b34215f290df090b",
         "msg": "Only apply midonet::analytics::quickstart if it's not an allinone node\n\nChange-Id: I72948bd7a47f6ac4add8c61c5dc5bd8ee273c03e",
         "cmtr": "Alejandro Andreu",
         "date": "2016-10-24 16:09:57+02:00",
-        "files": ["analytics.pp"]
+        "files": [
+            "manifests/analytics.pp"]
       },
       {
         "hash": "481710d4b2bf7f1fd0967644713b0b1e3f075dfc",
         "msg": "Parametrizes curator version\n\nChange-Id: I623db757be574d86c85a223e9189fccd68db7daa",
         "cmtr": "Alejandro Andreu",
         "date": "2016-10-24 17:21:34+02:00",
-        "files": ["analytics.pp"]
+        "files": [
+            "manifests/analytics.pp"]
       },
       {
         "hash": "0ad06863a45993cb8f449947535c84913eae7681",
         "msg": "Calliope port is now configurable through a parameter\n\nChange-Id: Icfbdf20240444b4349db0c5b9524ba8f51082f76",
         "cmtr": "Alejandro Andreu",
         "date": "2016-10-27 15:29:21+02:00",
-        "files": ["analytics.pp", "services.pp"]
+        "files": [
+            "manifests/analytics.pp",
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "1b7b2fac279cc4e82d66a8bc6f34fb4a3a22dac4",
         "msg": "Set calliope configuration to the default template\n\nChange-Id: I34dd8b840b996ffe8d73e24ec77c04072045ff70",
         "cmtr": "Alejandro Andreu",
         "date": "2016-10-27 16:21:39+02:00",
-        "files": ["services.pp"]
+        "files": [
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "d9ce2e96ec4efab569111ecbb5eaa983039fe19d",
         "msg": "is_mem set to true by default on analytics class\n\nChange-Id: Ie1b176796606e94ba1df866e9ad056f142a80e75",
         "cmtr": "Alejandro Andreu",
         "date": "2016-10-27 16:56:43+02:00",
-        "files": ["analytics.pp"]
+        "files": [
+            "manifests/analytics.pp"]
       },
       {
         "hash": "67e502e93615f6fff3ad0fc9a13af89e074ebcd6",
         "msg": "add class to manage midonet subscriptions\n\nChange-Id: If0f14124a8b866c0ee78ff69403abb30b74dadd4",
         "cmtr": "Alejandro Andreu",
         "date": "2016-10-27 18:37:51+02:00",
-        "files": ["subscription.pp"]
+        "files": [
+            "manifests/cluster/subscription.pp"]
       },
       {
         "hash": "1e3125bb8d6dca074e1a395b4a1c34996852f47e",
         "msg": "Parametrizes all MEM ports\n\nChange-Id: I6579e0e2fac24b2958d4199a30bd12022efd5922",
         "cmtr": "Alejandro Andreu",
         "date": "2016-10-28 11:29:41+02:00",
-        "files": ["mem.pp", "vhost.pp"]
+        "files": [
+            "manifests/mem.pp",
+            "manifests/mem/vhost.pp"]
       },
       {
         "hash": "6764b9e8e5100c784078f58c2a4204759a49eb01",
         "msg": "Parametrizes correctly MEM client.js :burrito:\n\nChange-Id: I0edb0ddf33a1318b3de5ff81cd1334303530f2c0",
         "cmtr": "Alejandro Andreu",
         "date": "2016-11-02 13:19:50+01:00",
-        "files": ["mem.pp", "client.js.erb"]
+        "files": [
+            "manifests/mem.pp",
+            "templates/manager/client.js.erb"]
       },
       {
         "hash": "b22d0facc24e0d70d49e67eb152d833211467eb1",
         "msg": "Docs for agent class\n\nChange-Id: I54a2fa477b1f68739cb8a542316a063b3324061b",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-03 12:44:01+01:00",
-        "files": ["agent.pp"]
+        "files": [
+            "manifests/agent.pp"]
       },
       {
         "hash": "fdfbe8efd5ea540c0a5b98a17cd90774ea13ed6c",
         "msg": "Add more docs\n\nChange-Id: I8b0437114e98410508cdb38e43f0fb7b8deb19ce",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-03 13:00:38+01:00",
-        "files": ["agent.pp", "analytics.pp"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/analytics.pp"]
       },
       {
         "hash": "f8f012f569c525d9a406fb36c93059f91ed84306",
         "msg": "Add more docs\n\nChange-Id: I5f9ef6584065db5744e107011918bc721c1d30c7",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-03 14:02:26+01:00",
-        "files": ["analytics.pp", "cli.pp"]
+        "files": [
+            "manifests/analytics.pp",
+            "manifests/cli.pp"]
       },
       {
         "hash": "eeea7a93e0c1b3ba1999246094c113ce7e8d7045",
         "msg": "Add midonet cluster docs\n\nChange-Id: I670e94d81a4d6cceb20067d3ac1fa3bf9a8b0117",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-03 14:15:02+01:00",
-        "files": ["cluster.pp"]
+        "files": [
+            "manifests/cluster.pp"]
       },
       {
         "hash": "2d88a5780b6ea2b24876eb64d8657b912a471a34",
         "msg": "Add init docs\n\nChange-Id: I5884aff71c69418c34fb65d63fbd380c90181f41",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-03 14:21:26+01:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "10c97f3b1049f05a723b85efab910b07f25be2aa",
         "msg": "Add mem class docs\n\nChange-Id: I57fce933059764e328920d09be7eefbe076fb439",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-03 16:53:59+01:00",
-        "files": ["mem.pp"]
+        "files": [
+            "manifests/mem.pp"]
       },
       {
         "hash": "af4cbeb3104e659d0d162f6676f2e83fca06ea7c",
         "msg": "Add params docs\n\nChange-Id: Iaa3f59221c84c4dd30d89e8a2214642a00d3a238",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-03 17:34:56+01:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "f4d3ef941d824fc2868d67b7039dfdbc251b5afe",
         "msg": "Add repository docs\n\nChange-Id: I0c26d8f93fe98549acadb8509cebf0ddfa917ffe",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-03 18:07:53+01:00",
-        "files": ["repository.pp"]
+        "files": [
+            "manifests/repository.pp"]
       },
       {
         "hash": "51d08b13a82daded946df8b2d8416c2893b5418b",
         "msg": "Add midonet::agent::run docs\n\nChange-Id: If7739460cbb8aab645b2c2d53bf20d18ef234226",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-03 18:25:32+01:00",
-        "files": ["run.pp"]
+        "files": [
+            "manifests/agent/run.pp"]
       },
       {
         "hash": "bfeb7620751fbb88c10bbf009309a82e2c6928c8",
         "msg": "Add midonet::agent::scraper docs\n\nChange-Id: I652f936ddcc8c56ccd617a9c75b07dc171ee4010",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-03 18:27:37+01:00",
-        "files": ["scrapper.pp"]
+        "files": [
+            "manifests/agent/scrapper.pp"]
       },
       {
         "hash": "fab8b20cdc03f036b4d83fa3b77eedac149393ad",
         "msg": "Add midonet::analytics::quickstart docs\n\nChange-Id: Ibed1e31fff1096ed8de36a29cbbf34b5c6ac1562",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-03 18:38:24+01:00",
-        "files": ["quickstart.pp"]
+        "files": [
+            "manifests/analytics/quickstart.pp"]
       },
       {
         "hash": "19441cce1af9c213277f72ff646aea13100d9ee1",
         "msg": "Add midonet::analytics::services docs\n\nChange-Id: I7e156452b72a47b706cf4242cad76c3ff50bac7a",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-03 18:41:33+01:00",
-        "files": ["quickstart.pp", "services.pp"]
+        "files": [
+            "manifests/analytics/quickstart.pp",
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "63898f2b4b517139d14a48edf22a50d0ab48870d",
         "msg": "Add more docs!\n\nChange-Id: I45b76d6c4e37c8e50c437e874327d1e17cb184e3",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-04 10:21:11+01:00",
-        "files": ["agent.pp", "run.pp", "cluster.pp", "install.pp", "run.pp"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/agent/run.pp",
+            "manifests/cluster.pp",
+            "manifests/cluster/install.pp",
+            "manifests/cluster/run.pp"]
       },
       {
         "hash": "828235023c2963d83e69969c77406e01057faf9c",
         "msg": "Add MEM docs\n\nChange-Id: If43e5391fb38129aa9875dd220fb2fd65032ceea",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-04 10:31:26+01:00",
-        "files": ["mem.pp", "vhost.pp"]
+        "files": [
+            "manifests/mem.pp",
+            "manifests/mem/vhost.pp"]
       },
       {
         "hash": "87ba9d8125bbf32ebfb302d861ec8ed621533461",
         "msg": "Add repository docs\n\nChange-Id: I70f9b692ee1ab8838fa4bdf8045436976f725287",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-04 10:34:20+01:00",
-        "files": ["centos.pp", "ubuntu.pp"]
+        "files": [
+            "manifests/repository/centos.pp",
+            "manifests/repository/ubuntu.pp"]
       },
       {
         "hash": "666e49e9d4f28a06be107bdafa7fd7b6b0efcbb9",
         "msg": "Allow parameterized WS endpoint\n\nChange-Id: If7eb3ac200013472a88ea5c84351466035fd836f",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-14 12:56:22+01:00",
-        "files": ["mem.pp", "functions"]
+        "files": [
+            "manifests/mem.pp",
+            "spec/files/functions"]
       },
       {
         "hash": "a8255d64a3b2a805266bba28ba9ef325521bdc65",
         "msg": "Fix WS endpoints\n\nChange-Id: Iee9aac2055125ccd19ad3dc0e64e2f4653650af2",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-18 17:06:15+01:00",
-        "files": ["mem.pp"]
+        "files": [
+            "manifests/mem.pp"]
       },
       {
         "hash": "b23ca827e5a36187dcf39eec0b8997dddeae5462",
         "msg": "Make contain statements compatible with Puppet 3.6\n\n`contain` statements with absolute class names (that is, with leading\n::) are not supported in Puppet 3.6.x. Also quoted classes do not work\nproperly.\n\nChange-Id: Ie565e432f7de14eaf6bb2a78f1bba2f1f4e30302",
         "cmtr": "Alejandro Andreu",
         "date": "2016-11-23 12:13:10+01:00",
-        "files": ["agent.pp", "cluster.pp"]
+        "files": [
+            "manifests/agent.pp",
+            "manifests/cluster.pp"]
       },
       {
         "hash": "e4156702ed0b2c72f737b0f5185a4d15b86e53d1",
         "msg": "Enable MidoNet Cluster to work with non-admin user\n\nAs of now it was only possible to make it work with the admin token, now\nit will be possible to set it up with a user as long as it has the\n\"admin\" role.\n\nChange-Id: Ic09d35228e31fd677c2c581492370a501d8f714f",
         "cmtr": "Alejandro Andreu",
         "date": "2016-11-24 17:47:51+01:00",
-        "files": ["cluster.pp", "run.pp", "mn-cluster_config.sh.erb"]
+        "files": [
+            "manifests/cluster.pp",
+            "manifests/cluster/run.pp",
+            "templates/cluster/mn-cluster_config.sh.erb"]
       },
       {
         "hash": "3403f76919b45a1ee027a7c165fa65ef402365b2",
         "msg": "Make the interface_up script not so distro-specific\n\nChange-Id: I70a4c2fd1bf6ddfae64546a030654727048d307d",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-25 09:13:54+01:00",
-        "files": ["interface_up.pp"]
+        "files": [
+            "manifests/resources/interface_up.pp"]
       },
       {
         "hash": "6b958074d33270659b37b283dc312c7b5848ff80",
         "msg": "Add /bin path to command for interface up\n\nChange-Id: I1fc3245b404ac4a9883cc68875d4e65632449819",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-11-28 10:25:26+01:00",
-        "files": ["interface_up.pp"]
+        "files": [
+            "manifests/resources/interface_up.pp"]
       },
       {
         "hash": "1f3ddf7fef8da62b65c18e0b2e4dfda37a33b542",
         "msg": "Fix contain statements on analytics.pp\n\nChange-Id: I29f870acabeece012aa4d95c555f39d81f19b0b1",
         "cmtr": "Alejandro Andreu",
         "date": "2016-11-30 12:09:39+01:00",
-        "files": ["analytics.pp"]
+        "files": [
+            "manifests/analytics.pp"]
       },
       {
         "hash": "2d82654adb6f2444a1fd3f6967b8ebabf0994a16",
         "msg": "Make sure LB and FWAAS are installed\n\nChange-Id: I0399f1abc09a93ff7180f242fc069931775a5469",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-12-05 15:12:56+01:00",
-        "files": ["Puppetfile", "run.pp", "metadata.json"]
+        "files": [
+            "Puppetfile",
+            "manifests/cluster/run.pp",
+            "metadata.json"]
       },
       {
         "hash": "3185bc745d7632628cea0acc98e09018547a37d0",
         "msg": "Install Curator from RPM on CentOS/RHEL\n\nChange-Id: Ie6530525e62ca4b44dba06c5aa354ecd4dc504f0",
         "cmtr": "Alejandro Andreu",
         "date": "2016-12-12 17:56:48+01:00",
-        "files": ["analytics.pp"]
+        "files": [
+            "manifests/analytics.pp"]
       },
       {
         "hash": "a6f5b2bdd8ab5e1d8feb79a2acc01573e23aa835",
         "msg": "Fix Some Bugs on Puppet Midonet\n\n- Pin version of package elasticsearh\n- Send proper format to midonet config\n- Check for duplicate midonet.conf file creation\n\nChange-Id: I8b13dcb1c82be3fa6d61daad1ddcad664420f2e2",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2016-12-13 16:53:56+01:00",
-        "files": ["Puppetfile", "quickstart.pp", "run.pp", "midonet_cluster_run_spec.rb", "mn-cluster_config.sh.erb"]
+        "files": [
+            "Puppetfile",
+            "manifests/analytics/quickstart.pp",
+            "manifests/cluster/run.pp",
+            "spec/classes/midonet_cluster_run_spec.rb",
+            "templates/cluster/mn-cluster_config.sh.erb"]
       },
       {
         "hash": "5e295d177ff135d9824cefb1d44c97820611cf01",
         "msg": "Add 5.4 support\n\nChange-Id: Ia551544b1c68fda19a7eac505251ca1146b355d2",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2017-01-18 14:35:14+01:00",
-        "files": ["Gemfile", "analytics.pp", "services.pp", "cluster.pp", "run.pp", "mem.pp", "spec_helper_acceptance.rb", "analytics_settings.erb", "analytics_settings_local.erb", "analytics_settings_local.sh.erb"]
+        "files": [
+            "Gemfile",
+            "manifests/analytics.pp",
+            "manifests/analytics/services.pp",
+            "manifests/cluster.pp",
+            "manifests/cluster/run.pp",
+            "manifests/mem.pp",
+            "spec/spec_helper_acceptance.rb",
+            "templates/analytics/analytics_settings.erb",
+            "templates/analytics/analytics_settings_local.erb",
+            "templates/analytics/analytics_settings_local.sh.erb"]
       },
       {
         "hash": "76905f0312ae316cbc9f608b6afca47f76eca4ce",
         "msg": "New default config path for Midolman\n\nChange-Id: I837688929f29426e6405f0d89ed292a32cde448f",
         "cmtr": "Alejandro Andreu",
         "date": "2017-01-31 11:13:47+01:00",
-        "files": ["run.pp"]
+        "files": [
+            "manifests/agent/run.pp"]
       },
       {
         "hash": "f6a54c6a1dc497a7648593ae63f894185d092797",
         "msg": "Add configurable parameters for midonet state proxy\n\nChange-Id: I863a815dea3ad543b571ed10991ca61ac4b9a442",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2017-01-31 11:54:01+01:00",
-        "files": ["cluster.pp", "run.pp", "mn-cluster_config.sh.erb"]
+        "files": [
+            "manifests/cluster.pp",
+            "manifests/cluster/run.pp",
+            "templates/cluster/mn-cluster_config.sh.erb"]
       },
       {
         "hash": "3c9cda21d9e200c51fecc1d5eb8acd18ac1479f0",
         "msg": "Ensure there are no duplicated file declarations\n\nChange-Id: I1bbf14e875d1f7dc91ab47ca85856f4c1feca6ac",
         "cmtr": "Alejandro Andreu",
         "date": "2017-01-31 14:59:21+01:00",
-        "files": ["quickstart.pp", "run.pp"]
+        "files": [
+            "manifests/analytics/quickstart.pp",
+            "manifests/cluster/run.pp"]
       },
       {
         "hash": "c93158418e30b0bc9822a81c50b218238c053b76",
         "msg": "FQDN instead of hostname on network_creation\n\nChange-Id: I8f423a4ba78442f0b9897222b656c123eddaf7da",
         "cmtr": "Alejandro Andreu",
         "date": "2017-02-03 10:27:13+01:00",
-        "files": ["network_creation.pp"]
+        "files": [
+            "manifests/resources/network_creation.pp"]
       },
       {
         "hash": "dae3ddca0cbebe67e2f22a98922c78a152b5851a",
         "msg": "Fix bug on cluster.pp\n\nChange-Id: I7a38c201d65c062902f533dce7f61f58b292d653",
         "cmtr": "Alejandro Andreu",
         "date": "2017-02-17 11:58:11+01:00",
-        "files": ["cluster.pp"]
+        "files": [
+            "manifests/cluster.pp"]
       },
       {
         "hash": "6c215e4f04527c45ada847f0462cc9bb85f4ebde",
         "msg": "proxy pass midonet-api\n\nChange-Id: Idf9b0e93e38101b0b17cc94e3f4f0371955641bf",
         "cmtr": "Alejandro Andreu",
         "date": "2017-02-17 18:31:39+01:00",
-        "files": ["mem.pp"]
+        "files": [
+            "manifests/mem.pp"]
       },
       {
         "hash": "442a5854850fd78cc4ec08e489c90bf2f36bfa26",
         "msg": "Doesn't make analytics manifests :bomb: on RHEL7\n\nChange-Id: I7d1f5cc753802ae8112086a4ec42cdd777603dc0",
         "cmtr": "Alejandro Andreu",
         "date": "2017-02-20 17:50:37+01:00",
-        "files": ["analytics.pp", "services.pp"]
+        "files": [
+            "manifests/analytics.pp",
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "59f6b0937a1a5f165233fd4448871623af02f327",
         "msg": "Fix proxypass statement for MEM\n\nChange-Id: I043ab9d5e28914c69c13100039432ee222341da4",
         "cmtr": "Alejandro Andreu",
         "date": "2017-02-22 17:53:18+01:00",
-        "files": ["mem.pp"]
+        "files": [
+            "manifests/mem.pp"]
       },
       {
         "hash": "f30ea96f16c4b753aa336c615cf25bd7c610cb6b",
         "msg": "Update elasticsearch JVM config file\n\nChange-Id: I98664ecc51df11a112d125ec300f6a04475e6a26",
         "cmtr": "Alejandro Andreu",
         "date": "2017-02-24 17:15:05+01:00",
-        "files": ["analytics.pp"]
+        "files": [
+            "manifests/analytics.pp"]
       },
       {
         "hash": "b30e6793dd1360e00ccfd466b817b7f1589cd430",
         "msg": "Dont use Initctl because it has been removed from Ubuntu 14.04. YAYgit add services.pp  :fireworks:\n\nChange-Id: I7374418b7ec66550f37d9684707d388b1f5a1108",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2017-02-28 11:57:55+01:00",
-        "files": ["services.pp"]
+        "files": [
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "52ec89513919e113b95179532301e577927ec45e",
         "msg": "Fix logstash restart for suregit add services.pp\n\nChange-Id: I55686c0e04d19b8f8dd78421fce50b2850fe0eab",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2017-02-28 13:06:21+01:00",
-        "files": ["services.pp"]
+        "files": [
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "581bee3b82444c335884e38266e66e7b66842cb2",
         "msg": "Fix the paths for analytics , so service doesnt :bomb:\n\nChange-Id: I2f15356e5a89fb03491eeffe521b5231ce935b40",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2017-03-06 15:34:12+01:00",
-        "files": ["services.pp", "mem.pp"]
+        "files": [
+            "manifests/analytics/services.pp",
+            "manifests/mem.pp"]
       },
       {
         "hash": "014f85f9910c92810b6045946009ec94bb68ed24",
         "msg": "Fix manifests analytics for debian\n\nChange-Id: I35ad7dff3b11b55a8b9be496780d8134f3046ab7",
         "cmtr": "Alex Ruiz Estradera",
         "date": "2017-03-06 18:02:57+01:00",
-        "files": ["services.pp"]
+        "files": [
+            "manifests/analytics/services.pp"]
       },
       {
         "hash": "5dda1b954f7ba92109c90b30d677ed1ee8d12274",
         "msg": "Configure static uplink ifaces on startup in RHEL7\n\nChange-Id: Icebf6efae7326de6fb7bdae68a91e65eb6f3a147",
         "cmtr": "Alejandro Andreu",
         "date": "2017-03-08 12:22:15+01:00",
-        "files": ["midonet-static-uplink.service", "static.pp", "midonet_gateway_static_spec.rb"]
+        "files": [
+            "files/gateway/midonet-static-uplink.service",
+            "manifests/gateway/static.pp",
+            "spec/classes/midonet_gateway_static_spec.rb"]
       },
       {
         "hash": "ac4a55bda0a7159cb2fef116abbcf7d601cd5dbe",
         "msg": "Add timeout for static uplink script\n\nChange-Id: I041468c033100a97c8d146a685d7817f178d4961",
         "cmtr": "Alejandro Andreu",
         "date": "2017-03-16 00:05:34+01:00",
-        "files": ["static.pp"]
+        "files": [
+            "manifests/gateway/static.pp"]
       },
       {
         "hash": "4a2264736d51f6612ad04a9c1a2e912196e492c6",
         "msg": "Make analytics repositories truly manageable\n\nChange-Id: Iaa96f309dfafd38591a8dfff954d2047cbbebc6c",
         "cmtr": "Alejandro Andreu",
         "date": "2017-03-22 18:34:23+01:00",
-        "files": ["analytics.pp"]
+        "files": [
+            "manifests/analytics.pp"]
       },
       {
         "hash": "b5ccf55de219158aa58c66111acfa890602b3b1a",
         "msg": "Set purge_config to false on logstash class\n\nChange-Id: Icb8f3eb2f54490ab88c701574f904930897750eb",
         "cmtr": "Alejandro Andreu",
         "date": "2017-03-23 10:20:40+01:00",
-        "files": ["analytics.pp"]
+        "files": [
+            "manifests/analytics.pp"]
       },
       {
         "hash": "c4c694d5615b4e98cd9a298522267232dd9a9e0f",
         "msg": "Configure stuff after config file is in place\n\nChange-Id: I9a78703b1f01394fa95c804da7e787ce1fd61644",
         "cmtr": "Alejandro Andreu",
         "date": "2017-04-04 12:08:58+02:00",
-        "files": ["run.pp"]
+        "files": [
+            "manifests/cluster/run.pp"]
       },
       {
         "hash": "e900e1836d43ecb899f236cf1f365992c689e45c",
         "msg": "Enable everything so Insights work when deployed\n\nAlso pin puppetlabs-apt, as the newest version of the module breaks all\ntests.\n\nChange-Id: Iaf8b390f85c91f84e5157bd11eb061feb53ad9e2",
         "cmtr": "Alejandro Andreu",
         "date": "2017-06-02 08:49:24+02:00",
-        "files": ["Puppetfile", "run.pp", "analytics_settings.erb"]
+        "files": [
+            "Puppetfile",
+            "manifests/cluster/run.pp",
+            "templates/analytics/analytics_settings.erb"]
       }]
     }

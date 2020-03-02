@@ -1,7 +1,37 @@
     {
       "url": "https://github.com/openstack/puppet-sahara",
-      "pp_files": ["service.pp", "logging.pp", "db.pp", "init.pp", "example.pp", "sync.pp", "postgresql.pp", "basic.pp", "qpid.pp", "params.pp", "authtoken.pp", "config.pp", "host_access.pp", "policy.pp", "deps.pp", "client.pp", "notify.pp", "api.pp", "engine.pp", "rabbitmq.pp", "mysql.pp", "dashboard.pp", "install.pp", "zeromq.pp", "all.pp", "apache.pp", "auth.pp"],
-      "pp_cmtrs": ["Sergey Kolekonov", "Lukas Bezdicka", "Yanis Guenane", "Emilien Macchi", "Mykyta Karpin", "Xing Zhou", "Giulio Fidente", "Martin M\u00e1gr", "Sebastien Badia", "Juan Antonio Osorio Robles", "Harry Rybacki", "Javier Pena", "Tobias Urdin", "Andy Edmonds", "ZhongShengping", "Andrew Smith", "Thomas Goirand", "Nate Potter", "Gael Chamoulaud", "zhubingbing", "Carlos Camacho", "ZhijunWei", "Mathieu Gagne\u0301", "Tomasz 'Zen' Napierala", "iberezovskiy", "Alex Schultz", "Sharat Sharma", "zhulingjie", "Denis Egorenko", "Iury Gregory Melo Ferreira", "Chad Roberts"],
+      "pp_files": [
+        "manifests/db/mysql/host_access.pp",
+        "manifests/service/engine.pp",
+        "manifests/dashboard.pp",
+        "manifests/wsgi/apache.pp",
+        "manifests/service.pp",
+        "manifests/deps.pp",
+        "manifests/notify/rabbitmq.pp",
+        "manifests/db/postgresql.pp",
+        "manifests/install.pp",
+        "manifests/client.pp",
+        "manifests/init.pp",
+        "manifests/config.pp",
+        "manifests/logging.pp",
+        "manifests/notify/qpid.pp",
+        "manifests/db/mysql.pp",
+        "manifests/keystone/auth.pp",
+        "manifests/notify.pp",
+        "manifests/keystone/authtoken.pp",
+        "manifests/policy.pp",
+        "manifests/params.pp",
+        "manifests/service/api.pp",
+        "tests/init.pp",
+        "example/example.pp",
+        "examples/basic.pp",
+        "manifests/service/all.pp",
+        "manifests/notify/zeromq.pp",
+        "manifests/db/sync.pp",
+        null,
+        "manifests/db.pp"
+      ],
+      "pp_cmtrs": ["zhubingbing", "Harry Rybacki", "Juan Antonio Osorio Robles", "Andy Edmonds", "Martin M\u00e1gr", "ZhongShengping", "Carlos Camacho", "Thomas Goirand", "Mykyta Karpin", "Sharat Sharma", "Alex Schultz", "Sebastien Badia", "Mathieu Gagne\u0301", "iberezovskiy", "Tomasz 'Zen' Napierala", "Lukas Bezdicka", "Iury Gregory Melo Ferreira", "Yanis Guenane", "Giulio Fidente", "zhulingjie", "Chad Roberts", "Andrew Smith", "ZhijunWei", "Emilien Macchi", "Javier Pena", "Sergey Kolekonov", "Nate Potter", "Xing Zhou", "Gael Chamoulaud", "Tobias Urdin", "Denis Egorenko"],
       "num_pp_commits": 102,
       "num_tot_commits": 345,
       "commits": [{
@@ -9,713 +39,1136 @@
         "msg": "This is the initial commit of the savanna puppet module.\n\nInstalls the OpenStack savanna UI and backend. Example of\nuse can be seen in example/example.pp\n\nChange-Id: I3b994f70690078d37a42308f9985712e2f398924\nImplements: blueprint puppet-savanna",
         "cmtr": "Andy Edmonds",
         "date": "2013-12-12 13:26:45+01:00",
-        "files": [".gitignore", "Modulefile", "README.md", "example.pp", "dashboard.pp", "mysql.pp", "host_access.pp", "init.pp", "install.pp", "auth.pp", "params.pp", "service.pp", "metadata.json", "spec_helper.rb", "savanna-api.conf.erb", "savanna-api.erb", "savanna.conf.erb", "init.pp"]
+        "files": [
+            ".gitignore",
+            "Modulefile",
+            "README.md",
+            "example/example.pp",
+            "manifests/dashboard.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/mysql/host_access.pp",
+            "manifests/init.pp",
+            "manifests/install.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/params.pp",
+            "manifests/service.pp",
+            "metadata.json",
+            "spec/spec_helper.rb",
+            "templates/savanna-api.conf.erb",
+            "templates/savanna-api.erb",
+            "templates/savanna.conf.erb",
+            "tests/init.pp"]
       },
       {
         "hash": "02cb95f22d8d8794d1df81b4d66579e033893cb8",
         "msg": "Fixes installing development builds\n\nChanges installing development builds to native resources. Fixed installing\npython-pip instead of git package\n\nCloses-Bug: #1294622\nCloses-Bug: #1294621\n\nChange-Id: I40bc135c12593bc90742f8cedc33fa2740fef2c9",
         "cmtr": "Tomasz 'Zen' Napierala",
         "date": "2014-03-19 13:46:01+01:00",
-        "files": ["dashboard.pp", "install.pp"]
+        "files": [
+            "manifests/dashboard.pp",
+            "manifests/install.pp"]
       },
       {
         "hash": "b99fffb900dec9f02a5835fd22b785e26a74ca23",
         "msg": "Updating the puppet module to reference Sahara\n\nUpdating savanna references to become sahara.  This\nis necessary after the project renaming effort.\n\nChange-Id: I82026692d1e0a6e6fb511fda679361c218b49ce2\nCloses-Bug:  bug 1316136",
         "cmtr": "Chad Roberts",
         "date": "2014-05-05 16:25:07-04:00",
-        "files": ["Modulefile", "README.md", "README.rst", "example.pp", "dashboard.pp", "mysql.pp", "host_access.pp", "init.pp", "install.pp", "auth.pp", "params.pp", "service.pp", "metadata.json", "sahara-api.conf.erb", "sahara-api.erb", "sahara.conf.erb", "savanna-api.conf.erb", "init.pp"]
+        "files": [
+            "Modulefile",
+            "README.md",
+            "README.rst",
+            "example/example.pp",
+            "manifests/dashboard.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/mysql/host_access.pp",
+            "manifests/init.pp",
+            "manifests/install.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/params.pp",
+            "manifests/service.pp",
+            "metadata.json",
+            "templates/sahara-api.conf.erb",
+            "templates/sahara-api.erb",
+            "templates/sahara.conf.erb",
+            "None",
+            "tests/init.pp"]
       },
       {
         "hash": "ed3cdc59d8fef38d92499743fa3ed7cd0036fc97",
         "msg": "Adding RHEL support for puppet-sahara\n\nAdding a section to install for redhat-based\nsystems.\n* adding require mysql::server\n* adding sahara-api-redhat.erb template\n* adding section to install that uses the new\n  template to build an init.d script\n* updates for compatibility with latest versions\n  of puppet modules\n  \n\nChange-Id: Idecde095040cf2ed31f81ac058aed526224aa73e\nCloses-Bug:  bug 1295342",
         "cmtr": "Chad Roberts",
         "date": "2014-05-09 15:25:31-04:00",
-        "files": ["Rakefile", "mysql.pp", "install.pp", "auth.pp", "sahara-api-redhat.erb"]
+        "files": [
+            "Rakefile",
+            "manifests/db/mysql.pp",
+            "manifests/install.pp",
+            "manifests/keystone/auth.pp",
+            "templates/sahara-api-redhat.erb"]
       },
       {
         "hash": "f4e5681cfb289113be1ba49c12709145ecbad938",
         "msg": "Allowing for RPM-based installation\n\nNow supporting $rpm_install for the case where\na user wants to install from an rpm-based repo.\n* rpm_install flag (false by default)\n* now using \"data_processing\" in service endpoint\n* initializing db schema at end of install\n\nChange-Id: I71ad51e418b0579d1b048778ac550adc504f53b9\nCloses-Bug:  bug 1322626",
         "cmtr": "Chad Roberts",
         "date": "2014-05-23 10:00:16-04:00",
-        "files": ["example.pp", "dashboard.pp", "mysql.pp", "install.pp", "auth.pp", "params.pp"]
+        "files": [
+            "example/example.pp",
+            "manifests/dashboard.pp",
+            "manifests/db/mysql.pp",
+            "manifests/install.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/params.pp"]
       },
       {
         "hash": "6b2ce534a942f6a2f36f15c318b5ac162035826f",
         "msg": "Refactorise Keystone resources management\n\nRefactorise the code of Keystone resources management with backward\ncompatibility since we don't modify the unit tests.\n\nAlso add puppet-keystone in metadata.json.\n\nChange-Id: I85ad9f21a15daa3f0fcd82fcf75c7157a8223a40\nImplements: blueprint common-openstack-identity-resource",
         "cmtr": "Emilien Macchi",
         "date": "2014-11-25 13:20:00-05:00",
-        "files": ["auth.pp", "metadata.json"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "metadata.json"]
       },
       {
         "hash": "a0f14ef9ddd82e636dd31fd50f91859bfa0470cc",
         "msg": "Rewrite puppet-sahara from scratch\n\nDuring the Kilo summit, we talked about the state of the current\npuppet-sahara module on stackforge, and especially about the brought up parity with\nother modules.\n\nFor theses reasons, the rewrite was launched/leaded by Robbie Harwood,\nbut directly coded on Github (and not in a feature branch in this\nrepository), for this reason, this patch is non-atomic, and import the\nlatest frozencemetery/puppet-sahara version¹.\n\nThis rewrite/import was approved on puppet-openstack mailing list\n(following this thread²).\n\nThe «reset» of the stackforge repo was discussed (in order to keep the history\nof Robbie module) on #openstack-infra, but it seems we have no simple solution.\n\n¹https://github.com/frozencemetery/puppet-sahara/commit/05af265b15eb3c4e1682ab3fc6dc8b6d750d3e36\n²https://groups.google.com/a/puppetlabs.com/forum/#!topic/puppet-openstack/0BETdNvrd70\n\nCo-Authored-By: Robbie Harwood <rharwood@redhat.com>\nChange-Id: Ic3dd7547fdfcba275d8a8b90b8ba84bc3ce1d7c0",
         "cmtr": "Sebastien Badia",
         "date": "2015-02-05 20:40:12+01:00",
-        "files": [".fixtures.yml", "Gemfile", "LICENSE", "README.md", "README.rst", "Rakefile", "example.pp", "basic.pp", "ini_setting.rb", "ini_settings.rb", "sahara_config.rb", "client.pp", "dashboard.pp", "mysql.pp", "host_access.pp", "postgresql.pp", "init.pp", "install.pp", "auth.pp", "qpid.pp", "rabbitmq.pp", "zeromq.pp", "params.pp", "service.pp", "metadata.json", "sahara_client_spec.rb", "sahara_db_mysql_spec.rb", "sahara_db_postgresql_spec.rb", "sahara_init_spec.rb", "sahara_keystone_auth_spec.rb", "sahara_notify_qpid_spec.rb", "sahara_notify_rabbitmq_spec.rb", "shared_examples.rb", "spec_helper.rb", "sahara-api-redhat.erb", "sahara-api.conf.erb", "sahara-api.erb", "sahara.conf.erb", "init.pp"]
+        "files": [
+            ".fixtures.yml",
+            "Gemfile",
+            "LICENSE",
+            "README.md",
+            "None",
+            "Rakefile",
+            "None",
+            "examples/basic.pp",
+            "lib/puppet/provider/sahara_config/ini_setting.rb",
+            "None",
+            "lib/puppet/type/sahara_config.rb",
+            "manifests/client.pp",
+            "None",
+            "manifests/db/mysql.pp",
+            "None",
+            "manifests/db/postgresql.pp",
+            "manifests/init.pp",
+            "None",
+            "manifests/keystone/auth.pp",
+            "manifests/notify/qpid.pp",
+            "manifests/notify/rabbitmq.pp",
+            "manifests/notify/zeromq.pp",
+            "manifests/params.pp",
+            "None",
+            "metadata.json",
+            "spec/classes/sahara_client_spec.rb",
+            "spec/classes/sahara_db_mysql_spec.rb",
+            "spec/classes/sahara_db_postgresql_spec.rb",
+            "spec/classes/sahara_init_spec.rb",
+            "spec/classes/sahara_keystone_auth_spec.rb",
+            "spec/classes/sahara_notify_qpid_spec.rb",
+            "spec/classes/sahara_notify_rabbitmq_spec.rb",
+            "spec/shared_examples.rb",
+            "spec/spec_helper.rb",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"]
       },
       {
         "hash": "bbcfe378903e77db6f14532c8867ea1444f05d6b",
         "msg": "Migrate postgresql backend to use openstacklib::db::postgresql\n\nLet migrate to the new openstacklib::db::postgresql helper for\npostgresql backend. This commit also unpin postgresql fixture\n(openstacklib support now the latest version of postgre module).\n\nChange-Id: I2040aff154f57af2ed9ae3d689ebf3af092b6525\nImplements: blueprint commmon-openstack-database-resource",
         "cmtr": "Sebastien Badia",
         "date": "2015-03-18 22:26:14+00:00",
-        "files": [".fixtures.yml", "postgresql.pp", "sahara_db_postgresql_spec.rb"]
+        "files": [
+            ".fixtures.yml",
+            "manifests/db/postgresql.pp",
+            "spec/classes/sahara_db_postgresql_spec.rb"]
       },
       {
         "hash": "f4dea860e5550dfc2d1bd8227232653b47ee8760",
         "msg": "policy.json: Allow one to manage them from the puppet module\n\nThis commit allow a deployer to manage the policies via this module\nIt relies on augeas to change only the policy needed. The init takes\na hash of policies and apply them.\n\nhttp://docs.openstack.org/developer/sahara/userdoc/configuration.guide.html#sahara-policy-configuration\n\nChange-Id: I7c58cfaee285293647f9c5a23aacdd37e7289f99",
         "cmtr": "Sebastien Badia",
         "date": "2015-03-19 09:31:59+00:00",
-        "files": ["init.pp", "policy.pp", "sahara_init_spec.rb", "sahara_policy_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/policy.pp",
+            "spec/classes/sahara_init_spec.rb",
+            "spec/classes/sahara_policy_spec.rb"]
       },
       {
         "hash": "65b73e4134c2a599fae190cb48d06b5416ea2079",
         "msg": "add back availability to manage logging and syslog confs\n\nThis commit add back the possibility to manage syslog (inc. facility)\nand flat log files (log_dir).\n\nThanks Luigi for the request!\n\nChange-Id: I09daa6ed84d626c4ccef886ad9d2e3019ca48c4b",
         "cmtr": "Gael Chamoulaud",
         "date": "2015-03-19 17:40:38+01:00",
-        "files": ["init.pp", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "5b2259e636cb08d5b56fa9810ce9b8c43cbce065",
         "msg": "Add Puppet 4.x lint checks\n\n- This changes the puppet-lint requirement to 1.1.x, so that we can use\n  puppet-lint plugins. Most of these plugins are for 4.x compat, but\n  some just catch common errors.\n\nChange-Id: I6d5fd429096041342f7f30122da60471790ed9ac\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
         "cmtr": "Gael Chamoulaud",
         "date": "2015-03-19 17:42:35+01:00",
-        "files": ["Gemfile", "basic.pp", "client.pp", "init.pp"]
+        "files": [
+            "Gemfile",
+            "examples/basic.pp",
+            "manifests/client.pp",
+            "manifests/init.pp"]
       },
       {
         "hash": "303e514db06b34db1ab26e84edbbdf91d98d6679",
         "msg": "Tag all Sahara packages\n\nSome users wish to override the default package provider by their own.\n\nTag all packages with the 'openstack' to allow mass resource attributes\noverride using resource collectors.\n\nChange-Id: Ic662043bcd19a930a47a6716be051561fceef5d7\nCloses-bug: #1391209\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
         "cmtr": "Gael Chamoulaud",
         "date": "2015-03-29 16:38:37+02:00",
-        "files": ["client.pp", "init.pp", "sahara_client_spec.rb"]
+        "files": [
+            "manifests/client.pp",
+            "manifests/init.pp",
+            "spec/classes/sahara_client_spec.rb"]
       },
       {
         "hash": "7dfdc87303f40bddd2fc72c974fbddb3d16f04d0",
         "msg": "Makes kombu_ssl_* parameters optional when rabbit_use_ssl => true\n\nThe kombu_ssl_* parameters should not be required when rabbit_use_ssl => true\nRather, rabbit_use_ssl must be set to true if the kombu_ssl_* parameters are\nused.\n\nChange-Id: I5ddd3d0910094c31352243d3b674dff79e891dda\nCloses-Bug: 1356083",
         "cmtr": "Lukas Bezdicka",
         "date": "2015-03-31 13:15:25-04:00",
-        "files": ["rabbitmq.pp", "sahara_notify_rabbitmq_spec.rb"]
+        "files": [
+            "manifests/notify/rabbitmq.pp",
+            "spec/classes/sahara_notify_rabbitmq_spec.rb"]
       },
       {
         "hash": "2019a682cd2dfe3aa446a666983d9472425c4c09",
         "msg": "MySQL: change default MySQL collate to utf8_general_ci\n\nInstall & configure MySQL database by using utf8_general_ci collation\nwhich is the way documented in OpenStack [1] and already the default\nin puppetlabs-mysql [2].\n\n[1] http://goo.gl/GA5gyZ\n[2] https://github.com/puppetlabs/puppetlabs-mysql/blob/master/manifests/db.pp#L7\n\nChange-Id: Icc9150a71139d21df25a428cf266903e278a8949\nCloses-bug: #1446375",
         "cmtr": "Emilien Macchi",
         "date": "2015-04-21 13:14:20-04:00",
-        "files": ["mysql.pp", "sahara_db_mysql_spec.rb"]
+        "files": [
+            "manifests/db/mysql.pp",
+            "spec/classes/sahara_db_mysql_spec.rb"]
       },
       {
         "hash": "d9a96249dc9d2e1c673aaedaac3b4952d242f46c",
         "msg": "Allow to deploy on Ubuntu\n\nSahara is now packaged for Ubuntu (UCA).\n\nChange-Id: Iea6f39d3a4bda45c8703b65c0dff72b7e551f141\nSee: http://packages.ubuntu.com/vivid/sahara",
         "cmtr": "Emilien Macchi",
         "date": "2015-04-30 11:52:03-04:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "e12840fe780624b99449718c3cde9443efaeb078",
         "msg": "Fix Sahara installation for Ubuntu\n\nBecause Sahara does not support SQLite, sahara-common will fail to be\ninstalled if /etc/sahara/sahara.conf does not contain valid database\nconnection and if the database does not actually exist.\n\nThe patch aims to\n* create 'sahara' group (we don't use to do that, but here we don't have\n  the choice)\n* create /etc/sahara & /etc/sahara/sahara.conf with right permissions\n* orchestration to have Sahara working in one Puppet run\n\nChange-Id: I4c9e9206e3e60f3c85224ae120516badb331672e\nCloses-bug: #1450659",
         "cmtr": "Emilien Macchi",
         "date": "2015-05-04 09:35:34-04:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "9de78136d18d9ea9b821f2da0a6c24428611c64b",
         "msg": "Idempotency fix\n\nTo keep Puppet run idempotent we have to avoid changing SELinux labels.\n\nChange-Id: I3a14cb1e742ba376265149191c2c4bae03f5148e",
         "cmtr": "Martin Mágr",
         "date": "2015-05-18 20:36:14+02:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "326860e6244927474f458e5df220abcb59049576",
         "msg": "Fixed /etc/sahara handling\n\nThis patch fixes:\n- invalid order of package install and config modification\n- invalid user to run db_sync\n\nChange-Id: Ic946206dc930072c33e3e976062d5e26fd33f59e",
         "cmtr": "Emilien Macchi",
         "date": "2015-05-22 10:01:12-07:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "e19c54a6522b7beecf6009e4714fb78ea64c7402",
         "msg": "Move rabbit/kombu settings to oslo_messaging_rabbit section\n\nKilo oslo-messaging deprecates rabbit/kombu settings in the\nDEFAULT section.\n\nMove these settings to proper oslo_messaging_rabbit section.\n\nChange-Id: Ib38ce9ae158a51bc90e04114621d053611ef457a\nCloses-bug: 1444161\nSigned-off-by: Gael Chamoulaud <gchamoul@redhat.com>",
         "cmtr": "Gael Chamoulaud",
         "date": "2015-06-08 17:28:03+00:00",
-        "files": ["rabbitmq.pp", "sahara_notify_rabbitmq_spec.rb"]
+        "files": [
+            "manifests/notify/rabbitmq.pp",
+            "spec/classes/sahara_notify_rabbitmq_spec.rb"]
       },
       {
         "hash": "42dc1bf8080a6905f166cc913267f81c166c4d19",
         "msg": "Introduce public_url, internal_url and admin_url\n\nThis change deprecates the following parameters:\n- version (replaced by public/internal/admin_url)\n- port (replaced by public/internal/admin_url)\n- public_protocol (replaced by public_url)\n- public_address (replaced by public_url)\n- public_port (replaced by public_url)\n- internal_protocol (replaced by internal_url)\n- internal_address (replaced by internal_url)\n- admin_protocol (replaced by admin_url)\n- admin_address (replaced by admin_url)\n\nAdd deprecation warnings if any of those values are provided\nwhile maintaining full backward compatibility.\n\nCloses-bug: #1274979\nChange-Id: Ib081308ad159841b32ce8eabd846c1567d2a3145",
         "cmtr": "Mathieu Gagné",
         "date": "2015-06-11 17:00:52-04:00",
-        "files": ["auth.pp", "sahara_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "spec/classes/sahara_keystone_auth_spec.rb"]
       },
       {
         "hash": "fe5bb55368307f6edca961cfef8a3fd2b7a8f083",
         "msg": "Enable tests for oslo_messaging_rabbit/rabbit_hosts parameter\n\nThe problem is that value for this parameter quotes in quote ',\nbut it should be double quotes \".\n\nChange-Id: I3edf930d6b1928bc06a97632f53d90a0d405681f",
         "cmtr": "Denis Egorenko",
         "date": "2015-06-16 11:59:46+03:00",
-        "files": ["rabbitmq.pp", "sahara_notify_rabbitmq_spec.rb"]
+        "files": [
+            "manifests/notify/rabbitmq.pp",
+            "spec/classes/sahara_notify_rabbitmq_spec.rb"]
       },
       {
         "hash": "9c8d604ac191e53e975c53f811d72cf74ef1849a",
         "msg": "Add sahara::config class\n\nOther modules provide an X::config class to be able to specify\nparameters that are not yet part of the module. Sahara was missing this\nfeature. This commit aims to add it for puppet-sahara.\n\nChange-Id: Ie8bf79783ae32648dd10792de6d76eeb84877302",
         "cmtr": "Yanis Guenane",
         "date": "2015-07-20 10:57:52+02:00",
-        "files": ["config.pp", "sahara_config_spec.rb"]
+        "files": [
+            "manifests/config.pp",
+            "spec/classes/sahara_config_spec.rb"]
       },
       {
         "hash": "2db7e5a3e7b3d3a50692c51e4093cca26cce29d9",
         "msg": "Add tag to package and service resources\n\nIn order to be able to take an action after all the packages of the\nmodule have been installed/updated or all the services have been\nstarted/restarted, we set a 'sahara-packaage' and 'sahara-service' tag\nfor each package and service of this module.\n\nAt the moment, there is a generic openstack tag that is not specific\nenough if one wants to take action upon a single module change.\n\nUse case :\n\nIf an action needs to be taken after all the packages have been\ninstalled or updated : Package <| tag == 'sahara-package' |> -> X\n\nChange-Id: Ie2ef4a09fbc83a7b97f1d1d5b1d12a3b3a643d34",
         "cmtr": "Yanis Guenane",
         "date": "2015-07-22 20:29:17+02:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "5639b6fdb5c307b66ee53944335365848efdf614",
         "msg": "Add support of SSL configuring for Sahara\n\nAdd support of SSL configuring for Sahara [1] (section\nDescription of CA and SSL configuration options).\n\n[1] http://docs.openstack.org/kilo/config-reference/content/ch_configuring-sahara.html\n\nChange-Id: I9683a5278e50d2bad32598ba8ffe843999ffc860",
         "cmtr": "Denis Egorenko",
         "date": "2015-07-31 15:49:37+03:00",
-        "files": ["init.pp", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "038e352256c1107ca633be3ae21bb89ad3589e02",
         "msg": "Creation of sahara::db::sync\n\nIn order to standardize the way dbsync are run across our modules,\nwe create a new class sahara::db::sync.\nThis class will be included if sync_db is enabled.\n\nBy making this transition the sahara::db::sync class\ncan be returned by the ENC.\n\nA use case would be in an highly available environment, with 3 galera\nnodes, include sahara on every node with sync_db set to false\nand have the ENC return sahara::db::sync just for one node.\n\nChange-Id: Ibdf6f86e546868b4fcfa0f530287e712934808fd",
         "cmtr": "Yanis Guenane",
         "date": "2015-08-04 14:52:18+02:00",
-        "files": ["sync.pp", "init.pp", "sahara_db_sync_spec.rb", "shared_examples.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "manifests/init.pp",
+            "spec/classes/sahara_db_sync_spec.rb",
+            "spec/shared_examples.rb"]
       },
       {
         "hash": "3e993877ee118593a53c8c5fa37ac985f5074aa6",
         "msg": "Add an ability to manage use_stderr parameter\n\nWhen logging is already set up, it can be useful to disable this option\nto avoid logs duplication (collected by Upstart, for example)\n\nChange-Id: I996e156fe15ab2e667471e537755a5c728bcb97b\nCloses-bug: #1482564",
         "cmtr": "Sergey Kolekonov",
         "date": "2015-08-08 14:15:24+00:00",
-        "files": ["init.pp", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "f590f384a92916671cf7904a9c983b789b4abb7b",
         "msg": "Update parameters for Sahara\n\nRemove wrong and update parameters for sahara.conf\n\n[1] http://docs.openstack.org/kilo/config-reference/content/ch_configuring-sahara.html\n\nChange-Id: I222f5d63a7f0518ac04546915dcb12156840c8d4",
         "cmtr": "Denis Egorenko",
         "date": "2015-08-13 13:47:53+03:00",
-        "files": ["basic.pp", "init.pp", "qpid.pp", "rabbitmq.pp", "zeromq.pp", "basic_sahara_spec.rb", "sahara_init_spec.rb", "sahara_notify_qpid_spec.rb", "sahara_notify_rabbitmq_spec.rb"]
+        "files": [
+            "examples/basic.pp",
+            "manifests/init.pp",
+            "manifests/notify/qpid.pp",
+            "manifests/notify/rabbitmq.pp",
+            "manifests/notify/zeromq.pp",
+            "spec/acceptance/basic_sahara_spec.rb",
+            "spec/classes/sahara_init_spec.rb",
+            "spec/classes/sahara_notify_qpid_spec.rb",
+            "spec/classes/sahara_notify_rabbitmq_spec.rb"]
       },
       {
         "hash": "92a53a6b587e8f8dddddbb253a1b4595db6605c3",
         "msg": "Remove Sqlite validation for database_connection\n\nRemove unneeded validation of database_connection for Sqlite,\nbecause it is under case of unsupported db backend.\n\nChange-Id: Id10bd0b598c350330fd4179c7311a900c4854b59",
         "cmtr": "Denis Egorenko",
         "date": "2015-08-17 13:13:30+03:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "44bdf30585204ab891ffed480697f0f9b7120f0f",
         "msg": "Configure rpc options separately from ceilometer notifications\n\nNow all rpc backend configurations are setting with ceilometer\nnotifications. But ceilometer is optional service and rpc\nshould be configured separately.\n\nAlso added new tests for init.pp\n\nChange-Id: I542a8b6ed3aaf18e4b352f821939fc5f262aa5eb",
         "cmtr": "Denis Egorenko",
         "date": "2015-08-17 14:30:18+03:00",
-        "files": ["basic.pp", "init.pp", "notify.pp", "qpid.pp", "rabbitmq.pp", "zeromq.pp", "basic_sahara_spec.rb", "sahara_init_spec.rb", "sahara_notify_spec.rb"]
+        "files": [
+            "examples/basic.pp",
+            "manifests/init.pp",
+            "manifests/notify.pp",
+            "manifests/notify/qpid.pp",
+            "manifests/notify/rabbitmq.pp",
+            "manifests/notify/zeromq.pp",
+            "spec/acceptance/basic_sahara_spec.rb",
+            "spec/classes/sahara_init_spec.rb",
+            "spec/classes/sahara_notify_spec.rb"]
       },
       {
         "hash": "b6a32703aefbb3f537fbad7252fbe1eb193c7460",
         "msg": "Add distribute mode for Sahara\n\nSahara can be configured to run in a distributed mode that creates\na separation between the API and Engine processes. This allows the\nAPI process to remain relatively free to handle requests while\noffloading intensive tasks to the engine processes. [1]\n\nAlso keep possibility to run old all-in-one mode.\n\n[1] http://docs.openstack.org/developer/sahara/userdoc/advanced.configuration.guide.html#distributed-mode-configuration\n\nChange-Id: Id3aa75229e8626c71d6cb8398af3c2c22f37b592",
         "cmtr": "Denis Egorenko",
         "date": "2015-08-31 17:01:27+03:00",
-        "files": ["basic.pp", "init.pp", "params.pp", "all.pp", "api.pp", "engine.pp", "basic_sahara_spec.rb", "sahara_all_spec.rb", "sahara_api_spec.rb", "sahara_engine_spec.rb", "sahara_init_spec.rb"]
+        "files": [
+            "examples/basic.pp",
+            "manifests/init.pp",
+            "manifests/params.pp",
+            "manifests/service/all.pp",
+            "manifests/service/api.pp",
+            "manifests/service/engine.pp",
+            "spec/acceptance/basic_sahara_spec.rb",
+            "spec/classes/sahara_all_spec.rb",
+            "spec/classes/sahara_api_spec.rb",
+            "spec/classes/sahara_engine_spec.rb",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "8a2efc58b882f4ab913aa3b1613361e024bfe999",
         "msg": "Introduce sahara::db class\n\nCurrent modules [1,2,3] implements a <component>::db class that\nis not implemented in Sahara. This commit aims to apply here the same logic.\n\n[1] https://github.com/openstack/puppet-nova/blob/master/manifests/db.pp\n[2] https://github.com/openstack/puppet-designate/blob/master/manifests/db.pp\n[3] https://github.com/openstack/puppet-ceilometer/blob/master/manifests/db.pp\n\nChange-Id: Ie8eab88e2a785ae31acb16def04c7021ed604bc6",
         "cmtr": "Denis Egorenko",
         "date": "2015-09-16 12:10:12+03:00",
-        "files": ["db.pp", "init.pp", "params.pp", "sahara_db_spec.rb", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/init.pp",
+            "manifests/params.pp",
+            "spec/classes/sahara_db_spec.rb",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "4a214b5bce5a1d4d13a72cfb532bdf45d7909a58",
         "msg": "Revert \"Fixed /etc/sahara handling\"\n\nThis commit reverts \"Fixed /etc/sahara handling\" (Ic946206dc930072c33e3e976062d5e26fd33f59e),\nbecause of fixed package for Liberty.\n\nAlso contains temporarily hack to avoid RPM package problem\nwith wrong group mode for /etc/sahara folder.\n\nChange-Id: I50d3cf79784c024178c31a790b6c13482787f2bb\nRelated-bug: #1452698",
         "cmtr": "Denis Egorenko",
         "date": "2015-09-16 13:39:05+03:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "a49a45a285b015f1315adab27624e77ae0fe0916",
         "msg": "Add new parameter 'plugins' for Sahara\n\nSahara keeps posibility to specify, which plugins should be enabled\nby using config parameter 'plugins'. When parameter is unset Sahara\nwill enable all available plugins.\n\n[1] http://docs.openstack.org/kilo/config-reference/content/ch_configuring-sahara.html\n\nChange-Id: Ic2c333a27835d8997a4df0f2138c6d2f9b10360f",
         "cmtr": "Denis Egorenko",
         "date": "2015-09-16 19:30:20+03:00",
-        "files": ["init.pp", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "ebc168957c6a1be07b6bd410939a5c0e02ade3a7",
         "msg": "Revert \"Fix Sahara installation for Ubuntu\"\n\nThis commit reverts \"Fix Sahara installation for Ubuntu\" (I4c9e9206e3e60f3c85224ae120516badb331672e)\nbecause bug 1450945 is duplicate for 1452698 and it was fixed for Liberty.\n\nChange-Id: I8e013f52e3dae80764f9d71783f8ebbddc0aa1ae\nRelated-bug: #1450945\nRelated-bug: #1452698",
         "cmtr": "Denis Egorenko",
         "date": "2015-09-17 17:15:17+03:00",
-        "files": ["init.pp", "api.pp"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/service/api.pp"]
       },
       {
         "hash": "20b3cafc0a082ca5440eef80f1c0e8e79045f718",
         "msg": "Rely on autorequire for config resource ordering\n\nCurrently we specify the ordering of config resources wherever it is\nnecessary based on the presence of the file it will write to, or the\npresence of the package in charge of providing the file it will write\nto.\n\nThose kind of ordering can be specified directly at the resource level\nusing the autorequire mechanism. With this patch, any config resource\nwill make sure the package in charge of providing the file will be\ninstalled first.\n\nChange-Id: I73285227e9bbd0c895d9f74bab9e9bb65acaba40",
         "cmtr": "Denis Egorenko",
         "date": "2015-09-17 17:34:06+03:00",
-        "files": ["sahara_config.rb", "init.pp", "sahara_config_spec.rb"]
+        "files": [
+            "lib/puppet/type/sahara_config.rb",
+            "manifests/init.pp",
+            "spec/unit/type/sahara_config_spec.rb"]
       },
       {
         "hash": "fa0bda834b56614e4a34318ba07134377ab8fbd2",
         "msg": "Remove POSIX file modes.\n\nThis patch removes File resources, which should be delivered by packaging\ntools. These resources (files and directories with attributes) could be in\nconflict with different OS packaging systems, which isn't a desired result.\n\nChange-Id: Ife7d6b061380ea5ddcdf581c22e0fa6b1d31da61\nCloses-bug: #1458915",
         "cmtr": "Denis Egorenko",
         "date": "2015-09-21 14:20:07+00:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "8099a5d53c9b399b4ad80018405fa55dd937dc7a",
         "msg": "Change defaults value for Sahara Keystone credentials\n\nRename defaults value for keystone user and keystone tenant name\nto be consistent with defaults in keystone::auth class and other\nopenstack puppet modules.\n\nChange-Id: I4a8e76f9e9d3e45987029c9b2ce3b9f5eb964921",
         "cmtr": "Denis Egorenko",
         "date": "2015-09-25 12:46:23+03:00",
-        "files": ["init.pp", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "292ad6c4e983c9549328075af5583431fc74b870",
         "msg": "Introduce Sahara extended logging class\n\nThere is a range of extended logging options in Openstack services that use\nopenstack.common.logger (Ceilometer, Cinder, Heat, Keystone, Nova).\nAdding ceilometer::logging to support them like it done for puppet-heat,\npuppet-ceilometer, puppet-cinder, etc.\n\nChange-Id: I389fabeca8ae3013e44ad3e1a7665118814fc69c",
         "cmtr": "Denis Egorenko",
         "date": "2015-09-25 18:19:02+03:00",
-        "files": ["init.pp", "logging.pp", "sahara_init_spec.rb", "sahara_logging_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "spec/classes/sahara_init_spec.rb",
+            "spec/classes/sahara_logging_spec.rb"]
       },
       {
         "hash": "2417317d866a2428c8e9bfa1548d60a3d87616fe",
         "msg": "Remove deprecated parameters\n\nThis patch removes parameters from main init and keystone::auth\nclasses, which were marked as deprecated since Kilo release.\n\nChange-Id: I83b35136d066a66756a9620c70ec4e42d22d24a2",
         "cmtr": "Denis Egorenko",
         "date": "2015-10-08 19:32:15+03:00",
-        "files": ["init.pp", "auth.pp", "sahara_init_spec.rb", "sahara_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "spec/classes/sahara_init_spec.rb",
+            "spec/classes/sahara_keystone_auth_spec.rb"]
       },
       {
         "hash": "504d207d3489817bda15aba8820d8fdb13428bf2",
         "msg": "db: Use postgresql lib class for psycopg package\n\nThis patch introduce the same design than mysql for postgresql\nby requiring dedicated lib::python class instead of declaring\na new resource package within sahara module.\n\nChange-Id: I1c9378fb9aba2b4261ab25f4057cccf71560d1a8",
         "cmtr": "Sebastien Badia",
         "date": "2015-10-20 18:20:17+02:00",
-        "files": ["db.pp", "params.pp", "sahara_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/params.pp",
+            "spec/classes/sahara_db_spec.rb"]
       },
       {
         "hash": "93074625c73cd313f907f83cdaee1e3e41133873",
         "msg": "Switch Sahara to $::os_service_default\n\nThis patch switches Sahara params, which have absent ensure, to\n$::os_service_default fact\n\nChange-Id: I66581c897848ff966c96cc0d150fe2e55dac1dd7",
         "cmtr": "Denis Egorenko",
         "date": "2015-11-17 16:48:27+00:00",
-        "files": ["init.pp", "logging.pp", "rabbitmq.pp", "sahara_all_spec.rb", "sahara_api_spec.rb", "sahara_engine_spec.rb", "sahara_init_spec.rb", "sahara_logging_spec.rb", "sahara_notify_rabbitmq_spec.rb", "spec_helper.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "manifests/notify/rabbitmq.pp",
+            "spec/classes/sahara_all_spec.rb",
+            "spec/classes/sahara_api_spec.rb",
+            "spec/classes/sahara_engine_spec.rb",
+            "spec/classes/sahara_init_spec.rb",
+            "spec/classes/sahara_logging_spec.rb",
+            "spec/classes/sahara_notify_rabbitmq_spec.rb",
+            "spec/spec_helper.rb"]
       },
       {
         "hash": "b63d071d62fa307570e0d19aa486f63d04eb9dfd",
         "msg": "Allow customization of db sync command line\n\nAdd parameter to sahara::db::sync class to allow end\nusers to add command line parameters to the db sync command.\n\nChange-Id: I14c177f3df9cd541408ee033638be21fa6e2fb6a\nPartial-bug: #1472740",
         "cmtr": "Nate Potter",
         "date": "2015-11-19 16:25:02+00:00",
-        "files": ["sync.pp", "params.pp", "sahara_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "manifests/params.pp",
+            "spec/classes/sahara_db_sync_spec.rb"]
       },
       {
         "hash": "ab50eeef0cb33743a14558f56031aafb9842726a",
         "msg": "Use $::os_service_default where is possible\n\nThis is a second part of switching to $::os_service_default fact.\nSwitch to $::os_service_default all params, which are possible\nto use with $::os_service_default fact.\n\nRelated-bug: #1515273\n\nChange-Id: I54609f09998f29e8dffc12ca4591044dbf67b09b",
         "cmtr": "Denis Egorenko",
         "date": "2015-11-23 21:23:30+03:00",
-        "files": ["db.pp", "init.pp", "logging.pp", "notify.pp", "qpid.pp", "rabbitmq.pp", "zeromq.pp", "api.pp", "sahara_api_spec.rb", "sahara_db_spec.rb", "sahara_init_spec.rb", "sahara_logging_spec.rb", "sahara_notify_qpid_spec.rb", "sahara_notify_rabbitmq_spec.rb", "sahara_notify_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "manifests/notify.pp",
+            "manifests/notify/qpid.pp",
+            "manifests/notify/rabbitmq.pp",
+            "manifests/notify/zeromq.pp",
+            "manifests/service/api.pp",
+            "spec/classes/sahara_api_spec.rb",
+            "spec/classes/sahara_db_spec.rb",
+            "spec/classes/sahara_init_spec.rb",
+            "spec/classes/sahara_logging_spec.rb",
+            "spec/classes/sahara_notify_qpid_spec.rb",
+            "spec/classes/sahara_notify_rabbitmq_spec.rb",
+            "spec/classes/sahara_notify_spec.rb"]
       },
       {
         "hash": "6ef55f4420e4249d8dfc5eae7b02b52b468ae655",
         "msg": "Support of PyMySQL driver for MySQL backend\n\nAdd ability to use python-pymysql library as backend for MySQL\nconnections, and use it as default.\n\nUpdate acceptance tests to use pyMySQL.\n\nChange-Id: I625f1e6adb5ad581c293431d90d1a9e5578472d4\nDocs: https://wiki.openstack.org/wiki/PyMySQL_evaluation",
         "cmtr": "Javier Pena",
         "date": "2015-12-02 18:46:40+01:00",
-        "files": ["basic.pp", "db.pp", "params.pp", "basic_sahara_spec.rb", "sahara_db_spec.rb"]
+        "files": [
+            "examples/basic.pp",
+            "manifests/db.pp",
+            "manifests/params.pp",
+            "spec/acceptance/basic_sahara_spec.rb",
+            "spec/classes/sahara_db_spec.rb"]
       },
       {
         "hash": "77712dc9ac822b283683f574f891c6b1b8e2f368",
         "msg": "Remove deprecated parameters since Liberty release\n\nRemove deprecated classes for Ceilo notifications and old configuration\nof Sahara service in main init.pp class.\n\nChange-Id: I7690d21cc753975fb3bd681497b29771cc3dd09f",
         "cmtr": "Denis Egorenko",
         "date": "2015-12-03 20:34:02+03:00",
-        "files": ["init.pp", "qpid.pp", "rabbitmq.pp", "zeromq.pp", "sahara_init_spec.rb", "sahara_notify_qpid_spec.rb", "sahara_notify_rabbitmq_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "None",
+            "None",
+            "None",
+            "spec/classes/sahara_init_spec.rb",
+            "None",
+            "None"]
       },
       {
         "hash": "4f96797d512b0dbecd3b9f5e8ef7093e187a5978",
         "msg": "Remove qpid messaging support\n\nQpid messaging driver is removed from Oslo.messaging [1]\nTherefore, we cannot support it anymore.\n\n[1] I4a9cba314c4a2f24307504fa7b5427424268b114\n\nChange-Id: Ic604be82fd3ca1cd595de1f63f151b74502714f2",
         "cmtr": "Denis Egorenko",
         "date": "2015-12-07 20:41:51+03:00",
-        "files": ["init.pp", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "e9b312c5bb486f5fd4a402ab66474383b716f5a7",
         "msg": "Fix defaults for doc section\n\nChange defaults to $::os_service_default for parameters, which have\nthis by default and were missed in main switch commit.\n\nChange-Id: I8335a322f88f3bb45c0d0a5c0de9d9bd7b914f78",
         "cmtr": "Denis Egorenko",
         "date": "2015-12-08 14:01:26+03:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "0c465a03331b45ad2f8606e202d1b1d3a54ed9f3",
         "msg": "Remove require on main init class\n\nNow all Sahara packages are fixed and we don't need use require\nfor main init.pp class from service classes anymore.\n\nChange-Id: If11b03675ed62f3f56e69cb4fbeb75a3d46a5ab7",
         "cmtr": "Denis Egorenko",
         "date": "2015-12-09 20:27:20+03:00",
-        "files": ["all.pp", "api.pp", "engine.pp", "sahara_all_spec.rb", "sahara_api_spec.rb", "sahara_engine_spec.rb", "shared_examples.rb"]
+        "files": [
+            "manifests/service/all.pp",
+            "manifests/service/api.pp",
+            "manifests/service/engine.pp",
+            "spec/classes/sahara_all_spec.rb",
+            "spec/classes/sahara_api_spec.rb",
+            "spec/classes/sahara_engine_spec.rb",
+            "spec/shared_examples.rb"]
       },
       {
         "hash": "72f48c0da1be9336dc136c152a8c5720e7567758",
         "msg": "Do not show warning on sahara/notify\n\nRemove warning and also move to os_service_default params\n\nChange-Id: Idb7349c7c386a02c5bf1a72d87ccc0f48ee8481d\nCloses-bug: #1528964",
         "cmtr": "Denis Egorenko",
         "date": "2015-12-25 14:13:47+03:00",
-        "files": ["notify.pp", "sahara_notify_spec.rb"]
+        "files": [
+            "manifests/notify.pp",
+            "spec/classes/sahara_notify_spec.rb"]
       },
       {
         "hash": "7710b7e8eb7a02d56e48755f0464a6e293a412d3",
         "msg": "Remove duplicate params and drop mock\n\nThis change removes the duplicate database_max_retries parameter from\nthe sahara class.\n\nmock is not used anywhere in the module, let's drop it.\nThis patch will help to hit this bug:\nhttps://launchpad.net/bugs/1492636\n\nChange-Id: I0a3e57c8576e1451be5b0c039ce4f864339d4b5d\nCloses-Bug: #1537251",
         "cmtr": "Emilien Macchi",
         "date": "2016-01-24 12:36:21-05:00",
-        "files": ["Gemfile", "init.pp", "spec_helper.rb"]
+        "files": [
+            "Gemfile",
+            "manifests/init.pp",
+            "spec/spec_helper.rb"]
       },
       {
         "hash": "00dac9470aea0cd03d0b2de4889be0b239fb2229",
         "msg": "Add the capability to configure api-paste.ini with config.pp\n\nAlready added type/provider for paste configs,\nbut it wouldn't to patch sahara::config.\n\nChange-Id: Iba618f27b110192c1751486681d77c1c9d46c541",
         "cmtr": "ZhongShengping",
         "date": "2016-02-19 03:37:42+08:00",
-        "files": ["config.pp", "sahara_config_spec.rb"]
+        "files": [
+            "manifests/config.pp",
+            "spec/classes/sahara_config_spec.rb"]
       },
       {
         "hash": "071f5431f480828e9a8ffa0a6271313d8428797d",
         "msg": "Do not raise error when ca_file is not passed\n\nCa_file is using only to verify clients, we don't need that if we\nare not going to use them, so no need to raise error if it is not\npassed.\n\nChange-Id: Ib6fd62a3c342adab0cf356d9d62ff5aa0a78ef30",
         "cmtr": "Denis Egorenko",
         "date": "2016-03-31 17:21:03+00:00",
-        "files": ["init.pp", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "0008bc5f89aa917e31439ab9ab0fe0cc7f951f17",
         "msg": "Update Sahara for using puppet-oslo\n\nThis commit switches using of oslo options to a puppet-oslo module:\n* oslo messaging notifications;\n* oslo messaging rabbitmq;\n* oslo log;\n* oslo db;\n* oslo policy;\n\nChange-Id: I63754d63f00c01737031b2fc713563681c269a60",
         "cmtr": "Denis Egorenko",
         "date": "2016-04-13 18:03:16+03:00",
-        "files": ["db.pp", "init.pp", "logging.pp", "notify.pp", "params.pp", "policy.pp", "metadata.json", "switch_to_oslo-4ebb3a914d2d8b4e.yaml", "sahara_db_spec.rb", "sahara_init_spec.rb", "sahara_notify_spec.rb", "sahara_policy_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "manifests/notify.pp",
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "metadata.json",
+            "releasenotes/notes/switch_to_oslo-4ebb3a914d2d8b4e.yaml",
+            "spec/classes/sahara_db_spec.rb",
+            "spec/classes/sahara_init_spec.rb",
+            "spec/classes/sahara_notify_spec.rb",
+            "spec/classes/sahara_policy_spec.rb"]
       },
       {
         "hash": "b4290d316cfae12986a1032168d4781426a84a91",
         "msg": "Totally drop Qpid support\n\nQpid was removed in Mitaka from Oslo Messaging, so now we can\ndrop it in manifests.\n\nChange-Id: I5f731b7a37c27c8e4ea0775632e7821d54cf12e9",
         "cmtr": "Denis Egorenko",
         "date": "2016-04-18 13:57:08+03:00",
-        "files": ["init.pp", "logging.pp", "drop_qpid-2aa008638bbdee5b.yaml", "sahara_logging_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "releasenotes/notes/drop_qpid-2aa008638bbdee5b.yaml",
+            "spec/classes/sahara_logging_spec.rb"]
       },
       {
         "hash": "0d4b0cc71f477f545c93fc3c88cadfcd854b29b4",
         "msg": "Add support for db_max_retries param\n\nThe db_max_retries parameter regulates the number of reconnection\nattempts performed after an error raised rather than at startup.\n\nChange-Id: I55a5df7f6ba9cc2d62b745e027f3059b45061352\nCloses-Bug: 1579718",
         "cmtr": "Giulio Fidente",
         "date": "2016-05-09 13:44:25+02:00",
-        "files": ["db.pp", "sahara_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "spec/classes/sahara_db_spec.rb"]
       },
       {
         "hash": "d0bade53adb47ce783876a67443b14efb037f209",
         "msg": "Add 'openstack-db' tag to db-sync Exec resource\n\nIn order to make easy orchestration on all OpenStack db-sync, add this\ntag so people can use this tag in composition layer.\nA use case it to set some orchestration to make sure MySQL Galera is\nready before running any Exec with this tag.\n\nChange-Id: I8795a883821949428d3f61e2f74b04ce5592f014",
         "cmtr": "Emilien Macchi",
         "date": "2016-05-10 18:04:07-04:00",
-        "files": ["sync.pp", "openstack_db_tag-acac480da506925b.yaml", "sahara_db_sync_spec.rb"]
+        "files": [
+            "manifests/db/sync.pp",
+            "releasenotes/notes/openstack_db_tag-acac480da506925b.yaml",
+            "spec/classes/sahara_db_sync_spec.rb"]
       },
       {
         "hash": "e9662c9daadb2e2a987bcad2f7082f48c0ad0335",
         "msg": "Add kombu_failover_strategy and kombu_compression options\n\nChange-Id: I438f1abe9ddd1074add95bba8752f516b15eaba3",
         "cmtr": "iberezovskiy",
         "date": "2016-05-11 20:20:34+03:00",
-        "files": ["init.pp", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "41df3935522bd4be53ac842979b21774987a8e9c",
         "msg": "Introduce support for oslo.messaging amqp driver configuration\n\nThis commit adds support for the oslo.messaging amqp rpc_backend\nwhich enables the AMQP 1.0 driver. A proposed feature for the\nNewton oslo.messaging release is an update to the AMQP 1.0 driver\nto support a stateless messaging interconnect for RPC traffic [1].\n\nThis patch:\n* use oslo::messaging::amqp resource\n* add new parameters for the oslo_messaging_amqp driver\n* update spec tests for amqp as alternate rpc_backend\n* add feature release note\n\n[1] https://blueprints.launchpad.net/oslo.messaging/+spec/amqp-dispatch-router\n\nChange-Id: I7505c51ba690e8d3a7cd8e59628fe21ee9e1dc1d",
         "cmtr": "Andrew Smith",
         "date": "2016-05-13 13:16:03-04:00",
-        "files": ["init.pp", "add_oslo_messaging_amqp-2969450d2f6f1f5e.yaml", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add_oslo_messaging_amqp-2969450d2f6f1f5e.yaml",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "67cd93acd8ae754cb0aa2aa59ee421c7951becc7",
         "msg": "Deprecate verbose option in logging\n\nOption \"verbose\" from group \"DEFAULT\" is deprecated for removal.\nThe parameter has no effect.\n-Deprecated verbose for logging and init\n-Remove verbose in README\n-Remove verbose from tests.\n\nIf this option is not set explicitly, there is no such warning\n\nChange-Id: I1f7a00764f73f2131285667108d80fcde4642e6e",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-05-18 01:59:55-03:00",
-        "files": ["README.md", "basic.pp", "init.pp", "logging.pp", "verbose-deprecation-2cc63616acbfd49e.yaml", "sahara_logging_spec.rb"]
+        "files": [
+            "README.md",
+            "examples/basic.pp",
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "releasenotes/notes/verbose-deprecation-2cc63616acbfd49e.yaml",
+            "spec/classes/sahara_logging_spec.rb"]
       },
       {
         "hash": "75561b627f6cfcd2611e6d9ac4ebfab55ae2d0e9",
         "msg": "Deprecate use_syslog\n\n[DEFAULT/use_syslog] was deprecated in Mitaka [1]\ninit.pp/logging.pp - deprecate use_syslog, add warning, remove reference\ntests - remove use_syslog and [DEFAULT/use_syslog] verification.\n\n[1]\nhttp://docs.openstack.org/mitaka/config-reference/tables/conf-changes/sahara.html\n\nChange-Id: I3c75a5b824366efb490362a9f4ae6a41e86e0b60",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-05-26 11:49:58-03:00",
-        "files": ["init.pp", "logging.pp", "deprecate-use_syslog-67f1f4793da847fb.yaml", "sahara_logging_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "releasenotes/notes/deprecate-use_syslog-67f1f4793da847fb.yaml",
+            "spec/classes/sahara_logging_spec.rb"]
       },
       {
         "hash": "0611bb61f2549ea3c0c8a43d71fc3595eaffcaae",
         "msg": "Revert \"Deprecate use_syslog\"\n\nThis option is not deprecated and still actual\n\nThis reverts commit 75561b627f6cfcd2611e6d9ac4ebfab55ae2d0e9.\n\nChange-Id: I6a017cc489ac195d02ef1f6b3e9b35e5c06af283",
         "cmtr": "Denis Egorenko",
         "date": "2016-05-31 13:39:34+00:00",
-        "files": ["init.pp", "logging.pp", "deprecate-use_syslog-67f1f4793da847fb.yaml", "sahara_logging_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "None",
+            "spec/classes/sahara_logging_spec.rb"]
       },
       {
         "hash": "d9cd695e692e52efd6698d4b1e2364dc3eaca017",
         "msg": "Provide default service_name for keystone endpoint\n\nThis change updates the sahara::keystone::auth class to include a default\nservice_name of 'sahara' so that if a user changes the auth_name, the\nservice is still created as being related to 'sahara'.  This improves the\nuser experiance when they want to customize the usernames for services.\n\nChange-Id: I8c6240473213b107de862edf359834b5494e9f74\nCloses-Bug: #1590040",
         "cmtr": "ZhongShengping",
         "date": "2016-06-08 14:10:25+08:00",
-        "files": ["auth.pp", "keystone-auth-name-1a3385c23b2682e6.yaml", "sahara_keystone_auth_spec.rb"]
+        "files": [
+            "manifests/keystone/auth.pp",
+            "releasenotes/notes/keystone-auth-name-1a3385c23b2682e6.yaml",
+            "spec/classes/sahara_keystone_auth_spec.rb"]
       },
       {
         "hash": "e3ac89164de298415417daf1a8391249c5b2f429",
         "msg": "Add purge_config option\n\nAdd the option in order to facilitate management.\nUser can ensure that only the options they hoped\nare configured.\n\nChange-Id: I36a2073145903d7b7eaaeb49e9cdb15feca95767",
         "cmtr": "ZhongShengping",
         "date": "2016-06-08 14:30:00+08:00",
-        "files": ["init.pp", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "c715716a9ca576f271fb61c9e6006815cf8c0316",
         "msg": "Add transport_url parameters for oslo.messaging\n\nThis commit adds the transport_url parameters for oslo.messaging. The\nurl is of the form:\n\n  transport://user:pass@host1:port[,hostN:portN]/virtual_host\n\nWhere the transport scheme specifies the rpc or notification backend\nas one of rabbit, amqp, zmq, etc. Oslo.messaging is deprecating the\nhost, port, and auth configuration options [1]. All drivers will get\nthese options via the transport_url.\n\nThis patch:\n* use oslo::messaging::default resource\n* use oslo::messaging::notifications resource\n* add parameters for transport_url(s)\n* update spec tests\n* add feature release note\n\n[1] https://review.openstack.org/#/c/317285/\n\nChange-Id: If5f30ba1944d897d2dd63539f4bb8a80e6c46c5e",
         "cmtr": "Andrew Smith",
         "date": "2016-06-15 15:07:01-04:00",
-        "files": ["init.pp", "notify.pp", "add_transport_url_parameters-973b95ec1ad18717.yaml", "sahara_init_spec.rb", "sahara_notify_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/notify.pp",
+            "releasenotes/notes/add_transport_url_parameters-973b95ec1ad18717.yaml",
+            "spec/classes/sahara_init_spec.rb",
+            "spec/classes/sahara_notify_spec.rb"]
       },
       {
         "hash": "7694d50fce0082b44356bbbb9ac44a691a8334d7",
         "msg": "Switch to use oslo::zmq messaging\n\nChange-Id: I77f9fe010c963da51736c651ccc4648367000b86",
         "cmtr": "Denis Egorenko",
         "date": "2016-06-22 19:25:55+03:00",
-        "files": ["init.pp", "use_oslo_zmq-7041d12c8bf2c724.yaml"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/use_oslo_zmq-7041d12c8bf2c724.yaml"]
       },
       {
         "hash": "4e4327093e9d5747350d0a082335ea3663dfe943",
         "msg": "Add memcached_servers for keystone authtoken\n\nThis change adds the abiltity to manage the memcached servers for the\nkeystone authtoken configuration in sahara\n\nChange-Id: I619cbfe471fe3d49a165ed87c6c4664375effc90",
         "cmtr": "Alex Schultz",
         "date": "2016-06-30 15:09:22-06:00",
-        "files": ["init.pp", "keystone-authtoken-memcached-ea0660e81f256eda.yaml", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/keystone-authtoken-memcached-ea0660e81f256eda.yaml",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "0bb472d5c17ea65c7c33c3905de732bec18b1752",
         "msg": "Include openstacklib defaults manifest.\n\nThis provides a mechanism for setting default across all modules.\n\nChange-Id: Iefb386137aac7a6cd3f24eddaf96b827f010c7c1\nRelated-Bug: 1599113",
         "cmtr": "Alex Schultz",
         "date": "2016-07-07 21:12:52+00:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       },
       {
         "hash": "4f26f36f066e7c4397de233a35d0e4cfa29e5f3b",
         "msg": "Fix puppet-lint before upgrading gem\n\nRemoving puppet-lint warnings\nin favor of upgrading to latest gem\n\n2016-09-13 21:14:52.263943 | manifests/init.pp:453:WARNING: indentation of => is not properly aligned (expected in column 16, but found it in column 15)\n\nChange-Id: I3d374511c6d3bd83ba2c563c4d5bb6a99c1cfbe7",
         "cmtr": "Carlos Camacho",
         "date": "2016-09-14 14:13:49+02:00",
-        "files": ["init.pp"]
+        "files": [
+            "manifests/init.pp"]
       },
       {
         "hash": "90a6373fac6d170493983ef667f06b92ebd3b020",
         "msg": "Remove verbose\n\nSince we are in Ocata we should remove the\nverbose option that was deprecated\n\nChange-Id: I8117189299ac95aa0383115bbff3d5edcec8455b",
         "cmtr": "Iury Gregory Melo Ferreira",
         "date": "2016-09-27 19:53:26-03:00",
-        "files": ["init.pp", "logging.pp", "remove_verbose-5409d6030c7794e5.yaml"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "releasenotes/notes/remove_verbose-5409d6030c7794e5.yaml"]
       },
       {
         "hash": "3f8e5d1c542dda2bc261c74fa1dad1d3289aa686",
         "msg": "Added retries for db_sync\n\nIf db sync fails, it is never retried leading to errors. So, this\npatch adds retries for db_sync to avoid sync fails.\n\nChange-Id: Ib7162c07542d9c8c81ed35f931a2b91281610774\nCloses-Bug: #1628580",
         "cmtr": "Sharat Sharma",
         "date": "2016-09-29 12:42:28+05:18",
-        "files": ["sync.pp"]
+        "files": [
+            "manifests/db/sync.pp"]
       },
       {
         "hash": "184a3b399c2706b8d91618a9078c4aa3aba517ac",
         "msg": "Fix documentation for log_dir parameter\n\nChange-Id: Ia0be1a31ec59752ebac6430446aebcb766f350c4\nPartial-Bug: #1600294",
         "cmtr": "Mykyta Karpin",
         "date": "2016-10-10 18:28:51+03:00",
-        "files": ["init.pp", "logging.pp", "fix_log_dir_documentation-f0d49e76c2a78b1d.yaml"]
+        "files": [
+            "manifests/init.pp",
+            "manifests/logging.pp",
+            "releasenotes/notes/fix_log_dir_documentation-f0d49e76c2a78b1d.yaml"]
       },
       {
         "hash": "e0f8ad034dd3eaa0fab1bfc3c22e8eceb9d4eed6",
         "msg": "Change worker defaults to ::os_workers\n\nThis patch changes the default worker count from ::processorcount to the\nnew ::os_workers fact. ::os_workers is based on the number of processors\n(currently cpu/4) but is capped at a maximum of 8 worker processors.\nThis is a much more reasonable default in general and prevents excessive\nresource consumption on systems with a large number of CPUs. Also remove\nsome unnecessary processorcount facts for tests that do not test them.\n\nChange-Id: I96d4ced9955a72a726b7f35b4d5470affc49f4ff",
         "cmtr": "Alex Schultz",
         "date": "2016-10-14 09:29:51-06:00",
-        "files": ["api.pp", "os_workers-2922e3073027045d.yaml", "sahara_api_spec.rb", "sahara_db_postgresql_spec.rb", "sahara_db_sync_spec.rb"]
+        "files": [
+            "manifests/service/api.pp",
+            "releasenotes/notes/releasenotes/notes/os_workers-2922e3073027045d.yaml",
+            "spec/classes/sahara_api_spec.rb",
+            "spec/classes/sahara_db_postgresql_spec.rb",
+            "spec/classes/sahara_db_sync_spec.rb"]
       },
       {
         "hash": "90a1bd739993ec9f8910a35c094bae5228390eed",
         "msg": "Add default_ntp_server configuration  option\n\nSahara supports being able to configure the default ntp server for the\ncluster instances. This change adds in the configuration value so that a\nuser can specify the default_ntp_server configuration.\n\nChange-Id: I13aafbf87a0ed4b14797ab2a280318f007481d75\nCloses-Bug: #1638676",
         "cmtr": "Alex Schultz",
         "date": "2016-11-03 09:19:57-06:00",
-        "files": ["init.pp", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "ecff659a4a79326707c6f6671f62671671a3449c",
         "msg": "Deprecate rabbitmq connection parameters\n\nThe rabbitmq connection parameters have been deprecated in favor of the\ntransport_url setting.\n\nChange-Id: Ie57d24313b4d25e371c7462b823aa5fe163f7476\nRelated-Bug: #1625198",
         "cmtr": "Alex Schultz",
         "date": "2016-11-08 15:24:01-07:00",
-        "files": ["init.pp", "rabbit-connection-params-deprecation-8d265821e92a1eeb.yaml", "basic_sahara_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/rabbit-connection-params-deprecation-8d265821e92a1eeb.yaml",
+            "spec/acceptance/basic_sahara_spec.rb"]
       },
       {
         "hash": "c3471d72c27e8ad24b21a82732acc7b4d062a3cb",
         "msg": "Add hooks for external install & svc management\n\nThis adds defined anchor points for external modules to hook into the\nsoftware install, config and service dependency chain.  This allows\nexternal modules to manage software installation (virtualenv,\ncontainers, etc) and service management (pacemaker) without needing rely\non resources that may change or be renamed.\n\nChange-Id: I02a1b403be780b344d436d9b00e649d7e878a53b",
         "cmtr": "ZhongShengping",
         "date": "2016-12-07 16:05:05+08:00",
-        "files": ["client.pp", "config.pp", "db.pp", "mysql.pp", "postgresql.pp", "sync.pp", "deps.pp", "init.pp", "auth.pp", "logging.pp", "notify.pp", "policy.pp", "all.pp", "api.pp", "engine.pp", "external_install_mgmt_hook-a781254f35613a671.yaml", "sahara_db_sync_spec.rb", "sahara_init_spec.rb", "shared_examples.rb"]
+        "files": [
+            "manifests/client.pp",
+            "manifests/config.pp",
+            "manifests/db.pp",
+            "manifests/db/mysql.pp",
+            "manifests/db/postgresql.pp",
+            "manifests/db/sync.pp",
+            "manifests/deps.pp",
+            "manifests/init.pp",
+            "manifests/keystone/auth.pp",
+            "manifests/logging.pp",
+            "manifests/notify.pp",
+            "manifests/policy.pp",
+            "manifests/service/all.pp",
+            "manifests/service/api.pp",
+            "manifests/service/engine.pp",
+            "releasenotes/notes/external_install_mgmt_hook-a781254f35613a671.yaml",
+            "spec/classes/sahara_db_sync_spec.rb",
+            "spec/classes/sahara_init_spec.rb",
+            "spec/shared_examples.rb"]
       },
       {
         "hash": "5e9981566ec0ec9d4cd18e655b2f999928fbc900",
         "msg": "Deprecated enable_notifications and notification_level\n\nThe 'enable' option has been removed in sahara, and\nthe 'level' option does not in the oslo.messaging,\nso we should deprecate enable_notifications and\nnotification_level, and set the notification_driver\n if you wish to enable sahara notifications.\n\nChange-Id: Ibbe5329d621cb6f88787d8943d09749c5ac938f5\nCloses-Bug: #1621853",
         "cmtr": "Xing Zhou",
         "date": "2016-12-17 10:50:09+08:00",
-        "files": ["notify.pp", "remove-enable-notifications-opt-04f02fc287db8dd7.yaml", "sahara_notify_spec.rb"]
+        "files": [
+            "manifests/notify.pp",
+            "releasenotes/notes/remove-enable-notifications-opt-04f02fc287db8dd7.yaml",
+            "spec/classes/sahara_notify_spec.rb"]
       },
       {
         "hash": "9395cae957f0094a8be95af0ef3de29fd3afae94",
         "msg": "Add oslo::db to dependency chain\n\nAll db settings should be applied and all releated packages should be\ninstalled before dbsync starts.\n\nChange-Id: I8cb525d112a19ce954004e54633b34162d5485c4",
         "cmtr": "ZhongShengping",
         "date": "2017-01-22 22:02:30+08:00",
-        "files": ["deps.pp"]
+        "files": [
+            "manifests/deps.pp"]
       },
       {
         "hash": "e3567774c70990127e453c5193ff37e3d6d5a7fd",
         "msg": "Add rpc_response_timeout option\n\nAdd rpc_response_timeout to configure seconds time for waiting\nfor a response from a call.\n\nChange-Id: Iffb1d1baa780bd37c30d4d8938bbcf5b4462d324",
         "cmtr": "ZhongShengping",
         "date": "2017-02-07 11:52:20+08:00",
-        "files": ["init.pp", "add_messaging_default_parameters-87a3598135f23e34.yaml", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/add_messaging_default_parameters-87a3598135f23e34.yaml",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "93f6695eb1e1b328f63269e1f38de50770a3d5bf",
         "msg": "Add support for keystone authtoken parameters\n\nDeprecate old v2 parameters in ::sahara and introduce the classic\nauthtoken class, for v3 parameters.\n\nMake it backward compatible with pick function, like we did in\npuppet-trove.\n\nChange-Id: I6502b314841007a1bec2a64574260b41b4281220",
         "cmtr": "Emilien Macchi",
         "date": "2017-03-06 18:08:50-05:00",
-        "files": ["basic.pp", "init.pp", "authtoken.pp", "authtoken-c3466f4f6028a182.yaml", "basic_sahara_spec.rb", "sahara_init_spec.rb", "sahara_keystone_authtoken_spec.rb"]
+        "files": [
+            "examples/basic.pp",
+            "manifests/init.pp",
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/authtoken-c3466f4f6028a182.yaml",
+            "spec/acceptance/basic_sahara_spec.rb",
+            "spec/classes/sahara_init_spec.rb",
+            "spec/classes/sahara_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "7636b482b7d4095d0e6910107db433fe84e1e8b1",
         "msg": "Remove deprecated notification parameters\n\nRemove deprecated sahara::notify::enable_notifications parameter.\nRemove deprecated sahara::notify::control_exchange parameter.\nRemove deprecated sahara::notify::notification_level parameter.\n\nChange-Id: I3fa25372ff427ee669d766c1ed456057ab031bb6\nDepends-On: I2d3dff9ae45b8e409c5deecc9dfb70b3555a99e4",
         "cmtr": "ZhongShengping",
         "date": "2017-03-10 12:52:14+08:00",
-        "files": ["notify.pp", "remove-deprecated-notifications-options-81a359d87135f912.yaml", "basic_sahara_spec.rb", "sahara_notify_spec.rb"]
+        "files": [
+            "manifests/notify.pp",
+            "releasenotes/notes/remove-deprecated-notifications-options-81a359d87135f912.yaml",
+            "spec/acceptance/basic_sahara_spec.rb",
+            "spec/classes/sahara_notify_spec.rb"]
       },
       {
         "hash": "eaa46d84684875ddf8d5dff53d00225b92c348ed",
         "msg": "Deprecate rabbit_max_retries option\n\nOption \"rabbit_max_retries\" from group \"oslo_messaging_rabbit\" is\ndeprecated for removal. Its value may be silently ignored in the future.\n\nChange-Id: Ic8c80fc12922c059f21e2411e9ef6a09b027bb65\nCloses-Bug: #1697350",
         "cmtr": "ZhongShengping",
         "date": "2017-06-12 13:50:40+08:00",
-        "files": ["init.pp", "deprecate_rabbit_max_retries-172913e235f23547.yaml"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/deprecate_rabbit_max_retries-172913e235f23547.yaml"]
       },
       {
         "hash": "3274c2db9bf97fdde9211d7b47970eb5997d3b31",
         "msg": "Remove deprecated keystone authtoken signing_dir option\n\nChange-Id: Iec24bc4d77fffdcdda56710691d85e15f3ba9e83",
         "cmtr": "ZhongShengping",
         "date": "2017-07-07 10:00:56+08:00",
-        "files": ["authtoken.pp", "remove_deprecated_keystone_signing_dir_option-857136c11bf5cd7d.yaml"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/remove_deprecated_keystone_signing_dir_option-857136c11bf5cd7d.yaml"]
       },
       {
         "hash": "0f5fbf7a508a0f68129e51213d6ce69cc87ead85",
         "msg": "Deprecate oslo.messaging rpc_backend option parameter\n\nOslo.messaging uses the transport_url to represent the rpc and\nnotification messaging driver to use and its full configuration. The\nrpc_backend configuration option is deprecated for removal and\nshould not gate oslo.messaging driver configuration options.\n\nThis patch:\n* deprecate rpc_backend\n* remove conditional check\n* update spec tests\n* add release note\n\nChange-Id: Ic283faf4f04a9fc434a6cc1fa530ea25b2eda430\nCloses-Bug: #1708976",
         "cmtr": "ZhongShengping",
         "date": "2017-08-09 09:21:14+08:00",
-        "files": ["init.pp", "deprecate_rpc_backend_parameter-3c92f3cb31cdb3cb.yaml", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/deprecate_rpc_backend_parameter-3c92f3cb31cdb3cb.yaml",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "eb9743dfeeea48cb6840fa088f8ff88ad557e2db",
         "msg": "Deprecate revocation_cache_time option\n\nThe revocation_cache_time is deprecated for removel because of PKI\ntoken format is no longer supported.\nUpdate warning message and add a release note.\n\nChange-Id: Id17d4e5c6079fffe04372fe0d1d86c7e2267f7c0\nCloses-Bug: #1717144",
         "cmtr": "ZhongShengping",
         "date": "2017-09-14 11:54:33+08:00",
-        "files": ["authtoken.pp", "deprecate_revocation_cache_time_parameter-7e6e3ab6bfc3e3c9.yaml", "sahara_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_revocation_cache_time_parameter-7e6e3ab6bfc3e3c9.yaml",
+            "spec/classes/sahara_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "c0b6f9575053813ea07f5c5ad981a8960a09d46e",
         "msg": "Add deps to all that is needed\n\nChange-Id: Ie9d806ecb4db0ad8f7fe227b65cd4654f7183dba",
         "cmtr": "ZhongShengping",
         "date": "2017-09-21 09:22:04+08:00",
-        "files": ["authtoken.pp"]
+        "files": [
+            "manifests/keystone/authtoken.pp"]
       },
       {
         "hash": "894f325e25121250518c854fcf89d407a6673e3a",
         "msg": "Configure *_domain_name to Default by default\n\nKeystone v2.0 API was removed so we have no choice but configuring\nuser_domain_name and project_domain_name otherwise it fallbacks to\nKeystone v2.0 and it fails. This patch sets the default value so we make\nsure Keystone v3 will be used out of the box for our users.\n\nChange-Id: I3291b3176dd818641c90a17150a06e640b119fa2",
         "cmtr": "Harry Rybacki",
         "date": "2017-10-06 10:58:10-04:00",
-        "files": ["authtoken.pp", "default-domain-ef6bd3e929f3ee74.yaml", "sahara_keystone_authtoken_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/default-domain-ef6bd3e929f3ee74.yaml",
+            "spec/classes/sahara_keystone_authtoken_spec.rb"]
       },
       {
         "hash": "8f83bce756f1e9322a1f0f22afa55c83d5b198e9",
         "msg": "Accept empty strings for log_dir\n\nAn empty string is an acceptable value of this entry, and it forces\nlogging to stdout/stderr, which is useful when running on containers.\n\nChange-Id: I2b34ab79dd7995f7496e5889c3ec1791d6c75183",
         "cmtr": "ZhongShengping",
         "date": "2017-10-12 09:22:31+08:00",
-        "files": ["logging.pp"]
+        "files": [
+            "manifests/logging.pp"]
       },
       {
         "hash": "6626237201b17bbf3d26e8caacb591984a043089",
         "msg": "Deprecate use_neutron option\n\nNova network has been fully removed from the OpenStack codebase.\nAs such, all instances of switches on use_neutron should be removed,\nas the functionality will never be meaningful.\n\nChange-Id: I4d9d21ea3b5090d4cb2822c0a95d819026578ccd\nDepends-On: Ib9d87dd339d637b69fb27315d92228cbc523c8eb\nCloses-Bug: #1734613",
         "cmtr": "ZhongShengping",
         "date": "2017-11-27 15:26:14+08:00",
-        "files": ["init.pp", "deprecate_use_neutron-813591a235e7135f.yaml", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/deprecate_use_neutron-813591a235e7135f.yaml",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "e39a9be4ce2c28e02dc6a28911ee491ef8855d65",
         "msg": "Expose use_json logging option\n\nIt enables JSON-formatted logging from oslo.log.\n\nChange-Id: If14563da6d259c68c8d5df97ba8802acfd1bbb83",
         "cmtr": "Juan Antonio Osorio Robles",
         "date": "2017-11-27 15:02:25+02:00",
-        "files": ["logging.pp", "log-json-1fc3ec44fad0db5c.yaml", "sahara_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "releasenotes/notes/log-json-1fc3ec44fad0db5c.yaml",
+            "spec/classes/sahara_logging_spec.rb"]
       },
       {
         "hash": "b303f151abe6aad97415cba0b68e8bd58488d406",
         "msg": "Add group to policy management\n\nThe move of policy.json into code means the file may not exist. We've\nadded support to ensure that the file exists in the openstacklib but we\nneed to make sure the permissions are right for each service. This adds\nthe group information to the policies so it works right.\n\nDepends-On: I26e8b1384f4f69712da9d06a4c565dfd1f17c9ed\nChange-Id: Icfe0724b3457c1cefd8825840d716b7f8bf902db\nCo-Authored-By: Alex Schultz <aschultz@redhat.com>",
         "cmtr": "Emilien Macchi",
         "date": "2018-01-11 15:53:50+00:00",
-        "files": ["params.pp", "policy.pp", "sahara_policy_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/policy.pp",
+            "spec/classes/sahara_policy_spec.rb"]
       },
       {
         "hash": "2996093fa962772803ea4203a9f95ecdb54ede22",
         "msg": "Add use_journal option for logging configuration\n\nThis enables oslo.log to pass logging records to journald.\n\nChange-Id: I725c7b1abebd9af1bcc88a40d727129fa756b7dd",
         "cmtr": "ZhongShengping",
         "date": "2018-01-15 16:22:14+08:00",
-        "files": ["logging.pp", "add-use_journal-option-for-logging-a2bb990d189eaf7a.yaml", "sahara_logging_spec.rb"]
+        "files": [
+            "manifests/logging.pp",
+            "releasenotes/notes/add-use_journal-option-for-logging-a2bb990d189eaf7a.yaml",
+            "spec/classes/sahara_logging_spec.rb"]
       },
       {
         "hash": "f46f1cd07002c5e85bf069103741baf14b151966",
         "msg": "Add pool_timeout option\n\nAdd pool_timeout option to configure this value for pool_timeout with\nSQLAlchemy.\n\nChange-Id: Ib61344b3def10e3fc0ffb1b6b372ee19e2dc7dcb\nCloses-Bug: #1757581",
         "cmtr": "ZhongShengping",
         "date": "2018-03-22 11:09:50+08:00",
-        "files": ["db.pp", "add-pool_timeout-option-for-db-831ff90d2497a2a7.yaml", "sahara_db_spec.rb"]
+        "files": [
+            "manifests/db.pp",
+            "releasenotes/notes/add-pool_timeout-option-for-db-831ff90d2497a2a7.yaml",
+            "spec/classes/sahara_db_spec.rb"]
       },
       {
         "hash": "7623634cb2137fa829cefc90945f20d8ded64a9a",
         "msg": "Remove deprecated keystone authtoken revocation_cache_time option\n\nChange-Id: I390ec99c86b16d328cdfbacf8caa000d3e665637",
         "cmtr": "ZhongShengping",
         "date": "2018-03-27 10:33:23+08:00",
-        "files": ["authtoken.pp", "remove_deprecated_keystone_revocation_cache_time_option-bd19d353c15987de.yaml"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/remove_deprecated_keystone_revocation_cache_time_option-bd19d353c15987de.yaml"]
       },
       {
         "hash": "6abd7a48a26fdb3f056cb5b9894386cd0b56cafa",
         "msg": "Deprecate auth_uri option\n\nOption auth_uri from group keystone_authtoken is deprecated[1].\nUse option www_authenticate_uri from group keystone_authtoken.\n\n[1]https://review.openstack.org/#/c/508522/\n\nChange-Id: I8b7a88535550831b4390dfcc5025fa3bb34be49c\nDepends-On: I4c82a63baabd6b9304b302c97cd751a0103d8316\nCloses-Bug: #1759098",
         "cmtr": "ZhongShengping",
         "date": "2018-04-05 10:03:13+08:00",
-        "files": ["sahara.rb", "authtoken.pp", "deprecate_auth_uri_parameter-ab52236f17ac79c8.yaml", "sahara_init_spec.rb", "sahara_keystone_authtoken_spec.rb", "sahara_spec.rb"]
+        "files": [
+            "lib/puppet/provider/sahara.rb",
+            "manifests/keystone/authtoken.pp",
+            "releasenotes/notes/deprecate_auth_uri_parameter-ab52236f17ac79c8.yaml",
+            "spec/classes/sahara_init_spec.rb",
+            "spec/classes/sahara_keystone_authtoken_spec.rb",
+            "spec/unit/provider/sahara_spec.rb"]
       },
       {
         "hash": "1d0341fe62bcbc35b3bfd6c35c92730dd1c9fc53",
         "msg": "Remove useless code for sync.pp\n\nIn order to improve efficiency, remove useless code.\n\nChange-Id: I15be2d5fa79c4226c2cea475046152536f20f5e0",
         "cmtr": "ZhongShengping",
         "date": "2018-04-08 09:09:22+08:00",
-        "files": ["sync.pp"]
+        "files": [
+            "manifests/db/sync.pp"]
       },
       {
         "hash": "939ff8f71fcd508449a3a10632b674e8136e390c",
         "msg": "Debian is using Python 3\n\nChange-Id: I2dd397eda12c936c7a42c61bcf7297ca295a79af",
         "cmtr": "Thomas Goirand",
         "date": "2018-04-10 11:59:03+02:00",
-        "files": ["params.pp", "sahara_client_spec.rb"]
+        "files": [
+            "manifests/params.pp",
+            "spec/classes/sahara_client_spec.rb"]
       },
       {
         "hash": "21aa1abd6f2109fcd1f94c86999b76da280efdc1",
         "msg": "neat: missing : in $::os_service_default\n\nChange-Id: Ide1e53189143fa54529ee8ebf63c2a536864e3bc",
         "cmtr": "zhubingbing",
         "date": "2018-05-11 14:02:40+08:00",
-        "files": ["authtoken.pp"]
+        "files": [
+            "manifests/keystone/authtoken.pp"]
       },
       {
         "hash": "a394f1b15f0f3f676dd0c9036ba677887359f9fb",
         "msg": "Replace port 35357 with 5000\n\nNow that the v2.0 API has been removed, we don't have a reason to\ninclude deployment instructions for two separate applications on\ndifferent ports.\n\nChange-Id: I9c7b4af7ad2d037a5ef962602a457e57ed024fa9",
         "cmtr": "ZhijunWei",
         "date": "2018-05-13 15:07:17+08:00",
-        "files": ["authtoken.pp", "sahara_keystone_authtoken_spec.rb", "sahara_spec.rb"]
+        "files": [
+            "manifests/keystone/authtoken.pp",
+            "spec/classes/sahara_keystone_authtoken_spec.rb",
+            "spec/unit/provider/sahara_spec.rb"]
       },
       {
         "hash": "6c0fe52fc11d3967f99f5b5342d7f7a69dc76bb5",
         "msg": "Remove deprecated rabbit params\n\nRemove the deprecated rabbit params which has been deprecated for\ntwo years. The default_transport_url has been present for a while\nnow and should be used.\n\nChange-Id: Ie835f7e2dc45741863ed9d32b327c780c4274710",
         "cmtr": "ZhongShengping",
         "date": "2018-05-24 11:08:24+08:00",
-        "files": ["init.pp", "remove-deprecated-rabbit-params-97ead9799e3aca70.yaml", "sahara_init_spec.rb"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/remove-deprecated-rabbit-params-97ead9799e3aca70.yaml",
+            "spec/classes/sahara_init_spec.rb"]
       },
       {
         "hash": "a53c9e1bba3bcf19cad83ac3c68a74e2d4b85036",
         "msg": "Remove rabbit_max_retries option\n\nThe rabbit_max_retries parameter has been deprecated for one year.\nWe can remove it.\n\nChange-Id: I10a6a7a56c5b0f33072b779ad9972f8fe7413134",
         "cmtr": "ZhongShengping",
         "date": "2018-06-01 15:06:47+08:00",
-        "files": ["init.pp", "remove_deprecated_rabbit_max_retries_option-9bf83ffdadb5019f.yaml"]
+        "files": [
+            "manifests/init.pp",
+            "releasenotes/notes/remove_deprecated_rabbit_max_retries_option-9bf83ffdadb5019f.yaml"]
       },
       {
         "hash": "3765a48f0cd9785df2a76b32b3c65efd893f9212",
         "msg": "Add Sahara API WSGI support\n\nAdds support for running the Sahara API under WSGI with Apache.\nUbuntu Bionic has removed support for eventlet which means you must\nuse WSGI now. See bug [1] [2]\n\n[1] https://bugs.launchpad.net/ubuntu/+source/sahara/+bug/1786214\n[2] https://bugs.launchpad.net/puppet-sahara/+bug/1765453\n\nCloses-Bug: 1765453\nChange-Id: If035283b5880a49f34c5552fd2146d9653bd1e61",
         "cmtr": "Tobias Urdin",
         "date": "2018-08-13 13:37:49+00:00",
-        "files": ["params.pp", "all.pp", "api.pp", "engine.pp", "apache.pp", "sahara-api-wsgi-a0ca5cf632af6a39.yaml", "sahara_all_spec.rb", "sahara_api_spec.rb", "sahara_db_spec.rb", "sahara_engine_spec.rb", "sahara_init_spec.rb", "sahara_wsgi_apache_spec.rb", "shared_examples.rb", "spec_helper.rb"]
+        "files": [
+            "manifests/params.pp",
+            "manifests/service/all.pp",
+            "manifests/service/api.pp",
+            "manifests/service/engine.pp",
+            "manifests/wsgi/apache.pp",
+            "releasenotes/notes/sahara-api-wsgi-a0ca5cf632af6a39.yaml",
+            "spec/classes/sahara_all_spec.rb",
+            "spec/classes/sahara_api_spec.rb",
+            "spec/classes/sahara_db_spec.rb",
+            "spec/classes/sahara_engine_spec.rb",
+            "spec/classes/sahara_init_spec.rb",
+            "spec/classes/sahara_wsgi_apache_spec.rb",
+            "None",
+            "spec/spec_helper.rb"]
       },
       {
         "hash": "803847b9811f7ebc12c6f0cc7520201ed256e08b",
         "msg": "Provide more useful fail message\n\nChange-Id: Ib80ef3ab46ea89cff8742ee2db3b1e8e54563f0c\nCloses-Bug: #1792719",
         "cmtr": "zhulingjie",
         "date": "2018-09-13 20:41:16-04:00",
-        "files": ["params.pp"]
+        "files": [
+            "manifests/params.pp"]
       }]
     }

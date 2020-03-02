@@ -1,6 +1,22 @@
     {
       "url": "https://github.com/Mirantis/fuel-plugin-celebrer",
-      "pp_files": ["api.pp", "ha.pp", "dashboard.pp", "engine.pp", "agent.pp", "keystone.pp", "db.pp", "init.pp", "sync.pp", "auth.pp", "mysql.pp", "client.pp", "server.pp", "params.pp"],
+      "pp_files": [
+        "deployment_scripts/puppet/manifests/agent.pp",
+        "deployment_scripts/puppet/modules/celebrer/manifests/db.pp",
+        "deployment_scripts/puppet/modules/celebrer/manifests/db/mysql.pp",
+        "deployment_scripts/puppet/modules/celebrer/manifests/db/sync.pp",
+        "deployment_scripts/puppet/manifests/server.pp",
+        "deployment_scripts/puppet/modules/celebrer/manifests/keystone/auth.pp",
+        "deployment_scripts/puppet/modules/celebrer/manifests/client.pp",
+        "deployment_scripts/puppet/modules/celebrer/manifests/agent.pp",
+        "deployment_scripts/puppet/modules/celebrer/manifests/init.pp",
+        "deployment_scripts/puppet/modules/celebrer/manifests/api.pp",
+        "deployment_scripts/puppet/modules/celebrer/manifests/engine.pp",
+        "deployment_scripts/puppet/modules/celebrer/manifests/params.pp",
+        "deployment_scripts/puppet/manifests/keystone.pp",
+        "deployment_scripts/puppet/modules/celebrer/manifests/dashboard.pp",
+        "deployment_scripts/puppet/manifests/ha.pp"
+      ],
       "pp_cmtrs": ["Alexey Galkin", "Denis Egorenko", "Alexey Deryugin"],
       "num_pp_commits": 24,
       "num_tot_commits": 52,
@@ -9,167 +25,232 @@
         "msg": "Initial version",
         "cmtr": "Alexey Galkin",
         "date": "2015-12-22 15:35:54+03:00",
-        "files": [".gitignore", "LICENSE", "README.md", "agent.pp", "server.pp", "ini_setting.rb", "ini_setting.rb", "ini_setting.rb", "celebrer_agent_config.rb", "celebrer_config.rb", "celebrer_paste_ini_config.rb", "agent.pp", "api.pp", "db.pp", "mysql.pp", "sync.pp", "engine.pp", "init.pp", "params.pp", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "pre_build_hook", ".gitkeep", "celebrer-agent_0.0.1.dev42-1_amd64.deb"]
+        "files": [
+            ".gitignore",
+            "LICENSE",
+            "README.md",
+            "deployment_scripts/puppet/manifests/agent.pp",
+            "deployment_scripts/puppet/manifests/server.pp",
+            "deployment_scripts/puppet/modules/celebrer/lib/puppet/provider/celebrer_agent_config/ini_setting.rb",
+            "deployment_scripts/puppet/modules/celebrer/lib/puppet/provider/celebrer_config/ini_setting.rb",
+            "deployment_scripts/puppet/modules/celebrer/lib/puppet/provider/celebrer_paste_ini_config/ini_setting.rb",
+            "deployment_scripts/puppet/modules/celebrer/lib/puppet/type/celebrer_agent_config.rb",
+            "deployment_scripts/puppet/modules/celebrer/lib/puppet/type/celebrer_config.rb",
+            "deployment_scripts/puppet/modules/celebrer/lib/puppet/type/celebrer_paste_ini_config.rb",
+            "deployment_scripts/puppet/modules/celebrer/manifests/agent.pp",
+            "deployment_scripts/puppet/modules/celebrer/manifests/api.pp",
+            "deployment_scripts/puppet/modules/celebrer/manifests/db.pp",
+            "deployment_scripts/puppet/modules/celebrer/manifests/db/mysql.pp",
+            "deployment_scripts/puppet/modules/celebrer/manifests/db/sync.pp",
+            "deployment_scripts/puppet/modules/celebrer/manifests/engine.pp",
+            "deployment_scripts/puppet/modules/celebrer/manifests/init.pp",
+            "deployment_scripts/puppet/modules/celebrer/manifests/params.pp",
+            "deployment_tasks.yaml",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "pre_build_hook",
+            "repositories/centos/.gitkeep",
+            "repositories/ubuntu/celebrer-agent_0.0.1.dev42-1_amd64.deb"]
       },
       {
         "hash": "0c901506e273f1032134a022fa6a6bad132ff895",
         "msg": "Migrate to v2.0.0 FuelPlugin package version",
         "cmtr": "Alexey Galkin",
         "date": "2016-01-13 22:30:21+03:00",
-        "files": [".drone.yml", "build.sh", ".travis.sh", ".travis.yml", "README.md", "agent.pp", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", ".gitkeep", "celebrer-agent_0.0.1.dev42-1_amd64.deb", "tasks.yaml"]
+        "files": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "README.md",
+            "deployment_scripts/puppet/modules/celebrer/manifests/agent.pp",
+            "None",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "repositories/ubuntu/.gitkeep",
+            "repositories/ubuntu/celebrer-agent_0.0.1.dev42-1_amd64.deb",
+            "tasks.yaml"]
       },
       {
         "hash": "390efb95c65cd98ddfd077c76a8fd591513eda47",
         "msg": "Update server.pp",
         "cmtr": "Alexey Galkin",
         "date": "2016-01-14 00:07:45+03:00",
-        "files": ["server.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/server.pp"]
       },
       {
         "hash": "6fc81818783666215c86c716b82d6da5083201db",
         "msg": "Update server.pp",
         "cmtr": "Alexey Galkin",
         "date": "2016-01-14 01:28:46+03:00",
-        "files": ["server.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/server.pp"]
       },
       {
         "hash": "99a9c8e0dfa2de0d434bd70e341f454d2c75d5c2",
         "msg": "Update server.pp",
         "cmtr": "Denis Egorenko",
         "date": "2016-01-14 18:20:52+03:00",
-        "files": ["server.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/server.pp"]
       },
       {
         "hash": "bd3846717ba76e390570850d66a2ae55169db5ea",
         "msg": "Update agent.pp",
         "cmtr": "Alexey Galkin",
         "date": "2016-01-14 18:23:17+03:00",
-        "files": ["agent.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/agent.pp"]
       },
       {
         "hash": "a3cfcaafd644a8339ec58e7a54f341a5f3c4b139",
         "msg": "Update server.pp",
         "cmtr": "Alexey Deryugin",
         "date": "2016-01-14 21:17:21+03:00",
-        "files": ["server.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/server.pp"]
       },
       {
         "hash": "d4ccf8ffad5205a5c0f349d0755d03081f465e5b",
         "msg": "Update db.pp",
         "cmtr": "Alexey Deryugin",
         "date": "2016-01-15 20:18:16+03:00",
-        "files": ["db.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/celebrer/manifests/db.pp"]
       },
       {
         "hash": "96d848b438916edf2501a1b9afdb0f5d467339b9",
         "msg": "Update init.pp",
         "cmtr": "Alexey Deryugin",
         "date": "2016-01-15 20:19:36+03:00",
-        "files": ["init.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/celebrer/manifests/init.pp"]
       },
       {
         "hash": "379d534e0ee9557ef559535974d5fba0cc9dcf93",
         "msg": "Update server.pp",
         "cmtr": "Alexey Deryugin",
         "date": "2016-01-15 20:20:04+03:00",
-        "files": ["server.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/server.pp"]
       },
       {
         "hash": "e0741b1e7bb432160d3475140db88ca1f34a0e6a",
         "msg": "Update params.pp",
         "cmtr": "Alexey Deryugin",
         "date": "2016-01-15 20:21:02+03:00",
-        "files": ["params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/celebrer/manifests/params.pp"]
       },
       {
         "hash": "412024a20ff4b3c19d9babf69c172293952a6397",
         "msg": "Adding keystone supports.",
         "cmtr": "Alexey Galkin",
         "date": "2016-01-18 15:23:12+03:00",
-        "files": ["keystone.pp", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/keystone.pp",
+            "tasks.yaml"]
       },
       {
         "hash": "29ec0475d322c8189a594a7c04b2217745349fd0",
         "msg": "Create auth.pp",
         "cmtr": "Alexey Deryugin",
         "date": "2016-01-18 15:23:31+03:00",
-        "files": ["auth.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/celebrer/manifests/keystone/auth.pp"]
       },
       {
         "hash": "7e379e17313b266d281b58317410e8280180e593",
         "msg": "Adding HA-proxy supports.",
         "cmtr": "Alexey Galkin",
         "date": "2016-01-18 15:41:00+03:00",
-        "files": ["ha.pp", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/ha.pp",
+            "tasks.yaml"]
       },
       {
         "hash": "bc44920e63f3d75cc0aaaf9fbe1f27df92583da6",
         "msg": "Update ha.pp",
         "cmtr": "Alexey Deryugin",
         "date": "2016-01-18 15:44:50+03:00",
-        "files": ["ha.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/ha.pp"]
       },
       {
         "hash": "fc2f76d3ef4e44a6ad13da9fc61d9a574cba67d8",
         "msg": "Fix, change credentials to glance",
         "cmtr": "Alexey Galkin",
         "date": "2016-01-18 15:56:38+03:00",
-        "files": ["ha.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/ha.pp"]
       },
       {
         "hash": "f85a0043c0af160d08e01372ad1dabec117cfa34",
         "msg": "Update keystone.pp",
         "cmtr": "Alexey Deryugin",
         "date": "2016-01-18 15:56:43+03:00",
-        "files": ["keystone.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/keystone.pp"]
       },
       {
         "hash": "9f1079f9f6ab56e6a00bfd193fd9d434ed82d448",
         "msg": "Update auth.pp",
         "cmtr": "Alexey Deryugin",
         "date": "2016-01-18 15:56:46+03:00",
-        "files": ["auth.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/celebrer/manifests/keystone/auth.pp"]
       },
       {
         "hash": "0cd055c21b3c7f08ce7cb92dcec35a2bd2c4213a",
         "msg": "Update ha.pp",
         "cmtr": "Alexey Galkin",
         "date": "2016-01-18 16:10:40+03:00",
-        "files": ["ha.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/ha.pp"]
       },
       {
         "hash": "2a3084ec282ece2c61c0586f33d3e9f0be2bd7b5",
         "msg": "Update ha.pp",
         "cmtr": "Alexey Galkin",
         "date": "2016-01-18 16:12:15+03:00",
-        "files": ["ha.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/ha.pp"]
       },
       {
         "hash": "cc7d29a1dcd8d425867d3dbb5edb174001b3f106",
         "msg": "Update ha.pp",
         "cmtr": "Alexey Galkin",
         "date": "2016-01-18 16:14:16+03:00",
-        "files": ["ha.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/ha.pp"]
       },
       {
         "hash": "3ec066f90b0cbb534f7e32ac2018d677907639c7",
         "msg": "Update server.pp",
         "cmtr": "Alexey Deryugin",
         "date": "2016-01-18 16:21:27+03:00",
-        "files": ["server.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/server.pp"]
       },
       {
         "hash": "14fde2371056c44542eb43c690969a62266f51e6",
         "msg": "Integrate python client",
         "cmtr": "Alexey Galkin",
         "date": "2016-01-25 19:42:34+03:00",
-        "files": ["server.pp", "client.pp", "params.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/server.pp",
+            "deployment_scripts/puppet/modules/celebrer/manifests/client.pp",
+            "deployment_scripts/puppet/modules/celebrer/manifests/params.pp"]
       },
       {
         "hash": "6cc9a394128c2e067ddea2165cbd20952d42a2b3",
         "msg": "Add dashboard",
         "cmtr": "Alexey Galkin",
         "date": "2016-01-27 03:02:30+03:00",
-        "files": ["server.pp", "dashboard.pp", "params.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/server.pp",
+            "deployment_scripts/puppet/modules/celebrer/manifests/dashboard.pp",
+            "deployment_scripts/puppet/modules/celebrer/manifests/params.pp"]
       }]
     }

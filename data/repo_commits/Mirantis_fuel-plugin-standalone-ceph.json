@@ -1,7 +1,45 @@
     {
       "url": "https://github.com/Mirantis/fuel-plugin-standalone-ceph",
-      "pp_files": ["hiera-override.pp", "cluster.pp", "keystone.pp", "init.pp", "openstack-haproxy-radosgw.pp", "cluster-haproxy.pp", "ceph_client.pp", "params.pp", "controller-firewall.pp", "ceph-mon-firewall.pp", "nova_compute.pp", "radosgw.pp", "mon.pp", "enable_rados.pp", "conf.pp", "ceph-mon-hiera-override.pp", "openstack_haproxy_radosgw.pp", "ssl_keys_saving.pp", "site.pp", "radosgw_keystone.pp", "hosts.pp", "osd.pp", "ephemeral.pp", "osds.pp", "ssh.pp", "pool.pp", "rados-pki.pp"],
-      "pp_cmtrs": ["Ukov Dmitry", "Dmitry Nikishov", "Dmitriy Ukov", "Gleb Galkin", "Alexey Chekunov", "Alexander Noskov", "Dmitry Dmitriev"],
+      "pp_files": [
+        "deployment_scripts/ceph-mon-firewall.pp",
+        "deployment_scripts/enable_rados.pp",
+        "deployment_scripts/modules/ceph_override/manifests/ceph/enable_rados.pp",
+        "deployment_scripts/openstack-haproxy-radosgw.pp",
+        "deployment_scripts/modules/ceph/manifests/osds.pp",
+        "deployment_scripts/ssl_keys_saving.pp",
+        "deployment_scripts/rados-pki.pp",
+        "deployment_scripts/modules/ceph/manifests/mon.pp",
+        "deployment_scripts/cluster-haproxy.pp",
+        "deployment_scripts/hosts.pp",
+        "deployment_scripts/hiera-override.pp",
+        "deployment_scripts/modules/ceph_override/manifests/openstack_haproxy/ssl_keys_saving.pp",
+        "deployment_scripts/modules/ceph/manifests/ssh.pp",
+        "deployment_scripts/modules/ceph_override/manifests/ceph/mon.pp",
+        "deployment_scripts/modules/ceph/manifests/osds/osd.pp",
+        "deployment_scripts/modules/ceph_override/manifests/init.pp",
+        "deployment_scripts/modules/ceph/manifests/nova_compute.pp",
+        "deployment_scripts/radosgw.pp",
+        "deployment_scripts/modules/ceph/manifests/conf.pp",
+        "deployment_scripts/cluster.pp",
+        "deployment_scripts/mon.pp",
+        "deployment_scripts/modules/ceph/manifests/radosgw.pp",
+        "deployment_scripts/modules/ceph/manifests/init.pp",
+        "deployment_scripts/modules/ceph_override/manifests/ceph/radosgw_keystone.pp",
+        "deployment_scripts/ceph_client.pp",
+        "deployment_scripts/controller-firewall.pp",
+        "deployment_scripts/modules/ceph/manifests/ephemeral.pp",
+        "deployment_scripts/modules/standalone-ceph/manifests/hosts.pp",
+        "deployment_scripts/ceph-mon-hiera-override.pp",
+        "deployment_scripts/modules/ceph_override/manifests/openstack_haproxy/openstack_haproxy_radosgw.pp",
+        null,
+        "deployment_scripts/radosgw_keystone.pp",
+        "deployment_scripts/modules/ceph/manifests/pool.pp",
+        "deployment_scripts/modules/ceph/examples/site.pp",
+        "deployment_scripts/modules/ceph/manifests/params.pp",
+        "deployment_scripts/modules/ceph/manifests/keystone.pp",
+        "deployment_scripts/modules/ceph_override/manifests/conf.pp"
+      ],
+      "pp_cmtrs": ["Alexey Chekunov", "Ukov Dmitry", "Gleb Galkin", "Dmitry Nikishov", "Dmitriy Ukov", "Dmitry Dmitriev", "Alexander Noskov"],
       "num_pp_commits": 15,
       "num_tot_commits": 38,
       "commits": [{
@@ -9,104 +47,244 @@
         "msg": "Development snapshot\n\n  * Change name to standalone-ceph\n  * Deployment groups and their order are correct.\n  * Some issue with ceph/init.pp (hardcoded role name)",
         "cmtr": "Ukov Dmitry",
         "date": "2015-10-22 11:01:43+03:00",
-        "files": ["README.md", "hiera-override.pp", ".fixtures.yml", ".rspec", "Gemfile", "README.md", "Rakefile", "site.pp", "ceph_conf.rb", "ceph_osd.rb", "cinder_conf.rb", "glance_api_conf.rb", "keystone_conf.rb", "nova_compute.rb", "ini_setting.rb", "ceph_conf.rb", "conf.pp", "ephemeral.pp", "init.pp", "keystone.pp", "mon.pp", "nova_compute.pp", "osds.pp", "osd.pp", "params.pp", "pool.pp", "radosgw.pp", "ssh.pp", "osds__spec.rb", "osd__spec.rb", "spec_helper.rb", "fastcgi.conf.erb", "rgw.conf.erb", "s3gw.fcgi.erb", "secret.erb", "standalone-ceph.yaml.erb", "mon.pp", "deployment_tasks.yaml", "metadata.yaml", "node_roles.yaml"]
+        "files": [
+            "README.md",
+            "deployment_scripts/hiera-override.pp",
+            "deployment_scripts/modules/ceph/.fixtures.yml",
+            "deployment_scripts/modules/ceph/.rspec",
+            "deployment_scripts/modules/ceph/Gemfile",
+            "deployment_scripts/modules/ceph/README.md",
+            "deployment_scripts/modules/ceph/Rakefile",
+            "deployment_scripts/modules/ceph/examples/site.pp",
+            "deployment_scripts/modules/ceph/lib/facter/ceph_conf.rb",
+            "deployment_scripts/modules/ceph/lib/facter/ceph_osd.rb",
+            "deployment_scripts/modules/ceph/lib/facter/cinder_conf.rb",
+            "deployment_scripts/modules/ceph/lib/facter/glance_api_conf.rb",
+            "deployment_scripts/modules/ceph/lib/facter/keystone_conf.rb",
+            "deployment_scripts/modules/ceph/lib/facter/nova_compute.rb",
+            "deployment_scripts/modules/ceph/lib/puppet/provider/ceph_conf/ini_setting.rb",
+            "deployment_scripts/modules/ceph/lib/puppet/type/ceph_conf.rb",
+            "deployment_scripts/modules/ceph/manifests/conf.pp",
+            "deployment_scripts/modules/ceph/manifests/ephemeral.pp",
+            "deployment_scripts/modules/ceph/manifests/init.pp",
+            "deployment_scripts/modules/ceph/manifests/keystone.pp",
+            "deployment_scripts/modules/ceph/manifests/mon.pp",
+            "deployment_scripts/modules/ceph/manifests/nova_compute.pp",
+            "deployment_scripts/modules/ceph/manifests/osds.pp",
+            "deployment_scripts/modules/ceph/manifests/osds/osd.pp",
+            "deployment_scripts/modules/ceph/manifests/params.pp",
+            "deployment_scripts/modules/ceph/manifests/pool.pp",
+            "deployment_scripts/modules/ceph/manifests/radosgw.pp",
+            "deployment_scripts/modules/ceph/manifests/ssh.pp",
+            "deployment_scripts/modules/ceph/spec/classes/osds__spec.rb",
+            "deployment_scripts/modules/ceph/spec/defines/osd__spec.rb",
+            "deployment_scripts/modules/ceph/spec/spec_helper.rb",
+            "deployment_scripts/modules/ceph/templates/fastcgi.conf.erb",
+            "deployment_scripts/modules/ceph/templates/rgw.conf.erb",
+            "deployment_scripts/modules/ceph/templates/s3gw.fcgi.erb",
+            "deployment_scripts/modules/ceph/templates/secret.erb",
+            "deployment_scripts/modules/standalone-ceph/templates/standalone-ceph.yaml.erb",
+            "deployment_scripts/mon.pp",
+            "deployment_tasks.yaml",
+            "metadata.yaml",
+            "node_roles.yaml"]
       },
       {
         "hash": "9841df2d1a112081ff0b2a8eb7e29a54c3fe55c0",
         "msg": "Added rados gw on ceph mons\n\nChange-Id: Ie0f828a7304ff867562daf986e88ce2a23cab805",
         "cmtr": "Ukov Dmitry",
         "date": "2015-10-23 18:38:48+03:00",
-        "files": ["ceph_client.pp", "cluster-haproxy.pp", "cluster.pp", "standalone-ceph.yaml.erb", "openstack-haproxy-radosgw.pp", "radosgw.pp", "deployment_tasks.yaml", "metadata.yaml", "network_roles.yaml", "node_roles.yaml"]
+        "files": [
+            "deployment_scripts/ceph_client.pp",
+            "deployment_scripts/cluster-haproxy.pp",
+            "deployment_scripts/cluster.pp",
+            "deployment_scripts/modules/standalone-ceph/templates/standalone-ceph.yaml.erb",
+            "deployment_scripts/openstack-haproxy-radosgw.pp",
+            "deployment_scripts/radosgw.pp",
+            "deployment_tasks.yaml",
+            "metadata.yaml",
+            "network_roles.yaml",
+            "node_roles.yaml"]
       },
       {
         "hash": "edc4e9cfc394eb3254b60c42c572b11d8017341d",
         "msg": "Fixes for deployment stability\n\n  * Do not merge ceph_monitor_nodes to avoid putting controllers into\n    list of minitors\n  * Deploy monitors after all controllers ready\n  * Added ceilometer task depemdency\n\nChange-Id: I1e8d31982b05830b033d8abd5bcb25f6007615bf",
         "cmtr": "Dmitriy Ukov",
         "date": "2015-10-30 10:56:17+04:00",
-        "files": ["ceph_client.pp", "mon.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/ceph_client.pp",
+            "deployment_scripts/mon.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "d6b800ab595a7319188623a967e973ef90a49d94",
         "msg": "Added Ceph keys generation for keystone revocation\n\nChange-Id: If9848be5669e01ce71fcc1398baf8a84a0711c87",
         "cmtr": "Dmitriy Ukov",
         "date": "2015-10-30 10:57:31+04:00",
-        "files": ["rados-pki.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/rados-pki.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "27007b323048146a54296547a4d83a356607d9a5",
         "msg": "Fix for ceph deploy package order\n\nChange-Id: I09c56cf514865ea4fcd98445b947df978e48b588",
         "cmtr": "Dmitriy Ukov",
         "date": "2015-10-30 10:58:08+04:00",
-        "files": ["ceph_client.pp"]
+        "files": [
+            "deployment_scripts/ceph_client.pp"]
       },
       {
         "hash": "20c592d7a43b5a6dd81019295c6a9cb7ba15d7ed",
         "msg": "Removed Ceph module from plugin.\n\n- Ceph init.pp and conf.pp are copied from\n  original ceph module and extended with support\n  of standalone Ceph mon\n\nChange-Id: I7d6c88a48408fe609f368e1ee4de642916916720",
         "cmtr": "Ukov Dmitry",
         "date": "2015-11-02 18:10:46+03:00",
-        "files": [".fixtures.yml", ".rspec", "Gemfile", "README.md", "Rakefile", "site.pp", "ceph_conf.rb", "ceph_osd.rb", "cinder_conf.rb", "glance_api_conf.rb", "keystone_conf.rb", "nova_compute.rb", "ini_setting.rb", "ceph_conf.rb", "conf.pp", "ephemeral.pp", "keystone.pp", "mon.pp", "nova_compute.pp", "osds.pp", "osd.pp", "params.pp", "pool.pp", "radosgw.pp", "ssh.pp", "osds__spec.rb", "osd__spec.rb", "spec_helper.rb", "fastcgi.conf.erb", "rgw.conf.erb", "s3gw.fcgi.erb", "secret.erb", "conf.pp", "init.pp", "mon.pp"]
+        "files": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "deployment_scripts/modules/ceph_override/manifests/conf.pp",
+            "deployment_scripts/modules/ceph_override/manifests/init.pp",
+            "deployment_scripts/mon.pp"]
       },
       {
         "hash": "abc3dada786b5008b02dcb5a6ef7764dfb96c828",
         "msg": "Cosmetic changes\n\n  - Fulfill coding guidelines for plugins\n\nChange-Id: Ifc57e21e25c0dd456860e430285641fcd14244b6",
         "cmtr": "Dmitriy Ukov",
         "date": "2015-11-02 19:11:37+04:00",
-        "files": ["ceph_client.pp", "cluster-haproxy.pp", "cluster.pp", "mon.pp", "openstack-haproxy-radosgw.pp", "rados-pki.pp", "radosgw.pp"]
+        "files": [
+            "deployment_scripts/ceph_client.pp",
+            "deployment_scripts/cluster-haproxy.pp",
+            "deployment_scripts/cluster.pp",
+            "deployment_scripts/mon.pp",
+            "deployment_scripts/openstack-haproxy-radosgw.pp",
+            "deployment_scripts/rados-pki.pp",
+            "deployment_scripts/radosgw.pp"]
       },
       {
         "hash": "47ba315c8cb88715972ea87cfa6ca5d3048ff5ea",
         "msg": "Set of imprevements\n\n* PKI task should not be executed for UUID\n* Added custom region name support\n* keystone-swift task should be skipped\n\nChange-Id: Ie6355f4bfb5a4d905bc6c8daff6060009c5b9f2d",
         "cmtr": "Ukov Dmitry",
         "date": "2015-12-22 10:45:29+03:00",
-        "files": ["radosgw.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/radosgw.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "d3237e04da42b010480f57654b7a392e10529ec3",
         "msg": "Modify deployment tasks according Fuel 8 roles\n\nSyntax of deplyment_tasks.yaml was corrected\nPrimary Ceph tasks were skipped.\nTask standalone-ceph-rados-pki is temporarily disabled.",
         "cmtr": "Dmitry Dmitriev",
         "date": "2016-06-16 12:54:31+03:00",
-        "files": ["hiera-override.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/hiera-override.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "0c515b7e46907d8a0bd1cf9c9a8bdd657ebe7b74",
         "msg": "Change keystone URL in openrc",
         "cmtr": "Dmitry Dmitriev",
         "date": "2016-06-16 15:14:24+03:00",
-        "files": ["radosgw.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/radosgw.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "76ca7d8d96e5e85655700d1edd0bf33c5c1e4587",
         "msg": "SSL path error is fixed",
         "cmtr": "Gleb Galkin",
         "date": "2016-06-30 17:32:03+03:00",
-        "files": ["openstack-haproxy-radosgw.pp"]
+        "files": [
+            "deployment_scripts/openstack-haproxy-radosgw.pp"]
       },
       {
         "hash": "547dac9c2e9397fccc9ce2ae99f4f67144a4267c",
         "msg": "Fixes for radosgw and haproxy stats\n\n- radosgw manifest should enable mod_proxy\n  before attempting to start apache\n- Open port 10000 on controllers so that\n  haproxy_backend_status resources can operate\n  from ceph-mon role\n\nChange-Id: I09c2ad1c6d00702f855dd04d0b9be82fc887b7b8",
         "cmtr": "Dmitry Nikishov",
         "date": "2016-07-18 11:48:52+03:00",
-        "files": ["controller-firewall.pp", "radosgw.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/controller-firewall.pp",
+            "deployment_scripts/radosgw.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "167732c6c2dac07fae9b3322486899213a9b2149",
         "msg": "Plugin refactored to support MOS 9.0\n\nChange-Id: If4bdf9868fd7a3e9a7fc3797ca454912877be179",
         "cmtr": "Ukov Dmitry",
         "date": "2016-08-09 14:18:43+03:00",
-        "files": ["ceph-mon-firewall.pp", "ceph-mon-hiera-override.pp", "cluster-haproxy.pp", "cluster.pp", "controller-firewall.pp", "deploy.sh", "enable_rados.pp", "hiera-override.pp", "enable_rados.pp", "mon.pp", "radosgw_keystone.pp", "conf.pp", "init.pp", "openstack_haproxy_radosgw.pp", "standalone-ceph.yaml.erb", "mon.pp", "openstack-haproxy-radosgw.pp", "rados-pki.pp", "radosgw.pp", "radosgw_keystone.pp", "deployment_tasks.yaml", "metadata.yaml", "network_roles.yaml", "node_roles.yaml"]
+        "files": [
+            "deployment_scripts/ceph-mon-firewall.pp",
+            "deployment_scripts/ceph-mon-hiera-override.pp",
+            "None",
+            "None",
+            "None",
+            "None",
+            "deployment_scripts/enable_rados.pp",
+            "None",
+            "deployment_scripts/modules/ceph_override/manifests/ceph/enable_rados.pp",
+            "deployment_scripts/modules/ceph_override/manifests/ceph/mon.pp",
+            "deployment_scripts/modules/ceph_override/manifests/ceph/radosgw_keystone.pp",
+            "None",
+            "None",
+            "deployment_scripts/modules/ceph_override/manifests/openstack_haproxy/openstack_haproxy_radosgw.pp",
+            "deployment_scripts/modules/standalone-ceph/templates/standalone-ceph.yaml.erb",
+            "deployment_scripts/mon.pp",
+            "deployment_scripts/openstack-haproxy-radosgw.pp",
+            "None",
+            "None",
+            "deployment_scripts/radosgw_keystone.pp",
+            "deployment_tasks.yaml",
+            "metadata.yaml",
+            "network_roles.yaml",
+            "node_roles.yaml"]
       },
       {
         "hash": "14b8305f54588485f04777674ff28663042ee352",
         "msg": "add ssl part1",
         "cmtr": "Alexey Chekunov",
         "date": "2016-11-03 17:05:48+03:00",
-        "files": ["radosgw_keystone.pp", "ssl_keys_saving.pp", "ssl_keys_saving.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/modules/ceph_override/manifests/ceph/radosgw_keystone.pp",
+            "deployment_scripts/modules/ceph_override/manifests/openstack_haproxy/ssl_keys_saving.pp",
+            "deployment_scripts/ssl_keys_saving.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "c9e0c2ddc3a4d24b4b51dd75ecc81fb973374b97",
         "msg": "add ssl part2",
         "cmtr": "Alexander Noskov",
         "date": "2016-11-03 18:53:39+03:00",
-        "files": ["hosts.pp", "hosts.pp", "deployment_tasks.yaml", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/hosts.pp",
+            "deployment_scripts/modules/standalone-ceph/manifests/hosts.pp",
+            "deployment_tasks.yaml",
+            "environment_config.yaml"]
       }]
     }

@@ -1,7 +1,14 @@
     {
       "url": "https://github.com/openstack/fuel-plugin-datera-cinder",
-      "pp_files": ["cinder.pp", "cinder_datera_driver.pp", "cinder_datera_config.pp", "datera.pp"],
-      "pp_cmtrs": ["Funs", "Funs Kessen"],
+      "pp_files": [
+        "deployment_scripts/puppet/manifests/cinder_datera_driver.pp",
+        "deployment_scripts/puppet/modules/cinder_datera_config/manifests/backend/datera.pp",
+        "deployment_scripts/puppet/modules/cinder_datera_driver/manifests/cinder.pp",
+        "deployment_scripts/puppet/modules/cinder_datera_config/manifests/cinder.pp",
+        "deployment_scripts/puppet/manifests/cinder_datera_config.pp",
+        "deployment_scripts/puppet/modules/cinder_datera_config/manifests/volume/datera.pp"
+      ],
+      "pp_cmtrs": ["Funs Kessen", "Funs"],
       "num_pp_commits": 2,
       "num_tot_commits": 15,
       "commits": [{
@@ -9,13 +16,36 @@
         "msg": "Initial check in of reworked version",
         "cmtr": "Funs Kessen",
         "date": "2016-03-21 18:38:06+01:00",
-        "files": [".gitignore", "LICENSE", "README.md", "deploy.sh", "cinder_datera_config.pp", "cinder_datera_driver.pp", "datera.pp", "cinder.pp", "datera.pp", "cinder_volume_datera_spec.rb", "cinder_backend_datera_spec.rb", "datera.py", "cinder.pp", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "pre_build_hook", "datera-plugin-specs.rst", "volumes.yaml"]
+        "files": [
+            ".gitignore",
+            "LICENSE",
+            "README.md",
+            "deployment_scripts/puppet/deploy.sh",
+            "deployment_scripts/puppet/manifests/cinder_datera_config.pp",
+            "deployment_scripts/puppet/manifests/cinder_datera_driver.pp",
+            "deployment_scripts/puppet/modules/cinder_datera_config/manifests/backend/datera.pp",
+            "deployment_scripts/puppet/modules/cinder_datera_config/manifests/cinder.pp",
+            "deployment_scripts/puppet/modules/cinder_datera_config/manifests/volume/datera.pp",
+            "deployment_scripts/puppet/modules/cinder_datera_config/spec/classes/cinder_volume_datera_spec.rb",
+            "deployment_scripts/puppet/modules/cinder_datera_config/spec/defines/cinder_backend_datera_spec.rb",
+            "deployment_scripts/puppet/modules/cinder_datera_driver/files/7.0/datera.py",
+            "deployment_scripts/puppet/modules/cinder_datera_driver/manifests/cinder.pp",
+            "deployment_tasks.yaml",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "pre_build_hook",
+            "specs/datera-plugin-specs.rst",
+            "volumes.yaml"]
       },
       {
         "hash": "4f9156849b7d33fcdf9b419b993aa1d49f87e057",
         "msg": "puppet lint, updated test plan and LICENS",
         "cmtr": "Funs",
         "date": "2016-05-04 13:44:35+02:00",
-        "files": ["LICENSE", "cinder.pp", "cinder.pp", "TestPlanForFuelPluginDateraCinder-1.0.0.docx"]
+        "files": [
+            "LICENSE",
+            "deployment_scripts/puppet/modules/cinder_datera_config/manifests/cinder.pp",
+            "deployment_scripts/puppet/modules/cinder_datera_driver/manifests/cinder.pp",
+            "doc/TestPlanForFuelPluginDateraCinder-1.0.0.docx"]
       }]
     }

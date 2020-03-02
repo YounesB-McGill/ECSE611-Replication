@@ -1,7 +1,41 @@
     {
       "url": "https://github.com/openstack/fuel-plugin-elasticsearch-kibana",
-      "pp_files": ["cluster.pp", "kibana_dashboards.pp", "setup_esdir.pp", "init.pp", "check_environment_configuration.pp", "kibana_authentication.pp", "cluster-haproxy.pp", "params.pp", "curator.pp", "enable_quorum.pp", "hiera_override.pp", "elasticsearch.pp", "configure_default_route.pp", "provision_services.pp", "lvm_fs.pp", "kibana_index_configuration.pp", "netconfig.pp", "firewall.pp", "site.pp", "setup_disks.pp", "partition.pp", "kibana_dashboard.pp", "haproxy.pp", "es_template.pp", "kibana.pp"],
-      "pp_cmtrs": ["Guillaume Thouvenin", "Swann Croiset", "Simon Pasquier"],
+      "pp_files": [
+        "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/elasticsearch.pp",
+        "deployment_scripts/puppet/manifests/setup_esdir.pp",
+        "deployment_scripts/puppet/modules/elasticsearch_kibana/manifests/init.pp",
+        "deployment_scripts/puppet/manifests/kibana.pp",
+        "deployment_scripts/puppet/manifests/haproxy.pp",
+        "deployment_scripts/puppet/site.pp",
+        "deployment_scripts/puppet/manifests/hiera_override.pp",
+        "deployment_scripts/puppet/modules/disk_management/manifests/params.pp",
+        "deployment_scripts/puppet/modules/disk_management/manifests/lvm_fs.pp",
+        "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/params.pp",
+        "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/curator.pp",
+        "deployment_scripts/puppet/modules/disk_management/manifests/partition.pp",
+        "deployment_scripts/puppet/modules/kibana/manifests/params.pp",
+        "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana_dashboard.pp",
+        "deployment_scripts/puppet/manifests/enable_quorum.pp",
+        "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/es_template.pp",
+        "deployment_scripts/puppet/manifests/netconfig.pp",
+        "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana_authentication.pp",
+        "deployment_scripts/puppet/manifests/configure_default_route.pp",
+        "deployment_scripts/puppet/modules/disk_management/manifests/init.pp",
+        "deployment_scripts/puppet/manifests/cluster.pp",
+        "deployment_scripts/puppet/manifests/elasticsearch.pp",
+        "deployment_scripts/puppet/manifests/kibana_index_configuration.pp",
+        "deployment_scripts/puppet/manifests/firewall.pp",
+        "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana.pp",
+        "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana_dashboards.pp",
+        null,
+        "deployment_scripts/puppet/modules/elasticsearch_kibana/manifests/params.pp",
+        "deployment_scripts/puppet/manifests/setup_disks.pp",
+        "deployment_scripts/puppet/modules/kibana/manifests/init.pp",
+        "deployment_scripts/puppet/manifests/provision_services.pp",
+        "deployment_scripts/puppet/manifests/cluster-haproxy.pp",
+        "deployment_scripts/puppet/manifests/check_environment_configuration.pp"
+      ],
+      "pp_cmtrs": ["Simon Pasquier", "Swann Croiset", "Guillaume Thouvenin"],
       "num_pp_commits": 90,
       "num_tot_commits": 369,
       "commits": [{
@@ -9,629 +43,1045 @@
         "msg": "Initial import\n\nCurrent limitations:\n\n- Kibana is not installed yet.\n- User must provide dedicated disk(s) for data storage.\n- CentOS not supported yet.\n\nChange-Id: Iac7e0fea4d8e1649452f232a7ca096bb7dfe28a8",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-03-03 17:01:36+01:00",
-        "files": ["LICENSE", "LICENSE", "README.md", "init.pp", "params.pp", "metadata.json", "site.pp", "environment_config.yaml", "metadata.yaml", "pre_build_hook", ".gitkeep", ".gitkeep", "tasks.yaml"]
+        "files": [
+            "LICENSE",
+            "deployment_scripts/puppet/modules/elasticsearch_kibana/LICENSE",
+            "deployment_scripts/puppet/modules/elasticsearch_kibana/README.md",
+            "deployment_scripts/puppet/modules/elasticsearch_kibana/manifests/init.pp",
+            "deployment_scripts/puppet/modules/elasticsearch_kibana/manifests/params.pp",
+            "deployment_scripts/puppet/modules/elasticsearch_kibana/metadata.json",
+            "deployment_scripts/puppet/site.pp",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "pre_build_hook",
+            "repositories/centos/.gitkeep",
+            "repositories/ubuntu/.gitkeep",
+            "tasks.yaml"]
       },
       {
         "hash": "f4a1d22ac85aae602183c058a6b12ef34fccc8e2",
         "msg": "Restructuring manifests.\n\n- Renamed elasticsearch_kibana into kibana\n- Now kibana manifests only holds kibana installation and configuration\n- Move all configuration of elasticsearch into its own file that will be\n  called from tasks.\n\nChange-Id: Ief27cc15b2498330446c1537aa0662bf84333048",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-03-05 11:19:49+01:00",
-        "files": ["elasticsearch.pp", "kibana.pp", "init.pp", "params.pp", "LICENSE", "README.md", "init.pp", "metadata.json", "site.pp", "metadata.yaml", "pre_build_hook", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/kibana.pp",
+            "None",
+            "None",
+            "deployment_scripts/puppet/modules/kibana/LICENSE",
+            "deployment_scripts/puppet/modules/kibana/README.md",
+            "deployment_scripts/puppet/modules/kibana/manifests/init.pp",
+            "deployment_scripts/puppet/modules/kibana/metadata.json",
+            "None",
+            "metadata.yaml",
+            "pre_build_hook",
+            "tasks.yaml"]
       },
       {
         "hash": "fb9a2d898eea12f62ac64790a5535ff5c9f86d24",
         "msg": "Create a new puppet module for managing volume.\n\nThis module allows to create physical volume with disks passed in\narguments and then create a logical volume. It will mount the directory\npassed as parameters. When this module has finished the directory will\nbe available for elasticsearch.\n\nChange-Id: Ieb80cbdb273cc780f6832466400d5712d6aae78c",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-03-07 13:25:58+01:00",
-        "files": ["elasticsearch.pp", "setup_disks.pp", "LICENSE", "README.md", "init.pp", "lvm_fs.pp", "partition.pp", "metadata.json", "environment_config.yaml", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/setup_disks.pp",
+            "deployment_scripts/puppet/modules/disk_management/LICENSE",
+            "deployment_scripts/puppet/modules/disk_management/README.md",
+            "deployment_scripts/puppet/modules/disk_management/manifests/init.pp",
+            "deployment_scripts/puppet/modules/disk_management/manifests/lvm_fs.pp",
+            "deployment_scripts/puppet/modules/disk_management/manifests/partition.pp",
+            "deployment_scripts/puppet/modules/disk_management/metadata.json",
+            "environment_config.yaml",
+            "tasks.yaml"]
       },
       {
         "hash": "7017a809fd8f60017d285d54a21ce6c155788ecd",
         "msg": "Install Kibana.\n\n- We are using nginx as the HTTP server.\n\nChange-Id: Ia8ac64f8df9ea65ed4f0b608aa971907154cd5be",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-03-07 13:26:04+01:00",
-        "files": ["elasticsearch.pp", "logs.json", "init.pp", "params.pp", "config.js.erb", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/modules/kibana/files/logs.json",
+            "deployment_scripts/puppet/modules/kibana/manifests/init.pp",
+            "deployment_scripts/puppet/modules/kibana/manifests/params.pp",
+            "deployment_scripts/puppet/modules/kibana/templates/config.js.erb",
+            "pre_build_hook"]
       },
       {
         "hash": "5e878fba1bfb1f8f90581af5f0f3598b154d8336",
         "msg": "Add support for CentOS.\n\n- Install openjdk 1.8.0 headless.\n- Manage the /boot that is mounted as RAID 1 on all available disks.\n\nChange-Id: Ie346a466132d0dabc2eda61d4ac65ebd50b78222",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-03-07 13:26:04+01:00",
-        "files": ["elasticsearch.pp", "add_partition_on_raid.sh", "init.pp", "partition.pp", "metadata.yaml", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/modules/disk_management/files/add_partition_on_raid.sh",
+            "deployment_scripts/puppet/modules/disk_management/manifests/init.pp",
+            "deployment_scripts/puppet/modules/disk_management/manifests/partition.pp",
+            "metadata.yaml",
+            "pre_build_hook"]
       },
       {
         "hash": "bcb0ccd28bc14241c3b23f172a77f3260090bf28",
         "msg": "Upload LMA-specific templates to Elasticsearch\n\nThis change extends the scope of the kibana Puppet module so it is\nrenamed to lma_logging_analytics. In the future, this module may also\nsetup the clean-up of the Elasticsearch indices.\n\nChange-Id: I8ae3143cd10dc4343c6cd8d7a2452d8bdcf9261b",
         "cmtr": "Simon Pasquier",
         "date": "2015-03-09 11:07:41+01:00",
-        "files": ["elasticsearch.pp", "kibana.pp", "init.pp", "params.pp", "LICENSE", "README.md", "logs.json", "es_template.pp", "kibana.pp", "params.pp", "metadata.json", "config.js.erb", "es_template.json.erb", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/kibana.pp",
+            "None",
+            "None",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/LICENSE",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/README.md",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/files/kibana_dashboards/logs.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/es_template.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/params.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/metadata.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/config.js.erb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/es_template.json.erb",
+            "pre_build_hook"]
       },
       {
         "hash": "84976a55aed8a046ba07f0f0ce49b1738474d518",
         "msg": "Deploy the plugin on the selected node only.\n\nCurrently Elasticsearch and Kibana are deployed on all nodes that are\nusing base-os role. This change ensures that the plugin is only executed\non the node selected through the Fuel UI.\n\nChange-Id: I1a621d4b453c703e4ba92ba40c0659ccb2fc041b",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-03-09 14:36:44+01:00",
-        "files": ["elasticsearch.pp", "kibana.pp", "setup_disks.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/kibana.pp",
+            "deployment_scripts/puppet/manifests/setup_disks.pp"]
       },
       {
         "hash": "3422f3c244cd80c7c207bbde9dcc706214c2f1dc",
         "msg": "Create disk partitions on Ubuntu.\n\nNow we create a partition /dev/sdb1 instead of using the whole disk.\nAlso as we need to reboot the node after modifying disk partitions we\nmoved from fpb 1.0.0 to fpb 2.0.0.\n\nChange-Id: I8b5bdde546858d1e4ad9fc30719415453a7268ab",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-03-12 15:52:25+01:00",
-        "files": ["setup_disks.pp", "setup_esdir.pp", "add_partition.sh", "add_partition_on_raid.sh", "unallocated_pvs.rb", "init.pp", "params.pp", "partition.pp", "environment_config.yaml", "metadata.yaml", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/setup_disks.pp",
+            "deployment_scripts/puppet/manifests/setup_esdir.pp",
+            "deployment_scripts/puppet/modules/disk_management/files/add_partition.sh",
+            "None",
+            "deployment_scripts/puppet/modules/disk_management/lib/facter/unallocated_pvs.rb",
+            "deployment_scripts/puppet/modules/disk_management/manifests/init.pp",
+            "deployment_scripts/puppet/modules/disk_management/manifests/params.pp",
+            "deployment_scripts/puppet/modules/disk_management/manifests/partition.pp",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "tasks.yaml"]
       },
       {
         "hash": "711fd4bcbe0669488aba3e75a0e8df9824465fe1",
         "msg": "Fix errors reported by puppet-lint\n\nThis is required to enable the Fuel Plugins CI.\n\nChange-Id: I56aec27b6ad03c3794d03757238a21f598eeb8d1",
         "cmtr": "Simon Pasquier",
         "date": "2015-03-24 11:37:04+00:00",
-        "files": ["elasticsearch.pp", "setup_esdir.pp", "init.pp", "lvm_fs.pp", "params.pp", "partition.pp", "es_template.pp", "kibana.pp", "params.pp", "metadata.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/setup_esdir.pp",
+            "deployment_scripts/puppet/modules/disk_management/manifests/init.pp",
+            "deployment_scripts/puppet/modules/disk_management/manifests/lvm_fs.pp",
+            "deployment_scripts/puppet/modules/disk_management/manifests/params.pp",
+            "deployment_scripts/puppet/modules/disk_management/manifests/partition.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/es_template.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/params.pp",
+            "metadata.yaml"]
       },
       {
         "hash": "b69a2c2850d8410a9f4dbbe7ae8061bc6f5fa0d1",
         "msg": "Add notifications dashboard to Kibana\n\nThis change stores the logs and the notifications dashboards into\nElasticsearch.\n\nChange-Id: Icf10be7733f8f463a1e6da1604376dcf493e0f54",
         "cmtr": "Simon Pasquier",
         "date": "2015-03-25 09:55:12+01:00",
-        "files": ["encode_kibana_dashboard.rb", "kibana.pp", "kibana_dashboard.pp", "params.pp", "config.js.erb", "logs.json", "notifications.json"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_logging_analytics/lib/puppet/parser/functions/encode_kibana_dashboard.rb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana_dashboard.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/params.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/config.js.erb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana_dashboards/logs.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana_dashboards/notifications.json"]
       },
       {
         "hash": "9e56a544ade03e34b8727d5c517941148745b947",
         "msg": "Temporary fix for bypassing bug #1435892\n\nThis change makes sure that the required version of the tzdata package\nis installed before installing Java. This only affects Ubuntu\ndeployments.\n\nChange-Id: I8d7dba5b7d47d012707484264adf83e3df5e5274",
         "cmtr": "Simon Pasquier",
         "date": "2015-03-25 16:25:39+01:00",
-        "files": ["elasticsearch.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp"]
       },
       {
         "hash": "0f27a41b02055e4fdd70419cfbd91fdb0d5ac1c4",
         "msg": "Removed an extra space in the title of the dashboard.\n\nWe remove this extra space by using the same pattern than the one used\nto build dashboard's title in kibana_dashboard.pp.\n\nChange-Id: I34165a58544849204e25feedb1d642e2358aefdb",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-03-27 10:51:56+01:00",
-        "files": ["params.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/params.pp"]
       },
       {
         "hash": "c25b7d06e45296e00954edc11cd1dd28a982b0e2",
         "msg": "Switch to Hiera instead of using fuel_settings\n\nChange-Id: I2e1b9e06e8a6275e90becdc61dde7709fbe6d2cd",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-04-08 08:47:46+00:00",
-        "files": ["elasticsearch.pp", "kibana.pp", "setup_disks.pp", "setup_esdir.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/kibana.pp",
+            "deployment_scripts/puppet/manifests/setup_disks.pp",
+            "deployment_scripts/puppet/manifests/setup_esdir.pp"]
       },
       {
         "hash": "736fa465309976a7a5b46d684f7223367afd49f2",
         "msg": "Update version of tzdata\n\nVersion of tzdata has been updated to 2015c.\n\nChange-Id: I2c9fb7dadb3f88d1ecca3751d83c9eb36b607502",
         "cmtr": "Swann Croiset",
         "date": "2015-04-20 12:04:08+02:00",
-        "files": ["elasticsearch.pp", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "pre_build_hook"]
       },
       {
         "hash": "12ff7873e86c027f50d605927431bfb6caf37987",
         "msg": "Manage the size of the partition\n\nNow we can choose the size of the partition. Currently you can only use\nthree disks and the size is in GB. If the size of the disk is not\nprovided we use all the remaining free space available on the disk. If\nyou are asking for a size that doesn't fit, installation will fail.\n\nChange-Id: If8c11af99595f899a444fb09f719d441d78c6388",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-04-21 11:29:10+02:00",
-        "files": ["README.md", "setup_disks.pp", "add_partition.sh", "lvm_fs.pp", "partition.pp", "environment_config.yaml"]
+        "files": [
+            "README.md",
+            "deployment_scripts/puppet/manifests/setup_disks.pp",
+            "deployment_scripts/puppet/modules/disk_management/files/add_partition.sh",
+            "deployment_scripts/puppet/modules/disk_management/manifests/lvm_fs.pp",
+            "deployment_scripts/puppet/modules/disk_management/manifests/partition.pp",
+            "environment_config.yaml"]
       },
       {
         "hash": "658c4951271218e260be1ccc4995c1a2a8fbed5b",
         "msg": "Add Apache license headers to Puppet manifests\n\nThis change fixes the text of the LICENSE file too.\n\nChange-Id: I5d8dc513b708aedd1b0f4797900b22493f8be493",
         "cmtr": "Simon Pasquier",
         "date": "2015-04-21 15:06:13+02:00",
-        "files": ["LICENSE", "elasticsearch.pp", "kibana.pp", "setup_disks.pp", "setup_esdir.pp", "init.pp", "lvm_fs.pp", "params.pp", "partition.pp", "es_template.pp", "kibana.pp", "kibana_dashboard.pp", "params.pp"]
+        "files": [
+            "LICENSE",
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/kibana.pp",
+            "deployment_scripts/puppet/manifests/setup_disks.pp",
+            "deployment_scripts/puppet/manifests/setup_esdir.pp",
+            "deployment_scripts/puppet/modules/disk_management/manifests/init.pp",
+            "deployment_scripts/puppet/modules/disk_management/manifests/lvm_fs.pp",
+            "deployment_scripts/puppet/modules/disk_management/manifests/params.pp",
+            "deployment_scripts/puppet/modules/disk_management/manifests/partition.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/es_template.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana_dashboard.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/params.pp"]
       },
       {
         "hash": "5c85177037d62a0a96f018df68da7f2e362d01b9",
         "msg": "Update version of tzdata to 2015d\n\nChange-Id: Ie159a8ad4976ea673d995c50079e944b701e64a5",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-04-28 17:17:28+02:00",
-        "files": ["elasticsearch.pp", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "pre_build_hook"]
       },
       {
         "hash": "3675c297f00eeea09b58241e1408d382e396ea66",
         "msg": "Remove downloads from ubuntu repo\n\nAs nodes should have access to ubuntu repository we don't need to\ndownload ubuntu packages in the pre_build_hook before installing the\nplugin.\n\nIt also fixed https://bugs.launchpad.net/fuel/+bug/1435892\n\nChange-Id: Idcbffefa4ae46e87a160a327269ac27d2df4ee36",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-05-05 13:18:42+02:00",
-        "files": ["elasticsearch.pp", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "pre_build_hook"]
       },
       {
         "hash": "92e21f9b75e58fb51a31a3931f65a9a6451b27bc",
         "msg": "Configure firewall rules\n\nThis change configures explicitly the firewall rules for the node\nrunning the Elasticsearch-Kibana plugin. This is needed because\notherwise the node becomes unavailable on CentOS after a reboot.\n\nChange-Id: I6b123fac74e01c4cc4b16ff6a9f58654b9366fa1",
         "cmtr": "Simon Pasquier",
         "date": "2015-05-27 09:19:17+02:00",
-        "files": ["firewall.pp", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/firewall.pp",
+            "tasks.yaml"]
       },
       {
         "hash": "2b778eaabcc84fd49383423c19c72153d24bd110",
         "msg": "Add an option to configure the JVM size\n\nBy default the JVM launched by Elasticsearch can consume up to 1G of\nRAM. This parameter can be set in the plugin UI so the user will\nbe able to choose up to 32G.\n\nChange-Id: Iefdbb385462b37e5a9d0a9db92f038d029220d92",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-05-29 11:12:30+02:00",
-        "files": ["elasticsearch.pp", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "environment_config.yaml"]
       },
       {
         "hash": "3944d1d6fdf62e49e5e0aaf1258eb2482a46ad4b",
         "msg": "Increase the queue_size of pending request to 1000\n\nWith a size of 50 we see a lot of messages like:\nEsRejectedExecutionException[rejected execution (queue capacity 50)\n\nSo we increase this size of the bulk thread pool.\n\nChange-Id: I4511061dc4681838779a84e362ca2bb26a2f5f9e",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-05-29 11:25:02+02:00",
-        "files": ["elasticsearch.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp"]
       },
       {
         "hash": "5c09059667b0ceeee1d4090d672bc14abe3547a8",
         "msg": "Fail early when the settings aren't valid\n\nThis change adds a post-deployment task that verifies that the plugin\nconfiguration matches with the configuration of the environment.\n\nThe checks are:\n\n  - The plugin is deployed on a bare base-os node.\n  - The disk configuration is valid.\n  - The JVM size doesn't exceed the physical RAM.\n\nChange-Id: I6155fbad46502b9cd23a2fa54f3137441da8a270",
         "cmtr": "Simon Pasquier",
         "date": "2015-06-05 15:41:01+02:00",
-        "files": ["check_environment_configuration.pp", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/check_environment_configuration.pp",
+            "tasks.yaml"]
       },
       {
         "hash": "d78f3afe71b5043d8c134f8f45f2d7c99a23fe63",
         "msg": "Add missing license headers\n\nChange-Id: I6475b01df8a72f07bd62a436d83a44eb3008b3a9",
         "cmtr": "Simon Pasquier",
         "date": "2015-06-18 16:44:22+02:00",
-        "files": ["add_partition.sh", "unallocated_pvs.rb", "encode_kibana_dashboard.rb", "kibana.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/disk_management/files/add_partition.sh",
+            "deployment_scripts/puppet/modules/disk_management/lib/facter/unallocated_pvs.rb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/lib/puppet/parser/functions/encode_kibana_dashboard.rb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana.pp"]
       },
       {
         "hash": "0ff2d25c92480ebb90de2769a9fb9a3b51ce326d",
         "msg": "Set number of replicas to 0\n\nThe number of replica shards that each primary shard should\nhave is 1 by default. On a cluster that has only one machine it means\nthat Elasticsearch cluster is constantly yellow. As we are not running\nclusters for the moment we set replicas to 0.\n\nChange-Id: Icaffda04f3202ef41659b626e838087e86595667",
         "cmtr": "Guillaume Thouvenin",
         "date": "2015-07-08 15:26:46+02:00",
-        "files": ["es_template.pp", "kibana.pp", "es_template.json.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/es_template.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/es_template.json.erb"]
       },
       {
         "hash": "2febb0b0f3a9bdaf831f7e967c38c9ee7de1e0a2",
         "msg": "Install the curator package\n\nThis changes installs the curator package (and its dependencies) on the\nElasticsearch-Kibana node. A following commit will setup the cron job\nthat will clean up expired data in the Elasticsearch database.\n\nChange-Id: I413957c0b39fc687cb18fc5bed08d270d6ccc3dd",
         "cmtr": "Simon Pasquier",
         "date": "2015-08-10 12:27:09+02:00",
-        "files": ["elasticsearch.pp", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "pre_build_hook"]
       },
       {
         "hash": "56b182c5af9dbfc4a69b9c83f2b905b6203fe624",
         "msg": "Add support for data curation\n\nThis change configures a cron job that launches the curator script to\nclean up old indices from Elasticsearch. It also configures the number\nof replicas to keep per index. Note the value is always zero for now\nsince the plugin doesn't support cluster deployment yet.\n\nChange-Id: Id22ebb949aeda9c90a05a975152762e2fe4b7eea",
         "cmtr": "Simon Pasquier",
         "date": "2015-08-12 09:10:41+02:00",
-        "files": ["elasticsearch.pp", "kibana.pp", "curator.pp", "kibana.pp", "params.pp", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/kibana.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/curator.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/params.pp",
+            "environment_config.yaml"]
       },
       {
         "hash": "9368804bb3e7e3633f52c7f61b710e221355c184",
         "msg": "Run netconfig task only on ES-Kibana node\n\nChange-Id: I3a494bd202ce76255e9cc7845eb865bd93b82db3\nCloses-Bug: #1489885",
         "cmtr": "Simon Pasquier",
         "date": "2015-08-28 15:33:51+02:00",
-        "files": ["netconfig.pp", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/netconfig.pp",
+            "tasks.yaml"]
       },
       {
         "hash": "fe2e8948afa215e0e5e95ee9ff14585ae39be71f",
         "msg": "Switch to custom role elasticsearch_kibana\n\n- Use plugin version 3.0.0 and remove compatibility with MOS 6.1\n- Leverage common tasks to configure disk and network\n- Update README\n\nChange-Id: I7f185de0cfbe3098c9fee2d0f7a792df5b0a95e0",
         "cmtr": "Swann Croiset",
         "date": "2015-09-09 09:31:07+02:00",
-        "files": ["README.md", "check_environment_configuration.pp", "elasticsearch.pp", "firewall.pp", "kibana.pp", "setup_disks.pp", "setup_esdir.pp", ".fixtures.yml", ".gitignore", "Gemfile", "LICENSE", "README.md", "Rakefile", "add_partition.sh", "unallocated_pvs.rb", "init.pp", "lvm_fs.pp", "params.pp", "partition.pp", "metadata.json", "spec.opts", "spec_helper.rb", "deployment_tasks.yaml", "environment_config.yaml", "metadata.yaml", "node_roles.yaml", "tasks.yaml", "tox.ini", "volumes.yaml"]
+        "files": [
+            "README.md",
+            "deployment_scripts/puppet/manifests/check_environment_configuration.pp",
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/firewall.pp",
+            "deployment_scripts/puppet/manifests/kibana.pp",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "None",
+            "deployment_tasks.yaml",
+            "environment_config.yaml",
+            "metadata.yaml",
+            "node_roles.yaml",
+            "tasks.yaml",
+            "tox.ini",
+            "volumes.yaml"]
       },
       {
         "hash": "9bbdf0f10a9666bc88ee97a25a50378104ea9318",
         "msg": "Remove left-over in environmnet_config.yaml\n\nChange-Id: I07e49932388b3fbce56f7cf601116f6295f4b9f3",
         "cmtr": "Simon Pasquier",
         "date": "2015-09-09 16:52:56+02:00",
-        "files": ["netconfig.pp", "environment_config.yaml"]
+        "files": [
+            "None",
+            "environment_config.yaml"]
       },
       {
         "hash": "e88de780d28b61a35d39192040d1f4b6c48ddb60",
         "msg": "Make the import of dashboards idempotent\n\nThis avoids to import dashboards several times when deploying a cluster.\n\nImplements: elasticsearch-clustering\n\nChange-Id: I61f5dbd471825e94f941f1c2b1b4ad4b803bf3c9",
         "cmtr": "Swann Croiset",
         "date": "2015-12-14 20:14:42+01:00",
-        "files": ["kibana_dashboard.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana_dashboard.pp"]
       },
       {
         "hash": "125a0ad6023c086fccb5b0c7bd6357b7b4946541",
         "msg": "Deploy Elasticsearch cluster\n\nConfigure a VIP and Corosync/Pacemaker cluster. The plugin must override\nHiera data to set explicitly the corosync node list.\n\nConfigure Elasticsearch instances with parameters:\n\n* cluster.name\n* unicast discovery\n\nAdd firewall rule to allow clustering traffic.\n\nImplements: elasticsearch-clustering\n\nChange-Id: I0636e02113bfdacc776beb20c08cc88308486c29",
         "cmtr": "Swann Croiset",
         "date": "2015-12-22 19:55:43+01:00",
-        "files": ["elasticsearch.pp", "firewall.pp", "hiera_override.pp", "kibana.pp", "es_template.pp", "kibana.pp", "kibana_dashboard.pp", "params.pp", "deployment_tasks.yaml", "network_roles.yaml", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/firewall.pp",
+            "deployment_scripts/puppet/manifests/hiera_override.pp",
+            "deployment_scripts/puppet/manifests/kibana.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/es_template.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana_dashboard.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/params.pp",
+            "deployment_tasks.yaml",
+            "network_roles.yaml",
+            "pre_build_hook"]
       },
       {
         "hash": "3e2473b72799cef88697b885bd2cd35b97639a1b",
         "msg": "Allow to deploy 5 Elasticsearch nodes\n\nThis change also increases the number of shards accordingly.\n\nImplements: elasticsearch-clustering\n\nChange-Id: I3f5c26536140362684a406e05fbec684e38a794d",
         "cmtr": "Swann Croiset",
         "date": "2015-12-22 19:55:48+01:00",
-        "files": ["elasticsearch.pp", "es_template.pp", "node_roles.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/es_template.pp",
+            "node_roles.yaml"]
       },
       {
         "hash": "84a56c7de932182cba8002033d8f8c00684160fd",
         "msg": "Wait cluster green status before kibana dashboard import\n\nBefore creating an index the cluster must be ready ('green' status). For\nexample if the number of replica cannot be honored the dashboard\nimportation fails with the error:\n{\"error\":\"UnavailableShardsException[[kibana-int][2] Not enough active\ncopies to meet write consistency of [QUORUM] (have 1, needed 3)\n\nThis patch also increases the global timeout for this particular task.\n\nImplements: elasticsearch-clustering\n\nChange-Id: I9d1c1dcb1c02391ceedb41b7617cdfe5ec812adb",
         "cmtr": "Swann Croiset",
         "date": "2015-12-22 19:55:48+01:00",
-        "files": ["kibana_dashboard.pp", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana_dashboard.pp",
+            "tasks.yaml"]
       },
       {
         "hash": "9c3955a15f07673a061ccf1650a9d5cca468a634",
         "msg": "Handle advanced settings for Elasticsearch\n\nThese parameters are configured with default values if not provided:\n* number_of_replicas\n* minimum_master_nodes\n* recover_after_time\n* recover_after_nodes\n\nChange-Id: I3f4c1135c61b209e6e7b6160142c147721306cf9",
         "cmtr": "Swann Croiset",
         "date": "2015-12-22 19:55:48+01:00",
-        "files": ["elasticsearch.pp", "hiera_override.pp", "kibana.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/hiera_override.pp",
+            "deployment_scripts/puppet/manifests/kibana.pp"]
       },
       {
         "hash": "11f4138051256e37ec10514794a9a0c02864bae6",
         "msg": "Configure HAProxy for Elasticsearch and Kibana\n\nChange-Id: Ib6176f6ec851f3fcb647faf9d4649f83d7acaffe",
         "cmtr": "Swann Croiset",
         "date": "2015-12-22 19:55:48+01:00",
-        "files": ["haproxy.pp", "deployment_tasks.yaml", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/haproxy.pp",
+            "deployment_tasks.yaml",
+            "pre_build_hook"]
       },
       {
         "hash": "4b0458b3fcd1b1ab7c7e0fe6b9c26af0f89f513e",
         "msg": "Separate template mapping for log and notification\n\nThis patch removes also the 'fuel_environment' field which is never used.\n\nChange-Id: I8af0e8186a558dbea2442d0cca434166025677b1",
         "cmtr": "Swann Croiset",
         "date": "2015-12-30 10:07:06+01:00",
-        "files": ["es_template.pp", "lma_logging_analytics_es_template_spec.rb", "es_template_log.json.erb", "es_template_notification.json.erb", "notifications.json"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/es_template.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/spec/defines/lma_logging_analytics_es_template_spec.rb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/es_template_log.json.erb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/es_template_notification.json.erb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana_dashboards/notifications.json"]
       },
       {
         "hash": "1b68f8a3c6e700aed043cd09a5dfd5caeb9b1f64",
         "msg": "Specify the number of expected nodes\n\nThe cluster recovery starts immediately when all expected nodes are up.\nWithout this parameter, the recovery waits 'recover_after_time' time\nif the number of running nodes is at least equal to 'recover_after_nodes'.\n\nChange-Id: Ice2a0b8ae41e9db5307724a8716d25e07b6ee82a",
         "cmtr": "Swann Croiset",
         "date": "2015-12-31 15:12:10+01:00",
-        "files": ["elasticsearch.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp"]
       },
       {
         "hash": "4688dbcde44805c365cdd0d39cd4bc65aef60d71",
         "msg": "Configure correctly recover_after_nodes with 1 node\n\nChange-Id: I733fac5fb2b68e181eb9348af8742aa135871402",
         "cmtr": "Swann Croiset",
         "date": "2016-01-04 13:17:36+01:00",
-        "files": ["hiera_override.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera_override.pp"]
       },
       {
         "hash": "55eacfa28a608ae35aa1810ea5ca7cedba148eed",
         "msg": "Use the hiera default mechanism for plugins\n\nChange-Id: I61bb0a28b3743c7ee4e0ee0621bff09db47f32bd",
         "cmtr": "Swann Croiset",
         "date": "2016-01-04 17:17:27+01:00",
-        "files": ["hiera_override.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera_override.pp"]
       },
       {
         "hash": "aa10d6ef619997bd2f82e3610939a9b2f0450e71",
         "msg": "Fix the way to determine the number of nodes\n\nThe Puppet size() function crashes with a hash as param:\nsize(): Unknown type given at ...\n\nChange-Id: Ieec331f32254115dc3e7625cdd1175a0db04e904",
         "cmtr": "Swann Croiset",
         "date": "2016-01-04 17:19:56+01:00",
-        "files": ["elasticsearch.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp"]
       },
       {
         "hash": "ab90489df0cf4c7fa2e1780960d097dc1a36a938",
         "msg": "Improve cluster deployment\n\n- Add firewall rules for corosync communication\n- Use dedicated cluster.pp manifest to allow the deployment of coexistant\n  clusters for LMA plugins\n- Use primary role property\n\nImplements: blueprint elasticsearch-clustering\n\nChange-Id: Ibf4c1c4e62f214725875869621b40a3ef4c20e53",
         "cmtr": "Swann Croiset",
         "date": "2016-01-08 11:32:57+01:00",
-        "files": ["cluster.pp", "elasticsearch.pp", "firewall.pp", "haproxy.pp", "hiera_override.pp", "deployment_tasks.yaml", "network_roles.yaml", "node_roles.yaml", "pre_build_hook", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cluster.pp",
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/firewall.pp",
+            "deployment_scripts/puppet/manifests/haproxy.pp",
+            "deployment_scripts/puppet/manifests/hiera_override.pp",
+            "deployment_tasks.yaml",
+            "network_roles.yaml",
+            "node_roles.yaml",
+            "pre_build_hook",
+            "tasks.yaml"]
       },
       {
         "hash": "2c9c0876bd459c3a41aca8d6434b1022c3abd17e",
         "msg": "Initialize Elasticsearch data only once\n\nAll Elasticsearch templates and Kibana dashboard imports are performed only\nonce from the primary-elasticserach_kibana node.\n\nImplements: blueprint elasticsearch-clustering\n\nChange-Id: Ifa605c9dcdc603080b8adb80dbc71f2796cdf34b",
         "cmtr": "Swann Croiset",
         "date": "2016-01-11 14:21:50+01:00",
-        "files": ["elasticsearch.pp", "kibana.pp", "provision_services.pp", "kibana.pp", "kibana_dashboard.pp", "lma_logging_analytics_kibana_spec.rb", "lma_logging_analytics_kibana_dashboard_spec.rb", "es_template_kibana.json.erb", "tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/kibana.pp",
+            "deployment_scripts/puppet/manifests/provision_services.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana_dashboard.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/spec/classes/lma_logging_analytics_kibana_spec.rb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/spec/defines/lma_logging_analytics_kibana_dashboard_spec.rb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/es_template_kibana.json.erb",
+            "tasks.yaml"]
       },
       {
         "hash": "7fe6cd4fadce875f3575d6d8b1496e49aab264ad",
         "msg": "Notify the Kibana URL to the Fuel API\n\nOnce the plugin deployment has completed, it uses the Fuel API to\nregister the Kibana URL. The end-users will get the information in the\nFuel UI.\n\nChange-Id: I0a4c5432c67d22737cef7799bd681bd3b391a40b",
         "cmtr": "Swann Croiset",
         "date": "2016-01-11 15:30:03+00:00",
-        "files": ["provision_services.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/provision_services.pp"]
       },
       {
         "hash": "9b59dd0fd6ea8896ea4d400bfdd9dc4f3e47acd7",
         "msg": "Configure Corosync recheck_interval\n\nhttps://bugs.launchpad.net/fuel/+bug/1517388\n\nChange-Id: I6d86562d6684036a8e80633146eb6f1367ed96f8",
         "cmtr": "Swann Croiset",
         "date": "2016-01-13 19:32:12+01:00",
-        "files": ["cluster.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cluster.pp"]
       },
       {
         "hash": "3edcf9b6705aace9ec98addd8293d1aed5b47c89",
         "msg": "Set appropriately the Pacemaker option no-quorum-policy\n\nWhen the cluster does not have quorum (less than 3 Elasticsearch nodes) the\n'no-quorum policiy' is set to 'ignore', which allows to continue all resource\nmanagement.\nIf the cluster have quorum (more that 2 nodes), the policy is set to 'stop',\nwhich stops all resources in the affected cluster partition if the cluster\nloses quorum to avoid data corruption.\n\nhttp://clusterlabs.org/doc/en-US/Pacemaker/1.0/html/Pacemaker_Explained/s-cluster-options.html\n\nChange-Id: I3b1ad071e4bf31581f245bbd8de863e6266ffb5b",
         "cmtr": "Swann Croiset",
         "date": "2016-01-18 09:37:10+01:00",
-        "files": ["enable_quorum.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/enable_quorum.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "d7ce372b1b916f5dbb9f1abdc3e8a2042929adbd",
         "msg": "Adjust firewall opened ports for Corosync\n\nThis avoids to duplicate IPTables rules when backends are deployed on\nsame nodes.\n\nChange-Id: Ic843a4f8d5f3cf6b2be7f766d36dd953d307c156",
         "cmtr": "Swann Croiset",
         "date": "2016-01-19 10:16:35+01:00",
-        "files": ["firewall.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/firewall.pp"]
       },
       {
         "hash": "0f520dddeafe8c55b7030faaea5b27fd4536f495",
         "msg": "Configure the Curator to use the Elasticsearch VIP\n\nChange-Id: I025b240aa51bd1a8b948eea9a5bb3c2e1390a379",
         "cmtr": "Swann Croiset",
         "date": "2016-01-19 14:09:04+01:00",
-        "files": ["elasticsearch.pp", "curator.pp", "lma_logging_analytics_curator_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/curator.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/spec/classes/lma_logging_analytics_curator_spec.rb"]
       },
       {
         "hash": "b85348aa964964f47dad1b08438e2d803ff20544",
         "msg": "Run Curator only on primary node\n\nThis avoids to run concurrently the Curator.\n\nChange-Id: I46a19bc4653a22f01bb703c3fe2950c40f15dfe9",
         "cmtr": "Swann Croiset",
         "date": "2016-01-25 13:55:13+01:00",
-        "files": ["elasticsearch.pp", "provision_services.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/provision_services.pp"]
       },
       {
         "hash": "d7d3dba737aec8b42396fd520a06cf2ceecddf6d",
         "msg": "Reduce HAProxy logs to the minimum\n\nChange-Id: I100f29c4c4076668b6d87680e27aac8507aa6a75",
         "cmtr": "Swann Croiset",
         "date": "2016-01-25 14:00:30+01:00",
-        "files": ["haproxy.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/haproxy.pp"]
       },
       {
         "hash": "835eddf24e18db43450860bbfcc17f5a8857c600",
         "msg": "Re-execute necessary tasks on the deployed nodes\n\nThis change makes sure that Pacemaker and HAProxy are reconfigured\non the nodes that are already deployed when the environment is scaled\nup. We use the 'update_required' stanza to enforce that the nodes\nalready deployed are updated in the same run than the new nodes. The\n'reexecute_on' stanza doesn't guarantee that.\n\nChange-Id: Id39a6246ee96a693c39898b84092710eb8a97536\nCloses-Bug: #1536533",
         "cmtr": "Simon Pasquier",
         "date": "2016-01-25 16:38:54+01:00",
-        "files": ["enable_quorum.pp", "deployment_tasks.yaml", "node_roles.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/enable_quorum.pp",
+            "deployment_tasks.yaml",
+            "node_roles.yaml"]
       },
       {
         "hash": "86e23f62acb01360fe250fbbc0d776a7bf6889f9",
         "msg": "Remove useless Kibana dashboard files\n\nSince dashboards are stored in Elasticsearch we don't need to store them on\nthe filesystem.\n\nChange-Id: I6d1633cc3992a638167e71e144f0832a1474a0a3",
         "cmtr": "Swann Croiset",
         "date": "2016-02-02 11:51:54+01:00",
-        "files": ["kibana.pp", "params.pp", "lma_logging_analytics_kibana_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/params.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/spec/classes/lma_logging_analytics_kibana_spec.rb"]
       },
       {
         "hash": "19c0edc7ace12055ff9bd230b84783d80de7fbbd",
         "msg": "Escape percent in the command of the es-curator\n\nThis change escapes the percentage because it is used in a crontab\nentry. The first percentage denotes the start of the STDIN and the\nothers denote a new line if they are not escaped.\n\nChange-Id: I1eda385939e45937696d9f1c090ebd9d471ac485\nCloses-Bug: #1535435",
         "cmtr": "Guillaume Thouvenin",
         "date": "2016-02-02 16:55:16+01:00",
-        "files": ["curator.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/curator.pp"]
       },
       {
         "hash": "75ee58450a02de6da9a67ba9596e13b958ecdec3",
         "msg": "Do not wait cluster green status to import dashboards\n\nThe cluster can be red/yellow because of other non related indices,\nbut this doesn't prevent to create the kibana-int index.\n\nFixes-bug: #1540951\n\nChange-Id: Ie2fef890f51abc061b3938bdb76cc84d054c6e0d",
         "cmtr": "Swann Croiset",
         "date": "2016-02-03 17:03:40+01:00",
-        "files": ["kibana_dashboard.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana_dashboard.pp"]
       },
       {
         "hash": "98d683a8f226665d50229d67cb61993f8cfb7f32",
         "msg": "Ensure manifests fit the 140-character limit\n\nChange-Id: I850ce8c7c149775f0254be9dd8e60e387b766c4f",
         "cmtr": "Simon Pasquier",
         "date": "2016-03-10 12:12:15+01:00",
-        "files": ["check_environment_configuration.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/check_environment_configuration.pp"]
       },
       {
         "hash": "e70326fd95630ffd35bdc6ddcfe35e8ca60b60c2",
         "msg": "Specify explicitly one data.path\n\nChange-Id: Idb1cb203b4c81ebe592e4d532d7d6b0ff1ca8e35\nFixes-bug: #1559126",
         "cmtr": "Swann Croiset",
         "date": "2016-03-22 10:35:00+00:00",
-        "files": ["elasticsearch.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp"]
       },
       {
         "hash": "ba2c4eaf6b8f50e4369f2a7c0266e20f473c9653",
         "msg": "Fix corosync_nodes usage\n\nIn Fuel 9.0 corosync module interface has been changed. We need to\nadjust our modules accordingly.\n\nChange-Id: If40e96a7807edc13a4d7e8cdfb3a37fa643edf23",
         "cmtr": "Guillaume Thouvenin",
         "date": "2016-04-06 14:19:10+02:00",
-        "files": ["cluster.pp", "enable_quorum.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cluster.pp",
+            "deployment_scripts/puppet/manifests/enable_quorum.pp"]
       },
       {
         "hash": "f16da6b9387899b0a5d79aaaf7cce21c5fd5a802",
         "msg": "Remove dependency on cluster-haproxy.pp from osnailyfacter\n\nThis patch adds a new manifest to replace the one that is used from\nosnailyfacter. We cannot use the manifest provided by fuel-library\nbecause it has been rewritten and it is not compatible with our\ndeployment because it requires specific VIP that are tied to the\nmanagement and public VIP addresses of the controllers.\n\nPartial-Bug: #1554521\nChange-Id: I2e70a19bc1699c61c9fa130e2f4a852e545b1060",
         "cmtr": "Guillaume Thouvenin",
         "date": "2016-04-11 10:07:18+02:00",
-        "files": ["cluster-haproxy.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cluster-haproxy.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "25b79aff9a79d106fc74b33535952d28b0093afb",
         "msg": "Add notice to identify StackLight manifests in puppet logs\n\nChange-Id: Id5a8041dbc00db0357f64522cbdb1b77a9e470af",
         "cmtr": "Guillaume Thouvenin",
         "date": "2016-04-15 15:54:30+02:00",
-        "files": ["check_environment_configuration.pp", "cluster-haproxy.pp", "cluster.pp", "elasticsearch.pp", "enable_quorum.pp", "firewall.pp", "haproxy.pp", "hiera_override.pp", "kibana.pp", "provision_services.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/check_environment_configuration.pp",
+            "deployment_scripts/puppet/manifests/cluster-haproxy.pp",
+            "deployment_scripts/puppet/manifests/cluster.pp",
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/enable_quorum.pp",
+            "deployment_scripts/puppet/manifests/firewall.pp",
+            "deployment_scripts/puppet/manifests/haproxy.pp",
+            "deployment_scripts/puppet/manifests/hiera_override.pp",
+            "deployment_scripts/puppet/manifests/kibana.pp",
+            "deployment_scripts/puppet/manifests/provision_services.pp"]
       },
       {
         "hash": "4db7f2b53c62b299beb62ad5a2a7f93f70ac7934",
         "msg": "Remove useless notice() in haproxy.pp manifest\n\nChange-Id: I0647c0063cedfd7aa018f68e2e60efc4a21f218b",
         "cmtr": "Simon Pasquier",
         "date": "2016-04-27 11:06:58+00:00",
-        "files": ["haproxy.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/haproxy.pp"]
       },
       {
         "hash": "0baef19e01499a578f85a7a2ace6847ffa42eb1e",
         "msg": "Fix deployment when using network templates\n\nElasticsearch and Nginx can be deployed on any network thanks to network\ntemplates. This change removes all the hard-coded dependencies on the\nmanagement network. All port numbers for Nginx and Elasticsearch are\nalso moved to Hiera to make it easier to customize if needed.\n\nRelated-Bug: #1514365\nCloses-Bug: #1577358\nChange-Id: If3656be46d93418a2f481e740c59ec9df5ce8523",
         "cmtr": "Simon Pasquier",
         "date": "2016-05-11 07:19:39+00:00",
-        "files": ["elasticsearch.pp", "firewall.pp", "haproxy.pp", "hiera_override.pp", "kibana.pp", "provision_services.pp", "es_template.pp", "kibana.pp", "params.pp", "lma_logging_analytics_kibana_spec.rb", "config.js.erb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/firewall.pp",
+            "deployment_scripts/puppet/manifests/haproxy.pp",
+            "deployment_scripts/puppet/manifests/hiera_override.pp",
+            "deployment_scripts/puppet/manifests/kibana.pp",
+            "deployment_scripts/puppet/manifests/provision_services.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/es_template.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/params.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/spec/classes/lma_logging_analytics_kibana_spec.rb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/config.js.erb"]
       },
       {
         "hash": "c79b7c2b99cd612021ab51a2c0fa2fe90ebc6351",
         "msg": "Use hiera_hash for network data\n\nChange-Id: I858f89fa3d642bbfeb6c355efa26330d463882e7\nPartial-Bug: #1585350",
         "cmtr": "Simon Pasquier",
         "date": "2016-05-25 10:27:28+02:00",
-        "files": ["enable_quorum.pp", "hiera_override.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/enable_quorum.pp",
+            "deployment_scripts/puppet/manifests/hiera_override.pp"]
       },
       {
         "hash": "0c696459c9ae7c7051cd91c1a577d5df9ddd7fc4",
         "msg": "Upgrade to Kibana 4.5.1 / Elasticsearch 2.3.3\n\nDocImpact Kibana Screenshot and ES upgrade\n\nFixes-bug: #1545739\n\nChange-Id: I068ec6e6981b9b7729d0041be65760206790f615",
         "cmtr": "Swann Croiset",
         "date": "2016-06-09 09:48:56+02:00",
-        "files": ["firewall.pp", "haproxy.pp", "hiera_override.pp", "kibana.pp", "kibana_index_configuration.pp", "provision_services.pp", ".fixtures.yml", "encode_kibana_dashboard.rb", "elasticsearch.rb", "elasticsearch.rb", "kibana_object.rb", "es_template.pp", "kibana.pp", "kibana_dashboard.pp", "kibana_dashboards.pp", "lma_logging_analytics_kibana_spec.rb", "lma_logging_analytics_kibana_dashboard_spec.rb", "lib", "encode_kibana_dashboard_spec.rb", "kibana_object_type_spec.rb", "config.js.erb", "es_template_kibana.json.erb", "es_template_kibana4.json.erb", "es_template_log.json.erb", "es_template_notification.json.erb", "kibana4.yaml.erb", "config.json", "dashboard_logs.json", "dashboard_notifications.json", "index-pattern_logs.json", "index-pattern_notifications.json", "search_logs.json", "search_notifications.json", "visualization_EVENT-TYPE-BREAKDOWN.json", "visualization_HOST-BREAKDOWN.json", "visualization_LOG-MESSAGES-OVER-TIME-PER-SEVERITY.json", "visualization_LOG-MESSAGES-OVER-TIME-PER-SOURCE.json", "visualization_NOTIFICATIONS-OVER-TIME-PER-SEVERITY.json", "visualization_NOTIFICATIONS-OVER-TIME-PER-SOURCE.json", "visualization_NOTIFICATIONS-PER-SEVERITY.json", "visualization_NUMBER-OF-LOG-MESSAGES-PER-ROLE.json", "visualization_NUMBER-OF-LOG-MESSAGES-PER-SEVERITY.json", "visualization_SOURCE-BREAKDOWN.json", "visualization_TOP-10-HOSTS.json", "visualization_TOP-10-PROGRAMS.json", "visualization_TOP-10-SOURCES.json", "deployment_tasks.yaml", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/firewall.pp",
+            "deployment_scripts/puppet/manifests/haproxy.pp",
+            "deployment_scripts/puppet/manifests/hiera_override.pp",
+            "deployment_scripts/puppet/manifests/kibana.pp",
+            "deployment_scripts/puppet/manifests/kibana_index_configuration.pp",
+            "deployment_scripts/puppet/manifests/provision_services.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/.fixtures.yml",
+            "None",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/lib/puppet/provider/elasticsearch.rb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/lib/puppet/provider/kibana_object/elasticsearch.rb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/lib/puppet/type/kibana_object.rb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/es_template.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana.pp",
+            "None",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana_dashboards.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/spec/classes/lma_logging_analytics_kibana_spec.rb",
+            "None",
+            "None",
+            "None",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/spec/unit/puppet/type/kibana_object_type_spec.rb",
+            "None",
+            "None",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/es_template_kibana4.json.erb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/es_template_log.json.erb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/es_template_notification.json.erb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4.yaml.erb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/config.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/dashboard_logs.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/dashboard_notifications.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/index-pattern_logs.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/index-pattern_notifications.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/search_logs.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/search_notifications.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/visualization_EVENT-TYPE-BREAKDOWN.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/visualization_HOST-BREAKDOWN.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/visualization_LOG-MESSAGES-OVER-TIME-PER-SEVERITY.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/visualization_LOG-MESSAGES-OVER-TIME-PER-SOURCE.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/visualization_NOTIFICATIONS-OVER-TIME-PER-SEVERITY.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/visualization_NOTIFICATIONS-OVER-TIME-PER-SOURCE.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/visualization_NOTIFICATIONS-PER-SEVERITY.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/visualization_NUMBER-OF-LOG-MESSAGES-PER-ROLE.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/visualization_NUMBER-OF-LOG-MESSAGES-PER-SEVERITY.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/visualization_SOURCE-BREAKDOWN.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/visualization_TOP-10-HOSTS.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/visualization_TOP-10-PROGRAMS.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/visualization_TOP-10-SOURCES.json",
+            "deployment_tasks.yaml",
+            "pre_build_hook"]
       },
       {
         "hash": "156cd78decd9447987ea123558b654f20519b74c",
         "msg": "Rotate Kibana logs\n\nChange-Id: I8b0c419c3cd67ffec20b0cd5ed733c6f057f1147",
         "cmtr": "Swann Croiset",
         "date": "2016-06-09 09:48:56+02:00",
-        "files": ["kibana.pp", "lma_logging_analytics_kibana_spec.rb", "kibana4.yaml.erb", "kibana_logrotate.conf.erb"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/spec/classes/lma_logging_analytics_kibana_spec.rb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4.yaml.erb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana_logrotate.conf.erb"]
       },
       {
         "hash": "6853f52c5c32882c5044915b0a4a02a829af6c7d",
         "msg": "Rotate Elasticsearch logs\n\nIn order to fully wrap up the Elasticsearch configuration including\nlog management, this commit moves all the Elasticsearch related stuff\nfrom the manifest into a new Puppet module lma_logging_analytics::elasticsearch.\n\nCloses-bug: #1572929\nChange-Id: I3dd6d027d2b1de3d6ae3baa01a92dbca1d0ff95b",
         "cmtr": "Swann Croiset",
         "date": "2016-06-09 07:50:13+00:00",
-        "files": ["elasticsearch.pp", "hiera_override.pp", "README.md", "elasticsearch_logging.yaml", "elasticsearch.pp", "lma_logging_analytics_elasticsearch_spec.rb", "elasticsearch_logrotate.conf.erb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/hiera_override.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/README.md",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/files/elasticsearch_logging.yaml",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/spec/classes/lma_logging_analytics_elasticsearch_spec.rb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/elasticsearch_logrotate.conf.erb"]
       },
       {
         "hash": "52476e669c6ebc7f8d7bf38b951933c22b5a9360",
         "msg": "Install explicit package version of Elasticsearch\n\nChange-Id: I2722a9c56b9fae33950714733a74f7557eb147e8\nRelated-bug: #1590013",
         "cmtr": "Swann Croiset",
         "date": "2016-06-09 07:50:22+00:00",
-        "files": ["elasticsearch.pp", "elasticsearch.pp", "lma_logging_analytics_elasticsearch_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/spec/classes/lma_logging_analytics_elasticsearch_spec.rb"]
       },
       {
         "hash": "15d65ae5b743370bdf7dd19299430c3fb494a135",
         "msg": "Enable secure communication over HTTPS for Kibana\n\nThis patch configures HAProxy to terminate SSL connection when the\nsupport for SSL/TLS is enabled in StackLight.\n\nDocImpact Add support for TLS\nChange-Id: Icdff278875d7daf928fa036ec1e4905205791546\nImplements: blueprint support-secure-communication",
         "cmtr": "Guillaume Thouvenin",
         "date": "2016-06-22 10:35:53+02:00",
-        "files": ["check_environment_configuration.pp", "haproxy.pp", "hiera_override.pp", "provision_services.pp", "validate_ssl_certificate.rb", "deployment_tasks.yaml", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/check_environment_configuration.pp",
+            "deployment_scripts/puppet/manifests/haproxy.pp",
+            "deployment_scripts/puppet/manifests/hiera_override.pp",
+            "deployment_scripts/puppet/manifests/provision_services.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/lib/puppet/parser/functions/validate_ssl_certificate.rb",
+            "deployment_tasks.yaml",
+            "environment_config.yaml"]
       },
       {
         "hash": "d3bea6b796fd1dbd41c2da5916ff9f84aa1d37b7",
         "msg": "Remove call to hiera_hash('elasticsearch_kibana')\n\nChange-Id: I7b298ce99b9a8dbe191ee9cb5b38754aeb012375",
         "cmtr": "Guillaume Thouvenin",
         "date": "2016-06-22 12:02:28+02:00",
-        "files": ["hiera_override.pp", "provision_services.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera_override.pp",
+            "deployment_scripts/puppet/manifests/provision_services.pp"]
       },
       {
         "hash": "c229b758a6cdf66a6db18797050d1a12d2954be1",
         "msg": "Fix puppet lint 140 characters\n\nChange-Id: Ic53b0fb6e011b19d3bf3c58fdd6d1bd3f78691a9",
         "cmtr": "Swann Croiset",
         "date": "2016-06-22 18:29:46+02:00",
-        "files": ["curator.pp"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/curator.pp"]
       },
       {
         "hash": "469db9e35dee1df4bba1db8f79edb6078fbb7482",
         "msg": "Add authentication for Kibana\n\nAn Apache virtual host is configured as a reverse proxy to enforce\nbasic HTTP authentication.\n\nDocImpact Kibana has now credentials\n\nChange-Id: I65f44534581531a9ff923b54a4b08f77df070040",
         "cmtr": "Swann Croiset",
         "date": "2016-06-23 13:18:47+02:00",
-        "files": ["firewall.pp", "haproxy.pp", "hiera_override.pp", "kibana.pp", ".fixtures.yml", "kibana_authentication.pp", "params.pp", "metadata.json", "lma_logging_analytics_kibana_authentication_spec.rb", "apache_kibana_proxy.conf.erb", "environment_config.yaml", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/firewall.pp",
+            "deployment_scripts/puppet/manifests/haproxy.pp",
+            "deployment_scripts/puppet/manifests/hiera_override.pp",
+            "deployment_scripts/puppet/manifests/kibana.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/.fixtures.yml",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana_authentication.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/params.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/metadata.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/spec/classes/lma_logging_analytics_kibana_authentication_spec.rb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/apache_kibana_proxy.conf.erb",
+            "environment_config.yaml",
+            "pre_build_hook"]
       },
       {
         "hash": "d5110af7f5f33e000b03dfb872cbc3d93f9cf1cc",
         "msg": "Fix minimum_master_nodes determination\n\nChange-Id: Ic8e2e8d283f13ff4679819d79845c2b2473cf66f",
         "cmtr": "Swann Croiset",
         "date": "2016-06-28 15:34:56+02:00",
-        "files": ["hiera_override.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera_override.pp"]
       },
       {
         "hash": "32df03578f9c653c82fecc6d24dbeb34b588637e",
         "msg": "Use hiera hash for TLS options\n\nChange-Id: I0a4bdd57e4176452c111f2e5e3c2cdbd6b852a1e",
         "cmtr": "Swann Croiset",
         "date": "2016-06-28 15:34:56+02:00",
-        "files": ["check_environment_configuration.pp", "haproxy.pp", "hiera_override.pp", "provision_services.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/check_environment_configuration.pp",
+            "deployment_scripts/puppet/manifests/haproxy.pp",
+            "deployment_scripts/puppet/manifests/hiera_override.pp",
+            "deployment_scripts/puppet/manifests/provision_services.pp"]
       },
       {
         "hash": "5d742d2ff2ad4de0431f7b41e935c89934969431",
         "msg": "Restrict access to Kibana\n\nOnly Apache needs to access directly Kibana.\n\nChange-Id: I539a9a10b69d300a7d1555d44fdf57ddd391ac0c",
         "cmtr": "Swann Croiset",
         "date": "2016-06-28 15:34:56+02:00",
-        "files": ["kibana.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/kibana.pp"]
       },
       {
         "hash": "e19d42b19097e02506c44b291aee37e4123d9877",
         "msg": "Implement LDAP integration for Kibana\n\nImplement-blueprint: ldap-integration-in-stacklight\n\nChange-Id: I838c84333feab7828adda0dfc731a8582287f83d",
         "cmtr": "Swann Croiset",
         "date": "2016-06-29 17:18:59+02:00",
-        "files": ["firewall.pp", "haproxy.pp", "hiera_override.pp", "kibana.pp", "kibana_authentication.pp", "lma_logging_analytics_kibana_authentication_spec.rb", "apache_kibana_proxy.conf.erb", "apache_kibana_proxy_viewer.conf.erb", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/firewall.pp",
+            "deployment_scripts/puppet/manifests/haproxy.pp",
+            "deployment_scripts/puppet/manifests/hiera_override.pp",
+            "deployment_scripts/puppet/manifests/kibana.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana_authentication.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/spec/classes/lma_logging_analytics_kibana_authentication_spec.rb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/apache_kibana_proxy.conf.erb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/apache_kibana_proxy_viewer.conf.erb",
+            "environment_config.yaml"]
       },
       {
         "hash": "510a32ab23f6d5b0a2c8aabde2be5973a74b7d45",
         "msg": "Display 2 Kibana links for admin and viewer roles\n\nChange-Id: I6792e98f0b719b6682720c32879195a9478a89a7",
         "cmtr": "Swann Croiset",
         "date": "2016-06-29 17:18:59+02:00",
-        "files": ["provision_services.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/provision_services.pp"]
       },
       {
         "hash": "408c62f8b2873a90d528f5da48d33d79396358c1",
         "msg": "Display port in the link shown in Fuel UI\n\nChange-Id: Ia96ef4d78b2bd0de8493268bd19773221b2c82da",
         "cmtr": "Guillaume Thouvenin",
         "date": "2016-07-04 13:16:18+00:00",
-        "files": ["provision_services.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/provision_services.pp"]
       },
       {
         "hash": "b2678fbca7c207ef443408915df37ce8d70de546",
         "msg": "Set recover_after_time default value when using CLI\n\nChange-Id: Icb6e1ffd43363070100705a05fea80d65b316798\nCloses-bug: #1593135",
         "cmtr": "Swann Croiset",
         "date": "2016-07-04 15:43:36+02:00",
-        "files": ["hiera_override.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera_override.pp"]
       },
       {
         "hash": "51bbdc809c89e338427681e3db782ad28895b189",
         "msg": "Use standard HTTP ports\n\nDepends-On: Id94cae82b2bea92e049975ccc9e91e4383f52931\nChange-Id: I534edfd8da3999312b175a08b18a89b8972dbdca",
         "cmtr": "Simon Pasquier",
         "date": "2016-07-12 08:29:05+00:00",
-        "files": ["hiera_override.pp", "provision_services.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera_override.pp",
+            "deployment_scripts/puppet/manifests/provision_services.pp"]
       },
       {
         "hash": "f20a5e1c7e1c6a98d2ee4b8d9c9c311663bc5dfd",
         "msg": "Enable IP forwarding for HAProxy\n\nThis is required for multi-rack environments where the nodes are\nlocated on different subnets.\n\nChange-Id: I415d4ef81490f07c8987ed43492334a480c228c2\nCloses-Bug: #1604432",
         "cmtr": "Simon Pasquier",
         "date": "2016-07-20 10:02:47+00:00",
-        "files": ["cluster-haproxy.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cluster-haproxy.pp"]
       },
       {
         "hash": "efed2b21a07230e19fd5aabbcf9b035a3e6410b3",
         "msg": "Fix the TCP port for Kibana viewer dashboard\n\nChange-Id: Ie69930cdec256b15792bfa06496aa03b4f1188b0\nCloses-Bug: #1605155",
         "cmtr": "Simon Pasquier",
         "date": "2016-07-21 11:34:14+02:00",
-        "files": ["firewall.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/firewall.pp"]
       },
       {
         "hash": "2d74feb3d517485e3d9128fb286239fb1cec1284",
         "msg": "Configure Kibana to use its own VIP\n\nThis change modifies the deployment manifests to use the Kibana VIP\naddress instead of the one allocated for Elasticsearch. It allows then\nthe deployer to expose the Kibana dashboard on the public network using\nnetwork templates if needed.\n\nChange-Id: I8debb43e3e382a7319a70643116572a7e50cb246\nDocImpact: document the Kibana VIP address\nImplements-blueprint: kibana-grafana-public-ip-access\nDepends-On: Icdf9315239a8fde8b0528f555a89adf0374c408f",
         "cmtr": "Simon Pasquier",
         "date": "2016-07-27 11:14:13+02:00",
-        "files": ["haproxy.pp", "hiera_override.pp", "provision_services.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/haproxy.pp",
+            "deployment_scripts/puppet/manifests/hiera_override.pp",
+            "deployment_scripts/puppet/manifests/provision_services.pp"]
       },
       {
         "hash": "a9059a0f90bd7e78ed4ceb48cca165bc42fe6b42",
         "msg": "Configure the management gateway on the nodes\n\nWithout this change, the nodes are configured to use the Fuel node as\ntheir default gateway. Note that the code path is different between MOS\n8 and MOS 9 because of this bug fix [1] that hasn't been backported on\nMOS 8.\n\n[1] https://bugs.launchpad.net/fuel/+bug/1541309\n\nChange-Id: I80a2fadf8b16b139d07c48a33c52efd33c66935f\nCloses-Bug: #1583994",
         "cmtr": "Simon Pasquier",
         "date": "2016-07-29 08:53:10+00:00",
-        "files": ["configure_default_route.pp", "hiera_override.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/configure_default_route.pp",
+            "deployment_scripts/puppet/manifests/hiera_override.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "459a7f272390f48114cc03377ce98add1154371c",
         "msg": "Fix issue with LDAP protocol radio button\n\nThis patch modifies the label of the radio button used for selecting\nthe LDAP protocol to make it unique across all the StackLight plugins.\n\nChange-Id: I3e2de2c59bc46594293cfd902098b9ae7292869b\nPartial-Bug: #1599778",
         "cmtr": "Guillaume Thouvenin",
         "date": "2016-08-09 16:25:05+02:00",
-        "files": ["hiera_override.pp", "environment_config.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera_override.pp",
+            "environment_config.yaml"]
       },
       {
         "hash": "c0794133d68bc7a9031c0432ba95098ba5ffced2",
         "msg": "Fix Elasticsearch curator job\n\nThis change upgrades the version of elasticsearch-curator because the\nprevious version (3.3.0) doesn't support Elasticsearch 2.x. As a\nconsequence, data older than the defined retention period was never\nremoved from Elasticsearch.\n\nThe curator is now installed on all the Elasticsearch nodes (previously\nonly on the primary node) and by configuration, it will only be\nexecuted on the ES cluster master node.\n\nChange-Id: I9da9e67fa4d353e78bd752456a9b01ca1fbae704\nCloses-Bug: #1616765\nRelated-Bug: #1602719",
         "cmtr": "Simon Pasquier",
         "date": "2016-08-26 11:28:12+02:00",
-        "files": ["elasticsearch.pp", "provision_services.pp", "curator.pp", "lma_logging_analytics_curator_spec.rb", "curator.yaml.erb", "delete_indices.yaml.erb", "functions.sh", "pre_build_hook"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/manifests/provision_services.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/curator.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/spec/classes/lma_logging_analytics_curator_spec.rb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/curator.yaml.erb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/delete_indices.yaml.erb",
+            "functions.sh",
+            "pre_build_hook"]
       },
       {
         "hash": "46bada8ee6e983417648f19f9ff4c685c48d84b1",
         "msg": "Add support for dynamic scripting\n\nThis change is required for the Telemetry plugin that leverages dynamic\nscripting.\n\nChange-Id: I330cd17fbd5867b3e3180b4ac6dbfe79dde50f43",
         "cmtr": "Simon Pasquier",
         "date": "2016-09-23 14:37:54+00:00",
-        "files": ["elasticsearch.pp", "elasticsearch.pp", "deployment_tasks.yaml"]
+        "files": [
+            "deployment_scripts/puppet/manifests/elasticsearch.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/elasticsearch.pp",
+            "deployment_tasks.yaml"]
       },
       {
         "hash": "ce21fa8ed5a441db0d2bef045e8924f3c321fa0a",
         "msg": "Allow to pass a list of LDAP servers\n\nChange-Id: Ie1670bb591e0c76fdf1e00cf783149324c9890ce\nCloses-Bug: #1624002",
         "cmtr": "Guillaume Thouvenin",
         "date": "2016-09-28 15:06:15+00:00",
-        "files": ["kibana_authentication.pp", "lma_logging_analytics_kibana_authentication_spec.rb"]
+        "files": [
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana_authentication.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/spec/classes/lma_logging_analytics_kibana_authentication_spec.rb"]
       },
       {
         "hash": "8c8606cf4f87eba9fe9016afad4a0f867b657f0b",
         "msg": "Enforce literal strings in Hiera YAML file\n\nChange-Id: I2c0729364fc131329dbc7479c30af41c8490e82c\nCloses-Bug: #1631544",
         "cmtr": "Simon Pasquier",
         "date": "2017-01-10 09:44:44+01:00",
-        "files": ["hiera_override.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/hiera_override.pp"]
       },
       {
         "hash": "1c35a4eda8d1a10411835bd156588324b4e1140a",
         "msg": "Get rid of auto_expand_replicas for Kibana indices\n\nSetting auto_expand_replicas to \"0-all\" can make the Kibana indices\nunavailable when scaling up the Elasticsearch cluster. As a consequence,\nthe Kibana service is unavailable and the operator needs to manually fix\nthe problem. This change applies the same replication settings as for\nthe log and notification indices leading to more predictable behavior.\nIt also enforces the replication settings in the provision_services.pp\nmanifest to deal with scale-down and scale-up operations.\n\nChange-Id: I8979f3d006ccd908711cbe0862032dc7b73d9b62\nCloses-Bug: #1552258",
         "cmtr": "Simon Pasquier",
         "date": "2017-01-11 10:05:44+01:00",
-        "files": ["kibana_index_configuration.pp", "provision_services.pp", "es_template_kibana4.json.erb"]
+        "files": [
+            "deployment_scripts/puppet/manifests/kibana_index_configuration.pp",
+            "deployment_scripts/puppet/manifests/provision_services.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/es_template_kibana4.json.erb"]
       },
       {
         "hash": "034953e59c497915402a33572b2813dba16d19e5",
         "msg": "Create the dashboard link when upgrading from 0.10.x\n\nChange-Id: I74f5d53f6141ab2a400fb6223a7f2487cdda7adc",
         "cmtr": "Swann Croiset",
         "date": "2017-01-27 13:49:39+01:00",
-        "files": ["provision_services.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/provision_services.pp"]
       },
       {
         "hash": "d4c3707582e92dd1753a994ef15e6f2492a96c24",
         "msg": "Support CADF notifications\n\nChange-Id: Ibc504c401a95df527b47f469ed5df7467bec959d",
         "cmtr": "Simon Pasquier",
         "date": "2017-03-09 14:59:31+01:00",
-        "files": ["provision_services.pp", "kibana_dashboards.pp", "es_template_audit.json.erb", "index-pattern_audit.json", "search_audit.json"]
+        "files": [
+            "deployment_scripts/puppet/manifests/provision_services.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/manifests/kibana_dashboards.pp",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/es_template_audit.json.erb",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/index-pattern_audit.json",
+            "deployment_scripts/puppet/modules/lma_logging_analytics/templates/kibana4_objects/search_audit.json"]
       },
       {
         "hash": "2ed538655f0b8386a0401b653a10f2fe364193c1",
         "msg": "Disable SSLv3 in HAProxy\n\nChange-Id: I1b6914b8110f6ca7f9c18179e00e446e1ea4a5fd\nPartial-Bug: #1667356",
         "cmtr": "Simon Pasquier",
         "date": "2017-03-14 09:42:15+01:00",
-        "files": ["cluster-haproxy.pp"]
+        "files": [
+            "deployment_scripts/puppet/manifests/cluster-haproxy.pp"]
       }]
     }
