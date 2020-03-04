@@ -1,9 +1,10 @@
 org,file_,URL,File,Require,Ensure,Include,Attribute,Hard_coded_string,Command,File_mode,SSH_KEY,Lines_of_code,Comment,defect_status,contributers,top,major,minor
 WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/kafka/manifests/defaults.pp,0,0,0,0,0,0,28,0,0,0,78,3,1,2,0.75,2,0
+WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/nginx/manifests/init.pp,0,1,1,4,7,24,13,2,0,0,105,23,1,6,0.5333333333333333,6,0
+WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/nginx/manifests/site.pp,0,2,0,2,3,9,4,0,0,0,50,27,1,119,0.10664551383747577,2,117
 WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/translatewiki/puppet/modules/awstats/manifests/init.pp,0,3,2,1,4,7,3,0,0,0,29,4,0,2,0.6666666666666666,2,0
 WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/translatewiki/puppet/modules/backup/manifests/init.pp,0,5,0,2,2,9,7,0,2,2,38,9,1,4,0.5,4,0
 WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/translatewiki/puppet/modules/base/manifests/es.pp,0,1,0,0,0,1,1,0,0,0,9,4,0,1,1.0,1,0
-WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/translatewiki/puppet/modules/base/manifests/mediawiki.pp,0,0,0,1,1,1,0,0,0,0,23,4,0,2,0.6666666666666666,2,0
 WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/translatewiki/puppet/modules/eximconf/manifests/es.pp,0,0,0,0,0,1,1,0,0,0,9,4,0,3,0.3333333333333333,3,0
 WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/translatewiki/puppet/modules/fcgiwrap/manifests/init.pp,0,0,1,2,3,6,0,0,0,0,17,4,0,2,0.5,2,0
 WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/translatewiki/puppet/modules/kitanonl/manifests/init.pp,0,1,1,0,2,3,1,0,0,0,13,4,1,1,1.0,1,0
@@ -69,3 +70,8 @@ WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/vagrant/puppet/modules/php
 WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/vagrant/puppet/modules/memcached/manifests/init.pp,0,1,1,2,3,7,5,0,0,0,42,21,0,0,0.5,2,0
 WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/translatewiki/puppet/modules/base/manifests/init.pp,0,3,0,2,2,6,2,0,0,0,46,4,1,0,0.5769230769230769,3,26
 WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/translatewiki/puppet/modules/mariadb/manifests/init.pp,0,0,0,1,1,22,17,0,0,0,41,4,1,4,0.4545454545454545,2,0
+WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/translatewiki/puppet/modules/sudo/manifests/init.pp,0,1,0,1,1,3,2,0,1,1,14,4,0,0,0.5,2,0
+WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/translatewiki/puppet/modules/sudo/manifests/init.pp,0,1,0,1,1,3,2,0,1,1,14,4,0,0,0.5,2,0
+WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/translatewiki/puppet/modules/hhvm/manifests/init.pp,1,7,10,4,16,34,11,1,0,0,78,4,1,0,0.6,4,12
+WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/translatewiki/puppet/modules/hhvm/manifests/init.pp,1,7,10,4,16,34,11,1,0,0,78,4,1,0,0.6,4,12
+WIKIMEDIA,/Users/akond/PUPP_REPOS/wikimedia-downloads/translatewiki/puppet/modules/base/manifests/mediawiki.pp,0,0,0,1,1,1,0,0,0,0,23,4,0,0,0.6666666666666666,2,6

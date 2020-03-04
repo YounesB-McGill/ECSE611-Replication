@@ -47,6 +47,14 @@ def find_file_in_csv(project, repo, file, orig_file):
 					return -1
 				else:
 					save_return = i
+	elif project == "mozilla":
+		for i in range(0, len(orig_file)):
+			if orig_file[i][1].endswith(better_file):
+				if save_return != 0:
+					print(orig_file[i][1], "  ", repo, "  ", file)
+					return -1
+				else:
+					save_return = i
 	return save_return
 
 def find_two_matches(df_in, total_filename):
@@ -99,8 +107,8 @@ def run_through_project(filename_own, filename_base, project):
 	data[0].append("major")
 	data[0].append("minor")
 
-	print(total_found)
-	print(total_double_found)
+	print("found" , total_found)
+	print("double" , total_double_found)
 	if project == "wikimedia":
 		for line in problem_numbers:
 			bm, best_match = find_two_matches(df, line[1])
@@ -114,7 +122,10 @@ def run_through_project(filename_own, filename_base, project):
 					new_line[17] = bm["major"]
 					new_line[15] = bm["minor"]
 					data.append(new_line)
-
+	if project == "mozilla":
+		for line in problem_numbers:
+			bm, best_match = find_two_matches(df, line[1])
+			print(bm)
 	for line in data:
 		if len(line) < 18:
 			# print(line[1])
@@ -139,9 +150,9 @@ def run_through_project(filename_own, filename_base, project):
 	
 def run_through_all():
 	# run_through_project("data/ownership_data_files/mirantis_output.csv", "data/IST_MIR.csv", "Mirantis")
-	# run_through_project("data/ownership_data_files/mozilla_output.csv", "data/IST_MOZ.csv", "mozilla")
+	run_through_project("data/ownership_data_files/mozilla_output.csv", "data/IST_MOZ.csv", "mozilla")
 	# run_through_project("data/ownership_data_files/wikimedia_output.csv", "data/IST_WIK.csv", "wikimedia")
-	run_through_project("data/ownership_data_files/openstack_output.csv", "data/IST_OST.csv", "openstack")
+	# run_through_project("data/ownership_data_files/openstack_output.csv", "data/IST_OST.csv", "openstack")
 
 
 run_through_all()
