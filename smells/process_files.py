@@ -67,8 +67,8 @@ def get_mined_data():
 						subprocess.check_output("git checkout " + key + " " + proj_name,  shell=True)    # git checkout <commit>  <file>
 					except:
 						print("unable to checkout: %s %s" % (key, proj_name))
-						
-					name_new_dir = OUTPUT + ecosystem + "/" + project+"/"+key+"/"		# one folder for each project and each commit
+
+					name_new_dir = OUTPUT + ecosystem + "_" + project+"/"+key+"/"		# one folder for each project and each commit
 					# print("name new dir: ", name_new_dir)
 					# print("Current dir: ", os.getcwd())
 
