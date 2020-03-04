@@ -15,6 +15,7 @@ def get_important_info(line):
 		project = "mozilla"
 	elif "wikimedia" in line["Path"]:
 		project = "wikimedia"
+		repo = "wikimedia-downloads"
 	return project, repo, line["File"]
 
 def find_file_in_csv(project, repo, file, orig_file):
@@ -38,7 +39,33 @@ def find_file_in_csv(project, repo, file, orig_file):
 						return -1
 					else:
 						save_return = i
+	elif project == "wikimedia":
+		for i in range(0, len(orig_file)):
+			if orig_file[i][1].endswith(better_file):
+				if save_return != 0:
+					print(orig_file[i][1], "  ", repo, "  ", file)
+					return -1
+				else:
+					save_return = i
 	return save_return
+
+def find_two_matches(df_in, total_filename):
+	matches = []
+	df_matches = []
+	for index, row in df_in.iterrows():
+		project, repo, file = get_important_info(row)
+		better_file = '/' + file
+		if total_filename.endswith(better_file):
+			matches.append(better_file)
+			df_matches.append(row)
+
+	print(matches)
+	best_match = max(matches, key=len)
+	for line in df_matches:
+		if best_match in line[1]:
+			print(line[1])
+			return(line[1])
+	
 
 def run_through_project(filename_own, filename_base, project):
 	df = pd.read_csv(filename_own, encoding='utf-8', sep=',')
@@ -76,9 +103,12 @@ def run_through_project(filename_own, filename_base, project):
 	print(total_found)
 	print(total_double_found)
 
+	for line in problem_numbers:
+		find_two_matches(df, line[1])
+
 	for line in data:
 		if len(line) < 18:
-			print(line[1])
+			# print(line[1])
 			problem_numbers.append(line)
 	
 	print(len(data))
@@ -101,8 +131,8 @@ def run_through_project(filename_own, filename_base, project):
 def run_through_all():
 	# run_through_project("data/ownership_data_files/mirantis_output.csv", "data/IST_MIR.csv", "Mirantis")
 	# run_through_project("data/ownership_data_files/mozilla_output.csv", "data/IST_MOZ.csv", "mozilla")
-	# run_through_project("data/ownership_data_files/wikimedia_output.csv", "data/IST_WIK.csv", "wikimedia")
-	run_through_project("data/ownership_data_files/openstack_output.csv", "data/IST_OST.csv", "openstack")
+	run_through_project("data/ownership_data_files/wikimedia_output.csv", "data/IST_WIK.csv", "wikimedia")
+	# run_through_project("data/ownership_data_files/openstack_output.csv", "data/IST_OST.csv", "openstack")
 
 
 run_through_all()
