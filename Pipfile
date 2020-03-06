@@ -9,6 +9,9 @@ rope = "*"
 [packages]
 pydriller = "*"
 requests = "*"
+pandas = "*"
+numpy = "*"
+sklearn = "*"
 
 [requires]
 python_version = "3.7"
