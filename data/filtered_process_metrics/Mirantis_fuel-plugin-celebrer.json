@@ -1,0 +1,149 @@
+{
+  "proj_name": "Mirantis_fuel-plugin-celebrer",
+  "url": "https://github.com/Mirantis/fuel-plugin-celebrer",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/puppet/manifests/agent.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 11.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/celebrer/manifests/db.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 12,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/celebrer/manifests/db/mysql.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/server.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 3.5555555555555554,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/celebrer/manifests/keystone/auth.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/celebrer/manifests/client.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/celebrer/manifests/agent.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 11,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/celebrer/manifests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 12,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/celebrer/manifests/api.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/celebrer/manifests/engine.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/celebrer/manifests/params.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 8.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/keystone.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/ha.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 33,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "proj_name": "Mirantis_puppet-haproxy",
+  "url": "https://github.com/Mirantis/puppet-haproxy",
+  "process_metrics": [
+    {
+      "file": "tests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 79,
+        "avg_edit_time": 31,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 79,
+        "avg_edit_time": 20.666666666666668,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/config.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 79,
+        "avg_edit_time": 20.666666666666668,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "spec/fixtures/manifests/site.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 78,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    }
+  ]
+}

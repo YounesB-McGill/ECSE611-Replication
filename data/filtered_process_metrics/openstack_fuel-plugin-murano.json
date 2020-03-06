@@ -1,0 +1,50 @@
+{
+  "proj_name": "openstack_fuel-plugin-murano",
+  "url": "https://github.com/openstack/fuel-plugin-murano",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/manifests/murano_dashboard.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 1,
+        "fix_commits": 4,
+        "age": 31,
+        "avg_edit_time": 35,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/manifests/pin_murano_plugin_repo.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/manifests/murano.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 3,
+        "fix_commits": 7,
+        "age": 31,
+        "avg_edit_time": 46.44444444444444,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/manifests/murano_hiera_override.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 1,
+        "fix_commits": 3,
+        "age": 31,
+        "avg_edit_time": 25.4,
+        "defect_status": 0
+      }
+    }
+  ]
+}

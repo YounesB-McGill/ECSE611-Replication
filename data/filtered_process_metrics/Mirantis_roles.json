@@ -1,0 +1,83 @@
+{
+  "proj_name": "Mirantis_roles",
+  "url": "https://github.com/Mirantis/roles",
+  "process_metrics": [
+    {
+      "file": "manifests/ftp/server.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/openstack/pmlc_controller.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/puppet/master.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/deploy.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/openstack/pmlc_compute.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    }
+  ]
+}

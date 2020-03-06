@@ -1,0 +1,237 @@
+{
+  "proj_name": "openstack_puppet-midonet",
+  "url": "https://github.com/openstack/puppet-midonet",
+  "process_metrics": [
+    {
+      "file": "manifests/resources/interface_up.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 31,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/analytics/services.pp",
+      "process_metrics": {
+        "commits": 22,
+        "developers": 3,
+        "fix_commits": 6,
+        "age": 27,
+        "avg_edit_time": 9.318181818181818,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/cluster.pp",
+      "process_metrics": {
+        "commits": 23,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 27,
+        "avg_edit_time": 8.91304347826087,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/mem/vhost.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 27,
+        "avg_edit_time": 8.818181818181818,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/gateway/static.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 27,
+        "avg_edit_time": 25.333333333333332,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/neutron_plugin.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 60.142857142857146,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/cluster/install.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 17.833333333333332,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/cli.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 32.666666666666664,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/repository/centos.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 41,
+        "avg_edit_time": 50.9,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/repository.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 102.4,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 20,
+        "developers": 5,
+        "fix_commits": 6,
+        "age": 41,
+        "avg_edit_time": 25.2,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/agent/run.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 18.181818181818183,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/cluster/run.pp",
+      "process_metrics": {
+        "commits": 23,
+        "developers": 3,
+        "fix_commits": 4,
+        "age": 27,
+        "avg_edit_time": 13.347826086956522,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 12.777777777777779,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/agent/install.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 22.25,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/agent/scrapper.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 18,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/repository/ubuntu.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 41,
+        "avg_edit_time": 73,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/mem.pp",
+      "process_metrics": {
+        "commits": 20,
+        "developers": 3,
+        "fix_commits": 4,
+        "age": 27,
+        "avg_edit_time": 10.65,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/agent.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 28,
+        "avg_edit_time": 8.0625,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/resources/network_creation.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 27,
+        "avg_edit_time": 18.6,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/analytics.pp",
+      "process_metrics": {
+        "commits": 25,
+        "developers": 3,
+        "fix_commits": 8,
+        "age": 27,
+        "avg_edit_time": 8.64,
+        "defect_status": 0
+      }
+    }
+  ]
+}

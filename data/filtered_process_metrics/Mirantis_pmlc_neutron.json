@@ -1,0 +1,105 @@
+{
+  "proj_name": "Mirantis_pmlc_neutron",
+  "url": "https://github.com/Mirantis/pmlc_neutron",
+  "process_metrics": [
+    {
+      "file": "tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/server/config.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 0.25,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/client.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 1,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/client/config.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0.3333333333333333,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/server.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/server/install.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 1,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/server/service.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0.3333333333333333,
+        "defect_status": 1
+      }
+    }
+  ]
+}

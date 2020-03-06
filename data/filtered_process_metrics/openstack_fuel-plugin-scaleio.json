@@ -1,0 +1,160 @@
+{
+  "proj_name": "openstack_fuel-plugin-scaleio",
+  "url": "https://github.com/openstack/fuel-plugin-scaleio",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/puppet/manifests/resize_cluster.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 11.75,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/scaleio_fuel/manifests/controller.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 37,
+        "avg_edit_time": 8.714285714285714,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/nova.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 9.8,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/controller.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 22,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/scaleio_fuel/manifests/init.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 20.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/scaleio_fuel/manifests/compute.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/sds_server.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 20.142857142857142,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/mdm_package.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 35.75,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/glance.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 24.5,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/compute.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/cinder.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 11.75,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/cluster.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 8,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/scaleio_fuel/manifests/params.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 37,
+        "avg_edit_time": 8.153846153846153,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/check_environment_configuration.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 15.75,
+        "defect_status": 0
+      }
+    }
+  ]
+}

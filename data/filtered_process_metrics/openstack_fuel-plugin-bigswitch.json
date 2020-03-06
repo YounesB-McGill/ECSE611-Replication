@@ -1,0 +1,160 @@
+{
+  "proj_name": "openstack_fuel-plugin-bigswitch",
+  "url": "https://github.com/openstack/fuel-plugin-bigswitch",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/puppet/manifests/openstack-cleanup.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 0.5,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/bcf/manifests/p_v/compute.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 35,
+        "avg_edit_time": 15.25,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/bcf/manifests/init.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 18,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/compute-config.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 11.666666666666666,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/bcf/manifests/params.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 2,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/bcf/manifests/ceph.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 2,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/bcf/manifests/params/openstack.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 21.166666666666668,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/bcf/manifests/controller.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 1.3333333333333333,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/restart-cluster-services.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 32,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/reconfigure-keystone.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 31.333333333333332,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/common-repo.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 7.666666666666667,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/bcf/manifests/p_only/compute.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 35,
+        "avg_edit_time": 8.11111111111111,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/compute-network-config.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 17.666666666666668,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/bcf/manifests/compute.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 1.3333333333333333,
+        "defect_status": 0
+      }
+    }
+  ]
+}

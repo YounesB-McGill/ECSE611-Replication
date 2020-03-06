@@ -1,0 +1,226 @@
+{
+  "proj_name": "openstack_fuel-plugin-lma-infrastructure-alerting",
+  "url": "https://github.com/openstack/fuel-plugin-lma-infrastructure-alerting",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/puppet/manifests/hiera.pp",
+      "process_metrics": {
+        "commits": 19,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 34,
+        "avg_edit_time": 19.63157894736842,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/nagios/manifests/service.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 39,
+        "avg_edit_time": 55.166666666666664,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/contact.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 39,
+        "avg_edit_time": 49,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/nagios/manifests/contact.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 39,
+        "avg_edit_time": 44.875,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/params.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 3,
+        "fix_commits": 4,
+        "age": 39,
+        "avg_edit_time": 33.1764705882353,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/hosts.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 2,
+        "fix_commits": 4,
+        "age": 39,
+        "avg_edit_time": 41.63636363636363,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/nagios.pp",
+      "process_metrics": {
+        "commits": 44,
+        "developers": 3,
+        "fix_commits": 14,
+        "age": 39,
+        "avg_edit_time": 9.704545454545455,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/nagios/manifests/init.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 39,
+        "avg_edit_time": 25.875,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/nagios_dashboard_url.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 33,
+        "avg_edit_time": 41.333333333333336,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/init.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 39,
+        "avg_edit_time": 26.545454545454547,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/enable_quorum.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 33,
+        "avg_edit_time": 29.75,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/check_http.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 38,
+        "avg_edit_time": 44.42857142857143,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios/check_ssh.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 78.33333333333333,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/configure_default_route.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/cluster.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 34,
+        "avg_edit_time": 33,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/nagios/manifests/cgi.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 3,
+        "fix_commits": 4,
+        "age": 39,
+        "avg_edit_time": 30.333333333333332,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/firewall.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 54.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/lma_infra_alerting/manifests/nagios.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 4,
+        "fix_commits": 6,
+        "age": 39,
+        "avg_edit_time": 34.25,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/nagios/manifests/params.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 42.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/nagios/manifests/host.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 39,
+        "avg_edit_time": 90.16666666666667,
+        "defect_status": 0
+      }
+    }
+  ]
+}

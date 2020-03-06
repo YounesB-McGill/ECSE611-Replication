@@ -1,0 +1,270 @@
+{
+  "proj_name": "openstack_puppet-pacemaker",
+  "url": "https://github.com/openstack/puppet-pacemaker",
+  "process_metrics": [
+    {
+      "file": "manifests/resource/filesystem.pp",
+      "process_metrics": {
+        "commits": 24,
+        "developers": 7,
+        "fix_commits": 5,
+        "age": 62,
+        "avg_edit_time": 72.625,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/stonith.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 63,
+        "avg_edit_time": 177.42857142857142,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/constraint/location.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 57,
+        "avg_edit_time": 180.57142857142858,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/resource/ocf.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 7,
+        "fix_commits": 4,
+        "age": 52,
+        "avg_edit_time": 96.46666666666667,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/new.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 29,
+        "avg_edit_time": 172.75,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "examples/pacemaker_resource/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "tests/init.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 62,
+        "avg_edit_time": 110.75,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/new/resource/ip.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/property.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 5,
+        "fix_commits": 4,
+        "age": 33,
+        "avg_edit_time": 54.1,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/resource_defaults.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 38,
+        "avg_edit_time": 251,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/service.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 56,
+        "avg_edit_time": 115.57142857142857,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/corosync.pp",
+      "process_metrics": {
+        "commits": 41,
+        "developers": 10,
+        "fix_commits": 11,
+        "age": 70,
+        "avg_edit_time": 49.09756097560975,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 70,
+        "avg_edit_time": 161.28571428571428,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 63,
+        "avg_edit_time": 126.23076923076923,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/resource/lsb.pp",
+      "process_metrics": {
+        "commits": 25,
+        "developers": 8,
+        "fix_commits": 5,
+        "age": 63,
+        "avg_edit_time": 70.96,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/resource/ip.pp",
+      "process_metrics": {
+        "commits": 28,
+        "developers": 8,
+        "fix_commits": 7,
+        "age": 63,
+        "avg_edit_time": 63.357142857142854,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/constraint/base.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 8,
+        "fix_commits": 2,
+        "age": 59,
+        "avg_edit_time": 121,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/new/resource/filesystem.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_xvm.pp",
+      "process_metrics": {
+        "commits": 21,
+        "developers": 9,
+        "fix_commits": 3,
+        "age": 61,
+        "avg_edit_time": 70.33333333333333,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/install.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 56,
+        "avg_edit_time": 428.6666666666667,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/resource/route.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 8,
+        "fix_commits": 4,
+        "age": 54,
+        "avg_edit_time": 95.1875,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/constraint/colocation.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 57,
+        "avg_edit_time": 180.57142857142858,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_kdump.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 7,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/new/resource/route.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    }
+  ]
+}

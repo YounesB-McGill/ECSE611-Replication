@@ -1,0 +1,28 @@
+{
+  "proj_name": "Mirantis_fuel-plugin-etckeeper",
+  "url": "https://github.com/Mirantis/fuel-plugin-etckeeper",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/etckeeper_commit.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 33,
+        "avg_edit_time": 10,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/etckeeper_configure.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    }
+  ]
+}

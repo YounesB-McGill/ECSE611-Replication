@@ -1,0 +1,138 @@
+{
+  "proj_name": "openstack_puppet-rally",
+  "url": "https://github.com/openstack/puppet-rally",
+  "process_metrics": [
+    {
+      "file": "manifests/deps.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 23,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/db/postgresql.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 169.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "examples/rally.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 34,
+        "avg_edit_time": 116.28571428571429,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/config.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 169.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/logging.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 113.28571428571429,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/db/mysql.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 34,
+        "avg_edit_time": 298,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 34,
+        "avg_edit_time": 77.25,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/db/sync.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 132,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/db.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 34,
+        "avg_edit_time": 134.33333333333334,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/settings.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 4,
+        "age": 33,
+        "avg_edit_time": 37.5,
+        "defect_status": 1
+      }
+    }
+  ]
+}

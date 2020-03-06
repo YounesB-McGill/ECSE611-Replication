@@ -1,0 +1,182 @@
+{
+  "proj_name": "Mirantis_puppetlabs-openstack",
+  "url": "https://github.com/Mirantis/puppetlabs-openstack",
+  "process_metrics": [
+    {
+      "file": "manifests/all.pp",
+      "process_metrics": {
+        "commits": 35,
+        "developers": 8,
+        "fix_commits": 3,
+        "age": 89,
+        "avg_edit_time": 14.2,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/swift/storage-node.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 75,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "spec/fixtures/manifests/site.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 78,
+        "avg_edit_time": 79,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/nova/controller.pp",
+      "process_metrics": {
+        "commits": 18,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 73,
+        "avg_edit_time": 1.1111111111111112,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/auth_file.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 78,
+        "avg_edit_time": 23,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "tests/cloudcontroller.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 73,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/test_file.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 77,
+        "avg_edit_time": 28,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/horizon.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 73,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/keystone.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 73,
+        "avg_edit_time": 0.8,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/compute.pp",
+      "process_metrics": {
+        "commits": 34,
+        "developers": 4,
+        "fix_commits": 3,
+        "age": 79,
+        "avg_edit_time": 5.411764705882353,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/db/mysql.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 73,
+        "avg_edit_time": 1.0909090909090908,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "examples/site.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 5,
+        "fix_commits": 3,
+        "age": 79,
+        "avg_edit_time": 10.625,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 73,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/site.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 1,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/glance.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 73,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/controller.pp",
+      "process_metrics": {
+        "commits": 51,
+        "developers": 8,
+        "fix_commits": 6,
+        "age": 79,
+        "avg_edit_time": 3.6666666666666665,
+        "defect_status": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "proj_name": "openstack_puppet-murano",
+  "url": "https://github.com/openstack/puppet-murano",
+  "process_metrics": [
+    {
+      "file": "manifests/engine.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 37,
+        "avg_edit_time": 89.5,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/dashboard.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 6,
+        "fix_commits": 5,
+        "age": 36,
+        "avg_edit_time": 67,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/deps.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 23,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/db/postgresql.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 217.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/cfapi.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 5,
+        "fix_commits": 3,
+        "age": 35,
+        "avg_edit_time": 53,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/client.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 196.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 35,
+        "developers": 15,
+        "fix_commits": 8,
+        "age": 38,
+        "avg_edit_time": 29.82857142857143,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/config.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 135,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/logging.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 36,
+        "avg_edit_time": 66.58333333333333,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/api.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 37,
+        "avg_edit_time": 102.57142857142857,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/application.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 128,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/db/mysql.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 217.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/keystone/auth.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 37,
+        "avg_edit_time": 72.16666666666667,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 12,
+        "fix_commits": 8,
+        "age": 38,
+        "avg_edit_time": 72.33333333333333,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/policy.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 38,
+        "avg_edit_time": 211.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/db/sync.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 38,
+        "avg_edit_time": 226.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/db.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 5,
+        "fix_commits": 4,
+        "age": 38,
+        "avg_edit_time": 101.66666666666667,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/keystone/cfapi_auth.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 33,
+        "avg_edit_time": 61.6,
+        "defect_status": 0
+      }
+    }
+  ]
+}

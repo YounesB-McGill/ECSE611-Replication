@@ -1,0 +1,270 @@
+{
+  "proj_name": "openstack_puppet-oslo",
+  "url": "https://github.com/openstack/puppet-oslo",
+  "process_metrics": [
+    {
+      "file": "manifests/cache.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 7,
+        "fix_commits": 4,
+        "age": 33,
+        "avg_edit_time": 74.25,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/middleware.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0.5,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/messaging/default.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 31,
+        "avg_edit_time": 54,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/concurrency.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 33,
+        "avg_edit_time": 24.333333333333332,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/service.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/messaging/amqp.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 32,
+        "avg_edit_time": 101.125,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/log.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 9,
+        "fix_commits": 2,
+        "age": 33,
+        "avg_edit_time": 60.166666666666664,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/messaging/rabbit.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 8,
+        "fix_commits": 2,
+        "age": 31,
+        "avg_edit_time": 87.55555555555556,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/db/postgresql.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/config.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/logging.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/db/mysql.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/keystone/auth.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/privsep.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/policy.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 33,
+        "avg_edit_time": 19.75,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 7,
+        "fix_commits": 3,
+        "age": 33,
+        "avg_edit_time": 138.14285714285714,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/cors.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "tests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 33,
+        "avg_edit_time": 462,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/messaging/zmq.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 209.5,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/db/sync.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/db.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 9,
+        "fix_commits": 5,
+        "age": 33,
+        "avg_edit_time": 87.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/messaging/notifications.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 31,
+        "avg_edit_time": 56,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/versionedobjects.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 25.333333333333332,
+        "defect_status": 0
+      }
+    }
+  ]
+}

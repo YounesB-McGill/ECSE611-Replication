@@ -1,0 +1,215 @@
+{
+  "proj_name": "openstack_puppet-vitrage",
+  "url": "https://github.com/openstack/puppet-vitrage",
+  "process_metrics": [
+    {
+      "file": "manifests/collector.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 16,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/wsgi/apache.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 6,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 65,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/deps.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 23,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/db/postgresql.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 35,
+        "avg_edit_time": 118.33333333333333,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/notifier.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 187,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/client.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 63.333333333333336,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 5,
+        "fix_commits": 3,
+        "age": 35,
+        "avg_edit_time": 73.75,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/config.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 35,
+        "avg_edit_time": 146.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/logging.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 35,
+        "avg_edit_time": 94.625,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/api.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 27.571428571428573,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "examples/vitrage.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 247.33333333333334,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/db/mysql.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 35,
+        "avg_edit_time": 181.6,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/keystone/auth.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 35,
+        "avg_edit_time": 70.8,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/keystone/authtoken.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 5,
+        "fix_commits": 4,
+        "age": 27,
+        "avg_edit_time": 72.66666666666667,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/policy.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 35,
+        "avg_edit_time": 150.6,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 7,
+        "fix_commits": 1,
+        "age": 35,
+        "avg_edit_time": 64.61538461538461,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "tests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 35,
+        "avg_edit_time": 478,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/db/sync.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 3,
+        "age": 35,
+        "avg_edit_time": 135.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/db.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 4,
+        "age": 35,
+        "avg_edit_time": 102.75,
+        "defect_status": 1
+      }
+    }
+  ]
+}

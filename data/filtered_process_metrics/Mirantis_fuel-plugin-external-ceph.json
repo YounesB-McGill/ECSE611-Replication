@@ -1,0 +1,72 @@
+{
+  "proj_name": "Mirantis_fuel-plugin-external-ceph",
+  "url": "https://github.com/Mirantis/fuel-plugin-external-ceph",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/images.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 49.333333333333336,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/external_ceph/manifests/volumes_ephemeral.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 1.3333333333333333,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/external_ceph/manifests/conf.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/radosgw-keystone.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 49,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/volumes-and-ephemeral-compute.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 32,
+        "avg_edit_time": 30.2,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/conf.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 22.285714285714285,
+        "defect_status": 0
+      }
+    }
+  ]
+}

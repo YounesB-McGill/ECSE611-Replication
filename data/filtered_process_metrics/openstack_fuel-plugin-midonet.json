@@ -1,0 +1,138 @@
+{
+  "proj_name": "openstack_fuel-plugin-midonet",
+  "url": "https://github.com/openstack/fuel-plugin-midonet",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/puppet/manifests/midonet-enable-ip-forward.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 117,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/midonet-install-agent.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 4,
+        "fix_commits": 5,
+        "age": 39,
+        "avg_edit_time": 38.583333333333336,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/midonet-gateway-bgp.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 33,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/plugin_midonet/manifests/params.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 4,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/plugin_midonet/manifests/db.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 4,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/plugin_midonet/manifests/controller.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 4,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/midonet-install-api.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 3,
+        "fix_commits": 4,
+        "age": 39,
+        "avg_edit_time": 23.7,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/midonet-host-registry.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 93.4,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/plugin_midonet/manifests/neutron.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 4,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/midonet-define-repositories.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 35,
+        "avg_edit_time": 55.875,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/midonet-nsdb.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 4,
+        "fix_commits": 5,
+        "age": 39,
+        "avg_edit_time": 40.25,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/plugin_midonet/manifests/repos.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 4,
+        "defect_status": 1
+      }
+    }
+  ]
+}

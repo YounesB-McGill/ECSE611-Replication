@@ -1,0 +1,325 @@
+{
+  "proj_name": "openstack_puppet-openstack-integration",
+  "url": "https://github.com/openstack/puppet-openstack-integration",
+  "process_metrics": [
+    {
+      "file": "manifests/murano.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 7,
+        "fix_commits": 2,
+        "age": 24,
+        "avg_edit_time": 71.71428571428571,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "fixtures/scenario001.pp",
+      "process_metrics": {
+        "commits": 74,
+        "developers": 17,
+        "fix_commits": 12,
+        "age": 38,
+        "avg_edit_time": 12.68918918918919,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/neutron.pp",
+      "process_metrics": {
+        "commits": 47,
+        "developers": 19,
+        "fix_commits": 9,
+        "age": 34,
+        "avg_edit_time": 20.5531914893617,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/rabbitmq.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 28.1,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/swift.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 5,
+        "fix_commits": 3,
+        "age": 34,
+        "avg_edit_time": 59.4,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/ceph.pp",
+      "process_metrics": {
+        "commits": 18,
+        "developers": 7,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 48.22222222222222,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/mysql.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 312.3333333333333,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/aodh.pp",
+      "process_metrics": {
+        "commits": 24,
+        "developers": 7,
+        "fix_commits": 4,
+        "age": 34,
+        "avg_edit_time": 37.875,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/ironic.pp",
+      "process_metrics": {
+        "commits": 19,
+        "developers": 8,
+        "fix_commits": 1,
+        "age": 34,
+        "avg_edit_time": 46.21052631578947,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/cinder.pp",
+      "process_metrics": {
+        "commits": 30,
+        "developers": 11,
+        "fix_commits": 4,
+        "age": 34,
+        "avg_edit_time": 28.4,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/repos.pp",
+      "process_metrics": {
+        "commits": 156,
+        "developers": 14,
+        "fix_commits": 20,
+        "age": 36,
+        "avg_edit_time": 6.096153846153846,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/sahara.pp",
+      "process_metrics": {
+        "commits": 18,
+        "developers": 9,
+        "fix_commits": 3,
+        "age": 34,
+        "avg_edit_time": 52.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "fixtures/scenario-aio.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 32,
+        "avg_edit_time": 261.3333333333333,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/horizon.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 34,
+        "avg_edit_time": 171,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/keystone.pp",
+      "process_metrics": {
+        "commits": 32,
+        "developers": 11,
+        "fix_commits": 6,
+        "age": 36,
+        "avg_edit_time": 28.90625,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 36,
+        "avg_edit_time": 66,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/config.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 32,
+        "avg_edit_time": 87,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/trove.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 34,
+        "avg_edit_time": 56.642857142857146,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/barbican.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 7,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 93.75,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "fixtures/scenario003.pp",
+      "process_metrics": {
+        "commits": 59,
+        "developers": 11,
+        "fix_commits": 18,
+        "age": 36,
+        "avg_edit_time": 16.64406779661017,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 7,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "fixtures/scenario002.pp",
+      "process_metrics": {
+        "commits": 46,
+        "developers": 14,
+        "fix_commits": 8,
+        "age": 37,
+        "avg_edit_time": 19.67391304347826,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/tempest.pp",
+      "process_metrics": {
+        "commits": 37,
+        "developers": 17,
+        "fix_commits": 5,
+        "age": 34,
+        "avg_edit_time": 25.405405405405407,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/provision.pp",
+      "process_metrics": {
+        "commits": 19,
+        "developers": 9,
+        "fix_commits": 2,
+        "age": 34,
+        "avg_edit_time": 47.578947368421055,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/gnocchi.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 6,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 53.75,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/nova.pp",
+      "process_metrics": {
+        "commits": 53,
+        "developers": 11,
+        "fix_commits": 11,
+        "age": 34,
+        "avg_edit_time": 18.71698113207547,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/glance.pp",
+      "process_metrics": {
+        "commits": 22,
+        "developers": 10,
+        "fix_commits": 4,
+        "age": 34,
+        "avg_edit_time": 37.77272727272727,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/ceilometer.pp",
+      "process_metrics": {
+        "commits": 22,
+        "developers": 11,
+        "fix_commits": 3,
+        "age": 34,
+        "avg_edit_time": 39.95454545454545,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "manifests/heat.pp",
+      "process_metrics": {
+        "commits": 20,
+        "developers": 9,
+        "fix_commits": 2,
+        "age": 34,
+        "avg_edit_time": 45.4,
+        "defect_status": 0
+      }
+    }
+  ]
+}

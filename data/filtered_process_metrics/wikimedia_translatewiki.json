@@ -1,0 +1,358 @@
+{
+  "proj_name": "wikimedia_translatewiki",
+  "url": "https://github.com/wikimedia/translatewiki",
+  "process_metrics": [
+    {
+      "file": "puppet/modules/memcached/manifests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 73,
+        "avg_edit_time": 558,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/kitanonl/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/nginx/manifests/sites.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 40,
+        "avg_edit_time": 111.16666666666667,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/ssh-conf/manifests/init.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 61,
+        "avg_edit_time": 52.333333333333336,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/base/manifests/init.pp",
+      "process_metrics": {
+        "commits": 26,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 73,
+        "avg_edit_time": 42.46153846153846,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/site.pp",
+      "process_metrics": {
+        "commits": 49,
+        "developers": 5,
+        "fix_commits": 3,
+        "age": 73,
+        "avg_edit_time": 39.857142857142854,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/nginx/manifests/init.pp",
+      "process_metrics": {
+        "commits": 23,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 73,
+        "avg_edit_time": 68.69565217391305,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/mailmanconf/manifests/init.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 111,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/base/manifests/es.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 65,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "puppet/modules/hhvm/manifests/init.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 4,
+        "fix_commits": 5,
+        "age": 58,
+        "avg_edit_time": 76.4,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/eximconf/manifests/init.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 195.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/exim-conf/manifests/init.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 61,
+        "avg_edit_time": 211.33333333333334,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/awstats/manifests/init.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 61,
+        "avg_edit_time": 208.66666666666666,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/hostname/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 20,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/exim-conf/manifests/es.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "puppet/modules/users/manifests/init.pp",
+      "process_metrics": {
+        "commits": 19,
+        "developers": 7,
+        "fix_commits": 0,
+        "age": 61,
+        "avg_edit_time": 93.89473684210526,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/php/manifests/init.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 73,
+        "avg_edit_time": 198,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/profile/manifests/mwelasticsearch.pp",
+      "process_metrics": {
+        "commits": 18,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 77.66666666666667,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/fcgiwrap/manifests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 61,
+        "avg_edit_time": 378,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/sudo/manifests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 61,
+        "avg_edit_time": 379.5,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/kitano-nl/manifests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 55,
+        "avg_edit_time": 237,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/eximconf/manifests/es.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 261,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "puppet/modules/nginx/manifests/ssl.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 40,
+        "avg_edit_time": 126.42857142857143,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "puppet/modules/mariadb/manifests/init.pp",
+      "process_metrics": {
+        "commits": 22,
+        "developers": 6,
+        "fix_commits": 3,
+        "age": 61,
+        "avg_edit_time": 55,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/translationmemory/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 61,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/logrotate/manifests/init.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 61,
+        "avg_edit_time": 189.25,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/wiki/manifests/init.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 61,
+        "avg_edit_time": 152.75,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/base/manifests/mediawiki.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 46.333333333333336,
+        "defect_status": 0
+      }
+    },
+    {
+      "file": "puppet/modules/sshd/manifests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 149,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/backup/manifests/init.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 61,
+        "avg_edit_time": 136.25,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/mailman-conf/manifests/init.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 61,
+        "avg_edit_time": 87.16666666666667,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "puppet/modules/puppet/manifests/init.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 73,
+        "avg_edit_time": 223.8,
+        "defect_status": 1
+      }
+    }
+  ]
+}

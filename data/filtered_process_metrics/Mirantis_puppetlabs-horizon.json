@@ -1,0 +1,39 @@
+{
+  "proj_name": "Mirantis_puppetlabs-horizon",
+  "url": "https://github.com/Mirantis/puppetlabs-horizon",
+  "process_metrics": [
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 79,
+        "avg_edit_time": 31,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "spec/fixtures/manifests/site.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 77,
+        "avg_edit_time": 0,
+        "defect_status": 1
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 8,
+        "fix_commits": 1,
+        "age": 79,
+        "avg_edit_time": 9.071428571428571,
+        "defect_status": 1
+      }
+    }
+  ]
+}
