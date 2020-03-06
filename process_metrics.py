@@ -141,7 +141,7 @@ def get_time(date_string) -> datetime.datetime:
 
 def is_fix_related(commit_msg: str) -> bool:
     commit_msg = commit_msg.lower()
-    return "fix" in commit_msg
+    return "fix" in commit_msg or "closes-bug" in commit_msg
 
 
 if __name__ == "__main__":

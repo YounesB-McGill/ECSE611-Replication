@@ -37,7 +37,7 @@
       "process_metrics": {
         "commits": 5,
         "developers": 4,
-        "fix_commits": 1,
+        "fix_commits": 2,
         "age": 35,
         "avg_edit_time": 185.8
       }
@@ -77,7 +77,7 @@
       "process_metrics": {
         "commits": 12,
         "developers": 5,
-        "fix_commits": 0,
+        "fix_commits": 1,
         "age": 46,
         "avg_edit_time": 98.33333333333333
       }
@@ -97,7 +97,7 @@
       "process_metrics": {
         "commits": 5,
         "developers": 4,
-        "fix_commits": 0,
+        "fix_commits": 1,
         "age": 40,
         "avg_edit_time": 112
       }
@@ -117,7 +117,7 @@
       "process_metrics": {
         "commits": 27,
         "developers": 16,
-        "fix_commits": 2,
+        "fix_commits": 4,
         "age": 46,
         "avg_edit_time": 46.22222222222222
       }
@@ -127,7 +127,7 @@
       "process_metrics": {
         "commits": 8,
         "developers": 5,
-        "fix_commits": 3,
+        "fix_commits": 4,
         "age": 46,
         "avg_edit_time": 157.5
       }
@@ -137,7 +137,7 @@
       "process_metrics": {
         "commits": 5,
         "developers": 3,
-        "fix_commits": 0,
+        "fix_commits": 2,
         "age": 46,
         "avg_edit_time": 140.8
       }
@@ -147,7 +147,7 @@
       "process_metrics": {
         "commits": 12,
         "developers": 6,
-        "fix_commits": 0,
+        "fix_commits": 3,
         "age": 27,
         "avg_edit_time": 52.833333333333336
       }
@@ -157,7 +157,7 @@
       "process_metrics": {
         "commits": 23,
         "developers": 13,
-        "fix_commits": 4,
+        "fix_commits": 6,
         "age": 46,
         "avg_edit_time": 52.869565217391305
       }
@@ -227,7 +227,7 @@
       "process_metrics": {
         "commits": 8,
         "developers": 5,
-        "fix_commits": 1,
+        "fix_commits": 3,
         "age": 46,
         "avg_edit_time": 145.625
       }
@@ -237,7 +237,7 @@
       "process_metrics": {
         "commits": 5,
         "developers": 4,
-        "fix_commits": 1,
+        "fix_commits": 2,
         "age": 46,
         "avg_edit_time": 216.2
       }
@@ -247,7 +247,7 @@
       "process_metrics": {
         "commits": 9,
         "developers": 6,
-        "fix_commits": 1,
+        "fix_commits": 2,
         "age": 37,
         "avg_edit_time": 99.44444444444444
       }
@@ -257,7 +257,7 @@
       "process_metrics": {
         "commits": 6,
         "developers": 6,
-        "fix_commits": 0,
+        "fix_commits": 2,
         "age": 34,
         "avg_edit_time": 105.83333333333333
       }
