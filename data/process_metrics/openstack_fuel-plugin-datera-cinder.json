@@ -1,0 +1,66 @@
+{
+  "proj_name": "openstack_fuel-plugin-datera-cinder",
+  "url": "https://github.com/openstack/fuel-plugin-datera-cinder",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/puppet/manifests/cinder_datera_driver.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/cinder_datera_config/manifests/backend/datera.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/cinder_datera_driver/manifests/cinder.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 21.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/cinder_datera_config/manifests/cinder.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 21.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/cinder_datera_config.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/cinder_datera_config/manifests/volume/datera.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "proj_name": "openstack_puppet-rally",
+  "url": "https://github.com/openstack/puppet-rally",
+  "process_metrics": [
+    {
+      "file": "manifests/settings/manila.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 149
+      }
+    },
+    {
+      "file": "manifests/deps.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 23
+      }
+    },
+    {
+      "file": "manifests/settings/cinder.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 149
+      }
+    },
+    {
+      "file": "manifests/db/postgresql.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 169.5
+      }
+    },
+    {
+      "file": "manifests/settings/ec2.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 149
+      }
+    },
+    {
+      "file": "examples/rally.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/settings/tempest.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 76.5
+      }
+    },
+    {
+      "file": "manifests/settings/monasca.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 3
+      }
+    },
+    {
+      "file": "manifests/settings/mistral.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 3.5
+      }
+    },
+    {
+      "file": "manifests/settings/sahara.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 149
+      }
+    },
+    {
+      "file": "manifests/settings/nova.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 149
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 116.28571428571429
+      }
+    },
+    {
+      "file": "manifests/config.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 169.5
+      }
+    },
+    {
+      "file": "manifests/logging.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 113.28571428571429
+      }
+    },
+    {
+      "file": "manifests/settings/murano.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 149
+      }
+    },
+    {
+      "file": "manifests/settings/magnum.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 3.5
+      }
+    },
+    {
+      "file": "manifests/db/mysql.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 34,
+        "avg_edit_time": 298
+      }
+    },
+    {
+      "file": "manifests/settings/swift.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 149
+      }
+    },
+    {
+      "file": "manifests/settings/watcher.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/settings/heat.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 149
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 77.25
+      }
+    },
+    {
+      "file": "manifests/settings/glance.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 149
+      }
+    },
+    {
+      "file": "tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/db/sync.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 132
+      }
+    },
+    {
+      "file": "manifests/db.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 34,
+        "avg_edit_time": 134.33333333333334
+      }
+    },
+    {
+      "file": "manifests/settings/ironic.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 149
+      }
+    },
+    {
+      "file": "manifests/settings.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 37.5
+      }
+    }
+  ]
+}

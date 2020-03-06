@@ -1,0 +1,1946 @@
+{
+  "proj_name": "Mirantis_solar-resources",
+  "url": "https://github.com/Mirantis/solar-resources",
+  "process_metrics": [
+    {
+      "file": "resources/puppet_inifile/actions/remove.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 3
+      }
+    },
+    {
+      "file": "resources/neutron_agents_ovs_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/glance_puppet/1.0.0/actions/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_compute_puppet/1.0.0/actions/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_conductor_puppet/actions/update.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 9.5
+      }
+    },
+    {
+      "file": "resources/nova_compute_libvirt_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 48.5
+      }
+    },
+    {
+      "file": "resources/nova_api_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 40,
+        "avg_edit_time": 15.857142857142858
+      }
+    },
+    {
+      "file": "resources/node_network_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_compute_libvirt_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_server_puppet/actions/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_stdlib/actions/remove.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 3
+      }
+    },
+    {
+      "file": "resources/ceph_mon/1.0.0/actions/test.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_scheduler_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 21.6
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/tests/python.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_compute_libvirt_puppet/1.0.0/actions/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/apache_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_scheduler_puppet/actions/update.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 9.5
+      }
+    },
+    {
+      "file": "resources/rabbitmq_service/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_agents_l3_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_generic_service_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_glance_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 32.333333333333336
+      }
+    },
+    {
+      "file": "resources/nova_compute_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 32.333333333333336
+      }
+    },
+    {
+      "file": "resources/apache_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/tests/site.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_api_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_volume_puppet/1.0.0/actions/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_plugins_ovs_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 39,
+        "avg_edit_time": 0.5
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_conductor_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/ceph_mon/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_server_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 0.5
+      }
+    },
+    {
+      "file": "resources/nova_api_puppet/1.0.0/actions/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_agents_metadata_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_conductor_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/1.0.0/actions/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 40,
+        "avg_edit_time": 24.4
+      }
+    },
+    {
+      "file": "resources/neutron_agents_ml2_ovs_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/manifests/roles/admin.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 40,
+        "avg_edit_time": 8.666666666666666
+      }
+    },
+    {
+      "file": "resources/nova_generic_service_puppet/1.0.0/actions/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/manifests/ruby.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_api_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 40,
+        "avg_edit_time": 3.5
+      }
+    },
+    {
+      "file": "resources/nova_neutron_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_volume_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_stdlib/puppet/tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_scheduler_puppet/1.0.0/actions/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_stdlib/puppet/tests/has_ip_address.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/manifests/server/mysqltuner.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_agents_ml2_ovs_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 38,
+        "avg_edit_time": 24
+      }
+    },
+    {
+      "file": "resources/nova_compute_puppet/actions/update.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 8.5
+      }
+    },
+    {
+      "file": "resources/nova_neutron_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_compute_libvirt_puppet/actions/update.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 8
+      }
+    },
+    {
+      "file": "resources/nova_compute_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/glance_registry_puppet/1.0.0/actions/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_plugins_ml2_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 38,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 39,
+        "avg_edit_time": 19.4
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/manifests/config.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/glance_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/glance_registry_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 32.666666666666664
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/tests/java.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_agents_l3_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/glance_registry_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_agents_metadata_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 47
+      }
+    },
+    {
+      "file": "resources/neutron_agents_ovs_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_volume_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 21.4
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/tests/server.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_stdlib/puppet/manifests/stages.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/ceph_mon/actions/test.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/node_network_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_generic_service_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_agents_dhcp_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_plugins_ml2_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_conductor_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 32.333333333333336
+      }
+    },
+    {
+      "file": "resources/puppet_stdlib/puppet/tests/file_line.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_neutron_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/tests/backup.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_conductor_puppet/1.0.0/actions/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/glance_registry_puppet/actions/update.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 32.666666666666664
+      }
+    },
+    {
+      "file": "resources/puppet_inifile/puppet/tests/ini_subsetting.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_scheduler_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_agents_dhcp_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/actions/run.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 3
+      }
+    },
+    {
+      "file": "resources/nova_neutron_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 32.333333333333336
+      }
+    },
+    {
+      "file": "resources/cinder_api_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 39,
+        "avg_edit_time": 18.166666666666668
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/manifests/password.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_plugins_ml2_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_inifile/puppet/tests/ini_setting.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/spec/fixtures/manifests/site.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 3
+      }
+    },
+    {
+      "file": "resources/nova_api_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/manifests/server/monitor.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/manifests/ldap.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/actions/remove.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 3
+      }
+    },
+    {
+      "file": "resources/nova_api/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/manifests/endpoint.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_volume_puppet/actions/update.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 9.5
+      }
+    },
+    {
+      "file": "resources/glance_registry_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_stdlib/puppet/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/manifests/python.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/apache_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 48
+      }
+    },
+    {
+      "file": "resources/glance_registry_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/manifests/server.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_api_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/glance_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_agents_metadata_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_compute_libvirt_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_stdlib/actions/run.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 3
+      }
+    },
+    {
+      "file": "resources/cinder_glance_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_plugins_ml2_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 38,
+        "avg_edit_time": 18
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/manifests/client.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_api/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/ceph_mon/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_api_puppet/1.0.0/actions/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/manifests/db/mysql.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/manifests/config.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_conductor_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_glance_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/manifests/replicator.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_agents_dhcp_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 40,
+        "avg_edit_time": 22.4
+      }
+    },
+    {
+      "file": "resources/nova_api_puppet/actions/update.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 9.5
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/manifests/db/mysql/host_access.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/rabbitmq_service/actions/run.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 40,
+        "avg_edit_time": 16.142857142857142
+      }
+    },
+    {
+      "file": "resources/cinder_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/examples/ldap_identity.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/tests/ruby.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/actions/update.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 41,
+        "avg_edit_time": 23.666666666666668
+      }
+    },
+    {
+      "file": "resources/neutron_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_generic_service_puppet/actions/update.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 9.5
+      }
+    },
+    {
+      "file": "resources/cinder_scheduler_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_puppet/actions/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 41,
+        "avg_edit_time": 12.727272727272727
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/examples/site.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_api_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_compute_libvirt_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 6.666666666666667
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/manifests/dev/install.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/examples/ldap_full.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/manifests/db/sync.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_agents_l3_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 47.5
+      }
+    },
+    {
+      "file": "resources/glance_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_inifile/actions/run.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 3
+      }
+    },
+    {
+      "file": "resources/neutron_agents_ml2_ovs_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 38,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/examples/apache_with_paths.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_agents_dhcp_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 47.5
+      }
+    },
+    {
+      "file": "resources/cinder_api_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_agents_l3_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/rabbitmq_service/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_generic_service/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 38,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/manifests/server/account_security.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_glance_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_server_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/rabbitmq_service/actions/remove.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 40,
+        "avg_edit_time": 0.75
+      }
+    },
+    {
+      "file": "resources/neutron_agents_ml2_ovs_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/manifests/wsgi/apache.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 40,
+        "avg_edit_time": 0.5
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/examples/test.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_plugins_ovs_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 1,
+        "fix_commits": 5,
+        "age": 39,
+        "avg_edit_time": 2.8333333333333335
+      }
+    },
+    {
+      "file": "resources/cinder_scheduler_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_api_puppet/actions/update.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 9.5
+      }
+    },
+    {
+      "file": "resources/node_network_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_server_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_puppet/actions/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/manifests/db/postgresql.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_stdlib/puppet/tests/has_interface_with.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/neutron_server_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 19
+      }
+    },
+    {
+      "file": "resources/nova_generic_service_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 38,
+        "avg_edit_time": 33.5
+      }
+    },
+    {
+      "file": "resources/nova_generic_service_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 38,
+        "avg_edit_time": 33.5
+      }
+    },
+    {
+      "file": "resources/nova_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/node_network_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 10.333333333333334
+      }
+    },
+    {
+      "file": "resources/cinder_volume_puppet/1.0.0/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/manifests/backup.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/manifests/db.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/examples/apache_dropin.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/keystone_puppet/puppet/manifests/python.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_stdlib/puppet/tests/has_ip_network.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/glance_puppet/actions/run.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 19.6
+      }
+    },
+    {
+      "file": "resources/nova_compute_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_compute_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/cinder_volume_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/nova_generic_service/actions/run.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 38,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/apache_puppet/1.0.0/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/glance_puppet/actions/update.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 24.5
+      }
+    },
+    {
+      "file": "resources/neutron_agents_metadata_puppet/actions/remove.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "resources/puppet_mysql/puppet/manifests/java.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    }
+  ]
+}

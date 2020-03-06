@@ -1,0 +1,4046 @@
+{
+  "proj_name": "Mirantis_puppet-manifests",
+  "url": "https://github.com/Mirantis/puppet-manifests",
+  "process_metrics": [
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/peruser.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/jenkins/manifests/master.pp",
+      "process_metrics": {
+        "commits": 34,
+        "developers": 8,
+        "fix_commits": 11,
+        "age": 49,
+        "avg_edit_time": 14
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/roles/errata.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 145.5
+      }
+    },
+    {
+      "file": "modules/etherpad_lite/manifests/webapp.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 45
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/stdlib/manifests/stages.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/uwsgi/manifests/init.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 54,
+        "avg_edit_time": 19.125
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/disk_cache.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/concat/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/updates.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 62.5
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/firewall.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 43,
+        "avg_edit_time": 67.5
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/statistics/tests.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 48,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/tests/vhost_ip_based.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/gerrit.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 44,
+        "avg_edit_time": 38.333333333333336
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/devops_tools/lpupdatebug.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 42
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/proxy.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/firewall_defaults/manifests/pre.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 1,
+        "fix_commits": 3,
+        "age": 56,
+        "avg_edit_time": 33.8
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_stats/manifests/analytic.pp",
+      "process_metrics": {
+        "commits": 22,
+        "developers": 3,
+        "fix_commits": 15,
+        "age": 48,
+        "avg_edit_time": 19.181818181818183
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/tests/vhost.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/system/manifests/params.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 53,
+        "avg_edit_time": 16.75
+      }
+    },
+    {
+      "file": "modules/landing_page/manifests/init.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 4,
+        "fix_commits": 4,
+        "age": 46,
+        "avg_edit_time": 26.428571428571427
+      }
+    },
+    {
+      "file": "src/modules/jeepyb/manifests/init.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 51,
+        "avg_edit_time": 13.333333333333334
+      }
+    },
+    {
+      "file": "modules/obs_server/manifests/folders.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 48,
+        "avg_edit_time": 226.5
+      }
+    },
+    {
+      "file": "src/modules/opentracker/manifests/init.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 1,
+        "fix_commits": 5,
+        "age": 56,
+        "avg_edit_time": 22.625
+      }
+    },
+    {
+      "file": "modules/errata/manifests/database.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 43,
+        "avg_edit_time": 33.5
+      }
+    },
+    {
+      "file": "modules/jenkins/manifests/params.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 92.6
+      }
+    },
+    {
+      "file": "modules/obs_server/manifests/repo.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 48,
+        "avg_edit_time": 226.5
+      }
+    },
+    {
+      "file": "src/modules/rvm/manifests/passenger/dependencies/ubuntu.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/authnz_ldap.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/roles/blackduck/client.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 6.5
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/statistics/collector.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 2,
+        "fix_commits": 8,
+        "age": 48,
+        "avg_edit_time": 16.22222222222222
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/stdlib/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/manifests/dpkg.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 56,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/opentracker/manifests/init.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 155.66666666666666
+      }
+    },
+    {
+      "file": "src/modules/ntp/manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 55,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/jenkins/manifests/job_builder.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/pxetool/manifests/init.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 2,
+        "fix_commits": 6,
+        "age": 55,
+        "avg_edit_time": 14.833333333333334
+      }
+    },
+    {
+      "file": "src/modules/nginx/manifests/share.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 1,
+        "fix_commits": 4,
+        "age": 55,
+        "avg_edit_time": 17.5
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/php.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/uwsgi/manifests/application.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/uwsgi/manifests/init.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 121.25
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/partnershare.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/setenvif.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/racks/manifests/webapp.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 37,
+        "avg_edit_time": 17
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/roles/zabbix/proxy.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 145.5
+      }
+    },
+    {
+      "file": "src/modules/jenkins/manifests/swarm_slave.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 1,
+        "fix_commits": 4,
+        "age": 52,
+        "avg_edit_time": 8.444444444444445
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/ssl.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/vhost.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/log_storage/manifests/params.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 25.333333333333332
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/web.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 46,
+        "avg_edit_time": 57.285714285714285
+      }
+    },
+    {
+      "file": "modules/puppet/manifests/config.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 153.33333333333334
+      }
+    },
+    {
+      "file": "modules/venv/manifests/exec.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 46,
+        "avg_edit_time": 95
+      }
+    },
+    {
+      "file": "src/modules/transmission_daemon/manifests/init.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 2,
+        "fix_commits": 6,
+        "age": 56,
+        "avg_edit_time": 18.9
+      }
+    },
+    {
+      "file": "src/modules/transmission_daemon/manifests/params.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 56,
+        "avg_edit_time": 55.333333333333336
+      }
+    },
+    {
+      "file": "modules/gerrit/manifests/cron.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 153
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/balancer.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/fuel_project/manifests/tpi/lab.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 50,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/roles/zabbix/server.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 43,
+        "avg_edit_time": 36
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/peruser/processor.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/jenkins/slave/custom_scripts.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 60
+      }
+    },
+    {
+      "file": "src/modules/fuel_project/manifests/seed.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 1,
+        "fix_commits": 3,
+        "age": 50,
+        "avg_edit_time": 6.2
+      }
+    },
+    {
+      "file": "modules/devopslib/manifests/downloads_cleaner.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 144.5
+      }
+    },
+    {
+      "file": "modules/tpi/manifests/localhome.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 160
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/lab_cz.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 49,
+        "avg_edit_time": 95.4
+      }
+    },
+    {
+      "file": "src/modules/ssh/manifests/init.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 4,
+        "age": 56,
+        "avg_edit_time": 4
+      }
+    },
+    {
+      "file": "src/modules/nginx/manifests/service.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 53,
+        "avg_edit_time": 39.5
+      }
+    },
+    {
+      "file": "modules/virtual/manifests/users.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/system/manifests/timezone.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 51,
+        "avg_edit_time": 12.5
+      }
+    },
+    {
+      "file": "modules/tpi/manifests/vmware_lab.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 62.6
+      }
+    },
+    {
+      "file": "src/modules/rvm/tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/mirror.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 5,
+        "fix_commits": 3,
+        "age": 43,
+        "avg_edit_time": 31
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/suexec.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/pxetool/manifests/init.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 2,
+        "fix_commits": 5,
+        "age": 49,
+        "avg_edit_time": 19.3
+      }
+    },
+    {
+      "file": "modules/system/manifests/timezone.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 3.5
+      }
+    },
+    {
+      "file": "modules/zabbix/manifests/server.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 115.75
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/proxy_html.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/worker.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/libvirt/manifests/params.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 1,
+        "fix_commits": 5,
+        "age": 56,
+        "avg_edit_time": 21.571428571428573
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/fcgid.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/partnerappliance.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 42.75
+      }
+    },
+    {
+      "file": "modules/landing_page/manifests/updater.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 46,
+        "avg_edit_time": 74.8
+      }
+    },
+    {
+      "file": "modules/pxetool/manifests/master.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 35,
+        "avg_edit_time": 11.666666666666666
+      }
+    },
+    {
+      "file": "src/modules/devops/manifests/init.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 51,
+        "avg_edit_time": 10.6
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/python.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/gerrit/manifests/cron.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 8
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/rpaf.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/release_status/manifests/init.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 47,
+        "avg_edit_time": 5.333333333333333
+      }
+    },
+    {
+      "file": "modules/tpi/manifests/nfs_client.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 160
+      }
+    },
+    {
+      "file": "modules/jeepyb/manifests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 232
+      }
+    },
+    {
+      "file": "src/modules/zabbix/manifests/agent/service.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 51,
+        "avg_edit_time": 20
+      }
+    },
+    {
+      "file": "modules/racks/manifests/importer.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 37,
+        "avg_edit_time": 21.142857142857142
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/xsendfile.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/devops_tools.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 86.25
+      }
+    },
+    {
+      "file": "modules/nginx/manifests/service.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/tests/dev.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/speling.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/lodgeit/manifests/database.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 64.66666666666667
+      }
+    },
+    {
+      "file": "modules/transmission/manifests/daemon.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 95.4
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/reqtimeout.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/mirror.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 49,
+        "avg_edit_time": 15.5
+      }
+    },
+    {
+      "file": "src/modules/ntp/manifests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 55,
+        "avg_edit_time": 0.5
+      }
+    },
+    {
+      "file": "src/modules/packages/manifests/init.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 53,
+        "avg_edit_time": 1.3333333333333333
+      }
+    },
+    {
+      "file": "src/modules/fuel_project/manifests/mirror.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 50,
+        "avg_edit_time": 2.3333333333333335
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/roles/docs.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 40,
+        "avg_edit_time": 23
+      }
+    },
+    {
+      "file": "src/modules/dpkg/manifests/init.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 2,
+        "fix_commits": 6,
+        "age": 56,
+        "avg_edit_time": 10.733333333333333
+      }
+    },
+    {
+      "file": "modules/zabbix/manifests/agent/service.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 232
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/roles/blackduck/server.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 6.5
+      }
+    },
+    {
+      "file": "modules/hideci/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/firewall_defaults/manifests/post.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 56,
+        "avg_edit_time": 42.25
+      }
+    },
+    {
+      "file": "modules/firewall_defaults/manifests/post.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 223.5
+      }
+    },
+    {
+      "file": "modules/lpreports/manifests/webapp.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 35,
+        "avg_edit_time": 11.5
+      }
+    },
+    {
+      "file": "src/modules/pip/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/virtual/manifests/packages.pp",
+      "process_metrics": {
+        "commits": 22,
+        "developers": 3,
+        "fix_commits": 9,
+        "age": 52,
+        "avg_edit_time": 3
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/roles/storage.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 80.25
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/zabbix/proxy.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/php.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/landing_page/manifests/docs.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 111
+      }
+    },
+    {
+      "file": "modules/zabbix/manifests/params.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 4,
+        "fix_commits": 3,
+        "age": 49,
+        "avg_edit_time": 35.46153846153846
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/dev.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/mongodb.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 184.5
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/itk.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/system/manifests/rootmail.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 53,
+        "avg_edit_time": 23.5
+      }
+    },
+    {
+      "file": "modules/fuel_stats/manifests/collector.pp",
+      "process_metrics": {
+        "commits": 19,
+        "developers": 3,
+        "fix_commits": 12,
+        "age": 48,
+        "avg_edit_time": 22.736842105263158
+      }
+    },
+    {
+      "file": "modules/transmission/manifests/params.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 154.66666666666666
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/seed.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 15.8
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/concat/tests/fragment.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/namevirtualhost.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/django/manifests/application.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 39.285714285714285
+      }
+    },
+    {
+      "file": "modules/venv/manifests/venv.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 77
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/inventory.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 42.666666666666664
+      }
+    },
+    {
+      "file": "src/modules/jenkins_swarm_slave/manifests/init.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 1,
+        "fix_commits": 3,
+        "age": 56,
+        "avg_edit_time": 4.428571428571429
+      }
+    },
+    {
+      "file": "src/modules/nginx/manifests/init.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 1,
+        "fix_commits": 5,
+        "age": 55,
+        "avg_edit_time": 16.6
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/tests/mod_load_params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/fuel_project/manifests/common.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 2,
+        "fix_commits": 7,
+        "age": 50,
+        "avg_edit_time": 2.7142857142857144
+      }
+    },
+    {
+      "file": "src/modules/zabbix/manifests/checks.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 54,
+        "avg_edit_time": 40
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/mongo_common.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 184.5
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/tpi/puppetmaster.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 113
+      }
+    },
+    {
+      "file": "src/manifests/applications/postgresql.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 56,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/build_fuel_iso/manifests/init.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 3,
+        "fix_commits": 5,
+        "age": 55,
+        "avg_edit_time": 11.785714285714286
+      }
+    },
+    {
+      "file": "src/modules/pip/manifests/params.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 8
+      }
+    },
+    {
+      "file": "modules/system/manifests/rootmail.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/zabbix/manifests/params.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 2,
+        "fix_commits": 5,
+        "age": 54,
+        "avg_edit_time": 14.727272727272727
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/concat/manifests/fragment.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/tests/mods_custom.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/confd/no_accf.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/auth_basic.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/system_tests/manifests/params.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 56,
+        "avg_edit_time": 18.444444444444443
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/mirror_rubygems.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 70.66666666666667
+      }
+    },
+    {
+      "file": "src/modules/zabbix_agent/manifests/init.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 1,
+        "fix_commits": 4,
+        "age": 56,
+        "avg_edit_time": 3.857142857142857
+      }
+    },
+    {
+      "file": "modules/ssh/manifests/banner.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 154.33333333333334
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/updates.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 47,
+        "avg_edit_time": 33
+      }
+    },
+    {
+      "file": "modules/nginx/manifests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 0.5
+      }
+    },
+    {
+      "file": "src/modules/zabbix/manifests/agent.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 2,
+        "fix_commits": 10,
+        "age": 54,
+        "avg_edit_time": 9.176470588235293
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/nss.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/manifests/site.pp",
+      "process_metrics": {
+        "commits": 83,
+        "developers": 5,
+        "fix_commits": 36,
+        "age": 56,
+        "avg_edit_time": 2.1927710843373496
+      }
+    },
+    {
+      "file": "src/modules/jenkins_standalone_slave/manifests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 55,
+        "avg_edit_time": 16
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/monitoring/mysql/server.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 42,
+        "avg_edit_time": 118.5
+      }
+    },
+    {
+      "file": "src/modules/zabbix/manifests/server.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 2,
+        "fix_commits": 4,
+        "age": 54,
+        "avg_edit_time": 20.375
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/cache.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/include.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/ssh/manifests/known_host.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 50,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/headers.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/auth_kerb.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/venv/manifests/init.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 1,
+        "fix_commits": 4,
+        "age": 56,
+        "avg_edit_time": 24.125
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/dev.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/puppet/master.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 49,
+        "avg_edit_time": 47.4
+      }
+    },
+    {
+      "file": "src/modules/rvm/manifests/passenger/apache.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/fastcgi.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/ssh/manifests/known_host.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 76.83333333333333
+      }
+    },
+    {
+      "file": "src/modules/system/manifests/init.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 53,
+        "avg_edit_time": 7.222222222222222
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/proxy_http.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/obs_server/manifests/nginx.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 48,
+        "avg_edit_time": 226.5
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/roles/ns.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 44,
+        "avg_edit_time": 37.666666666666664
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/perl.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/python.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/build_fuel_iso/manifests/params.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 55,
+        "avg_edit_time": 23.666666666666668
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mpm.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_stats/manifests/dev.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 47,
+        "avg_edit_time": 100.75
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/gerrit/replication.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 64.66666666666667
+      }
+    },
+    {
+      "file": "modules/puppet/manifests/params.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 49,
+        "avg_edit_time": 76.5
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/concat/manifests/setup.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/manifests/group.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/manifests/passenger/dependencies/oraclelinux.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/docker_registry/manifests/init.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 37,
+        "avg_edit_time": 22.5
+      }
+    },
+    {
+      "file": "src/modules/virtual/manifests/repos.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 2,
+        "fix_commits": 5,
+        "age": 52,
+        "avg_edit_time": 5.538461538461538
+      }
+    },
+    {
+      "file": "src/modules/puppet/manifests/master.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 52,
+        "avg_edit_time": 10.125
+      }
+    },
+    {
+      "file": "src/modules/transmission/manifests/daemon.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/peruser/multiplexer.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/event.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/gerrit/manifests/remotes.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/zuul/manifests/init.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 39,
+        "avg_edit_time": 24.25
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/tests/mods.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/zabbix/server.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 13
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/roles/perestroika/builder.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 65
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/tests/php.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/jenkins/manifests/slave.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 52,
+        "avg_edit_time": 9.5
+      }
+    },
+    {
+      "file": "modules/jenkins/manifests/slave.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 154.66666666666666
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/dav_fs.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/proxy_balancer.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/ssh/manifests/ldap.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 92.6
+      }
+    },
+    {
+      "file": "src/modules/fuel_project/manifests/jenkins_slave.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 2,
+        "fix_commits": 7,
+        "age": 51,
+        "avg_edit_time": 0.9230769230769231
+      }
+    },
+    {
+      "file": "modules/pip/manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/common.pp",
+      "process_metrics": {
+        "commits": 35,
+        "developers": 5,
+        "fix_commits": 6,
+        "age": 49,
+        "avg_edit_time": 13.514285714285714
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/partnershare.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 43,
+        "avg_edit_time": 67.25
+      }
+    },
+    {
+      "file": "src/modules/ssh/manifests/params.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 3,
+        "fix_commits": 8,
+        "age": 56,
+        "avg_edit_time": 15.333333333333334
+      }
+    },
+    {
+      "file": "src/modules/gerrit/manifests/mysql.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 8
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/proxy.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/roles/stats_collector.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 42,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_stats/manifests/migration.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 4,
+        "fix_commits": 6,
+        "age": 47,
+        "avg_edit_time": 60.714285714285715
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_stats/manifests/params.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 5,
+        "age": 48,
+        "avg_edit_time": 54.5
+      }
+    },
+    {
+      "file": "modules/fuel_stats/manifests/db.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 43,
+        "avg_edit_time": 155
+      }
+    },
+    {
+      "file": "modules/landing_page/manifests/params.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 4,
+        "fix_commits": 3,
+        "age": 46,
+        "avg_edit_time": 30.833333333333332
+      }
+    },
+    {
+      "file": "modules/fuel_stats/manifests/tests.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 48,
+        "avg_edit_time": 220
+      }
+    },
+    {
+      "file": "modules/pip/manifests/python3.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/ssh/manifests/sshd.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 92.6
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/listen.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/manifests/system_user.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/zabbix/manifests/agent.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 49,
+        "avg_edit_time": 66.42857142857143
+      }
+    },
+    {
+      "file": "src/modules/transmission/manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/statistics/analytic.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 3,
+        "fix_commits": 9,
+        "age": 48,
+        "avg_edit_time": 10.7
+      }
+    },
+    {
+      "file": "modules/pip/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/vhost_alias.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/mirror_npm.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 55
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/ldap.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/log_storage/manifests/logstashforwarder.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 38
+      }
+    },
+    {
+      "file": "src/modules/seed/manifests/params.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 54,
+        "avg_edit_time": 35.333333333333336
+      }
+    },
+    {
+      "file": "modules/racktables/manifests/init.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 8.333333333333334
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/fuel_docs.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 3,
+        "fix_commits": 9,
+        "age": 44,
+        "avg_edit_time": 7.066666666666666
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/bind.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 44,
+        "avg_edit_time": 3
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/tests/vhost_ssl.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/nginx/manifests/params.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 55,
+        "avg_edit_time": 47
+      }
+    },
+    {
+      "file": "src/modules/system/manifests/tools.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 52,
+        "avg_edit_time": 16
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/default_mods.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/log_storage/manifests/logstash.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 12.333333333333334
+      }
+    },
+    {
+      "file": "src/modules/fuel_project/manifests/puppet/master.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 50,
+        "avg_edit_time": 14
+      }
+    },
+    {
+      "file": "src/modules/ssh/manifests/banner.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 52,
+        "avg_edit_time": 18.5
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/gerrit/replication_slave.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 87
+      }
+    },
+    {
+      "file": "modules/venv/manifests/init.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 115.75
+      }
+    },
+    {
+      "file": "src/modules/ssh/manifests/authorized_keys.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 55,
+        "avg_edit_time": 46
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/statistics/params.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 47,
+        "avg_edit_time": 37.5
+      }
+    },
+    {
+      "file": "src/modules/virtual/manifests/users.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 52,
+        "avg_edit_time": 9
+      }
+    },
+    {
+      "file": "modules/ssh/manifests/authorized_keys.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 57.5
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/tests/apache.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/uwsgi/manifests/params.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 92.6
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/userdir.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/uwsgi/manifests/application.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 49,
+        "avg_edit_time": 69.14285714285714
+      }
+    },
+    {
+      "file": "src/manifests/applications/zabbix-agent.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 56,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/roles/stats.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 42,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/gerrit/manifests/hideci.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 44,
+        "avg_edit_time": 101.66666666666667
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/pagespeed.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/mime_magic.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/jenkins/manifests/swarm_slave.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 51.111111111111114
+      }
+    },
+    {
+      "file": "modules/nginx/manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/jenkins/slave.pp",
+      "process_metrics": {
+        "commits": 120,
+        "developers": 17,
+        "fix_commits": 22,
+        "age": 49,
+        "avg_edit_time": 3.658333333333333
+      }
+    },
+    {
+      "file": "src/modules/puppet/manifests/init.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 56,
+        "avg_edit_time": 27.75
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/tpi/localhome.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/ssh/manifests/sshd.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 55,
+        "avg_edit_time": 39.5
+      }
+    },
+    {
+      "file": "src/modules/rvm/manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/opentracker/manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/obs_server/manifests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 48,
+        "avg_edit_time": 226.5
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/mongo/server.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/stdlib/tests/file_line.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/zabbix/manifests/proxy.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 47,
+        "avg_edit_time": 142.66666666666666
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/jenkins/master.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 7,
+        "fix_commits": 1,
+        "age": 45,
+        "avg_edit_time": 43.25
+      }
+    },
+    {
+      "file": "src/modules/venv/manifests/params.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 56,
+        "avg_edit_time": 56
+      }
+    },
+    {
+      "file": "src/modules/pxetool/manifests/params.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 55,
+        "avg_edit_time": 21.571428571428573
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/default_mods/load.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/devops/manifests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 10
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/gerrit/slave_config.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/jenkins_standalone_slave/manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 55,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/release_status/manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 47,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/manifests/passenger/dependencies/centos.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/tpi/server.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 118
+      }
+    },
+    {
+      "file": "modules/errata/manifests/web.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 43,
+        "avg_edit_time": 27.333333333333332
+      }
+    },
+    {
+      "file": "modules/puppet/manifests/facter.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 46,
+        "avg_edit_time": 124.66666666666667
+      }
+    },
+    {
+      "file": "src/modules/jenkins/manifests/job_builder.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 18
+      }
+    },
+    {
+      "file": "src/modules/venv/manifests/venv.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 3,
+        "fix_commits": 7,
+        "age": 56,
+        "avg_edit_time": 14
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/nailgun_demo.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 4,
+        "fix_commits": 6,
+        "age": 46,
+        "avg_edit_time": 25.5
+      }
+    },
+    {
+      "file": "src/modules/rvm/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/wsgi.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/zabbix/manifests/frontend.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 50,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/zabbix/manifests/server/alertscript.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 176.5
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/deflate.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/status.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/pxetool/manifests/smart_proxy.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 28.5
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/roles/mailman.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 120.5
+      }
+    },
+    {
+      "file": "modules/jeepyb/manifests/openstackwatch.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 232
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/landing_page.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 46,
+        "avg_edit_time": 10
+      }
+    },
+    {
+      "file": "src/modules/rvm/manifests/dependencies/ubuntu.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/postgresql/manifests/init.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 1,
+        "fix_commits": 4,
+        "age": 56,
+        "avg_edit_time": 12
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/package.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/rewrite.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/lodgeit.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 30.4
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/roles/tracker.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 150
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/stdlib/tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/libvirt/manifests/network.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/dir.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/cgid.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/gerrit/manifests/init.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 1,
+        "fix_commits": 3,
+        "age": 51,
+        "avg_edit_time": 6.5
+      }
+    },
+    {
+      "file": "modules/ssh/manifests/params.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 77
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/znc.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 48,
+        "avg_edit_time": 220
+      }
+    },
+    {
+      "file": "modules/firewall_defaults/manifests/pre.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 111.25
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/stdlib/tests/has_ip_network.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/obs_server/manifests/mysql.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 48,
+        "avg_edit_time": 226.5
+      }
+    },
+    {
+      "file": "src/modules/rvm/manifests/dependencies.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/puppet/manifests/auth.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 13
+      }
+    },
+    {
+      "file": "modules/system/manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/fuel_project/manifests/lab_cz.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 51,
+        "avg_edit_time": 9.5
+      }
+    },
+    {
+      "file": "manifests/site.pp",
+      "process_metrics": {
+        "commits": 135,
+        "developers": 13,
+        "fix_commits": 23,
+        "age": 49,
+        "avg_edit_time": 3.088888888888889
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/bacula.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/jenkins/manifests/params.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 52,
+        "avg_edit_time": 15.4
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/static.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 43,
+        "avg_edit_time": 49.6
+      }
+    },
+    {
+      "file": "src/modules/ssh/manifests/ldap.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 53,
+        "avg_edit_time": 16
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/plugins.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 47,
+        "avg_edit_time": 32
+      }
+    },
+    {
+      "file": "modules/errata/manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/lodgeit/manifests/web.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 62.666666666666664
+      }
+    },
+    {
+      "file": "src/modules/dpkg/manifests/params.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 56,
+        "avg_edit_time": 12.222222222222221
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/stdlib/tests/has_interface_with.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/jenkins/manifests/master.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 51,
+        "avg_edit_time": 3.25
+      }
+    },
+    {
+      "file": "src/site.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 56,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/puppet/manifests/agent.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 52,
+        "avg_edit_time": 16.6
+      }
+    },
+    {
+      "file": "modules/gerrit/manifests/mysql.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 89.2
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/negotiation.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/info.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/web_share.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 92.5
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/cgi.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/puppet/manifests/params.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 56,
+        "avg_edit_time": 20.8
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/version.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/zabbix/manifests/item.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 115.75
+      }
+    },
+    {
+      "file": "src/manifests/applications/libvirt.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 56,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/release_status/manifests/updater.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 47,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/devops_tools/lpbugmanage.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 115.33333333333333
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/jenkins/slave/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/libvirt/tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/jenkins/slave/infra.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 58.5
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/stdlib/tests/has_ip_address.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/tests/vhosts_without_listen.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/mirror_pypi.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 62.333333333333336
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/puppet/manifests/master.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 50.55555555555556
+      }
+    },
+    {
+      "file": "modules/nginx/manifests/share.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/zabbix_agent/manifests/checks.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 56,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/passenger.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/concat/tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/actions.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/zabbix_agent/manifests/params.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 56,
+        "avg_edit_time": 8.5
+      }
+    },
+    {
+      "file": "src/manifests/applications/jenkins-swarm-slave.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 56,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/racktables.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 149
+      }
+    },
+    {
+      "file": "modules/gerrit/manifests/init.pp",
+      "process_metrics": {
+        "commits": 18,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 49,
+        "avg_edit_time": 26.833333333333332
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/mime.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/zabbix/manifests/frontend.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 57.625
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/dav.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/system/manifests/tools.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/tpi/nfs_client.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/opentracker/manifests/params.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 56,
+        "avg_edit_time": 53.333333333333336
+      }
+    },
+    {
+      "file": "src/modules/rvm/manifests/dependencies/centos.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/prefork.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/postgresql/manifests/params.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 56,
+        "avg_edit_time": 6.333333333333333
+      }
+    },
+    {
+      "file": "src/modules/puppet/manifests/config.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 52,
+        "avg_edit_time": 16.8
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/nginx.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 4,
+        "fix_commits": 3,
+        "age": 47,
+        "avg_edit_time": 56.375
+      }
+    },
+    {
+      "file": "modules/system/manifests/init.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 45.9
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/proxy_ajp.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/fuel_project/manifests/jenkins/slave.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 4,
+        "fix_commits": 7,
+        "age": 50,
+        "avg_edit_time": 2.6666666666666665
+      }
+    },
+    {
+      "file": "src/modules/libvirt/manifests/init.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 1,
+        "fix_commits": 8,
+        "age": 56,
+        "avg_edit_time": 12.333333333333334
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/tpi/lab.pp",
+      "process_metrics": {
+        "commits": 18,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 24.666666666666668
+      }
+    },
+    {
+      "file": "src/modules/rvm/manifests/dependencies/oraclelinux.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/roles/perestroika/publisher.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 64.66666666666667
+      }
+    },
+    {
+      "file": "src/modules/jenkins_swarm_slave/manifests/params.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 56,
+        "avg_edit_time": 5.2
+      }
+    },
+    {
+      "file": "modules/log_storage/manifests/storage/nginx.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 36,
+        "avg_edit_time": 14.8
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/dav_svn.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/manifests/passenger/dependencies.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/alias.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/glusterfs.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 47,
+        "avg_edit_time": 31.5
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/zuul.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 37,
+        "avg_edit_time": 30.4
+      }
+    },
+    {
+      "file": "modules/pxetool/manifests/params.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 34.333333333333336
+      }
+    },
+    {
+      "file": "modules/puppet/manifests/agent.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 49,
+        "avg_edit_time": 114.75
+      }
+    },
+    {
+      "file": "modules/gerrit/manifests/remotes.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 49,
+        "avg_edit_time": 223.5
+      }
+    },
+    {
+      "file": "src/modules/zabbix/manifests/item.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 51,
+        "avg_edit_time": 13
+      }
+    },
+    {
+      "file": "src/modules/seed/manifests/web.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 1,
+        "fix_commits": 4,
+        "age": 54,
+        "avg_edit_time": 12.11111111111111
+      }
+    },
+    {
+      "file": "src/modules/pip/manifests/python3.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/seed.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 83.33333333333333
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/balancermember.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/uwsgi/manifests/params.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 54,
+        "avg_edit_time": 38.75
+      }
+    },
+    {
+      "file": "modules/devopslib/manifests/ssl_certificate.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 103.33333333333333
+      }
+    },
+    {
+      "file": "src/modules/jeepyb/manifests/openstackwatch.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/apps/plugins.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 49.8
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/service.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/manifests/passenger/gem.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/autoindex.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/gerrit/master_config.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/suphp.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/default_confd_files.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/manifests/packages.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 56,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/roles/errata/web.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 145.5
+      }
+    },
+    {
+      "file": "src/modules/rvm/manifests/rvmrc.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/log_storage/manifests/storage/zabbix.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 25.333333333333332
+      }
+    },
+    {
+      "file": "src/modules/rvm/manifests/system.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/system_tests/manifests/init.pp",
+      "process_metrics": {
+        "commits": 23,
+        "developers": 3,
+        "fix_commits": 9,
+        "age": 56,
+        "avg_edit_time": 8.130434782608695
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/expires.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/tests/vhost_directories.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "modules/fuel_project/manifests/roles/errata/database.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 145.5
+      }
+    },
+    {
+      "file": "src/modules/rvm/spec/fixtures/modules/apache/manifests/mod/ssl.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    }
+  ]
+}

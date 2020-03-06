@@ -1,0 +1,26 @@
+{
+  "proj_name": "Mirantis_fuel-plugin-vxlan-vlan-7",
+  "url": "https://github.com/Mirantis/fuel-plugin-vxlan-vlan-7",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/configure-ml2-controller.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 2,
+        "fix_commits": 7,
+        "age": 31,
+        "avg_edit_time": 20.666666666666668
+      }
+    },
+    {
+      "file": "deployment_scripts/configure-ml2-compute.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 2,
+        "fix_commits": 7,
+        "age": 31,
+        "avg_edit_time": 20.666666666666668
+      }
+    }
+  ]
+}

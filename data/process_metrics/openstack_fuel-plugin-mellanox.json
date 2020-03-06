@@ -1,0 +1,256 @@
+{
+  "proj_name": "openstack_fuel-plugin-mellanox",
+  "url": "https://github.com/openstack/fuel-plugin-mellanox",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/manifests/cinder_iser.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 43,
+        "avg_edit_time": 140.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/manifests/compute.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/manifests/controller_sriov.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 3,
+        "fix_commits": 7,
+        "age": 43,
+        "avg_edit_time": 30.166666666666668
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/iser_rename.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 124
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/manifests/controller_ib_pv.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 3,
+        "age": 42,
+        "avg_edit_time": 97.66666666666667
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/testvm.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/controller.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 4,
+        "fix_commits": 6,
+        "age": 43,
+        "avg_edit_time": 62.61538461538461
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/manifests/eswitchd.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/manifests/cinder.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/manifests/snapshot_patch.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 0.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/configure_iser_child.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 42,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/configure_mlnx_neo.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/verify_kernel_devel.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/compute.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 43,
+        "avg_edit_time": 52.857142857142854
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/cinder.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 43,
+        "avg_edit_time": 64.66666666666667
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/manifests/configure_iser_child.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 42,
+        "avg_edit_time": 109
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/manifests/params.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 43,
+        "avg_edit_time": 80.71428571428571
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/manifests/iser_child.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 42,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/manifests/compute_sriov.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 4,
+        "fix_commits": 5,
+        "age": 43,
+        "avg_edit_time": 33
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/manifests/configure_qos.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 32,
+        "avg_edit_time": 6.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/manifests/iser_rename.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/manifests/controller.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/mellanox_openstack/manifests/agent.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 4,
+        "age": 43,
+        "avg_edit_time": 62.8
+      }
+    }
+  ]
+}

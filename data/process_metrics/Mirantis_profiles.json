@@ -1,0 +1,396 @@
+{
+  "proj_name": "Mirantis_profiles",
+  "url": "https://github.com/Mirantis/profiles",
+  "process_metrics": [
+    {
+      "file": "manifests/yum/default.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/openstack/nova/controller.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/foreman/proxy.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/openstack/nova/compute.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/openstack/neutron/server.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/firewall/gitlab.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/ftp/server.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/lldp.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/firewall/default.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/puppet/ca.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/hiera.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/firewall/deploy.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/puppet/bootstrap_ca.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/install.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/ntp/client.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/firewall/ldap.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/firewall/purge.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/openstack/cinder.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/redis.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/puppet/agent.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/common/users/shells.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/yum/foreman.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/firewall/puppet.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/common/users/install.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/ssh/server.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/common/sudo.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/common/packages.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/openstack/keystone.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/firewall/post.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/firewall/foreman.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/puppet/db.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/puppet/master.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/deploy.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/openstack/neutron/client.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/common/users.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/firewall/pre.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/foreman/server.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    }
+  ]
+}

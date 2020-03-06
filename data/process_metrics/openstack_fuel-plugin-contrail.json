@@ -1,0 +1,1336 @@
+{
+  "proj_name": "openstack_fuel-plugin-contrail",
+  "url": "https://github.com/openstack/fuel-plugin-contrail",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-config-provision.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/init.pp",
+      "process_metrics": {
+        "commits": 98,
+        "developers": 8,
+        "fix_commits": 13,
+        "age": 44,
+        "avg_edit_time": 8.142857142857142
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/compute/provision.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/create_network.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 9.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-compute-dpdkonvf.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 25,
+        "avg_edit_time": 4.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/compute/vmware_pkg.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 26,
+        "avg_edit_time": 6
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/site-compute-pre.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 44,
+        "avg_edit_time": 7
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-compute-override.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 19.666666666666668
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/vrouter.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 15.75
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-controller-aggregate.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-config.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 77.33333333333333
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/provision/tsn.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-analytics.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 24.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/service.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 44,
+        "avg_edit_time": 11
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-provision.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/compute.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 21
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/upgrade/upgrade-contrail-pre.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/compute/hugepages.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 31,
+        "avg_edit_time": 40.75
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-analytics-provision.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/controller.pp",
+      "process_metrics": {
+        "commits": 24,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 38,
+        "avg_edit_time": 16.041666666666668
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-compute-hugepages.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/site-common-pre.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 42,
+        "avg_edit_time": 12.923076923076923
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/site-contrail-post1.pp",
+      "process_metrics": {
+        "commits": 19,
+        "developers": 3,
+        "fix_commits": 5,
+        "age": 44,
+        "avg_edit_time": 13.210526315789474
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/compute/dpdk_on_vf.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/config.pp",
+      "process_metrics": {
+        "commits": 37,
+        "developers": 4,
+        "fix_commits": 4,
+        "age": 44,
+        "avg_edit_time": 18.91891891891892
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/compute/override.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 29,
+        "avg_edit_time": 16.75
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/provision/controller.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 32,
+        "avg_edit_time": 34.75
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/tsn.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 47.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/provision_contrail.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 10
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/compute/aggregate.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 31,
+        "avg_edit_time": 28
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/neutron.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/packages.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 4
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/provision.pp",
+      "process_metrics": {
+        "commits": 19,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 44,
+        "avg_edit_time": 11.789473684210526
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/controller-vip.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/controller/scheduler.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 54.666666666666664
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-compute-vmware-pkg.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 26,
+        "avg_edit_time": 7
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/site-controller-pre.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 44,
+        "avg_edit_time": 10
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/network.pp",
+      "process_metrics": {
+        "commits": 25,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 44,
+        "avg_edit_time": 9.96
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-db.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/site-contrail-post4.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 44,
+        "avg_edit_time": 19.88888888888889
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/upgrade/upgrade-contrail-stop-analytics.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/compute/compute_netconfig_override.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/ssh.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 44,
+        "avg_edit_time": 12.6
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/database.pp",
+      "process_metrics": {
+        "commits": 27,
+        "developers": 5,
+        "fix_commits": 4,
+        "age": 39,
+        "avg_edit_time": 20.25925925925926
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/control.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 39,
+        "avg_edit_time": 39.357142857142854
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-compute-sriov.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-compute-vmware-repo.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/compute/nova.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 4,
+        "fix_commits": 7,
+        "age": 32,
+        "avg_edit_time": 14
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/compute/sriov.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 31,
+        "avg_edit_time": 35
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/vip/tor_agent.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/site-contrail-post3.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 44,
+        "avg_edit_time": 18
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-utils.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 50
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/provision/compute.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 32,
+        "avg_edit_time": 22.666666666666668
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-webui.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/site-contrail-post2.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 44,
+        "avg_edit_time": 12.357142857142858
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/upgrade/upgrade-contrail-stop.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/site.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 36
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/site-compute-post.pp",
+      "process_metrics": {
+        "commits": 21,
+        "developers": 3,
+        "fix_commits": 6,
+        "age": 44,
+        "avg_edit_time": 11.523809523809524
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/provision/control.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 32,
+        "avg_edit_time": 19.272727272727273
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/controller/aggregate.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/analytics.pp",
+      "process_metrics": {
+        "commits": 20,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 27.7
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-control.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/pcs_delete_resource.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/controller/dpdk.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/package.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 44,
+        "avg_edit_time": 22.666666666666668
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/provision_compute.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 11.125
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/upgrade/upgrade-contrail-config.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 4.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/create_vfs.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 25,
+        "avg_edit_time": 4.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/controller-provision.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 53
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/upgrade/upgrade-contrail-post.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/provision/config.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 26.625
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/compute-config.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/configure_vfs.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 25,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/cfgm.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 13.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/controller-hiera.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 30.666666666666668
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/compute/network.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 32,
+        "avg_edit_time": 36.333333333333336
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/testbed.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 29.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-analytics-db-wait.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 20,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-tsn-provision.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/compute/vmware.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 26,
+        "avg_edit_time": 6.4
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/site-contrail-pre.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 2,
+        "fix_commits": 4,
+        "age": 44,
+        "avg_edit_time": 14.8125
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-compute-repo.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 2,
+        "fix_commits": 6,
+        "age": 32,
+        "avg_edit_time": 30.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/upgrade/upgrade-contrail-db.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/provision/tor_agent.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 47.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/controller-scheduler.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/controller-config.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/rclocal_vfs.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 31,
+        "avg_edit_time": 29.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/upgrade/upgrade-contrail-compute.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/analytics_db_wait.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 20,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/upgrade/upgrade-contrail-control.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/webui.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 121.8
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/controller-dpdk.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/tor_agent.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 47.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/controller-hiera-post.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 5.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/reconfigure-contrail-tsn-vrouter.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/compute-hiera.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 32,
+        "avg_edit_time": 74
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/controller-hiera-pre.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 2.6666666666666665
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/site-contrail-post5.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 34
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-repo.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/run_fabric.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 44,
+        "avg_edit_time": 16.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-compute-nova.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-compute-aggregate.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/utils.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 16
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-compute-netconfig-override.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-db-provision.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 16.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-compute-provision.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/compute-repo.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 30.333333333333332
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/contrail_vmware.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 26,
+        "avg_edit_time": 4
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/contrail_webui.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 26,
+        "avg_edit_time": 1.3333333333333333
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/upgrade/upgrade-contrail-controller.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/compute/firewall.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-compute-dpdk-on-vf.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-compute-vrouter.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/compute/vmware_repo.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 1.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/compute/vrouter.pp",
+      "process_metrics": {
+        "commits": 29,
+        "developers": 5,
+        "fix_commits": 8,
+        "age": 32,
+        "avg_edit_time": 16.137931034482758
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/exec_pip.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 29.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/provision/analytics.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 3.3333333333333335
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/vrouter_module.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 42,
+        "avg_edit_time": 4.166666666666667
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/provision_controller.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 25.75
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-vmware.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 2
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/site-controller-post1.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 16.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/site-controller-post2.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 22.333333333333332
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-compute-firewall.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/upgrade/upgrade-contrail-stop-config.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/provision/db.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 22.666666666666668
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-compute-vmware.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/common-repo.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 70
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/setup.pp",
+      "process_metrics": {
+        "commits": 22,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 44,
+        "avg_edit_time": 7
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/site-controller-post.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 11.833333333333334
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/contrail/manifests/vip.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 34.13333333333333
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-control-provision.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/upgrade/upgrade-contrail-analytics.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/contrail-compute-network.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 0
+      }
+    }
+  ]
+}

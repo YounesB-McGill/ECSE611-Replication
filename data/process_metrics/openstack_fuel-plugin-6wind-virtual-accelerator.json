@@ -1,0 +1,176 @@
+{
+  "proj_name": "openstack_fuel-plugin-6wind-virtual-accelerator",
+  "url": "https://github.com/openstack/fuel-plugin-6wind-virtual-accelerator",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/puppet/manifests/external_repo.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 67.66666666666667
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/virtual_accelerator/manifests/neutron_conf.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 31,
+        "avg_edit_time": 32.6
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/virtual_accelerator/manifests/neutron_conf_controller.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/install_va.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/virtual_accelerator/manifests/service.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 30.125
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/virtual_accelerator/manifests/install.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 60.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/neutron_conf_compute.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/virtual_accelerator/manifests/neutron_conf_compute.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/virtual_accelerator/manifests/nova_conf.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 25,
+        "avg_edit_time": 25
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/neutron_conf.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/virtual_accelerator/manifests/init.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 32.22222222222222
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/nova_conf.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 25,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/neutron_conf_controller.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/start_va.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/6wind_repo.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 39.75
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/configure_va.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/virtual_accelerator/manifests/config.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 33,
+        "avg_edit_time": 36.5
+      }
+    }
+  ]
+}

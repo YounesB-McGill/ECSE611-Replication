@@ -1,0 +1,246 @@
+{
+  "proj_name": "openstack_puppet-barbican",
+  "url": "https://github.com/openstack/puppet-barbican",
+  "process_metrics": [
+    {
+      "file": "manifests/quota.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 119
+      }
+    },
+    {
+      "file": "manifests/wsgi/apache.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 9,
+        "fix_commits": 0,
+        "age": 30,
+        "avg_edit_time": 47.54545454545455
+      }
+    },
+    {
+      "file": "manifests/api/logging.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 7,
+        "fix_commits": 1,
+        "age": 31,
+        "avg_edit_time": 65.2
+      }
+    },
+    {
+      "file": "manifests/deps.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 29
+      }
+    },
+    {
+      "file": "manifests/plugins/kmip.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 152.5
+      }
+    },
+    {
+      "file": "manifests/db/postgresql.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 37,
+        "avg_edit_time": 139.66666666666666
+      }
+    },
+    {
+      "file": "manifests/plugins/p11_crypto.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 203.66666666666666
+      }
+    },
+    {
+      "file": "manifests/client.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 120.5
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/config.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 139.66666666666666
+      }
+    },
+    {
+      "file": "manifests/logging.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 27
+      }
+    },
+    {
+      "file": "manifests/worker.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 2,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/api.pp",
+      "process_metrics": {
+        "commits": 31,
+        "developers": 10,
+        "fix_commits": 4,
+        "age": 31,
+        "avg_edit_time": 26.612903225806452
+      }
+    },
+    {
+      "file": "manifests/db/mysql.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 37,
+        "avg_edit_time": 197
+      }
+    },
+    {
+      "file": "manifests/keystone/auth.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 37,
+        "avg_edit_time": 83.8
+      }
+    },
+    {
+      "file": "manifests/keystone/authtoken.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 6,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 52.583333333333336
+      }
+    },
+    {
+      "file": "manifests/plugins/dogtag.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 31,
+        "avg_edit_time": 119.83333333333333
+      }
+    },
+    {
+      "file": "manifests/policy.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 207.5
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 10,
+        "fix_commits": 2,
+        "age": 37,
+        "avg_edit_time": 62.93333333333333
+      }
+    },
+    {
+      "file": "manifests/keystone/notification.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 118.5
+      }
+    },
+    {
+      "file": "tests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 37,
+        "avg_edit_time": 516
+      }
+    },
+    {
+      "file": "manifests/db/sync.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 37,
+        "avg_edit_time": 89.6
+      }
+    },
+    {
+      "file": "manifests/db.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 37,
+        "avg_edit_time": 81.45454545454545
+      }
+    },
+    {
+      "file": "manifests/plugins/simple_crypto.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 203.66666666666666
+      }
+    }
+  ]
+}

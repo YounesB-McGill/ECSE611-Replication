@@ -1,0 +1,376 @@
+{
+  "proj_name": "openstack_puppet-designate",
+  "url": "https://github.com/openstack/puppet-designate",
+  "process_metrics": [
+    {
+      "file": "manifests/db/mysql/host_access.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 62,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/quota.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/central.pp",
+      "process_metrics": {
+        "commits": 24,
+        "developers": 9,
+        "fix_commits": 5,
+        "age": 62,
+        "avg_edit_time": 66.08333333333333
+      }
+    },
+    {
+      "file": "manifests/pool.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 147.5
+      }
+    },
+    {
+      "file": "manifests/deps.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/zone_manager.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 45.5
+      }
+    },
+    {
+      "file": "manifests/backend/powerdns.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 154
+      }
+    },
+    {
+      "file": "manifests/pool_manager_cache/sqlalchemy.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 147.5
+      }
+    },
+    {
+      "file": "manifests/sink.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 5,
+        "fix_commits": 3,
+        "age": 61,
+        "avg_edit_time": 88.14285714285714
+      }
+    },
+    {
+      "file": "manifests/pool_manager_cache/memcache.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 147.5
+      }
+    },
+    {
+      "file": "manifests/pool_manager.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 33,
+        "avg_edit_time": 164
+      }
+    },
+    {
+      "file": "manifests/generic_service.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 38,
+        "avg_edit_time": 189.8
+      }
+    },
+    {
+      "file": "manifests/client.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 61,
+        "avg_edit_time": 162.85714285714286
+      }
+    },
+    {
+      "file": "manifests/mdns.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 139.83333333333334
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 42,
+        "developers": 18,
+        "fix_commits": 9,
+        "age": 62,
+        "avg_edit_time": 43.476190476190474
+      }
+    },
+    {
+      "file": "manifests/config.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 50,
+        "avg_edit_time": 199.25
+      }
+    },
+    {
+      "file": "manifests/logging.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 37,
+        "avg_edit_time": 83.4
+      }
+    },
+    {
+      "file": "manifests/worker.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 11,
+        "avg_edit_time": 9.333333333333334
+      }
+    },
+    {
+      "file": "manifests/api.pp",
+      "process_metrics": {
+        "commits": 28,
+        "developers": 13,
+        "fix_commits": 2,
+        "age": 62,
+        "avg_edit_time": 60.214285714285715
+      }
+    },
+    {
+      "file": "manifests/dns.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 4,
+        "fix_commits": 5,
+        "age": 61,
+        "avg_edit_time": 90.0909090909091
+      }
+    },
+    {
+      "file": "manifests/db/mysql.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 5,
+        "fix_commits": 3,
+        "age": 62,
+        "avg_edit_time": 245.85714285714286
+      }
+    },
+    {
+      "file": "manifests/keystone/auth.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 8,
+        "fix_commits": 2,
+        "age": 62,
+        "avg_edit_time": 105.27272727272727
+      }
+    },
+    {
+      "file": "manifests/backend/bind9.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 7,
+        "fix_commits": 2,
+        "age": 61,
+        "avg_edit_time": 122.92857142857143
+      }
+    },
+    {
+      "file": "example/all.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 61,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/keystone/authtoken.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 6,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 53.083333333333336
+      }
+    },
+    {
+      "file": "manifests/pool_nameserver.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 147.5
+      }
+    },
+    {
+      "file": "example/all-in-one-noauth.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 46,
+        "avg_edit_time": 231.66666666666666
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 27,
+        "developers": 16,
+        "fix_commits": 6,
+        "age": 62,
+        "avg_edit_time": 61
+      }
+    },
+    {
+      "file": "manifests/policy.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 256
+      }
+    },
+    {
+      "file": "manifests/db/powerdns/mysql.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 206
+      }
+    },
+    {
+      "file": "manifests/agent.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 5,
+        "fix_commits": 3,
+        "age": 61,
+        "avg_edit_time": 82.33333333333333
+      }
+    },
+    {
+      "file": "manifests/db/sync.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 38,
+        "avg_edit_time": 156.66666666666666
+      }
+    },
+    {
+      "file": "manifests/db.pp",
+      "process_metrics": {
+        "commits": 21,
+        "developers": 8,
+        "fix_commits": 7,
+        "age": 62,
+        "avg_edit_time": 54.95238095238095
+      }
+    },
+    {
+      "file": "example/all-in-one-keystone.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 46,
+        "avg_edit_time": 173.5
+      }
+    },
+    {
+      "file": "manifests/producer.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 11,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/pool_target.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 98
+      }
+    },
+    {
+      "file": "manifests/db/powerdns/sync.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 38,
+        "avg_edit_time": 149.66666666666666
+      }
+    }
+  ]
+}

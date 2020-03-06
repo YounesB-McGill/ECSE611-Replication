@@ -1,0 +1,1096 @@
+{
+  "proj_name": "openstack_puppet-pacemaker",
+  "url": "https://github.com/openstack/puppet-pacemaker",
+  "process_metrics": [
+    {
+      "file": "manifests/stonith/level.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 12,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "examples/pacemaker_resource_default/delete.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/resource/filesystem.pp",
+      "process_metrics": {
+        "commits": 24,
+        "developers": 7,
+        "fix_commits": 5,
+        "age": 62,
+        "avg_edit_time": 72.625
+      }
+    },
+    {
+      "file": "manifests/stonith.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 63,
+        "avg_edit_time": 177.42857142857142
+      }
+    },
+    {
+      "file": "manifests/constraint/location.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 57,
+        "avg_edit_time": 180.57142857142858
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_rhevm.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_idrac.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_ilo2.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/resources/ip.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 68,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_ilo3.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/resource/remote.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 21,
+        "avg_edit_time": 88.5
+      }
+    },
+    {
+      "file": "examples/pacemaker_resource/delete.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_ipdu.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_compute.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 13,
+        "avg_edit_time": 13.25
+      }
+    },
+    {
+      "file": "manifests/stonith/xvm.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 100.5
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_eps.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/remote.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 21,
+        "avg_edit_time": 81.66666666666667
+      }
+    },
+    {
+      "file": "manifests/resource/ocf.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 7,
+        "fix_commits": 4,
+        "age": 52,
+        "avg_edit_time": 96.46666666666667
+      }
+    },
+    {
+      "file": "manifests/new.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 29,
+        "avg_edit_time": 172.75
+      }
+    },
+    {
+      "file": "examples/pacemaker_resource/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "examples/pacemaker_colocation/create.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "examples/service/clean.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_ilo.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "tests/init.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 62,
+        "avg_edit_time": 110.75
+      }
+    },
+    {
+      "file": "manifests/resource/group.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 62,
+        "avg_edit_time": 6.5
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_ilo4.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_ilo_mp.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/resource/qpid.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 61,
+        "avg_edit_time": 27.666666666666668
+      }
+    },
+    {
+      "file": "manifests/resource/base.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 61,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/resource/bundle.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 17,
+        "avg_edit_time": 90.8
+      }
+    },
+    {
+      "file": "manifests/new/resource/ip.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "examples/pacemaker_order/delete.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/resource/qpid_clustered.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 58,
+        "avg_edit_time": 76.5
+      }
+    },
+    {
+      "file": "manifests/property.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 5,
+        "fix_commits": 4,
+        "age": 33,
+        "avg_edit_time": 54.1
+      }
+    },
+    {
+      "file": "manifests/constraint/order.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 22,
+        "avg_edit_time": 55
+      }
+    },
+    {
+      "file": "examples/pacemaker_resource_default/create.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "examples/pacemaker_location/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_ipmilan.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 3,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "examples/pacemaker_location/create.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "examples/pacemaker_colocation/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/resource_defaults.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 38,
+        "avg_edit_time": 251
+      }
+    },
+    {
+      "file": "manifests/service.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 56,
+        "avg_edit_time": 115.57142857142857
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_brocade.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_scsi.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "examples/pacemaker_property/create.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "examples/service/start.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_vmware_soap.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/corosync.pp",
+      "process_metrics": {
+        "commits": 41,
+        "developers": 10,
+        "fix_commits": 8,
+        "age": 70,
+        "avg_edit_time": 49.09756097560975
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_amt.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 13,
+        "avg_edit_time": 12.5
+      }
+    },
+    {
+      "file": "examples/pacemaker_resource_default/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_ironic.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 21,
+        "avg_edit_time": 39.57142857142857
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 70,
+        "avg_edit_time": 161.28571428571428
+      }
+    },
+    {
+      "file": "examples/pacemaker_order/create.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_virt.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/resource/systemd.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 7,
+        "fix_commits": 3,
+        "age": 53,
+        "avg_edit_time": 99.2
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_eaton_snmp.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_hpblade.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "examples/pacemaker_property/delete.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "examples/pacemaker_operation_default/create.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "examples/pacemaker_location/delete.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 63,
+        "avg_edit_time": 126.23076923076923
+      }
+    },
+    {
+      "file": "examples/pacemaker_colocation/delete.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_bladecenter.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/crm/ip.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 70,
+        "avg_edit_time": 22
+      }
+    },
+    {
+      "file": "manifests/resource/lsb.pp",
+      "process_metrics": {
+        "commits": 25,
+        "developers": 8,
+        "fix_commits": 5,
+        "age": 63,
+        "avg_edit_time": 70.96
+      }
+    },
+    {
+      "file": "manifests/resources/lsb.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 68,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_wti.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "examples/pacemaker_resource/create.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "examples/pacemaker_property/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/new/params.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 9.666666666666666
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_ibmblade.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "examples/pacemaker/setup.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_cisco_ucs.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/new/service.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_apc.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/resource/ip.pp",
+      "process_metrics": {
+        "commits": 28,
+        "developers": 8,
+        "fix_commits": 7,
+        "age": 63,
+        "avg_edit_time": 63.357142857142854
+      }
+    },
+    {
+      "file": "manifests/resource/service.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 7,
+        "fix_commits": 4,
+        "age": 53,
+        "avg_edit_time": 93
+      }
+    },
+    {
+      "file": "manifests/constraint/base.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 8,
+        "fix_commits": 2,
+        "age": 59,
+        "avg_edit_time": 121
+      }
+    },
+    {
+      "file": "examples/pacemaker_operation_default/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_intelmodular.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/new/setup.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 15
+      }
+    },
+    {
+      "file": "manifests/new/resource/filesystem.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_xvm.pp",
+      "process_metrics": {
+        "commits": 21,
+        "developers": 9,
+        "fix_commits": 2,
+        "age": 61,
+        "avg_edit_time": 70.33333333333333
+      }
+    },
+    {
+      "file": "manifests/new/setup/debian.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/new/install.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_drac5.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "examples/pacemaker/host.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/new/setup/auth_key.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "examples/service/stop.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "examples/pacemaker_operation_default/delete.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/new/wrapper.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 283
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_ifmib.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_cisco_mds.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/new/setup/pcsd.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/ipmilan.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 70,
+        "avg_edit_time": 70.16666666666667
+      }
+    },
+    {
+      "file": "manifests/install.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 56,
+        "avg_edit_time": 428.6666666666667
+      }
+    },
+    {
+      "file": "manifests/resource/route.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 8,
+        "fix_commits": 4,
+        "age": 54,
+        "avg_edit_time": 95.1875
+      }
+    },
+    {
+      "file": "manifests/constraint/colocation.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 57,
+        "avg_edit_time": 180.57142857142858
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_rsb.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "examples/pacemaker_order/update.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_imm.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/new/firewall.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/new/setup/config.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_kdump.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "tests/basic.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 32,
+        "avg_edit_time": 2
+      }
+    },
+    {
+      "file": "manifests/stonith/fence_apc_snmp.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 50,
+        "avg_edit_time": 67.05882352941177
+      }
+    },
+    {
+      "file": "manifests/resource/mysql.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 61,
+        "avg_edit_time": 21.75
+      }
+    },
+    {
+      "file": "manifests/new/resource/route.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/contain.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    }
+  ]
+}

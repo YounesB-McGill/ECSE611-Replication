@@ -1,0 +1,246 @@
+{
+  "proj_name": "Mirantis_puppet-foreman_proxy",
+  "url": "https://github.com/Mirantis/puppet-foreman_proxy",
+  "process_metrics": [
+    {
+      "file": "manifests/plugin/openscap/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugin/salt/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/service.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/settings_file.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugin/salt.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugin/abrt.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/register.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/tftp/sync_file.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/install.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugin/pulp/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugin/pulp.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/proxydns.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugin/abrt/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/puppetca.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/config.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/tftp/copy_file.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugin/openscap.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugin/chef/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/proxydhcp.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/tftp.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugin/chef.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugin.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    }
+  ]
+}

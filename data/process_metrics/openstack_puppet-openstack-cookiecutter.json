@@ -1,0 +1,136 @@
+{
+  "proj_name": "openstack_puppet-openstack-cookiecutter",
+  "url": "https://github.com/openstack/puppet-openstack-cookiecutter",
+  "process_metrics": [
+    {
+      "file": "puppet-{{cookiecutter.project_name}}/manifests/db/mysql.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 42,
+        "avg_edit_time": 223.8
+      }
+    },
+    {
+      "file": "puppet-{{cookiecutter.project_name}}/manifests/db/sync.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 42,
+        "avg_edit_time": 127.75
+      }
+    },
+    {
+      "file": "puppet-{{cookiecutter.project_name}}/tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 42,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "puppet-{{cookiecutter.project_name}}/manifests/keystone/auth.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 42,
+        "avg_edit_time": 110.42857142857143
+      }
+    },
+    {
+      "file": "puppet-{{cookiecutter.project_name}}/manifests/logging.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 7,
+        "fix_commits": 3,
+        "age": 42,
+        "avg_edit_time": 78.15384615384616
+      }
+    },
+    {
+      "file": "puppet-{{cookiecutter.project_name}}/manifests/db/postgresql.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 42,
+        "avg_edit_time": 388
+      }
+    },
+    {
+      "file": "puppet-{{cookiecutter.project_name}}/manifests/config.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 42,
+        "avg_edit_time": 194
+      }
+    },
+    {
+      "file": "puppet-{{cookiecutter.project_name}}/manifests/deps.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 16,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "puppet-{{cookiecutter.project_name}}/manifests/db.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 7,
+        "fix_commits": 4,
+        "age": 38,
+        "avg_edit_time": 60.733333333333334
+      }
+    },
+    {
+      "file": "puppet-{{cookiecutter.project_name}}/manifests/init.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 42,
+        "avg_edit_time": 258.3333333333333
+      }
+    },
+    {
+      "file": "puppet-{{cookiecutter.project_name}}/manifests/keystone/authtoken.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 7,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 72.88888888888889
+      }
+    },
+    {
+      "file": "puppet-{{cookiecutter.project_name}}/manifests/params.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 38,
+        "avg_edit_time": 120.85714285714286
+      }
+    },
+    {
+      "file": "puppet-{{cookiecutter.project_name}}/manifests/policy.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 42,
+        "avg_edit_time": 241
+      }
+    }
+  ]
+}

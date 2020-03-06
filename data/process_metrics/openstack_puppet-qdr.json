@@ -1,0 +1,86 @@
+{
+  "proj_name": "openstack_puppet-qdr",
+  "url": "https://github.com/openstack/puppet-qdr",
+  "process_metrics": [
+    {
+      "file": "lib/puppet/provider/qdr_listener/qdr_listener.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 6,
+        "fix_commits": 5,
+        "age": 32,
+        "avg_edit_time": 51.125
+      }
+    },
+    {
+      "file": "manifests/config.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 32,
+        "avg_edit_time": 50.8
+      }
+    },
+    {
+      "file": "examples/site.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 101.33333333333333
+      }
+    },
+    {
+      "file": "manifests/install.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 32,
+        "avg_edit_time": 30.8
+      }
+    },
+    {
+      "file": "examples/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/service.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 32,
+        "avg_edit_time": 66.25
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 32,
+        "avg_edit_time": 57.375
+      }
+    }
+  ]
+}

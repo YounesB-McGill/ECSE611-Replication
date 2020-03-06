@@ -1,0 +1,326 @@
+{
+  "proj_name": "openstack_puppet-ceph",
+  "url": "https://github.com/openstack/puppet-ceph",
+  "process_metrics": [
+    {
+      "file": "manifests/rgw/keystone.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 40,
+        "avg_edit_time": 85.91666666666667
+      }
+    },
+    {
+      "file": "manifests/profile/mirror.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 23.5
+      }
+    },
+    {
+      "file": "manifests/mgr.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 14,
+        "avg_edit_time": 7.666666666666667
+      }
+    },
+    {
+      "file": "manifests/pool.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 10,
+        "fix_commits": 4,
+        "age": 54,
+        "avg_edit_time": 144.9090909090909
+      }
+    },
+    {
+      "file": "manifests/keys.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 53,
+        "avg_edit_time": 107
+      }
+    },
+    {
+      "file": "manifests/profile/mgr.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 14,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/mon.pp",
+      "process_metrics": {
+        "commits": 35,
+        "developers": 16,
+        "fix_commits": 13,
+        "age": 60,
+        "avg_edit_time": 39.48571428571429
+      }
+    },
+    {
+      "file": "manifests/profile/mds.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 22,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/conf.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 56,
+        "avg_edit_time": 237.5
+      }
+    },
+    {
+      "file": "manifests/rgw/keystone/auth.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 41
+      }
+    },
+    {
+      "file": "manifests/profile/osd.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 52,
+        "avg_edit_time": 39.333333333333336
+      }
+    },
+    {
+      "file": "manifests/key.pp",
+      "process_metrics": {
+        "commits": 22,
+        "developers": 10,
+        "fix_commits": 7,
+        "age": 55,
+        "avg_edit_time": 59.77272727272727
+      }
+    },
+    {
+      "file": "manifests/profile/fs.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 22,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/rgw/apache.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 50,
+        "avg_edit_time": 77.71428571428571
+      }
+    },
+    {
+      "file": "manifests/mons.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 59,
+        "avg_edit_time": 118.6
+      }
+    },
+    {
+      "file": "manifests/osd.pp",
+      "process_metrics": {
+        "commits": 38,
+        "developers": 18,
+        "fix_commits": 10,
+        "age": 60,
+        "avg_edit_time": 42.421052631578945
+      }
+    },
+    {
+      "file": "manifests/profile/mon.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 53,
+        "avg_edit_time": 89.42857142857143
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 18,
+        "developers": 15,
+        "fix_commits": 3,
+        "age": 60,
+        "avg_edit_time": 63.666666666666664
+      }
+    },
+    {
+      "file": "manifests/rgw/civetweb.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 152.5
+      }
+    },
+    {
+      "file": "manifests/profile/rgw.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 70.5
+      }
+    },
+    {
+      "file": "manifests/mirror.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/client.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 52,
+        "avg_edit_time": 47.4
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 21,
+        "developers": 15,
+        "fix_commits": 5,
+        "age": 60,
+        "avg_edit_time": 78.61904761904762
+      }
+    },
+    {
+      "file": "manifests/rgw.pp",
+      "process_metrics": {
+        "commits": 22,
+        "developers": 10,
+        "fix_commits": 7,
+        "age": 50,
+        "avg_edit_time": 51.09090909090909
+      }
+    },
+    {
+      "file": "manifests/fs.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 22,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/rgw/apache_fastcgi.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 32,
+        "avg_edit_time": 122.8
+      }
+    },
+    {
+      "file": "manifests/repo.pp",
+      "process_metrics": {
+        "commits": 42,
+        "developers": 17,
+        "fix_commits": 7,
+        "age": 61,
+        "avg_edit_time": 40.095238095238095
+      }
+    },
+    {
+      "file": "manifests/osds.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 53,
+        "avg_edit_time": 181.625
+      }
+    },
+    {
+      "file": "manifests/profile/base.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 7,
+        "fix_commits": 1,
+        "age": 53,
+        "avg_edit_time": 95.4
+      }
+    },
+    {
+      "file": "manifests/profile/params.pp",
+      "process_metrics": {
+        "commits": 24,
+        "developers": 15,
+        "fix_commits": 1,
+        "age": 53,
+        "avg_edit_time": 60.583333333333336
+      }
+    },
+    {
+      "file": "manifests/rgw/apache_proxy_fcgi.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 100.33333333333333
+      }
+    },
+    {
+      "file": "manifests/mds.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 60,
+        "avg_edit_time": 228.8
+      }
+    }
+  ]
+}

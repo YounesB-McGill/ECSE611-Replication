@@ -1,0 +1,1926 @@
+{
+  "proj_name": "openstack_puppet-nova",
+  "url": "https://github.com/openstack/puppet-nova",
+  "process_metrics": [
+    {
+      "file": "manifests/quota.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 11,
+        "fix_commits": 4,
+        "age": 89,
+        "avg_edit_time": 157.71428571428572
+      }
+    },
+    {
+      "file": "manifests/placement.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 7,
+        "fix_commits": 2,
+        "age": 22,
+        "avg_edit_time": 80
+      }
+    },
+    {
+      "file": "nova/manifests/all.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 90,
+        "avg_edit_time": 0.375
+      }
+    },
+    {
+      "file": "tests/rackspace/all.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 221.66666666666666
+      }
+    },
+    {
+      "file": "spec/fixtures/manifests/site.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 80,
+        "avg_edit_time": 252.66666666666666
+      }
+    },
+    {
+      "file": "nova/manifests/init.pp",
+      "process_metrics": {
+        "commits": 19,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 90,
+        "avg_edit_time": 0.8421052631578947
+      }
+    },
+    {
+      "file": "nova/manifests/compute/xenserver.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 90,
+        "avg_edit_time": 3.1666666666666665
+      }
+    },
+    {
+      "file": "manifests/network/flat.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 89,
+        "avg_edit_time": 181.11111111111111
+      }
+    },
+    {
+      "file": "manifests/ubuntu/compute.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0.75
+      }
+    },
+    {
+      "file": "nova/tests/canonical/all.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 90,
+        "avg_edit_time": 1.8571428571428572
+      }
+    },
+    {
+      "file": "manifests/compute/vgpu.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 4,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "tests/compute.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "examples/nova_wsgi.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 32,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/deps.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 11,
+        "fix_commits": 3,
+        "age": 35,
+        "avg_edit_time": 73.91666666666667
+      }
+    },
+    {
+      "file": "manifests/compute/libvirt/qemu.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 22,
+        "avg_edit_time": 108.83333333333333
+      }
+    },
+    {
+      "file": "manifests/conductor.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 12,
+        "fix_commits": 1,
+        "age": 68,
+        "avg_edit_time": 117.42857142857143
+      }
+    },
+    {
+      "file": "manifests/project.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 3.5
+      }
+    },
+    {
+      "file": "nova/manifests/manage/project.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 4
+      }
+    },
+    {
+      "file": "nova/tests/network.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/rackspace/dev.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/cell_v2/discover_hosts.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 164
+      }
+    },
+    {
+      "file": "manifests/serialproxy.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 46,
+        "avg_edit_time": 159.25
+      }
+    },
+    {
+      "file": "nova/manifests/network/bridge.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/keystone.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 80,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/compute/kvm.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 80,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/messagebus.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 3.5
+      }
+    },
+    {
+      "file": "manifests/api.pp",
+      "process_metrics": {
+        "commits": 129,
+        "developers": 48,
+        "fix_commits": 23,
+        "age": 89,
+        "avg_edit_time": 20.333333333333332
+      }
+    },
+    {
+      "file": "manifests/db/sync_cell_v2.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 22,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "nova/tests/openstack-compute.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/vncproxy.pp",
+      "process_metrics": {
+        "commits": 33,
+        "developers": 18,
+        "fix_commits": 9,
+        "age": 80,
+        "avg_edit_time": 68.06060606060606
+      }
+    },
+    {
+      "file": "manifests/keystone/auth.pp",
+      "process_metrics": {
+        "commits": 36,
+        "developers": 18,
+        "fix_commits": 3,
+        "age": 79,
+        "avg_edit_time": 52.75
+      }
+    },
+    {
+      "file": "manifests/keystone/authtoken.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 9,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 49.69230769230769
+      }
+    },
+    {
+      "file": "manifests/manage/floating.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 80,
+        "avg_edit_time": 226.66666666666666
+      }
+    },
+    {
+      "file": "manifests/compute/libvirt/config.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 15,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/manage/cells.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 62,
+        "avg_edit_time": 160.8
+      }
+    },
+    {
+      "file": "manifests/db/sync.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 8,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 119.125
+      }
+    },
+    {
+      "file": "manifests/db.pp",
+      "process_metrics": {
+        "commits": 29,
+        "developers": 12,
+        "fix_commits": 2,
+        "age": 89,
+        "avg_edit_time": 91.72413793103448
+      }
+    },
+    {
+      "file": "manifests/cell_v2/simple_setup.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 21,
+        "avg_edit_time": 58.666666666666664
+      }
+    },
+    {
+      "file": "manifests/manage/admin.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 1.25
+      }
+    },
+    {
+      "file": "tests/ubuntu/cc.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 89,
+        "avg_edit_time": 60
+      }
+    },
+    {
+      "file": "manifests/cron/archive_deleted_rows.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 50,
+        "avg_edit_time": 142
+      }
+    },
+    {
+      "file": "tests/compute/libvirt.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "nova/manifests/api.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 4.75
+      }
+    },
+    {
+      "file": "examples/multi.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 79,
+        "avg_edit_time": 51.5
+      }
+    },
+    {
+      "file": "nova/tests/db.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 10
+      }
+    },
+    {
+      "file": "nova/manifests/rackspace/all.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 90,
+        "avg_edit_time": 1.5555555555555556
+      }
+    },
+    {
+      "file": "tests/api.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/db/mysql/host_access.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 79,
+        "avg_edit_time": 231.66666666666666
+      }
+    },
+    {
+      "file": "manifests/compute/rbd.pp",
+      "process_metrics": {
+        "commits": 24,
+        "developers": 17,
+        "fix_commits": 9,
+        "age": 57,
+        "avg_edit_time": 53.708333333333336
+      }
+    },
+    {
+      "file": "manifests/vncproxy/common.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 3,
+        "age": 43,
+        "avg_edit_time": 202.8
+      }
+    },
+    {
+      "file": "manifests/rabbitmq.pp",
+      "process_metrics": {
+        "commits": 21,
+        "developers": 9,
+        "fix_commits": 2,
+        "age": 89,
+        "avg_edit_time": 83.52380952380952
+      }
+    },
+    {
+      "file": "tests/volume/iscsi.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 78,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/compute/serial.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 46,
+        "avg_edit_time": 131
+      }
+    },
+    {
+      "file": "manifests/compute/libvirt/services.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 29,
+        "avg_edit_time": 103.25
+      }
+    },
+    {
+      "file": "manifests/network/neutron.pp",
+      "process_metrics": {
+        "commits": 28,
+        "developers": 18,
+        "fix_commits": 5,
+        "age": 63,
+        "avg_edit_time": 66.46428571428571
+      }
+    },
+    {
+      "file": "manifests/db/host_access.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "nova/tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/db/postgresql.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 3,
+        "age": 67,
+        "avg_edit_time": 191.4
+      }
+    },
+    {
+      "file": "glance/manifests/api.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/db/mysql_api.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 33,
+        "avg_edit_time": 123
+      }
+    },
+    {
+      "file": "glance/manifests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 6.5
+      }
+    },
+    {
+      "file": "manifests/rackspace/repo.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/objectstore.pp",
+      "process_metrics": {
+        "commits": 20,
+        "developers": 9,
+        "fix_commits": 2,
+        "age": 89,
+        "avg_edit_time": 81.35
+      }
+    },
+    {
+      "file": "manifests/generic_service.pp",
+      "process_metrics": {
+        "commits": 24,
+        "developers": 18,
+        "fix_commits": 7,
+        "age": 80,
+        "avg_edit_time": 77.5
+      }
+    },
+    {
+      "file": "manifests/consoleauth.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 7,
+        "fix_commits": 0,
+        "age": 79,
+        "avg_edit_time": 146.66666666666666
+      }
+    },
+    {
+      "file": "manifests/availability_zone.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 199.5
+      }
+    },
+    {
+      "file": "manifests/patch/config.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 14,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 190,
+        "developers": 62,
+        "fix_commits": 23,
+        "age": 89,
+        "avg_edit_time": 13.673684210526316
+      }
+    },
+    {
+      "file": "manifests/network/flatdhcp.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 89,
+        "avg_edit_time": 163.1
+      }
+    },
+    {
+      "file": "tests/multi.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 65,
+        "avg_edit_time": 27.75
+      }
+    },
+    {
+      "file": "manifests/config.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 56,
+        "avg_edit_time": 156.25
+      }
+    },
+    {
+      "file": "nova/tests/openstack-all.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "nova/tests/api.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/manage/network.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 8,
+        "fix_commits": 4,
+        "age": 89,
+        "avg_edit_time": 95.82352941176471
+      }
+    },
+    {
+      "file": "manifests/db/allowed_hosts.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "nova/tests/openstack-network.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "nova/manifests/scheduler.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 4.75
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 81,
+        "developers": 38,
+        "fix_commits": 14,
+        "age": 80,
+        "avg_edit_time": 28.97530864197531
+      }
+    },
+    {
+      "file": "examples/site.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 80,
+        "avg_edit_time": 33.69230769230769
+      }
+    },
+    {
+      "file": "manifests/network/vlan.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 79,
+        "avg_edit_time": 166.25
+      }
+    },
+    {
+      "file": "manifests/cell_v2/map_cell0.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 65.4
+      }
+    },
+    {
+      "file": "nova/manifests/project.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "python/manifests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 3
+      }
+    },
+    {
+      "file": "tests/all.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 8,
+        "fix_commits": 1,
+        "age": 89,
+        "avg_edit_time": 63.61538461538461
+      }
+    },
+    {
+      "file": "manifests/migration/libvirt.pp",
+      "process_metrics": {
+        "commits": 32,
+        "developers": 20,
+        "fix_commits": 10,
+        "age": 74,
+        "avg_edit_time": 64.40625
+      }
+    },
+    {
+      "file": "examples/all.pp",
+      "process_metrics": {
+        "commits": 19,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 79,
+        "avg_edit_time": 21.68421052631579
+      }
+    },
+    {
+      "file": "nova/manifests/network/flat.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0.3333333333333333
+      }
+    },
+    {
+      "file": "manifests/compute/spice.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 64,
+        "avg_edit_time": 443.75
+      }
+    },
+    {
+      "file": "manifests/metadata/novajoin/auth.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/compute/neutron.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 7,
+        "fix_commits": 2,
+        "age": 63,
+        "avg_edit_time": 190.625
+      }
+    },
+    {
+      "file": "manifests/db/postgresql_api.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/controller.pp",
+      "process_metrics": {
+        "commits": 21,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 89,
+        "avg_edit_time": 14.571428571428571
+      }
+    },
+    {
+      "file": "nova/tests/rackspace/all.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 2.6
+      }
+    },
+    {
+      "file": "nova/tests/rabbitmq.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/volume/san.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 72,
+        "avg_edit_time": 50.5
+      }
+    },
+    {
+      "file": "nova/manifests/controller.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 4.666666666666667
+      }
+    },
+    {
+      "file": "manifests/keystone/auth_placement.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 22,
+        "avg_edit_time": 165.66666666666666
+      }
+    },
+    {
+      "file": "manifests/all.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 89,
+        "avg_edit_time": 18.058823529411764
+      }
+    },
+    {
+      "file": "manifests/manage/project.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 55.25
+      }
+    },
+    {
+      "file": "manifests/metadata.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 3,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/volume/iscsi.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 78,
+        "avg_edit_time": 63.857142857142854
+      }
+    },
+    {
+      "file": "manifests/cell_v2/map_cell_and_hosts.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 164
+      }
+    },
+    {
+      "file": "nova/tests/objectstore.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/scheduler.pp",
+      "process_metrics": {
+        "commits": 27,
+        "developers": 14,
+        "fix_commits": 5,
+        "age": 89,
+        "avg_edit_time": 98.51851851851852
+      }
+    },
+    {
+      "file": "nova/tests/openstack-objectstore.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "nova/manifests/db.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 90,
+        "avg_edit_time": 1.4545454545454546
+      }
+    },
+    {
+      "file": "manifests/compute/file_hack.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 78,
+        "avg_edit_time": 93.25
+      }
+    },
+    {
+      "file": "manifests/metadata/novajoin/api.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 22,
+        "avg_edit_time": 35.857142857142854
+      }
+    },
+    {
+      "file": "nova/tests/compute.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "glance/tests/api.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/network/bridge.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 89,
+        "avg_edit_time": 181.33333333333334
+      }
+    },
+    {
+      "file": "manifests/compute/vmware.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 9,
+        "fix_commits": 4,
+        "age": 59,
+        "avg_edit_time": 157.4
+      }
+    },
+    {
+      "file": "manifests/ironic/common.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 7,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 103.5
+      }
+    },
+    {
+      "file": "manifests/spicehtml5proxy.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 64,
+        "avg_edit_time": 253.42857142857142
+      }
+    },
+    {
+      "file": "nova/manifests/rabbitmq.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 3.25
+      }
+    },
+    {
+      "file": "nova/manifests/rackspace/dev.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 90,
+        "avg_edit_time": 4.666666666666667
+      }
+    },
+    {
+      "file": "manifests/canonical/all.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0.5
+      }
+    },
+    {
+      "file": "tests/rabbitmq.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/compute/xenserver.pp",
+      "process_metrics": {
+        "commits": 19,
+        "developers": 10,
+        "fix_commits": 3,
+        "age": 89,
+        "avg_edit_time": 131.10526315789474
+      }
+    },
+    {
+      "file": "glance/tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/utilities.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 7,
+        "fix_commits": 1,
+        "age": 89,
+        "avg_edit_time": 149.1818181818182
+      }
+    },
+    {
+      "file": "nova/tests/openstack-api.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "tests/canonical/all.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/wsgi/apache_placement.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 10,
+        "fix_commits": 2,
+        "age": 22,
+        "avg_edit_time": 49.666666666666664
+      }
+    },
+    {
+      "file": "manifests/logging.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 12,
+        "fix_commits": 1,
+        "age": 50,
+        "avg_edit_time": 81.94117647058823
+      }
+    },
+    {
+      "file": "nova/manifests/rackspace/repo.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 7.5
+      }
+    },
+    {
+      "file": "nova/manifests/manage/admin.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "keystone/auth.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 79,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/scheduler/filter.pp",
+      "process_metrics": {
+        "commits": 19,
+        "developers": 15,
+        "fix_commits": 6,
+        "age": 63,
+        "avg_edit_time": 91.94736842105263
+      }
+    },
+    {
+      "file": "manifests/metadata/novajoin/authtoken.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 6,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 61.57142857142857
+      }
+    },
+    {
+      "file": "manifests/ubuntu/cc.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 89,
+        "avg_edit_time": 6.875
+      }
+    },
+    {
+      "file": "nova/tests/scheduler.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "nova/manifests/quota.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "glance/manifests/registry.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/db/online_data_migrations.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 163.5
+      }
+    },
+    {
+      "file": "nova/manifests/utilities.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/compute/multi_host.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 79,
+        "avg_edit_time": 3.3333333333333335
+      }
+    },
+    {
+      "file": "manifests/compute/pci.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 14,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "tests/scheduler.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "nova/manifests/repo.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "nova/manifests/messagebus.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "nova/manifests/objectstore.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 4.75
+      }
+    },
+    {
+      "file": "manifests/compute/libvirt_guests.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 4,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/network.pp",
+      "process_metrics": {
+        "commits": 36,
+        "developers": 19,
+        "fix_commits": 3,
+        "age": 89,
+        "avg_edit_time": 53.19444444444444
+      }
+    },
+    {
+      "file": "manifests/cache.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/compute/ironic.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 7,
+        "fix_commits": 1,
+        "age": 47,
+        "avg_edit_time": 114
+      }
+    },
+    {
+      "file": "puppet/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "tests/volume.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 78,
+        "avg_edit_time": 165
+      }
+    },
+    {
+      "file": "manifests/compute/libvirt.pp",
+      "process_metrics": {
+        "commits": 71,
+        "developers": 40,
+        "fix_commits": 8,
+        "age": 89,
+        "avg_edit_time": 37.098591549295776
+      }
+    },
+    {
+      "file": "spec/defines/nova_manage_networks.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 78,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "nova/tests/nova_config.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "tests/site.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 65,
+        "avg_edit_time": 56
+      }
+    },
+    {
+      "file": "manifests/wsgi/apache.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 32,
+        "avg_edit_time": 75
+      }
+    },
+    {
+      "file": "manifests/migration/qemu.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 25,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "nova/tests/all.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 90,
+        "avg_edit_time": 0.375
+      }
+    },
+    {
+      "file": "manifests/wsgi/apache_api.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 22,
+        "avg_edit_time": 42
+      }
+    },
+    {
+      "file": "tests/nova_config.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 332.5
+      }
+    },
+    {
+      "file": "nova/manifests/manage/network.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/qpid.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 67,
+        "avg_edit_time": 193.4
+      }
+    },
+    {
+      "file": "manifests/db/mysql_placement.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 22,
+        "avg_edit_time": 262
+      }
+    },
+    {
+      "file": "manifests/network/quantum.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 75,
+        "avg_edit_time": 33
+      }
+    },
+    {
+      "file": "nova/tests/openstack-scheduler.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "glance/tests/registry.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "nova/manifests/compute.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 90,
+        "avg_edit_time": 1.9
+      }
+    },
+    {
+      "file": "manifests/rackspace/all.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0.8
+      }
+    },
+    {
+      "file": "tests/db.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 221.33333333333334
+      }
+    },
+    {
+      "file": "manifests/ubuntu/all.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 89,
+        "avg_edit_time": 9.166666666666666
+      }
+    },
+    {
+      "file": "manifests/cron/purge_shadow_tables.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 7,
+        "avg_edit_time": 44.333333333333336
+      }
+    },
+    {
+      "file": "tests/ubuntu/all.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 89,
+        "avg_edit_time": 18.666666666666668
+      }
+    },
+    {
+      "file": "tests/ubuntu/compute.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 131.4
+      }
+    },
+    {
+      "file": "manifests/cells.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 12,
+        "fix_commits": 1,
+        "age": 62,
+        "avg_edit_time": 95.9375
+      }
+    },
+    {
+      "file": "manifests/db/sync_api.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 33,
+        "avg_edit_time": 84.88888888888889
+      }
+    },
+    {
+      "file": "manifests/client.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 7,
+        "fix_commits": 1,
+        "age": 80,
+        "avg_edit_time": 247.11111111111111
+      }
+    },
+    {
+      "file": "manifests/pci.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 14,
+        "avg_edit_time": 130
+      }
+    },
+    {
+      "file": "extrapackages/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "tests/network.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/compute.pp",
+      "process_metrics": {
+        "commits": 88,
+        "developers": 49,
+        "fix_commits": 17,
+        "age": 89,
+        "avg_edit_time": 29.988636363636363
+      }
+    },
+    {
+      "file": "manifests/db/mysql.pp",
+      "process_metrics": {
+        "commits": 25,
+        "developers": 16,
+        "fix_commits": 4,
+        "age": 79,
+        "avg_edit_time": 89.28
+      }
+    },
+    {
+      "file": "manifests/compute/quantum.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 73,
+        "avg_edit_time": 52
+      }
+    },
+    {
+      "file": "manifests/volume.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 80,
+        "avg_edit_time": 20.8
+      }
+    },
+    {
+      "file": "tests/objectstore.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/policy.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 8,
+        "fix_commits": 1,
+        "age": 48,
+        "avg_edit_time": 144.5
+      }
+    },
+    {
+      "file": "manifests/wsgi/apache_metadata.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 3,
+        "avg_edit_time": 7.333333333333333
+      }
+    },
+    {
+      "file": "manifests/cell_v2/map_instances.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 164
+      }
+    },
+    {
+      "file": "nova/manifests/network.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 4.75
+      }
+    },
+    {
+      "file": "manifests/cors.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 8,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/cert.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 8,
+        "fix_commits": 1,
+        "age": 80,
+        "avg_edit_time": 155.66666666666666
+      }
+    },
+    {
+      "file": "nova/manifests/network/flatdhcp.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 89,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/cell_v2/cell.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 84.33333333333333
+      }
+    },
+    {
+      "file": "nova/manifests/canonical/all.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 90,
+        "avg_edit_time": 1.4444444444444444
+      }
+    },
+    {
+      "file": "examples/nova_with_pacemaker.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 57,
+        "avg_edit_time": 185
+      }
+    },
+    {
+      "file": "bzr/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 90,
+        "avg_edit_time": 0
+      }
+    }
+  ]
+}

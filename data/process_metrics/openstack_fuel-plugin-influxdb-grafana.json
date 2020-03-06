@@ -1,0 +1,306 @@
+{
+  "proj_name": "openstack_fuel-plugin-influxdb-grafana",
+  "url": "https://github.com/openstack/fuel-plugin-influxdb-grafana",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/puppet/manifests/hiera.pp",
+      "process_metrics": {
+        "commits": 24,
+        "developers": 3,
+        "fix_commits": 7,
+        "age": 34,
+        "avg_edit_time": 14.583333333333334
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/influxdb/manifests/init.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 58.666666666666664
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/lma_monitoring_analytics/manifests/influxdb.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 43,
+        "avg_edit_time": 52.1
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/lma_monitoring_analytics/manifests/influxdb_user.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/influxdb/manifests/service.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 70.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/influxdb/manifests/configure.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 39,
+        "avg_edit_time": 40.333333333333336
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/lma_monitoring_analytics/manifests/grafana.pp",
+      "process_metrics": {
+        "commits": 23,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 43,
+        "avg_edit_time": 18.217391304347824
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/haproxy.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 34,
+        "avg_edit_time": 27.923076923076923
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/influxdb.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 3,
+        "fix_commits": 4,
+        "age": 43,
+        "avg_edit_time": 38.588235294117645
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/lma_monitoring_analytics/manifests/influxdb_database.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/lma_monitoring_analytics/manifests/init.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 43,
+        "avg_edit_time": 8.666666666666666
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/grafana_configuration.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 34,
+        "avg_edit_time": 26.785714285714285
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/influxdb_configuration.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 34,
+        "avg_edit_time": 51.142857142857146
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/influxdb/manifests/install.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 58.833333333333336
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/lma_monitoring_analytics/manifests/grafana_dashboards.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 34,
+        "avg_edit_time": 26
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/hiera-override.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 34,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/influxdb/manifests/params.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 65
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/grafana.pp",
+      "process_metrics": {
+        "commits": 23,
+        "developers": 3,
+        "fix_commits": 4,
+        "age": 43,
+        "avg_edit_time": 28.391304347826086
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/enable_quorum.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 33,
+        "avg_edit_time": 29.75
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/grafana_mysql.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 33,
+        "avg_edit_time": 54.285714285714285
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/netconfig.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 38,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/lma_monitoring_analytics/manifests/params.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 43,
+        "avg_edit_time": 34.53846153846154
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/configure_default_route.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/validate_certificate.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/cluster.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 34,
+        "avg_edit_time": 30
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/firewall.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 41,
+        "avg_edit_time": 78.375
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/setup_influxdir.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 28.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/setup_disks.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 28.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/cluster-haproxy.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 31,
+        "avg_edit_time": 84.25
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/check_environment_configuration.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    }
+  ]
+}

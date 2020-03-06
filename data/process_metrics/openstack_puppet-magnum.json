@@ -1,0 +1,286 @@
+{
+  "proj_name": "openstack_puppet-magnum",
+  "url": "https://github.com/openstack/puppet-magnum",
+  "process_metrics": [
+    {
+      "file": "manifests/clients/nova.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 9,
+        "avg_edit_time": 59
+      }
+    },
+    {
+      "file": "manifests/clients/cinder.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 9,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/wsgi/apache.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 1,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/deps.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 23
+      }
+    },
+    {
+      "file": "manifests/clients/barbican.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 9,
+        "avg_edit_time": 59
+      }
+    },
+    {
+      "file": "manifests/conductor.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 30,
+        "avg_edit_time": 170
+      }
+    },
+    {
+      "file": "manifests/db/postgresql.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 129.66666666666666
+      }
+    },
+    {
+      "file": "manifests/keystone/domain.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 30,
+        "avg_edit_time": 113.2
+      }
+    },
+    {
+      "file": "manifests/clients.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 23,
+        "avg_edit_time": 116
+      }
+    },
+    {
+      "file": "manifests/client.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 30,
+        "avg_edit_time": 82.66666666666667
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 64.53333333333333
+      }
+    },
+    {
+      "file": "manifests/config.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 129.66666666666666
+      }
+    },
+    {
+      "file": "manifests/logging.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 98.75
+      }
+    },
+    {
+      "file": "examples/magnum.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 30,
+        "avg_edit_time": 51
+      }
+    },
+    {
+      "file": "manifests/api.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 7,
+        "fix_commits": 2,
+        "age": 34,
+        "avg_edit_time": 122
+      }
+    },
+    {
+      "file": "manifests/clients/glance.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 9,
+        "avg_edit_time": 59
+      }
+    },
+    {
+      "file": "manifests/db/mysql.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 36,
+        "avg_edit_time": 188.8
+      }
+    },
+    {
+      "file": "manifests/keystone/auth.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 97.25
+      }
+    },
+    {
+      "file": "manifests/keystone/authtoken.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 7,
+        "fix_commits": 1,
+        "age": 26,
+        "avg_edit_time": 47.61538461538461
+      }
+    },
+    {
+      "file": "manifests/policy.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 197
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 8,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 104
+      }
+    },
+    {
+      "file": "tests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 495.5
+      }
+    },
+    {
+      "file": "manifests/clients/heat.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 9,
+        "avg_edit_time": 59
+      }
+    },
+    {
+      "file": "manifests/db/sync.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 36,
+        "avg_edit_time": 120.85714285714286
+      }
+    },
+    {
+      "file": "manifests/db.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 36,
+        "avg_edit_time": 97.4
+      }
+    },
+    {
+      "file": "manifests/clients/neutron.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 9,
+        "avg_edit_time": 59
+      }
+    },
+    {
+      "file": "manifests/clients/magnum.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 9,
+        "avg_edit_time": 59
+      }
+    },
+    {
+      "file": "manifests/certificates.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 30,
+        "avg_edit_time": 102
+      }
+    }
+  ]
+}

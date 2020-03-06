@@ -1,0 +1,416 @@
+{
+  "proj_name": "openstack_fuel-plugin-external-zabbix",
+  "url": "https://github.com/openstack/fuel-plugin-external-zabbix",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/agent.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 41,
+        "avg_edit_time": 89.85714285714286
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 46.42857142857143
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/ceilometer_mon.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 90.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/controller.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 315.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/haproxy_mon.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 67
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/nova_mon.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 41,
+        "avg_edit_time": 85.4
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/keystone_mon.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 60.333333333333336
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/cleanup_apt_config.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 101.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/horizon_mon.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 81
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/agent/userparameter.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/db.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params/openstack.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 39.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/controller.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 41,
+        "avg_edit_time": 35.166666666666664
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/ha/haproxy.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 4,
+        "fix_commits": 3,
+        "age": 41,
+        "avg_edit_time": 73
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/firewall_mon.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 60.333333333333336
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/override_configuration.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 17,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/ceilometer_compute_mon.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/cinder_mon.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 90.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/glance_mon.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 90.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/openstack_virtual_mon.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 106.75
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/db/mysql.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 41,
+        "avg_edit_time": 143
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/server/config.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 41,
+        "avg_edit_time": 62.90909090909091
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/rabbitmq_mon.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 60
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/params.pp",
+      "process_metrics": {
+        "commits": 28,
+        "developers": 5,
+        "fix_commits": 12,
+        "age": 41,
+        "avg_edit_time": 25.785714285714285
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/primary_controller.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 315.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/db/mysql_db.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/openvswitch_mon.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 90.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/ha/haproxy_service.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/swift_mon.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 41,
+        "avg_edit_time": 142.66666666666666
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/primary_controller.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 41,
+        "avg_edit_time": 35.75
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/mysql_mon.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 41,
+        "avg_edit_time": 63
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/zabbix_server_config.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 315.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/ceph_mon.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 63
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/configure_apt.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 3
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/neutron_mon.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 41,
+        "avg_edit_time": 142.66666666666666
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/agent.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 41,
+        "avg_edit_time": 60.857142857142854
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/frontend.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 6,
+        "fix_commits": 5,
+        "age": 41,
+        "avg_edit_time": 63.3
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/zabbixserver_mon.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 90.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/agent/scripts.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 90.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/plugin_zabbix/manifests/monitoring/memcached_mon.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 90.5
+      }
+    }
+  ]
+}

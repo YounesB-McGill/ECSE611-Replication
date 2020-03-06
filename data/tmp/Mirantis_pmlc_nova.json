@@ -1,0 +1,98 @@
+    {
+      "url": "https://github.com/Mirantis/pmlc_nova",
+      "pp_files": [
+        "tests/init.pp",
+        "manifests/controller/service.pp",
+        "manifests/controller/config.pp",
+        "manifests/init.pp",
+        "manifests/params.pp",
+        "manifests/compute/service.pp",
+        "manifests/compute.pp",
+        "manifests/compute/install.pp",
+        "manifests/controller.pp",
+        "manifests/controller/install.pp",
+        "manifests/compute/config.pp"
+      ],
+      "pp_cmtrs": ["Scott Brimhall"],
+      "num_pp_commits": 7,
+      "num_tot_commits": 9,
+      "commits": [{
+        "hash": "92a099896e72a90f7a80668ed8476b16acacd83e",
+        "msg": "Initial commit",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-27 09:47:57-07:00",
+        "files": [
+            ".fixtures.yml",
+            ".gitignore",
+            "Gemfile",
+            "Modulefile",
+            "README",
+            "README.md",
+            "Rakefile",
+            "manifests/compute.pp",
+            "manifests/compute/config.pp",
+            "manifests/compute/install.pp",
+            "manifests/compute/service.pp",
+            "manifests/controller.pp",
+            "manifests/controller/config.pp",
+            "manifests/controller/install.pp",
+            "manifests/controller/service.pp",
+            "manifests/init.pp",
+            "manifests/params.pp",
+            "spec/spec_helper.rb",
+            "tests/init.pp"]
+      },
+      {
+        "hash": "9637a53947b416fc2bd7f61588a595718c3ca44b",
+        "msg": "Add toggle for whether to use ceph or not",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-29 09:26:38-07:00",
+        "files": [
+            "manifests/compute/config.pp",
+            "manifests/init.pp",
+            "manifests/params.pp"]
+      },
+      {
+        "hash": "2cbe257aec1cd23237c583b602611dcfa55a9df1",
+        "msg": "set use_ceph to true by default. fix typo",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-29 14:12:49-07:00",
+        "files": [
+            "manifests/init.pp"]
+      },
+      {
+        "hash": "8c1c74254797f2c0101af811374a4f512543e76b",
+        "msg": "Fix typo in selector",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-30 09:05:03-07:00",
+        "files": [
+            "manifests/init.pp",
+            "manifests/params.pp"]
+      },
+      {
+        "hash": "d47e457b3baf8d0333dce4d055af6d9231e6f504",
+        "msg": "This is a bit backwards, but default to true on use_ceph and inherit that in the params class to use with a selector for values.",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-30 09:13:43-07:00",
+        "files": [
+            "manifests/params.pp"]
+      },
+      {
+        "hash": "fa6b7bf53ee3d591cf98725c60f6646c932dab39",
+        "msg": "This is a bit backwards, but default to true on use_ceph and inherit that in the params class to use with a selector for values.",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-30 09:13:48-07:00",
+        "files": [
+            "manifests/init.pp"]
+      },
+      {
+        "hash": "3b1157bb68707b1c9092e61cb58824312d5fb5fd",
+        "msg": "Move live migration and image type out of parameter and into selector based on whether ceph is used or not",
+        "cmtr": "Scott Brimhall",
+        "date": "2015-07-30 09:37:35-07:00",
+        "files": [
+            "README.md",
+            "manifests/init.pp",
+            "manifests/params.pp"]
+      }]
+    }

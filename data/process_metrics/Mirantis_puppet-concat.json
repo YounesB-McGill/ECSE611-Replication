@@ -1,0 +1,46 @@
+{
+  "proj_name": "Mirantis_puppet-concat",
+  "url": "https://github.com/Mirantis/puppet-concat",
+  "process_metrics": [
+    {
+      "file": "manifests/setup.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 103,
+        "avg_edit_time": 67.54545454545455
+      }
+    },
+    {
+      "file": "spec/fixtures/manifests/site.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 77,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/fragment.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 103,
+        "avg_edit_time": 91.77777777777777
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 9,
+        "fix_commits": 2,
+        "age": 103,
+        "avg_edit_time": 56.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "proj_name": "Mirantis_puppet-module-keepalived",
+  "url": "https://github.com/Mirantis/puppet-module-keepalived",
+  "process_metrics": [
+    {
+      "file": "tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 77,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 77,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/config.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 77,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/variables.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 77,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/instance.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 77,
+        "avg_edit_time": 3
+      }
+    },
+    {
+      "file": "manifests/install.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 77,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/service.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 77,
+        "avg_edit_time": 0
+      }
+    }
+  ]
+}

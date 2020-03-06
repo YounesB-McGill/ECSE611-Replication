@@ -1,0 +1,1086 @@
+{
+  "proj_name": "openstack_puppet-neutron",
+  "url": "https://github.com/openstack/puppet-neutron",
+  "process_metrics": [
+    {
+      "file": "manifests/agents/ml2/networking_baremetal.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 8,
+        "avg_edit_time": 66
+      }
+    },
+    {
+      "file": "manifests/quota.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 13,
+        "fix_commits": 3,
+        "age": 66,
+        "avg_edit_time": 124.06666666666666
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/networking_ansible.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 4,
+        "avg_edit_time": 26.333333333333332
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/validate_vni_ranges.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 60,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugins/opencontrail.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 40,
+        "avg_edit_time": 58.333333333333336
+      }
+    },
+    {
+      "file": "manifests/agents/bigswitch.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 195.8
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/mech_driver.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 45,
+        "avg_edit_time": 68
+      }
+    },
+    {
+      "file": "manifests/deps.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 12,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 53
+      }
+    },
+    {
+      "file": "manifests/agents/l2gw.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 20,
+        "avg_edit_time": 128
+      }
+    },
+    {
+      "file": "manifests/plugins/ovs/bridge.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 73,
+        "avg_edit_time": 166.875
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/mellanox.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 7,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/arista/l3.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 30,
+        "avg_edit_time": 111.66666666666667
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/cisco/nexus_switch_server.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 38,
+        "avg_edit_time": 281.6666666666667
+      }
+    },
+    {
+      "file": "manifests/agents/lbaas.pp",
+      "process_metrics": {
+        "commits": 31,
+        "developers": 21,
+        "fix_commits": 4,
+        "age": 64,
+        "avg_edit_time": 53.96774193548387
+      }
+    },
+    {
+      "file": "manifests/plugins/ovs/opendaylight.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 9,
+        "fix_commits": 6,
+        "age": 35,
+        "avg_edit_time": 55.1875
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/cisco/nexus_switch.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 38,
+        "avg_edit_time": 168.6
+      }
+    },
+    {
+      "file": "manifests/services/bgpvpn.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 21,
+        "avg_edit_time": 32
+      }
+    },
+    {
+      "file": "manifests/keystone/auth.pp",
+      "process_metrics": {
+        "commits": 28,
+        "developers": 16,
+        "fix_commits": 4,
+        "age": 74,
+        "avg_edit_time": 60.142857142857146
+      }
+    },
+    {
+      "file": "manifests/keystone/authtoken.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 8,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 52.07692307692308
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/arista.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 30,
+        "avg_edit_time": 111.66666666666667
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/cisco/type_nexus_vxlan.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 292.6666666666667
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/vpp.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 22,
+        "avg_edit_time": 51
+      }
+    },
+    {
+      "file": "manifests/agents/ml2/vpp.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 22,
+        "avg_edit_time": 51
+      }
+    },
+    {
+      "file": "manifests/agents/ml2/sriov.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 11,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 46.714285714285715
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/ovn.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 27,
+        "avg_edit_time": 112.33333333333333
+      }
+    },
+    {
+      "file": "manifests/db/sync.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 8,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 97
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/fujitsu/fossw.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 22,
+        "avg_edit_time": 48
+      }
+    },
+    {
+      "file": "examples/neutron_wsgi.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 17,
+        "avg_edit_time": 130.33333333333334
+      }
+    },
+    {
+      "file": "manifests/db.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 7,
+        "fix_commits": 0,
+        "age": 38,
+        "avg_edit_time": 114.375
+      }
+    },
+    {
+      "file": "manifests/designate.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 5,
+        "avg_edit_time": 6.5
+      }
+    },
+    {
+      "file": "manifests/agents/metering.pp",
+      "process_metrics": {
+        "commits": 18,
+        "developers": 13,
+        "fix_commits": 2,
+        "age": 60,
+        "avg_edit_time": 80.5
+      }
+    },
+    {
+      "file": "manifests/plugins/ovs/agent.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 73,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/db/mysql/host_access.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 74,
+        "avg_edit_time": 108.66666666666667
+      }
+    },
+    {
+      "file": "examples/neutron.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 11,
+        "fix_commits": 4,
+        "age": 63,
+        "avg_edit_time": 110.5
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/fujitsu/cfab.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 56
+      }
+    },
+    {
+      "file": "manifests/services/lbaas/octavia.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 30,
+        "avg_edit_time": 153.33333333333334
+      }
+    },
+    {
+      "file": "manifests/plugins/openvswitch.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 74,
+        "avg_edit_time": 0.4166666666666667
+      }
+    },
+    {
+      "file": "manifests/db/host_access.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 74,
+        "avg_edit_time": 16
+      }
+    },
+    {
+      "file": "examples/base_provision.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 65,
+        "avg_edit_time": 100.66666666666667
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/type_driver.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 9,
+        "fix_commits": 2,
+        "age": 45,
+        "avg_edit_time": 128.22222222222223
+      }
+    },
+    {
+      "file": "manifests/db/postgresql.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 46,
+        "avg_edit_time": 175
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/fujitsu.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2.pp",
+      "process_metrics": {
+        "commits": 45,
+        "developers": 23,
+        "fix_commits": 8,
+        "age": 60,
+        "avg_edit_time": 36.6
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 131,
+        "developers": 45,
+        "fix_commits": 19,
+        "age": 74,
+        "avg_edit_time": 15.954198473282442
+      }
+    },
+    {
+      "file": "manifests/config.pp",
+      "process_metrics": {
+        "commits": 22,
+        "developers": 19,
+        "fix_commits": 2,
+        "age": 55,
+        "avg_edit_time": 69.72727272727273
+      }
+    },
+    {
+      "file": "manifests/plugins/nuage.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 63
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/opendaylight.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 35,
+        "avg_edit_time": 112.42857142857143
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 97,
+        "developers": 48,
+        "fix_commits": 14,
+        "age": 74,
+        "avg_edit_time": 22.216494845360824
+      }
+    },
+    {
+      "file": "manifests/plugins/nvp.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 8,
+        "fix_commits": 2,
+        "age": 59,
+        "avg_edit_time": 89
+      }
+    },
+    {
+      "file": "manifests/agents/ovs.pp",
+      "process_metrics": {
+        "commits": 39,
+        "developers": 14,
+        "fix_commits": 12,
+        "age": 73,
+        "avg_edit_time": 22.743589743589745
+      }
+    },
+    {
+      "file": "manifests/agents/metadata.pp",
+      "process_metrics": {
+        "commits": 34,
+        "developers": 24,
+        "fix_commits": 4,
+        "age": 66,
+        "avg_edit_time": 51.73529411764706
+      }
+    },
+    {
+      "file": "manifests/agents/ml2/linuxbridge.pp",
+      "process_metrics": {
+        "commits": 20,
+        "developers": 13,
+        "fix_commits": 1,
+        "age": 52,
+        "avg_edit_time": 70.85
+      }
+    },
+    {
+      "file": "manifests/agents/ml2/ovs.pp",
+      "process_metrics": {
+        "commits": 45,
+        "developers": 25,
+        "fix_commits": 7,
+        "age": 53,
+        "avg_edit_time": 34.55555555555556
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/mellanox/mlnx_sdn_assist.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 7,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/validate_tunnel_id_ranges.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 60,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/l3.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 74,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/server/placement.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 6,
+        "avg_edit_time": 24.5
+      }
+    },
+    {
+      "file": "manifests/plugins/midonet.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 9,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 70.9
+      }
+    },
+    {
+      "file": "manifests/services/lbaas.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 12,
+        "fix_commits": 1,
+        "age": 34,
+        "avg_edit_time": 70.71428571428571
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/cisco/nexus.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 7,
+        "fix_commits": 3,
+        "age": 52,
+        "avg_edit_time": 143.11111111111111
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/cisco/vts.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 13,
+        "avg_edit_time": 5.5
+      }
+    },
+    {
+      "file": "manifests/agents/l3.pp",
+      "process_metrics": {
+        "commits": 64,
+        "developers": 27,
+        "fix_commits": 12,
+        "age": 74,
+        "avg_edit_time": 32.21875
+      }
+    },
+    {
+      "file": "manifests/plugins/nsx.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 269.5
+      }
+    },
+    {
+      "file": "manifests/dhcp.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 74,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/bigswitch.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 38,
+        "avg_edit_time": 96.33333333333333
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/networking_ansible_host.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 4,
+        "avg_edit_time": 40
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/cisco/nexus1000v.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 6,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 104
+      }
+    },
+    {
+      "file": "manifests/services/vpnaas.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 33,
+        "avg_edit_time": 58.25
+      }
+    },
+    {
+      "file": "manifests/plugins/cisco.pp",
+      "process_metrics": {
+        "commits": 19,
+        "developers": 13,
+        "fix_commits": 6,
+        "age": 64,
+        "avg_edit_time": 93.89473684210526
+      }
+    },
+    {
+      "file": "manifests/rootwrap.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 22,
+        "avg_edit_time": 92
+      }
+    },
+    {
+      "file": "manifests/logging.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 7,
+        "fix_commits": 1,
+        "age": 30,
+        "avg_edit_time": 56
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/bagpipe.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 18,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "examples/cisco_ml2.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 259.75
+      }
+    },
+    {
+      "file": "manifests/server.pp",
+      "process_metrics": {
+        "commits": 118,
+        "developers": 48,
+        "fix_commits": 23,
+        "age": 73,
+        "avg_edit_time": 17.74576271186441
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/nuage.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 16,
+        "avg_edit_time": 71
+      }
+    },
+    {
+      "file": "manifests/agents/n1kv_vem.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 7,
+        "fix_commits": 3,
+        "age": 51,
+        "avg_edit_time": 68.5
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/bigswitch/restproxy.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 38,
+        "avg_edit_time": 143.75
+      }
+    },
+    {
+      "file": "manifests/agents/vpnaas.pp",
+      "process_metrics": {
+        "commits": 22,
+        "developers": 17,
+        "fix_commits": 5,
+        "age": 62,
+        "avg_edit_time": 78.0909090909091
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/cisco/nexus_creds.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 52,
+        "avg_edit_time": 184
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/cisco/ucsm.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 178
+      }
+    },
+    {
+      "file": "manifests/agents/bgp_dragent.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 4,
+        "avg_edit_time": 12
+      }
+    },
+    {
+      "file": "examples/neutron_l3_with_to_uuid.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 227.33333333333334
+      }
+    },
+    {
+      "file": "manifests/server/notifications.pp",
+      "process_metrics": {
+        "commits": 19,
+        "developers": 12,
+        "fix_commits": 3,
+        "age": 55,
+        "avg_edit_time": 79.47368421052632
+      }
+    },
+    {
+      "file": "manifests/services/sfc.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 13,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugins/plumgrid.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 13,
+        "fix_commits": 1,
+        "age": 42,
+        "avg_edit_time": 84.35714285714286
+      }
+    },
+    {
+      "file": "manifests/wsgi/apache.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 17,
+        "avg_edit_time": 28
+      }
+    },
+    {
+      "file": "manifests/agents/ovn_metadata.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 11,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/driver.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 60,
+        "avg_edit_time": 24.5
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/cisco.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 99.66666666666667
+      }
+    },
+    {
+      "file": "manifests/services/lbaas/haproxy.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 30,
+        "avg_edit_time": 24
+      }
+    },
+    {
+      "file": "manifests/plugins/linuxbridge.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 8,
+        "fix_commits": 2,
+        "age": 67,
+        "avg_edit_time": 62.90909090909091
+      }
+    },
+    {
+      "file": "manifests/plugins/ovs/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 73,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/services/l2gw.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 20,
+        "avg_edit_time": 15
+      }
+    },
+    {
+      "file": "examples/quantum.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 73,
+        "avg_edit_time": 37.714285714285715
+      }
+    },
+    {
+      "file": "manifests/agents/dhcp.pp",
+      "process_metrics": {
+        "commits": 56,
+        "developers": 30,
+        "fix_commits": 8,
+        "age": 74,
+        "avg_edit_time": 36.892857142857146
+      }
+    },
+    {
+      "file": "manifests/plugins/ovs/port.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 73,
+        "avg_edit_time": 166.875
+      }
+    },
+    {
+      "file": "manifests/client.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 8,
+        "fix_commits": 2,
+        "age": 73,
+        "avg_edit_time": 133.4
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/validate_network_vlan_ranges.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 60,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/db/mysql.pp",
+      "process_metrics": {
+        "commits": 18,
+        "developers": 15,
+        "fix_commits": 5,
+        "age": 74,
+        "avg_edit_time": 115.38888888888889
+      }
+    },
+    {
+      "file": "manifests/policy.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 49,
+        "avg_edit_time": 146.875
+      }
+    },
+    {
+      "file": "manifests/services/fwaas.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 9,
+        "fix_commits": 1,
+        "age": 62,
+        "avg_edit_time": 88.53846153846153
+      }
+    },
+    {
+      "file": "examples/neutron_with_pacemaker.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 55,
+        "avg_edit_time": 359.75
+      }
+    },
+    {
+      "file": "manifests/agents/linuxbridge.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 7,
+        "fix_commits": 1,
+        "age": 67,
+        "avg_edit_time": 86.625
+      }
+    },
+    {
+      "file": "manifests/plugins/ovs.pp",
+      "process_metrics": {
+        "commits": 35,
+        "developers": 14,
+        "fix_commits": 9,
+        "age": 73,
+        "avg_edit_time": 25.457142857142856
+      }
+    },
+    {
+      "file": "manifests/plugins/ovn.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 31,
+        "avg_edit_time": 65.75
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/networking_baremetal.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 8,
+        "avg_edit_time": 2.5
+      }
+    },
+    {
+      "file": "manifests/agents/bagpipe.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 6
+      }
+    },
+    {
+      "file": "manifests/plugins/ml2/midonet.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 52
+      }
+    }
+  ]
+}

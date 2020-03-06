@@ -1,0 +1,3796 @@
+{
+  "proj_name": "openstack_puppet-tripleo",
+  "url": "https://github.com/openstack/puppet-tripleo",
+  "process_metrics": [
+    {
+      "file": "manifests/profile/base/manila.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 7,
+        "fix_commits": 1,
+        "age": 25,
+        "avg_edit_time": 74.4
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/nova/api.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 3,
+        "age": 29,
+        "avg_edit_time": 18.166666666666668
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/scheduler.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 125.33333333333333
+      }
+    },
+    {
+      "file": "manifests/haproxy/endpoint.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 9,
+        "fix_commits": 3,
+        "age": 29,
+        "avg_edit_time": 49.23529411764706
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/neutron/plugins/opencontrail.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 12
+      }
+    },
+    {
+      "file": "manifests/profile/base/rsyslog/sidecar.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 11,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/compute_instanceha.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 11,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/ceilometer/upgrade.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 17,
+        "avg_edit_time": 83.83333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/base/mistral/event_engine.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 18,
+        "avg_edit_time": 174.33333333333334
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/compute/libvirt.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 39
+      }
+    },
+    {
+      "file": "manifests/profile/base/metrics/qdr.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 4,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/panko/api.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 6,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 77.11111111111111
+      }
+    },
+    {
+      "file": "manifests/profile/base/octavia/health_manager.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 104.66666666666667
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/clustercheck.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 17,
+        "avg_edit_time": 22.666666666666668
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/nuage.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 30,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume/scaleio.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 205
+      }
+    },
+    {
+      "file": "manifests/profile/base/loadbalancer.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 3.75
+      }
+    },
+    {
+      "file": "manifests/profile/base/rabbitmq.pp",
+      "process_metrics": {
+        "commits": 23,
+        "developers": 12,
+        "fix_commits": 4,
+        "age": 29,
+        "avg_edit_time": 31.91304347826087
+      }
+    },
+    {
+      "file": "manifests/profile/base/ceph/mds.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 22,
+        "avg_edit_time": 72.66666666666667
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/ovn_northd.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 229.33333333333334
+      }
+    },
+    {
+      "file": "manifests/certmonger/libvirt_vnc_dirs.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 8,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/monitoring/rabbitmq.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/compute/ironic.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 109.33333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume/eqlx.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 42.333333333333336
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/agents/lbaas.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 7,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/gnocchi/api.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 8.25
+      }
+    },
+    {
+      "file": "manifests/certmonger/opendaylight.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 9,
+        "avg_edit_time": 29.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/plugins/nuage.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 142.16666666666666
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/agents/bigswitch.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 42
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume/dellemc_vnx.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 9,
+        "avg_edit_time": 89.33333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/neutron/l3.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 30,
+        "avg_edit_time": 30
+      }
+    },
+    {
+      "file": "manifests/packages/upgrades.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 24,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/ironic_inspector.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 20,
+        "avg_edit_time": 99.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/logging/logrotate.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 14,
+        "avg_edit_time": 58.57142857142857
+      }
+    },
+    {
+      "file": "manifests/network/midonet/api.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 9
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/l3.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 30,
+        "avg_edit_time": 101
+      }
+    },
+    {
+      "file": "manifests/profile/base/securetty.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 25
+      }
+    },
+    {
+      "file": "manifests/haproxy/stats.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 15,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/manila/share.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 9,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 46.375
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/ec2api.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 89.57142857142857
+      }
+    },
+    {
+      "file": "manifests/profile/base/designate/central.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 9,
+        "avg_edit_time": 41.25
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/backup/nfs.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 7,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/firewall/service_rules.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 254.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/iscsid.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 15,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/aodh/notifier.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 78
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/ovn_dbs_bundle.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 4,
+        "fix_commits": 3,
+        "age": 14,
+        "avg_edit_time": 37.111111111111114
+      }
+    },
+    {
+      "file": "manifests/profile/base/designate/sink.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 9,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/wrappers/radvd.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 6,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/neutron/plugins/plumgrid.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 14.75
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/gnocchi/metricd.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 29.666666666666668
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/plugins/ml2/nuage.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 16,
+        "avg_edit_time": 161.5
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/glance.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 4,
+        "fix_commits": 3,
+        "age": 31,
+        "avg_edit_time": 24.714285714285715
+      }
+    },
+    {
+      "file": "manifests/haproxy.pp",
+      "process_metrics": {
+        "commits": 133,
+        "developers": 42,
+        "fix_commits": 18,
+        "age": 29,
+        "avg_edit_time": 6.022556390977444
+      }
+    },
+    {
+      "file": "manifests/profile/base/aide/rules.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 10,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/backup/ceph.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 153
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/metadata.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 3,
+        "avg_edit_time": 36.5
+      }
+    },
+    {
+      "file": "manifests/haproxy/service_endpoints.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 12,
+        "avg_edit_time": 22.333333333333332
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/migration/client.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 16,
+        "avg_edit_time": 70
+      }
+    },
+    {
+      "file": "manifests/vip_hosts.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/ceilometer/collector.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 8,
+        "fix_commits": 3,
+        "age": 28,
+        "avg_edit_time": 27.153846153846153
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/nova/vncproxy.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 27.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/time/ptp.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 11,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/network/contrail/neutron_plugin.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 21,
+        "avg_edit_time": 53
+      }
+    },
+    {
+      "file": "manifests/network/cavium/liquidio.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 10,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/heat/api_cfn.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 34
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/neutron/midonet.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 30,
+        "avg_edit_time": 37.5
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/gnocchi/statsd.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 29.666666666666668
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/agents/ovn.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 96
+      }
+    },
+    {
+      "file": "manifests/profile/base/certmonger_user.pp",
+      "process_metrics": {
+        "commits": 18,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 19,
+        "avg_edit_time": 28.27777777777778
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/haproxy.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 7,
+        "fix_commits": 4,
+        "age": 29,
+        "avg_edit_time": 67.91666666666667
+      }
+    },
+    {
+      "file": "manifests/certmonger/libvirt.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 69.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/plugins/nsx.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 14,
+        "avg_edit_time": 204.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/agents/l2gw.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 38
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/migration/proxy.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 14,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/certmonger/redis.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 14,
+        "avg_edit_time": 81
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/compute/libvirt_guests.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 3,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/wrappers/dibbler_client.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 6,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/logging/fluentd/fluentd_service.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 10,
+        "avg_edit_time": 55.4
+      }
+    },
+    {
+      "file": "manifests/certmonger/libvirt_vnc.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 8,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/trusted_ca.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/tripleo/loadbalancer.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/ironic/conductor.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 43.833333333333336
+      }
+    },
+    {
+      "file": "manifests/host/sriov/numvfs_persistence.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 26,
+        "avg_edit_time": 117
+      }
+    },
+    {
+      "file": "manifests/profile/base/mistral/engine.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 28,
+        "avg_edit_time": 136.16666666666666
+      }
+    },
+    {
+      "file": "manifests/network/contrail/webui.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 26,
+        "avg_edit_time": 76.75
+      }
+    },
+    {
+      "file": "manifests/network/contrail/vrouter.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 21,
+        "avg_edit_time": 52.666666666666664
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/cinder/api.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 29,
+        "avg_edit_time": 30.5
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/database/mongodb.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 28
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/opendaylight.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 65.25
+      }
+    },
+    {
+      "file": "manifests/profile/base/panko.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 52.5
+      }
+    },
+    {
+      "file": "manifests/certmonger/haproxy.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 28,
+        "avg_edit_time": 36.64705882352941
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/core.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 5.5
+      }
+    },
+    {
+      "file": "manifests/network/contrail/database.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 3,
+        "age": 26,
+        "avg_edit_time": 51
+      }
+    },
+    {
+      "file": "manifests/profile/base/octavia/housekeeping.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 69.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/vncproxy.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 121.33333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/plugins/ml2/opendaylight.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 4,
+        "fix_commits": 3,
+        "age": 27,
+        "avg_edit_time": 67
+      }
+    },
+    {
+      "file": "manifests/network/os_net_config.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 213.33333333333334
+      }
+    },
+    {
+      "file": "manifests/profile/base/etcd.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 28.8
+      }
+    },
+    {
+      "file": "manifests/profile/base/keystone.pp",
+      "process_metrics": {
+        "commits": 57,
+        "developers": 24,
+        "fix_commits": 6,
+        "age": 31,
+        "avg_edit_time": 15.947368421052632
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume/netapp.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 123.57142857142857
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/ml2.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 30,
+        "avg_edit_time": 16
+      }
+    },
+    {
+      "file": "manifests/certmonger/ca/crl.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 17,
+        "avg_edit_time": 72.83333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/base/aide/installdb.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 10,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/neutron/dhcp.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 30,
+        "avg_edit_time": 30
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/plugins/nsx_v3.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 37.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/pacemaker_remote.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 21,
+        "avg_edit_time": 100.33333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/neutron/metadata.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 30,
+        "avg_edit_time": 30
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/plugins/ovs/opendaylight.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 27,
+        "avg_edit_time": 75.9
+      }
+    },
+    {
+      "file": "manifests/profile/base/designate/worker.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 9,
+        "avg_edit_time": 69
+      }
+    },
+    {
+      "file": "manifests/profile/base/database/mongodb.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 121.14285714285714
+      }
+    },
+    {
+      "file": "manifests/profile/base/aodh/api.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 8,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 61
+      }
+    },
+    {
+      "file": "manifests/tls_proxy.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 22,
+        "avg_edit_time": 84
+      }
+    },
+    {
+      "file": "manifests/profile/base/designate/producer.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 9,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/ceilometer/agent/polling.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 20,
+        "avg_edit_time": 58
+      }
+    },
+    {
+      "file": "manifests/glance/nfs_mount.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 24,
+        "avg_edit_time": 90.66666666666667
+      }
+    },
+    {
+      "file": "manifests/profile/base/glance/api.pp",
+      "process_metrics": {
+        "commits": 27,
+        "developers": 15,
+        "fix_commits": 2,
+        "age": 31,
+        "avg_edit_time": 33.370370370370374
+      }
+    },
+    {
+      "file": "manifests/firewall/post.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 41,
+        "avg_edit_time": 282.25
+      }
+    },
+    {
+      "file": "manifests/haproxy/horizon_endpoint.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 14,
+        "avg_edit_time": 52
+      }
+    },
+    {
+      "file": "manifests/profile/base/ceilometer/agent/notification.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 89.5
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/neutron/lbaas.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 17,
+        "avg_edit_time": 171
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/ovn_metadata.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 11,
+        "avg_edit_time": 14
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume/hpelefthand.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 225.66666666666666
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/neutron/server.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 5,
+        "fix_commits": 3,
+        "age": 30,
+        "avg_edit_time": 11.625
+      }
+    },
+    {
+      "file": "manifests/profile/base/ceilometer.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 8,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 43.4
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/ceph/rbdmirror.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 21,
+        "avg_edit_time": 30.333333333333332
+      }
+    },
+    {
+      "file": "manifests/profile/base/time/ntp.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 207.33333333333334
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/neutron/ovs.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 30,
+        "avg_edit_time": 30
+      }
+    },
+    {
+      "file": "manifests/profile/base/gnocchi/statsd.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 68.4
+      }
+    },
+    {
+      "file": "manifests/profile/base/heat/engine.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 7,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 124.85714285714286
+      }
+    },
+    {
+      "file": "manifests/noop.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/docker.pp",
+      "process_metrics": {
+        "commits": 27,
+        "developers": 12,
+        "fix_commits": 2,
+        "age": 20,
+        "avg_edit_time": 15.592592592592593
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume/dellemc_xtremio_iscsi.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 8,
+        "avg_edit_time": 122.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/heat/api_cloudwatch.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 7,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 48.63636363636363
+      }
+    },
+    {
+      "file": "manifests/profile/base/aide/cron.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 10,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/sahara/engine.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 3,
+        "age": 28,
+        "avg_edit_time": 21.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/plumgrid.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 182.66666666666666
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 8,
+        "fix_commits": 3,
+        "age": 29,
+        "avg_edit_time": 61
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/compute.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 8,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 48.07142857142857
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/agents/vpp.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 45
+      }
+    },
+    {
+      "file": "manifests/certmonger/httpd.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 24,
+        "avg_edit_time": 75.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume/dellemc_unity.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 15,
+        "avg_edit_time": 223
+      }
+    },
+    {
+      "file": "manifests/database/mysql.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 21
+      }
+    },
+    {
+      "file": "manifests/certmonger/openvswitch.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 9,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/pacemaker.pp",
+      "process_metrics": {
+        "commits": 25,
+        "developers": 7,
+        "fix_commits": 6,
+        "age": 28,
+        "avg_edit_time": 31.52
+      }
+    },
+    {
+      "file": "manifests/profile/base/lvm.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 16,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/bgpvpn.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 20,
+        "avg_edit_time": 31
+      }
+    },
+    {
+      "file": "manifests/trusted_cas.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/docker_registry.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 22,
+        "avg_edit_time": 63.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/memcached.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 149.75
+      }
+    },
+    {
+      "file": "manifests/profile/base/trove/taskmanager.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 30,
+        "avg_edit_time": 201.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/ironic/api.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 120.85714285714286
+      }
+    },
+    {
+      "file": "manifests/keepalived.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 10,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 71.0909090909091
+      }
+    },
+    {
+      "file": "manifests/profile/base/auditd.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 68.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/monitoring/sensu.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 77
+      }
+    },
+    {
+      "file": "manifests/profile/base/database/redis.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 6,
+        "fix_commits": 3,
+        "age": 29,
+        "avg_edit_time": 107.5
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/ceilometer/collector.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 28,
+        "avg_edit_time": 26
+      }
+    },
+    {
+      "file": "manifests/host/sriov.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 26,
+        "avg_edit_time": 93.6
+      }
+    },
+    {
+      "file": "manifests/certmonger/ca/libvirt_vnc.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 8,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/apache.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 27,
+        "avg_edit_time": 18.25
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/backup.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 153
+      }
+    },
+    {
+      "file": "manifests/profile/base/metrics/collectd/collectd_service.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/aodh/listener.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 78
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/database/mysql.pp",
+      "process_metrics": {
+        "commits": 33,
+        "developers": 12,
+        "fix_commits": 6,
+        "age": 28,
+        "avg_edit_time": 20.757575757575758
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/manila.pp",
+      "process_metrics": {
+        "commits": 22,
+        "developers": 10,
+        "fix_commits": 6,
+        "age": 29,
+        "avg_edit_time": 20.363636363636363
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/sahara.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 18.25
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume/dellemc_vmax_iscsi.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 14,
+        "avg_edit_time": 214.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/n1k.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 30,
+        "avg_edit_time": 202
+      }
+    },
+    {
+      "file": "manifests/profile/base/novajoin.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 17,
+        "avg_edit_time": 71.5
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/database/mongodbvalidator.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/ironic.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 11,
+        "fix_commits": 3,
+        "age": 29,
+        "avg_edit_time": 49.470588235294116
+      }
+    },
+    {
+      "file": "manifests/package_provider.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/nova/scheduler.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 27.5
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/haproxy_bundle.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 5,
+        "fix_commits": 3,
+        "age": 17,
+        "avg_edit_time": 42.083333333333336
+      }
+    },
+    {
+      "file": "manifests/host/liquidio/compute.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 1,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/cinder/backup_bundle.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 9,
+        "fix_commits": 2,
+        "age": 17,
+        "avg_edit_time": 38.45454545454545
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/plugins/ml2/networking_ansible.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 4,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/database/schemas.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 10
+      }
+    },
+    {
+      "file": "manifests/certmonger/libvirt_dirs.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/gnocchi.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 5.333333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/base/ceph/rgw.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 74.71428571428571
+      }
+    },
+    {
+      "file": "manifests/profile/base/glance/registry.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 31,
+        "avg_edit_time": 29.333333333333332
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/plugins/ml2/bagpipe.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 18,
+        "avg_edit_time": 31
+      }
+    },
+    {
+      "file": "manifests/profile/base/ceilometer/api.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 8,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 38.53846153846154
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/agents/networking_baremetal.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 7,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/linuxbridge.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 18,
+        "avg_edit_time": 27.5
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/neutron/plugins/ml2.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 11.75
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/dhcp.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 30,
+        "avg_edit_time": 67.16666666666667
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron.pp",
+      "process_metrics": {
+        "commits": 18,
+        "developers": 11,
+        "fix_commits": 2,
+        "age": 30,
+        "avg_edit_time": 41.333333333333336
+      }
+    },
+    {
+      "file": "manifests/profile/base/congress.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 88.71428571428571
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/keystone.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 6,
+        "fix_commits": 3,
+        "age": 31,
+        "avg_edit_time": 11.25
+      }
+    },
+    {
+      "file": "manifests/profile/base/database/mysql/user.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 1,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/l3_agent_wrappers.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 6,
+        "avg_edit_time": 9
+      }
+    },
+    {
+      "file": "manifests/profile/base/trove/conductor.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 30,
+        "avg_edit_time": 201.5
+      }
+    },
+    {
+      "file": "manifests/stunnel/service_proxy.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 14,
+        "avg_edit_time": 118.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/plugins/ml2.pp",
+      "process_metrics": {
+        "commits": 20,
+        "developers": 16,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 41.45
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume/pure.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 187.33333333333334
+      }
+    },
+    {
+      "file": "manifests/fencing.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 41,
+        "avg_edit_time": 171.28571428571428
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/cinder/scheduler.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 30.25
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/ceilometer/agent/central.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 34.666666666666664
+      }
+    },
+    {
+      "file": "manifests/loadbalancer.pp",
+      "process_metrics": {
+        "commits": 74,
+        "developers": 18,
+        "fix_commits": 9,
+        "age": 45,
+        "avg_edit_time": 6.081081081081081
+      }
+    },
+    {
+      "file": "manifests/profile/base/swift/storage.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 62.55555555555556
+      }
+    },
+    {
+      "file": "manifests/pacemaker/resource_restart_flag.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 26,
+        "avg_edit_time": 108
+      }
+    },
+    {
+      "file": "manifests/profile/base/designate.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 9,
+        "avg_edit_time": 41.4
+      }
+    },
+    {
+      "file": "manifests/profile/base/ceph/client.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 118.66666666666667
+      }
+    },
+    {
+      "file": "manifests/profile/base/ceph.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 71
+      }
+    },
+    {
+      "file": "manifests/profile/base/glance/netapp.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 2,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/swift/add_devices.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 21.333333333333332
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/sfc.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 13,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/gnocchi/api.pp",
+      "process_metrics": {
+        "commits": 28,
+        "developers": 15,
+        "fix_commits": 7,
+        "age": 28,
+        "avg_edit_time": 29.142857142857142
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 54
+      }
+    },
+    {
+      "file": "manifests/profile/base/tacker.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 88.71428571428571
+      }
+    },
+    {
+      "file": "manifests/profile/base/validations.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/scheduler.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 121.33333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/base/database/mongodbcommon.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 14.25
+      }
+    },
+    {
+      "file": "manifests/profile/base/ceilometer/agent/central.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 87.83333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/base/manila/scheduler.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 75
+      }
+    },
+    {
+      "file": "manifests/profile/base/metrics/collectd.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 22,
+        "avg_edit_time": 72.625
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/memcached.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 45.333333333333336
+      }
+    },
+    {
+      "file": "manifests/profile/base/metrics/collectd/plugin_helper.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 22,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume.pp",
+      "process_metrics": {
+        "commits": 21,
+        "developers": 12,
+        "fix_commits": 3,
+        "age": 29,
+        "avg_edit_time": 34.857142857142854
+      }
+    },
+    {
+      "file": "manifests/profile/base/ui.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 98.66666666666667
+      }
+    },
+    {
+      "file": "manifests/profile/base/vpp.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 20,
+        "avg_edit_time": 58
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/loadbalancer.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 29,
+        "avg_edit_time": 3.75
+      }
+    },
+    {
+      "file": "manifests/profile/base/mistral/api.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 8,
+        "fix_commits": 3,
+        "age": 28,
+        "avg_edit_time": 67.91666666666667
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/nova.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 12.8
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/dhcp_agent_wrappers.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 6,
+        "avg_edit_time": 9
+      }
+    },
+    {
+      "file": "manifests/network/contrail/heat.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 21,
+        "avg_edit_time": 39.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/backup/swift.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 217
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/plugins/ml2/networking_baremetal.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 7,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/plugins/plumgrid.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 142.16666666666666
+      }
+    },
+    {
+      "file": "manifests/profile/base/ceph/osd.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 71
+      }
+    },
+    {
+      "file": "manifests/firewall.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 7,
+        "fix_commits": 2,
+        "age": 40,
+        "avg_edit_time": 90.66666666666667
+      }
+    },
+    {
+      "file": "manifests/loadbalancer/endpoint.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 11
+      }
+    },
+    {
+      "file": "manifests/profile/base/gnocchi.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 177.25
+      }
+    },
+    {
+      "file": "manifests/profile/base/pacemaker/instance_ha.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 11,
+        "avg_edit_time": 57.666666666666664
+      }
+    },
+    {
+      "file": "manifests/profile/base/heat/api.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 8,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 72.58333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/base/mistral/executor.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 3,
+        "fix_commits": 4,
+        "age": 28,
+        "avg_edit_time": 102
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/authtoken.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 20,
+        "avg_edit_time": 47
+      }
+    },
+    {
+      "file": "manifests/profile/base/sahara.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 9,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 61.57142857142857
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/opencontrail/vrouter.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 171
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/heat/api_cloudwatch.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 34
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/api.pp",
+      "process_metrics": {
+        "commits": 18,
+        "developers": 11,
+        "fix_commits": 5,
+        "age": 29,
+        "avg_edit_time": 47.44444444444444
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/neutron/ml2.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 30,
+        "avg_edit_time": 16
+      }
+    },
+    {
+      "file": "manifests/profile/base/octavia/api.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 125.6
+      }
+    },
+    {
+      "file": "manifests/network/midonet/agent.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 9
+      }
+    },
+    {
+      "file": "manifests/ssl/cinder_config.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 33,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/opendaylight/configure_cluster.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 17,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/cinder/volume.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 5,
+        "fix_commits": 4,
+        "age": 29,
+        "avg_edit_time": 46.625
+      }
+    },
+    {
+      "file": "manifests/stunnel.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 14,
+        "avg_edit_time": 138
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/heat/engine.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 28,
+        "avg_edit_time": 25.5
+      }
+    },
+    {
+      "file": "manifests/pacemaker/haproxy_with_vip.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 31,
+        "avg_edit_time": 108.5
+      }
+    },
+    {
+      "file": "manifests/firewall/pre.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 41,
+        "avg_edit_time": 281
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/ceilometer.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 14
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/l2gw.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 39
+      }
+    },
+    {
+      "file": "manifests/profile/base/sahara/api.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 76.2
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/sahara/api.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 28.666666666666668
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/ovn_northd.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 17,
+        "avg_edit_time": 36
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/conductor.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 93.25
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/midonet.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 30,
+        "avg_edit_time": 50.25
+      }
+    },
+    {
+      "file": "manifests/profile/base/zaqar.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 9,
+        "fix_commits": 0,
+        "age": 24,
+        "avg_edit_time": 51.357142857142854
+      }
+    },
+    {
+      "file": "manifests/profile/base/swift/proxy.pp",
+      "process_metrics": {
+        "commits": 28,
+        "developers": 12,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 30.285714285714285
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/rabbitmq_bundle.pp",
+      "process_metrics": {
+        "commits": 17,
+        "developers": 8,
+        "fix_commits": 7,
+        "age": 17,
+        "avg_edit_time": 29.294117647058822
+      }
+    },
+    {
+      "file": "manifests/profile/base/designate/api.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 9,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/masquerade_networks.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 7,
+        "avg_edit_time": 2
+      }
+    },
+    {
+      "file": "manifests/profile/base/qdr.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 77.33333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/agents/nuage.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 136.66666666666666
+      }
+    },
+    {
+      "file": "manifests/profile/base/aide.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 10,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/network/contrail/config.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 26,
+        "avg_edit_time": 61.2
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/ceilometer/api.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 14
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/wrappers/keepalived.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 6,
+        "avg_edit_time": 14
+      }
+    },
+    {
+      "file": "manifests/network/contrail/analyticsdatabase.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 21,
+        "avg_edit_time": 52.666666666666664
+      }
+    },
+    {
+      "file": "manifests/profile/base/apache.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 11,
+        "avg_edit_time": 30
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/plugins/ml2/ovn.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 96
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/metadata.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 30,
+        "avg_edit_time": 101
+      }
+    },
+    {
+      "file": "manifests/profile/base/monitoring/uchiwa.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 103
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/wrappers/keepalived_state_change.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 6,
+        "avg_edit_time": 14
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/database/mysql_bundle.pp",
+      "process_metrics": {
+        "commits": 19,
+        "developers": 8,
+        "fix_commits": 6,
+        "age": 17,
+        "avg_edit_time": 26.05263157894737
+      }
+    },
+    {
+      "file": "manifests/certmonger/etcd.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 18,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/certmonger/mysql.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 23,
+        "avg_edit_time": 53
+      }
+    },
+    {
+      "file": "manifests/profile/base/heat.pp",
+      "process_metrics": {
+        "commits": 21,
+        "developers": 14,
+        "fix_commits": 3,
+        "age": 29,
+        "avg_edit_time": 41.19047619047619
+      }
+    },
+    {
+      "file": "manifests/profile/base/tuned.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 19,
+        "avg_edit_time": 109
+      }
+    },
+    {
+      "file": "manifests/haproxy/userlist.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 10,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume/rbd.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 108
+      }
+    },
+    {
+      "file": "manifests/profile/base/ceilometer/expirer.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 165.2
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume/dellps.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 21,
+        "avg_edit_time": 122.6
+      }
+    },
+    {
+      "file": "manifests/profile/base/database/mysql.pp",
+      "process_metrics": {
+        "commits": 35,
+        "developers": 18,
+        "fix_commits": 3,
+        "age": 28,
+        "avg_edit_time": 23
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/heat.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 26.666666666666668
+      }
+    },
+    {
+      "file": "manifests/profile/base/database/mysql/client.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 7,
+        "fix_commits": 2,
+        "age": 20,
+        "avg_edit_time": 52.81818181818182
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/consoleauth.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 121.33333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/base/logging/fluentd.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 26,
+        "avg_edit_time": 59.7
+      }
+    },
+    {
+      "file": "manifests/host/liquidio/config.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 1,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/database/redis.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 10,
+        "fix_commits": 4,
+        "age": 29,
+        "avg_edit_time": 55.2
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/neutron.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 30,
+        "avg_edit_time": 21.142857142857142
+      }
+    },
+    {
+      "file": "manifests/certmonger/apache_dirs.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/wrappers/haproxy.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 6,
+        "avg_edit_time": 14
+      }
+    },
+    {
+      "file": "manifests/packages.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 90.66666666666667
+      }
+    },
+    {
+      "file": "manifests/profile/base/designate/mdns.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 9,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/metrics/collectd/gnocchi.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 11,
+        "avg_edit_time": 97
+      }
+    },
+    {
+      "file": "manifests/profile/base/login_defs.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 11,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/opendaylight/create_cluster.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 17,
+        "avg_edit_time": 22
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/rabbitmq.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 6,
+        "fix_commits": 3,
+        "age": 29,
+        "avg_edit_time": 55.416666666666664
+      }
+    },
+    {
+      "file": "manifests/profile/base/octavia.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 70.33333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova.pp",
+      "process_metrics": {
+        "commits": 28,
+        "developers": 9,
+        "fix_commits": 4,
+        "age": 29,
+        "avg_edit_time": 30.214285714285715
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/heat/api.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 34
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/plugins/ml2/vpp.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 45
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/nova/conductor.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 19.666666666666668
+      }
+    },
+    {
+      "file": "manifests/profile/base/kernel.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 116.33333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/base/horizon.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 8,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 68.16666666666667
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/compute_libvirt_shared.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 15,
+        "avg_edit_time": 54.333333333333336
+      }
+    },
+    {
+      "file": "manifests/network/contrail/analytics.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 26,
+        "avg_edit_time": 61.2
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/ovn_metadata_agent_wrappers.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 4,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume/veritas_hyperscale.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 15,
+        "avg_edit_time": 230.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/swift/ringbuilder.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 7,
+        "fix_commits": 5,
+        "age": 28,
+        "avg_edit_time": 50.666666666666664
+      }
+    },
+    {
+      "file": "manifests/profile/base/ceilometer/agent/compute.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 119.33333333333333
+      }
+    },
+    {
+      "file": "manifests/cluster/zookeeper.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 9
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/ceph_nfs.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 11,
+        "avg_edit_time": 81.75
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume/iscsi.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 6,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 144.33333333333334
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/manila/share_bundle.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 15,
+        "avg_edit_time": 69.8
+      }
+    },
+    {
+      "file": "manifests/redis_notification.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 43,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/network/contrail/provision.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 2,
+        "age": 21,
+        "avg_edit_time": 39.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/placement.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 7,
+        "fix_commits": 0,
+        "age": 22,
+        "avg_edit_time": 63.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/agents/bagpipe.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 34.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/keepalived.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 93.25
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/agents/midonet.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 113.33333333333333
+      }
+    },
+    {
+      "file": "manifests/certmonger/haproxy_dirs.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 15,
+        "avg_edit_time": 125
+      }
+    },
+    {
+      "file": "manifests/profile/base/snmp.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 78.33333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/nova/consoleauth.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 21.8
+      }
+    },
+    {
+      "file": "manifests/profile/base/trove/api.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 30,
+        "avg_edit_time": 147.83333333333334
+      }
+    },
+    {
+      "file": "manifests/cluster/cassandra.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 35,
+        "avg_edit_time": 7
+      }
+    },
+    {
+      "file": "manifests/ui.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 8,
+        "fix_commits": 0,
+        "age": 25,
+        "avg_edit_time": 34.0625
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/database/redis_bundle.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 8,
+        "fix_commits": 5,
+        "age": 17,
+        "avg_edit_time": 36.38461538461539
+      }
+    },
+    {
+      "file": "manifests/profile/base/gnocchi/metricd.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 68.4
+      }
+    },
+    {
+      "file": "manifests/profile/base/database/mysql/users.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 1,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/barbican/backends.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 12,
+        "avg_edit_time": 114.33333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume/nfs.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 144.33333333333334
+      }
+    },
+    {
+      "file": "manifests/profile/base/octavia/worker.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 104.66666666666667
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/server.pp",
+      "process_metrics": {
+        "commits": 15,
+        "developers": 8,
+        "fix_commits": 2,
+        "age": 30,
+        "avg_edit_time": 58.86666666666667
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/migration.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 16,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/migration/target.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 16,
+        "avg_edit_time": 32.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/sshd.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 22,
+        "avg_edit_time": 74.85714285714286
+      }
+    },
+    {
+      "file": "manifests/profile/base/mistral.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 9,
+        "fix_commits": 4,
+        "age": 28,
+        "avg_edit_time": 50.75
+      }
+    },
+    {
+      "file": "manifests/profile/base/monitoring/fluentd.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 3.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume/nvmeof.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 6,
+        "avg_edit_time": 88.5
+      }
+    },
+    {
+      "file": "manifests/certmonger/neutron.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 8,
+        "avg_edit_time": 24
+      }
+    },
+    {
+      "file": "manifests/profile/base/heat/api_cfn.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 8,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 72.58333333333333
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/api.pp",
+      "process_metrics": {
+        "commits": 31,
+        "developers": 12,
+        "fix_commits": 4,
+        "age": 29,
+        "avg_edit_time": 26.93548387096774
+      }
+    },
+    {
+      "file": "manifests/profile/base/sahara/engine.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 7,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 108.25
+      }
+    },
+    {
+      "file": "manifests/profile/base/barbican/api.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 9,
+        "fix_commits": 1,
+        "age": 24,
+        "avg_edit_time": 51.285714285714285
+      }
+    },
+    {
+      "file": "manifests/stunnel/systemd_unit.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 14,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/certmonger.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/certmonger/ca/local.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 150
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/database/schemas.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 10
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/sriov.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 70.8
+      }
+    },
+    {
+      "file": "manifests/profile/base/metrics/collectd/collectd_plugin.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 21,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/selinux.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 30,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/certmonger/ca/libvirt.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 19,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/aodh.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 8,
+        "fix_commits": 2,
+        "age": 27,
+        "avg_edit_time": 60.92307692307692
+      }
+    },
+    {
+      "file": "manifests/certmonger/mongodb.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 17,
+        "avg_edit_time": 46.5
+      }
+    },
+    {
+      "file": "manifests/network/contrail/control.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 26,
+        "avg_edit_time": 61.2
+      }
+    },
+    {
+      "file": "manifests/profile/base/manila/api.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 9,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 65.92307692307692
+      }
+    },
+    {
+      "file": "manifests/profile/base/nova/libvirt.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 7,
+        "fix_commits": 3,
+        "age": 28,
+        "avg_edit_time": 73.8
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/cinder/backup.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 6,
+        "fix_commits": 4,
+        "age": 27,
+        "avg_edit_time": 48.714285714285715
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/plugins/opencontrail.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 140.33333333333334
+      }
+    },
+    {
+      "file": "manifests/profile/base/haproxy.pp",
+      "process_metrics": {
+        "commits": 12,
+        "developers": 5,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 34.5
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/neutron/plugins/nuage.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 29,
+        "avg_edit_time": 14.75
+      }
+    },
+    {
+      "file": "manifests/profile/base/barbican.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 24,
+        "avg_edit_time": 118.5
+      }
+    },
+    {
+      "file": "manifests/profile/base/cinder/volume/dellsc.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 29,
+        "avg_edit_time": 123.57142857142857
+      }
+    },
+    {
+      "file": "manifests/profile/base/ceph/mon.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 89
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/wrappers/dnsmasq.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 6,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/firewall/rule.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 5,
+        "fix_commits": 3,
+        "age": 41,
+        "avg_edit_time": 112.3
+      }
+    },
+    {
+      "file": "manifests/certmonger/rabbitmq.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 20,
+        "avg_edit_time": 86.4
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/ovs.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 8,
+        "fix_commits": 1,
+        "age": 30,
+        "avg_edit_time": 83.625
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/plugins/ml2/vts.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 11,
+        "avg_edit_time": 77
+      }
+    },
+    {
+      "file": "manifests/profile/base/aodh/evaluator.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 6,
+        "fix_commits": 2,
+        "age": 27,
+        "avg_edit_time": 68.875
+      }
+    },
+    {
+      "file": "manifests/certmonger/novnc_proxy.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 2,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/ceilometer/agent/notification.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 34.666666666666664
+      }
+    },
+    {
+      "file": "manifests/profile/base/swift/dispersion.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 16,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/profile/base/neutron/lbaas.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 17,
+        "avg_edit_time": 107.66666666666667
+      }
+    },
+    {
+      "file": "manifests/profile/pacemaker/cinder/volume_bundle.pp",
+      "process_metrics": {
+        "commits": 11,
+        "developers": 9,
+        "fix_commits": 2,
+        "age": 17,
+        "avg_edit_time": 38.45454545454545
+      }
+    }
+  ]
+}

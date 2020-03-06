@@ -1,0 +1,286 @@
+{
+  "proj_name": "openstack_puppet-sahara",
+  "url": "https://github.com/openstack/puppet-sahara",
+  "process_metrics": [
+    {
+      "file": "manifests/db/mysql/host_access.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 59,
+        "avg_edit_time": 72
+      }
+    },
+    {
+      "file": "manifests/service/engine.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 38,
+        "avg_edit_time": 269.25
+      }
+    },
+    {
+      "file": "manifests/dashboard.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 59,
+        "avg_edit_time": 40.25
+      }
+    },
+    {
+      "file": "manifests/wsgi/apache.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 2,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/service.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 59,
+        "avg_edit_time": 72
+      }
+    },
+    {
+      "file": "manifests/deps.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 23,
+        "avg_edit_time": 23
+      }
+    },
+    {
+      "file": "manifests/notify/rabbitmq.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 36.125
+      }
+    },
+    {
+      "file": "manifests/db/postgresql.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 45,
+        "avg_edit_time": 223.33333333333334
+      }
+    },
+    {
+      "file": "manifests/install.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 59,
+        "avg_edit_time": 32
+      }
+    },
+    {
+      "file": "manifests/client.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 167
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 58,
+        "developers": 16,
+        "fix_commits": 8,
+        "age": 59,
+        "avg_edit_time": 27.620689655172413
+      }
+    },
+    {
+      "file": "manifests/config.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 40,
+        "avg_edit_time": 168.33333333333334
+      }
+    },
+    {
+      "file": "manifests/logging.pp",
+      "process_metrics": {
+        "commits": 14,
+        "developers": 5,
+        "fix_commits": 1,
+        "age": 37,
+        "avg_edit_time": 59.642857142857146
+      }
+    },
+    {
+      "file": "manifests/notify/qpid.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 72.5
+      }
+    },
+    {
+      "file": "manifests/db/mysql.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 59,
+        "avg_edit_time": 155.28571428571428
+      }
+    },
+    {
+      "file": "manifests/keystone/auth.pp",
+      "process_metrics": {
+        "commits": 10,
+        "developers": 7,
+        "fix_commits": 0,
+        "age": 59,
+        "avg_edit_time": 108.7
+      }
+    },
+    {
+      "file": "manifests/notify.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 71
+      }
+    },
+    {
+      "file": "manifests/keystone/authtoken.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 20,
+        "avg_edit_time": 47.666666666666664
+      }
+    },
+    {
+      "file": "manifests/policy.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 4,
+        "fix_commits": 0,
+        "age": 44,
+        "avg_edit_time": 257
+      }
+    },
+    {
+      "file": "manifests/params.pp",
+      "process_metrics": {
+        "commits": 16,
+        "developers": 11,
+        "fix_commits": 0,
+        "age": 59,
+        "avg_edit_time": 108.0625
+      }
+    },
+    {
+      "file": "manifests/service/api.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 4,
+        "fix_commits": 2,
+        "age": 38,
+        "avg_edit_time": 153.57142857142858
+      }
+    },
+    {
+      "file": "tests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 59,
+        "avg_edit_time": 72
+      }
+    },
+    {
+      "file": "example/example.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 59,
+        "avg_edit_time": 53.666666666666664
+      }
+    },
+    {
+      "file": "examples/basic.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 6,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 94.625
+      }
+    },
+    {
+      "file": "manifests/service/all.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 38,
+        "avg_edit_time": 269.25
+      }
+    },
+    {
+      "file": "manifests/notify/zeromq.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 45,
+        "avg_edit_time": 72.5
+      }
+    },
+    {
+      "file": "manifests/db/sync.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 162.66666666666666
+      }
+    },
+    {
+      "file": "manifests/db.pp",
+      "process_metrics": {
+        "commits": 8,
+        "developers": 5,
+        "fix_commits": 0,
+        "age": 38,
+        "avg_edit_time": 114.125
+      }
+    }
+  ]
+}

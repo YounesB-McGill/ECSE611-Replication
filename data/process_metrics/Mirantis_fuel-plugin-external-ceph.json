@@ -1,0 +1,146 @@
+{
+  "proj_name": "Mirantis_fuel-plugin-external-ceph",
+  "url": "https://github.com/Mirantis/fuel-plugin-external-ceph",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/images.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 49.333333333333336
+      }
+    },
+    {
+      "file": "deployment_scripts/radosgw.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/external_ceph/manifests/volumes_controller.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/volumes-controller.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 32,
+        "avg_edit_time": 25.166666666666668
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/external_ceph/manifests/volumes_ephemeral.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 1.3333333333333333
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/external_ceph/manifests/conf.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/external_ceph/manifests/images.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/volumes-types.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 70
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/external_ceph/manifests/radosgw_keystone.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/external_ceph/manifests/volumes_types.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 26,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/radosgw-keystone.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 49
+      }
+    },
+    {
+      "file": "deployment_scripts/volumes.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 2.5
+      }
+    },
+    {
+      "file": "deployment_scripts/volumes-and-ephemeral-compute.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 32,
+        "avg_edit_time": 30.2
+      }
+    },
+    {
+      "file": "deployment_scripts/conf.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 32,
+        "avg_edit_time": 22.285714285714285
+      }
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "proj_name": "Mirantis_puppet-kafka",
+  "url": "https://github.com/Mirantis/puppet-kafka",
+  "process_metrics": [
+    {
+      "file": "manifests/mirror/consumer.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 62,
+        "avg_edit_time": 143
+      }
+    },
+    {
+      "file": "manifests/client.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 51,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "manifests/init.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 65,
+        "avg_edit_time": 141.5
+      }
+    },
+    {
+      "file": "tests/kafka.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 65,
+        "avg_edit_time": 45
+      }
+    },
+    {
+      "file": "manifests/mirror.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 62,
+        "avg_edit_time": 159
+      }
+    },
+    {
+      "file": "tests/server.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 65,
+        "avg_edit_time": 45
+      }
+    },
+    {
+      "file": "manifests/defaults.pp",
+      "process_metrics": {
+        "commits": 20,
+        "developers": 3,
+        "fix_commits": 0,
+        "age": 65,
+        "avg_edit_time": 38.85
+      }
+    },
+    {
+      "file": "manifests/server.pp",
+      "process_metrics": {
+        "commits": 28,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 65,
+        "avg_edit_time": 30
+      }
+    },
+    {
+      "file": "manifests/server/jmxtrans.pp",
+      "process_metrics": {
+        "commits": 13,
+        "developers": 2,
+        "fix_commits": 3,
+        "age": 60,
+        "avg_edit_time": 49.23076923076923
+      }
+    }
+  ]
+}

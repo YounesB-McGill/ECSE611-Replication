@@ -1,0 +1,106 @@
+{
+  "proj_name": "openstack_fuel-plugin-ceilometer-redis",
+  "url": "https://github.com/openstack/fuel-plugin-ceilometer-redis",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/puppet/modules/redis/tests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/redis/manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/redis/manifests/init.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 10.5
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/redis/manifests/main.pp",
+      "process_metrics": {
+        "commits": 7,
+        "developers": 4,
+        "fix_commits": 3,
+        "age": 39,
+        "avg_edit_time": 46.714285714285715
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/redis/tests/sentinel.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/redis/manifests/sentinel.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 74.66666666666667
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/controller.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 39,
+        "avg_edit_time": 67.33333333333333
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/primary-controller.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/manifests/create_redis_ocf.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/puppet/modules/redis/manifests/sentinel_params.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 39,
+        "avg_edit_time": 10.5
+      }
+    }
+  ]
+}

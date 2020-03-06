@@ -1,0 +1,366 @@
+{
+  "proj_name": "Mirantis_fuel-plugin-standalone-ceph",
+  "url": "https://github.com/Mirantis/fuel-plugin-standalone-ceph",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/ceph-mon-firewall.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/enable_rados.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph_override/manifests/ceph/enable_rados.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/openstack-haproxy-radosgw.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 3,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 72
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph/manifests/osds.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/ssl_keys_saving.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 24,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/rados-pki.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 1.5
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph/manifests/mon.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/cluster-haproxy.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 4.5
+      }
+    },
+    {
+      "file": "deployment_scripts/hosts.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 24,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/hiera-override.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 119
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph_override/manifests/openstack_haproxy/ssl_keys_saving.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 24,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph/manifests/ssh.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph_override/manifests/ceph/mon.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph/manifests/osds/osd.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph_override/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph/manifests/nova_compute.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/radosgw.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 4,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 53.2
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph/manifests/conf.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/cluster.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 4.5
+      }
+    },
+    {
+      "file": "deployment_scripts/mon.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 36,
+        "avg_edit_time": 58
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph/manifests/radosgw.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph/manifests/init.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph_override/manifests/ceph/radosgw_keystone.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 2,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 43
+      }
+    },
+    {
+      "file": "deployment_scripts/ceph_client.pp",
+      "process_metrics": {
+        "commits": 4,
+        "developers": 2,
+        "fix_commits": 2,
+        "age": 36,
+        "avg_edit_time": 2.25
+      }
+    },
+    {
+      "file": "deployment_scripts/controller-firewall.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 27,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph/manifests/ephemeral.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/standalone-ceph/manifests/hosts.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 24,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/ceph-mon-hiera-override.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph_override/manifests/openstack_haproxy/openstack_haproxy_radosgw.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/radosgw_keystone.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 27,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph/manifests/pool.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph/examples/site.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph/manifests/params.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph/manifests/keystone.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/modules/ceph_override/manifests/conf.pp",
+      "process_metrics": {
+        "commits": 1,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 36,
+        "avg_edit_time": 0
+      }
+    }
+  ]
+}

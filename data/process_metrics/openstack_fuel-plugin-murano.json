@@ -1,0 +1,136 @@
+{
+  "proj_name": "openstack_fuel-plugin-murano",
+  "url": "https://github.com/openstack/fuel-plugin-murano",
+  "process_metrics": [
+    {
+      "file": "deployment_scripts/manifests/murano_haproxy.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 31,
+        "avg_edit_time": 29
+      }
+    },
+    {
+      "file": "deployment_scripts/manifests/murano_keystone.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 44
+      }
+    },
+    {
+      "file": "deployment_scripts/manifests/murano_dashboard.pp",
+      "process_metrics": {
+        "commits": 6,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 31,
+        "avg_edit_time": 35
+      }
+    },
+    {
+      "file": "deployment_scripts/manifests/murano_db.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 44
+      }
+    },
+    {
+      "file": "deployment_scripts/manifests/murano_logging.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 31,
+        "avg_edit_time": 43.5
+      }
+    },
+    {
+      "file": "deployment_scripts/manifests/pin_murano_plugin_repo.pp",
+      "process_metrics": {
+        "commits": 2,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 28,
+        "avg_edit_time": 0
+      }
+    },
+    {
+      "file": "deployment_scripts/manifests/murano_rabbitmq.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 1,
+        "fix_commits": 2,
+        "age": 31,
+        "avg_edit_time": 24.2
+      }
+    },
+    {
+      "file": "deployment_scripts/manifests/murano_cfapi.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 31,
+        "avg_edit_time": 29
+      }
+    },
+    {
+      "file": "deployment_scripts/manifests/update_openrc.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 1,
+        "fix_commits": 0,
+        "age": 31,
+        "avg_edit_time": 70.33333333333333
+      }
+    },
+    {
+      "file": "deployment_scripts/manifests/import_murano_package.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 28,
+        "avg_edit_time": 26.666666666666668
+      }
+    },
+    {
+      "file": "deployment_scripts/manifests/murano.pp",
+      "process_metrics": {
+        "commits": 9,
+        "developers": 3,
+        "fix_commits": 3,
+        "age": 31,
+        "avg_edit_time": 46.44444444444444
+      }
+    },
+    {
+      "file": "deployment_scripts/manifests/murano_disable_old.pp",
+      "process_metrics": {
+        "commits": 3,
+        "developers": 2,
+        "fix_commits": 1,
+        "age": 25,
+        "avg_edit_time": 19.333333333333332
+      }
+    },
+    {
+      "file": "deployment_scripts/manifests/murano_hiera_override.pp",
+      "process_metrics": {
+        "commits": 5,
+        "developers": 1,
+        "fix_commits": 1,
+        "age": 31,
+        "avg_edit_time": 25.4
+      }
+    }
+  ]
+}
