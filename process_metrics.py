@@ -12,6 +12,7 @@ from typing import Dict, List, Tuple
 REPO_URLS_LOC = "data/repo_commits"
 PROCESS_METRICS_LOC = "data/process_metrics"
 FILTERED_PROCESS_METRICS_LOC = "data/filtered_process_metrics"
+FILTERED_PROCESS_METRICS_CSV_LOC = "data/filtered_process_metrics_csv"
 
 class UtcTzinfo(datetime.tzinfo):
     """Helper class to compare dates in different timezones."""
@@ -107,7 +108,7 @@ def compute_process_metrics(json_entry: dict, script: str, defect_status: int):
 
 
 def compute_process_metrics_for_all_scripts():
-    json_entries = get_json_entries()
+    json_entries = get_json_entries(REPO_URLS_LOC)
 
     repo_pm_entries = []
     for json_entry in json_entries:
@@ -133,22 +134,59 @@ def compute_process_metrics_for_all_scripts():
             f.write(json.dumps(entry, indent=2))
 
 
+def convert_filtered_process_metric_data_to_csv():
+    csv_header = "org,file_,commits,developers,fix_commits,age,avg_edit_time,defect_status\n"
+    mir = csv_header
+    moz = csv_header
+    ost = csv_header
+    wik = csv_header
+    json_entries = get_json_entries(FILTERED_PROCESS_METRICS_LOC)
+    for entry in json_entries:
+        if entry["proj_name"].startswith("Mirantis_"):
+            for script in entry["process_metrics"]:
+                m = script["process_metrics"]
+                mir += f"""MIRANTIS,{script['file']},{m['commits']},{m['developers']},{m[
+                       'fix_commits']},{m['age']},{m['avg_edit_time']},{m['defect_status']}\n"""
+        elif entry["proj_name"].startswith("mozilla"):
+            for script in entry["process_metrics"]:
+                m = script["process_metrics"]
+                moz += f"""MOZILLA,{script['file']},{m['commits']},{m['developers']},{m[
+                       'fix_commits']},{m['age']},{m['avg_edit_time']},{m['defect_status']}\n"""
+        elif entry["proj_name"].startswith("openstack"):
+            for script in entry["process_metrics"]:
+                m = script["process_metrics"]
+                ost += f"""OPENSTACK,{script['file']},{m['commits']},{m['developers']},{m[
+                       'fix_commits']},{m['age']},{m['avg_edit_time']},{m['defect_status']}\n"""
+        elif entry["proj_name"].startswith("wikimedia"):
+            for script in entry["process_metrics"]:
+                m = script["process_metrics"]
+                wik += f"""WIKIMEDIA,{script['file']},{m['commits']},{m['developers']},{m[
+                       'fix_commits']},{m['age']},{m['avg_edit_time']},{m['defect_status']}\n"""
+
+    with open(os.path.join(FILTERED_PROCESS_METRICS_CSV_LOC, "PM_MIR.csv"), "w") as f:
+        f.write(mir)
+    with open(os.path.join(FILTERED_PROCESS_METRICS_CSV_LOC, "PM_MOZ.csv"), "w") as f:
+        f.write(moz)
+    with open(os.path.join(FILTERED_PROCESS_METRICS_CSV_LOC, "PM_OST.csv"), "w") as f:
+        f.write(ost)
+    with open(os.path.join(FILTERED_PROCESS_METRICS_CSV_LOC, "PM_WIK.csv"), "w") as f:
+        f.write(wik)
+
+
 def get_defect_status_if_known(proj_name: str, script: str) -> int:
     fn_ds = get_csv_filenames_and_defect_status_for_all_projects()[proj_name.split("_")[0]]
     if "/" in script:
         script = "/".join(script.split("/")[-2:])
     for n, d in fn_ds:
-        #print(script, n)
         if script in n:
             return d
 
 
-
-def get_json_entries():
+def get_json_entries(path):
     print("Loading repository info from disk. This may take a while...")
     json_entries = []
-    for json_file in os.listdir(REPO_URLS_LOC):
-        with open(os.path.join(REPO_URLS_LOC, json_file)) as f:
+    for json_file in os.listdir(path):
+        with open(os.path.join(path, json_file)) as f:
             try:
                 json_entries.append(json.load(f))
             except Exception as e:
@@ -189,7 +227,5 @@ def is_fix_related(commit_msg: str) -> bool:
 
 
 if __name__ == "__main__":
-    compute_process_metrics_for_all_scripts()
-    #print(
-    #get_csv_filenames_and_defect_status_for_all_projects()
-        #)
+    #compute_process_metrics_for_all_scripts()
+    convert_filtered_process_metric_data_to_csv()
