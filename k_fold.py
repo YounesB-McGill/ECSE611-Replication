@@ -169,7 +169,8 @@ def perform_cross_validation_split(data, num_splits, filename):
 		calculate_metrics(prediction, actual, "rf")
 	
 	print("\nCalculate mean metrics...")
-	filename = filename.split("IST_")[1].split(".csv")[0]
+	#filename = filename.split("IST_")[1].split(".csv")[0]
+	filename = filename.split("PM_")[1].split(".csv")[0]
 
 	precision, recall, f_score, auc = calculate_mean_metrics(precision_results_cart, recall_results_cart, f_score_results_cart, auc_results_cart)
 	save_results(precision, recall, f_score, auc, filename, "CART")
@@ -195,7 +196,9 @@ def intake_file(filename):
 	return df
 
 if __name__ == '__main__':
-	INPUT_FILES = ["data/IST_MIR.csv", "data/IST_MOZ.csv", "data/IST_OST.csv", "data/IST_WIK.csv"]
+	#INPUT_FILES = ["data/IST_MIR.csv", "data/IST_MOZ.csv", "data/IST_OST.csv", "data/IST_WIK.csv"]
+	INPUT_FILES = ["data/filtered_process_metrics_csv/PM_MIR.csv", "data/filtered_process_metrics_csv/PM_MOZ.csv",
+	               "data/filtered_process_metrics_csv/PM_OST.csv", "data/filtered_process_metrics_csv/PM_WIK.csv"]
 
 	for file in INPUT_FILES:
 		print("file: ", file)
